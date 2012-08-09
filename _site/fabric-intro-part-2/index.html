@@ -1,0 +1,199 @@
+<link rel="stylesheet" href="/article_assets/bootstrap.css">
+<style>h2 { margin-bottom: 15px } h3 { margin-bottom: 10px; } h4 { margin-bottom: 7px; } </style>
+
+<div class="container" style="margin:30px auto">
+  <h2 id="introduction_to_fabricjs">Introduction to Fabric.js. Part II.</h2>
+
+  <p>In the <a href="/fabric-intro-part-1">first part of this series</a>, we only started to get familiar with Fabric.js. We looked at the reasons to use Fabric, at its object model and object hierarchy, at different kind of entities available in Fabric &mdash; simple shapes, images, and complex paths. We also learned how to perform simple operations with Fabric objects on canvas.</p>
+
+  <p>Now that most of the basics are out of the way, let's get down to some fun stuff!</p>
+
+  <h3>Animation</h3>
+
+  <p>No respectable canvas library goes without animation facility. And Fabric is not an exception. Since there's such a powerful object model and graphical capabilities, it would be a shame not to have animation helpers built in.</p>
+
+  <p>Remember how easy it was to change property of any object? We just called <code>set</code> method, passing corresponding value(s):</p>
+
+<pre>
+rect.set('angle', 45);
+</pre>
+
+  <p>Well, animating an object is just as easy. Every Fabric object has <code>animate</code> method which... animates that object.</p>
+
+<pre>
+rect.animate('angle', 45, {
+  onChange: canvas.renderAll.bind(canvas)
+});
+</pre>
+
+<p>First argument is the property to animate. Second argument is the ending value of animation. If rectanlge has -15&deg; angle, and we pass 45, it will be animated from -15&deg; to 45&deg;. The third argument is an optional object specifying finer details of animation &mdash; duration, callbacks, easing, etc.</p>
+
+<p>One convenient feature of <code>animate</code> is that it also supports relative values. For example, if you wanted to animate object's left property by 100px, you could do it like this:</p>
+
+<pre>
+rect.animate('left', '+100', { onChange: canvas.renderAll.bind(canvas) });
+</pre>
+
+<p>Similarly, rotating object by 5 degrees counter-clockwise, can be accomplished like so:</p>
+
+<pre>
+rect.animate('angle', '-5', { onChange: canvas.renderAll.bind(canvas) });
+</pre>
+
+<p>You might be wondering why we always specify "onChange" callback there. Isn't third argument optional? It is, but calling <code>canvas.renderAll</code> on each animation frame is what allows us to see actual animation! You see, when we call <code>animate</code> method, it only animates property value over time, following specific algorithm (i.e. easing). So <code>rect.animate('angle', 45)</code> will change object's angle but won't re-render canvas screen after each change of the angle. And we obviously need this re-rendering in order to see the actual animation.</p>
+
+<p>Remember that there's entire object model underneath that canvas surface. Objects have their own properties and relations, and canvas is only responsible for projecting their existence to the outside world.</p>
+
+<p>The reason <code>animate</code> doesn't automatically re-render canvas after each change is due to performance. After all, we can have hundreds or thousands animating objects on canvas, and it wouldn't be good if every one of them tried to re-render screen. But most of the time, you'll probably need to explicitly specify <code>canvas.renderAll</code> as "onChange" callback.</p>
+
+<p>So which other options can we pass to animate?</p>
+
+<ul>
+  <li><b>from</b>: Allows to specify starting value of animatable property (if we don't want current value to be used).</li>
+  <li><b>duration</b>: Defaults to 500 (ms). Can be used to change duration of an animation.</li>
+  <li><b>onComplete</b>: Callback that's invoked at the end of the animation.</li>
+  <li><b>easing</b>: Easing function.</li>
+</ul>
+
+<p>All of these options should be self-explanatory, except perhaps easing one. Let's take a closer look.</p>
+
+<p>By default, <code>animate</code> uses linear function for animation. If that's not what you need, there's a whole slew of easing options available under <code>fabric.util.ease</code>. For example, if we wanted to move object to the right in a bouncy fashion:</p>
+
+<pre>
+rect.animate('left', 500, {
+  onChange: canvas.renderAll.bind(canvas),
+  duration: 1000,
+  easing: fabric.util.ease.easeOutBounce
+});
+</pre>
+
+<p>Notice <code>fabric.util.ease.easeOutBounce</code> as an easing option. Other notable ones include <code>easeInCubic</code>, <code>easeOutCubic</code>, <code>easeInElastic</code>, <code>easeOutElastic</code>, <code>easeInBounce</code>, and <code>easeOutExpo</code>.</p>
+
+<p>So this covers animation part of Fabric. Just to give you some ideas of what becomes possible &mdash; you can animate object's angle to make it rotate; animate left/top properties to make it move; animate width/height to make it shrink/grow; animate opacity to make it fade in/out; and so on.</p>
+
+<h3>Image filters</h3>
+
+<p>In the first part of this series, we learned how to work with images in Fabric. There's <code>fabric.Image</code> constructor, that accepts image element. There's also <code>fabric.Image.fromURL</code> method, which can create image instance ouf of a URL string. And any of these images can be thrown and rendered on canvas just like any other object.</p>
+
+<p>But as fun working with images as it is, it's even cooler to apply image filters to them!</p>
+
+<p>Fabric provides few filters by default, and makes it easy to define your own. Some of the built-in ones you might be very well familiar with &mdash; filter to remove white background, grayscale filter, invert or brightness ones. Others might be a little less popular &mdash; gradient transparency, sepia, or noise.</p>
+
+<p>So how do we apply filters to images in Fabric? Well, every instance of <code>fabric.Image</code> has "filters" property which is a simple array of filters. Each of the filters in that array is an instance of one of Fabric filters. Or an instance of your own custom filter.</p>
+
+<p>So let's create a grayscale image.</p>
+
+<pre>
+fabric.Image.fromURL('pug.jpg', function(img) {
+
+  // add filter
+  img.filters.push(new fabric.Image.filters.Grayscale());
+
+  // apply filters and re-render canvas when done
+  img.applyFilters(canvas.renderAll.bind(canvas));
+
+  // add image onto canvas
+  canvas.add(img);
+});
+</pre>
+
+<p><img src="/article_assets/2_1.png" style="border:1px solid #eee"></p>
+
+<p>How about a sepia version of an image?</p>
+
+<pre>
+fabric.Image.fromURL('pug.jpg', function(img) {
+  img.filters.push(new fabric.Image.filters.Sepia());
+  img.applyFilters(canvas.renderAll.bind(canvas));
+  canvas.add(img);
+});
+</pre>
+
+<p><img src="/article_assets/2_2.png" style="border:1px solid #eee"></p>
+
+<p>Since "filters" property is a simple array, we can perform any desired operations with it in a usual way &mdash; <b>remove</b> filter (via <code>pop</code>, <code>splice</code>, or <code>shift</code>), <b>add</b> filter (via <code>push</code>, <code>splice</code>, <code>unshift</code>), or even combine multiple filters. Any filters present in "filters" array will be applied one by one, when we call <code>applyFilters</code>. So let's try to create an image that's both sepia and bright.</p>
+
+<pre>
+fabric.Image.fromURL('pug.jpg', function(img) {
+  img.filters.push(
+    new fabric.Image.filters.Sepia(),
+    new fabric.Image.filters.Brightness({ brightness: 100 }));
+
+  img.applyFilters(canvas.renderAll.bind(canvas));
+  canvas.add(img);
+});
+</pre>
+
+<p><img src="/article_assets/2_3.png" style="border:1px solid #eee"></p>
+
+<p>Notice that we also passed <code>{ brightness: 100 }</code> object to Brightness filter. That's because some filters can be applied without any additional configuration (e.g. grayscale, invert, sepia) and others provide finer control for their behavior. For brightness filter, it's the actual brightness level (0-255). For noise filter, it's the noise value (0-1000). For "remove white" filter, it's the threshold and distance values. And so on.</p>
+
+<p>So now that you became familiar with Fabric filters, it's time to break out of the box and create your own filter!</p>
+
+<p>The template for creating a filter is pretty straightforward. We'll need to create a "class", then define <code>applyTo</code> method. Optionally, we might give filter <code>toJSON</code> method (support for JSON serialization), and/or <code>initialize</code> method (support for optional parameters).</p>
+
+<pre>
+fabric.Image.filters.Redify = fabric.util.createClass({
+
+  type: 'Redify',
+
+  applyTo: function(canvasEl) {
+    var context = canvasEl.getContext('2d'),
+        imageData = context.getImageData(0, 0, canvasEl.width, canvasEl.height),
+        data = imageData.data;
+
+    for (var i = 0, len = data.length; i < len; i += 4) {
+      data[i + 1] = 0;
+      data[i + 2] = 0;
+    }
+
+    context.putImageData(imageData, 0, 0);
+  }
+});
+
+fabric.Image.filters.Redify.fromObject = function(object) {
+  return new fabric.Image.filters.Redify(object);
+};
+</pre>
+
+<p><img src="/article_assets/2_4.png" style="border:1px solid #eee"></p>
+
+<p>Without delving too much into this code, the main action is hapenning in a loop, where we replace green (data[i+1]) and blue (data[i+2]) components of each pixel with 0, essentialy removing them. Red component of standard rgb triple stays untouched, essentially making entire image painted red. As you can see, <code>applyTo</code> method is being passed main canvas element representing entire image. From there, we can iterate over its pixels (<code>getImageData().data</code>) modifying them in any way we want.</p>
+
+<h3>Colors</h3>
+
+<p>Whether you're more comfortable working with hex, RGB, or RGBA colors, Fabric provides a solid color foundation to help you express yourself most naturally. Here are some of the ways in which you can define a color in Fabric:</p>
+
+<pre>
+new fabric.Color('#f55');
+new fabric.Color('#123123');
+new fabric.Color('356735');
+new fabric.Color('rgb(100,0,100)');
+new fabric.Color('rgba(10, 20, 30, 0.5)');
+</pre>
+
+<p>Conversion is straightforward as well. <code>toHex()</code> will convert color instance to hex representation. <code>toRgb()</code> &mdash; to RGB one, and <code>toRgba()</code> &mdash; to RGB with alpha channel.</p>
+
+<pre>
+new fabric.Color('#f55').toRgb(); // "rgb(255,85,85)"
+new fabric.Color('rgb(100,100,100)').toHex(); // "646464"
+new fabric.Color('fff').toHex(); // "FFFFFF"
+</pre>
+
+<p>Conversion is not the only thing you can do with colors. You can also overlay one color with another, or turn it to grayscale version.</p>
+
+<pre>
+var redish = new fabric.Color('#f55');
+var greenish = new fabric.Color('#5f5');
+
+redish.overlayWith(greenish).toHex(); // "AAAA55"
+redish.toGrayscale().toHex(); // "A1A1A1"
+</pre>
+
+<h3>Gradients</h3>
+
+<h3>Text</h3>
+
+<h3>Events</h3>
+
+</div>

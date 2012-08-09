@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Fabric.js Javascript Canvas Library</title>
+    <link rel="stylesheet" href="css/master.css">
+    <script src="js/master.js"></script>
+  </head>
+  <body>
+    <ul id="header">
+  <li><a href="http://fabricjs.com/">Features</a></li>
+  <li><a href="http://fabricjs.com/demos">Demos</a></li>
+  <li><a href="http://fabricjs.com/benchmarks">Benchmarks</a></li>
+  <li><a href="http://fabricjs.com/docs">Docs</a></li>
+  <li><a href="http://fabricjs.com/test">Tests</a></li>
+  <li><a href="http://travis-ci.org/#!/kangax/fabric.js" style="position:relative;top:3px"><img src="https://secure.travis-ci.org/kangax/fabric.js.png?branch=master"></a></li>
+  <li class="flattr secondary">
+    <a class="FlattrButton" style="display:none;" rev="flattr;button:compact;" href="http://kangax.github.com/fabric.js"></a>
+    <noscript><a href="http://flattr.com/thing/391332/Fabric-js" target="_blank">
+    <img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0" /></a></noscript>
+  </li>
+  <li class="twitter secondary"><a href="http://twitter.com/fabricjs"><span>Twitter</span></a></li>
+  <li class="github secondary"><a href="http://github.com/kangax/fabric.js"><span>Github</span></a></li>
+  <li class="secondary"><a href="http://stackoverflow.com/questions/tagged/fabricjs"><span>StackOverflow</span></a></li>
+  <li class="secondary"><a href="https://github.com/kangax/fabric.js/wiki"><span>Wiki</span></a></li>
+  <li class="secondary"><a href="http://groups.google.com/group/fabricjs"><span>Discussion</span></a></li>
+</ul>
+
+<script>
+(function() {
+  var s = document.createElement('script'), t = document.getElementsByTagName('script')[0];
+  s.async = true;
+  s.src = 'http://api.flattr.com/js/0.6/load.js?mode=auto';
+  t.parentNode.insertBefore(s, t);
+
+  if (document.location.hostname === 'localhost') {
+    var links = document.getElementById('header').getElementsByTagName('a');
+    for (var i = 0, len = links.length; i < len; i++) {
+      // very retarted fix but fuck it
+      links[i].href = links[i].href.replace('fabricjs.com', 'localhost:4000');
+    }
+  }
+})();
+</script>
+    <div id="bd-wrapper">
+      <div id="features">
+
+  <p class="primary"><strong>Fabric.js</strong> is a framework that makes it easy to work with HTML5 canvas element.</p>
+  <p class="primary">It is an <strong>interactive object model</strong> on top of canvas element.</p>
+  <p class="primary">It is also an <strong>SVG-to-canvas</strong> (and <strong>canvas-to-SVG</strong>) parser.</p>
+
+  <a href="kitchensink">
+    <img src="https://github.com/kangax/fabric.js/raw/master/lib/screenshot.png">
+  </a>
+
+  <p>Using Fabric.js, you can create and populate objects on canvas; objects like simple geometrical shapes — <strong>rectangles, circles, ellipses, polygons</strong>, or more complex shapes consisting of hundreds or thousands of simple paths.</p>
+
+  <p>You can then <strong>scale, move, and rotate</strong> these objects with the mouse; modify their properties — color, transparency, z-index, etc. You can also manipulate these objects altogether — grouping them with a simple mouse selection.</p>
+
+  <p>You can add <strong>text on canvas</strong> and dynamically manipulate its size, alignment, fontfamily and other properties. You can apply <strong>filters to images</strong>, making them grayscale or removing background. You can <strong>serialize the entire canvas</strong> into a JSON string — saving it locally or on a server — then completely restore it at any time. You can also export canvas data <strong>back into SVG</strong> at any time.</p>
+
+  <p class="download"><a href="https://github.com/kangax/fabric.js/downloads">Download latest version</a></p>
+</div>
+    </div>
+  </body>
+</html>

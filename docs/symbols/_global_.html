@@ -1,0 +1,1134 @@
+---
+layout: doc
+title: Fabric.js API Reference - _global_
+---
+
+<style>
+	/* default.css */
+#bd-wrapper
+{
+	font: 12px "Lucida Grande", Tahoma, Arial, Helvetica, sans-serif;
+}
+
+.header
+{
+	clear: both;
+	background-color: #ccc;
+	padding: 8px;
+}
+
+h1
+{
+	font-size: 150%;
+	font-weight: bold;
+	padding: 0;
+	margin: 1em 0 0 .3em;
+}
+
+hr
+{
+	border: none 0;
+	border-top: 1px solid #7F8FB1;
+	height: 1px;
+}
+
+pre.code
+{
+	display: block;
+	padding: 8px;
+	border: 1px dashed #ccc;
+}
+
+#index {
+	margin-top: 24px;
+	float: left;
+	width: 190px;
+	position: absolute;
+	left: 8px;
+	background-color: #F3F3F3;
+	padding: 8px;
+}
+
+#content {
+	margin-left: 220px;
+	width: 770px;
+}
+
+.classList {
+	list-style-type: none;
+	padding: 0;
+	margin: 0 0 0 8px;
+	font-family: arial, sans-serif;
+	font-size: 1em;
+	overflow: auto;
+}
+
+.classList li {
+	paddinging: 0;
+	margin: 0 0 8px 0;
+}
+
+.summaryTable { width: 100%; }
+
+h1.classTitle {
+	font-size:170%;
+	line-height:130%;
+}
+
+h2 { font-size: 110%; }
+caption, div.sectionTitle {
+	background-color: #7F8FB1;
+	color: #fff;
+	font-size:130%;
+	text-align: left;
+	padding: 2px 6px 2px 6px;
+	border: 1px #7F8FB1 solid;
+}
+
+div.sectionTitle { margin-bottom: 8px; }
+.summaryTable thead { display: none; }
+
+.summaryTable td {
+	vertical-align: top;
+	padding: 4px;
+	border-bottom: 1px #C0C8D8 solid;
+	border-right: 1px #C0C8D8 solid;
+}
+
+/*col#summaryAttributes {}*/
+.summaryTable td.attributes {
+	border-left: 1px #C0C8D8 solid;
+	width: 140px;
+	text-align: right;
+}
+
+td.attributes, .fixedFont {
+	line-height: 15px;
+	color: #002EBE;
+	font-family: "Courier New",Courier,monospace;
+	font-size: 13px;
+}
+
+.summaryTable td.nameDescription {
+	text-align: left;
+	font-size: 13px;
+	line-height: 15px;
+}
+
+.summaryTable td.nameDescription, .description {
+	line-height: 15px;
+	padding: 4px;
+	padding-left: 4px;
+}
+
+.summaryTable { margin-bottom: 8px; }
+
+ul.inheritsList {
+	list-style: square;
+	margin-left: 20px;
+	padding-left: 0;
+}
+
+.detailList {
+	margin-left: 20px; 
+	line-height: 15px;
+}
+.detailList dt { margin-left: 20px; }
+
+.detailList .heading {
+	font-weight: bold;
+	padding-bottom: 6px;
+	margin-left: 0;
+}
+
+.light, td.attributes, .light a:link, .light a:visited {
+	color: #777;
+	font-style: italic;
+}
+
+.fineprint {
+	text-align: right;
+	font-size: 10px;
+}
+
+.inheritsList dd {
+  margin-left: 0;
+  margin-top: 3px;
+  margin-bottom: 8px;
+}
+</style>
+
+<!-- ============================== header ================================= -->	
+<!-- begin static/header.html -->
+<div id="header">
+</div>
+<!-- end static/header.html -->
+
+<!-- ============================== classes index ============================ -->
+<div id="index">
+	<!-- begin publish.classesIndex -->
+	<div align="center"><a href="../index.html">Class Index</a>
+| <a href="../files.html">File Index</a></div>
+<hr>
+<h2>Classes</h2>
+<ul class="classList">
+	
+	<li><i><a href="../symbols/_global_.html">_global_</a></i></li>
+	
+	<li><a href="../symbols/Array.html">Array</a></li>
+	
+	<li><a href="../symbols/fabric.html">fabric</a></li>
+	
+	<li><a href="../symbols/fabric.Canvas.html">fabric.Canvas</a></li>
+	
+	<li><a href="../symbols/fabric.Circle.html">fabric.Circle</a></li>
+	
+	<li><a href="../symbols/fabric.Color.html">fabric.Color</a></li>
+	
+	<li><a href="../symbols/fabric.Element.html">fabric.Element</a></li>
+	
+	<li><a href="../symbols/fabric.Ellipse.html">fabric.Ellipse</a></li>
+	
+	<li><a href="../symbols/fabric.Gradient.html">fabric.Gradient</a></li>
+	
+	<li><a href="../symbols/fabric.Group.html">fabric.Group</a></li>
+	
+	<li><a href="../symbols/fabric.Image.html">fabric.Image</a></li>
+	
+	<li><a href="../symbols/fabric.Image.filters.html">fabric.Image.filters</a></li>
+	
+	<li><a href="../symbols/fabric.Image.filters.Brightness.html">fabric.Image.filters.Brightness</a></li>
+	
+	<li><a href="../symbols/fabric.Image.filters.GradientTransparency.html">fabric.Image.filters.GradientTransparency</a></li>
+	
+	<li><a href="../symbols/fabric.Image.filters.Grayscale.html">fabric.Image.filters.Grayscale</a></li>
+	
+	<li><a href="../symbols/fabric.Image.filters.Invert.html">fabric.Image.filters.Invert</a></li>
+	
+	<li><a href="../symbols/fabric.Image.filters.Noise.html">fabric.Image.filters.Noise</a></li>
+	
+	<li><a href="../symbols/fabric.Image.filters.RemoveWhite.html">fabric.Image.filters.RemoveWhite</a></li>
+	
+	<li><a href="../symbols/fabric.Image.filters.Sepia.html">fabric.Image.filters.Sepia</a></li>
+	
+	<li><a href="../symbols/fabric.Image.filters.Sepia2.html">fabric.Image.filters.Sepia2</a></li>
+	
+	<li><a href="../symbols/fabric.Image.filters.Tint.html">fabric.Image.filters.Tint</a></li>
+	
+	<li><a href="../symbols/fabric.Intersection.html">fabric.Intersection</a></li>
+	
+	<li><a href="../symbols/fabric.Line.html">fabric.Line</a></li>
+	
+	<li><a href="../symbols/fabric.Object.html">fabric.Object</a></li>
+	
+	<li><a href="../symbols/fabric.Observable.html">fabric.Observable</a></li>
+	
+	<li><a href="../symbols/fabric.Path.html">fabric.Path</a></li>
+	
+	<li><a href="../symbols/fabric.PathGroup.html">fabric.PathGroup</a></li>
+	
+	<li><a href="../symbols/fabric.Point.html">fabric.Point</a></li>
+	
+	<li><a href="../symbols/fabric.Polygon.html">fabric.Polygon</a></li>
+	
+	<li><a href="../symbols/fabric.Polyline.html">fabric.Polyline</a></li>
+	
+	<li><a href="../symbols/fabric.Rect.html">fabric.Rect</a></li>
+	
+	<li><a href="../symbols/fabric.StaticCanvas.html">fabric.StaticCanvas</a></li>
+	
+	<li><a href="../symbols/fabric.Text.html">fabric.Text</a></li>
+	
+	<li><a href="../symbols/fabric.Triangle.html">fabric.Triangle</a></li>
+	
+	<li><a href="../symbols/fabric.util.html">fabric.util</a></li>
+	
+	<li><a href="../symbols/fabric.util.array.html">fabric.util.array</a></li>
+	
+	<li><a href="../symbols/fabric.util.ease.html">fabric.util.ease</a></li>
+	
+	<li><a href="../symbols/fabric.util.object.html">fabric.util.object</a></li>
+	
+	<li><a href="../symbols/fabric.util.string.html">fabric.util.string</a></li>
+	
+	<li><a href="../symbols/Function.html">Function</a></li>
+	
+	<li><a href="../symbols/String.html">String</a></li>
+	
+</ul>
+	<!-- end publish.classesIndex -->
+</div>
+
+<div id="content">
+<!-- ============================== class title ============================ -->
+	<h1 class="classTitle">
+		
+		Built-In Namespace _global_
+	</h1>
+
+<!-- ============================== class summary ========================== -->			
+	<p class="description">
+		
+		
+	
+		
+		
+		
+	</p>
+
+<!-- ============================== constructor summary ==================== -->			
+	
+
+<!-- ============================== properties summary ===================== -->
+	
+
+<!-- ============================== methods summary ======================== -->
+	
+		
+		
+		<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class _global_.">
+			<caption>Method Summary</caption>
+			<thead>
+				<tr>
+					<th scope="col">Method Attributes</th>
+					<th scope="col">Method Name and Description</th>
+				</tr>
+			</thead>
+			<tbody>
+			
+				<tr>
+					<td class="attributes">&nbsp;</td>
+					<td class="nameDescription">
+						<div class="fixedFont"><b><a href="../symbols/_global_.html#_enlivenDatalessObjects">_enlivenDatalessObjects</a></b>(objects, callback)
+						</div>
+						<div class="description"></div>
+					</td>
+				</tr>
+			
+				<tr>
+					<td class="attributes">&nbsp;</td>
+					<td class="nameDescription">
+						<div class="fixedFont"><b><a href="../symbols/_global_.html#_enlivenObjects">_enlivenObjects</a></b>(objects, callback)
+						</div>
+						<div class="description"></div>
+					</td>
+				</tr>
+			
+				<tr>
+					<td class="attributes">&nbsp;</td>
+					<td class="nameDescription">
+						<div class="fixedFont"><b><a href="../symbols/_global_.html#bound">bound</a></b>()
+						</div>
+						<div class="description"></div>
+					</td>
+				</tr>
+			
+				<tr>
+					<td class="attributes">&nbsp;</td>
+					<td class="nameDescription">
+						<div class="fixedFont"><b><a href="../symbols/_global_.html#clone">clone</a></b>(callback)
+						</div>
+						<div class="description">Clones canvas instance</div>
+					</td>
+				</tr>
+			
+				<tr>
+					<td class="attributes">&nbsp;</td>
+					<td class="nameDescription">
+						<div class="fixedFont"><b><a href="../symbols/_global_.html#cloneWithoutData">cloneWithoutData</a></b>(callback)
+						</div>
+						<div class="description">Clones canvas instance without cloning existing data.</div>
+					</td>
+				</tr>
+			
+				<tr>
+					<td class="attributes">&nbsp;</td>
+					<td class="nameDescription">
+						<div class="fixedFont"><b><a href="../symbols/_global_.html#dummy">dummy</a></b>()
+						</div>
+						<div class="description"></div>
+					</td>
+				</tr>
+			
+				<tr>
+					<td class="attributes">&nbsp;</td>
+					<td class="nameDescription">
+						<div class="fixedFont"><b><a href="../symbols/_global_.html#emptyFunction">emptyFunction</a></b>()
+						</div>
+						<div class="description"></div>
+					</td>
+				</tr>
+			
+				<tr>
+					<td class="attributes">&nbsp;</td>
+					<td class="nameDescription">
+						<div class="fixedFont"><b><a href="../symbols/_global_.html#fxStraighten">fxStraighten</a></b>(callbacks)
+						</div>
+						<div class="description"></div>
+					</td>
+				</tr>
+			
+				<tr>
+					<td class="attributes">&nbsp;</td>
+					<td class="nameDescription">
+						<div class="fixedFont"><b><a href="../symbols/_global_.html#fxStraightenObject">fxStraightenObject</a></b>(object)
+						</div>
+						<div class="description">Same as `fabric.Canvas#straightenObject`, but animated</div>
+					</td>
+				</tr>
+			
+				<tr>
+					<td class="attributes">&nbsp;</td>
+					<td class="nameDescription">
+						<div class="fixedFont"><b><a href="../symbols/_global_.html#loadFromDatalessJSON">loadFromDatalessJSON</a></b>(json, callback)
+						</div>
+						<div class="description">Populates canvas with data from the specified dataless JSON
+JSON format must conform to the one of `fabric.Canvas#toDatalessJSON`</div>
+					</td>
+				</tr>
+			
+				<tr>
+					<td class="attributes">&nbsp;</td>
+					<td class="nameDescription">
+						<div class="fixedFont"><b><a href="../symbols/_global_.html#loadFromJSON">loadFromJSON</a></b>(json, callback)
+						</div>
+						<div class="description">Populates canvas with data from the specified JSON
+JSON format must conform to the one of `fabric.Canvas#toJSON`</div>
+					</td>
+				</tr>
+			
+				<tr>
+					<td class="attributes">&nbsp;</td>
+					<td class="nameDescription">
+						<div class="fixedFont"><b><a href="../symbols/_global_.html#pointerX">pointerX</a></b>(event)
+						</div>
+						<div class="description"></div>
+					</td>
+				</tr>
+			
+				<tr>
+					<td class="attributes">&nbsp;</td>
+					<td class="nameDescription">
+						<div class="fixedFont"><b><a href="../symbols/_global_.html#pointerY">pointerY</a></b>(event)
+						</div>
+						<div class="description"></div>
+					</td>
+				</tr>
+			
+				<tr>
+					<td class="attributes">&nbsp;</td>
+					<td class="nameDescription">
+						<div class="fixedFont"><b><a href="../symbols/_global_.html#straighten">straighten</a></b>()
+						</div>
+						<div class="description"></div>
+					</td>
+				</tr>
+			
+				<tr>
+					<td class="attributes">&nbsp;</td>
+					<td class="nameDescription">
+						<div class="fixedFont"><b><a href="../symbols/_global_.html#straightenObject">straightenObject</a></b>(object)
+						</div>
+						<div class="description">Straightens object, then rerenders canvas</div>
+					</td>
+				</tr>
+			
+				<tr>
+					<td class="attributes">&nbsp;</td>
+					<td class="nameDescription">
+						<div class="fixedFont"><b><a href="../symbols/_global_.html#toArray">toArray</a></b>(arrayLike)
+						</div>
+						<div class="description"></div>
+					</td>
+				</tr>
+			
+			</tbody>
+		</table>
+		
+		
+		
+	
+<!-- ============================== events summary ======================== -->
+	
+
+<!-- ============================== constructor details ==================== -->		
+	
+
+<!-- ============================== field details ========================== -->		
+	
+
+<!-- ============================== method details ========================= -->		
+	
+		<div class="sectionTitle">
+			Method Detail
+		</div>
+		
+			<a name="_enlivenDatalessObjects"> </a>
+			<div class="fixedFont">
+			
+			
+			<b>_enlivenDatalessObjects</b>(objects, callback)
+			
+			</div>
+			<div class="description">
+				
+				
+					<br />
+					<i>Defined in: </i> <a href="../symbols/src/src_canvas.serialization.js.html">canvas.serialization.js</a>.
+				
+				
+			</div>
+			
+			
+			
+				
+					<dl class="detailList">
+					<dt class="heading">Parameters:</dt>
+					
+						<dt>
+							<span class="light fixedFont">{<a href="../symbols/Array.html">Array</a>}</span> <b>objects</b>
+							
+						</dt>
+						<dd></dd>
+					
+						<dt>
+							<span class="light fixedFont">{<a href="../symbols/Function.html">Function</a>}</span> <b>callback</b>
+							
+						</dt>
+						<dd></dd>
+					
+					</dl>
+				
+				
+				
+				
+				
+				
+				
+
+			<hr />
+		
+			<a name="_enlivenObjects"> </a>
+			<div class="fixedFont">
+			
+			
+			<b>_enlivenObjects</b>(objects, callback)
+			
+			</div>
+			<div class="description">
+				
+				
+					<br />
+					<i>Defined in: </i> <a href="../symbols/src/src_canvas.serialization.js.html">canvas.serialization.js</a>.
+				
+				
+			</div>
+			
+			
+			
+				
+					<dl class="detailList">
+					<dt class="heading">Parameters:</dt>
+					
+						<dt>
+							<span class="light fixedFont">{<a href="../symbols/Array.html">Array</a>}</span> <b>objects</b>
+							
+						</dt>
+						<dd></dd>
+					
+						<dt>
+							<span class="light fixedFont">{<a href="../symbols/Function.html">Function</a>}</span> <b>callback</b>
+							
+						</dt>
+						<dd></dd>
+					
+					</dl>
+				
+				
+				
+				
+				
+				
+				
+
+			<hr />
+		
+			<a name="bound"> </a>
+			<div class="fixedFont">
+			
+			
+			<b>bound</b>()
+			
+			</div>
+			<div class="description">
+				
+				
+					<br />
+					<i>Defined in: </i> <a href="../symbols/src/src_util_lang_function.js.html">lang_function.js</a>.
+				
+				
+			</div>
+			
+			
+			
+				
+				
+				
+				
+				
+				
+				
+
+			<hr />
+		
+			<a name="clone"> </a>
+			<div class="fixedFont">
+			
+			
+			<b>clone</b>(callback)
+			
+			</div>
+			<div class="description">
+				Clones canvas instance
+				
+					<br />
+					<i>Defined in: </i> <a href="../symbols/src/src_canvas.serialization.js.html">canvas.serialization.js</a>.
+				
+				
+			</div>
+			
+			
+			
+				
+					<dl class="detailList">
+					<dt class="heading">Parameters:</dt>
+					
+						<dt>
+							<span class="light fixedFont">{Object}</span> <b>callback</b>
+							<i>Optional</i>
+						</dt>
+						<dd>Receives cloned instance as a first argument</dd>
+					
+					</dl>
+				
+				
+				
+				
+				
+				
+				
+
+			<hr />
+		
+			<a name="cloneWithoutData"> </a>
+			<div class="fixedFont">
+			
+			
+			<b>cloneWithoutData</b>(callback)
+			
+			</div>
+			<div class="description">
+				Clones canvas instance without cloning existing data.
+This essentially copies canvas dimensions, clipping properties, etc.
+but leaves data empty (so that you can populate it with your own)
+				
+					<br />
+					<i>Defined in: </i> <a href="../symbols/src/src_canvas.serialization.js.html">canvas.serialization.js</a>.
+				
+				
+			</div>
+			
+			
+			
+				
+					<dl class="detailList">
+					<dt class="heading">Parameters:</dt>
+					
+						<dt>
+							<span class="light fixedFont">{Object}</span> <b>callback</b>
+							<i>Optional</i>
+						</dt>
+						<dd>Receives cloned instance as a first argument</dd>
+					
+					</dl>
+				
+				
+				
+				
+				
+				
+				
+
+			<hr />
+		
+			<a name="dummy"> </a>
+			<div class="fixedFont">
+			
+			
+			<b>dummy</b>()
+			
+			</div>
+			<div class="description">
+				
+				
+					<br />
+					<i>Defined in: </i> <a href="../symbols/src/src_util_lang_function.js.html">lang_function.js</a>.
+				
+				
+			</div>
+			
+			
+			
+				
+				
+				
+				
+				
+				
+				
+
+			<hr />
+		
+			<a name="emptyFunction"> </a>
+			<div class="fixedFont">
+			
+			
+			<b>emptyFunction</b>()
+			
+			</div>
+			<div class="description">
+				
+				
+					<br />
+					<i>Defined in: </i> <a href="../symbols/src/src_util_lang_class.js.html">lang_class.js</a>.
+				
+				
+			</div>
+			
+			
+			
+				
+				
+				
+				
+				
+				
+				
+
+			<hr />
+		
+			<a name="fxStraighten"> </a>
+			<div class="fixedFont">
+			
+			<span class="light">{<a href="../symbols/fabric.Object.html">fabric.Object</a>}</span>
+			<b>fxStraighten</b>(callbacks)
+			
+			</div>
+			<div class="description">
+				
+				
+					<br />
+					<i>Defined in: </i> <a href="../symbols/src/src_object_straightening.js.html">object_straightening.js</a>.
+				
+				
+			</div>
+			
+			
+			
+				
+					<dl class="detailList">
+					<dt class="heading">Parameters:</dt>
+					
+						<dt>
+							<span class="light fixedFont">{Object}</span> <b>callbacks</b>
+							
+						</dt>
+						<dd>- onComplete: invoked on completion
+                 - onChange: invoked on every step of animation</dd>
+					
+					</dl>
+				
+				
+				
+				
+				
+					<dl class="detailList">
+					<dt class="heading">Returns:</dt>
+					
+						<dd><span class="light fixedFont">{<a href="../symbols/fabric.Object.html">fabric.Object</a>}</span> thisArg</dd>
+					
+					</dl>
+				
+				
+				
+
+			<hr />
+		
+			<a name="fxStraightenObject"> </a>
+			<div class="fixedFont">
+			
+			<span class="light">{<a href="../symbols/fabric.Canvas.html">fabric.Canvas</a>}</span>
+			<b>fxStraightenObject</b>(object)
+			
+			</div>
+			<div class="description">
+				Same as `fabric.Canvas#straightenObject`, but animated
+				
+					<br />
+					<i>Defined in: </i> <a href="../symbols/src/src_object_straightening.js.html">object_straightening.js</a>.
+				
+				
+			</div>
+			
+			
+			
+				
+					<dl class="detailList">
+					<dt class="heading">Parameters:</dt>
+					
+						<dt>
+							<span class="light fixedFont">{<a href="../symbols/fabric.Object.html">fabric.Object</a>}</span> <b>object</b>
+							
+						</dt>
+						<dd>Object to straighten</dd>
+					
+					</dl>
+				
+				
+				
+				
+				
+					<dl class="detailList">
+					<dt class="heading">Returns:</dt>
+					
+						<dd><span class="light fixedFont">{<a href="../symbols/fabric.Canvas.html">fabric.Canvas</a>}</span> thisArg</dd>
+					
+					</dl>
+				
+				
+				
+
+			<hr />
+		
+			<a name="loadFromDatalessJSON"> </a>
+			<div class="fixedFont">
+			
+			<span class="light">{<a href="../symbols/fabric.Canvas.html">fabric.Canvas</a>}</span>
+			<b>loadFromDatalessJSON</b>(json, callback)
+			
+			</div>
+			<div class="description">
+				Populates canvas with data from the specified dataless JSON
+JSON format must conform to the one of `fabric.Canvas#toDatalessJSON`
+				
+					<br />
+					<i>Defined in: </i> <a href="../symbols/src/src_canvas.serialization.js.html">canvas.serialization.js</a>.
+				
+				
+			</div>
+			
+			
+			
+				
+					<dl class="detailList">
+					<dt class="heading">Parameters:</dt>
+					
+						<dt>
+							<span class="light fixedFont">{<a href="../symbols/String.html">String</a>}</span> <b>json</b>
+							
+						</dt>
+						<dd>JSON string</dd>
+					
+						<dt>
+							<span class="light fixedFont">{<a href="../symbols/Function.html">Function</a>}</span> <b>callback</b>
+							
+						</dt>
+						<dd>Callback, invoked when json is parsed
+                           and corresponding objects (e.g: fabric.Image)
+                           are initialized</dd>
+					
+					</dl>
+				
+				
+				
+				
+				
+					<dl class="detailList">
+					<dt class="heading">Returns:</dt>
+					
+						<dd><span class="light fixedFont">{<a href="../symbols/fabric.Canvas.html">fabric.Canvas</a>}</span> instance</dd>
+					
+					</dl>
+				
+				
+				
+
+			<hr />
+		
+			<a name="loadFromJSON"> </a>
+			<div class="fixedFont">
+			
+			<span class="light">{<a href="../symbols/fabric.Canvas.html">fabric.Canvas</a>}</span>
+			<b>loadFromJSON</b>(json, callback)
+			
+			</div>
+			<div class="description">
+				Populates canvas with data from the specified JSON
+JSON format must conform to the one of `fabric.Canvas#toJSON`
+				
+					<br />
+					<i>Defined in: </i> <a href="../symbols/src/src_canvas.serialization.js.html">canvas.serialization.js</a>.
+				
+				
+			</div>
+			
+			
+			
+				
+					<dl class="detailList">
+					<dt class="heading">Parameters:</dt>
+					
+						<dt>
+							<span class="light fixedFont">{<a href="../symbols/String.html">String</a>}</span> <b>json</b>
+							
+						</dt>
+						<dd>JSON string</dd>
+					
+						<dt>
+							<span class="light fixedFont">{<a href="../symbols/Function.html">Function</a>}</span> <b>callback</b>
+							
+						</dt>
+						<dd>Callback, invoked when json is parsed
+                           and corresponding objects (e.g: fabric.Image)
+                           are initialized</dd>
+					
+					</dl>
+				
+				
+				
+				
+				
+					<dl class="detailList">
+					<dt class="heading">Returns:</dt>
+					
+						<dd><span class="light fixedFont">{<a href="../symbols/fabric.Canvas.html">fabric.Canvas</a>}</span> instance</dd>
+					
+					</dl>
+				
+				
+				
+
+			<hr />
+		
+			<a name="pointerX"> </a>
+			<div class="fixedFont">
+			
+			
+			<b>pointerX</b>(event)
+			
+			</div>
+			<div class="description">
+				
+				
+					<br />
+					<i>Defined in: </i> <a href="../symbols/src/src_util_dom_event.js.html">dom_event.js</a>.
+				
+				
+			</div>
+			
+			
+			
+				
+					<dl class="detailList">
+					<dt class="heading">Parameters:</dt>
+					
+						<dt>
+							<b>event</b>
+							
+						</dt>
+						<dd></dd>
+					
+					</dl>
+				
+				
+				
+				
+				
+				
+				
+
+			<hr />
+		
+			<a name="pointerY"> </a>
+			<div class="fixedFont">
+			
+			
+			<b>pointerY</b>(event)
+			
+			</div>
+			<div class="description">
+				
+				
+					<br />
+					<i>Defined in: </i> <a href="../symbols/src/src_util_dom_event.js.html">dom_event.js</a>.
+				
+				
+			</div>
+			
+			
+			
+				
+					<dl class="detailList">
+					<dt class="heading">Parameters:</dt>
+					
+						<dt>
+							<b>event</b>
+							
+						</dt>
+						<dd></dd>
+					
+					</dl>
+				
+				
+				
+				
+				
+				
+				
+
+			<hr />
+		
+			<a name="straighten"> </a>
+			<div class="fixedFont">
+			
+			<span class="light">{<a href="../symbols/fabric.Object.html">fabric.Object</a>}</span>
+			<b>straighten</b>()
+			
+			</div>
+			<div class="description">
+				
+				
+					<br />
+					<i>Defined in: </i> <a href="../symbols/src/src_object_straightening.js.html">object_straightening.js</a>.
+				
+				
+			</div>
+			
+			
+			
+				
+				
+				
+				
+				
+					<dl class="detailList">
+					<dt class="heading">Returns:</dt>
+					
+						<dd><span class="light fixedFont">{<a href="../symbols/fabric.Object.html">fabric.Object</a>}</span> thisArg</dd>
+					
+					</dl>
+				
+				
+				
+
+			<hr />
+		
+			<a name="straightenObject"> </a>
+			<div class="fixedFont">
+			
+			<span class="light">{<a href="../symbols/fabric.Canvas.html">fabric.Canvas</a>}</span>
+			<b>straightenObject</b>(object)
+			
+			</div>
+			<div class="description">
+				Straightens object, then rerenders canvas
+				
+					<br />
+					<i>Defined in: </i> <a href="../symbols/src/src_object_straightening.js.html">object_straightening.js</a>.
+				
+				
+			</div>
+			
+			
+			
+				
+					<dl class="detailList">
+					<dt class="heading">Parameters:</dt>
+					
+						<dt>
+							<span class="light fixedFont">{<a href="../symbols/fabric.Object.html">fabric.Object</a>}</span> <b>object</b>
+							
+						</dt>
+						<dd>Object to straighten</dd>
+					
+					</dl>
+				
+				
+				
+				
+				
+					<dl class="detailList">
+					<dt class="heading">Returns:</dt>
+					
+						<dd><span class="light fixedFont">{<a href="../symbols/fabric.Canvas.html">fabric.Canvas</a>}</span> thisArg</dd>
+					
+					</dl>
+				
+				
+				
+
+			<hr />
+		
+			<a name="toArray"> </a>
+			<div class="fixedFont">
+			
+			
+			<b>toArray</b>(arrayLike)
+			
+			</div>
+			<div class="description">
+				
+				
+					<br />
+					<i>Defined in: </i> <a href="../symbols/src/src_util_dom_misc.js.html">dom_misc.js</a>.
+				
+				
+			</div>
+			
+			
+			
+				
+					<dl class="detailList">
+					<dt class="heading">Parameters:</dt>
+					
+						<dt>
+							<b>arrayLike</b>
+							
+						</dt>
+						<dd></dd>
+					
+					</dl>
+				
+				
+				
+				
+				
+				
+				
+
+			
+		
+	
+	
+<!-- ============================== event details ========================= -->		
+	
+	
+	<hr>
+</div>
+
+		
+<!-- ============================== footer ================================= -->
+<div class="fineprint" style="clear:both">
+	
+	Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Fri Aug 03 2012 02:14:25 GMT+0200 (CEST)
+</div>

@@ -194,6 +194,65 @@ redish.toGrayscale().toHex(); // "A1A1A1"
 
 <h3>Text</h3>
 
+<p>What if you wanted to display not only images and vector shapes on canvas, but also text? Fabric has you covered! Meet <code>fabric.Text</code> objects.</p>
+
+<p>There are 2 reasons we're providing text absraction in Fabric. First, is to allow working with text in an object oriented fashion. Native canvas methods &mdash; as usual &mdash; only allow to fill or stroke text on a very low-level. By instantiating <code>fabric.Text</code> instances, we can work with text just like we would work with any other Fabric object &mdash; move it, scale it, change its properties, and so on.</p>
+
+<p>Second reason is to provide a much richer functionality than what canvas gives us. Some of the Fabric additions include:</p>
+
+<ul>
+  <li><b>Multiline support</b>. Native text methods unfortunately simply ignore new lines.</li>
+  <li><b>Text alignment</b>. Left, center, right. Useful when working with multiline text.</li>
+  <li><b>Text background</b>. Background also respects text alignment.</li>
+  <li><b>Text decoration</b>. Underline, overline, strike-through.</li>
+  <li><b>Line height</b>. Useful when working with multiline text.</li>
+</ul>
+
+<p>How about hello world example?</p>
+
+<pre>
+var text = new fabric.Text('hello world', { left: 100, top: 100 });
+canvas.add(text);
+</pre>
+
+<p>That's right! Displaying text on canvas is as simple as adding <code>fabric.Text</code> instance at a desired location. As you can see, the only required first parameter is actual text string. Second argument is the usual options object, which can have any of the usual left, top, fill, opacity, etc. properties.</p>
+
+<p>But of course text objects also have their own, unique, text-related properties. Let's look at some of them:</p>
+
+<h4>fontFamily</h4>
+<p>Set as "Times New Roman" by default, this property allow us to change font family used to render a text object. Changing it will immediately make text rendered in a new font.</p>
+
+<pre>
+var comicSansText = new fabric.Text("I'm in Comic Sans", {
+  fontFamily: 'Comic Sans'
+});
+</pre>
+
+<p><img src="/article_assets/2_5.png" style="border:1px solid #eee"></p>
+
+<h4>fontSize</h4>
+
+<pre>
+var text40 = new fabric.Text("I'm at fontSize 40", {
+  fontSize: 40
+});
+var text20 = new fabric.Text("I'm at fontSize 20", {
+  fontSize: 20
+});
+</pre>
+
+<p><img src="/article_assets/2_6.png" style="border:1px solid #eee"></p>
+
+<h4>fontWeight</h4>
+<h4>textDecoration</h4>
+<h4>textShadow</h4>
+<h4>textAlign</h4>
+<h4>fontStyle</h4>
+<h4>lineHeight</h4>
+<h4>strokeStyle</h4>
+<h4>strokeWidth</h4>
+<h4>backgroundColor</h4>
+
 <h3>Events</h3>
 
 </div>

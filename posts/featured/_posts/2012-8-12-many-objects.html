@@ -1,0 +1,81 @@
+---
+layout: demo
+title: Rendering Many Objects
+---
+
+<style type="text/css">
+#wrapper {
+    display: inline-block;
+}
+#results-c1, #results-c2 {
+    width: 390px;
+    min-height: 40px;
+    display: inline-block;
+    background: #ffc;
+    padding: 5px;
+    margin: 0 6px 15px 0;
+    float: left;
+}
+</style>
+
+<div id="wrapper">
+    <div id="results-c1">The results</div>​
+    <div id="results-c2">The results</div>​
+    <br>
+
+    <canvas id="c1" width="400" height="350"></canvas>
+    <canvas id="c2" width="400" height="350"></canvas>
+</div>
+
+<script id="main">var i, dot,
+    t1, t2,
+    startTimer = function() {
+        t1 = new Date().getTime();
+        return t1;
+    },
+    stopTimer = function() {
+        t2 = new Date().getTime();
+        return t2 - t1;
+    },
+    getRandomInt = fabric.util.getRandomInt,
+    rainbow    = ["#ffcc66", "#ccff66", "#66ccff", "#ff6fcf", "#ff6666"],
+    rainbowEnd = rainbow.length - 1;
+
+//
+// Rendering canvas #1
+//
+var canvas1  = new fabric.Canvas('c1', { backgroundColor: "#000" }),
+    results1 = document.getElementById('results-c1');
+
+startTimer();
+for (i = 100; i >= 0; i--) {
+    dot = new fabric.Circle({
+        left:   getRandomInt(0, 400),
+        top:    getRandomInt(0, 350),
+        radius: 3,
+        fill:   rainbow[getRandomInt(0, rainbowEnd)]
+    });
+    canvas1.add(dot);
+}
+results1.innerHTML = 'Regular rendering of <strong>100</strong> elements in <strong>' + stopTimer() + 'ms</strong>';
+
+
+//
+// Rendering canvas #2
+//
+var canvas2  = new fabric.Canvas('c2', { backgroundColor: "#000", renderOnAddition: false }),
+    results2 = document.getElementById('results-c2');
+
+startTimer();
+for (i = 1000; i >= 0; i--) {
+    dot = new fabric.Circle({
+        left:   getRandomInt(0, 400),
+        top:    getRandomInt(0, 350),
+        radius: 3,
+        fill:   rainbow[getRandomInt(0, rainbowEnd)]
+    });
+    canvas2.add(dot);
+}
+canvas2.renderAll(); // Note, calling renderAll() is important in this case
+results2.innerHTML = 'Rendering <strong>1000</strong> elements using <code>canvas.renderOnAddition = false</code> in <strong>' + stopTimer() + 'ms</strong>';
+</script>

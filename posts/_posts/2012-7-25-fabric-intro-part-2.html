@@ -203,7 +203,7 @@ var circle = new fabric.Circle({
   radius: 50
 });
 
-circle.setGradientFill(canvas.getContext(), {
+circle.setGradientFill({
   x1: 0,
   y1: 0,
   x2: 0,
@@ -219,14 +219,12 @@ circle.setGradientFill(canvas.getContext(), {
 
 <p>In the above example, we create a circle at 100,100 location, with 50px radius. We then set its fill to a gradient that spans throughout entire height of that circle, from white to black.</p>
 
-<p>First argument is the context object of canvas where this object exists. This value is something you won't need to change often, and it's somewhat annoying to keep specifying it, but this is a canvas limitation so we'll just deal with it.</p>
-
-<p>Now, 2nd argument is where the fun begins. As you can see, it's an options object, which expects 2 coordinate pairs (x1, y1 and x2, y2), as well as "colorStops" object. Coordinates specify where gradient starts and where it ends. colorStops specify which colors a gradient is made of. You can define as many color stops as you want, as long as they range from 0 to 1 (e.g. 0, 0.1, 0.3, 0.5, 0.75, 1, etc.). 0 represents beginning of a gradient, 1 &mdash; its end.</p>
+<p>The argument passed to a method is an options object, which expects 2 coordinate pairs (x1, y1 and x2, y2), as well as "colorStops" object. Coordinates specify where gradient starts and where it ends. colorStops specify which colors a gradient is made of. You can define as many color stops as you want, as long as they range from 0 to 1 (e.g. 0, 0.1, 0.3, 0.5, 0.75, 1, etc.). 0 represents beginning of a gradient, 1 &mdash; its end.</p>
 
 <p>Here's an example of left-to-right red-blue gradient:</p>
 
 <pre>
-circle.setGradientFill(canvas.getContext(), {
+circle.setGradientFill({
   x1: 0,
   y1: circle.height / 2,
   x2: circle.width,
@@ -243,7 +241,7 @@ circle.setGradientFill(canvas.getContext(), {
 <p>And here's a 5-stops rainbow gradient, with colors spanning at even 20% intervals:</p>
 
 <pre>
-circle.setGradientFill(canvas.getContext(), {
+circle.setGradientFill({
   x1: 0,
   y1: circle.height / 2,
   x2: circle.width,

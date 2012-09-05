@@ -30,11 +30,10 @@ title: SVG Rendering
         iframeEl.style.height = canvasEl.height + 'px';
       }
 
-      canvas = window['__canvas' + id] = new fabric.Canvas('c' + id, { selection: false });
-
-      canvas.add(shape).centerObjectH(shape).centerObjectV(shape).renderAll();
-      shape.setCoords();
-      canvas.calcOffset();
+      canvas = window['__canvas' + id] = new fabric.StaticCanvas('c' + id, { backgroundColor: '#fff' });
+      canvas.add(shape);
+      shape.center();
+      canvas.renderAll();
     });
   }
 </script>

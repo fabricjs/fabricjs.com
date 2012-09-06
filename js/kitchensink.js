@@ -95,7 +95,9 @@
           image.set({
             left: left,
             top: top,
-            angle: angle
+            angle: angle,
+            padding: 10,
+            cornersize: 10
           });
           image.scale(getRandomNum(0.1, 0.25)).setCoords();
           canvas.add(image);
@@ -107,7 +109,9 @@
           image.set({
             left: left,
             top: top,
-            angle: angle
+            angle: angle,
+            padding: 10,
+            cornersize: 10
           });
           image.scale(getRandomNum(0.1, 1)).setCoords();
           canvas.add(image);
@@ -124,9 +128,13 @@
             loadedObject.set({
               left: left,
               top: top,
-              angle: angle
+              angle: angle,
+              padding: 10,
+              cornersize: 10
             });
-            loadedObject.scaleToWidth(300).setCoords();
+            loadedObject/*.scaleToWidth(300)*/.setCoords();
+
+            // loadedObject.hasRotatingPoint = true;
 
             canvas.add(loadedObject);
             updateComplexity();

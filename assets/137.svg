@@ -5,14 +5,14 @@
 ]>
 <svg version="1.1" baseProfile="tiny"
 	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
-	 x="0px" y="0px" width="608px" height="650px" viewBox="-84.3 -49.82 608 650" overflow="visible" xml:space="preserve">
+	 x="0px" y="0px" width="608px" height="650px" overflow="visible" xml:space="preserve">
 <defs>
 </defs>
 <path fill="#F2F2F2" d="M246.58,179.98c-4.34,8.04-16.89,11.42-11.89,25.42s9.75,53.61,14.12,60.68
 	c4.38,7.07,11.4-13.33,12.83-25.12C263.07,229.18,259.13,156.73,246.58,179.98z"/>
 <path fill="#CCCCCC" d="M258.77,237.08c-1.5-9.94-4.83-21.77-3.5-32.27s3-14.74-4.83-18.54c-7.83-3.8-3.61-16.32,1.34-21.96
 	c4.95-5.64-2.01-20.4,2.99-19.81c5,0.59,11.27,23.31,12.55,34.48c1.28,11.17,0.38,10.17,0,27S258.77,237.08,258.77,237.08z"/>
-<polygon fill="#CCCCCC" points="196.6,300.81 229.36,294.81 246.58,271.81 246.58,251.58 240.58,213.15 229.19,195.89 
+<polygon fill="#CCCCCC" points="196.6,300.81 229.36,294.81 246.58,271.81 246.58,251.58 240.58,213.15 229.19,195.89
 	218.27,172.15 171.02,173.48 178.56,214.68 216.94,251.58 183.94,262.53 182.11,285.15 "/>
 <image width="78" height="39" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAE4AAAAnCAYAAAChUX6PAAAACXBIWXMAAAsSAAALEgHS3X78AAAA
 GXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAflJREFUeNrsmouqgkAQhts4z1GE

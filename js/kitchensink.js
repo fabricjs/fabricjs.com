@@ -26,13 +26,9 @@
     fabric.Object.prototype.cornersize = 30;
   }
 
-  var canvas = global.canvas = new fabric.Canvas('canvas', {
-    /*
-    clipTo: function(canvas) {
-      canvas.arc(this.width / 2, this.height / 2, 200, 0, Math.PI * 2, true);
-    }
-    */
-  });
+  var canvas = global.canvas = new fabric.Canvas('canvas');
+
+  // canvas.controlsAboveOverlay = true;
 
   document.getElementById('commands').onclick = function(ev) {
     ev = ev || window.event;

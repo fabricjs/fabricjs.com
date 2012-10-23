@@ -370,6 +370,16 @@ Being passed context as first argument.</div>
 				</tr>
 			
 				<tr>
+					<td class="attributes">&nbsp;</td>
+					<td class="nameDescription">
+						<div class="fixedFont">
+						<b><a href="../symbols/fabric.StaticCanvas.html#controlsAboveOverlay">controlsAboveOverlay</a></b>
+						</div>
+						<div class="description">Indicates whether object controls (borders/corners) are rendered above overlay image</div>
+					</td>
+				</tr>
+			
+				<tr>
 					<td class="attributes">&lt;static&gt; &nbsp;</td>
 					<td class="nameDescription">
 						<div class="fixedFont">
@@ -547,6 +557,15 @@ This method is also attached as "resize" event handler of window</div>
 						<div class="fixedFont"><b><a href="../symbols/fabric.StaticCanvas.html#dispose">dispose</a></b>()
 						</div>
 						<div class="description">Clears a canvas element and removes all event handlers.</div>
+					</td>
+				</tr>
+			
+				<tr>
+					<td class="attributes">&nbsp;</td>
+					<td class="nameDescription">
+						<div class="fixedFont"><b><a href="../symbols/fabric.StaticCanvas.html#drawControls">drawControls</a></b>(ctx)
+						</div>
+						<div class="description">Draws objects' controls (borders/corners)</div>
 					</td>
 				</tr>
 			
@@ -788,7 +807,7 @@ This method is also attached as "resize" event handler of window</div>
 				<tr>
 					<td class="attributes">&nbsp;</td>
 					<td class="nameDescription">
-						<div class="fixedFont"><b><a href="../symbols/fabric.StaticCanvas.html#toDataURL">toDataURL</a></b>(format)
+						<div class="fixedFont"><b><a href="../symbols/fabric.StaticCanvas.html#toDataURL">toDataURL</a></b>(format, quality)
 						</div>
 						<div class="description">Exports canvas element to a dataurl image.</div>
 					</td>
@@ -797,7 +816,7 @@ This method is also attached as "resize" event handler of window</div>
 				<tr>
 					<td class="attributes">&nbsp;</td>
 					<td class="nameDescription">
-						<div class="fixedFont"><b><a href="../symbols/fabric.StaticCanvas.html#toDataURLWithMultiplier">toDataURLWithMultiplier</a></b>(format, multiplier)
+						<div class="fixedFont"><b><a href="../symbols/fabric.StaticCanvas.html#toDataURLWithMultiplier">toDataURLWithMultiplier</a></b>(format, multiplier, quality)
 						</div>
 						<div class="description">Exports canvas element to a dataurl image (allowing to change image size via multiplier).</div>
 					</td>
@@ -1010,6 +1029,28 @@ dimensions of the canvas instance.
 			<div class="description">
 				Function that determines clipping of entire canvas area
 Being passed context as first argument. See clipping canvas area in https://github.com/kangax/fabric.js/wiki/FAQ
+				
+				
+			</div>
+			
+			
+
+				
+				
+				
+				
+
+			<hr />
+		
+			<a name="controlsAboveOverlay"> </a>
+			<div class="fixedFont">
+			
+			<span class="light">{Boolean}</span>
+			<b>controlsAboveOverlay</b>
+			
+			</div>
+			<div class="description">
+				Indicates whether object controls (borders/corners) are rendered above overlay image
 				
 				
 			</div>
@@ -1585,6 +1626,42 @@ This method is also attached as "resize" event handler of window
 						<dd><span class="light fixedFont">{<a href="../symbols/fabric.Canvas.html">fabric.Canvas</a>}</span> thisArg</dd>
 					
 					</dl>
+				
+				
+				
+
+			<hr />
+		
+			<a name="drawControls"> </a>
+			<div class="fixedFont">
+			
+			
+			<b>drawControls</b>(ctx)
+			
+			</div>
+			<div class="description">
+				Draws objects' controls (borders/corners)
+				
+				
+			</div>
+			
+			
+			
+				
+					<dl class="detailList">
+					<dt class="heading">Parameters:</dt>
+					
+						<dt>
+							<span class="light fixedFont">{Object}</span> <b>ctx</b>
+							
+						</dt>
+						<dd>context to render controls on</dd>
+					
+					</dl>
+				
+				
+				
+				
 				
 				
 				
@@ -2513,7 +2590,7 @@ Also used to render the group selection box.
 							
 						</dt>
 						<dd>{String} Method to check support for;
-                           Could be one of "getImageData" or "toDataURL"</dd>
+                           Could be one of "getImageData", "toDataURL" or "toDataURLWithQuality"</dd>
 					
 					</dl>
 				
@@ -2602,7 +2679,7 @@ Also used to render the group selection box.
 			<div class="fixedFont">
 			
 			<span class="light">{<a href="../symbols/String.html">String</a>}</span>
-			<b>toDataURL</b>(format)
+			<b>toDataURL</b>(format, quality)
 			
 			</div>
 			<div class="description">
@@ -2622,6 +2699,12 @@ Also used to render the group selection box.
 							
 						</dt>
 						<dd>the format of the output image. Either "jpeg" or "png".</dd>
+					
+						<dt>
+							<span class="light fixedFont">{Number}</span> <b>quality</b>
+							
+						</dt>
+						<dd>quality level (0..1)</dd>
 					
 					</dl>
 				
@@ -2645,7 +2728,7 @@ Also used to render the group selection box.
 			<div class="fixedFont">
 			
 			<span class="light">{<a href="../symbols/String.html">String</a>}</span>
-			<b>toDataURLWithMultiplier</b>(format, multiplier)
+			<b>toDataURLWithMultiplier</b>(format, multiplier, quality)
 			
 			</div>
 			<div class="description">
@@ -2671,6 +2754,12 @@ Also used to render the group selection box.
 							
 						</dt>
 						<dd></dd>
+					
+						<dt>
+							<span class="light fixedFont">{Number}</span> <b>quality</b>
+							
+						</dt>
+						<dd>(0..1)</dd>
 					
 					</dl>
 				
@@ -2866,5 +2955,5 @@ Also used to render the group selection box.
 <!-- ============================== footer ================================= -->
 <div class="fineprint" style="clear:both">
 	
-	Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Fri Aug 03 2012 02:14:27 GMT+0200 (CEST)
+	Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Wed Oct 17 2012 01:52:06 GMT+0200 (CEST)
 </div>

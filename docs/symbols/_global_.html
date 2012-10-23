@@ -281,6 +281,35 @@ ul.inheritsList {
 
 <!-- ============================== properties summary ===================== -->
 	
+		
+		
+		<table class="summaryTable" cellspacing="0" summary="A summary of the fields documented in the class _global_.">
+			<caption>Field Summary</caption>
+			<thead>
+				<tr>
+					<th scope="col">Field Attributes</th>
+					<th scope="col">Field Name and Description</th>
+				</tr>
+			</thead>
+			<tbody>
+			
+				<tr>
+					<td class="attributes">&nbsp;</td>
+					<td class="nameDescription">
+						<div class="fixedFont">
+						<b><a href="../symbols/_global_.html#stateProperties">stateProperties</a></b>
+						</div>
+						<div class="description">List of properties to consider when checking if state of an object is changed (fabric.Object#hasStateChanged);
+as well as for history (undo/redo) purposes</div>
+					</td>
+				</tr>
+			
+			</tbody>
+		</table>
+		
+		
+		
+	
 
 <!-- ============================== methods summary ======================== -->
 	
@@ -344,7 +373,7 @@ ul.inheritsList {
 				<tr>
 					<td class="attributes">&nbsp;</td>
 					<td class="nameDescription">
-						<div class="fixedFont"><b><a href="../symbols/_global_.html#dummy">dummy</a></b>()
+						<div class="fixedFont"><b><a href="../symbols/_global_.html#Dummy">Dummy</a></b>()
 						</div>
 						<div class="description"></div>
 					</td>
@@ -374,6 +403,15 @@ ul.inheritsList {
 						<div class="fixedFont"><b><a href="../symbols/_global_.html#fxStraightenObject">fxStraightenObject</a></b>(object)
 						</div>
 						<div class="description">Same as `fabric.Canvas#straightenObject`, but animated</div>
+					</td>
+				</tr>
+			
+				<tr>
+					<td class="attributes">&nbsp;</td>
+					<td class="nameDescription">
+						<div class="fixedFont"><b><a href="../symbols/_global_.html#hasStateChanged">hasStateChanged</a></b>()
+						</div>
+						<div class="description"></div>
 					</td>
 				</tr>
 			
@@ -410,6 +448,24 @@ JSON format must conform to the one of `fabric.Canvas#toJSON`</div>
 					<td class="attributes">&nbsp;</td>
 					<td class="nameDescription">
 						<div class="fixedFont"><b><a href="../symbols/_global_.html#pointerY">pointerY</a></b>(event)
+						</div>
+						<div class="description"></div>
+					</td>
+				</tr>
+			
+				<tr>
+					<td class="attributes">&nbsp;</td>
+					<td class="nameDescription">
+						<div class="fixedFont"><b><a href="../symbols/_global_.html#saveState">saveState</a></b>()
+						</div>
+						<div class="description"></div>
+					</td>
+				</tr>
+			
+				<tr>
+					<td class="attributes">&nbsp;</td>
+					<td class="nameDescription">
+						<div class="fixedFont"><b><a href="../symbols/_global_.html#setupState">setupState</a></b>()
 						</div>
 						<div class="description"></div>
 					</td>
@@ -455,6 +511,37 @@ JSON format must conform to the one of `fabric.Canvas#toJSON`</div>
 	
 
 <!-- ============================== field details ========================== -->		
+	
+		<div class="sectionTitle">
+			Field Detail
+		</div>
+		
+			<a name="stateProperties"> </a>
+			<div class="fixedFont">
+			
+			<span class="light">{<a href="../symbols/Array.html">Array</a>}</span>
+			<b>stateProperties</b>
+			
+			</div>
+			<div class="description">
+				List of properties to consider when checking if state of an object is changed (fabric.Object#hasStateChanged);
+as well as for history (undo/redo) purposes
+				
+					<br />
+					<i>Defined in: </i> <a href="../symbols/src/src_stateful.js.html">stateful.js</a>.
+				
+				
+			</div>
+			
+			
+
+				
+				
+				
+				
+
+			
+		
 	
 
 <!-- ============================== method details ========================= -->		
@@ -661,11 +748,11 @@ but leaves data empty (so that you can populate it with your own)
 
 			<hr />
 		
-			<a name="dummy"> </a>
+			<a name="Dummy"> </a>
 			<div class="fixedFont">
 			
 			
-			<b>dummy</b>()
+			<b>Dummy</b>()
 			
 			</div>
 			<div class="description">
@@ -802,6 +889,41 @@ but leaves data empty (so that you can populate it with your own)
 					<dt class="heading">Returns:</dt>
 					
 						<dd><span class="light fixedFont">{<a href="../symbols/fabric.Canvas.html">fabric.Canvas</a>}</span> thisArg</dd>
+					
+					</dl>
+				
+				
+				
+
+			<hr />
+		
+			<a name="hasStateChanged"> </a>
+			<div class="fixedFont">
+			
+			<span class="light">{Boolean}</span>
+			<b>hasStateChanged</b>()
+			
+			</div>
+			<div class="description">
+				
+				
+					<br />
+					<i>Defined in: </i> <a href="../symbols/src/src_stateful.js.html">stateful.js</a>.
+				
+				
+			</div>
+			
+			
+			
+				
+				
+				
+				
+				
+					<dl class="detailList">
+					<dt class="heading">Returns:</dt>
+					
+						<dd><span class="light fixedFont">{Boolean}</span> true if instance' state has changed</dd>
 					
 					</dl>
 				
@@ -998,6 +1120,69 @@ JSON format must conform to the one of `fabric.Canvas#toJSON`
 
 			<hr />
 		
+			<a name="saveState"> </a>
+			<div class="fixedFont">
+			
+			<span class="light">{<a href="../symbols/fabric.Object.html">fabric.Object</a>}</span>
+			<b>saveState</b>()
+			
+			</div>
+			<div class="description">
+				
+				
+					<br />
+					<i>Defined in: </i> <a href="../symbols/src/src_stateful.js.html">stateful.js</a>.
+				
+				
+			</div>
+			
+			
+			
+				
+				
+				
+				
+				
+					<dl class="detailList">
+					<dt class="heading">Returns:</dt>
+					
+						<dd><span class="light fixedFont">{<a href="../symbols/fabric.Object.html">fabric.Object</a>}</span> thisArg</dd>
+					
+					</dl>
+				
+				
+				
+
+			<hr />
+		
+			<a name="setupState"> </a>
+			<div class="fixedFont">
+			
+			
+			<b>setupState</b>()
+			
+			</div>
+			<div class="description">
+				
+				
+					<br />
+					<i>Defined in: </i> <a href="../symbols/src/src_stateful.js.html">stateful.js</a>.
+				
+				
+			</div>
+			
+			
+			
+				
+				
+				
+				
+				
+				
+				
+
+			<hr />
+		
 			<a name="straighten"> </a>
 			<div class="fixedFont">
 			
@@ -1130,5 +1315,5 @@ JSON format must conform to the one of `fabric.Canvas#toJSON`
 <!-- ============================== footer ================================= -->
 <div class="fineprint" style="clear:both">
 	
-	Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Fri Aug 03 2012 02:14:25 GMT+0200 (CEST)
+	Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Wed Oct 17 2012 01:52:05 GMT+0200 (CEST)
 </div>

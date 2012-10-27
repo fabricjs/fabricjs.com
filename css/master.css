@@ -1,6 +1,6 @@
 body { font-family: Garamond, "Hoefler Text", "Times New Roman", Times, serif; margin: 0; }
 
-#features { width: 750px; margin: 0 auto; text-align: center }
+#features { width: 960px; margin: 0 auto; text-align: center; }
 #features p { line-height: 1.2; text-align: left; text-indent: 15px }
 #features p.primary { text-align: center; text-indent: 0 }
 #features p.download { text-align: center; margin-top: 20px }
@@ -26,6 +26,15 @@ pre { margin-top: 0; font-size: 12px; vertical-align: top; background: #F4F2E5; 
 h2 span { font-weight: normal; }
 
 b.bench { font-family: monospace; font-size: 18px; background: #ffc; padding: 0 3px; border: 1px solid #eee; line-height: 1.5 }
+
+.quick-features { text-align: left; display: inline-block; vertical-align: top; margin-left: 20px;
+                  background: #ffc; box-shadow: 0 0 5px rgba(0,0,0,0.4);
+                  border-radius: 5px; padding: 10px 10px 5px 10px; font-size: 13px; margin-right: -300px; }
+.quick-features h3 { margin-top: 0; text-align: center; }
+.quick-features ul { padding-left: 0; margin-bottom: 0; }
+.quick-features li { margin-bottom: 7px; list-style-position: inside; list-style-type: circle; }
+.quick-features em { color: #777; }
+.kitchensink { display: inline-block; vertical-align: top; margin-top: 20px; }
 
 /* Pretty printing styles. Used with prettify.js. */
 

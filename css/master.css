@@ -13,7 +13,8 @@ body { font-family: Garamond, "Hoefler Text", "Times New Roman", Times, serif; m
 #header li a:hover, #header li a:focus { text-decoration: underline; }
 #header li.secondary { float: right; }
 #header li.flattr { margin-top: 9px; margin-right: 10px; margin-left: 5px }
-.github a, .twitter a { font-variant: normal !important; color: #cf909b !important; }
+.github iframe { margin-top: 8px; }
+.twitter iframe { margin-top: 8px; margin-right: -14px; margin-left: 10px; }
 .github span, .twitter span { color: pink }
 
 #bd-wrapper { padding: 10px; }

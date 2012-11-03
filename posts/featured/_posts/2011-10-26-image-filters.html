@@ -9,7 +9,7 @@ title: Image Filters
   input[disabled] { opacity: 0.5; }
 </style>
 
-<canvas id="c" width="500" height="600"></canvas>
+<canvas id="c" width="600" height="600"></canvas>
 <div class="controls">
   <h3>Filters:</h3>
   <p>
@@ -46,6 +46,20 @@ title: Image Filters
     <br>
     <label>Value: <input type="range" id="gradient-transparency-value" value="100" min="0" max="255" disabled></label>
   </p>
+  <p>
+    <label><span>Pixelate</span> <input type="checkbox" id="pixelate" disabled></label>
+    <br>
+    <label>Value: <input type="range" id="pixelate-value" value="4" min="2" max="20" disabled></label>
+  </p>
+  <p>
+    <label><span>Blur:</span> <input type="checkbox" id="blur" disabled></label>
+  </p>
+  <p>
+    <label><span>Sharpen:</span> <input type="checkbox" id="sharpen" disabled></label>
+  </p>
+  <p>
+    <label><span>Emboss:</span> <input type="checkbox" id="emboss" disabled></label>
+  </p>
 </div>
 
 <script id="main">var $ = function(id){return document.getElementById(id)};
@@ -71,29 +85,22 @@ canvas.on({
   'object:selected': function() {
     fabric.util.toArray(document.getElementsByTagName('input')).forEach(function(el){ el.disabled = false; })
 
-    var obj = canvas.getActiveObject();
+    var filters = ['grayscale', 'invert', 'remove-white', 'sepia', 'sepia2', 'brightness',
+                   'noise', 'gradient-transparency', 'pixelate', 'blur', 'sharpen'];
 
-    $('grayscale').checked = !!obj.filters[0];
-    $('invert').checked = !!obj.filters[1];
-    $('remove-white').checked = !!obj.filters[2];
-    $('sepia').checked = !!obj.filters[3];
-    $('sepia2').checked = !!obj.filters[4];
-    $('brightness').checked = !!obj.filters[5];
-    $('noise').checked = !!obj.filters[6];
-    $('gradient-transparency').checked = !!obj.filters[7];
+    for (var i = 0; i < filters.length; i++) {
+      $(filters[i]).checked = !!canvas.getActiveObject().filters[i];
+    }
   },
   'selection:cleared': function() {
     fabric.util.toArray(document.getElementsByTagName('input')).forEach(function(el){ el.disabled = true; })
   }
 });
 
-fabric.Image.fromURL('../lib/pug.jpg', function(img) {
-  var oImg = img.set({ left: 250, top: 350, angle: -10 }).scale(0.7);
+fabric.Image.fromURL('../assets/printio.png', function(img) {
+  var oImg = img.set({ left: 300, top: 300, angle: -15 }).scale(0.9);
   canvas.add(oImg).renderAll();
-});
-fabric.Image.fromURL('../assets/logo.png', function(img) {
-  var oImg = img.set({ left: 110, top: 75, angle: 10 }).scale(0.7);
-  canvas.add(oImg).renderAll();
+  canvas.setActiveObject(oImg);
 });
 
 $('grayscale').onclick = function() {
@@ -143,5 +150,34 @@ $('gradient-transparency').onclick = function () {
 };
 $('gradient-transparency-value').onchange = function() {
   applyFilterValue(7, 'threshold', parseInt(this.value, 10));
+};
+$('pixelate').onclick = function() {
+  applyFilter(8, this.checked && new f.Pixelate({
+    blocksize: parseInt($('pixelate-value').value, 10)
+  }));
+};
+$('pixelate-value').onchange = function() {
+  applyFilterValue(8, 'blocksize', parseInt(this.value, 10));
+};
+$('blur').onclick = function() {
+  applyFilter(9, this.checked && new f.Convolute({
+    matrix: [ 1/9, 1/9, 1/9,
+              1/9, 1/9, 1/9,
+              1/9, 1/9, 1/9 ]
+  }));
+};
+$('sharpen').onclick = function() {
+  applyFilter(10, this.checked && new f.Convolute({
+    matrix: [  0, -1,  0,
+              -1,  5, -1,
+               0, -1,  0 ]
+  }));
+};
+$('emboss').onclick = function() {
+  applyFilter(11, this.checked && new f.Convolute({
+    matrix: [ 1,   1,  1,
+              1, 0.7, -1,
+             -1,  -1, -1 ]
+  }));
 };
 </script>

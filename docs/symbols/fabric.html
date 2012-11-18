@@ -199,6 +199,8 @@ ul.inheritsList {
 	
 	<li><a href="../symbols/fabric.Image.filters.Brightness.html">fabric.Image.filters.Brightness</a></li>
 	
+	<li><a href="../symbols/fabric.Image.filters.Convolute.html">fabric.Image.filters.Convolute</a></li>
+	
 	<li><a href="../symbols/fabric.Image.filters.GradientTransparency.html">fabric.Image.filters.GradientTransparency</a></li>
 	
 	<li><a href="../symbols/fabric.Image.filters.Grayscale.html">fabric.Image.filters.Grayscale</a></li>
@@ -206,6 +208,8 @@ ul.inheritsList {
 	<li><a href="../symbols/fabric.Image.filters.Invert.html">fabric.Image.filters.Invert</a></li>
 	
 	<li><a href="../symbols/fabric.Image.filters.Noise.html">fabric.Image.filters.Noise</a></li>
+	
+	<li><a href="../symbols/fabric.Image.filters.Pixelate.html">fabric.Image.filters.Pixelate</a></li>
 	
 	<li><a href="../symbols/fabric.Image.filters.RemoveWhite.html">fabric.Image.filters.RemoveWhite</a></li>
 	
@@ -274,7 +278,7 @@ ul.inheritsList {
 		
 		
 		
-			<br /><i>Defined in: </i> <a href="../symbols/src/src_parser.js.html">parser.js</a>.
+			<br /><i>Defined in: </i> <a href="../symbols/src/lib_fabric.js.html">fabric.js</a>.
 		
 	</p>
 
@@ -387,25 +391,25 @@ ul.inheritsList {
 				<tr>
 					<td class="attributes">&lt;static&gt; &nbsp;</td>
 					<td class="nameDescription">
-						<div class="fixedFont">fabric.<b><a href="../symbols/fabric.html#.loadSVGFromString">loadSVGFromString</a></b>(string, callback)
+						<div class="fixedFont">fabric.<b><a href="../symbols/fabric.html#.loadSVGFromString">loadSVGFromString</a></b>(string, callback, reviver)
 						</div>
-						<div class="description"></div>
+						<div class="description">Takes string corresponding to an SVG document, and parses it into a set of fabric objects</div>
 					</td>
 				</tr>
 			
 				<tr>
 					<td class="attributes">&lt;static&gt; &nbsp;</td>
 					<td class="nameDescription">
-						<div class="fixedFont">fabric.<b><a href="../symbols/fabric.html#.loadSVGFromURL">loadSVGFromURL</a></b>(url, callback)
+						<div class="fixedFont">fabric.<b><a href="../symbols/fabric.html#.loadSVGFromURL">loadSVGFromURL</a></b>(url, callback, reviver)
 						</div>
-						<div class="description"></div>
+						<div class="description">Takes url corresponding to an SVG document, and parses it into a set of fabric objects</div>
 					</td>
 				</tr>
 			
 				<tr>
 					<td class="attributes">&lt;static&gt; &nbsp;</td>
 					<td class="nameDescription">
-						<div class="fixedFont">fabric.<b><a href="../symbols/fabric.html#.log">log</a></b>(Values)
+						<div class="fixedFont">fabric.<b><a href="../symbols/fabric.html#.log">log</a></b>(values)
 						</div>
 						<div class="description">Wrapper around `console.log` (when available)</div>
 					</td>
@@ -530,9 +534,6 @@ Parses parent "g" nodes recursively upwards.</div>
 			<div class="description">
 				True when in environment that's probably Node.js
 				
-					<br />
-					<i>Defined in: </i> <a href="../symbols/src/HEADER.js.html">HEADER.js</a>.
-				
 				
 			</div>
 			
@@ -554,9 +555,6 @@ Parses parent "g" nodes recursively upwards.</div>
 			</div>
 			<div class="description">
 				True when in environment that supports touch events
-				
-					<br />
-					<i>Defined in: </i> <a href="../symbols/src/HEADER.js.html">HEADER.js</a>.
 				
 				
 			</div>
@@ -587,9 +585,6 @@ Parses parent "g" nodes recursively upwards.</div>
 			</div>
 			<div class="description">
 				Only available when running fabric on node.js
-				
-					<br />
-					<i>Defined in: </i> <a href="../symbols/src/src_node.js.html">node.js</a>.
 				
 				
 			</div>
@@ -683,9 +678,6 @@ Parses parent "g" nodes recursively upwards.</div>
 			<div class="description">
 				Parses an SVG document, returning all of the gradient declarations found in it
 				
-					<br />
-					<i>Defined in: </i> <a href="../symbols/src/src_gradient.class.js.html">gradient.class.js</a>.
-				
 				
 			</div>
 			
@@ -723,14 +715,11 @@ Parses parent "g" nodes recursively upwards.</div>
 			<div class="fixedFont">&lt;static&gt; 
 			
 			
-			<span class="light">fabric.</span><b>loadSVGFromString</b>(string, callback)
+			<span class="light">fabric.</span><b>loadSVGFromString</b>(string, callback, reviver)
 			
 			</div>
 			<div class="description">
-				
-				
-					<br />
-					<i>Defined in: </i> <a href="../symbols/src/src_node.js.html">node.js</a>.
+				Takes string corresponding to an SVG document, and parses it into a set of fabric objects
 				
 				
 			</div>
@@ -742,16 +731,22 @@ Parses parent "g" nodes recursively upwards.</div>
 					<dt class="heading">Parameters:</dt>
 					
 						<dt>
-							<b>string</b>
+							<span class="light fixedFont">{<a href="../symbols/String.html">String</a>}</span> <b>string</b>
 							
 						</dt>
 						<dd></dd>
 					
 						<dt>
-							<b>callback</b>
+							<span class="light fixedFont">{<a href="../symbols/Function.html">Function</a>}</span> <b>callback</b>
 							
 						</dt>
 						<dd></dd>
+					
+						<dt>
+							<span class="light fixedFont">{<a href="../symbols/Function.html">Function</a>}</span> <b>reviver</b>
+							<i>Optional</i>
+						</dt>
+						<dd>Method for further parsing of SVG elements, called after each fabric object created.</dd>
 					
 					</dl>
 				
@@ -768,14 +763,11 @@ Parses parent "g" nodes recursively upwards.</div>
 			<div class="fixedFont">&lt;static&gt; 
 			
 			
-			<span class="light">fabric.</span><b>loadSVGFromURL</b>(url, callback)
+			<span class="light">fabric.</span><b>loadSVGFromURL</b>(url, callback, reviver)
 			
 			</div>
 			<div class="description">
-				
-				
-					<br />
-					<i>Defined in: </i> <a href="../symbols/src/src_node.js.html">node.js</a>.
+				Takes url corresponding to an SVG document, and parses it into a set of fabric objects
 				
 				
 			</div>
@@ -787,16 +779,22 @@ Parses parent "g" nodes recursively upwards.</div>
 					<dt class="heading">Parameters:</dt>
 					
 						<dt>
-							<b>url</b>
+							<span class="light fixedFont">{<a href="../symbols/String.html">String</a>}</span> <b>url</b>
 							
 						</dt>
 						<dd></dd>
 					
 						<dt>
-							<b>callback</b>
+							<span class="light fixedFont">{<a href="../symbols/Function.html">Function</a>}</span> <b>callback</b>
 							
 						</dt>
 						<dd></dd>
+					
+						<dt>
+							<span class="light fixedFont">{<a href="../symbols/Function.html">Function</a>}</span> <b>reviver</b>
+							<i>Optional</i>
+						</dt>
+						<dd>Method for further parsing of SVG elements, called after each fabric object created.</dd>
 					
 					</dl>
 				
@@ -813,14 +811,11 @@ Parses parent "g" nodes recursively upwards.</div>
 			<div class="fixedFont">&lt;static&gt; 
 			
 			
-			<span class="light">fabric.</span><b>log</b>(Values)
+			<span class="light">fabric.</span><b>log</b>(values)
 			
 			</div>
 			<div class="description">
 				Wrapper around `console.log` (when available)
-				
-					<br />
-					<i>Defined in: </i> <a href="../symbols/src/src_log.js.html">log.js</a>.
 				
 				
 			</div>
@@ -832,10 +827,10 @@ Parses parent "g" nodes recursively upwards.</div>
 					<dt class="heading">Parameters:</dt>
 					
 						<dt>
-							<span class="light fixedFont">{Any}</span> <b>Values</b>
+							<span class="light fixedFont">{Any}</span> <b>values</b>
 							
 						</dt>
-						<dd>to log</dd>
+						<dd>Values to log</dd>
 					
 					</dl>
 				
@@ -1139,9 +1134,6 @@ Parses parent "g" nodes recursively upwards.
 			<div class="description">
 				Wrapper around `console.warn` (when available)
 				
-					<br />
-					<i>Defined in: </i> <a href="../symbols/src/src_log.js.html">log.js</a>.
-				
 				
 			</div>
 			
@@ -1180,5 +1172,5 @@ Parses parent "g" nodes recursively upwards.
 <!-- ============================== footer ================================= -->
 <div class="fineprint" style="clear:both">
 	
-	Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Wed Oct 17 2012 01:52:05 GMT+0200 (CEST)
+	Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Sun Nov 18 2012 19:25:24 GMT+0100 (CET)
 </div>

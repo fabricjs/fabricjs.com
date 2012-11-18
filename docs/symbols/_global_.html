@@ -199,6 +199,8 @@ ul.inheritsList {
 	
 	<li><a href="../symbols/fabric.Image.filters.Brightness.html">fabric.Image.filters.Brightness</a></li>
 	
+	<li><a href="../symbols/fabric.Image.filters.Convolute.html">fabric.Image.filters.Convolute</a></li>
+	
 	<li><a href="../symbols/fabric.Image.filters.GradientTransparency.html">fabric.Image.filters.GradientTransparency</a></li>
 	
 	<li><a href="../symbols/fabric.Image.filters.Grayscale.html">fabric.Image.filters.Grayscale</a></li>
@@ -206,6 +208,8 @@ ul.inheritsList {
 	<li><a href="../symbols/fabric.Image.filters.Invert.html">fabric.Image.filters.Invert</a></li>
 	
 	<li><a href="../symbols/fabric.Image.filters.Noise.html">fabric.Image.filters.Noise</a></li>
+	
+	<li><a href="../symbols/fabric.Image.filters.Pixelate.html">fabric.Image.filters.Pixelate</a></li>
 	
 	<li><a href="../symbols/fabric.Image.filters.RemoveWhite.html">fabric.Image.filters.RemoveWhite</a></li>
 	
@@ -297,10 +301,19 @@ ul.inheritsList {
 					<td class="attributes">&nbsp;</td>
 					<td class="nameDescription">
 						<div class="fixedFont">
-						<b><a href="../symbols/_global_.html#stateProperties">stateProperties</a></b>
+						<b><a href="../symbols/_global_.html#Cufon">Cufon</a></b>
 						</div>
-						<div class="description">List of properties to consider when checking if state of an object is changed (fabric.Object#hasStateChanged);
-as well as for history (undo/redo) purposes</div>
+						<div class="description"></div>
+					</td>
+				</tr>
+			
+				<tr>
+					<td class="attributes">&nbsp;</td>
+					<td class="nameDescription">
+						<div class="fixedFont">
+						<b><a href="../symbols/_global_.html#type">type</a></b>
+						</div>
+						<div class="description"></div>
 					</td>
 				</tr>
 			
@@ -340,6 +353,15 @@ as well as for history (undo/redo) purposes</div>
 						<div class="fixedFont"><b><a href="../symbols/_global_.html#_enlivenObjects">_enlivenObjects</a></b>(objects, callback)
 						</div>
 						<div class="description"></div>
+					</td>
+				</tr>
+			
+				<tr>
+					<td class="attributes">&nbsp;</td>
+					<td class="nameDescription">
+						<div class="fixedFont"><b><a href="../symbols/_global_.html#applyTo">applyTo</a></b>(canvasEl)
+						</div>
+						<div class="description">Applies filter to canvas element</div>
 					</td>
 				</tr>
 			
@@ -409,7 +431,7 @@ as well as for history (undo/redo) purposes</div>
 				<tr>
 					<td class="attributes">&nbsp;</td>
 					<td class="nameDescription">
-						<div class="fixedFont"><b><a href="../symbols/_global_.html#hasStateChanged">hasStateChanged</a></b>()
+						<div class="fixedFont"><b><a href="../symbols/_global_.html#getElementPosition">getElementPosition</a></b>(element)
 						</div>
 						<div class="description"></div>
 					</td>
@@ -438,6 +460,15 @@ JSON format must conform to the one of `fabric.Canvas#toJSON`</div>
 				<tr>
 					<td class="attributes">&nbsp;</td>
 					<td class="nameDescription">
+						<div class="fixedFont"><b><a href="../symbols/_global_.html#perform">perform</a></b>()
+						</div>
+						<div class="description"></div>
+					</td>
+				</tr>
+			
+				<tr>
+					<td class="attributes">&nbsp;</td>
+					<td class="nameDescription">
 						<div class="fixedFont"><b><a href="../symbols/_global_.html#pointerX">pointerX</a></b>(event)
 						</div>
 						<div class="description"></div>
@@ -448,24 +479,6 @@ JSON format must conform to the one of `fabric.Canvas#toJSON`</div>
 					<td class="attributes">&nbsp;</td>
 					<td class="nameDescription">
 						<div class="fixedFont"><b><a href="../symbols/_global_.html#pointerY">pointerY</a></b>(event)
-						</div>
-						<div class="description"></div>
-					</td>
-				</tr>
-			
-				<tr>
-					<td class="attributes">&nbsp;</td>
-					<td class="nameDescription">
-						<div class="fixedFont"><b><a href="../symbols/_global_.html#saveState">saveState</a></b>()
-						</div>
-						<div class="description"></div>
-					</td>
-				</tr>
-			
-				<tr>
-					<td class="attributes">&nbsp;</td>
-					<td class="nameDescription">
-						<div class="fixedFont"><b><a href="../symbols/_global_.html#setupState">setupState</a></b>()
 						</div>
 						<div class="description"></div>
 					</td>
@@ -498,6 +511,15 @@ JSON format must conform to the one of `fabric.Canvas#toJSON`</div>
 					</td>
 				</tr>
 			
+				<tr>
+					<td class="attributes">&nbsp;</td>
+					<td class="nameDescription">
+						<div class="fixedFont"><b><a href="../symbols/_global_.html#toJSON">toJSON</a></b>()
+						</div>
+						<div class="description">Returns json representation of filter</div>
+					</td>
+				</tr>
+			
 			</tbody>
 		</table>
 		
@@ -516,19 +538,43 @@ JSON format must conform to the one of `fabric.Canvas#toJSON`</div>
 			Field Detail
 		</div>
 		
-			<a name="stateProperties"> </a>
+			<a name="Cufon"> </a>
 			<div class="fixedFont">
 			
-			<span class="light">{<a href="../symbols/Array.html">Array</a>}</span>
-			<b>stateProperties</b>
+			
+			<b>Cufon</b>
 			
 			</div>
 			<div class="description">
-				List of properties to consider when checking if state of an object is changed (fabric.Object#hasStateChanged);
-as well as for history (undo/redo) purposes
+				
 				
 					<br />
-					<i>Defined in: </i> <a href="../symbols/src/src_stateful.js.html">stateful.js</a>.
+					<i>Defined in: </i> <a href="../symbols/src/lib_fabric.js.html">fabric.js</a>.
+				
+				
+			</div>
+			
+			
+
+				
+				
+				
+				
+
+			<hr />
+		
+			<a name="type"> </a>
+			<div class="fixedFont">
+			
+			
+			<b>type</b>
+			
+			</div>
+			<div class="description">
+				
+				
+					<br />
+					<i>Defined in: </i> <a href="../symbols/src/lib_fabric.js.html">fabric.js</a>.
 				
 				
 			</div>
@@ -561,7 +607,7 @@ as well as for history (undo/redo) purposes
 				
 				
 					<br />
-					<i>Defined in: </i> <a href="../symbols/src/src_canvas.serialization.js.html">canvas.serialization.js</a>.
+					<i>Defined in: </i> <a href="../symbols/src/lib_fabric.js.html">fabric.js</a>.
 				
 				
 			</div>
@@ -606,7 +652,7 @@ as well as for history (undo/redo) purposes
 				
 				
 					<br />
-					<i>Defined in: </i> <a href="../symbols/src/src_canvas.serialization.js.html">canvas.serialization.js</a>.
+					<i>Defined in: </i> <a href="../symbols/src/lib_fabric.js.html">fabric.js</a>.
 				
 				
 			</div>
@@ -640,6 +686,45 @@ as well as for history (undo/redo) purposes
 
 			<hr />
 		
+			<a name="applyTo"> </a>
+			<div class="fixedFont">
+			
+			
+			<b>applyTo</b>(canvasEl)
+			
+			</div>
+			<div class="description">
+				Applies filter to canvas element
+				
+					<br />
+					<i>Defined in: </i> <a href="../symbols/src/lib_fabric.js.html">fabric.js</a>.
+				
+				
+			</div>
+			
+			
+			
+				
+					<dl class="detailList">
+					<dt class="heading">Parameters:</dt>
+					
+						<dt>
+							<span class="light fixedFont">{Object}</span> <b>canvasEl</b>
+							
+						</dt>
+						<dd>Canvas element to apply filter to</dd>
+					
+					</dl>
+				
+				
+				
+				
+				
+				
+				
+
+			<hr />
+		
 			<a name="bound"> </a>
 			<div class="fixedFont">
 			
@@ -651,7 +736,7 @@ as well as for history (undo/redo) purposes
 				
 				
 					<br />
-					<i>Defined in: </i> <a href="../symbols/src/src_util_lang_function.js.html">lang_function.js</a>.
+					<i>Defined in: </i> <a href="../symbols/src/lib_fabric.js.html">fabric.js</a>.
 				
 				
 			</div>
@@ -679,7 +764,7 @@ as well as for history (undo/redo) purposes
 				Clones canvas instance
 				
 					<br />
-					<i>Defined in: </i> <a href="../symbols/src/src_canvas.serialization.js.html">canvas.serialization.js</a>.
+					<i>Defined in: </i> <a href="../symbols/src/lib_fabric.js.html">fabric.js</a>.
 				
 				
 			</div>
@@ -720,7 +805,7 @@ This essentially copies canvas dimensions, clipping properties, etc.
 but leaves data empty (so that you can populate it with your own)
 				
 					<br />
-					<i>Defined in: </i> <a href="../symbols/src/src_canvas.serialization.js.html">canvas.serialization.js</a>.
+					<i>Defined in: </i> <a href="../symbols/src/lib_fabric.js.html">fabric.js</a>.
 				
 				
 			</div>
@@ -759,7 +844,7 @@ but leaves data empty (so that you can populate it with your own)
 				
 				
 					<br />
-					<i>Defined in: </i> <a href="../symbols/src/src_util_lang_function.js.html">lang_function.js</a>.
+					<i>Defined in: </i> <a href="../symbols/src/lib_fabric.js.html">fabric.js</a>.
 				
 				
 			</div>
@@ -787,7 +872,7 @@ but leaves data empty (so that you can populate it with your own)
 				
 				
 					<br />
-					<i>Defined in: </i> <a href="../symbols/src/src_util_lang_class.js.html">lang_class.js</a>.
+					<i>Defined in: </i> <a href="../symbols/src/lib_fabric.js.html">fabric.js</a>.
 				
 				
 			</div>
@@ -815,7 +900,7 @@ but leaves data empty (so that you can populate it with your own)
 				
 				
 					<br />
-					<i>Defined in: </i> <a href="../symbols/src/src_object_straightening.js.html">object_straightening.js</a>.
+					<i>Defined in: </i> <a href="../symbols/src/lib_fabric.js.html">fabric.js</a>.
 				
 				
 			</div>
@@ -862,7 +947,7 @@ but leaves data empty (so that you can populate it with your own)
 				Same as `fabric.Canvas#straightenObject`, but animated
 				
 					<br />
-					<i>Defined in: </i> <a href="../symbols/src/src_object_straightening.js.html">object_straightening.js</a>.
+					<i>Defined in: </i> <a href="../symbols/src/lib_fabric.js.html">fabric.js</a>.
 				
 				
 			</div>
@@ -897,18 +982,18 @@ but leaves data empty (so that you can populate it with your own)
 
 			<hr />
 		
-			<a name="hasStateChanged"> </a>
+			<a name="getElementPosition"> </a>
 			<div class="fixedFont">
 			
-			<span class="light">{Boolean}</span>
-			<b>hasStateChanged</b>()
+			
+			<b>getElementPosition</b>(element)
 			
 			</div>
 			<div class="description">
 				
 				
 					<br />
-					<i>Defined in: </i> <a href="../symbols/src/src_stateful.js.html">stateful.js</a>.
+					<i>Defined in: </i> <a href="../symbols/src/lib_fabric.js.html">fabric.js</a>.
 				
 				
 			</div>
@@ -916,16 +1001,20 @@ but leaves data empty (so that you can populate it with your own)
 			
 			
 				
-				
-				
-				
-				
 					<dl class="detailList">
-					<dt class="heading">Returns:</dt>
+					<dt class="heading">Parameters:</dt>
 					
-						<dd><span class="light fixedFont">{Boolean}</span> true if instance' state has changed</dd>
+						<dt>
+							<b>element</b>
+							
+						</dt>
+						<dd></dd>
 					
 					</dl>
+				
+				
+				
+				
 				
 				
 				
@@ -944,7 +1033,7 @@ but leaves data empty (so that you can populate it with your own)
 JSON format must conform to the one of `fabric.Canvas#toDatalessJSON`
 				
 					<br />
-					<i>Defined in: </i> <a href="../symbols/src/src_canvas.serialization.js.html">canvas.serialization.js</a>.
+					<i>Defined in: </i> <a href="../symbols/src/lib_fabric.js.html">fabric.js</a>.
 				
 				
 			</div>
@@ -999,7 +1088,7 @@ JSON format must conform to the one of `fabric.Canvas#toDatalessJSON`
 JSON format must conform to the one of `fabric.Canvas#toJSON`
 				
 					<br />
-					<i>Defined in: </i> <a href="../symbols/src/src_canvas.serialization.js.html">canvas.serialization.js</a>.
+					<i>Defined in: </i> <a href="../symbols/src/lib_fabric.js.html">fabric.js</a>.
 				
 				
 			</div>
@@ -1042,6 +1131,34 @@ JSON format must conform to the one of `fabric.Canvas#toJSON`
 
 			<hr />
 		
+			<a name="perform"> </a>
+			<div class="fixedFont">
+			
+			
+			<b>perform</b>()
+			
+			</div>
+			<div class="description">
+				
+				
+					<br />
+					<i>Defined in: </i> <a href="../symbols/src/lib_fabric.js.html">fabric.js</a>.
+				
+				
+			</div>
+			
+			
+			
+				
+				
+				
+				
+				
+				
+				
+
+			<hr />
+		
 			<a name="pointerX"> </a>
 			<div class="fixedFont">
 			
@@ -1053,7 +1170,7 @@ JSON format must conform to the one of `fabric.Canvas#toJSON`
 				
 				
 					<br />
-					<i>Defined in: </i> <a href="../symbols/src/src_util_dom_event.js.html">dom_event.js</a>.
+					<i>Defined in: </i> <a href="../symbols/src/lib_fabric.js.html">fabric.js</a>.
 				
 				
 			</div>
@@ -1092,7 +1209,7 @@ JSON format must conform to the one of `fabric.Canvas#toJSON`
 				
 				
 					<br />
-					<i>Defined in: </i> <a href="../symbols/src/src_util_dom_event.js.html">dom_event.js</a>.
+					<i>Defined in: </i> <a href="../symbols/src/lib_fabric.js.html">fabric.js</a>.
 				
 				
 			</div>
@@ -1120,69 +1237,6 @@ JSON format must conform to the one of `fabric.Canvas#toJSON`
 
 			<hr />
 		
-			<a name="saveState"> </a>
-			<div class="fixedFont">
-			
-			<span class="light">{<a href="../symbols/fabric.Object.html">fabric.Object</a>}</span>
-			<b>saveState</b>()
-			
-			</div>
-			<div class="description">
-				
-				
-					<br />
-					<i>Defined in: </i> <a href="../symbols/src/src_stateful.js.html">stateful.js</a>.
-				
-				
-			</div>
-			
-			
-			
-				
-				
-				
-				
-				
-					<dl class="detailList">
-					<dt class="heading">Returns:</dt>
-					
-						<dd><span class="light fixedFont">{<a href="../symbols/fabric.Object.html">fabric.Object</a>}</span> thisArg</dd>
-					
-					</dl>
-				
-				
-				
-
-			<hr />
-		
-			<a name="setupState"> </a>
-			<div class="fixedFont">
-			
-			
-			<b>setupState</b>()
-			
-			</div>
-			<div class="description">
-				
-				
-					<br />
-					<i>Defined in: </i> <a href="../symbols/src/src_stateful.js.html">stateful.js</a>.
-				
-				
-			</div>
-			
-			
-			
-				
-				
-				
-				
-				
-				
-				
-
-			<hr />
-		
 			<a name="straighten"> </a>
 			<div class="fixedFont">
 			
@@ -1194,7 +1248,7 @@ JSON format must conform to the one of `fabric.Canvas#toJSON`
 				
 				
 					<br />
-					<i>Defined in: </i> <a href="../symbols/src/src_object_straightening.js.html">object_straightening.js</a>.
+					<i>Defined in: </i> <a href="../symbols/src/lib_fabric.js.html">fabric.js</a>.
 				
 				
 			</div>
@@ -1229,7 +1283,7 @@ JSON format must conform to the one of `fabric.Canvas#toJSON`
 				Straightens object, then rerenders canvas
 				
 					<br />
-					<i>Defined in: </i> <a href="../symbols/src/src_object_straightening.js.html">object_straightening.js</a>.
+					<i>Defined in: </i> <a href="../symbols/src/lib_fabric.js.html">fabric.js</a>.
 				
 				
 			</div>
@@ -1275,7 +1329,7 @@ JSON format must conform to the one of `fabric.Canvas#toJSON`
 				
 				
 					<br />
-					<i>Defined in: </i> <a href="../symbols/src/src_util_dom_misc.js.html">dom_misc.js</a>.
+					<i>Defined in: </i> <a href="../symbols/src/lib_fabric.js.html">fabric.js</a>.
 				
 				
 			</div>
@@ -1301,6 +1355,41 @@ JSON format must conform to the one of `fabric.Canvas#toJSON`
 				
 				
 
+			<hr />
+		
+			<a name="toJSON"> </a>
+			<div class="fixedFont">
+			
+			<span class="light">{<a href="../symbols/String.html">String</a>}</span>
+			<b>toJSON</b>()
+			
+			</div>
+			<div class="description">
+				Returns json representation of filter
+				
+					<br />
+					<i>Defined in: </i> <a href="../symbols/src/lib_fabric.js.html">fabric.js</a>.
+				
+				
+			</div>
+			
+			
+			
+				
+				
+				
+				
+				
+					<dl class="detailList">
+					<dt class="heading">Returns:</dt>
+					
+						<dd><span class="light fixedFont">{<a href="../symbols/String.html">String</a>}</span> json representation of filter</dd>
+					
+					</dl>
+				
+				
+				
+
 			
 		
 	
@@ -1315,5 +1404,5 @@ JSON format must conform to the one of `fabric.Canvas#toJSON`
 <!-- ============================== footer ================================= -->
 <div class="fineprint" style="clear:both">
 	
-	Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Wed Oct 17 2012 01:52:05 GMT+0200 (CEST)
+	Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Sun Nov 18 2012 19:25:23 GMT+0100 (CET)
 </div>

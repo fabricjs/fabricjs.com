@@ -199,6 +199,8 @@ ul.inheritsList {
 	
 	<li><a href="../symbols/fabric.Image.filters.Brightness.html">fabric.Image.filters.Brightness</a></li>
 	
+	<li><a href="../symbols/fabric.Image.filters.Convolute.html">fabric.Image.filters.Convolute</a></li>
+	
 	<li><a href="../symbols/fabric.Image.filters.GradientTransparency.html">fabric.Image.filters.GradientTransparency</a></li>
 	
 	<li><a href="../symbols/fabric.Image.filters.Grayscale.html">fabric.Image.filters.Grayscale</a></li>
@@ -206,6 +208,8 @@ ul.inheritsList {
 	<li><a href="../symbols/fabric.Image.filters.Invert.html">fabric.Image.filters.Invert</a></li>
 	
 	<li><a href="../symbols/fabric.Image.filters.Noise.html">fabric.Image.filters.Noise</a></li>
+	
+	<li><a href="../symbols/fabric.Image.filters.Pixelate.html">fabric.Image.filters.Pixelate</a></li>
 	
 	<li><a href="../symbols/fabric.Image.filters.RemoveWhite.html">fabric.Image.filters.RemoveWhite</a></li>
 	
@@ -274,7 +278,7 @@ ul.inheritsList {
 		fabric.StaticCanvas
 		
 		
-			<br /><i>Defined in: </i> <a href="../symbols/src/src_static_canvas.class.js.html">static_canvas.class.js</a>.
+			<br /><i>Defined in: </i> <a href="../symbols/src/lib_fabric.js.html">fabric.js</a>.
 		
 	</p>
 
@@ -403,9 +407,30 @@ Being passed context as first argument.</div>
 					<td class="attributes">&nbsp;</td>
 					<td class="nameDescription">
 						<div class="fixedFont">
-						<b><a href="../symbols/fabric.StaticCanvas.html#onFpsUpdate">onFpsUpdate</a></b>
+						<b><a href="../symbols/fabric.StaticCanvas.html#overlayImage">overlayImage</a></b>
 						</div>
-						<div class="description">Callback; invoked on every redraw of canvas and is being passed a number indicating current fps</div>
+						<div class="description">Overlay image of canvas instance
+Should be set via `setOverlayImage`</div>
+					</td>
+				</tr>
+			
+				<tr>
+					<td class="attributes">&nbsp;</td>
+					<td class="nameDescription">
+						<div class="fixedFont">
+						<b><a href="../symbols/fabric.StaticCanvas.html#overlayImageLeft">overlayImageLeft</a></b>
+						</div>
+						<div class="description">Left offset of overlay image (if present)</div>
+					</td>
+				</tr>
+			
+				<tr>
+					<td class="attributes">&nbsp;</td>
+					<td class="nameDescription">
+						<div class="fixedFont">
+						<b><a href="../symbols/fabric.StaticCanvas.html#overlayImageTop">overlayImageTop</a></b>
+						</div>
+						<div class="description">Top offset of overlay image (if present)</div>
 					</td>
 				</tr>
 			
@@ -761,7 +786,7 @@ This method is also attached as "resize" event handler of window</div>
 				<tr>
 					<td class="attributes">&nbsp;</td>
 					<td class="nameDescription">
-						<div class="fixedFont"><b><a href="../symbols/fabric.StaticCanvas.html#setOverlayImage">setOverlayImage</a></b>(url, callback)
+						<div class="fixedFont"><b><a href="../symbols/fabric.StaticCanvas.html#setOverlayImage">setOverlayImage</a></b>(url, callback, options)
 						</div>
 						<div class="description">Sets overlay image for this canvas</div>
 					</td>
@@ -1108,15 +1133,60 @@ Being passed context as first argument. See clipping canvas area in https://gith
 
 			<hr />
 		
-			<a name="onFpsUpdate"> </a>
+			<a name="overlayImage"> </a>
 			<div class="fixedFont">
 			
-			
-			<b>onFpsUpdate</b>
+			<span class="light">{<a href="../symbols/String.html">String</a>}</span>
+			<b>overlayImage</b>
 			
 			</div>
 			<div class="description">
-				Callback; invoked on every redraw of canvas and is being passed a number indicating current fps
+				Overlay image of canvas instance
+Should be set via `setOverlayImage`
+				
+				
+			</div>
+			
+			
+
+				
+				
+				
+				
+
+			<hr />
+		
+			<a name="overlayImageLeft"> </a>
+			<div class="fixedFont">
+			
+			<span class="light">{Number}</span>
+			<b>overlayImageLeft</b>
+			
+			</div>
+			<div class="description">
+				Left offset of overlay image (if present)
+				
+				
+			</div>
+			
+			
+
+				
+				
+				
+				
+
+			<hr />
+		
+			<a name="overlayImageTop"> </a>
+			<div class="fixedFont">
+			
+			<span class="light">{Number}</span>
+			<b>overlayImageTop</b>
+			
+			</div>
+			<div class="description">
+				Top offset of overlay image (if present)
 				
 				
 			</div>
@@ -1581,9 +1651,6 @@ This method is also attached as "resize" event handler of window
 			</div>
 			<div class="description">
 				
-				
-					<br />
-					<i>Defined in: </i> <a href="../symbols/src/src_node.js.html">node.js</a>.
 				
 				
 			</div>
@@ -2477,7 +2544,7 @@ Also used to render the group selection box.
 			<div class="fixedFont">
 			
 			<span class="light">{<a href="../symbols/fabric.Canvas.html">fabric.Canvas</a>}</span>
-			<b>setOverlayImage</b>(url, callback)
+			<b>setOverlayImage</b>(url, callback, options)
 			
 			</div>
 			<div class="description">
@@ -2503,6 +2570,12 @@ Also used to render the group selection box.
 							
 						</dt>
 						<dd>callback to invoke when image is loaded and set as an overlay</dd>
+					
+						<dt>
+							<span class="light fixedFont">{Object}</span> <b>options</b>
+							
+						</dt>
+						<dd>optional options to set for the overlay image</dd>
 					
 					</dl>
 				
@@ -2955,5 +3028,5 @@ Also used to render the group selection box.
 <!-- ============================== footer ================================= -->
 <div class="fineprint" style="clear:both">
 	
-	Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Wed Oct 17 2012 01:52:06 GMT+0200 (CEST)
+	Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Sun Nov 18 2012 19:25:25 GMT+0100 (CET)
 </div>

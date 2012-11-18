@@ -199,6 +199,8 @@ ul.inheritsList {
 	
 	<li><a href="../symbols/fabric.Image.filters.Brightness.html">fabric.Image.filters.Brightness</a></li>
 	
+	<li><a href="../symbols/fabric.Image.filters.Convolute.html">fabric.Image.filters.Convolute</a></li>
+	
 	<li><a href="../symbols/fabric.Image.filters.GradientTransparency.html">fabric.Image.filters.GradientTransparency</a></li>
 	
 	<li><a href="../symbols/fabric.Image.filters.Grayscale.html">fabric.Image.filters.Grayscale</a></li>
@@ -206,6 +208,8 @@ ul.inheritsList {
 	<li><a href="../symbols/fabric.Image.filters.Invert.html">fabric.Image.filters.Invert</a></li>
 	
 	<li><a href="../symbols/fabric.Image.filters.Noise.html">fabric.Image.filters.Noise</a></li>
+	
+	<li><a href="../symbols/fabric.Image.filters.Pixelate.html">fabric.Image.filters.Pixelate</a></li>
 	
 	<li><a href="../symbols/fabric.Image.filters.RemoveWhite.html">fabric.Image.filters.RemoveWhite</a></li>
 	
@@ -276,7 +280,7 @@ ul.inheritsList {
 		fabric.Canvas
 		
 		
-			<br /><i>Defined in: </i> <a href="../symbols/src/src_canvas.class.js.html">canvas.class.js</a>.
+			<br /><i>Defined in: </i> <a href="../symbols/src/lib_fabric.js.html">fabric.js</a>.
 		
 	</p>
 
@@ -392,6 +396,16 @@ ul.inheritsList {
 					<td class="attributes">&nbsp;</td>
 					<td class="nameDescription">
 						<div class="fixedFont">
+						<b><a href="../symbols/fabric.Canvas.html#perPixelTargetFind">perPixelTargetFind</a></b>
+						</div>
+						<div class="description">When true, object detection happens on per-pixel basis rather than on per-bounding-box</div>
+					</td>
+				</tr>
+			
+				<tr>
+					<td class="attributes">&nbsp;</td>
+					<td class="nameDescription">
+						<div class="fixedFont">
 						<b><a href="../symbols/fabric.Canvas.html#rotationCursor">rotationCursor</a></b>
 						</div>
 						<div class="description">Cursor value used for rotation point</div>
@@ -438,13 +452,23 @@ ul.inheritsList {
 					</td>
 				</tr>
 			
+				<tr>
+					<td class="attributes">&nbsp;</td>
+					<td class="nameDescription">
+						<div class="fixedFont">
+						<b><a href="../symbols/fabric.Canvas.html#targetFindTolerance">targetFindTolerance</a></b>
+						</div>
+						<div class="description">Number of pixels around target pixel to tolerate (consider active) during object detection</div>
+					</td>
+				</tr>
+			
 			</tbody>
 		</table>
 		
 		
 		
 		<dl class="inheritsList">
-		<dt>Fields borrowed from class <a href="../symbols/fabric.StaticCanvas.html">fabric.StaticCanvas</a>: </dt><dd><a href="../symbols/fabric.StaticCanvas.html#backgroundColor">backgroundColor</a>, <a href="../symbols/fabric.StaticCanvas.html#backgroundImage">backgroundImage</a>, <a href="../symbols/fabric.StaticCanvas.html#backgroundImageOpacity">backgroundImageOpacity</a>, <a href="../symbols/fabric.StaticCanvas.html#backgroundImageStretch">backgroundImageStretch</a>, <a href="../symbols/fabric.StaticCanvas.html#clipTo">clipTo</a>, <a href="../symbols/fabric.StaticCanvas.html#controlsAboveOverlay">controlsAboveOverlay</a>, <a href="../symbols/fabric.StaticCanvas.html#includeDefaultValues">includeDefaultValues</a>, <a href="../symbols/fabric.StaticCanvas.html#onFpsUpdate">onFpsUpdate</a>, <a href="../symbols/fabric.StaticCanvas.html#renderOnAddition">renderOnAddition</a>, <a href="../symbols/fabric.StaticCanvas.html#stateful">stateful</a></dd>
+		<dt>Fields borrowed from class <a href="../symbols/fabric.StaticCanvas.html">fabric.StaticCanvas</a>: </dt><dd><a href="../symbols/fabric.StaticCanvas.html#backgroundColor">backgroundColor</a>, <a href="../symbols/fabric.StaticCanvas.html#backgroundImage">backgroundImage</a>, <a href="../symbols/fabric.StaticCanvas.html#backgroundImageOpacity">backgroundImageOpacity</a>, <a href="../symbols/fabric.StaticCanvas.html#backgroundImageStretch">backgroundImageStretch</a>, <a href="../symbols/fabric.StaticCanvas.html#clipTo">clipTo</a>, <a href="../symbols/fabric.StaticCanvas.html#controlsAboveOverlay">controlsAboveOverlay</a>, <a href="../symbols/fabric.StaticCanvas.html#includeDefaultValues">includeDefaultValues</a>, <a href="../symbols/fabric.StaticCanvas.html#overlayImage">overlayImage</a>, <a href="../symbols/fabric.StaticCanvas.html#overlayImageLeft">overlayImageLeft</a>, <a href="../symbols/fabric.StaticCanvas.html#overlayImageTop">overlayImageTop</a>, <a href="../symbols/fabric.StaticCanvas.html#renderOnAddition">renderOnAddition</a>, <a href="../symbols/fabric.StaticCanvas.html#stateful">stateful</a></dd>
 		</dl>
 		
 	
@@ -800,6 +824,28 @@ ul.inheritsList {
 
 			<hr />
 		
+			<a name="perPixelTargetFind"> </a>
+			<div class="fixedFont">
+			
+			<span class="light">{Boolean}</span>
+			<b>perPixelTargetFind</b>
+			
+			</div>
+			<div class="description">
+				When true, object detection happens on per-pixel basis rather than on per-bounding-box
+				
+				
+			</div>
+			
+			
+
+				
+				
+				
+				
+
+			<hr />
+		
 			<a name="rotationCursor"> </a>
 			<div class="fixedFont">
 			
@@ -897,6 +943,28 @@ ul.inheritsList {
 			</div>
 			<div class="description">
 				Width of a line used in object/group selection
+				
+				
+			</div>
+			
+			
+
+				
+				
+				
+				
+
+			<hr />
+		
+			<a name="targetFindTolerance"> </a>
+			<div class="fixedFont">
+			
+			<span class="light">{Number}</span>
+			<b>targetFindTolerance</b>
+			
+			</div>
+			<div class="description">
+				Number of pixels around target pixel to tolerate (consider active) during object detection
 				
 				
 			</div>
@@ -1412,5 +1480,5 @@ ul.inheritsList {
 <!-- ============================== footer ================================= -->
 <div class="fineprint" style="clear:both">
 	
-	Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Wed Oct 17 2012 01:52:05 GMT+0200 (CEST)
+	Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Sun Nov 18 2012 19:25:24 GMT+0100 (CET)
 </div>

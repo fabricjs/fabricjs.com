@@ -1,18 +1,30 @@
-body { font-family: Garamond, "Hoefler Text", "Times New Roman", Times, serif; margin: 0; }
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
 
-#features { width: 960px; margin: 0 auto; text-align: center; }
-#features p { line-height: 1.2; text-align: left; text-indent: 15px }
-#features p.primary { text-align: center; text-indent: 0 }
-#features p.download { text-align: center; margin-top: 20px }
+body { font-family: "Open Sans", sans-serif !important; margin: 0; font-size: 14px !important; line-height: 1.4 !important; }
+
+a:hover, a:focus { text-decoration: none; }
+
+h3 { margin-top: 1.5em; }
+
+#features { width: 800px; margin: 30px auto 0 auto; text-align: center; }
+#features p { line-height: 1.5; text-align: left; text-indent: 15px }
+#features .primary { text-align: center; text-indent: 0; font-size: 20px; }
+#features .next-steps { text-align: center; margin-top: 20px; margin-bottom: 50px; }
+#features .next-steps a { font-size: 20px; }
+#features .next-steps a:nth-child(1) { color: red; margin-right: 20px; }
+#features .next-steps a:nth-child(2) { color: green; margin-right: 20px; }
+#features .next-steps a:nth-child(3) { color: blue; }
+
 #features img { box-shadow: rgba(0,0,0,0.3) 0 0 5px; margin-top: 20px; margin-bottom: 20px; width: 400px }
 #features img:hover { box-shadow: rgba(0,0,155,0.3) 0 0 5px; }
 
 #header { background: #333; margin: 0; padding: 0; color: #555; }
 #header li { display: inline-block; }
-#header li a { display: inline-block; padding: 10px; color: pink; font-variant: small-caps; text-decoration: none; }
+#header li a { display: inline-block; padding: 10px; color: pink; text-decoration: none; }
 #header li a:hover, #header li a:focus { text-decoration: underline; }
 #header li.secondary { float: right; }
-#header li.flattr { margin-top: 9px; margin-right: 10px; margin-left: 5px }
+#header li.flattr { margin-top: 9px; margin-left: 5px }
+
 .github iframe { margin-top: 8px; }
 .twitter iframe { margin-top: 8px; margin-right: -14px; margin-left: 10px; }
 .github span, .twitter span { color: pink }
@@ -28,14 +40,18 @@ h2 span { font-weight: normal; }
 
 b.bench { font-family: monospace; font-size: 18px; background: #ffc; padding: 0 3px; border: 1px solid #eee; line-height: 1.5 }
 
-.quick-features { text-align: left; display: inline-block; vertical-align: top; margin-left: 20px;
+.quick-features { font-weight: 300; text-align: left; display: inline-block; vertical-align: top; margin-left: 20px;
                   background: #ffc; box-shadow: 0 0 5px rgba(0,0,0,0.4);
-                  border-radius: 5px; padding: 10px 10px 5px 10px; font-size: 13px; margin-right: -300px; }
+                  border-radius: 5px; padding: 10px 10px 5px 10px; font-size: 11px; margin-right: -300px; }
+
 .quick-features h3 { margin-top: 0; text-align: center; }
 .quick-features ul { padding-left: 0; margin-bottom: 0; }
-.quick-features li { margin-bottom: 7px; list-style-position: inside; list-style-type: circle; }
+.quick-features li { margin-bottom: 5px; list-style-position: inside; list-style-type: circle; }
 .quick-features em { color: #777; }
 .kitchensink { display: inline-block; vertical-align: top; margin-top: 20px; }
+
+.note { font-size: 12px; margin-left: 10px; }
+.coming-soon { color: #f55; }
 
 /* Pretty printing styles. Used with prettify.js. */
 

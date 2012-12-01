@@ -357,7 +357,7 @@ Should be set via `setBackgroundImage`</div>
 						<div class="fixedFont">
 						<b><a href="../symbols/fabric.StaticCanvas.html#backgroundImageStretch">backgroundImageStretch</a></b>
 						</div>
-						<div class="description">Indicatus whether the background image should be stretched to fit the
+						<div class="description">Indicates whether the background image should be stretched to fit the
 dimensions of the canvas instance.</div>
 					</td>
 				</tr>
@@ -440,7 +440,7 @@ Should be set via `setOverlayImage`</div>
 						<div class="fixedFont">
 						<b><a href="../symbols/fabric.StaticCanvas.html#renderOnAddition">renderOnAddition</a></b>
 						</div>
-						<div class="description">Indicates whether fabric.Canvas#add should also re-render canvas.</div>
+						<div class="description">Indicates whether fabric.Canvas.prototype.add should also re-render canvas.</div>
 					</td>
 				</tr>
 			
@@ -480,8 +480,7 @@ Should be set via `setOverlayImage`</div>
 					<td class="nameDescription">
 						<div class="fixedFont"><b><a href="../symbols/fabric.StaticCanvas.html#add">add</a></b>()
 						</div>
-						<div class="description">Adds objects to canvas, then renders canvas;
-Objects should be instances of (or inherit from) fabric.Object</div>
+						<div class="description">Adds objects to canvas, then renders canvas (if `renderOnAddition` is not `false`).</div>
 					</td>
 				</tr>
 			
@@ -570,15 +569,6 @@ This method is also attached as "resize" event handler of window</div>
 				<tr>
 					<td class="attributes">&nbsp;</td>
 					<td class="nameDescription">
-						<div class="fixedFont"><b><a href="../symbols/fabric.StaticCanvas.html#createPNGStream">createPNGStream</a></b>()
-						</div>
-						<div class="description"></div>
-					</td>
-				</tr>
-			
-				<tr>
-					<td class="attributes">&nbsp;</td>
-					<td class="nameDescription">
 						<div class="fixedFont"><b><a href="../symbols/fabric.StaticCanvas.html#dispose">dispose</a></b>()
 						</div>
 						<div class="description">Clears a canvas element and removes all event handlers.</div>
@@ -608,7 +598,7 @@ This method is also attached as "resize" event handler of window</div>
 					<td class="nameDescription">
 						<div class="fixedFont"><b><a href="../symbols/fabric.StaticCanvas.html#getActiveGroup">getActiveGroup</a></b>()
 						</div>
-						<div class="description"></div>
+						<div class="description">Returns currently selected group of object, if any</div>
 					</td>
 				</tr>
 			
@@ -617,7 +607,7 @@ This method is also attached as "resize" event handler of window</div>
 					<td class="nameDescription">
 						<div class="fixedFont"><b><a href="../symbols/fabric.StaticCanvas.html#getActiveObject">getActiveObject</a></b>()
 						</div>
-						<div class="description"></div>
+						<div class="description">Returns currently selected object, if any</div>
 					</td>
 				</tr>
 			
@@ -814,7 +804,7 @@ This method is also attached as "resize" event handler of window</div>
 				<tr>
 					<td class="attributes">&nbsp;</td>
 					<td class="nameDescription">
-						<div class="fixedFont"><b><a href="../symbols/fabric.StaticCanvas.html#toDatalessJSON">toDatalessJSON</a></b>()
+						<div class="fixedFont"><b><a href="../symbols/fabric.StaticCanvas.html#toDatalessJSON">toDatalessJSON</a></b>(propertiesToInclude)
 						</div>
 						<div class="description">Returs dataless JSON representation of canvas</div>
 					</td>
@@ -823,7 +813,7 @@ This method is also attached as "resize" event handler of window</div>
 				<tr>
 					<td class="attributes">&nbsp;</td>
 					<td class="nameDescription">
-						<div class="fixedFont"><b><a href="../symbols/fabric.StaticCanvas.html#toDatalessObject">toDatalessObject</a></b>()
+						<div class="fixedFont"><b><a href="../symbols/fabric.StaticCanvas.html#toDatalessObject">toDatalessObject</a></b>(propertiesToInclude)
 						</div>
 						<div class="description">Returns dataless object representation of canvas</div>
 					</td>
@@ -868,7 +858,7 @@ This method is also attached as "resize" event handler of window</div>
 				<tr>
 					<td class="attributes">&nbsp;</td>
 					<td class="nameDescription">
-						<div class="fixedFont"><b><a href="../symbols/fabric.StaticCanvas.html#toObject">toObject</a></b>()
+						<div class="fixedFont"><b><a href="../symbols/fabric.StaticCanvas.html#toObject">toObject</a></b>(propertiesToInclude)
 						</div>
 						<div class="description">Returns object representation of canvas</div>
 					</td>
@@ -1029,7 +1019,7 @@ Should be set via `setBackgroundImage`
 			
 			</div>
 			<div class="description">
-				Indicatus whether the background image should be stretched to fit the
+				Indicates whether the background image should be stretched to fit the
 dimensions of the canvas instance.
 				
 				
@@ -1203,12 +1193,12 @@ Should be set via `setOverlayImage`
 			<a name="renderOnAddition"> </a>
 			<div class="fixedFont">
 			
-			
+			<span class="light">{Boolean}</span>
 			<b>renderOnAddition</b>
 			
 			</div>
 			<div class="description">
-				Indicates whether fabric.Canvas#add should also re-render canvas.
+				Indicates whether fabric.Canvas.prototype.add should also re-render canvas.
 Disabling this option could give a great performance boost when adding a lot of objects to canvas at once
 (followed by a manual rendering after addition)
 				
@@ -1262,7 +1252,7 @@ Disabling this option could give a great performance boost when adding a lot of 
 			
 			</div>
 			<div class="description">
-				Adds objects to canvas, then renders canvas;
+				Adds objects to canvas, then renders canvas (if `renderOnAddition` is not `false`).
 Objects should be instances of (or inherit from) fabric.Object
 				
 				
@@ -1270,6 +1260,17 @@ Objects should be instances of (or inherit from) fabric.Object
 			
 			
 			
+				
+					<dl class="detailList">
+					<dt class="heading">Parameters:</dt>
+					
+						<dt>
+							<b>...</b>
+							<i>Optional</i>
+						</dt>
+						<dd>Zero or more fabric instances</dd>
+					
+					</dl>
 				
 				
 				
@@ -1642,31 +1643,6 @@ This method is also attached as "resize" event handler of window
 
 			<hr />
 		
-			<a name="createPNGStream"> </a>
-			<div class="fixedFont">
-			
-			
-			<b>createPNGStream</b>()
-			
-			</div>
-			<div class="description">
-				
-				
-				
-			</div>
-			
-			
-			
-				
-				
-				
-				
-				
-				
-				
-
-			<hr />
-		
 			<a name="dispose"> </a>
 			<div class="fixedFont">
 			
@@ -1787,12 +1763,12 @@ This method is also attached as "resize" event handler of window
 			<a name="getActiveGroup"> </a>
 			<div class="fixedFont">
 			
-			
+			<span class="light">{<a href="../symbols/fabric.Group.html">fabric.Group</a>}</span>
 			<b>getActiveGroup</b>()
 			
 			</div>
 			<div class="description">
-				
+				Returns currently selected group of object, if any
 				
 				
 			</div>
@@ -1803,6 +1779,13 @@ This method is also attached as "resize" event handler of window
 				
 				
 				
+				
+					<dl class="detailList">
+					<dt class="heading">Returns:</dt>
+					
+						<dd><span class="light fixedFont">{<a href="../symbols/fabric.Group.html">fabric.Group</a>}</span> </dd>
+					
+					</dl>
 				
 				
 				
@@ -1812,12 +1795,12 @@ This method is also attached as "resize" event handler of window
 			<a name="getActiveObject"> </a>
 			<div class="fixedFont">
 			
-			
+			<span class="light">{<a href="../symbols/fabric.Object.html">fabric.Object</a>}</span>
 			<b>getActiveObject</b>()
 			
 			</div>
 			<div class="description">
-				
+				Returns currently selected object, if any
 				
 				
 			</div>
@@ -1828,6 +1811,13 @@ This method is also attached as "resize" event handler of window
 				
 				
 				
+				
+					<dl class="detailList">
+					<dt class="heading">Returns:</dt>
+					
+						<dd><span class="light fixedFont">{<a href="../symbols/fabric.Object.html">fabric.Object</a>}</span> </dd>
+					
+					</dl>
 				
 				
 				
@@ -2432,7 +2422,7 @@ Also used to render the group selection box.
 					
 						<dt>
 							<span class="light fixedFont">{Object}</span> <b>options</b>
-							
+							<i>Optional</i>
 						</dt>
 						<dd>optional options to set for the background image</dd>
 					
@@ -2573,7 +2563,7 @@ Also used to render the group selection box.
 					
 						<dt>
 							<span class="light fixedFont">{Object}</span> <b>options</b>
-							
+							<i>Optional</i>
 						</dt>
 						<dd>optional options to set for the overlay image</dd>
 					
@@ -2688,7 +2678,7 @@ Also used to render the group selection box.
 			<div class="fixedFont">
 			
 			<span class="light">{<a href="../symbols/String.html">String</a>}</span>
-			<b>toDatalessJSON</b>()
+			<b>toDatalessJSON</b>(propertiesToInclude)
 			
 			</div>
 			<div class="description">
@@ -2699,6 +2689,17 @@ Also used to render the group selection box.
 			
 			
 			
+				
+					<dl class="detailList">
+					<dt class="heading">Parameters:</dt>
+					
+						<dt>
+							<span class="light fixedFont">{<a href="../symbols/Array.html">Array</a>}</span> <b>propertiesToInclude</b>
+							
+						</dt>
+						<dd></dd>
+					
+					</dl>
 				
 				
 				
@@ -2720,7 +2721,7 @@ Also used to render the group selection box.
 			<div class="fixedFont">
 			
 			<span class="light">{Object}</span>
-			<b>toDatalessObject</b>()
+			<b>toDatalessObject</b>(propertiesToInclude)
 			
 			</div>
 			<div class="description">
@@ -2732,6 +2733,17 @@ Also used to render the group selection box.
 			
 			
 				
+					<dl class="detailList">
+					<dt class="heading">Parameters:</dt>
+					
+						<dt>
+							<span class="light fixedFont">{<a href="../symbols/Array.html">Array</a>}</span> <b>propertiesToInclude</b>
+							
+						</dt>
+						<dd></dd>
+					
+					</dl>
+				
 				
 				
 				
@@ -2739,7 +2751,7 @@ Also used to render the group selection box.
 					<dl class="detailList">
 					<dt class="heading">Returns:</dt>
 					
-						<dd><span class="light fixedFont">{Object}</span> </dd>
+						<dd><span class="light fixedFont">{Object}</span> object representation of an instance</dd>
 					
 					</dl>
 				
@@ -2924,7 +2936,7 @@ Also used to render the group selection box.
 			<div class="fixedFont">
 			
 			<span class="light">{Object}</span>
-			<b>toObject</b>()
+			<b>toObject</b>(propertiesToInclude)
 			
 			</div>
 			<div class="description">
@@ -2936,6 +2948,17 @@ Also used to render the group selection box.
 			
 			
 				
+					<dl class="detailList">
+					<dt class="heading">Parameters:</dt>
+					
+						<dt>
+							<span class="light fixedFont">{<a href="../symbols/Array.html">Array</a>}</span> <b>propertiesToInclude</b>
+							
+						</dt>
+						<dd></dd>
+					
+					</dl>
+				
 				
 				
 				
@@ -2943,7 +2966,7 @@ Also used to render the group selection box.
 					<dl class="detailList">
 					<dt class="heading">Returns:</dt>
 					
-						<dd><span class="light fixedFont">{Object}</span> </dd>
+						<dd><span class="light fixedFont">{Object}</span> object representation of an instance</dd>
 					
 					</dl>
 				
@@ -3028,5 +3051,5 @@ Also used to render the group selection box.
 <!-- ============================== footer ================================= -->
 <div class="fineprint" style="clear:both">
 	
-	Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Fri Nov 23 2012 13:48:57 GMT+0100 (CET)
+	Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Sat Dec 01 2012 18:22:39 GMT+0100 (CET)
 </div>

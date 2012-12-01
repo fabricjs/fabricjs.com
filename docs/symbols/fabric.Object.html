@@ -376,7 +376,7 @@ ul.inheritsList {
 						<div class="fixedFont">
 						<b><a href="../symbols/fabric.Object.html#cornersize">cornersize</a></b>
 						</div>
-						<div class="description"></div>
+						<div class="description">Size of object's corners</div>
 					</td>
 				</tr>
 			
@@ -506,7 +506,7 @@ ul.inheritsList {
 						<div class="fixedFont">
 						<b><a href="../symbols/fabric.Object.html#padding">padding</a></b>
 						</div>
-						<div class="description"></div>
+						<div class="description">Padding between object and its borders</div>
 					</td>
 				</tr>
 			
@@ -526,7 +526,7 @@ ul.inheritsList {
 						<div class="fixedFont">
 						<b><a href="../symbols/fabric.Object.html#rotate">rotate</a></b>
 						</div>
-						<div class="description"></div>
+						<div class="description">Alias for fabric.Object.prototype.setAngle</div>
 					</td>
 				</tr>
 			
@@ -587,7 +587,7 @@ as well as for history (undo/redo) purposes</div>
 						<div class="fixedFont">
 						<b><a href="../symbols/fabric.Object.html#stroke">stroke</a></b>
 						</div>
-						<div class="description"></div>
+						<div class="description">When `true`, an object is rendered via stroke</div>
 					</td>
 				</tr>
 			
@@ -607,7 +607,7 @@ as well as for history (undo/redo) purposes</div>
 						<div class="fixedFont">
 						<b><a href="../symbols/fabric.Object.html#strokeWidth">strokeWidth</a></b>
 						</div>
-						<div class="description"></div>
+						<div class="description">Width of a stroke used to render this object</div>
 					</td>
 				</tr>
 			
@@ -637,7 +637,7 @@ as well as for history (undo/redo) purposes</div>
 						<div class="fixedFont">
 						<b><a href="../symbols/fabric.Object.html#transparentCorners">transparentCorners</a></b>
 						</div>
-						<div class="description"></div>
+						<div class="description">When true, object's corners are rendered as transparent inside (i.e.</div>
 					</td>
 				</tr>
 			
@@ -739,7 +739,7 @@ as well as for history (undo/redo) purposes</div>
 				<tr>
 					<td class="attributes">&nbsp;</td>
 					<td class="nameDescription">
-						<div class="fixedFont"><b><a href="../symbols/fabric.Object.html#clone">clone</a></b>(options)
+						<div class="fixedFont"><b><a href="../symbols/fabric.Object.html#clone">clone</a></b>(callback, propertiesToInclude)
 						</div>
 						<div class="description">Clones an instance</div>
 					</td>
@@ -1054,7 +1054,7 @@ as well as for history (undo/redo) purposes</div>
 				<tr>
 					<td class="attributes">&nbsp;</td>
 					<td class="nameDescription">
-						<div class="fixedFont"><b><a href="../symbols/fabric.Object.html#toDatalessObject">toDatalessObject</a></b>()
+						<div class="fixedFont"><b><a href="../symbols/fabric.Object.html#toDatalessObject">toDatalessObject</a></b>(propertiesToInclude)
 						</div>
 						<div class="description">Returns (dataless) object representation of an instance</div>
 					</td>
@@ -1090,7 +1090,7 @@ as well as for history (undo/redo) purposes</div>
 				<tr>
 					<td class="attributes">&nbsp;</td>
 					<td class="nameDescription">
-						<div class="fixedFont"><b><a href="../symbols/fabric.Object.html#toJSON">toJSON</a></b>()
+						<div class="fixedFont"><b><a href="../symbols/fabric.Object.html#toJSON">toJSON</a></b>(propertiesToInclude)
 						</div>
 						<div class="description">Returns a JSON representation of an instance</div>
 					</td>
@@ -1099,7 +1099,7 @@ as well as for history (undo/redo) purposes</div>
 				<tr>
 					<td class="attributes">&nbsp;</td>
 					<td class="nameDescription">
-						<div class="fixedFont"><b><a href="../symbols/fabric.Object.html#toObject">toObject</a></b>()
+						<div class="fixedFont"><b><a href="../symbols/fabric.Object.html#toObject">toObject</a></b>(propertiesToInclude)
 						</div>
 						<div class="description">Returns an object representation of an instance</div>
 					</td>
@@ -1286,7 +1286,7 @@ as well as for history (undo/redo) purposes</div>
 			
 			</div>
 			<div class="description">
-				
+				Size of object's corners
 				
 				
 			</div>
@@ -1572,7 +1572,7 @@ as well as for history (undo/redo) purposes</div>
 			
 			</div>
 			<div class="description">
-				
+				Padding between object and its borders
 				
 				
 			</div>
@@ -1616,7 +1616,7 @@ as well as for history (undo/redo) purposes</div>
 			
 			</div>
 			<div class="description">
-				
+				Alias for fabric.Object.prototype.setAngle
 				
 				
 			</div>
@@ -1749,7 +1749,7 @@ as well as for history (undo/redo) purposes
 			
 			</div>
 			<div class="description">
-				
+				When `true`, an object is rendered via stroke
 				
 				
 			</div>
@@ -1793,7 +1793,7 @@ as well as for history (undo/redo) purposes
 			
 			</div>
 			<div class="description">
-				
+				Width of a stroke used to render this object
 				
 				
 			</div>
@@ -1859,7 +1859,7 @@ as well as for history (undo/redo) purposes
 			
 			</div>
 			<div class="description">
-				
+				When true, object's corners are rendered as transparent inside (i.e. stroke instead of fill)
 				
 				
 			</div>
@@ -2114,7 +2114,7 @@ as well as for history (undo/redo) purposes
 			<div class="fixedFont">
 			
 			<span class="light">{<a href="../symbols/fabric.Object.html">fabric.Object</a>}</span>
-			<b>clone</b>(options)
+			<b>clone</b>(callback, propertiesToInclude)
 			
 			</div>
 			<div class="description">
@@ -2130,10 +2130,16 @@ as well as for history (undo/redo) purposes
 					<dt class="heading">Parameters:</dt>
 					
 						<dt>
-							<span class="light fixedFont">{Object}</span> <b>options</b>
+							<span class="light fixedFont">{<a href="../symbols/Function.html">Function</a>}</span> <b>callback</b>
 							
 						</dt>
-						<dd>object</dd>
+						<dd>Callback is invoked with a clone as a first argument</dd>
+					
+						<dt>
+							<span class="light fixedFont">{<a href="../symbols/Array.html">Array</a>}</span> <b>propertiesToInclude</b>
+							
+						</dt>
+						<dd></dd>
 					
 					</dl>
 				
@@ -3439,8 +3445,8 @@ Requires public options: cornersize, padding
 			<a name="toDatalessObject"> </a>
 			<div class="fixedFont">
 			
-			
-			<b>toDatalessObject</b>()
+			<span class="light">{Object}</span>
+			<b>toDatalessObject</b>(propertiesToInclude)
 			
 			</div>
 			<div class="description">
@@ -3452,9 +3458,27 @@ Requires public options: cornersize, padding
 			
 			
 				
+					<dl class="detailList">
+					<dt class="heading">Parameters:</dt>
+					
+						<dt>
+							<span class="light fixedFont">{<a href="../symbols/Array.html">Array</a>}</span> <b>propertiesToInclude</b>
+							
+						</dt>
+						<dd></dd>
+					
+					</dl>
 				
 				
 				
+				
+				
+					<dl class="detailList">
+					<dt class="heading">Returns:</dt>
+					
+						<dd><span class="light fixedFont">{Object}</span> object representation of an instance</dd>
+					
+					</dl>
 				
 				
 				
@@ -3583,7 +3607,7 @@ Requires public options: cornersize, padding
 			<div class="fixedFont">
 			
 			<span class="light">{<a href="../symbols/String.html">String</a>}</span>
-			<b>toJSON</b>()
+			<b>toJSON</b>(propertiesToInclude)
 			
 			</div>
 			<div class="description">
@@ -3594,6 +3618,17 @@ Requires public options: cornersize, padding
 			
 			
 			
+				
+					<dl class="detailList">
+					<dt class="heading">Parameters:</dt>
+					
+						<dt>
+							<span class="light fixedFont">{<a href="../symbols/Array.html">Array</a>}</span> <b>propertiesToInclude</b>
+							
+						</dt>
+						<dd></dd>
+					
+					</dl>
 				
 				
 				
@@ -3615,7 +3650,7 @@ Requires public options: cornersize, padding
 			<div class="fixedFont">
 			
 			<span class="light">{Object}</span>
-			<b>toObject</b>()
+			<b>toObject</b>(propertiesToInclude)
 			
 			</div>
 			<div class="description">
@@ -3627,6 +3662,17 @@ Requires public options: cornersize, padding
 			
 			
 				
+					<dl class="detailList">
+					<dt class="heading">Parameters:</dt>
+					
+						<dt>
+							<span class="light fixedFont">{<a href="../symbols/Array.html">Array</a>}</span> <b>propertiesToInclude</b>
+							
+						</dt>
+						<dd></dd>
+					
+					</dl>
+				
 				
 				
 				
@@ -3634,7 +3680,7 @@ Requires public options: cornersize, padding
 					<dl class="detailList">
 					<dt class="heading">Returns:</dt>
 					
-						<dd><span class="light fixedFont">{Object}</span> </dd>
+						<dd><span class="light fixedFont">{Object}</span> object representation of an instance</dd>
 					
 					</dl>
 				
@@ -3723,5 +3769,5 @@ Requires public options: cornersize, padding
 <!-- ============================== footer ================================= -->
 <div class="fineprint" style="clear:both">
 	
-	Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Fri Nov 23 2012 13:48:56 GMT+0100 (CET)
+	Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Sat Dec 01 2012 18:22:39 GMT+0100 (CET)
 </div>

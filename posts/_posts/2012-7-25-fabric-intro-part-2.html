@@ -48,7 +48,7 @@ rect.animate('angle', '-5', { onChange: canvas.renderAll.bind(canvas) });
 
 <p>Remember that there's entire object model underneath that canvas surface. Objects have their own properties and relations, and canvas is only responsible for projecting their existence to the outside world.</p>
 
-<p>The reason <code>animate</code> doesn't automatically re-render canvas after each change is due to performance. After all, we can have hundreds or thousands animating objects on canvas, and it wouldn't be good if every one of them tried to re-render screen. But most of the time, you'll probably need to explicitly specify <code>canvas.renderAll</code> as "onChange" callback.</p>
+<p>The reason <code>animate</code> doesn't automatically re-render canvas after each change is due to performance. After all, we can have hundreds or thousands animating objects on canvas, and it wouldn't be good if every one of them tried to re-render screen. In the case of many objects, you could use something like <code>requestAnimationFrame</code> (or other timer-based) loop to render canvas continuosly on its own, without calling <code>renderAll</code> for each object. But most of the time, you'll probably need to explicitly specify <code>canvas.renderAll</code> as "onChange" callback.</p>
 
 <p>So which other options can we pass to animate?</p>
 
@@ -221,9 +221,9 @@ circle.setGradientFill({
 
 <p><img src="/article_assets/2_15.png" style="border:1px solid #eee"></p>
 
-<p>In the above example, we create a circle at 100,100 location, with 50px radius. We then set its fill to a gradient that spans throughout entire height of that circle, from white to black.</p>
+<p>In the above example, we create a circle at 100,100 location, with 50px radius. We then set its fill to a gradient that spans throughout entire height of that circle, from black to white.</p>
 
-<p>The argument passed to a method is an options object, which expects 2 coordinate pairs (x1, y1 and x2, y2), as well as "colorStops" object. Coordinates specify where gradient starts and where it ends. colorStops specify which colors a gradient is made of. You can define as many color stops as you want, as long as they range from 0 to 1 (e.g. 0, 0.1, 0.3, 0.5, 0.75, 1, etc.). 0 represents beginning of a gradient, 1 &mdash; its end.</p>
+<p>The argument passed to a method is an options object, which expects 2 coordinate pairs (x1, y1 and x2, y2), as well as "colorStops" object. Coordinates specify where gradient starts and where it ends. colorStops specify which colors a gradient is made of. You can define as many color stops as you want, as long as they range from 0 to 1 (e.g. 0, 0.1, 0.3, 0.5, 0.75, 1). 0 represents beginning of a gradient, 1 &mdash; its end.</p>
 
 <p>Here's an example of left-to-right red-blue gradient:</p>
 
@@ -305,7 +305,7 @@ var comicSansText = new fabric.Text("I'm in Comic Sans", {
 
 <h4>fontSize</h4>
 
-<p>Font size controls the size of rendered text. Note that unlike with other objects in Fabric, you can't change text's width/height properties directly. Instead, you'll need to change "fontSize" value in order to make text objects larger. Either that, or you can always use scaleX/scaleY properties.</p>
+<p>Font size controls the size of rendered text. Note that unlike with other objects in Fabric, you can't change text's width/height properties directly. Instead, you'll need to change "fontSize" value in order to make text objects larger or smaller. Either that, or you can always use scaleX/scaleY properties.</p>
 
 <pre>
 var text40 = new fabric.Text("I'm at fontSize 40", {
@@ -474,11 +474,11 @@ canvas.on('mouse:down', function(options) {
 });
 </pre>
 
-<p>The above example will log "an object was clicked!" if you click an object. It will also add the type of object clicked.</p>
+<p>The above example will log "an object was clicked!" if you click an object. It will also show the type of object clicked.</p>
 
 <p>So which other events are available in Fabric? Well, from mouse-level ones there are "<b>mouse:down</b>", "<b>mouse:move</b>", and "<b>mouse:up</b>". From generic ones, there are "<b>after:render</b>". Then there are selection-related events: "<b>before:selection:created</b>", "<b>selection:created</b>", "<b>selection:cleared</b>". And finally, object ones: "<b>object:modified</b>", "<b>object:selected</b>", "<b>object:moving</b>", "<b>object:scaling</b>", "<b>object:rotating</b>", and "<b>object:added</b>".</p>
 
-<p>Note that events like "object:moving" (or "object:scaling") are fired continuously every time an object is moved (or scaled) even by a pixel. On the other hand, events like "object:modified" or "selection:created" are fired only at the end of the action (object modification or selection creation).</p>
+<p>Note that events like "object:moving" (or "object:scaling") are fired continuously every time an object is moved (or scaled) even by one pixel. On the other hand, events like "object:modified" or "selection:created" are fired only at the end of the action (object modification or selection creation).</p>
 
 <p>Note how we attached events right onto canvas (<code>canvas.on('mouse:down', ...)</code>). As you can imagine, this means that events are all scoped to canvas instances. If you have multiple canvases on a page, you can attach different event listeners to each one of them. They're all independent and respect only events that were assigned to them.</p>
 

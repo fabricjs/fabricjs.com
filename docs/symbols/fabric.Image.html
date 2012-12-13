@@ -301,7 +301,7 @@ ul.inheritsList {
 					<div class="fixedFont">
 						<b><a href="../symbols/fabric.Image.html#constructor">fabric.Image</a></b>()
 					</div>
-					<div class="description"></div>
+					<div class="description">Image class</div>
 				</td>
 			</tr>
 		</tbody>
@@ -323,12 +323,12 @@ ul.inheritsList {
 			<tbody>
 			
 				<tr>
-					<td class="attributes">&nbsp;</td>
+					<td class="attributes">&lt;static&gt; &nbsp;</td>
 					<td class="nameDescription">
 						<div class="fixedFont">
-						<b><a href="../symbols/fabric.Image.html#active">active</a></b>
+						fabric.Image.<b><a href="../symbols/fabric.Image.html#.async">async</a></b>
 						</div>
-						<div class="description"></div>
+						<div class="description">Indicates that instances of this type are async</div>
 					</td>
 				</tr>
 			
@@ -356,9 +356,19 @@ ul.inheritsList {
 					<td class="attributes">&nbsp;</td>
 					<td class="nameDescription">
 						<div class="fixedFont">
+						<b><a href="../symbols/fabric.Image.html#getSvgSrc">getSvgSrc</a></b>
+						</div>
+						<div class="description">Alias for getSrc</div>
+					</td>
+				</tr>
+			
+				<tr>
+					<td class="attributes">&nbsp;</td>
+					<td class="nameDescription">
+						<div class="fixedFont">
 						<b><a href="../symbols/fabric.Image.html#type">type</a></b>
 						</div>
-						<div class="description"></div>
+						<div class="description">Type of an object</div>
 					</td>
 				</tr>
 			
@@ -518,7 +528,7 @@ ul.inheritsList {
 					<td class="nameDescription">
 						<div class="fixedFont"><b><a href="../symbols/fabric.Image.html#toSVG">toSVG</a></b>()
 						</div>
-						<div class="description">Returns svg representation of an instance</div>
+						<div class="description">Returns SVG representation of an instance</div>
 					</td>
 				</tr>
 			
@@ -547,7 +557,7 @@ ul.inheritsList {
 		</div>
 		
 		<div class="description">
-			
+			Image class
 			
 		</div>
 		
@@ -571,15 +581,15 @@ ul.inheritsList {
 			Field Detail
 		</div>
 		
-			<a name="active"> </a>
-			<div class="fixedFont">
+			<a name=".async"> </a>
+			<div class="fixedFont">&lt;static&gt; 
 			
 			<span class="light">{Boolean}</span>
-			<b>active</b>
+			<span class="light">fabric.Image.</span><b>async</b>
 			
 			</div>
 			<div class="description">
-				
+				Indicates that instances of this type are async
 				
 				
 			</div>
@@ -644,6 +654,28 @@ ul.inheritsList {
 
 			<hr />
 		
+			<a name="getSvgSrc"> </a>
+			<div class="fixedFont">
+			
+			
+			<b>getSvgSrc</b>
+			
+			</div>
+			<div class="description">
+				Alias for getSrc
+				
+				
+			</div>
+			
+			
+
+				
+				
+				
+				
+
+			<hr />
+		
 			<a name="type"> </a>
 			<div class="fixedFont">
 			
@@ -652,7 +684,7 @@ ul.inheritsList {
 			
 			</div>
 			<div class="description">
-				
+				Type of an object
 				
 				
 			</div>
@@ -859,16 +891,16 @@ ul.inheritsList {
 					<dt class="heading">Parameters:</dt>
 					
 						<dt>
-							<b>object</b>
+							<span class="light fixedFont">{Object}</span> <b>object</b>
 							
 						</dt>
-						<dd>{Object}</dd>
+						<dd></dd>
 					
 						<dt>
-							<b>callback</b>
-							
+							<span class="light fixedFont">{<a href="../symbols/Function.html">Function</a>}</span> <b>callback</b>
+							<i>Optional</i>
 						</dt>
-						<dd>{Function} optional</dd>
+						<dd>Callback to invoke when an image instance is created</dd>
 					
 					</dl>
 				
@@ -1028,7 +1060,7 @@ ul.inheritsList {
 			<a name="initialize"> </a>
 			<div class="fixedFont">
 			
-			
+			<span class="light">{<a href="../symbols/fabric.Image.html">fabric.Image</a>}</span>
 			<b>initialize</b>(element, options)
 			
 			</div>
@@ -1052,15 +1084,22 @@ ul.inheritsList {
 					
 						<dt>
 							<span class="light fixedFont">{Object}</span> <b>options</b>
-							
+							<i>Optional</i>
 						</dt>
-						<dd>optional</dd>
+						<dd>Options object</dd>
 					
 					</dl>
 				
 				
 				
 				
+				
+					<dl class="detailList">
+					<dt class="heading">Returns:</dt>
+					
+						<dd><span class="light fixedFont">{<a href="../symbols/fabric.Image.html">fabric.Image</a>}</span> </dd>
+					
+					</dl>
 				
 				
 				
@@ -1230,12 +1269,12 @@ ul.inheritsList {
 			<a name="toSVG"> </a>
 			<div class="fixedFont">
 			
-			<span class="light">{string}</span>
+			<span class="light">{<a href="../symbols/String.html">String</a>}</span>
 			<b>toSVG</b>()
 			
 			</div>
 			<div class="description">
-				Returns svg representation of an instance
+				Returns SVG representation of an instance
 				
 				
 			</div>
@@ -1250,7 +1289,7 @@ ul.inheritsList {
 					<dl class="detailList">
 					<dt class="heading">Returns:</dt>
 					
-						<dd><span class="light fixedFont">{string}</span> svg representation of an instance</dd>
+						<dd><span class="light fixedFont">{<a href="../symbols/String.html">String</a>}</span> svg representation of an instance</dd>
 					
 					</dl>
 				
@@ -1271,5 +1310,5 @@ ul.inheritsList {
 <!-- ============================== footer ================================= -->
 <div class="fineprint" style="clear:both">
 	
-	Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Tue Dec 04 2012 12:28:42 GMT+0100 (CET)
+	Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Thu Dec 13 2012 15:38:41 GMT+0100 (CET)
 </div>

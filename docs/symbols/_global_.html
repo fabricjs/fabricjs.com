@@ -189,6 +189,8 @@ ul.inheritsList {
 	
 	<li><a href="../symbols/fabric.Ellipse.html">fabric.Ellipse</a></li>
 	
+	<li><a href="../symbols/fabric.FreeDrawing.html">fabric.FreeDrawing</a></li>
+	
 	<li><a href="../symbols/fabric.Gradient.html">fabric.Gradient</a></li>
 	
 	<li><a href="../symbols/fabric.Group.html">fabric.Group</a></li>
@@ -307,6 +309,16 @@ ul.inheritsList {
 					</td>
 				</tr>
 			
+				<tr>
+					<td class="attributes">&nbsp;</td>
+					<td class="nameDescription">
+						<div class="fixedFont">
+						<b><a href="../symbols/_global_.html#FX_DURATION">FX_DURATION</a></b>
+						</div>
+						<div class="description">Animation duration (in ms) for fx* methods</div>
+					</td>
+				</tr>
+			
 			</tbody>
 		</table>
 		
@@ -394,9 +406,36 @@ ul.inheritsList {
 				<tr>
 					<td class="attributes">&nbsp;</td>
 					<td class="nameDescription">
+						<div class="fixedFont"><b><a href="../symbols/_global_.html#fxCenterObjectH">fxCenterObjectH</a></b>(object, callbacks)
+						</div>
+						<div class="description">Centers object horizontally with animation.</div>
+					</td>
+				</tr>
+			
+				<tr>
+					<td class="attributes">&nbsp;</td>
+					<td class="nameDescription">
+						<div class="fixedFont"><b><a href="../symbols/_global_.html#fxCenterObjectV">fxCenterObjectV</a></b>(object, callbacks)
+						</div>
+						<div class="description">Centers object vertically with animation.</div>
+					</td>
+				</tr>
+			
+				<tr>
+					<td class="attributes">&nbsp;</td>
+					<td class="nameDescription">
+						<div class="fixedFont"><b><a href="../symbols/_global_.html#fxRemove">fxRemove</a></b>(object, callback)
+						</div>
+						<div class="description">Same as `fabric.Canvas#remove` but animated</div>
+					</td>
+				</tr>
+			
+				<tr>
+					<td class="attributes">&nbsp;</td>
+					<td class="nameDescription">
 						<div class="fixedFont"><b><a href="../symbols/_global_.html#fxStraighten">fxStraighten</a></b>(callbacks)
 						</div>
-						<div class="description"></div>
+						<div class="description">Same as fabric.Object.prototype.straghten but with animation</div>
 					</td>
 				</tr>
 			
@@ -405,7 +444,7 @@ ul.inheritsList {
 					<td class="nameDescription">
 						<div class="fixedFont"><b><a href="../symbols/_global_.html#fxStraightenObject">fxStraightenObject</a></b>(object)
 						</div>
-						<div class="description">Same as `fabric.Canvas#straightenObject`, but animated</div>
+						<div class="description">Same as fabric.Canvas.prototype.straightenObject, but animated</div>
 					</td>
 				</tr>
 			
@@ -470,7 +509,7 @@ JSON format must conform to the one of `fabric.Canvas#toJSON`</div>
 					<td class="nameDescription">
 						<div class="fixedFont"><b><a href="../symbols/_global_.html#straighten">straighten</a></b>()
 						</div>
-						<div class="description"></div>
+						<div class="description">Straightens an object (rotating it from current angle to one of 0, 90, 180, 270, etc.</div>
 					</td>
 				</tr>
 			
@@ -519,6 +558,31 @@ JSON format must conform to the one of `fabric.Canvas#toJSON`</div>
 			</div>
 			<div class="description">
 				
+				
+					<br />
+					<i>Defined in: </i> <a href="../symbols/src/lib_fabric.js.html">fabric.js</a>.
+				
+				
+			</div>
+			
+			
+
+				
+				
+				
+				
+
+			<hr />
+		
+			<a name="FX_DURATION"> </a>
+			<div class="fixedFont">
+			
+			<span class="light">{Number}</span>
+			<b>FX_DURATION</b>
+			
+			</div>
+			<div class="description">
+				Animation duration (in ms) for fx* methods
 				
 					<br />
 					<i>Defined in: </i> <a href="../symbols/src/lib_fabric.js.html">fabric.js</a>.
@@ -797,6 +861,162 @@ but leaves data empty (so that you can populate it with your own)
 
 			<hr />
 		
+			<a name="fxCenterObjectH"> </a>
+			<div class="fixedFont">
+			
+			<span class="light">{<a href="../symbols/fabric.Canvas.html">fabric.Canvas</a>}</span>
+			<b>fxCenterObjectH</b>(object, callbacks)
+			
+			</div>
+			<div class="description">
+				Centers object horizontally with animation.
+				
+					<br />
+					<i>Defined in: </i> <a href="../symbols/src/lib_fabric.js.html">fabric.js</a>.
+				
+				
+			</div>
+			
+			
+			
+				
+					<dl class="detailList">
+					<dt class="heading">Parameters:</dt>
+					
+						<dt>
+							<span class="light fixedFont">{<a href="../symbols/fabric.Object.html">fabric.Object</a>}</span> <b>object</b>
+							
+						</dt>
+						<dd>Object to center</dd>
+					
+						<dt>
+							<span class="light fixedFont">{Object}</span> <b>callbacks</b>
+							<i>Optional</i>
+						</dt>
+						<dd>Callbacks object with optional "onComplete" and/or "onChange" properties</dd>
+					
+					</dl>
+				
+				
+				
+				
+				
+					<dl class="detailList">
+					<dt class="heading">Returns:</dt>
+					
+						<dd><span class="light fixedFont">{<a href="../symbols/fabric.Canvas.html">fabric.Canvas</a>}</span> thisArg</dd>
+					
+					</dl>
+				
+				
+				
+
+			<hr />
+		
+			<a name="fxCenterObjectV"> </a>
+			<div class="fixedFont">
+			
+			<span class="light">{<a href="../symbols/fabric.Canvas.html">fabric.Canvas</a>}</span>
+			<b>fxCenterObjectV</b>(object, callbacks)
+			
+			</div>
+			<div class="description">
+				Centers object vertically with animation.
+				
+					<br />
+					<i>Defined in: </i> <a href="../symbols/src/lib_fabric.js.html">fabric.js</a>.
+				
+				
+			</div>
+			
+			
+			
+				
+					<dl class="detailList">
+					<dt class="heading">Parameters:</dt>
+					
+						<dt>
+							<span class="light fixedFont">{<a href="../symbols/fabric.Object.html">fabric.Object</a>}</span> <b>object</b>
+							
+						</dt>
+						<dd>Object to center</dd>
+					
+						<dt>
+							<span class="light fixedFont">{Object}</span> <b>callbacks</b>
+							<i>Optional</i>
+						</dt>
+						<dd>Callbacks object with optional "onComplete" and/or "onChange" properties</dd>
+					
+					</dl>
+				
+				
+				
+				
+				
+					<dl class="detailList">
+					<dt class="heading">Returns:</dt>
+					
+						<dd><span class="light fixedFont">{<a href="../symbols/fabric.Canvas.html">fabric.Canvas</a>}</span> thisArg</dd>
+					
+					</dl>
+				
+				
+				
+
+			<hr />
+		
+			<a name="fxRemove"> </a>
+			<div class="fixedFont">
+			
+			<span class="light">{<a href="../symbols/fabric.Canvas.html">fabric.Canvas</a>}</span>
+			<b>fxRemove</b>(object, callback)
+			
+			</div>
+			<div class="description">
+				Same as `fabric.Canvas#remove` but animated
+				
+					<br />
+					<i>Defined in: </i> <a href="../symbols/src/lib_fabric.js.html">fabric.js</a>.
+				
+				
+			</div>
+			
+			
+			
+				
+					<dl class="detailList">
+					<dt class="heading">Parameters:</dt>
+					
+						<dt>
+							<span class="light fixedFont">{<a href="../symbols/fabric.Object.html">fabric.Object</a>}</span> <b>object</b>
+							
+						</dt>
+						<dd>Object to remove</dd>
+					
+						<dt>
+							<span class="light fixedFont">{<a href="../symbols/Function.html">Function</a>}</span> <b>callback</b>
+							
+						</dt>
+						<dd>Callback, invoked on effect completion</dd>
+					
+					</dl>
+				
+				
+				
+				
+				
+					<dl class="detailList">
+					<dt class="heading">Returns:</dt>
+					
+						<dd><span class="light fixedFont">{<a href="../symbols/fabric.Canvas.html">fabric.Canvas</a>}</span> thisArg</dd>
+					
+					</dl>
+				
+				
+				
+
+			<hr />
+		
 			<a name="fxStraighten"> </a>
 			<div class="fixedFont">
 			
@@ -805,7 +1025,7 @@ but leaves data empty (so that you can populate it with your own)
 			
 			</div>
 			<div class="description">
-				
+				Same as fabric.Object.prototype.straghten but with animation
 				
 					<br />
 					<i>Defined in: </i> <a href="../symbols/src/lib_fabric.js.html">fabric.js</a>.
@@ -852,7 +1072,7 @@ but leaves data empty (so that you can populate it with your own)
 			
 			</div>
 			<div class="description">
-				Same as `fabric.Canvas#straightenObject`, but animated
+				Same as fabric.Canvas.prototype.straightenObject, but animated
 				
 					<br />
 					<i>Defined in: </i> <a href="../symbols/src/lib_fabric.js.html">fabric.js</a>.
@@ -1153,7 +1373,7 @@ JSON format must conform to the one of `fabric.Canvas#toJSON`
 			
 			</div>
 			<div class="description">
-				
+				Straightens an object (rotating it from current angle to one of 0, 90, 180, 270, etc. depending on which is closer)
 				
 					<br />
 					<i>Defined in: </i> <a href="../symbols/src/lib_fabric.js.html">fabric.js</a>.
@@ -1277,5 +1497,5 @@ JSON format must conform to the one of `fabric.Canvas#toJSON`
 <!-- ============================== footer ================================= -->
 <div class="fineprint" style="clear:both">
 	
-	Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Thu Dec 13 2012 15:38:40 GMT+0100 (CET)
+	Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Sun Dec 16 2012 20:43:50 GMT+0100 (CET)
 </div>

@@ -189,6 +189,8 @@ ul.inheritsList {
 	
 	<li><a href="../symbols/fabric.Ellipse.html">fabric.Ellipse</a></li>
 	
+	<li><a href="../symbols/fabric.FreeDrawing.html">fabric.FreeDrawing</a></li>
+	
 	<li><a href="../symbols/fabric.Gradient.html">fabric.Gradient</a></li>
 	
 	<li><a href="../symbols/fabric.Group.html">fabric.Group</a></li>
@@ -299,7 +301,7 @@ ul.inheritsList {
 					<div class="fixedFont">
 						<b><a href="../symbols/fabric.Intersection.html#constructor">fabric.Intersection</a></b>(status)
 					</div>
-					<div class="description"></div>
+					<div class="description">Intersection class</div>
 				</td>
 			</tr>
 		</tbody>
@@ -326,18 +328,18 @@ ul.inheritsList {
 				<tr>
 					<td class="attributes">&nbsp;</td>
 					<td class="nameDescription">
-						<div class="fixedFont"><b><a href="../symbols/fabric.Intersection.html#appendPoint">appendPoint</a></b>(status)
+						<div class="fixedFont"><b><a href="../symbols/fabric.Intersection.html#appendPoint">appendPoint</a></b>(point)
 						</div>
-						<div class="description"></div>
+						<div class="description">Appends a point to intersection</div>
 					</td>
 				</tr>
 			
 				<tr>
 					<td class="attributes">&nbsp;</td>
 					<td class="nameDescription">
-						<div class="fixedFont"><b><a href="../symbols/fabric.Intersection.html#appendPoints">appendPoints</a></b>(status)
+						<div class="fixedFont"><b><a href="../symbols/fabric.Intersection.html#appendPoints">appendPoints</a></b>(points)
 						</div>
-						<div class="description"></div>
+						<div class="description">Appends points to intersection</div>
 					</td>
 				</tr>
 			
@@ -346,7 +348,7 @@ ul.inheritsList {
 					<td class="nameDescription">
 						<div class="fixedFont"><b><a href="../symbols/fabric.Intersection.html#init">init</a></b>(status)
 						</div>
-						<div class="description"></div>
+						<div class="description">Constructor</div>
 					</td>
 				</tr>
 			
@@ -355,7 +357,7 @@ ul.inheritsList {
 					<td class="nameDescription">
 						<div class="fixedFont">fabric.Intersection.<b><a href="../symbols/fabric.Intersection.html#.intersectLineLine">intersectLineLine</a></b>(a1, a2, b1, b2)
 						</div>
-						<div class="description"></div>
+						<div class="description">Checks if one line intersects another</div>
 					</td>
 				</tr>
 			
@@ -364,7 +366,7 @@ ul.inheritsList {
 					<td class="nameDescription">
 						<div class="fixedFont">fabric.Intersection.<b><a href="../symbols/fabric.Intersection.html#.intersectLinePolygon">intersectLinePolygon</a></b>(a1, a2, points)
 						</div>
-						<div class="description"></div>
+						<div class="description">Checks if line intersects polygon</div>
 					</td>
 				</tr>
 			
@@ -373,7 +375,7 @@ ul.inheritsList {
 					<td class="nameDescription">
 						<div class="fixedFont">fabric.Intersection.<b><a href="../symbols/fabric.Intersection.html#.intersectPolygonPolygon">intersectPolygonPolygon</a></b>(points1, points2)
 						</div>
-						<div class="description"></div>
+						<div class="description">Checks if polygon intersects another polygon</div>
 					</td>
 				</tr>
 			
@@ -382,7 +384,7 @@ ul.inheritsList {
 					<td class="nameDescription">
 						<div class="fixedFont">fabric.Intersection.<b><a href="../symbols/fabric.Intersection.html#.intersectPolygonRectangle">intersectPolygonRectangle</a></b>(points, r1, r2)
 						</div>
-						<div class="description"></div>
+						<div class="description">Checks if polygon intersects rectangle</div>
 					</td>
 				</tr>
 			
@@ -407,7 +409,7 @@ ul.inheritsList {
 		</div>
 		
 		<div class="description">
-			
+			Intersection class
 			
 		</div>
 		
@@ -449,11 +451,11 @@ ul.inheritsList {
 			<div class="fixedFont">
 			
 			
-			<b>appendPoint</b>(status)
+			<b>appendPoint</b>(point)
 			
 			</div>
 			<div class="description">
-				
+				Appends a point to intersection
 				
 				
 			</div>
@@ -465,7 +467,7 @@ ul.inheritsList {
 					<dt class="heading">Parameters:</dt>
 					
 						<dt>
-							<span class="light fixedFont">{<a href="../symbols/String.html">String</a>}</span> <b>status</b>
+							<span class="light fixedFont">{<a href="../symbols/fabric.Point.html">fabric.Point</a>}</span> <b>point</b>
 							
 						</dt>
 						<dd></dd>
@@ -485,11 +487,11 @@ ul.inheritsList {
 			<div class="fixedFont">
 			
 			
-			<b>appendPoints</b>(status)
+			<b>appendPoints</b>(points)
 			
 			</div>
 			<div class="description">
-				
+				Appends points to intersection
 				
 				
 			</div>
@@ -501,7 +503,7 @@ ul.inheritsList {
 					<dt class="heading">Parameters:</dt>
 					
 						<dt>
-							<span class="light fixedFont">{<a href="../symbols/String.html">String</a>}</span> <b>status</b>
+							<span class="light fixedFont">{<a href="../symbols/Array.html">Array</a>}</span> <b>points</b>
 							
 						</dt>
 						<dd></dd>
@@ -525,7 +527,7 @@ ul.inheritsList {
 			
 			</div>
 			<div class="description">
-				
+				Constructor
 				
 				
 			</div>
@@ -556,12 +558,12 @@ ul.inheritsList {
 			<a name=".intersectLineLine"> </a>
 			<div class="fixedFont">&lt;static&gt; 
 			
-			
+			<span class="light">{<a href="../symbols/fabric.Intersection.html">fabric.Intersection</a>}</span>
 			<span class="light">fabric.Intersection.</span><b>intersectLineLine</b>(a1, a2, b1, b2)
 			
 			</div>
 			<div class="description">
-				
+				Checks if one line intersects another
 				
 				
 			</div>
@@ -573,25 +575,25 @@ ul.inheritsList {
 					<dt class="heading">Parameters:</dt>
 					
 						<dt>
-							<b>a1</b>
+							<span class="light fixedFont">{<a href="../symbols/fabric.Point.html">fabric.Point</a>}</span> <b>a1</b>
 							
 						</dt>
 						<dd></dd>
 					
 						<dt>
-							<b>a2</b>
+							<span class="light fixedFont">{<a href="../symbols/fabric.Point.html">fabric.Point</a>}</span> <b>a2</b>
 							
 						</dt>
 						<dd></dd>
 					
 						<dt>
-							<b>b1</b>
+							<span class="light fixedFont">{<a href="../symbols/fabric.Point.html">fabric.Point</a>}</span> <b>b1</b>
 							
 						</dt>
 						<dd></dd>
 					
 						<dt>
-							<b>b2</b>
+							<span class="light fixedFont">{<a href="../symbols/fabric.Point.html">fabric.Point</a>}</span> <b>b2</b>
 							
 						</dt>
 						<dd></dd>
@@ -601,6 +603,13 @@ ul.inheritsList {
 				
 				
 				
+				
+					<dl class="detailList">
+					<dt class="heading">Returns:</dt>
+					
+						<dd><span class="light fixedFont">{<a href="../symbols/fabric.Intersection.html">fabric.Intersection</a>}</span> </dd>
+					
+					</dl>
 				
 				
 				
@@ -610,12 +619,12 @@ ul.inheritsList {
 			<a name=".intersectLinePolygon"> </a>
 			<div class="fixedFont">&lt;static&gt; 
 			
-			
+			<span class="light">{<a href="../symbols/fabric.Intersection.html">fabric.Intersection</a>}</span>
 			<span class="light">fabric.Intersection.</span><b>intersectLinePolygon</b>(a1, a2, points)
 			
 			</div>
 			<div class="description">
-				
+				Checks if line intersects polygon
 				
 				
 			</div>
@@ -627,19 +636,19 @@ ul.inheritsList {
 					<dt class="heading">Parameters:</dt>
 					
 						<dt>
-							<b>a1</b>
+							<span class="light fixedFont">{<a href="../symbols/fabric.Point.html">fabric.Point</a>}</span> <b>a1</b>
 							
 						</dt>
 						<dd></dd>
 					
 						<dt>
-							<b>a2</b>
+							<span class="light fixedFont">{<a href="../symbols/fabric.Point.html">fabric.Point</a>}</span> <b>a2</b>
 							
 						</dt>
 						<dd></dd>
 					
 						<dt>
-							<b>points</b>
+							<span class="light fixedFont">{<a href="../symbols/Array.html">Array</a>}</span> <b>points</b>
 							
 						</dt>
 						<dd></dd>
@@ -649,6 +658,13 @@ ul.inheritsList {
 				
 				
 				
+				
+					<dl class="detailList">
+					<dt class="heading">Returns:</dt>
+					
+						<dd><span class="light fixedFont">{<a href="../symbols/fabric.Intersection.html">fabric.Intersection</a>}</span> </dd>
+					
+					</dl>
 				
 				
 				
@@ -658,12 +674,12 @@ ul.inheritsList {
 			<a name=".intersectPolygonPolygon"> </a>
 			<div class="fixedFont">&lt;static&gt; 
 			
-			
+			<span class="light">{<a href="../symbols/fabric.Intersection.html">fabric.Intersection</a>}</span>
 			<span class="light">fabric.Intersection.</span><b>intersectPolygonPolygon</b>(points1, points2)
 			
 			</div>
 			<div class="description">
-				
+				Checks if polygon intersects another polygon
 				
 				
 			</div>
@@ -675,13 +691,13 @@ ul.inheritsList {
 					<dt class="heading">Parameters:</dt>
 					
 						<dt>
-							<b>points1</b>
+							<span class="light fixedFont">{<a href="../symbols/Array.html">Array</a>}</span> <b>points1</b>
 							
 						</dt>
 						<dd></dd>
 					
 						<dt>
-							<b>points2</b>
+							<span class="light fixedFont">{<a href="../symbols/Array.html">Array</a>}</span> <b>points2</b>
 							
 						</dt>
 						<dd></dd>
@@ -691,6 +707,13 @@ ul.inheritsList {
 				
 				
 				
+				
+					<dl class="detailList">
+					<dt class="heading">Returns:</dt>
+					
+						<dd><span class="light fixedFont">{<a href="../symbols/fabric.Intersection.html">fabric.Intersection</a>}</span> </dd>
+					
+					</dl>
 				
 				
 				
@@ -700,12 +723,12 @@ ul.inheritsList {
 			<a name=".intersectPolygonRectangle"> </a>
 			<div class="fixedFont">&lt;static&gt; 
 			
-			
+			<span class="light">{<a href="../symbols/fabric.Intersection.html">fabric.Intersection</a>}</span>
 			<span class="light">fabric.Intersection.</span><b>intersectPolygonRectangle</b>(points, r1, r2)
 			
 			</div>
 			<div class="description">
-				
+				Checks if polygon intersects rectangle
 				
 				
 			</div>
@@ -717,19 +740,19 @@ ul.inheritsList {
 					<dt class="heading">Parameters:</dt>
 					
 						<dt>
-							<b>points</b>
+							<span class="light fixedFont">{<a href="../symbols/Array.html">Array</a>}</span> <b>points</b>
 							
 						</dt>
 						<dd></dd>
 					
 						<dt>
-							<b>r1</b>
+							<span class="light fixedFont">{Number}</span> <b>r1</b>
 							
 						</dt>
 						<dd></dd>
 					
 						<dt>
-							<b>r2</b>
+							<span class="light fixedFont">{Number}</span> <b>r2</b>
 							
 						</dt>
 						<dd></dd>
@@ -739,6 +762,13 @@ ul.inheritsList {
 				
 				
 				
+				
+					<dl class="detailList">
+					<dt class="heading">Returns:</dt>
+					
+						<dd><span class="light fixedFont">{<a href="../symbols/fabric.Intersection.html">fabric.Intersection</a>}</span> </dd>
+					
+					</dl>
 				
 				
 				
@@ -757,5 +787,5 @@ ul.inheritsList {
 <!-- ============================== footer ================================= -->
 <div class="fineprint" style="clear:both">
 	
-	Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Thu Dec 13 2012 15:38:41 GMT+0100 (CET)
+	Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Sun Dec 16 2012 20:43:51 GMT+0100 (CET)
 </div>

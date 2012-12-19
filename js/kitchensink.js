@@ -411,30 +411,15 @@
       fill: '#' + getRandomColor(),
       scaleX: 0.5,
       scaleY: 0.5,
-      fontWeight: ''
+      fontWeight: '',
+      originX: 'left',
     });
     canvas.add(textSample);
     updateComplexity();
   };
 
-
-  document.onkeydown = function(e) {
-    var obj = canvas.getActiveObject() || canvas.getActiveGroup();
-    if (obj && e.keyCode === 8) {
-      // this is horrible. need to fix, so that unified interface can be used
-      if (obj.type === 'group') {
-        // var groupObjects = obj.getObjects();
-        //         canvas.discardActiveGroup();
-        //         groupObjects.forEach(function(obj) {
-        //           canvas.remove(obj);
-        //         });
-      }
-      else {
-        //canvas.remove(obj);
-      }
-      canvas.renderAll();
-      // return false;
-    }
+  document.onkeyup = function(e) {
+    canvas.renderAll();
   };
 
   setTimeout(function() {
@@ -477,8 +462,9 @@
           canvas.discardActiveObject();
         }
         else {
-          activeObject.text = this.value;
+          activeObject.setText(this.value);
         }
+        console.log('rendering changed text');
         canvas.renderAll();
       }
     };
@@ -575,7 +561,9 @@
     textAlignSwitch.onchange = function() {
       var activeObject = canvas.getActiveObject();
       if (activeObject && activeObject.type === 'text') {
-        activeObject.textAlign = this.value.toLowerCase();
+        var value = this.value.toLowerCase();
+        activeObject.textAlign = value;
+        canvas._adjustPosition && canvas._adjustPosition(activeObject, value === 'justify' ? 'left' : value);
         canvas.renderAll();
       }
     };
@@ -605,12 +593,34 @@
     };
   }
 
+  var bgColorField = document.getElementById('text-lines-bg-color');
+  if (bgColorField) {
+    bgColorField.onchange = function() {
+      var activeObject = canvas.getActiveObject();
+      if (activeObject && activeObject.type === 'text') {
+        activeObject.textBackgroundColor = this.value;
+        canvas.renderAll();
+      }
+    };
+  }
+
   var strokeColorField = document.getElementById('text-stroke-color');
   if (strokeColorField) {
     strokeColorField.onchange = function() {
       var activeObject = canvas.getActiveObject();
       if (activeObject && activeObject.type === 'text') {
         activeObject.strokeStyle = this.value;
+        canvas.renderAll();
+      }
+    };
+  }
+
+  var strokeWidthField = document.getElementById('text-stroke-width');
+  if (strokeWidthField) {
+    strokeWidthField.onchange = function() {
+      var activeObject = canvas.getActiveObject();
+      if (activeObject && activeObject.type === 'text') {
+        activeObject.strokeWidth = this.value;
         canvas.renderAll();
       }
     };

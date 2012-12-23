@@ -43,8 +43,6 @@ title: SVG Rendering
     16 /* image doesn't render properly */,
     20 /* very intense shape */,
     33, 34, 35 /* very intense shapes */,
-    52 /* image doesn't render properly */,
-    56 /* image doesn't render properly */,
     66 /* the shape is too big */,
     68 /* svg has parsing error */,
     72, 73 /* shapes are too big */,
@@ -53,12 +51,14 @@ title: SVG Rendering
     149 /* too big? */,
     150 /* svg parse error */
   ];
-  for (var i = 1; i <= 154; i++) {
-    if (blacklist.indexOf(i) == -1) {
-      document.write('<div class="test"><div class="block left"><p>Canvas #' + i + '</p>');
-      document.write('<canvas id="c' + i + '" width="600" height="600"></canvas></div>');
-      document.write('<div class="block"><p><a href="../assets/' + i + '.svg">SVG</a></p>');
-      document.write('<iframe src="../assets/' + i + '.svg"></iframe></div></div><br>');
+  for (var i = 1; i <= 155; i++) {
+    if (blacklist.indexOf(i) === -1) {
+      document.write(
+        '<div class="test"><div class="block left"><p>Canvas #' + i + '</p>' +
+        '<canvas id="c' + i + '" width="600" height="600"></canvas></div>' +
+        '<div class="block"><p><a href="../assets/' + i + '.svg">SVG</a></p>' +
+        '<iframe src="../assets/' + i + '.svg"></iframe></div></div><br>'
+      );
       initCanvas(i);
     }
   }

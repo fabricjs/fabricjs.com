@@ -6,7 +6,7 @@
     'top':          0,
     'width':        0,
     'height':       0,
-    'fill':         'rgb(0,0,0)',
+    'fill':         '',
     'overlayFill':  null,
     'stroke':       null,
     'strokeWidth':  1,
@@ -21,6 +21,8 @@
     'hasControls':  true,
     'hasBorders':   true,
     'hasRotatingPoint': false,
+    'transparentCorners': true,
+    'perPixelTargetFind': false,
     'paths':        getPathObjects()
   };
 

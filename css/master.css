@@ -1,10 +1,10 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
 
-body { font-family: "Open Sans", sans-serif !important; margin: 0; font-size: 14px !important; line-height: 1.4 !important; color: #333; }
+body { font-family: "Open Sans", sans-serif !important; margin: 0; font-size: 14px !important; line-height: 1.5 !important; color: #333; }
 
 a:hover, a:focus { text-decoration: none; }
 
-h3 { margin-top: 1.5em; }
+h3, h4 { margin-top: 1.5em !important; }
 
 #features { width: 800px; margin: 30px auto 0 auto; text-align: center; }
 #features p { line-height: 1.5; text-align: left; text-indent: 15px }

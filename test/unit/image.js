@@ -18,8 +18,8 @@
     'type':         'image',
     'left':         0,
     'top':          0,
-    'width':        fabric.isLikelyNode ? 0 : IMG_WIDTH, // node-canvas doesn't seem to allow setting width/height on image objects
-    'height':       fabric.isLikelyNode ? 0 : IMG_HEIGHT,
+    'width':        0, // node-canvas doesn't seem to allow setting width/height on image objects
+    'height':       0,
     'fill':         'rgb(0,0,0)',
     'overlayFill':  null,
     'stroke':       null,
@@ -31,11 +31,13 @@
     'flipX':        false,
     'flipY':        false,
     'opacity':      1,
-    'src':          fabric.isLikelyNode ? undefined : IMG_SRC,
     'selectable':   true,
     'hasControls':  true,
     'hasBorders':   true,
     'hasRotatingPoint': false,
+    'transparentCorners': true,
+    'perPixelTargetFind': false,
+    'src':          fabric.isLikelyNode ? undefined : IMG_SRC,
     'filters':      []
   };
 
@@ -92,7 +94,10 @@
   asyncTest('toObject', function() {
     createImageObject(function(image) {
       ok(typeof image.toObject == 'function');
-      deepEqual(image.toObject(), REFERENCE_IMG_OBJECT);
+      deepEqual(image.toObject(), fabric.util.object.extend(fabric.util.object.clone(REFERENCE_IMG_OBJECT), {
+        width: IMG_WIDTH,
+        height: IMG_HEIGHT
+      }));
       start();
     });
   });

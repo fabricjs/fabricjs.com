@@ -21,17 +21,20 @@
                   '["c", 0.877, -9.979, 2.893, -12.905, 4.942, -15.621], ["C", 17.878, 21.775, 18.713, 17.397, 18.511, '+
                   '13.99], ["z", null]]}], "background": "#ff5555"}';
 
-  var PATH_DATALESS_JSON = '{"objects":[{"type":"path","left":100,"top":100,"width":200,"height":200,"fill":"rgb(0,0,0)",'+
+  var PATH_DATALESS_JSON = '{"objects":[{"type":"path","left":200,"top":200,"width":200,"height":200,"fill":"rgb(0,0,0)",'+
                            '"overlayFill":null,"stroke":null,"strokeWidth":1,"strokeDashArray":null,"scaleX":1,"scaleY":1,"angle":0,"flipX":false,'+
-                           '"flipY":false,"opacity":1,"selectable":true,"hasControls":true,"hasBorders":true,"hasRotatingPoint":false,'+
+                           '"flipY":false,"opacity":1,"selectable":true,"hasControls":true,"hasBorders":true,"hasRotatingPoint":false,"transparentCorners":true,"perPixelTargetFind":false,'+
                            '"path":"http://example.com/"}],"background":"rgba(0, 0, 0, 0)"}';
 
   var RECT_JSON = '{"objects":[{"type":"rect","left":0,"top":0,"width":10,"height":10,"fill":"rgb(0,0,0)","overlayFill":null,'+
                   '"stroke":null,"strokeWidth":1,"strokeDashArray":null,"scaleX":1,"scaleY":1,"angle":0,"flipX":false,"flipY":false,"opacity":1,'+
-                  '"selectable":true,"hasControls":true,"hasBorders":true,"hasRotatingPoint":false,"rx":0,"ry":0}],'+
+                  '"selectable":true,"hasControls":true,"hasBorders":true,"hasRotatingPoint":false,"transparentCorners":true,"perPixelTargetFind":false,"rx":0,"ry":0}],'+
                   '"background":"#ff5555"}';
 
-  var canvas = this.canvas = fabric.isLikelyNode ? fabric.createCanvasForNode() : new fabric.Canvas();
+  var el = fabric.document.createElement('canvas');
+  el.width = 600; el.height = 600;
+
+  var canvas = this.canvas = fabric.isLikelyNode ? fabric.createCanvasForNode() : new fabric.Canvas(el);
   var upperCanvasEl = canvas.upperCanvasEl;
   var lowerCanvasEl = canvas.lowerCanvasEl;
 
@@ -277,10 +280,37 @@
     ok(!canvas.isEmpty());
   });
 
-  test('loadFromJSON', function() {
+  test('loadFromJSON with json string', function() {
     ok(typeof canvas.loadFromJSON == 'function');
 
     canvas.loadFromJSON(PATH_JSON, function(){
+      var obj = canvas.item(0);
+
+      ok(!canvas.isEmpty(), 'canvas is not empty');
+      equal(obj.type, 'path', 'first object is a path object');
+      equal(canvas.backgroundColor, '#ff5555', 'backgroundColor is populated properly');
+
+      equal(obj.get('left'), 268);
+      equal(obj.get('top'), 266);
+      equal(obj.get('width'), 51);
+      equal(obj.get('height'), 49);
+      equal(obj.get('fill'), 'rgb(0,0,0)');
+      equal(obj.get('stroke'), null);
+      equal(obj.get('strokeWidth'), 1);
+      equal(obj.get('scaleX'), 1);
+      equal(obj.get('scaleY'), 1);
+      equal(obj.get('angle'), 0);
+      equal(obj.get('flipX'), false);
+      equal(obj.get('flipY'), false);
+      equal(obj.get('opacity'), 1);
+      ok(obj.get('path').length > 0);
+    });
+  });
+
+  test('loadFromJSON with json object', function() {
+    ok(typeof canvas.loadFromJSON == 'function');
+
+    canvas.loadFromJSON(JSON.parse(PATH_JSON), function(){
       var obj = canvas.item(0);
 
       ok(!canvas.isEmpty(), 'canvas is not empty');
@@ -698,15 +728,17 @@
         canvasOffset = fabric.util.getElementOffset(canvasEl);
 
     var eventStub = {
-      pageX: canvasOffset.left + 100,
-      pageY: canvasOffset.top + 100
+      clientX: canvasOffset.left + 100,
+      clientY: canvasOffset.top + 100,
+      target: rect
     };
 
     ok(canvas.containsPoint(eventStub, rect), 'point at (100, 100) should be within area (75, 75, 125, 125)');
 
     eventStub = {
-      pageX: canvasOffset.left + 200,
-      pageY: canvasOffset.top + 200
+      clientX: canvasOffset.left + 200,
+      clientY: canvasOffset.top + 200,
+      target: rect
     };
     ok(!canvas.containsPoint(eventStub, rect), 'point at (200, 200) should NOT be within area (75, 75, 125, 125)');
 
@@ -785,24 +817,6 @@
     }, 1000);
   });
 
-  test('onFpsUpdate', function() {
-
-    ok(typeof canvas.onFpsUpdate != 'undefined');
-
-    var invoked = false, fps;
-
-    canvas.onFpsUpdate = function(value) {
-      invoked = true;
-      fps = value;
-    };
-
-    canvas.renderAll();
-
-    ok(invoked, 'onFpsUpdate should be invoked');
-    ok(typeof fps == 'number', 'onFpsUpdate must receive numeric value');
-
-  });
-
   // asyncTest('backgroundImage', function() {
   //   deepEqual('', canvas.backgroundImage);
   //   canvas.setBackgroundImage('../../assets/pug.jpg');
@@ -844,6 +858,52 @@
     canvas.remove(canvas.item(0));
 
     equal(isFired, true, 'removing active object should fire "selection:cleared"');
+  });
+
+  asyncTest('loadFromJSON with async content', function() {
+    var group = new fabric.Group([
+      new fabric.Rect({ width: 10, height: 20 }),
+      new fabric.Circle({ radius: 10 })
+    ]);
+    var rect = new fabric.Rect({ width: 20, height: 10 });
+    var circle = new fabric.Circle({ radius: 25 });
+
+    canvas.add(group, rect, circle);
+    var json = JSON.stringify(canvas);
+    canvas.clear();
+
+    equal(0, canvas.getObjects().length);
+
+    canvas.loadFromJSON(json, function() {
+      equal(3, canvas.getObjects().length);
+
+      start();
+    });
+  });
+
+  asyncTest('loadFromDatalessJSON with async content', function() {
+
+    var circ1 = new fabric.Circle({ radius: 30, fill: '#55f', top: 0, left: 0 });
+    var circ2 = new fabric.Circle({ radius: 30, fill: '#f55', top: 50, left: 50 });
+    var circ3 = new fabric.Circle({ radius: 30, fill: '#5f5', top: 50, left: 50 });
+
+    var arr = [circ1, circ2];
+    var group = new fabric.Group(arr, { top: 150, left: 150 });
+
+    canvas.add(circ3);
+    canvas.add(group);
+    canvas.renderAll();
+
+    canvas.deactivateAll();
+    var json = JSON.stringify( canvas.toDatalessJSON() );
+    canvas.clear();
+    canvas.loadFromDatalessJSON(json, function() {
+
+      equal(2, canvas.getObjects().length);
+      equal('group', canvas.getObjects()[1].type);
+
+      start();
+    });
   });
 
 })();

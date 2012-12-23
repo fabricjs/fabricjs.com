@@ -2,6 +2,10 @@
 
   var canvas = this.canvas = new fabric.Canvas();
 
+  function _createImageElement() {
+    return fabric.isLikelyNode ? new (require('canvas').Image) : fabric.document.createElement('img');
+  }
+
   function makeGroupWith2Objects() {
     var rect1 = new fabric.Rect({ top: 100, left: 100, width: 30, height: 10 }),
         rect2 = new fabric.Rect({ top: 120, left: 50, width: 10, height: 40 });
@@ -135,6 +139,8 @@
       'hasControls': true,
       'hasBorders': true,
       'hasRotatingPoint': false,
+      'transparentCorners': true,
+      'perPixelTargetFind': false,
       'angle': 0,
       'flipX': false,
       'flipY': false,
@@ -284,5 +290,53 @@
     var expectedSVG = '<g transform="translate(80 117.5)"><rect x="-15" y="-5" rx="0" ry="0" width="30" height="10" style="stroke: none; stroke-width: 1; stroke-dasharray: ; fill: rgb(0,0,0); opacity: 1;" transform="translate(20 -17.5)" /><rect x="-5" y="-20" rx="0" ry="0" width="10" height="40" style="stroke: none; stroke-width: 1; stroke-dasharray: ; fill: rgb(0,0,0); opacity: 1;" transform="translate(-30 2.5)" /></g>';
     equal(group.toSVG(), expectedSVG);
   });
+
+  asyncTest('clonining group with 2 objects', function() {
+    var group = makeGroupWith2Objects();
+    group.clone(function(clone) {
+
+      ok(clone !== group);
+      deepEqual(clone.toObject(), group.toObject());
+
+      start();
+    });
+  });
+
+  test('get with locked objects', function() {
+    var group = makeGroupWith2Objects();
+
+    equal(group.get('lockMovementX'), false);
+
+    group.objects[0].lockMovementX = true;
+    equal(group.get('lockMovementX'), true);
+
+    group.objects[0].lockMovementX = false;
+    equal(group.get('lockMovementX'), false);
+
+    group.set('lockMovementX', true);
+    equal(group.get('lockMovementX'), true);
+
+    group.set('lockMovementX', false);
+    group.objects[0].lockMovementY = true;
+    group.objects[1].lockRotation = true;
+
+    equal(group.get('lockMovementY'), true);
+    equal(group.get('lockRotation'), true);
+  });
+
+  // asyncTest('cloning group with image', function() {
+  //   var rect = new fabric.Rect({ top: 100, left: 100, width: 30, height: 10 }),
+  //       img = new fabric.Image(_createImageElement()),
+  //       group = new fabric.Group([ rect, img ]);
+
+  //   img.src = 'foo.png';
+
+  //   group.clone(function(clone) {
+  //     ok(clone !== group);
+  //     deepEqual(clone.toObject(), group.toObject());
+
+  //     start();
+  //   });
+  // });
 
 })();

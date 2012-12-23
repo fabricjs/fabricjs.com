@@ -1,0 +1,265 @@
+---
+layout: article
+title: Introduction to Fabric.js. Part 4.
+---
+
+<style>h2 { margin-bottom: 15px } h3 { margin-bottom: 10px; } h4 { margin-bottom: 7px; } </style>
+
+<div class="container" style="margin:30px auto">
+  <h2 id="introduction_to_fabricjs">Introduction to Fabric.js. Part 4.</h2>
+
+  <p>We've covered so many topics in the previous series; from basic object manipulations to animations, events, filters, groups, and subclasses. But there's still couple of very interesting and useful things to discuss!</p>
+
+  <h3>Free drawing</h3>
+
+  <p>If there's anything <code>&lt;canvas></code> really shines at, it's that it has an excellent support for free drawing! Since canvas is simply a 2D bitmap — a paper to paint on — performing free drawing is very natural. And of course Fabric takes care of this for us.</p>
+
+  <p>A free drawing mode is enabled simply by setting <code>isDrawingMode</code> property of Fabric canvas to <code>true</code>. This immediately makes any further clicks and movements on canvas get interpreted as a pencil/brush.</p>
+
+  <p>You can paint as many times on canvas as you wish, while <code>isDrawingMode</code> is <code>true</code>. But as soon as you perform any movement, followed by a "mouseup" event, Fabric fires "path:created" event and actually transforms just-drawn shape into a real <code>fabric.Path</code> instance!</p>
+
+  <p>If, at any moment, you set <code>isDrawingMode</code> back to <code>false</code>, you'll end up with all of the created path objects still present on canvas. And since they're good old <code>fabric.Path</code> objects, you can modify them any way you want — move, rotate, scale, etc.</p>
+
+  <p>There's also 2 properties available to customize free drawing — <code>freeDrawingColor</code> and <code>freeDrawingWidth</code>. Both are available on Fabric canvas instances. <code>freeDrawingColor</code> can be any regular color value and represents the color of a brush. <code>freeDrawingWidth</code> is a number in pixels, and represents brush thickness.</p>
+
+  <p><img src="/article_assets/4_1.png" style="border:1px solid #eee"></p>
+
+  <p>In the near future, we are planning to add more options for free drawing — various versions of a brush (e.g. spray-like or chalk-like). Also custom brush patterns, and an option to extend with your own, similar to Fabric image filters.</p>
+
+  <h3>Customization</h3>
+
+  <p>One of the amazing things about Fabric is how customizable it is. You can tweak dozens of various parameters on canvas or canvas objects, in order to make things behave exactly the way you want. Let's take a look at some of them.</p>
+
+  <h4>Locking objects</h4>
+
+  <p>Every object on canvas can be locked in few ways. "lockMovementX", "lockMovementY", "lockRotation", "lockScaling" are properties that lock corresponding object actions. So setting <code>object.lockMovementX</code> to <code>true</code> prevents object from being moved horizontally. You can still move it in vertical plane though. Simiarly, <code>lockRotation</code> prevents rotation and <code>lockScaling</code> — scaling. All of these are cumulative. You can combine them together in any way.</p>
+
+  <h4>Changing borders, corners</h4>
+
+  <p>You can control objects' borders and corners visibility via "hasControls" and "hasBorders" properties. Just set them to <code>false</code> and objects instantly render "naked".</p>
+
+<pre>
+object.hasBorders = false;
+</pre>
+  <p>
+    <img src="/article_assets/4_2.png" style="border:1px solid #eee">
+  </p>
+<pre>
+object.hasControls = false;
+</pre>
+  <p>
+    <img src="/article_assets/4_3.png" style="border:1px solid #eee">
+  </p>
+
+  <p>You can also change their appearance by tweaking "borderColor", "cornerColor", and "cornerSize" properties.</p>
+
+<pre>
+object.set({
+  borderColor: 'red',
+  cornerColor: 'green',
+  cornerSize: 6
+});
+</pre>
+  <p><img src="/article_assets/4_4.png" style="border:1px solid #eee"></p>
+
+  <h4>Disabling selection</h4>
+
+  <p>You can disable selection of objects on canvas by setting "selection" property of canvas to <code>true</code>. This prevents selection on absolutely everything displayed on canvas. If you only need to make certain objects unselectable, you can change "selectable" property of objects. Just set it to <code>false</code> and an object loses its interactivity.</p>
+
+  <h4>Customizing selection</h4>
+
+  <p>Now, what if you don't want to disable selection, but instead want to change its appearance? No problem.</p>
+
+  <p>There's 4 properties on canvas that control its presentation — "selectionColor", "selectionBorderColor", "selectionLikeWidth", and "selectionDashArray". These should be pretty self-explanatory, so let's take a look at an example:</p>
+
+<pre>
+canvas.add(new fabric.Circle({ radius: 30, fill: '#f55', top: 100, left: 100 }));
+
+canvas.selectionColor = 'rgba(0,255,0,0.3)';
+canvas.selectionBorderColor = 'red';
+canvas.selectionLineWidth = 5;
+</pre>
+
+<p><img src="/article_assets/4_8.png" style="border:1px solid #eee"></p>
+
+<p>The last property — "selectionDashArray" — is not as straightforward. What it allows us to do is make selection lines dashed. The way to define dash pattern is by specifying intervals via an array. So to create a pattern where there's one long dash followed by one short dash, we could use something like <code>[10, 5]</code> as "selectionDashArray". This will draw a line that's 10px long, then skip 5px, draw 10px line again, and so on. If we were to use <code>[2, 4, 6]</code> array, the pattern would be created by drawing 2px line, then skipping 4px, then drawing 6px line, then skipping 2px, then drawing 4px line, then skipping 6px, and so on. You get the point. As an example, this is how <code>[5, 10]</code> pattern looks:</p>
+
+<p><img src="/article_assets/4_9.png" style="border:1px solid #eee"></p>
+
+<h4>Dashed stroke</h4>
+
+<p>Similarly to "selectionDashArray" on canvas, all Fabric objects have "strokeDashArray" property responsible for dashed pattern of any stroke performed on an object.</p>
+
+<pre>
+var rect = new fabric.Rect({
+  fill: '#06538e',
+  width: 125,
+  height: 125,
+  stroke: 'red',
+  strokeDashArray: [5, 5]
+});
+canvas.add(rect);
+</pre>
+
+<p><img src="/article_assets/4_13.png" style="border:1px solid #eee"></p>
+
+<h4>Clickable area</h4>
+
+<p>As you know, all Fabric objects have bounding box that's used to drag an object, or rotate and scale it, when controls/corners are present. You might have noticed that object can be dragged even when clicking on the space within object's bounding box where nothing is drawn.</p>
+
+<p>Take a look at this image:</p>
+
+<p><img src="/article_assets/4_14.png" style="border:1px solid #eee"></p>
+
+<p>By default, all Fabric objects on canvas can be dragged by the bounding box. However, if you want different behavior — clicking/dragging objects only by its actual contents, you can use "perPixelTargetFind" property on an object. Just set it to <code>true</code> to get the desired behavior.</p>
+
+<h4>Rotating point</h4>
+
+<p>If you'd like to prevent scaling and rotation of objects happening at the same time, you can use an alternative UI provided by Fabric. Every object can be changed via "hasRotatingPoint" property, which when set to <code>true</code>, makes objects rendered with a separate control for rotation. You can even customize the offset of this control from the object itself — via "rotatingPointOffset" numeric property.</p>
+
+<p><img src="/article_assets/4_10.png" style="border:1px solid #eee"></p>
+
+  <h4>Canvas background and overlay</h4>
+
+  <p>As you might remember from the 1st part, you can assign a color to fill entire canvas background. Just set any regular color value to "backgroundColor" property of canvas.</p>
+
+<pre>
+canvas.add(new fabric.Circle({ radius: 30, fill: '#f55', top: 100, left: 100 }));
+canvas.backgroundColor = 'rgba(0,0,255,0.3)';
+canvas.renderAll();
+</pre>
+
+  <p><img src="/article_assets/4_5.png" style="border:1px solid #eee"></p>
+
+  <p>You can go even further and assign an image as a background. You'll need to use <code>setBackgroundImage</code> method for that, passing url and an optiona completion callback.</p>
+
+<pre>
+canvas.add(new fabric.Circle({ radius: 30, fill: '#f55', top: 100, left: 100 }));
+canvas.setBackgroundImage('../assets/pug.jpg', canvas.renderAll.bind(canvas));
+</pre>
+
+<p><img src="/article_assets/4_6.png" style="border:1px solid #eee"></p>
+
+<p>Finally, you can also set overlay image, in which case it will always appear on top of any objects rendered on canvas. Just use <code>setOverlayImage</code>, passing url and an optional completion callback.</p>
+
+<pre>
+canvas.add(new fabric.Circle({ radius: 30, fill: '#f55', top: 100, left: 100 }));
+canvas.setOverlayImage('../assets/jail_cell_bars.png', canvas.renderAll.bind(canvas));
+</pre>
+
+<p><img src="/article_assets/4_7.png" style="border:1px solid #eee"></p>
+
+  <h3>Fabric on Node.js</h3>
+
+  <p>One of the unique aspects of Fabric, is that it can work not just on a client, in a browser, but also on a server! This could be useful when you want to send data from a client and create an image of that data right on a server. Or if you simply want to use Fabric API from a console — for speed, convenience, or other reasons.</p>
+
+  <p>Let's take a look at how to set up Node environment and start Fabric.</p>
+
+  <p>First, you need to install <a href="http://nodejs.org">Node.js</a>, if you haven't yet. There are few ways to install Node, depending on a platform. You can follow <a href="http://howtonode.org/how-to-install-nodejs">these instructions</a> or <a href="https://github.com/joyent/node/wiki/Installation">these</a>.</p>
+
+  <p>Once Node is installed, we need to install <a href="https://github.com/LearnBoost/node-canvas">node-canvas</a> library. node-canvas is a Canvas implementation for NodeJS. It relies on <a href="http://cairographics.org/">Cairo</a> — 2D graphics library which can be run on Mac, Linux, or Windows. node-canvas has dedicated <a href="https://github.com/LearnBoost/node-canvas/wiki">installation instructions</a> depending on your platform of choice.</p>
+
+  <p>Since Fabric runs on top of Node, it comes as an NPM package. So the next step is to install NPM. You can find installation instructions in its <a href="https://github.com/isaacs/npm">github repo</a>.</p>
+
+  <p>The final step is to install <a href="https://npmjs.org/package/fabric">Fabric package</a>, using NPM. This is done simply by running <code>npm install fabric</code> (or <code>npm install -g fabric</code> to install package globally).</p>
+
+  <p>If we run node console now, we should have both node-canvas and Fabric available for use:</p>
+
+<pre>
+> node
+...
+> typeof require('canvas'); // "function"
+> typeof require('fabric'); // "object"
+</pre>
+
+  <p>Now that everything is ready, we can try a simple "hello world" test. Let's create a helloworld.js file:</p>
+
+<pre>
+var fs = require('fs'),
+    fabric = require('fabric').fabric,
+    out = fs.createWriteStream(__dirname + '/helloworld.png');
+
+var canvas = fabric.createCanvasForNode(200, 200);
+var text = new fabric.Text('Hello world', {
+  left: 100,
+  top: 100,
+  fill: '#f55',
+  angle: 15
+});
+canvas.add(text);
+
+var stream = canvas.createPNGStream();
+stream.on('data', function(chunk) {
+  out.write(chunk);
+});
+</pre>
+
+<p>and then run it as <code>node helloworld.js</code>. Opening helloworld.png reveals this:</p>
+
+<p><img src="/article_assets/4_11.png" style="border:1px solid #eee"></p>
+
+<p>So what's going on here? Let's go over important parts of this code.</p>
+
+<p>First, we're including Fabric itself (<code>fabric = require('fabric').fabric</code>). Then, we create the good old Fabric canvas, only using <code>fabric.createCanvasForNode()</code> instead of the usual <code>new fabric.Canvas()</code>. This method takes width and height as paramters and creates canvas of that size (in this case: 200x200).</p>
+
+<p>Then there's familiar-looking object creation (<code>new fabric.Text()</code>) and canvas addition (<code>canvas.add(text)</code>).</p>
+
+<p>All of this simply creates Fabric canvas and renders text object onto it. Now, how to create an image of whatever is rendered on canvas? Using <code>createPNGStream</code> method available right on the canvas instance. <code>createPNGStream</code> returns Node's <a href="http://nodejs.org/api/stream.html">stream object</a>, and can then be output into an image file using <code>on('data')</code>, and writing into the stream corresponding to an image file (<code>fs.createWriteStream()</code>).</p>
+
+<p><code>fabric.createCanvasForNode</code> and <code>fabric.Canvas#createPNGStream</code> are pretty much the only 2 methods specific to Node. Everything else works the same — you can still create objects as you usually would, add them on canvas, modify, render, and so on. It's worth mentioning that when you create canvas via <code>createCanvasForNode</code>, it gets extended with <code>nodeCanvas</code> property which is a reference to original node-canvas instance.</p>
+
+<h4>Node server and Fabric</h4>
+
+<p>As an example, let's create a simple Node server that will listen to incoming requests with Fabric data in JSON format, and output an image of that data. The entire script is only 25 lines long!</p>
+
+<pre>
+var fabric = require('fabric').fabric,
+    http = require('http'),
+    url = require('url'),
+    PORT = 8124;
+
+var server = http.createServer(function (request, response) {
+  var params = url.parse(request.url, true);
+  var canvas = fabric.createCanvasForNode(200, 200);
+
+  response.writeHead(200, { 'Content-Type': 'image/png' });
+
+  canvas.loadFromJSON(params.query.data, function() {
+    canvas.renderAll();
+
+    var stream = canvas.createPNGStream();
+    stream.on('data', function(chunk) {
+      response.write(chunk);
+    });
+    stream.on('end', function() {
+      response.end();
+    });
+  });
+});
+
+server.listen(PORT);
+</pre>
+
+<p>Most of the code in this snippet should be already familiar. The gist of it is inside server response. We're creating Fabric canvas, loading JSON data onto it, rendering it, and streaming final result as server response.</p>
+
+<p>To test it out, let's take the data for a green, slightly rotated rectangle:</p>
+
+<pre>
+{"objects":[{"type":"rect","left":103.85,"top":98.85,"width":50,"height":50,"fill":"#9ae759","overlayFill":null,"stroke":null,"strokeWidth":1,"strokeDashArray":null,"scaleX":1.39,"scaleY":1.39,"angle":30,"flipX":false,"flipY":false,"opacity":0.8,"selectable":true,"hasControls":true,"hasBorders":true,"hasRotatingPoint":false,"transparentCorners":true,"perPixelTargetFind":false,"rx":0,"ry":0}],"background":"rgba(0, 0, 0, 0)"}
+</pre>
+
+<p>URI-encode it:</p>
+
+<pre>
+%7B"objects"%3A%5B%7B"type"%3A"rect"%2C"left"%3A103.85%2C"top"%3A98.85%2C"width"%3A50%2C"height"%3A50%2C"fill"%3A"%239ae759"%2C"overlayFill"%3Anull%2C"stroke"%3Anull%2C"strokeWidth"%3A1%2C"strokeDashArray"%3Anull%2C"scaleX"%3A1.39%2C"scaleY"%3A1.39%2C"angle"%3A30%2C"flipX"%3Afalse%2C"flipY"%3Afalse%2C"opacity"%3A0.8%2C"selectable"%3Atrue%2C"hasControls"%3Atrue%2C"hasBorders"%3Atrue%2C"hasRotatingPoint"%3Afalse%2C"transparentCorners"%3Atrue%2C"perPixelTargetFind"%3Afalse%2C"rx"%3A0%2C"ry"%3A0%7D%5D%2C"background"%3A"rgba(0%2C%200%2C%200%2C%200)"%7D
+</pre>
+
+<p>And pass to a server via a "data" query param. The immediate response, coming back with "image/png" Content-type, looks like this:</p>
+
+<p><img src="/article_assets/4_12.png" style="border:1px solid #eee"></p>
+
+<p>As you can see, working with Fabric on a server is very easy and straightforward. Feel free to experiment with this snippet. Perhaps change canvas dimensions from within URL parameters, or modify client data before returning image as a response.</p>
+
+<p>And so this brings us to the end of the 4-part series on Fabric. I hope you're now equiped with enough knowledge to create something interesting, cool, useful, funny, challenging, exciting!</p>
+
+</div>

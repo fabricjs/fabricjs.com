@@ -413,6 +413,7 @@
       scaleY: 0.5,
       fontWeight: '',
       originX: 'left',
+      hasRotatingPoint: true
     });
     canvas.add(textSample);
     updateComplexity();

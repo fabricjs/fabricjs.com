@@ -12,21 +12,6 @@
     <!--[if lt IE 9]>
       <script src="../lib/excanvas.js"></script>
     <![endif]-->
-
-    <script>
-      // polyfill by @paulirish
-      if (!window.requestAnimationFrame ) {
-        window.requestAnimationFrame = (function() {
-          return window.webkitRequestAnimationFrame ||
-          window.mozRequestAnimationFrame ||
-          window.oRequestAnimationFrame ||
-          window.msRequestAnimationFrame ||
-          function( /* function FrameRequestCallback */ callback, /* DOMElement Element */ element ) {
-            window.setTimeout( callback, 1000 / 60 );
-          };
-        })();
-      }
-    </script>
   </head>
   <body>
     {% include header.html %}

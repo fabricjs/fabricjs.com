@@ -1,6 +1,6 @@
 ---
 layout: demo
-title: Particles
+title: 1000 particles
 ---
 
 <p>Based on a test by <a href="http://jsdo.it/djankey/test-fabricjs">djankey</a></p>
@@ -11,7 +11,10 @@ title: Particles
   myfps = 60,
   updateTime = 1000 / myfps,
   mouse_pos = { x: 0, y: 0 },
-  canvas = new fabric.Canvas('c'),
+  canvas = new fabric.Canvas('c', {
+    renderOnAddition: false,
+    selection: false
+  }),
   maxx = canvas.width,
   maxy = canvas.height,
   msg, startTime, prevTime, ms, frames;
@@ -35,17 +38,6 @@ function blobLoaded(img) {
     canvas.add(img);
     blobs[i] = img;
   }
-
-  var title = new fabric.Text('HTML5 Canvas, Fabric.js, 1000 particles', {
-    fontFamily: 'Arial',
-    fontSize: 12,
-    fill: 'white',
-    fontWeight: 'bold',
-    left: 130,
-    top: 15,
-    selectable: false
-  });
-  canvas.add(title);
 
   msg = new fabric.Text('FPS: 0/' + myfps, {
     fontFamily: 'Arial',
@@ -105,7 +97,7 @@ function animate() {
     msg.setText("FPS: " + fps + "/" + myfps);
   }
 
-  fabric.util.requestAnimFrame(animate);
+  fabric.util.requestAnimFrame(animate, canvas.getElement());
   canvas.renderAll();
 }
 </script>

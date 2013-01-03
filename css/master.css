@@ -18,8 +18,8 @@ h3, h4 { margin-top: 1.5em !important; }
 #features img { box-shadow: rgba(0,0,0,0.3) 0 0 5px; margin-top: 20px; margin-bottom: 20px; width: 400px }
 #features img:hover { box-shadow: rgba(0,0,155,0.3) 0 0 5px; }
 
-#header { background: #333; margin: 0; padding: 0; color: #555; }
-#header li { display: inline-block; }
+#header { background: #333; margin: 0; padding: 0; color: #555; overflow: hidden; }
+#header li { display: inline-block; float: left; }
 #header li a { display: inline-block; padding: 10px; color: pink; text-decoration: none; }
 #header li a:hover, #header li a:focus { text-decoration: underline; }
 #header li.secondary { float: right; }
@@ -32,7 +32,7 @@ h3, h4 { margin-top: 1.5em !important; }
 #bd-wrapper { padding: 10px; }
 #bd-wrapper > ul > li { margin-bottom: 5px }
 
-pre { margin-top: 0; font-size: 12px; vertical-align: top; background: #F4F2E5; display: inline-block; padding: 15px; margin-left: 15px; display: inline-block; }
+pre { margin-top: 0; font-size: 12px; vertical-align: top; background: #F4F2E5; display: inline-block; width: 600px; padding: 15px; margin-left: 15px; word-wrap: break-word; white-space: pre; }
 
 .canvas-container { border: 1px dotted #ccc; display: inline-block; vertical-align: top; -webkit-tap-highlight-color: rgba(0,0,0,0); }
 

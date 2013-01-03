@@ -115,9 +115,21 @@ canvas.add(rect);
 
 <h4>Rotating point</h4>
 
-<p>If you'd like to prevent scaling and rotation of objects happening at the same time, you can use an alternative UI provided by Fabric. Every object can be changed via "hasRotatingPoint" property, which when set to <code>true</code>, makes objects rendered with a separate control for rotation. You can even customize the offset of this control from the object itself — via "rotatingPointOffset" numeric property.</p>
+<p>Since version 1.0 Fabric uses alternative UI by default — objects can no longer be scaled and rotated at the same time. Instead, there's a separate rotate control on each object. The corresponding property for that control is "hasRotatingPoint". You can customize its offset relative to the object via "rotatingPointOffset" numeric property.</p>
 
 <p><img src="/article_assets/4_10.png" style="border:1px solid #eee"></p>
+
+<h4>Object transformation</h4>
+
+<p>There's a number of other transformation-related properties available in Fabric <b>since version 1.0</b>. One of them is "uniScaleTransform". It's <code>false</code> by default, and can be used to enable non-uniform scaling of object; in other words, it allows to change object's proportions when dragging by the corners.</p>
+
+<p><img src="/article_assets/4_15.png" style="border:1px solid #eee"></p>
+
+<p>Then there's "centerTransform". <code>false</code> by default, it specifies if a center of an object should be used as an origin of transformation. When set to <code>true</code>, it replicates pre-1.0 behavior when objects were always scaled/rotated from the center. Since 1.0 origin of transformation is dynamic, which allows for finer control when scaling objects.</p>
+
+<p>The last pair of new properties is "originX" and "originY". Set to "center" by default, they allow to change object's origin of transformation programatically. When you drag object's corners, it is these properties that change dynamically under the hood.</p>
+
+<p>So when would we change them manually? For example, when working with text objects. When you change text dynamically, and the text box dimensions increase, "originX" and "originY" dictate where the box grows. So if you need to "stick" text object by the left edge, you would set originX to "left". To stick it to the right, you would set originX to "right". And so on. This behavior resembles "position: absolute" in CSS.</p>
 
   <h4>Canvas background and overlay</h4>
 

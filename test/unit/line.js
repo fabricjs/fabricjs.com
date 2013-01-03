@@ -2,6 +2,8 @@
 
   var LINE_OBJECT = {
     'type': 'line',
+    'originX': 'center',
+    'originY': 'center',
     'left': 12,
     'top': 13,
     'width': 2,
@@ -24,7 +26,7 @@
     'selectable': true,
     'hasControls': true,
     'hasBorders': true,
-    'hasRotatingPoint': false,
+    'hasRotatingPoint': true,
     'transparentCorners': true,
     'perPixelTargetFind': false
   };

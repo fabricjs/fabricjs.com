@@ -2,6 +2,8 @@
 
   var REFERENCE_RECT = {
     'type': 'rect',
+    'originX': 'center',
+    'originY': 'center',
     'left': 0,
     'top': 0,
     'width': 0,
@@ -20,7 +22,7 @@
     'selectable': true,
     'hasControls': true,
     'hasBorders': true,
-    'hasRotatingPoint': false,
+    'hasRotatingPoint': true,
     'transparentCorners': true,
     'perPixelTargetFind': false,
     'rx': 0,

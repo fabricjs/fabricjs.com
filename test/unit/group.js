@@ -124,6 +124,8 @@
 
     var expectedObject = {
       'type': 'group',
+      'originX': 'center',
+      'originY': 'center',
       'left': 80,
       'top': 117.5,
       'width': 70,
@@ -138,7 +140,7 @@
       'selectable': true,
       'hasControls': true,
       'hasBorders': true,
-      'hasRotatingPoint': false,
+      'hasRotatingPoint': true,
       'transparentCorners': true,
       'perPixelTargetFind': false,
       'angle': 0,

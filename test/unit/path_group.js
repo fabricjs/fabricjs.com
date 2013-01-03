@@ -2,6 +2,8 @@
 
   var REFERENCE_PATH_GROUP_OBJECT = {
     'type':         'path-group',
+    'originX':      'center',
+    'originY':      'center',
     'left':         0,
     'top':          0,
     'width':        0,
@@ -20,7 +22,7 @@
     'selectable':   true,
     'hasControls':  true,
     'hasBorders':   true,
-    'hasRotatingPoint': false,
+    'hasRotatingPoint': true,
     'transparentCorners': true,
     'perPixelTargetFind': false,
     'paths':        getPathObjects()

@@ -9,6 +9,8 @@
 
   var REFERENCE_OBJECT = {
     'type':         'polygon',
+    'originX':      'center',
+    'originY':      'center',
     'left':         0,
     'top':          0,
     'width':        10,
@@ -28,7 +30,7 @@
     'selectable':   true,
     'hasControls':  true,
     'hasBorders':   true,
-    'hasRotatingPoint': false,
+    'hasRotatingPoint': true,
     'transparentCorners': true,
     'perPixelTargetFind': false
   };

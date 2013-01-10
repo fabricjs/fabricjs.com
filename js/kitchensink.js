@@ -28,17 +28,8 @@
 
   var canvas = global.canvas = new fabric.Canvas('canvas');
 
-  // canvas.controlsAboveOverlay = true;
-
   document.getElementById('commands').onclick = function(ev) {
     ev = ev || window.event;
-
-    if (ev.preventDefault) {
-      ev.preventDefault()
-    }
-    else if (ev.returnValue) {
-      ev.returnValue = false;
-    }
 
     var element = ev.target || ev.srcElement;
     if (element.nodeName.toLowerCase() === 'strong') {
@@ -53,97 +44,108 @@
         width = fabric.util.getRandomInt(30, 50),
         opacity = (function(min, max){ return Math.random() * (max - min) + min; })(0.5, 1);
 
-    switch (className) {
-      case 'rect':
-        canvas.add(new fabric.Rect({
-          left: left,
-          top: top,
-          fill: '#' + getRandomColor(),
-          width: 50,
-          height: 50,
-          opacity: 0.8
-        }));
-        break;
-
-      case 'circle':
-        canvas.add(new fabric.Circle({
-          left: left,
-          top: top,
-          fill: '#' + getRandomColor(),
-          radius: 50,
-          opacity: 0.8
-        }));
-        break;
-
-      case 'triangle':
-        canvas.add(new fabric.Triangle({
-          left: left,
-          top: top,
-          fill: '#' + getRandomColor(),
-          width: 50,
-          height: 50,
-          opacity: 0.8
-        }));
-        break;
-
-      case 'image1':
-        fabric.Image.fromURL('../assets/pug.jpg', function(image) {
-          image.set({
-            left: left,
-            top: top,
-            angle: angle,
-            padding: 10,
-            cornersize: 10
-          });
-          image.scale(getRandomNum(0.1, 0.25)).setCoords();
-          canvas.add(image);
-        });
-        break;
-
-      case 'image2':
-        fabric.Image.fromURL('../assets/logo.png', function(image) {
-          image.set({
-            left: left,
-            top: top,
-            angle: angle,
-            padding: 10,
-            cornersize: 10
-          });
-          image.scale(getRandomNum(0.1, 1)).setCoords();
-          canvas.add(image);
-          updateComplexity();
-        });
-        break;
-
-      case 'shape':
-        var id = element.id, match;
-        if (match = /\d+$/.exec(id)) {
-          fabric.loadSVGFromURL('../assets/' + match[0] + '.svg', function(objects, options) {
-            var loadedObject = fabric.util.groupSVGElements(objects, options);
-
-            loadedObject.set({
-              left: left,
-              top: top,
-              angle: angle,
-              padding: 10,
-              cornersize: 10
-            });
-            loadedObject/*.scaleToWidth(300)*/.setCoords();
-
-            // loadedObject.hasRotatingPoint = true;
-
-            canvas.add(loadedObject);
-            updateComplexity();
-            canvas.calcOffset();
-          });
-        }
-        break;
-
-      case 'clear':
-        if (confirm('Are you sure?')) {
-          canvas.clear();
-        }
+    if ($(element).hasClass('rect')) {
+      canvas.add(new fabric.Rect({
+        left: left,
+        top: top,
+        fill: '#' + getRandomColor(),
+        width: 50,
+        height: 50,
+        opacity: 0.8
+      }));
     }
+    if ($(element).hasClass('circle')) {
+      canvas.add(new fabric.Circle({
+        left: left,
+        top: top,
+        fill: '#' + getRandomColor(),
+        radius: 50,
+        opacity: 0.8
+      }));
+    }
+    if ($(element).hasClass('triangle')) {
+      canvas.add(new fabric.Triangle({
+        left: left,
+        top: top,
+        fill: '#' + getRandomColor(),
+        width: 50,
+        height: 50,
+        opacity: 0.8
+      }));
+    }
+    if ($(element).hasClass('image1')) {
+      fabric.Image.fromURL('../assets/pug.jpg', function(image) {
+        image.set({
+          left: left,
+          top: top,
+          angle: angle,
+          padding: 10,
+          cornersize: 10
+        });
+        image.scale(getRandomNum(0.1, 0.25)).setCoords();
+        canvas.add(image);
+      });
+    }
+    if ($(element).hasClass('image2')) {
+      fabric.Image.fromURL('../assets/logo.png', function(image) {
+        image.set({
+          left: left,
+          top: top,
+          angle: angle,
+          padding: 10,
+          cornersize: 10
+        });
+        image.scale(getRandomNum(0.1, 1)).setCoords();
+        canvas.add(image);
+        updateComplexity();
+      });
+    }
+    if ($(element).hasClass('image3')) {
+      fabric.Image.fromURL('../assets/printio.png', function(image) {
+        image.set({
+          left: left,
+          top: top,
+          angle: angle,
+          padding: 10,
+          cornersize: 10
+        });
+        image.scale(getRandomNum(0.5, 0.75)).setCoords();
+        canvas.add(image);
+        updateComplexity();
+      });
+    }
+    if ($(element).hasClass('shape')) {
+      var id = element.id, match;
+      if (match = /\d+$/.exec(id)) {
+        fabric.loadSVGFromURL('../assets/' + match[0] + '.svg', function(objects, options) {
+          var loadedObject = fabric.util.groupSVGElements(objects, options);
+
+          loadedObject.set({
+            left: left,
+            top: top,
+            angle: angle,
+            padding: 10,
+            cornersize: 10
+          });
+          loadedObject/*.scaleToWidth(300)*/.setCoords();
+
+          // loadedObject.hasRotatingPoint = true;
+
+          canvas.add(loadedObject);
+          updateComplexity();
+          canvas.calcOffset();
+        });
+      }
+    }
+
+    if ($(element).hasClass('clear')) {
+      if (confirm('Are you sure?')) {
+        canvas.clear();
+      }
+    }
+
+    canvas.calcOffset();
+
     updateComplexity();
   };
 
@@ -357,29 +359,39 @@
     lockScalingXEl.innerHTML = (selectedObject.lockScalingX ? 'Unlock horizontal scaling' : 'Lock horizontal scaling');
     lockScalingYEl.innerHTML = (selectedObject.lockScalingY ? 'Unlock vertical scaling' : 'Lock vertical scaling');
     lockRotationEl.innerHTML = (selectedObject.lockRotation ? 'Unlock rotation' : 'Lock rotation');
+
+    if (selectedObject.type === 'text') {
+      $('#text-wrapper').show();
+      $('#text-wrapper textarea').val(selectedObject.getText());
+    }
+    else {
+      $('#text-wrapper').hide();
+    }
+
+    $('#controls').show();
   }
 
   canvas.on('selection:cleared', function(e) {
     for (var i = activeObjectButtons.length; i--; ) {
       activeObjectButtons[i].disabled = true;
     }
+    $('#controls').hide();
   });
 
   var drawingModeEl = document.getElementById('drawing-mode'),
       drawingOptionsEl = document.getElementById('drawing-mode-options'),
       drawingColorEl = document.getElementById('drawing-color'),
-      drawingLineWidthEl = document.getElementById('drawing-line-width');
+      drawingLineWidthEl = document.getElementById('drawing-line-width'),
+      drawingShadowWidth = document.getElementById('drawing-shadow-width');
 
   drawingModeEl.onclick = function() {
     canvas.isDrawingMode = !canvas.isDrawingMode;
     if (canvas.isDrawingMode) {
       drawingModeEl.innerHTML = 'Cancel drawing mode';
-      drawingModeEl.className = 'is-drawing';
       drawingOptionsEl.style.display = '';
     }
     else {
       drawingModeEl.innerHTML = 'Enter drawing mode';
-      drawingModeEl.className = '';
       drawingOptionsEl.style.display = 'none';
     }
   };
@@ -388,16 +400,58 @@
     updateComplexity();
   });
 
+  $('#drawing-mode-selector').on('change', function() {
+
+    var brushChosen;
+    if (this.value === 'Pencil') {
+      brushChosen = new fabric.PencilBrush(canvas);
+    }
+    else if (this.value === 'Circles') {
+      brushChosen = new fabric.CircleBrush(canvas);
+    }
+
+    canvas.freeDrawingBrush = brushChosen;
+
+    canvas.freeDrawingBrush.color = drawingColorEl.value;
+    canvas.freeDrawingBrush.width = parseInt(drawingLineWidthEl.value, 10) || 1;
+    canvas.freeDrawingBrush.shadowBlur = parseInt(drawingShadowWidth.value, 10) || 1;
+  });
+
   drawingColorEl.onchange = function() {
-    canvas.freeDrawingColor = drawingColorEl.value;
+    canvas.freeDrawingBrush.color = drawingColorEl.value;
   };
   drawingLineWidthEl.onchange = function() {
-    canvas.freeDrawingLineWidth = parseInt(drawingLineWidthEl.value, 10) || 1; // disallow 0, NaN, etc.
+    canvas.freeDrawingBrush.width = parseInt(drawingLineWidthEl.value, 10) || 1;
+  };
+  drawingShadowWidth.onchange = function() {
+    canvas.freeDrawingBrush.shadowBlur = parseInt(drawingShadowWidth.value, 10) || 1;
   };
 
-  canvas.freeDrawingColor = drawingColorEl.value;
-  canvas.freeDrawingLineWidth = parseInt(drawingLineWidthEl.value, 10) || 1;
+  canvas.freeDrawingBrush.color = drawingColorEl.value;
+  canvas.freeDrawingBrush.width = parseInt(drawingLineWidthEl.value, 10) || 1;
+  canvas.freeDrawingBrush.shadowBlur = 10;
 
+  // var freeDrawingPointer = new fabric.Circle({
+  //   left: 100,
+  //   top: 100,
+  //   radius: 15,
+  //   selectable: false,
+  //   fill: '',
+  //   stroke: 'rgba(0,0,0,0.2)'
+  // });
+
+  // canvas.on('mouse:move', function(options) {
+  //   if (canvas.isDrawingMode && !canvas._isCurrentlyDrawing) {
+  //     var pointer = canvas.getPointer(options.e);
+
+  //     freeDrawingPointer.radius = canvas.freeDrawingLineWidth / 2;
+  //     freeDrawingPointer.left = pointer.x;
+  //     freeDrawingPointer.top = pointer.y;
+
+  //     canvas.clearContext(canvas.contextTop);
+  //     freeDrawingPointer.render(canvas.contextTop);
+  //   }
+  // });
 
   var text = 'Lorem ipsum dolor sit amet,\nconsectetur adipisicing elit,\nsed do eiusmod tempor incididunt\nut labore et dolore magna aliqua.\n' +
     'Ut enim ad minim veniam,\nquis nostrud exercitation ullamco\nlaboris nisi ut aliquip ex ea commodo consequat.';
@@ -435,7 +489,7 @@
   gradientifyBtn.onclick = function() {
     var obj = canvas.getActiveObject();
     if (obj) {
-      obj.setGradientFill(canvas.getContext(), {
+      obj.setGradientFill({
         x2: (getRandomInt(0, 1) ? 0 : obj.width),
         y2: (getRandomInt(0, 1) ? 0 : obj.height),
         colorStops: {
@@ -664,7 +718,7 @@
     });
   };
 
-  if (typeof Cufon !== 'undefined') {
+  if (typeof Cufon !== 'undefined' && Cufon.fonts.delicious) {
     Cufon.fonts.delicious.offsetLeft = 75;
     Cufon.fonts.delicious.offsetTop = 25;
   }

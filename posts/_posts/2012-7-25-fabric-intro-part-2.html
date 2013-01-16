@@ -35,13 +35,13 @@ rect.animate('angle', 45, {
 <p>One convenient feature of <code>animate</code> is that it also supports relative values. For example, if you wanted to animate object's left property by 100px, you could do it like this:</p>
 
 <pre>
-rect.animate('left', '+100', { onChange: canvas.renderAll.bind(canvas) });
+rect.animate('left', '+=100', { onChange: canvas.renderAll.bind(canvas) });
 </pre>
 
 <p>Similarly, rotating object by 5 degrees counter-clockwise, can be accomplished like so:</p>
 
 <pre>
-rect.animate('angle', '-5', { onChange: canvas.renderAll.bind(canvas) });
+rect.animate('angle', '-=5', { onChange: canvas.renderAll.bind(canvas) });
 </pre>
 
 <p>You might be wondering why we always specify "onChange" callback there. Isn't third argument optional? It is, but calling <code>canvas.renderAll</code> on each animation frame is what allows us to see actual animation! You see, when we call <code>animate</code> method, it only animates property value over time, following specific algorithm (i.e. easing). So <code>rect.animate('angle', 45)</code> will change object's angle but won't re-render canvas screen after each change of the angle. And we obviously need this re-rendering in order to see the actual animation.</p>
@@ -434,14 +434,14 @@ var lineHeight1 = new fabric.Text('Lorem ipsum ...', {
 
 <p><img src="/article_assets/2_13.png" style="border:1px solid #eee"></p>
 
-<h4>backgroundColor</h4>
+<h4>textBackgroundColor</h4>
 
-<p>Finally, backgroundColor is what allows to give text a background. Note that background fills only space occupied by text characters, not the entire bounding box. It means that text alignment changes the way text background is rendered. So does line height, since background respects this vertical space between lines, created by lineHeight.</p>
+<p>Finally, textBackgroundColor is what allows to give text a background. Note that background fills only space occupied by text characters, not the entire bounding box. It means that text alignment changes the way text background is rendered. So does line height, since background respects this vertical space between lines, created by lineHeight.</p>
 
 <pre>
 var text = 'this is\na multiline\ntext\nwith\ncustom lineheight\n&background';
 var textWithBackground = new fabric.Text(text, {
-  backgroundColor: 'rgb(0,200,0)'
+  textBackgroundColor: 'rgb(0,200,0)'
 });
 </pre>
 
@@ -500,6 +500,6 @@ circle.on('selected', function() {
 
 <p>Check this <a href="http://fabricjs.com/events/">events demo</a> for a more extensive exploration of Fabric's event system.</p>
 
-<!-- <p>Read <a href="/fabric-intro-part-3">Part 3</a>.</p> -->
+<p>Read <a href="/fabric-intro-part-3">Part 3</a>.</p>
 
 </div>

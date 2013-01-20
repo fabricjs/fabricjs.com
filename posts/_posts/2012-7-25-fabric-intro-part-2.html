@@ -476,7 +476,7 @@ canvas.on('mouse:down', function(options) {
 
 <p>The above example will log "an object was clicked!" if you click an object. It will also show the type of object clicked.</p>
 
-<p>So which other events are available in Fabric? Well, from mouse-level ones there are "<b>mouse:down</b>", "<b>mouse:move</b>", and "<b>mouse:up</b>". From generic ones, there are "<b>after:render</b>". Then there are selection-related events: "<b>before:selection:created</b>", "<b>selection:created</b>", "<b>selection:cleared</b>". And finally, object ones: "<b>object:modified</b>", "<b>object:selected</b>", "<b>object:moving</b>", "<b>object:scaling</b>", "<b>object:rotating</b>", and "<b>object:added</b>".</p>
+<p>So which other events are available in Fabric? Well, from mouse-level ones there are "<b>mouse:down</b>", "<b>mouse:move</b>", and "<b>mouse:up</b>". From generic ones, there are "<b>after:render</b>". Then there are selection-related events: "<b>before:selection:cleared</b>", "<b>selection:created</b>", "<b>selection:cleared</b>". And finally, object ones: "<b>object:modified</b>", "<b>object:selected</b>", "<b>object:moving</b>", "<b>object:scaling</b>", "<b>object:rotating</b>", and "<b>object:added</b>".</p>
 
 <p>Note that events like "object:moving" (or "object:scaling") are fired continuously every time an object is moved (or scaled) even by one pixel. On the other hand, events like "object:modified" or "selection:created" are fired only at the end of the action (object modification or selection creation).</p>
 

@@ -493,6 +493,16 @@ ul.inheritsList {
 				</tr>
 			
 				<tr>
+					<td class="attributes">&lt;static&gt; &lt;constant&gt; &nbsp;</td>
+					<td class="nameDescription">
+						<div class="fixedFont">
+						fabric.Object.<b><a href="../symbols/fabric.Object.html#.NUM_FRACTION_DIGITS">NUM_FRACTION_DIGITS</a></b>
+						</div>
+						<div class="description"></div>
+					</td>
+				</tr>
+			
+				<tr>
 					<td class="attributes">&nbsp;</td>
 					<td class="nameDescription">
 						<div class="fixedFont">
@@ -717,6 +727,15 @@ as well as for history (undo/redo) purposes</div>
 				<tr>
 					<td class="attributes">&nbsp;</td>
 					<td class="nameDescription">
+						<div class="fixedFont"><b><a href="../symbols/fabric.Object.html#adjustPosition">adjustPosition</a></b>(to)
+						</div>
+						<div class="description"></div>
+					</td>
+				</tr>
+			
+				<tr>
+					<td class="attributes">&nbsp;</td>
+					<td class="nameDescription">
 						<div class="fixedFont"><b><a href="../symbols/fabric.Object.html#animate">animate</a></b>()
 						</div>
 						<div class="description">Animates object's properties</div>
@@ -816,6 +835,15 @@ as well as for history (undo/redo) purposes</div>
 				<tr>
 					<td class="attributes">&nbsp;</td>
 					<td class="nameDescription">
+						<div class="fixedFont"><b><a href="../symbols/fabric.Object.html#fxStraighten">fxStraighten</a></b>(callbacks)
+						</div>
+						<div class="description">Same as fabric.Object.prototype.straghten but with animation</div>
+					</td>
+				</tr>
+			
+				<tr>
+					<td class="attributes">&nbsp;</td>
+					<td class="nameDescription">
 						<div class="fixedFont"><b><a href="../symbols/fabric.Object.html#get">get</a></b>(property)
 						</div>
 						<div class="description">Basic getter</div>
@@ -855,24 +883,6 @@ as well as for history (undo/redo) purposes</div>
 						<div class="fixedFont"><b><a href="../symbols/fabric.Object.html#getHeight">getHeight</a></b>()
 						</div>
 						<div class="description">Returns height of an object</div>
-					</td>
-				</tr>
-			
-				<tr>
-					<td class="attributes">&nbsp;</td>
-					<td class="nameDescription">
-						<div class="fixedFont"><b><a href="../symbols/fabric.Object.html#getOriginPoint">getOriginPoint</a></b>(point)
-						</div>
-						<div class="description">Returns the coordinates of the object based on center coordinates</div>
-					</td>
-				</tr>
-			
-				<tr>
-					<td class="attributes">&nbsp;</td>
-					<td class="nameDescription">
-						<div class="fixedFont"><b><a href="../symbols/fabric.Object.html#getPointByOrigin">getPointByOrigin</a></b>(enum('left',, enum('top',)
-						</div>
-						<div class="description">Returns the coordinates of the object as if it has a different origin</div>
 					</td>
 				</tr>
 			
@@ -1122,6 +1132,15 @@ as well as for history (undo/redo) purposes</div>
 				<tr>
 					<td class="attributes">&nbsp;</td>
 					<td class="nameDescription">
+						<div class="fixedFont"><b><a href="../symbols/fabric.Object.html#straighten">straighten</a></b>()
+						</div>
+						<div class="description">Straightens an object (rotating it from current angle to one of 0, 90, 180, 270, etc.</div>
+					</td>
+				</tr>
+			
+				<tr>
+					<td class="attributes">&nbsp;</td>
+					<td class="nameDescription">
 						<div class="fixedFont"><b><a href="../symbols/fabric.Object.html#toDatalessObject">toDatalessObject</a></b>(propertiesToInclude)
 						</div>
 						<div class="description">Returns (dataless) object representation of an instance</div>
@@ -1143,15 +1162,6 @@ as well as for history (undo/redo) purposes</div>
 						<div class="fixedFont"><b><a href="../symbols/fabric.Object.html#toggle">toggle</a></b>(property)
 						</div>
 						<div class="description">Toggles specified property from `true` to `false` or from `false` to `true`</div>
-					</td>
-				</tr>
-			
-				<tr>
-					<td class="attributes">&nbsp;</td>
-					<td class="nameDescription">
-						<div class="fixedFont"><b><a href="../symbols/fabric.Object.html#toGlobalPoint">toGlobalPoint</a></b>(The)
-						</div>
-						<div class="description">Returns the point in global coordinates</div>
 					</td>
 				</tr>
 			
@@ -1646,6 +1656,28 @@ as well as for history (undo/redo) purposes</div>
 
 			<hr />
 		
+			<a name=".NUM_FRACTION_DIGITS"> </a>
+			<div class="fixedFont">&lt;static&gt; &lt;constant&gt; 
+			
+			<span class="light">{Number}</span>
+			<span class="light">fabric.Object.</span><b>NUM_FRACTION_DIGITS</b>
+			
+			</div>
+			<div class="description">
+				
+				
+				
+			</div>
+			
+			
+
+				
+				
+				
+				
+
+			<hr />
+		
 			<a name="opacity"> </a>
 			<div class="fixedFont">
 			
@@ -2095,6 +2127,42 @@ as well as for history (undo/redo) purposes
 			Method Detail
 		</div>
 		
+			<a name="adjustPosition"> </a>
+			<div class="fixedFont">
+			
+			
+			<b>adjustPosition</b>(to)
+			
+			</div>
+			<div class="description">
+				
+				
+				
+			</div>
+			
+			
+			
+				
+					<dl class="detailList">
+					<dt class="heading">Parameters:</dt>
+					
+						<dt>
+							<span class="light fixedFont">{<a href="../symbols/String.html">String</a>}</span> <b>to</b>
+							
+						</dt>
+						<dd>One of left, center, right</dd>
+					
+					</dl>
+				
+				
+				
+				
+				
+				
+				
+
+			<hr />
+		
 			<a name="animate"> </a>
 			<div class="fixedFont">
 			
@@ -2494,6 +2562,50 @@ Requires public options: cornerSize, padding
 
 			<hr />
 		
+			<a name="fxStraighten"> </a>
+			<div class="fixedFont">
+			
+			<span class="light">{<a href="../symbols/fabric.Object.html">fabric.Object</a>}</span>
+			<b>fxStraighten</b>(callbacks)
+			
+			</div>
+			<div class="description">
+				Same as fabric.Object.prototype.straghten but with animation
+				
+				
+			</div>
+			
+			
+			
+				
+					<dl class="detailList">
+					<dt class="heading">Parameters:</dt>
+					
+						<dt>
+							<span class="light fixedFont">{Object}</span> <b>callbacks</b>
+							
+						</dt>
+						<dd>- onComplete: invoked on completion
+                 - onChange: invoked on every step of animation</dd>
+					
+					</dl>
+				
+				
+				
+				
+				
+					<dl class="detailList">
+					<dt class="heading">Returns:</dt>
+					
+						<dd><span class="light fixedFont">{<a href="../symbols/fabric.Object.html">fabric.Object</a>}</span> thisArg</dd>
+					
+					</dl>
+				
+				
+				
+
+			<hr />
+		
 			<a name="get"> </a>
 			<div class="fixedFont">
 			
@@ -2657,98 +2769,6 @@ Requires public options: cornerSize, padding
 					<dt class="heading">Returns:</dt>
 					
 						<dd><span class="light fixedFont">{Number}</span> height value</dd>
-					
-					</dl>
-				
-				
-				
-
-			<hr />
-		
-			<a name="getOriginPoint"> </a>
-			<div class="fixedFont">
-			
-			<span class="light">{<a href="../symbols/fabric.Point.html">fabric.Point</a>}</span>
-			<b>getOriginPoint</b>(point)
-			
-			</div>
-			<div class="description">
-				Returns the coordinates of the object based on center coordinates
-				
-				
-			</div>
-			
-			
-			
-				
-					<dl class="detailList">
-					<dt class="heading">Parameters:</dt>
-					
-						<dt>
-							<span class="light fixedFont">{<a href="../symbols/fabric.Point.html">fabric.Point</a>}</span> <b>point</b>
-							
-						</dt>
-						<dd>The point which corresponds to the originX and originY params</dd>
-					
-					</dl>
-				
-				
-				
-				
-				
-					<dl class="detailList">
-					<dt class="heading">Returns:</dt>
-					
-						<dd><span class="light fixedFont">{<a href="../symbols/fabric.Point.html">fabric.Point</a>}</span> </dd>
-					
-					</dl>
-				
-				
-				
-
-			<hr />
-		
-			<a name="getPointByOrigin"> </a>
-			<div class="fixedFont">
-			
-			<span class="light">{<a href="../symbols/fabric.Point.html">fabric.Point</a>}</span>
-			<b>getPointByOrigin</b>(enum('left',, enum('top',)
-			
-			</div>
-			<div class="description">
-				Returns the coordinates of the object as if it has a different origin
-				
-				
-			</div>
-			
-			
-			
-				
-					<dl class="detailList">
-					<dt class="heading">Parameters:</dt>
-					
-						<dt>
-							<span class="light fixedFont">{string}</span> <b>enum('left',</b>
-							
-						</dt>
-						<dd>'center', 'right') Horizontal origin</dd>
-					
-						<dt>
-							<span class="light fixedFont">{string}</span> <b>enum('top',</b>
-							
-						</dt>
-						<dd>'center', 'bottom') Vertical origin</dd>
-					
-					</dl>
-				
-				
-				
-				
-				
-					<dl class="detailList">
-					<dt class="heading">Returns:</dt>
-					
-						<dd><span class="light fixedFont">{<a href="../symbols/fabric.Point.html">fabric.Point</a>}</span> </dd>
 					
 					</dl>
 				
@@ -3798,6 +3818,38 @@ Requires public options: cornerSize, padding
 
 			<hr />
 		
+			<a name="straighten"> </a>
+			<div class="fixedFont">
+			
+			<span class="light">{<a href="../symbols/fabric.Object.html">fabric.Object</a>}</span>
+			<b>straighten</b>()
+			
+			</div>
+			<div class="description">
+				Straightens an object (rotating it from current angle to one of 0, 90, 180, 270, etc. depending on which is closer)
+				
+				
+			</div>
+			
+			
+			
+				
+				
+				
+				
+				
+					<dl class="detailList">
+					<dt class="heading">Returns:</dt>
+					
+						<dd><span class="light fixedFont">{<a href="../symbols/fabric.Object.html">fabric.Object</a>}</span> thisArg</dd>
+					
+					</dl>
+				
+				
+				
+
+			<hr />
+		
 			<a name="toDatalessObject"> </a>
 			<div class="fixedFont">
 			
@@ -3844,7 +3896,7 @@ Requires public options: cornerSize, padding
 			<a name="toDataURL"> </a>
 			<div class="fixedFont">
 			
-			<span class="light">{<a href="../symbols/String.html">String</a>}</span>
+			
 			<b>toDataURL</b>(callback)
 			
 			</div>
@@ -3864,20 +3916,13 @@ Requires public options: cornerSize, padding
 							<b>callback</b>
 							
 						</dt>
-						<dd></dd>
+						<dd>{Function} callback that recieves resulting data-url string</dd>
 					
 					</dl>
 				
 				
 				
 				
-				
-					<dl class="detailList">
-					<dt class="heading">Returns:</dt>
-					
-						<dd><span class="light fixedFont">{<a href="../symbols/String.html">String</a>}</span> string of data</dd>
-					
-					</dl>
 				
 				
 				
@@ -3919,49 +3964,6 @@ Requires public options: cornerSize, padding
 					<dt class="heading">Returns:</dt>
 					
 						<dd><span class="light fixedFont">{<a href="../symbols/fabric.Object.html">fabric.Object</a>}</span> thisArg</dd>
-					
-					</dl>
-				
-				
-				
-
-			<hr />
-		
-			<a name="toGlobalPoint"> </a>
-			<div class="fixedFont">
-			
-			<span class="light">{<a href="../symbols/fabric.Point.html">fabric.Point</a>}</span>
-			<b>toGlobalPoint</b>(The)
-			
-			</div>
-			<div class="description">
-				Returns the point in global coordinates
-				
-				
-			</div>
-			
-			
-			
-				
-					<dl class="detailList">
-					<dt class="heading">Parameters:</dt>
-					
-						<dt>
-							<span class="light fixedFont">{<a href="../symbols/fabric.Point.html">fabric.Point</a>}</span> <b>The</b>
-							
-						</dt>
-						<dd>point relative to the local coordinate system</dd>
-					
-					</dl>
-				
-				
-				
-				
-				
-					<dl class="detailList">
-					<dt class="heading">Returns:</dt>
-					
-						<dd><span class="light fixedFont">{<a href="../symbols/fabric.Point.html">fabric.Point</a>}</span> </dd>
 					
 					</dl>
 				
@@ -4333,5 +4335,5 @@ Requires public options: cornerSize, padding
 <!-- ============================== footer ================================= -->
 <div class="fineprint" style="clear:both">
 	
-	Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Thu Jan 03 2013 12:05:44 GMT+0100 (CET)
+	Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Sun Jan 20 2013 20:25:24 GMT+0100 (CET)
 </div>

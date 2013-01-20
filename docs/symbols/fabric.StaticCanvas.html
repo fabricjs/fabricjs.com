@@ -399,6 +399,16 @@ Being passed context as first argument.</div>
 					<td class="attributes">&nbsp;</td>
 					<td class="nameDescription">
 						<div class="fixedFont">
+						<b><a href="../symbols/fabric.StaticCanvas.html#FX_DURATION">FX_DURATION</a></b>
+						</div>
+						<div class="description">Animation duration (in ms) for fx* methods</div>
+					</td>
+				</tr>
+			
+				<tr>
+					<td class="attributes">&nbsp;</td>
+					<td class="nameDescription">
+						<div class="fixedFont">
 						<b><a href="../symbols/fabric.StaticCanvas.html#includeDefaultValues">includeDefaultValues</a></b>
 						</div>
 						<div class="description">Indicates whether toObject/toDatalessObject should include default values</div>
@@ -562,6 +572,24 @@ This method is also attached as "resize" event handler of window</div>
 				<tr>
 					<td class="attributes">&nbsp;</td>
 					<td class="nameDescription">
+						<div class="fixedFont"><b><a href="../symbols/fabric.StaticCanvas.html#clone">clone</a></b>(callback)
+						</div>
+						<div class="description">Clones canvas instance</div>
+					</td>
+				</tr>
+			
+				<tr>
+					<td class="attributes">&nbsp;</td>
+					<td class="nameDescription">
+						<div class="fixedFont"><b><a href="../symbols/fabric.StaticCanvas.html#cloneWithoutData">cloneWithoutData</a></b>(callback)
+						</div>
+						<div class="description">Clones canvas instance without cloning existing data.</div>
+					</td>
+				</tr>
+			
+				<tr>
+					<td class="attributes">&nbsp;</td>
+					<td class="nameDescription">
 						<div class="fixedFont"><b><a href="../symbols/fabric.StaticCanvas.html#complexity">complexity</a></b>()
 						</div>
 						<div class="description">Returns number representation of an instance complexity</div>
@@ -592,6 +620,33 @@ This method is also attached as "resize" event handler of window</div>
 						<div class="fixedFont"><b><a href="../symbols/fabric.StaticCanvas.html#forEachObject">forEachObject</a></b>(callback, context)
 						</div>
 						<div class="description">Iterates over all objects, invoking callback for each one of them</div>
+					</td>
+				</tr>
+			
+				<tr>
+					<td class="attributes">&nbsp;</td>
+					<td class="nameDescription">
+						<div class="fixedFont"><b><a href="../symbols/fabric.StaticCanvas.html#fxCenterObjectH">fxCenterObjectH</a></b>(object, callbacks)
+						</div>
+						<div class="description">Centers object horizontally with animation.</div>
+					</td>
+				</tr>
+			
+				<tr>
+					<td class="attributes">&nbsp;</td>
+					<td class="nameDescription">
+						<div class="fixedFont"><b><a href="../symbols/fabric.StaticCanvas.html#fxCenterObjectV">fxCenterObjectV</a></b>(object, callbacks)
+						</div>
+						<div class="description">Centers object vertically with animation.</div>
+					</td>
+				</tr>
+			
+				<tr>
+					<td class="attributes">&nbsp;</td>
+					<td class="nameDescription">
+						<div class="fixedFont"><b><a href="../symbols/fabric.StaticCanvas.html#fxRemove">fxRemove</a></b>(object, callback)
+						</div>
+						<div class="description">Same as `fabric.Canvas#remove` but animated</div>
 					</td>
 				</tr>
 			
@@ -691,6 +746,26 @@ This method is also attached as "resize" event handler of window</div>
 						<div class="fixedFont"><b><a href="../symbols/fabric.StaticCanvas.html#item">item</a></b>(index)
 						</div>
 						<div class="description">Returns object at specified index</div>
+					</td>
+				</tr>
+			
+				<tr>
+					<td class="attributes">&nbsp;</td>
+					<td class="nameDescription">
+						<div class="fixedFont"><b><a href="../symbols/fabric.StaticCanvas.html#loadFromDatalessJSON">loadFromDatalessJSON</a></b>(json, callback)
+						</div>
+						<div class="description">Populates canvas with data from the specified dataless JSON
+JSON format must conform to the one of `fabric.Canvas#toDatalessJSON`</div>
+					</td>
+				</tr>
+			
+				<tr>
+					<td class="attributes">&nbsp;</td>
+					<td class="nameDescription">
+						<div class="fixedFont"><b><a href="../symbols/fabric.StaticCanvas.html#loadFromJSON">loadFromJSON</a></b>(json, callback)
+						</div>
+						<div class="description">Populates canvas with data from the specified JSON
+JSON format must conform to the one of `fabric.Canvas#toJSON`</div>
 					</td>
 				</tr>
 			
@@ -1090,6 +1165,28 @@ Being passed context as first argument. See clipping canvas area in https://gith
 			</div>
 			<div class="description">
 				
+				
+				
+			</div>
+			
+			
+
+				
+				
+				
+				
+
+			<hr />
+		
+			<a name="FX_DURATION"> </a>
+			<div class="fixedFont">
+			
+			<span class="light">{Number}</span>
+			<b>FX_DURATION</b>
+			
+			</div>
+			<div class="description">
+				Animation duration (in ms) for fx* methods
 				
 				
 			</div>
@@ -1613,6 +1710,80 @@ This method is also attached as "resize" event handler of window
 
 			<hr />
 		
+			<a name="clone"> </a>
+			<div class="fixedFont">
+			
+			
+			<b>clone</b>(callback)
+			
+			</div>
+			<div class="description">
+				Clones canvas instance
+				
+				
+			</div>
+			
+			
+			
+				
+					<dl class="detailList">
+					<dt class="heading">Parameters:</dt>
+					
+						<dt>
+							<span class="light fixedFont">{Object}</span> <b>callback</b>
+							<i>Optional</i>
+						</dt>
+						<dd>Receives cloned instance as a first argument</dd>
+					
+					</dl>
+				
+				
+				
+				
+				
+				
+				
+
+			<hr />
+		
+			<a name="cloneWithoutData"> </a>
+			<div class="fixedFont">
+			
+			
+			<b>cloneWithoutData</b>(callback)
+			
+			</div>
+			<div class="description">
+				Clones canvas instance without cloning existing data.
+This essentially copies canvas dimensions, clipping properties, etc.
+but leaves data empty (so that you can populate it with your own)
+				
+				
+			</div>
+			
+			
+			
+				
+					<dl class="detailList">
+					<dt class="heading">Parameters:</dt>
+					
+						<dt>
+							<span class="light fixedFont">{Object}</span> <b>callback</b>
+							<i>Optional</i>
+						</dt>
+						<dd>Receives cloned instance as a first argument</dd>
+					
+					</dl>
+				
+				
+				
+				
+				
+				
+				
+
+			<hr />
+		
 			<a name="complexity"> </a>
 			<div class="fixedFont">
 			
@@ -1743,6 +1914,153 @@ This method is also attached as "resize" event handler of window
 							
 						</dt>
 						<dd></dd>
+					
+					</dl>
+				
+				
+				
+				
+				
+					<dl class="detailList">
+					<dt class="heading">Returns:</dt>
+					
+						<dd><span class="light fixedFont">{<a href="../symbols/fabric.Canvas.html">fabric.Canvas</a>}</span> thisArg</dd>
+					
+					</dl>
+				
+				
+				
+
+			<hr />
+		
+			<a name="fxCenterObjectH"> </a>
+			<div class="fixedFont">
+			
+			<span class="light">{<a href="../symbols/fabric.Canvas.html">fabric.Canvas</a>}</span>
+			<b>fxCenterObjectH</b>(object, callbacks)
+			
+			</div>
+			<div class="description">
+				Centers object horizontally with animation.
+				
+				
+			</div>
+			
+			
+			
+				
+					<dl class="detailList">
+					<dt class="heading">Parameters:</dt>
+					
+						<dt>
+							<span class="light fixedFont">{<a href="../symbols/fabric.Object.html">fabric.Object</a>}</span> <b>object</b>
+							
+						</dt>
+						<dd>Object to center</dd>
+					
+						<dt>
+							<span class="light fixedFont">{Object}</span> <b>callbacks</b>
+							<i>Optional</i>
+						</dt>
+						<dd>Callbacks object with optional "onComplete" and/or "onChange" properties</dd>
+					
+					</dl>
+				
+				
+				
+				
+				
+					<dl class="detailList">
+					<dt class="heading">Returns:</dt>
+					
+						<dd><span class="light fixedFont">{<a href="../symbols/fabric.Canvas.html">fabric.Canvas</a>}</span> thisArg</dd>
+					
+					</dl>
+				
+				
+				
+
+			<hr />
+		
+			<a name="fxCenterObjectV"> </a>
+			<div class="fixedFont">
+			
+			<span class="light">{<a href="../symbols/fabric.Canvas.html">fabric.Canvas</a>}</span>
+			<b>fxCenterObjectV</b>(object, callbacks)
+			
+			</div>
+			<div class="description">
+				Centers object vertically with animation.
+				
+				
+			</div>
+			
+			
+			
+				
+					<dl class="detailList">
+					<dt class="heading">Parameters:</dt>
+					
+						<dt>
+							<span class="light fixedFont">{<a href="../symbols/fabric.Object.html">fabric.Object</a>}</span> <b>object</b>
+							
+						</dt>
+						<dd>Object to center</dd>
+					
+						<dt>
+							<span class="light fixedFont">{Object}</span> <b>callbacks</b>
+							<i>Optional</i>
+						</dt>
+						<dd>Callbacks object with optional "onComplete" and/or "onChange" properties</dd>
+					
+					</dl>
+				
+				
+				
+				
+				
+					<dl class="detailList">
+					<dt class="heading">Returns:</dt>
+					
+						<dd><span class="light fixedFont">{<a href="../symbols/fabric.Canvas.html">fabric.Canvas</a>}</span> thisArg</dd>
+					
+					</dl>
+				
+				
+				
+
+			<hr />
+		
+			<a name="fxRemove"> </a>
+			<div class="fixedFont">
+			
+			<span class="light">{<a href="../symbols/fabric.Canvas.html">fabric.Canvas</a>}</span>
+			<b>fxRemove</b>(object, callback)
+			
+			</div>
+			<div class="description">
+				Same as `fabric.Canvas#remove` but animated
+				
+				
+			</div>
+			
+			
+			
+				
+					<dl class="detailList">
+					<dt class="heading">Parameters:</dt>
+					
+						<dt>
+							<span class="light fixedFont">{<a href="../symbols/fabric.Object.html">fabric.Object</a>}</span> <b>object</b>
+							
+						</dt>
+						<dd>Object to remove</dd>
+					
+						<dt>
+							<span class="light fixedFont">{<a href="../symbols/Function.html">Function</a>}</span> <b>callback</b>
+							
+						</dt>
+						<dd>Callback, invoked on effect completion</dd>
 					
 					</dl>
 				
@@ -2142,6 +2460,110 @@ An object should be an instance of (or inherit from) fabric.Object
 					<dt class="heading">Returns:</dt>
 					
 						<dd><span class="light fixedFont">{<a href="../symbols/fabric.Object.html">fabric.Object</a>}</span> </dd>
+					
+					</dl>
+				
+				
+				
+
+			<hr />
+		
+			<a name="loadFromDatalessJSON"> </a>
+			<div class="fixedFont">
+			
+			<span class="light">{<a href="../symbols/fabric.Canvas.html">fabric.Canvas</a>}</span>
+			<b>loadFromDatalessJSON</b>(json, callback)
+			
+			</div>
+			<div class="description">
+				Populates canvas with data from the specified dataless JSON
+JSON format must conform to the one of `fabric.Canvas#toDatalessJSON`
+				
+				
+			</div>
+			
+			
+			
+				
+					<dl class="detailList">
+					<dt class="heading">Parameters:</dt>
+					
+						<dt>
+							<span class="light fixedFont">{<a href="../symbols/String.html">String</a>|Object}</span> <b>json</b>
+							
+						</dt>
+						<dd>JSON string or object</dd>
+					
+						<dt>
+							<span class="light fixedFont">{<a href="../symbols/Function.html">Function</a>}</span> <b>callback</b>
+							
+						</dt>
+						<dd>Callback, invoked when json is parsed
+                           and corresponding objects (e.g: fabric.Image)
+                           are initialized</dd>
+					
+					</dl>
+				
+				
+				
+				
+				
+					<dl class="detailList">
+					<dt class="heading">Returns:</dt>
+					
+						<dd><span class="light fixedFont">{<a href="../symbols/fabric.Canvas.html">fabric.Canvas</a>}</span> instance</dd>
+					
+					</dl>
+				
+				
+				
+
+			<hr />
+		
+			<a name="loadFromJSON"> </a>
+			<div class="fixedFont">
+			
+			<span class="light">{<a href="../symbols/fabric.Canvas.html">fabric.Canvas</a>}</span>
+			<b>loadFromJSON</b>(json, callback)
+			
+			</div>
+			<div class="description">
+				Populates canvas with data from the specified JSON
+JSON format must conform to the one of `fabric.Canvas#toJSON`
+				
+				
+			</div>
+			
+			
+			
+				
+					<dl class="detailList">
+					<dt class="heading">Parameters:</dt>
+					
+						<dt>
+							<span class="light fixedFont">{<a href="../symbols/String.html">String</a>|Object}</span> <b>json</b>
+							
+						</dt>
+						<dd>JSON string or object</dd>
+					
+						<dt>
+							<span class="light fixedFont">{<a href="../symbols/Function.html">Function</a>}</span> <b>callback</b>
+							
+						</dt>
+						<dd>Callback, invoked when json is parsed
+                           and corresponding objects (e.g: fabric.Image)
+                           are initialized</dd>
+					
+					</dl>
+				
+				
+				
+				
+				
+					<dl class="detailList">
+					<dt class="heading">Returns:</dt>
+					
+						<dd><span class="light fixedFont">{<a href="../symbols/fabric.Canvas.html">fabric.Canvas</a>}</span> instance</dd>
 					
 					</dl>
 				
@@ -3053,5 +3475,5 @@ Also used to render the group selection box.
 <!-- ============================== footer ================================= -->
 <div class="fineprint" style="clear:both">
 	
-	Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Thu Jan 03 2013 12:05:44 GMT+0100 (CET)
+	Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Sun Jan 20 2013 20:25:24 GMT+0100 (CET)
 </div>

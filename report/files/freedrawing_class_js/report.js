@@ -1,0 +1,424 @@
+__report = {
+  "info": {
+    "file": "src/freedrawing.class.js",
+    "fileShort": "freedrawing.class.js",
+    "fileSafe": "freedrawing_class_js",
+    "link": "files/freedrawing_class_js/index.html"
+  },
+  "complexity": {
+    "aggregate": {
+      "line": 1,
+      "complexity": {
+        "sloc": {
+          "physical": 247,
+          "logical": 112
+        },
+        "cyclomatic": 9,
+        "halstead": {
+          "operators": {
+            "distinct": 23,
+            "total": 391,
+            "identifiers": [
+              "__stripped__"
+            ]
+          },
+          "operands": {
+            "distinct": 106,
+            "total": 485,
+            "identifiers": [
+              "__stripped__"
+            ]
+          },
+          "length": 876,
+          "vocabulary": 129,
+          "difficulty": 52.617924528301884,
+          "volume": 6141.835075750771,
+          "effort": 323170.6144811313,
+          "bugs": 2.0472783585835903,
+          "time": 17953.923026729517
+        }
+      }
+    },
+    "functions": [
+      {
+        "name": "<anonymous>",
+        "line": 1,
+        "complexity": {
+          "sloc": {
+            "physical": 247,
+            "logical": 18
+          },
+          "cyclomatic": 3,
+          "halstead": {
+            "operators": {
+              "distinct": 10,
+              "total": 47,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "operands": {
+              "distinct": 24,
+              "total": 49,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "length": 96,
+            "vocabulary": 34,
+            "difficulty": 10.208333333333332,
+            "volume": 488.39643276003267,
+            "effort": 4985.713584425333,
+            "bugs": 0.1627988109200109,
+            "time": 276.98408802362957
+          }
+        }
+      },
+      {
+        "name": "initialize",
+        "line": 31,
+        "complexity": {
+          "sloc": {
+            "physical": 4,
+            "logical": 2
+          },
+          "cyclomatic": 1,
+          "halstead": {
+            "operators": {
+              "distinct": 3,
+              "total": 5,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "operands": {
+              "distinct": 5,
+              "total": 7,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "length": 12,
+            "vocabulary": 8,
+            "difficulty": 2.0999999999999996,
+            "volume": 36,
+            "effort": 75.6,
+            "bugs": 0.012,
+            "time": 4.199999999999999
+          }
+        }
+      },
+      {
+        "name": "_addPoint",
+        "line": 41,
+        "complexity": {
+          "sloc": {
+            "physical": 3,
+            "logical": 1
+          },
+          "cyclomatic": 1,
+          "halstead": {
+            "operators": {
+              "distinct": 2,
+              "total": 3,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "operands": {
+              "distinct": 4,
+              "total": 5,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "length": 8,
+            "vocabulary": 6,
+            "difficulty": 1.25,
+            "volume": 20.67970000576925,
+            "effort": 25.84962500721156,
+            "bugs": 0.006893233335256416,
+            "time": 1.43609027817842
+          }
+        }
+      },
+      {
+        "name": "_reset",
+        "line": 53,
+        "complexity": {
+          "sloc": {
+            "physical": 9,
+            "logical": 5
+          },
+          "cyclomatic": 1,
+          "halstead": {
+            "operators": {
+              "distinct": 3,
+              "total": 19,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "operands": {
+              "distinct": 14,
+              "total": 23,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "length": 42,
+            "vocabulary": 17,
+            "difficulty": 2.4642857142857144,
+            "volume": 171.67343933251428,
+            "effort": 423.0524040694102,
+            "bugs": 0.05722447977750476,
+            "time": 23.502911337189456
+          }
+        }
+      },
+      {
+        "name": "_prepareForDrawing",
+        "line": 66,
+        "complexity": {
+          "sloc": {
+            "physical": 10,
+            "logical": 6
+          },
+          "cyclomatic": 1,
+          "halstead": {
+            "operators": {
+              "distinct": 5,
+              "total": 24,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "operands": {
+              "distinct": 16,
+              "total": 29,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "length": 53,
+            "vocabulary": 21,
+            "difficulty": 4.53125,
+            "volume": 232.7928234072743,
+            "effort": 1054.8424810642118,
+            "bugs": 0.07759760780242476,
+            "time": 58.60236005912288
+          }
+        }
+      },
+      {
+        "name": "_captureDrawingPath",
+        "line": 84,
+        "complexity": {
+          "sloc": {
+            "physical": 4,
+            "logical": 2
+          },
+          "cyclomatic": 1,
+          "halstead": {
+            "operators": {
+              "distinct": 5,
+              "total": 8,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "operands": {
+              "distinct": 8,
+              "total": 11,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "length": 19,
+            "vocabulary": 13,
+            "difficulty": 3.4375,
+            "volume": 70.30835464468075,
+            "effort": 241.68496909109007,
+            "bugs": 0.02343611821489358,
+            "time": 13.426942727282782
+          }
+        }
+      },
+      {
+        "name": "_render",
+        "line": 97,
+        "complexity": {
+          "sloc": {
+            "physical": 24,
+            "logical": 14
+          },
+          "cyclomatic": 2,
+          "halstead": {
+            "operators": {
+              "distinct": 8,
+              "total": 49,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "operands": {
+              "distinct": 21,
+              "total": 60,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "length": 109,
+            "vocabulary": 29,
+            "difficulty": 11.428571428571429,
+            "volume": 529.5199284689054,
+            "effort": 6051.656325358919,
+            "bugs": 0.17650664282296846,
+            "time": 336.20312918660665
+          }
+        }
+      },
+      {
+        "name": "_getSVGPathData",
+        "line": 130,
+        "complexity": {
+          "sloc": {
+            "physical": 5,
+            "logical": 2
+          },
+          "cyclomatic": 1,
+          "halstead": {
+            "operators": {
+              "distinct": 4,
+              "total": 17,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "operands": {
+              "distinct": 9,
+              "total": 22,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "length": 39,
+            "vocabulary": 13,
+            "difficulty": 4.888888888888889,
+            "volume": 144.3171490075026,
+            "effort": 705.5505062589016,
+            "bugs": 0.0481057163358342,
+            "time": 39.19725034771675
+          }
+        }
+      },
+      {
+        "name": "getPathBoundingBox",
+        "line": 142,
+        "complexity": {
+          "sloc": {
+            "physical": 30,
+            "logical": 23
+          },
+          "cyclomatic": 2,
+          "halstead": {
+            "operators": {
+              "distinct": 12,
+              "total": 55,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "operands": {
+              "distinct": 23,
+              "total": 71,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "length": 126,
+            "vocabulary": 35,
+            "difficulty": 18.52173913043478,
+            "volume": 646.2896601350658,
+            "effort": 11970.408487719043,
+            "bugs": 0.21542988671168858,
+            "time": 665.0226937621691
+          }
+        }
+      },
+      {
+        "name": "convertPointsToSVGPath",
+        "line": 179,
+        "complexity": {
+          "sloc": {
+            "physical": 20,
+            "logical": 14
+          },
+          "cyclomatic": 3,
+          "halstead": {
+            "operators": {
+              "distinct": 13,
+              "total": 77,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "operands": {
+              "distinct": 25,
+              "total": 107,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "length": 184,
+            "vocabulary": 38,
+            "difficulty": 27.82,
+            "volume": 965.6186624736197,
+            "effort": 26863.5111900161,
+            "bugs": 0.32187288749120657,
+            "time": 1492.4172883342278
+          }
+        }
+      },
+      {
+        "name": "_finalizeAndAddPath",
+        "line": 207,
+        "complexity": {
+          "sloc": {
+            "physical": 38,
+            "logical": 23
+          },
+          "cyclomatic": 2,
+          "halstead": {
+            "operators": {
+              "distinct": 14,
+              "total": 82,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "operands": {
+              "distinct": 43,
+              "total": 96,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "length": 178,
+            "vocabulary": 57,
+            "difficulty": 15.627906976744185,
+            "volume": 1038.2544225213242,
+            "effort": 16225.743533356506,
+            "bugs": 0.34608480750710807,
+            "time": 901.4301962975837
+          }
+        }
+      }
+    ],
+    "maintainability": 103.6991932013784,
+    "module": "freedrawing.class.js"
+  },
+  "jshint": {
+    "messages": []
+  }
+}

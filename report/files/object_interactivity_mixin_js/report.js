@@ -1,0 +1,359 @@
+__report = {
+  "info": {
+    "file": "src/object_interactivity.mixin.js",
+    "fileShort": "object_interactivity.mixin.js",
+    "fileSafe": "object_interactivity_mixin_js",
+    "link": "files/object_interactivity_mixin_js/index.html"
+  },
+  "complexity": {
+    "aggregate": {
+      "line": 1,
+      "complexity": {
+        "sloc": {
+          "physical": 496,
+          "logical": 287
+        },
+        "cyclomatic": 35,
+        "halstead": {
+          "operators": {
+            "distinct": 31,
+            "total": 990,
+            "identifiers": [
+              "__stripped__"
+            ]
+          },
+          "operands": {
+            "distinct": 144,
+            "total": 1216,
+            "identifiers": [
+              "__stripped__"
+            ]
+          },
+          "length": 2206,
+          "vocabulary": 175,
+          "difficulty": 130.88888888888889,
+          "volume": 16437.37171270212,
+          "effort": 2151469.3197292327,
+          "bugs": 5.47912390423404,
+          "time": 119526.0733182907
+        }
+      }
+    },
+    "functions": [
+      {
+        "name": "<anonymous>",
+        "line": 1,
+        "complexity": {
+          "sloc": {
+            "physical": 496,
+            "logical": 9
+          },
+          "cyclomatic": 1,
+          "halstead": {
+            "operators": {
+              "distinct": 7,
+              "total": 26,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "operands": {
+              "distinct": 15,
+              "total": 28,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "length": 54,
+            "vocabulary": 22,
+            "difficulty": 6.533333333333333,
+            "volume": 240.80930740641406,
+            "effort": 1573.2874750552385,
+            "bugs": 0.08026976913547136,
+            "time": 87.40485972529103
+          }
+        }
+      },
+      {
+        "name": "_findTargetCorner",
+        "line": 16,
+        "complexity": {
+          "sloc": {
+            "physical": 43,
+            "logical": 19
+          },
+          "cyclomatic": 9,
+          "halstead": {
+            "operators": {
+              "distinct": 15,
+              "total": 57,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "operands": {
+              "distinct": 33,
+              "total": 64,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "length": 121,
+            "vocabulary": 48,
+            "difficulty": 14.545454545454547,
+            "volume": 675.78046258726,
+            "effort": 9829.534001269238,
+            "bugs": 0.22526015419575332,
+            "time": 546.0852222927355
+          }
+        }
+      },
+      {
+        "name": "_findCrossPoints",
+        "line": 69,
+        "complexity": {
+          "sloc": {
+            "physical": 41,
+            "logical": 30
+          },
+          "cyclomatic": 6,
+          "halstead": {
+            "operators": {
+              "distinct": 19,
+              "total": 77,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "operands": {
+              "distinct": 19,
+              "total": 92,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "length": 169,
+            "vocabulary": 38,
+            "difficulty": 46,
+            "volume": 886.8997497719658,
+            "effort": 40797.38848951043,
+            "bugs": 0.2956332499239886,
+            "time": 2266.5215827505795
+          }
+        }
+      },
+      {
+        "name": "_getImageLines",
+        "line": 117,
+        "complexity": {
+          "sloc": {
+            "physical": 20,
+            "logical": 13
+          },
+          "cyclomatic": 1,
+          "halstead": {
+            "operators": {
+              "distinct": 4,
+              "total": 26,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "operands": {
+              "distinct": 12,
+              "total": 34,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "length": 60,
+            "vocabulary": 16,
+            "difficulty": 5.666666666666667,
+            "volume": 240,
+            "effort": 1360,
+            "bugs": 0.08,
+            "time": 75.55555555555556
+          }
+        }
+      },
+      {
+        "name": "_setCornerCoords",
+        "line": 144,
+        "complexity": {
+          "sloc": {
+            "physical": 181,
+            "logical": 125
+          },
+          "cyclomatic": 1,
+          "halstead": {
+            "operators": {
+              "distinct": 10,
+              "total": 452,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "operands": {
+              "distinct": 34,
+              "total": 532,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "length": 984,
+            "vocabulary": 44,
+            "difficulty": 78.23529411764706,
+            "volume": 5372.080712739101,
+            "effort": 420286.3145848826,
+            "bugs": 1.7906935709130336,
+            "time": 23349.23969916014
+          }
+        }
+      },
+      {
+        "name": "drawBorders",
+        "line": 334,
+        "complexity": {
+          "sloc": {
+            "physical": 47,
+            "logical": 24
+          },
+          "cyclomatic": 7,
+          "halstead": {
+            "operators": {
+              "distinct": 16,
+              "total": 125,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "operands": {
+              "distinct": 40,
+              "total": 130,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "length": 255,
+            "vocabulary": 56,
+            "difficulty": 26,
+            "volume": 1480.8755051246892,
+            "effort": 38502.76313324192,
+            "bugs": 0.4936251683748964,
+            "time": 2139.0423962912178
+          }
+        }
+      },
+      {
+        "name": "drawCorners",
+        "line": 391,
+        "complexity": {
+          "sloc": {
+            "physical": 104,
+            "logical": 65
+          },
+          "cyclomatic": 16,
+          "halstead": {
+            "operators": {
+              "distinct": 15,
+              "total": 225,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "operands": {
+              "distinct": 51,
+              "total": 335,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "length": 560,
+            "vocabulary": 66,
+            "difficulty": 49.26470588235294,
+            "volume": 3384.860706840734,
+            "effort": 166754.16717524204,
+            "bugs": 1.1282869022802446,
+            "time": 9264.120398624558
+          }
+        }
+      }
+    ],
+    "maintainability": 71.27630180899213,
+    "module": "object_interactivity.mixin.js"
+  },
+  "jshint": {
+    "messages": [
+      {
+        "severity": "error",
+        "line": 367,
+        "column": 13,
+        "message": "Bad line breaking before '?'.",
+        "source": "Bad line breaking before '{a}'."
+      },
+      {
+        "severity": "error",
+        "line": 425,
+        "column": 55,
+        "message": "Expected an assignment or function call and instead saw an expression.",
+        "source": "Expected an assignment or function call and instead saw an expression."
+      },
+      {
+        "severity": "error",
+        "line": 432,
+        "column": 55,
+        "message": "Expected an assignment or function call and instead saw an expression.",
+        "source": "Expected an assignment or function call and instead saw an expression."
+      },
+      {
+        "severity": "error",
+        "line": 439,
+        "column": 55,
+        "message": "Expected an assignment or function call and instead saw an expression.",
+        "source": "Expected an assignment or function call and instead saw an expression."
+      },
+      {
+        "severity": "error",
+        "line": 446,
+        "column": 55,
+        "message": "Expected an assignment or function call and instead saw an expression.",
+        "source": "Expected an assignment or function call and instead saw an expression."
+      },
+      {
+        "severity": "error",
+        "line": 454,
+        "column": 57,
+        "message": "Expected an assignment or function call and instead saw an expression.",
+        "source": "Expected an assignment or function call and instead saw an expression."
+      },
+      {
+        "severity": "error",
+        "line": 461,
+        "column": 57,
+        "message": "Expected an assignment or function call and instead saw an expression.",
+        "source": "Expected an assignment or function call and instead saw an expression."
+      },
+      {
+        "severity": "error",
+        "line": 468,
+        "column": 57,
+        "message": "Expected an assignment or function call and instead saw an expression.",
+        "source": "Expected an assignment or function call and instead saw an expression."
+      },
+      {
+        "severity": "error",
+        "line": 475,
+        "column": 57,
+        "message": "Expected an assignment or function call and instead saw an expression.",
+        "source": "Expected an assignment or function call and instead saw an expression."
+      },
+      {
+        "severity": "error",
+        "line": 487,
+        "column": 57,
+        "message": "Expected an assignment or function call and instead saw an expression.",
+        "source": "Expected an assignment or function call and instead saw an expression."
+      }
+    ]
+  }
+}

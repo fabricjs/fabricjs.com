@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/bootstrap-3.0.0-wip.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/font-awesome-ie7.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet">
+  <link href="../../assets/css/plato.css" rel="stylesheet">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="brand" href="http://github.com/jsoverson/plato">Plato on Github</a>
+    <ul class="nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>polyline.class.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="span6">
+      <h2 class="header">Maintainability</h2>
+      <p class="stat">114.69</p>
+    </div>
+    <div class="span6">
+      <h2 class="header">Estimated # Bugs</h2>
+      <p class="stat">0.94</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="span6">
+      <h2 class="header">Difficulty</h2>
+      <p class="stat">33.04</p>
+    </div>
+    <div class="span6">
+      <h2 class="header">SLOC/LSLOC</h2>
+      <p class="stat">155 / 58</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="span6">
+      <h3 class="chart-header">By Complexity</h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="span6">
+      <h3 class="chart-header">By SLOC</h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="span12">(function(global) {
+
+  "use strict";
+
+  var fabric = global.fabric || (global.fabric = { }),
+      toFixed = fabric.util.toFixed;
+
+  if (fabric.Polyline) {
+    fabric.warn('fabric.Polyline is already defined');
+    return;
+  }
+
+  /**
+   * Polyline class
+   * @class Polyline
+   * @extends fabric.Object
+   */
+  fabric.Polyline = fabric.util.createClass(fabric.Object, /** @scope fabric.Polyline.prototype */ {
+
+    /**
+     * Type of an object
+     * @property
+     * @type String
+     */
+    type: 'polyline',
+
+    /**
+     * Constructor
+     * @method initialize
+     * @param {Array} points array of points
+     * @param {Object} [options] Options object
+     * @return {Object} thisArg
+     */
+    initialize: function(points, options) {
+      options = options || { };
+      this.set('points', points);
+      this.callSuper('initialize', options);
+      this._calcDimensions();
+    },
+
+    /**
+     * @private
+     * @method _calcDimensions
+     */
+    _calcDimensions: function() {
+      return fabric.Polygon.prototype._calcDimensions.call(this);
+    },
+
+    /**
+     * Returns object representation of an instance
+     * @method toObject
+     * @param {Array} propertiesToInclude
+     * @return {Object} object representation of an instance
+     */
+    toObject: function(propertiesToInclude) {
+      return fabric.Polygon.prototype.toObject.call(this, propertiesToInclude);
+    },
+
+    /**
+     * Returns SVG representation of an instance
+     * @method toSVG
+     * @return {String} svg representation of an instance
+     */
+    toSVG: function() {
+      var points = [];
+      for (var i = 0, len = this.points.length; i < len; i++) {
+        points.push(toFixed(this.points[i].x, 2), ',', toFixed(this.points[i].y, 2), ' ');
+      }
+
+      return [
+        '<polyline ',
+          'points="', points.join(''), '" ',
+          'style="', this.getSvgStyles(), '" ',
+          'transform="', this.getSvgTransform(), '" ',
+        '/>'
+      ].join('');
+    },
+
+    /**
+     * @private
+     * @method _render
+     * @param {CanvasRenderingContext2D} ctx Context to render on
+     */
+    _render: function(ctx) {
+      var point;
+      ctx.beginPath();
+      ctx.moveTo(this.points[0].x, this.points[0].y);
+      for (var i = 0, len = this.points.length; i < len; i++) {
+        point = this.points[i];
+        ctx.lineTo(point.x, point.y);
+      }
+      if (this.fill) {
+        ctx.fill();
+      }
+      if (this.stroke) {
+        ctx.stroke();
+      }
+    },
+
+    /**
+     * Returns complexity of an instance
+     * @method complexity
+     * @return {Number} complexity
+     */
+    complexity: function() {
+      return this.get('points').length;
+    }
+  });
+
+  /**
+   * List of attribute names to account for when parsing SVG element (used by {@link fabric.Polyline.fromElement})
+   * @static
+   * @see: http://www.w3.org/TR/SVG/shapes.html#PolylineElement
+   */
+  fabric.Polyline.ATTRIBUTE_NAMES = 'fill fill-opacity opacity stroke stroke-width transform'.split(' ');
+
+  /**
+   * Returns fabric.Polyline instance from an SVG element
+   * @static
+   * @method fabric.Polyline.fromElement
+   * @param {SVGElement} element Element to parse
+   * @param {Object} [options] Options object
+   * @return {Object} instance of fabric.Polyline
+   */
+  fabric.Polyline.fromElement = function(element, options) {
+    if (!element) {
+      return null;
+    }
+    options || (options = { });
+
+    var points = fabric.parsePointsAttribute(element.getAttribute('points')),
+        parsedAttributes = fabric.parseAttributes(element, fabric.Polyline.ATTRIBUTE_NAMES);
+
+    for (var i = 0, len = points.length; i < len; i++) {
+      // normalize coordinates, according to containing box (dimensions of which are passed via `options`)
+      points[i].x -= (options.width / 2) || 0;
+      points[i].y -= (options.height / 2) || 0;
+    }
+
+    return new fabric.Polyline(points, fabric.util.object.extend(parsedAttributes, options));
+  };
+
+  /**
+   * Returns fabric.Polyline instance from an object representation
+   * @static
+   * @method fabric.Polyline.fromObject
+   * @param {Object} [object] Object to create an instance from
+   * @return {fabric.Polyline}
+   */
+  fabric.Polyline.fromObject = function(object) {
+    var points = object.points;
+    return new fabric.Polyline(points, object);
+  };
+
+})(typeof exports !== 'undefined' ? exports : this);</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+
+</body>
+</html>

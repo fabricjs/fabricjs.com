@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/bootstrap-3.0.0-wip.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/font-awesome-ie7.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet">
+  <link href="../../assets/css/plato.css" rel="stylesheet">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="brand" href="http://github.com/jsoverson/plato">Plato on Github</a>
+    <ul class="nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>triangle.class.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="span6">
+      <h2 class="header">Maintainability</h2>
+      <p class="stat">118.41</p>
+    </div>
+    <div class="span6">
+      <h2 class="header">Estimated # Bugs</h2>
+      <p class="stat">0.51</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="span6">
+      <h2 class="header">Difficulty</h2>
+      <p class="stat">21.27</p>
+    </div>
+    <div class="span6">
+      <h2 class="header">SLOC/LSLOC</h2>
+      <p class="stat">108 / 35</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="span6">
+      <h3 class="chart-header">By Complexity</h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="span6">
+      <h3 class="chart-header">By SLOC</h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="span12">(function(global) {
+
+  "use strict";
+
+  var fabric = global.fabric || (global.fabric = { });
+
+  if (fabric.Triangle) {
+    fabric.warn('fabric.Triangle is already defined');
+    return;
+  }
+
+  /**
+   * Triangle class
+   * @class Triangle
+   * @extends fabric.Object
+   */
+  fabric.Triangle = fabric.util.createClass(fabric.Object, /** @scope fabric.Triangle.prototype */ {
+
+    /**
+     * Type of an object
+     * @property
+     * @type String
+     */
+    type: 'triangle',
+
+    /**
+     * Constructor
+     * @method initialize
+     * @param {Object} [options] Options object
+     * @return {Object} thisArg
+     */
+    initialize: function(options) {
+      options = options || { };
+
+      this.callSuper('initialize', options);
+
+      this.set('width', options.width || 100)
+          .set('height', options.height || 100);
+    },
+
+    /**
+     * @private
+     * @method _render
+     * @param ctx {CanvasRenderingContext2D} Context to render on
+     */
+    _render: function(ctx) {
+      var widthBy2 = this.width / 2,
+          heightBy2 = this.height / 2;
+
+      ctx.beginPath();
+      ctx.moveTo(-widthBy2, heightBy2);
+      ctx.lineTo(0, -heightBy2);
+      ctx.lineTo(widthBy2, heightBy2);
+      ctx.closePath();
+
+      if (this.fill) {
+        ctx.fill();
+      }
+      if (this.stroke) {
+        ctx.stroke();
+      }
+    },
+
+    /**
+     * Returns complexity of an instance
+     * @method complexity
+     * @return {Number} complexity of this instance
+     */
+    complexity: function() {
+      return 1;
+    },
+
+    /**
+     * Returns SVG representation of an instance
+     * @method toSVG
+     * @return {String} svg representation of an instance
+     */
+    toSVG: function() {
+
+      var widthBy2 = this.width / 2,
+          heightBy2 = this.height / 2;
+
+      var points = [
+        -widthBy2 + " " + heightBy2,
+        "0 " + -heightBy2,
+        widthBy2 + " " + heightBy2
+      ].join(",");
+
+      return '<polygon ' +
+              'points="' + points + '" ' +
+              'style="' + this.getSvgStyles() + '" ' +
+              'transform="' + this.getSvgTransform() + '" ' +
+              '/>';
+    }
+  });
+
+  /**
+   * Returns fabric.Triangle instance from an object representation
+   * @static
+   * @method Canvas.Trangle.fromObject
+   * @param object {Object} object to create an instance from
+   * @return {Object} instance of Canvas.Triangle
+   */
+  fabric.Triangle.fromObject = function(object) {
+    return new fabric.Triangle(object);
+  };
+
+})(typeof exports !== 'undefined' ? exports : this);</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+
+</body>
+</html>

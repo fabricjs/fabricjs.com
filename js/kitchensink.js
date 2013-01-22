@@ -410,11 +410,11 @@
       brushChosen = new fabric.CircleBrush(canvas);
     }
 
-    canvas.freeDrawingBrush = brushChosen;
-
-    canvas.freeDrawingBrush.color = drawingColorEl.value;
-    canvas.freeDrawingBrush.width = parseInt(drawingLineWidthEl.value, 10) || 1;
-    canvas.freeDrawingBrush.shadowBlur = parseInt(drawingShadowWidth.value, 10) || 1;
+    if (canvas.freeDrawingBrush) {
+      canvas.freeDrawingBrush.color = drawingColorEl.value;
+      canvas.freeDrawingBrush.width = parseInt(drawingLineWidthEl.value, 10) || 1;
+      canvas.freeDrawingBrush.shadowBlur = parseInt(drawingShadowWidth.value, 10) || 0;
+    }
   });
 
   drawingColorEl.onchange = function() {
@@ -424,12 +424,14 @@
     canvas.freeDrawingBrush.width = parseInt(drawingLineWidthEl.value, 10) || 1;
   };
   drawingShadowWidth.onchange = function() {
-    canvas.freeDrawingBrush.shadowBlur = parseInt(drawingShadowWidth.value, 10) || 1;
+    canvas.freeDrawingBrush.shadowBlur = parseInt(drawingShadowWidth.value, 10) || 0;
   };
 
-  canvas.freeDrawingBrush.color = drawingColorEl.value;
-  canvas.freeDrawingBrush.width = parseInt(drawingLineWidthEl.value, 10) || 1;
-  canvas.freeDrawingBrush.shadowBlur = 10;
+  if (canvas.freeDrawingBrush) {
+    canvas.freeDrawingBrush.color = drawingColorEl.value;
+    canvas.freeDrawingBrush.width = parseInt(drawingLineWidthEl.value, 10) || 1;
+    canvas.freeDrawingBrush.shadowBlur = 0;
+  }
 
   // var freeDrawingPointer = new fabric.Circle({
   //   left: 100,

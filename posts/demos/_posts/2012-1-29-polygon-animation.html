@@ -1,0 +1,67 @@
+---
+layout: demo
+title: Animating polygon points
+---
+<canvas id="c" width="500" height="500" style="border:1px solid #ccc"></canvas>
+
+<script id="main">var canvas = new fabric.Canvas('c');
+
+var startPoints = [
+  {x: 0, y: 42},
+  {x: 155, y: 0},
+  {x: 155, y: 243},
+  {x: 0, y: 256}
+];
+
+var endPoints = [
+  {x: 185, y: 0},
+  {x: 250, y: 100},
+  {x: 385, y: 170},
+  {x: 0, y: 245}
+];
+
+var clonedStartPoints = startPoints.map(function(o){
+  return fabric.util.object.clone(o);
+});
+
+var polygon = new fabric.Polygon(clonedStartPoints, {
+  left: 100,
+  top: 100,
+  fill: 'purple',
+  selectable: false
+});
+canvas.add(polygon);
+
+function animatePoint(i, prop, endPoints) {
+  fabric.util.animate({
+    startValue: polygon.points[i][prop],
+    endValue: endPoints[i][prop],
+    duration: 1000,
+    onChange: function(value) {
+      polygon.points[i][prop] = value;
+      // only render once
+      if (i === startPoints.length - 1 && prop === 'y') {
+        canvas.renderAll();
+      }
+    },
+    onComplete: function() {
+      polygon.setCoords();
+      // only start animation once
+      if (i === startPoints.length - 1 && prop === 'y') {
+        even = !even;
+        animate();
+      }
+    }
+  });
+}
+
+function animate() {
+  for (var i = 0, len = startPoints.length; i < len; i++) {
+    animatePoint(i, 'x', even ? endPoints : startPoints);
+    animatePoint(i, 'y', even ? endPoints : startPoints);
+  }
+}
+
+var even = true;
+setTimeout(animate, 1000);
+</script>

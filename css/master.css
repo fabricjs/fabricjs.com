@@ -25,6 +25,13 @@ h3, h4 { margin-top: 1.5em !important; }
 #header li.secondary { float: right; }
 #header li.flattr { margin-top: 9px; margin-left: 5px }
 
+#demos, #featured-demos { padding-left: 0; }
+#demos li, #featured-demos li { list-style: none; text-align: center; width: 200px; display: inline-block; margin-right: 20px; margin-bottom: 25px !important; vertical-align: top; }
+#demos li img, #featured-demos li img { box-shadow: rgba(0,0,0,0.2) 0 0 10px; margin-bottom: 5px; width: 150px; display: inline-block; }
+#demos li .caption, #featured-demos li .caption { display: inline-block; }
+#demos li a, #featured-demos li a { display: block; text-decoration: none; font-size: 16px; }
+#demos li a:hover img, #featured-demos li a:hover img { box-shadow: rgba(0,0,255,0.2) 0 0 10px; }
+
 .github iframe { margin-top: 8px; }
 .twitter iframe { margin-top: 8px; margin-right: -14px; margin-left: 10px; }
 .github span, .twitter span { color: pink }

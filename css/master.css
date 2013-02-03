@@ -25,12 +25,13 @@ h3, h4 { margin-top: 1.5em !important; }
 #header li.secondary { float: right; }
 #header li.flattr { margin-top: 9px; margin-left: 5px }
 
-#demos, #featured-demos { padding-left: 0; }
-#demos li, #featured-demos li { list-style: none; text-align: center; width: 200px; display: inline-block; margin-right: 20px; margin-bottom: 25px !important; vertical-align: top; }
-#demos li img, #featured-demos li img { box-shadow: rgba(0,0,0,0.2) 0 0 10px; margin-bottom: 5px; width: 150px; display: inline-block; }
-#demos li .caption, #featured-demos li .caption { display: inline-block; }
-#demos li a, #featured-demos li a { display: block; text-decoration: none; font-size: 16px; }
-#demos li a:hover img, #featured-demos li a:hover img { box-shadow: rgba(0,0,255,0.2) 0 0 10px; }
+#demos { padding-left: 0; margin-top: 30px; }
+#demos li { list-style: none; text-align: center; width: 200px; display: inline-block; margin-right: 20px; margin-bottom: 25px !important; vertical-align: top; }
+#demos li img { box-shadow: rgba(0,0,0,0.2) 0 0 10px; margin-bottom: 5px; width: 150px; display: inline-block; }
+#demos li .caption { display: inline-block; }
+#demos li a { display: block; text-decoration: none; font-size: 16px; }
+#demos li a:hover img { box-shadow: rgba(0,0,255,0.2) 0 0 10px; }
+#demos li a:hover .caption { font-weight: bold; }
 
 .github iframe { margin-top: 8px; }
 .twitter iframe { margin-top: 8px; margin-right: -14px; margin-left: 10px; }
@@ -38,6 +39,9 @@ h3, h4 { margin-top: 1.5em !important; }
 
 #bd-wrapper { padding: 10px; }
 #bd-wrapper > ul > li { margin-bottom: 5px }
+
+#articles li ul { margin-top: 5px; margin-bottom: 15px; padding-left: 15px; list-style-type: disc }
+#articles li ul li { margin-bottom: 5px; }
 
 pre { margin-top: 0; font-size: 12px; vertical-align: top; background: #F4F2E5; display: inline-block; padding: 15px; margin-left: 15px; word-wrap: break-word; white-space: pre; }
 

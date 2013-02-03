@@ -12,7 +12,7 @@ title: Introduction to Fabric.js. Part 2.
 
   <p>Now that most of the basics are out of the way, let's get down to some fun stuff!</p>
 
-  <h3>Animation</h3>
+  <h3 id="animation">Animation</h3>
 
   <p>No respectable canvas library goes without animation facility. And Fabric is not an exception. Since there's such a powerful object model and graphical capabilities, it would be a shame not to have animation helpers built in.</p>
 
@@ -75,7 +75,7 @@ rect.animate('left', 500, {
 
 <p>So this covers animation part of Fabric. Just to give you some ideas of what becomes possible &mdash; you can animate object's angle to make it rotate; animate left/top properties to make it move; animate width/height to make it shrink/grow; animate opacity to make it fade in/out; and so on.</p>
 
-<h3>Image filters</h3>
+<h3 id="image_filters">Image filters</h3>
 
 <p>In the first part of this series, we learned how to work with images in Fabric. There's <code>fabric.Image</code> constructor, that accepts image element. There's also <code>fabric.Image.fromURL</code> method, which can create image instance ouf of a URL string. And any of these images can be thrown and rendered on canvas just like any other object.</p>
 
@@ -164,7 +164,7 @@ fabric.Image.filters.Redify.fromObject = function(object) {
 
 <p>Without delving too much into this code, the main action is hapenning in a loop, where we replace green (data[i+1]) and blue (data[i+2]) components of each pixel with 0, essentialy removing them. Red component of standard rgb triple stays untouched, essentially making entire image painted red. As you can see, <code>applyTo</code> method is being passed main canvas element representing entire image. From there, we can iterate over its pixels (<code>getImageData().data</code>) modifying them in any way we want.</p>
 
-<h3>Colors</h3>
+<h3 id="colors">Colors</h3>
 
 <p>Whether you're more comfortable working with hex, RGB, or RGBA colors, Fabric provides a solid color foundation to help you express yourself most naturally. Here are some of the ways in which you can define a color in Fabric:</p>
 
@@ -194,7 +194,7 @@ redish.overlayWith(greenish).toHex(); // "AAAA55"
 redish.toGrayscale().toHex(); // "A1A1A1"
 </pre>
 
-<h3>Gradients</h3>
+<h3 id="gradients">Gradients</h3>
 
 <p>An even more expressive way to work with colors is via gradients. Gradients allow us to blend one color into another, creating some stunning graphical effects.</p>
 
@@ -265,7 +265,7 @@ circle.setGradientFill({
 
 <p>Which cool versions can you come up with?</p>
 
-<h3>Text</h3>
+<h3 id="text">Text</h3>
 
 <p>What if you wanted to display not only images and vector shapes on canvas, but also text? Fabric has you covered! Meet <code>fabric.Text</code> objects.</p>
 
@@ -447,7 +447,7 @@ var textWithBackground = new fabric.Text(text, {
 
 <p><img src="/article_assets/2_14.png" style="border:1px solid #eee"></p>
 
-<h3>Events</h3>
+<h3 id="events">Events</h3>
 
 <p>The event-driven architecture is the basis for some amazing power and flexibility within a framework. Fabric is no exception, and provides an extensive event system, starting from low-level "mouse" events to high-level objects ones.</p>
 

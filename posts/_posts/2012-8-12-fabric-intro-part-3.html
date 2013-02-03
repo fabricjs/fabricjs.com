@@ -11,7 +11,7 @@ title: Introduction to Fabric.js. Part 3.
 
 <p>We've covered most of the basics in <a href="/fabric-intro-part-1">first</a> and <a href="/fabric-intro-part-2">second</a> parts of this series. Let's move on to the more advanced stuf!</p>
 
-<h3>Groups</h3>
+<h3 id="groups">Groups</h3>
 
 <p><img src="/article_assets/8.png" style="border:1px solid #eee"></p>
 
@@ -172,7 +172,7 @@ canvas.clear().renderAll();
 canvas.add(group);
 </pre>
 
-<h3>Serialization</h3>
+<h3 id="serialization">Serialization</h3>
 
 <p>As soon as you start building a stateful application of some sort, perhaps allowing users to save results of canvas contents on a server, or streaming contents to a different client, you'll need <b>canvas serialization</b>. How else are you to send canvas contents? Of course, there's always an option to export canvas to an image, but uploading an image to a server is certainly quite bandwidth-heavy. Nothing beats text when it comes to size, and that's exactly why Fabric provides an excellent support for canvas serialization/deserialization.</p>
 
@@ -348,7 +348,7 @@ console.log(canvas.toSVG());
 
 <p>The benefit of SVG representation comparing to Fabric's proprietary <code>toObject</code>/<code>toJSON</code> is that you can throw it into any SVG-capable renderer (browser, application, printer, camera, etc.) and it should just work. With <code>toObject</code>/<code>toJSON</code>, however, you would first need to load it onto canvas. Speaking of loading things on canvas, now that we can serialize canvas into an efficient chunk of text, how would we go about loading back onto canvas?</p>
 
-<h3>Deserialization, SVG parser</h3>
+<h3 id="deserialization">Deserialization, SVG parser</h3>
 
 <p>Similarly to serialization, there's two ways to load canvas from a string: from JSON representation, or from SVG one. When using JSON representation, there's <code>fabric.Canvas#loadFromJSON</code> and <code>fabric.Canvas#loadFromDatalessJSON</code> methods. When using SVG, there's <code>fabric.loadSVGFromURL</code> and <code>fabric.loadSVGFromString</code> ones.</p>
 
@@ -414,7 +414,7 @@ fabric.loadSVGFromString('...', function(objects, options) {
 
 <p><code>fabric.loadSVGFromURL</code> works the same way, except that you pass string containing URL rather than SVG contents. Note that Fabric will attempt to fetch that URL via XMLHttpRequest, so the SVG needs to conform to the usual SOP rules.</p>
 
-<h3>Subclassing</h3>
+<h3 id="subclassing">Subclassing</h3>
 
 <p>Since Fabric is built in a truly object-oriented fashion, it's designed to make subclassing and extension simple and natural. As you know from 1st part of this series, there's an existing hierarchy of objects in Fabric. All 2D objects (paths, images, text, etc.) inherit from <code>fabric.Object</code>, and some "classes" — like <code>fabric.PathGroup</code> — even form 3-level inheritance.</p>
 

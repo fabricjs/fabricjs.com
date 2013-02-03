@@ -1,0 +1,46 @@
+---
+layout: demo
+title: Patterns
+---
+<canvas id="c" width="500" height="500" style="border:1px solid #ccc"></canvas>
+
+Pattern:
+<select id="patterns">
+  <option>honey_im_subtle.png</option>
+  <option>nasty_fabric.png</option>
+  <option>retina_wood.png</option>
+  <option>greyfloral.png</option>
+  <option>escheresque.png</option>
+  <option>escheresque_ste.png</option>
+  <option>bedge_grunge.png</option>
+  <option>ladybug.png</option>
+  <option>dragon2.jpg</option>
+  <option>pug.jpg</option>
+</select>
+
+<script id="main">var canvas = new fabric.Canvas('c');
+
+function loadPattern(url) {
+  fabric.util.loadImage(url, function(img) {
+    text.fill = new fabric.Pattern({ source: img });
+    canvas.renderAll();
+  });
+}
+
+var text = new fabric.Text('Honey,\nI\'m subtle', {
+  fontSize: 250,
+  left: 50,
+  top: 200,
+  lineHeight: 1,
+  originX: 'left',
+  fontFamily: 'Helvetica',
+  fontWeight: 'bold'
+});
+canvas.add(text);
+
+loadPattern('../assets/honey_im_subtle.png');
+
+document.getElementById('patterns').onchange = function() {
+  loadPattern('../assets/' + this.value);
+};
+</script>

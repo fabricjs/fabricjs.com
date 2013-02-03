@@ -4,25 +4,41 @@ title: Patterns
 ---
 <canvas id="c" width="500" height="500" style="border:1px solid #ccc"></canvas>
 
-Pattern:
-<select id="patterns">
-  <option>honey_im_subtle.png</option>
-  <option>nasty_fabric.png</option>
-  <option>retina_wood.png</option>
-  <option>greyfloral.png</option>
-  <option>escheresque.png</option>
-  <option>escheresque_ste.png</option>
-  <option>bedge_grunge.png</option>
-  <option>ladybug.png</option>
-  <option>dragon2.jpg</option>
-  <option>pug.jpg</option>
-</select>
+<div style="display: inline-block">
+  <p>
+    Pattern:
+    <select id="patterns">
+      <option>honey_im_subtle.png</option>
+      <option>nasty_fabric.png</option>
+      <option>retina_wood.png</option>
+      <option>greyfloral.png</option>
+      <option>escheresque.png</option>
+      <option>escheresque_ste.png</option>
+      <option>bedge_grunge.png</option>
+      <option>ladybug.png</option>
+      <option>dragon2.jpg</option>
+      <option>pug.jpg</option>
+    </select>
+  </p>
+  <p>
+    Repeat:
+    <select id="repeat">
+      <option>repeat</option>
+      <option>repeat-x</option>
+      <option>repeat-y</option>
+      <option>no-repeat</option>
+    </select>
+  </p>
+</div>
 
 <script id="main">var canvas = new fabric.Canvas('c');
 
 function loadPattern(url) {
   fabric.util.loadImage(url, function(img) {
-    text.fill = new fabric.Pattern({ source: img });
+    text.fill = new fabric.Pattern({
+      source: img,
+      repeat: document.getElementById('repeat').value
+    });
     canvas.renderAll();
   });
 }
@@ -42,5 +58,9 @@ loadPattern('../assets/honey_im_subtle.png');
 
 document.getElementById('patterns').onchange = function() {
   loadPattern('../assets/' + this.value);
+};
+document.getElementById('repeat').onchange = function() {
+  text.fill.repeat = this.value;
+  canvas.renderAll();
 };
 </script>

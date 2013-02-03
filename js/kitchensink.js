@@ -433,27 +433,10 @@
     canvas.freeDrawingBrush.shadowBlur = 0;
   }
 
-  // var freeDrawingPointer = new fabric.Circle({
-  //   left: 100,
-  //   top: 100,
-  //   radius: 15,
-  //   selectable: false,
-  //   fill: '',
-  //   stroke: 'rgba(0,0,0,0.2)'
-  // });
-
-  // canvas.on('mouse:move', function(options) {
-  //   if (canvas.isDrawingMode && !canvas._isCurrentlyDrawing) {
-  //     var pointer = canvas.getPointer(options.e);
-
-  //     freeDrawingPointer.radius = canvas.freeDrawingLineWidth / 2;
-  //     freeDrawingPointer.left = pointer.x;
-  //     freeDrawingPointer.top = pointer.y;
-
-  //     canvas.clearContext(canvas.contextTop);
-  //     freeDrawingPointer.render(canvas.contextTop);
-  //   }
-  // });
+  document.getElementById('canvas-background-picker').onchange = function() {
+    canvas.backgroundColor = this.value;
+    canvas.renderAll();
+  };
 
   var text = 'Lorem ipsum dolor sit amet,\nconsectetur adipisicing elit,\nsed do eiusmod tempor incididunt\nut labore et dolore magna aliqua.\n' +
     'Ut enim ad minim veniam,\nquis nostrud exercitation ullamco\nlaboris nisi ut aliquip ex ea commodo consequat.';

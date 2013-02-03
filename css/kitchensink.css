@@ -36,3 +36,5 @@ input[type=color] { width: 30px; }
 #text-cmd-shadow { text-shadow: rgb(100,100,100) 1px 1px 3px; }
 
 #svg-console, #canvas-console { width: 430px; height: 500px; display: block; }
+
+#canvas-background { display: inline-block; position: absolute; bottom: -10px; right: 0; }

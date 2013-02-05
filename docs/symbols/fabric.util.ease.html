@@ -5,150 +5,159 @@ title: Fabric.js API Reference - fabric.util.ease
 
 <style>
 	/* default.css */
-#bd-wrapper
-{
-	font: 12px "Lucida Grande", Tahoma, Arial, Helvetica, sans-serif;
+#bd-wrapper {
+  font: 13px "Open Sans", Arial, Helvetica, sans-serif;
 }
 
-.header
-{
-	clear: both;
-	background-color: #ccc;
-	padding: 8px;
+.header {
+  clear: both;
+  background-color: #ccc;
+  padding: 8px;
 }
 
-h1
-{
-	font-size: 150%;
-	font-weight: bold;
-	padding: 0;
-	margin: 1em 0 0 .3em;
+h1 {
+  font-size: 150%;
+  font-weight: bold;
+  padding: 0;
+  margin: 1em 0 0 .3em;
 }
 
-hr
-{
-	border: none 0;
-	border-top: 1px solid #7F8FB1;
-	height: 1px;
+hr {
+  border: none 0;
+  border-top: 1px solid #7F8FB1;
+  height: 1px;
 }
 
-pre.code
-{
-	display: block;
-	padding: 8px;
-	border: 1px dashed #ccc;
+pre.code {
+  display: block;
+  padding: 8px;
+  border: 1px dashed #ccc;
 }
 
 #index {
-	margin-top: 24px;
-	float: left;
-	width: 240px;
-	position: absolute;
-	left: 8px;
-	background-color: #F3F3F3;
-	padding: 8px;
+  margin-top: 24px;
+  float: left;
+  width: 260px;
+  position: absolute;
+  left: 8px;
+  background-color: #F3F3F3;
+  padding: 8px;
 }
 
 #content {
-	margin-left: 270px;
-	width: 770px;
+  margin-left: 290px;
+  width: 770px;
 }
 
 .classList {
-	list-style-type: none;
-	padding: 0;
-	margin: 0 0 0 8px;
-	font-family: arial, sans-serif;
-	font-size: 1em;
-	overflow: auto;
+  list-style-type: none;
+  padding: 0;
+  margin: 0 0 0 8px;
+  font-size: 1em;
+  overflow: auto;
 }
 
 .classList li {
-	paddinging: 0;
-	margin: 0 0 8px 0;
+  paddinging: 0;
+  margin: 0 0 8px 0;
 }
 
-.summaryTable { width: 100%; }
+.summaryTable {
+  width: 100%;
+}
 
 h1.classTitle {
-	font-size:170%;
-	line-height:130%;
+  font-size:170%;
+  line-height:130%;
 }
 
 h2 { font-size: 110%; }
+
 caption, div.sectionTitle {
-	background-color: #7F8FB1;
-	color: #fff;
-	font-size:130%;
-	text-align: left;
-	padding: 2px 6px 2px 6px;
-	border: 1px #7F8FB1 solid;
+  background: #cecece; /* Old browsers */
+  background: -moz-linear-gradient(top,  #cecece 0%, #8c8c8c 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#cecece), color-stop(100%,#8c8c8c)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #cecece 0%,#8c8c8c 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #cecece 0%,#8c8c8c 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #cecece 0%,#8c8c8c 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  #cecece 0%,#8c8c8c 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cecece', endColorstr='#8c8c8c',GradientType=0 ); /* IE6-9 */
+
+  color: #fff;
+  font-size:130%;
+  text-align: left;
+  padding: 2px 6px 2px 6px;
 }
 
-div.sectionTitle { margin-bottom: 8px; }
-.summaryTable thead { display: none; }
+div.sectionTitle {
+  margin-bottom: 8px;
+}
+
+.summaryTable thead {
+  display: none;
+}
 
 .summaryTable td {
-	vertical-align: top;
-	padding: 4px;
-	border-bottom: 1px #C0C8D8 solid;
-	border-right: 1px #C0C8D8 solid;
+  vertical-align: top;
+  padding: 4px;
+  border-bottom: 1px #C0C8D8 solid;
+  border-right: 1px #C0C8D8 solid;
 }
 
 /*col#summaryAttributes {}*/
 .summaryTable td.attributes {
-	border-left: 1px #C0C8D8 solid;
-	width: 140px;
-	text-align: right;
+  border-left: 1px #C0C8D8 solid;
+  width: 140px;
+  text-align: right;
 }
 
 td.attributes, .fixedFont {
-	line-height: 15px;
-	color: #002EBE;
-	font-family: "Courier New",Courier,monospace;
-	font-size: 13px;
+  line-height: 15px;
+  color: #002EBE;
+  font-family: "Courier New",Courier,monospace;
+  font-size: 13px;
 }
 
 .summaryTable td.nameDescription {
-	text-align: left;
-	font-size: 13px;
-	line-height: 15px;
+  text-align: left;
+  font-size: 13px;
+  line-height: 15px;
 }
 
 .summaryTable td.nameDescription, .description {
-	line-height: 15px;
-	padding: 4px;
-	padding-left: 4px;
+  line-height: 15px;
+  padding: 4px;
+  padding-left: 4px;
 }
 
 .summaryTable { margin-bottom: 8px; }
 
 ul.inheritsList {
-	list-style: square;
-	margin-left: 20px;
-	padding-left: 0;
+  list-style: square;
+  margin-left: 20px;
+  padding-left: 0;
 }
 
 .detailList {
-	margin-left: 20px;
-	line-height: 15px;
+  margin-left: 20px;
+  line-height: 15px;
 }
 .detailList dt { margin-left: 20px; }
 
 .detailList .heading {
-	font-weight: bold;
-	padding-bottom: 6px;
-	margin-left: 0;
+  font-weight: bold;
+  padding-bottom: 6px;
+  margin-left: 0;
 }
 
 .light, td.attributes, .light a:link, .light a:visited {
-	color: #777;
-	font-style: italic;
+  color: #777;
+  font-style: italic;
 }
 
 .fineprint {
-	text-align: right;
-	font-size: 10px;
+  text-align: right;
+  font-size: 10px;
 }
 
 .inheritsList dd {
@@ -232,6 +241,8 @@ ul.inheritsList {
 	<li><a href="../symbols/fabric.Path.html">fabric.Path</a></li>
 	
 	<li><a href="../symbols/fabric.PathGroup.html">fabric.PathGroup</a></li>
+	
+	<li><a href="../symbols/fabric.Pattern.html">fabric.Pattern</a></li>
 	
 	<li><a href="../symbols/fabric.Point.html">fabric.Point</a></li>
 	
@@ -2293,5 +2304,5 @@ ul.inheritsList {
 <!-- ============================== footer ================================= -->
 <div class="fineprint" style="clear:both">
 	
-	Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Tue Jan 29 2013 18:07:17 GMT+0100 (CET)
+	Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Mon Feb 04 2013 16:01:46 GMT+0100 (CET)
 </div>

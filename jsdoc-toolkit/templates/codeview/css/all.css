@@ -6,137 +6,6 @@
  */
 
 
-
-
-
-
-/*
- * BEGIN BROWSER RESET
- */
-
-body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,p,pre,form,fieldset,input,textarea,p,blockquote,th,td {
-	margin:0;
-	padding:0
-}
-html {
-	height:100%;
-	overflow:-moz-scrollbars-vertical;
-	overflow-x:auto
-}
-table {
-	border:0;
-	border-collapse:collapse;
-	border-spacing:0
-}
-fieldset,img {
-	border:0
-}
-address,caption,cite,code,dfn,em,strong,th,var {
-	font-style:normal;
-	font-weight:normal
-}
-em,cite {
-	font-style:italic
-}
-strong {
-	font-weight:bold
-}
-ol,ul {
-	list-style:none
-}
-caption,th {
-	text-align:left
-}
-h1,h2,h3,h4,h5,h6 {
-	font-size:100%;
-	font-weight:normal;
-	margin:0;
-	padding:0
-}
-q:before,q:after {
-	content:''
-}
-abbr,acronym {
-	border:0
-}
-
-/*
- * END BROWSER RESET
- */
-
-
-
-
-
-
-/*
- * HTML ELEMENTS
- */
-
-@font-face {
-	font-family: 'M1m';
-	src: url('fonts/mplus-1m-regular-webfont.eot');
-	src: local('☺'), url('fonts/mplus-1m-regular-webfont.woff') format('woff'), url('fonts/mplus-1m-regular-webfont.ttf') format('truetype'), url('fonts/mplus-1m-regular-webfont.svg#webfontVd14f4NN') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'M1m';
-	src: url('fonts/mplus-1m-bold-webfont.eot');
-	src: local('☺'), url('fonts/mplus-1m-bold-webfont.woff') format('woff'), url('fonts/mplus-1m-bold-webfont.ttf') format('truetype'), url('fonts/mplus-1m-bold-webfont.svg#webfontIjI5mZqE') format('svg');
-	font-weight: bold;
-	font-style: normal;
-}
-
-
-
-* {
-	line-height: 1.4em;
-}
-
-html {
-	font-size: 100%;
-}
-
-body {
-	font-size: 0.75em;
-	padding: 15px 0;
-	background: #eee;
-	background-image: -moz-linear-gradient(left, #dddddd, #f9f9f9) fixed;
-	background-image: -webkit-gradient(linear,left bottom,right bottom,color-stop(0, #dddddd),color-stop(1, #f9f9f9)) fixed;
-  }
-
-body,
-input,
-select,
-textarea {
-	color: #000;
-	font-family: Arial, Geneva, sans-serif;
-}
-
-a:link,
-a:hover,
-a:active,
-a:visited {
-	color: #19199e;
-}
-a:hover,
-a:focus {
-	color: #00f;
-	text-decoration: none;
-}
-
-p {
-	margin: 0 0 1.5em 0;
-}
-
-/*
- * END HTML ELEMENTS
- */
-
-
- 
 /*
  * BEGIN HACK
  */
@@ -163,12 +32,12 @@ div.safeBox:after {
 div.index *.heading1 {
 	margin-bottom: 0.5em;
 	border-bottom: 1px solid #999999;
-	font-family: M1m, Arial, sans-serif;
+	font-family: 'Open Sans', Arial, sans-serif;
 	font-size: 1.6em;
 	letter-spacing: 1px;
 	line-height: 1.3em;
 }
- 
+
 div.index div.menu {
 	background-color: #FFFFFF;
 }
@@ -209,7 +78,7 @@ div.index div.fineprint a {
 
 /* Start content */
 div.content *.classTitle {
-	font-family: M1m, sans-serif;
+	font-family: 'Open Sans', Arial, sans-serif;
 	font-size: 2.5em;
 	letter-spacing: 2px;
 	text-shadow: 1px 1px 1px #999999;
@@ -247,15 +116,13 @@ div.content div.props {
 }
 
 div.content div.props div.sectionTitle {
-	font-family: M1m, sans-serif;
+	font-family: 'Open Sans', Arial, sans-serif;
 	font-size: 1.6em;
 	letter-spacing: 1px;
 }
 
-
-
 table.summaryTable caption {
-	font-family: M1m, sans-serif;
+	font-family: 'Open Sans', Arial, sans-serif;
 	font-size: 1.6em;
 	letter-spacing: 1px;
 }
@@ -285,13 +152,9 @@ table.summaryTable div.description {
 	color: #333;
 }
 
-
-
 dl.detailList dt {
 	font-weight: bold;
 }
-
-
 
 .fixedFont {
 	font-family: Consolas, "Courier New", Courier, monospace;

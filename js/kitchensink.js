@@ -73,6 +73,24 @@
         opacity: 0.8
       }));
     }
+    if ($(element).hasClass('line')) {
+      canvas.add(new fabric.Line([ 50, 100, 200, 200], {
+        left: left,
+        top: top,
+        fill: '#' + getRandomColor()
+      }));
+    }
+    if ($(element).hasClass('polygon')) {
+      canvas.add(new fabric.Polygon([
+        {x: 185, y: 0},
+        {x: 250, y: 100},
+        {x: 385, y: 170},
+        {x: 0, y: 245} ], {
+          left: left,
+          top: top,
+          fill: '#' + getRandomColor()
+        }));
+    }
     if ($(element).hasClass('image1')) {
       fabric.Image.fromURL('../assets/pug.jpg', function(image) {
         image.set({
@@ -319,7 +337,8 @@
     }
   };
 
-  var gradientifyBtn = document.getElementById('gradientify');
+  var gradientifyBtn = document.getElementById('gradientify'),
+      shadowifyBtn = document.getElementById('shadowify');
 
   var activeObjectButtons = [
     lockHorizontallyEl,
@@ -328,7 +347,8 @@
     lockScalingYEl,
     lockRotationEl,
     removeSelectedEl,
-    gradientifyBtn
+    gradientifyBtn,
+    shadowifyBtn
   ];
 
   var opacityEl = document.getElementById('opacity');
@@ -482,6 +502,24 @@
           1: '#' + getRandomColor()
         }
       });
+      canvas.renderAll();
+    }
+  };
+
+  shadowifyBtn.onclick = function() {
+    var obj = canvas.getActiveObject();
+    if (obj) {
+      if (obj.shadow) {
+        obj.shadow = null;
+      }
+      else {
+        obj.setShadow({
+          color: 'rgba(0,0,0,0.3)',
+          blur: 10,
+          offsetX: 10,
+          offsetY: 10
+        });
+      }
       canvas.renderAll();
     }
   };

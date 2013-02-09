@@ -4,9 +4,9 @@ title: Customization
 ---
 
 <style>
-  .block { background: #eee; padding: 10px; margin-bottom: 10px }
-  pre { display: inline-block; background: #444; color: #eee; padding-left: 0; margin-left: 0; }
-  .canvas-container { background: #fff; margin-bottom: 10px; margin-right: 10px; border: 0; }
+  .block { padding: 10px; margin-bottom: 10px }
+  pre { display: inline-block; margin-top: 0 !important; }
+  .canvas-container { margin-bottom: 10px; margin-right: 10px; border: 0; box-shadow: rgba(0,0,0,0.5) 0 0 5px; }
 </style>
 
 <script>
@@ -325,10 +325,13 @@ fabric.instances.push(canvas)})();
     for (var i = 0, len = scriptEls.length; i < len; i++) {
       if (scriptEls[i].parentNode.className === 'block') {
         var preEl = document.createElement('pre');
-        preEl.innerHTML = scriptEls[i].innerHTML
+        var codeEl = document.createElement('code');
+        codeEl.className = 'language-javascript';
+        codeEl.innerHTML = scriptEls[i].innerHTML
           .replace(/^\n*\(function\(\){\n/g, '')
           .replace(/(fabric\.instances\.push\(canvas\))?\}\)\(\);\n*$/g, '');
 
+        preEl.appendChild(codeEl);
         scriptEls[i].parentNode.appendChild(preEl);
       }
     }

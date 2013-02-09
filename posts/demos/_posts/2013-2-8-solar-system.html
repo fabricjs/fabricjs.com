@@ -5,6 +5,7 @@ title: Solar system
 
 <style>
   .canvas-container { background: url(../assets/sky.png) }
+  #bd-wrapper { min-width: 1600px; }
 </style>
 
 <p>Adaptation of <a href="http://habrahabr.ru/post/163893">LibCanvas demo</a></p>
@@ -15,7 +16,7 @@ title: Solar system
   hoverCursor: 'pointer',
   selection: false,
   perPixelTargetFind: true,
-  targetFindTolerance: 3
+  targetFindTolerance: 5
 });
 
 // load sun and center it
@@ -232,7 +233,9 @@ canvas.on('after:render', function() {
     hoverCircle.set({ left: -100, top: -100 });
     planetLabel.set({ left: -100, top: -100 });
 
-    prevHoverTarget && orbits[prevHoverTarget.index] && orbits[prevHoverTarget.index].set({
+    prevHoverTarget &&
+    orbits[prevHoverTarget.index] &&
+    orbits[prevHoverTarget.index].set({
       strokeWidth: 1,
       stroke: 'rgba(0,192,255,0.5)'
     });

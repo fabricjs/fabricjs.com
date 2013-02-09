@@ -7,6 +7,7 @@ title: Image Filters
   .controls { display: inline-block; background: #fafafa; margin-left: 10px; padding: 15px; border-left: 1px dotted #aaa; }
   .canvas-container { display: inline-block; vertical-align: top; }
   input[disabled] { opacity: 0.5; }
+  #bd-wrapper { min-width: 1600px; }
 </style>
 
 <canvas id="c" width="600" height="600"></canvas>
@@ -83,17 +84,20 @@ var canvas = new fabric.Canvas('c', { backgroundImage: '../lib/bg.png' }),
 
 canvas.on({
   'object:selected': function() {
-    fabric.util.toArray(document.getElementsByTagName('input')).forEach(function(el){ el.disabled = false; })
+    fabric.util.toArray(document.getElementsByTagName('input'))
+                        .forEach(function(el){ el.disabled = false; })
 
-    var filters = ['grayscale', 'invert', 'remove-white', 'sepia', 'sepia2', 'brightness',
-                   'noise', 'gradient-transparency', 'pixelate', 'blur', 'sharpen'];
+    var filters = ['grayscale', 'invert', 'remove-white', 'sepia', 'sepia2',
+                    'brightness', 'noise', 'gradient-transparency', 'pixelate',
+                    'blur', 'sharpen'];
 
     for (var i = 0; i < filters.length; i++) {
       $(filters[i]).checked = !!canvas.getActiveObject().filters[i];
     }
   },
   'selection:cleared': function() {
-    fabric.util.toArray(document.getElementsByTagName('input')).forEach(function(el){ el.disabled = true; })
+    fabric.util.toArray(document.getElementsByTagName('input'))
+                        .forEach(function(el){ el.disabled = true; })
   }
 });
 

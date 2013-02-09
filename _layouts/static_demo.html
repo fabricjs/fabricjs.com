@@ -6,9 +6,13 @@
     <title>{{ page.title }} | Fabric.js Demos</title>
 
     <link rel="stylesheet" href="../css/master.css">
+    <link rel="stylesheet" href="../css/prism.css">
 
+    <script src="../js/prism.js"></script>
     <script src="../js/master.js"></script>
+
     <script src="../lib/fabric_static.js"></script>
+
     <!--[if lt IE 9]>
       <script src="../lib/excanvas.js"></script>
     <![endif]-->
@@ -27,11 +31,11 @@
         var mainScriptEl = document.getElementById('main');
         if (!mainScriptEl) return;
         var preEl = document.createElement('pre');
-        preEl.lang = 'javascript';
-        preEl.className = 'prettyprint';
-        preEl.innerHTML = mainScriptEl.innerHTML;
+        var codeEl = document.createElement('code');
+        codeEl.innerHTML = mainScriptEl.innerHTML;
+        codeEl.className = 'language-javascript';
+        preEl.appendChild(codeEl);
         document.getElementById('bd-wrapper').appendChild(preEl);
-        prettyPrint();
       })();
     </script>
   </body>

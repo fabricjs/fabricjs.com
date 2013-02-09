@@ -11,7 +11,12 @@ title: Solar system
 
 <canvas id="c" width="840" height="840" style="border:1px solid #aaa"></canvas>
 
-<script id="main">var canvas = new fabric.Canvas('c', { hoverCursor: 'pointer', selection: false });
+<script id="main">var canvas = new fabric.Canvas('c', {
+  hoverCursor: 'pointer',
+  selection: false,
+  perPixelTargetFind: true,
+  targetFindTolerance: 3
+});
 
 // load sun and center it
 fabric.Image.fromURL('../assets/sun.png', function(sunImg) {
@@ -23,6 +28,7 @@ var planetSize = 26,
     totalPlanets = 12,
     rotationSpeed = 20000,
     orbits = [ ],
+    planets = [ ],
     planetNames = ['Selene', 'Mimas', 'Ares', 'Enceladus', 'Tethys', 'Dione',
                    'Zeus', 'Rhea', 'Titan', 'Janus', 'Hyperion', 'Iapetus'];
 
@@ -68,6 +74,7 @@ fabric.Image.fromURL('../assets/planets.png', function(planetsImg) {
 
   for (var i = 0; i < totalPlanets; i++) {
     var planet = createPlanet(i, planetsImg, tempCanvas);
+    planets.push(planet);
     animatePlanet(planet, i);
   }
 
@@ -81,7 +88,11 @@ function createOrbit(i) {
     top: canvas.getHeight() / 2,
     fill: '',
     stroke: 'rgba(0,192,255,0.5)',
-    selectable: false
+    hasBorders: false,
+    hasControls: false,
+    lockMovementX: true,
+    lockMovementY: true,
+    index: i
   });
   canvas.add(orbit);
   orbits.push(orbit);
@@ -196,22 +207,25 @@ canvas.on('object:out', function(options) {
 });
 
 canvas.on('after:render', function() {
-  if (hoverTarget && hoverTarget.name) {
+  if (hoverTarget) {
+
+    var hoveredPlanet = planets[hoverTarget.index];
+    var hoveredOrbit = orbits[hoveredPlanet.index];
+
+    hoveredOrbit.set({
+      strokeWidth: 3,
+      stroke: 'rgb(0,192,255)'
+    });
 
     hoverCircle.set({
-      left: hoverTarget.left,
-      top: hoverTarget.top
+      left: hoveredPlanet.left,
+      top: hoveredPlanet.top
     });
 
     planetLabel.set({
-      left: hoverTarget.left + 30,
-      top: hoverTarget.top + 20,
-      text: hoverTarget.name
-    });
-
-    orbits[hoverTarget.index] && orbits[hoverTarget.index].set({
-      strokeWidth: 3,
-      stroke: 'rgb(0,192,255)'
+      left: hoveredPlanet.left + 50,
+      top: hoveredPlanet.top + 20,
+      text: hoveredPlanet.name
     });
   }
   else {

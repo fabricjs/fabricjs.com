@@ -49,10 +49,10 @@ fabric.instances.push(canvas)})();
 
 <div class="block">
   <h3>Transparent corners</h3>
-  <canvas id="c3" width="200" height="200"></canvas>
+  <canvas id="c19" width="200" height="200"></canvas>
 <script>
 (function(){
-  var canvas = new fabric.Canvas('c3');
+  var canvas = new fabric.Canvas('c19');
   canvas.add(new fabric.Circle({ radius: 30, fill: '#f55', top: 100, left: 100 }));
 
   canvas.item(0).set({
@@ -354,6 +354,19 @@ fabric.instances.push(canvas)})();
         preEl.appendChild(codeEl);
         scriptEls[i].parentNode.appendChild(preEl);
       }
+    }
+
+    if (document.addEventListener) {
+      document.addEventListener('DOMContentLoaded', function () {
+        for (var i = fabric.instances.length; i--; ) {
+          fabric.instances[i].calcOffset();
+        }
+      });
+    }
+    else {
+      for (var i = fabric.instances.length; i--; ) {
+        fabric.instances[i].calcOffset();
+      }    
     }
   })();
 </script>

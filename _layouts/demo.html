@@ -39,12 +39,6 @@
         codeEl.className = 'language-javascript';
         preEl.appendChild(codeEl);
         document.getElementById('bd-wrapper').appendChild(preEl);
-
-        if (fabric.instances) {
-          for (var i = fabric.instances.length; i--; ) {
-            fabric.instances[i].calcOffset();
-          }
-        }
       })();
     </script>
   </body>

@@ -5,7 +5,7 @@ title: Dynamic patterns
 
 <p>
   <label>Pattern image width</label>
-  <input type="range" min="10" max="1000" value="100" id="img-width">
+  <input type="range" min="50" max="1000" value="100" id="img-width">
 </p>
 <p>
   <label>Pattern image angle</label>
@@ -54,7 +54,7 @@ fabric.Image.fromURL('../assets/pug.jpg', function(img) {
     }));
 
   document.getElementById('img-width').onchange = function() {
-    img.scaleToWidth(this.value);
+    img.scaleToWidth(parseInt(this.value, 10));
     canvas.renderAll();
   };
   document.getElementById('img-angle').onchange = function() {

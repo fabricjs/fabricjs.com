@@ -217,7 +217,7 @@ canvas.add(circle, circle2, circle3);
 </pre>
 
 <pre class="test-source async">
-var src = 'http://kangax.github.com/fabric.js/assets/pug.jpg';
+var src = '../../assets/pug.jpg';
 fabric.util.loadImage(src, function(img) {
   var oImg = new fabric.Image(img);
   oImg.set({ 
@@ -230,7 +230,7 @@ fabric.util.loadImage(src, function(img) {
 </pre>
 
 <pre class="test-source async">
-var src = 'http://kangax.github.com/fabric.js/assets/pug.jpg';
+var src = '../../assets/pug.jpg';
 fabric.util.loadImage(src, function(img) {
   var oImg = new fabric.Image(img);
   oImg.scale(0.2).set({ 
@@ -243,7 +243,7 @@ fabric.util.loadImage(src, function(img) {
 </pre>
 
 <pre class="test-source async">
-var src = 'http://kangax.github.com/fabric.js/assets/pug.jpg';
+var src = '../../assets/pug.jpg';
 fabric.util.loadImage(src, function(img) {
   var oImg = new fabric.Image(img);
   oImg.scale(0.1).set({ 
@@ -258,7 +258,7 @@ fabric.util.loadImage(src, function(img) {
 </pre>
 
 <pre class="test-source async">
-var src = 'http://kangax.github.com/fabric.js/assets/pug.jpg';
+var src = '../../assets/pug.jpg';
 fabric.util.loadImage(src, function(img) {
   var oImg = new fabric.Image(img);
   oImg.set({ 
@@ -273,7 +273,7 @@ fabric.util.loadImage(src, function(img) {
 </pre>
 
 <pre class="test-source async">
-var src = 'http://kangax.github.com/fabric.js/assets/logo.png';
+var src = '../../assets/logo.png';
 fabric.util.loadImage(src, function(img) {
   canvas.add(new fabric.Image(img, { left: 50, top: 30, scaleX: 0.3, scaleY: 0.3 }));
   canvas.add(new fabric.Image(img, { left: 250, top: 30, scaleX: 0.3, scaleY: 0.3 }));
@@ -282,6 +282,84 @@ fabric.util.loadImage(src, function(img) {
   canvas.add(new fabric.Image(img, { left: 150, top: 150, angle: 30, scaleX: 0.9, scaleY: 0.9 }));
   proceed();
 });
+</pre>
+
+<pre class="test-source async">
+var src = '../../assets/escheresque_ste.png';
+canvas.setBackgroundColor({source: src, repeat: 'repeat'}, function () {
+  canvas.renderAll();
+  proceed();  
+});
+</pre>
+
+<pre class="test-source async">
+var src = '../../assets/escheresque_ste.png';
+canvas.setBackgroundColor({source: src, repeat: 'repeat-x'}, function () {
+  canvas.renderAll();
+  proceed();  
+});
+</pre>
+
+<pre class="test-source async">
+var src = '../../assets/escheresque_ste.png';
+canvas.setBackgroundColor({source: src, repeat: 'repeat-y'}, function () {
+  canvas.renderAll();
+  proceed();  
+});
+</pre>
+
+<pre class="test-source async">
+var src = '../../assets/escheresque_ste.png';
+canvas.setBackgroundColor({source: src, repeat: 'no-repeat'}, function () {
+  canvas.renderAll();
+  proceed();  
+});
+</pre>
+
+<pre class="test-source async">
+var circle = new fabric.Circle({
+  left: 100,
+  top: 100,
+  radius: 75,
+  fill: '#ff6600'
+});
+canvas.add(circle);
+canvas.setBackgroundColor('#0099cc', function () {
+  canvas.renderAll();
+  proceed();  
+});
+</pre>
+
+<pre class="test-source async">
+var src = '../../assets/honey_im_subtle.png';
+canvas.setBackgroundImage(src, function () {
+  canvas.renderAll();
+  proceed();  
+}, {backgroundImageStretch: true, backgroundImageOpacity: 1});
+</pre>
+
+<pre class="test-source async">
+var src = '../../assets/honey_im_subtle.png';
+canvas.setBackgroundImage(src, function () {
+  canvas.renderAll();
+  proceed();  
+}, {backgroundImageStretch: false, backgroundImageOpacity: 0.4});
+</pre>
+
+<pre class="test-source async">
+var src = '../../assets/jail_cell_bars.png';
+canvas.setOverlayImage(src, function () {
+  canvas.renderAll();
+  proceed();  
+}, {overlayImageLeft: 0, overlayImageTop: 0});
+</pre>
+
+<pre class="test-source async">
+var src = '../../assets/jail_cell_bars.png';
+canvas.setOverlayImage(src, function () {
+  canvas.renderAll();
+  proceed();  
+}, {overlayImageLeft: 100, overlayImageTop: 100});
 </pre>
 
 

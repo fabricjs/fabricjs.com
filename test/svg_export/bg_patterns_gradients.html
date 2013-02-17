@@ -1,0 +1,115 @@
+---
+layout: test
+title: SVG Export (background, overlay, patterns, gradients)
+---
+
+<link rel="stylesheet" href="master.css">
+
+<script type="text/script" id="test-template">
+  <div class="test">
+    <div class="column">
+      <p>Source</p>
+      <pre class="source"><code>#{code}</code></pre>
+    </div>
+    <div class="column">
+      <p>Canvas</p>
+      <canvas class="canvas" width="300" height="300"></canvas>
+    </div>
+    <div class="column">
+      <p>SVG</p>
+      <div class="svg"></div>
+    </div>
+  </div>
+</script>
+
+<pre class="test-source async">
+var circle = new fabric.Circle({
+  left: 100,
+  top: 100,
+  radius: 75,
+  fill: '#ff6600'
+});
+canvas.add(circle);
+canvas.setBackgroundColor('#0099cc', function () {
+  canvas.renderAll();
+  proceed();
+});
+</pre>
+
+<pre class="test-source async">
+var src = '../../assets/escheresque_ste.png';
+canvas.setBackgroundColor({source: src, repeat: 'repeat'}, function () {
+  canvas.renderAll();
+  proceed();
+});
+</pre>
+
+<pre class="test-source async">
+var src = '../../assets/escheresque_ste.png';
+canvas.setBackgroundColor({source: src, repeat: 'repeat-x'}, function () {
+  canvas.renderAll();
+  proceed();
+});
+</pre>
+
+<pre class="test-source async">
+var src = '../../assets/escheresque_ste.png';
+canvas.setBackgroundColor({source: src, repeat: 'repeat-y'}, function () {
+  canvas.renderAll();
+  proceed();
+});
+</pre>
+
+<pre class="test-source async">
+var src = '../../assets/escheresque_ste.png';
+canvas.setBackgroundColor({source: src, repeat: 'no-repeat'}, function () {
+  canvas.renderAll();
+  proceed();
+});
+</pre>
+
+<pre class="test-source async">
+var src = '../../assets/honey_im_subtle.png';
+canvas.setBackgroundImage(src, function () {
+  canvas.renderAll();
+  proceed();
+}, {
+  backgroundImageStretch: true,
+  backgroundImageOpacity: 1
+});
+</pre>
+
+<pre class="test-source async">
+var src = '../../assets/honey_im_subtle.png';
+canvas.setBackgroundImage(src, function () {
+  canvas.renderAll();
+  proceed();
+}, {
+  backgroundImageStretch: false,
+  backgroundImageOpacity: 0.4
+});
+</pre>
+
+<pre class="test-source async">
+var src = '../../assets/jail_cell_bars.png';
+canvas.setOverlayImage(src, function () {
+  canvas.renderAll();
+  proceed();
+}, {
+  overlayImageLeft: 0,
+  overlayImageTop: 0
+});
+</pre>
+
+<pre class="test-source async">
+var src = '../../assets/jail_cell_bars.png';
+canvas.setOverlayImage(src, function () {
+  canvas.renderAll();
+  proceed();
+}, {
+  overlayImageLeft: 100,
+  overlayImageTop: 100
+});
+</pre>
+
+<script src="master.js"></script>

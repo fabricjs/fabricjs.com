@@ -421,6 +421,17 @@ ul.inheritsList {
 					<td class="attributes">&nbsp;</td>
 					<td class="nameDescription">
 						<div class="fixedFont">
+						<b><a href="../symbols/fabric.Text.html#stateProperties">stateProperties</a></b>
+						</div>
+						<div class="description">List of properties to consider when checking if state of an object is changed (fabric.Object#hasStateChanged)
+as well as for history (undo/redo) purposes</div>
+					</td>
+				</tr>
+			
+				<tr>
+					<td class="attributes">&nbsp;</td>
+					<td class="nameDescription">
+						<div class="fixedFont">
 						<b><a href="../symbols/fabric.Text.html#strokeStyle">strokeStyle</a></b>
 						</div>
 						<div class="description">Stroke style.</div>
@@ -503,7 +514,7 @@ ul.inheritsList {
 		
 		
 		<dl class="inheritsList">
-		<dt>Fields borrowed from class <a href="../symbols/fabric.Object.html">fabric.Object</a>: </dt><dd><a href="../symbols/fabric.Object.html#angle">angle</a>, <a href="../symbols/fabric.Object.html#borderColor">borderColor</a>, <a href="../symbols/fabric.Object.html#borderOpacityWhenMoving">borderOpacityWhenMoving</a>, <a href="../symbols/fabric.Object.html#borderScaleFactor">borderScaleFactor</a>, <a href="../symbols/fabric.Object.html#cornerColor">cornerColor</a>, <a href="../symbols/fabric.Object.html#cornerSize">cornerSize</a>, <a href="../symbols/fabric.Object.html#fill">fill</a>, <a href="../symbols/fabric.Object.html#fillRule">fillRule</a>, <a href="../symbols/fabric.Object.html#flipX">flipX</a>, <a href="../symbols/fabric.Object.html#flipY">flipY</a>, <a href="../symbols/fabric.Object.html#hasBorders">hasBorders</a>, <a href="../symbols/fabric.Object.html#hasControls">hasControls</a>, <a href="../symbols/fabric.Object.html#hasRotatingPoint">hasRotatingPoint</a>, <a href="../symbols/fabric.Object.html#height">height</a>, <a href="../symbols/fabric.Object.html#includeDefaultValues">includeDefaultValues</a>, <a href="../symbols/fabric.Object.html#left">left</a>, <a href="../symbols/fabric.Object.html#minScaleLimit">minScaleLimit</a>, <a href="../symbols/fabric.Object.html#opacity">opacity</a>, <a href="../symbols/fabric.Object.html#originX">originX</a>, <a href="../symbols/fabric.Object.html#originY">originY</a>, <a href="../symbols/fabric.Object.html#overlayFill">overlayFill</a>, <a href="../symbols/fabric.Object.html#padding">padding</a>, <a href="../symbols/fabric.Object.html#perPixelTargetFind">perPixelTargetFind</a>, <a href="../symbols/fabric.Object.html#rotate">rotate</a>, <a href="../symbols/fabric.Object.html#rotatingPointOffset">rotatingPointOffset</a>, <a href="../symbols/fabric.Object.html#scaleX">scaleX</a>, <a href="../symbols/fabric.Object.html#scaleY">scaleY</a>, <a href="../symbols/fabric.Object.html#selectable">selectable</a>, <a href="../symbols/fabric.Object.html#shadow">shadow</a>, <a href="../symbols/fabric.Object.html#stateProperties">stateProperties</a>, <a href="../symbols/fabric.Object.html#stroke">stroke</a>, <a href="../symbols/fabric.Object.html#strokeDashArray">strokeDashArray</a>, <a href="../symbols/fabric.Object.html#top">top</a>, <a href="../symbols/fabric.Object.html#transformMatrix">transformMatrix</a>, <a href="../symbols/fabric.Object.html#transparentCorners">transparentCorners</a>, <a href="../symbols/fabric.Object.html#width">width</a></dd>
+		<dt>Fields borrowed from class <a href="../symbols/fabric.Object.html">fabric.Object</a>: </dt><dd><a href="../symbols/fabric.Object.html#angle">angle</a>, <a href="../symbols/fabric.Object.html#borderColor">borderColor</a>, <a href="../symbols/fabric.Object.html#borderOpacityWhenMoving">borderOpacityWhenMoving</a>, <a href="../symbols/fabric.Object.html#borderScaleFactor">borderScaleFactor</a>, <a href="../symbols/fabric.Object.html#cornerColor">cornerColor</a>, <a href="../symbols/fabric.Object.html#cornerSize">cornerSize</a>, <a href="../symbols/fabric.Object.html#fill">fill</a>, <a href="../symbols/fabric.Object.html#fillRule">fillRule</a>, <a href="../symbols/fabric.Object.html#flipX">flipX</a>, <a href="../symbols/fabric.Object.html#flipY">flipY</a>, <a href="../symbols/fabric.Object.html#hasBorders">hasBorders</a>, <a href="../symbols/fabric.Object.html#hasControls">hasControls</a>, <a href="../symbols/fabric.Object.html#hasRotatingPoint">hasRotatingPoint</a>, <a href="../symbols/fabric.Object.html#height">height</a>, <a href="../symbols/fabric.Object.html#includeDefaultValues">includeDefaultValues</a>, <a href="../symbols/fabric.Object.html#left">left</a>, <a href="../symbols/fabric.Object.html#minScaleLimit">minScaleLimit</a>, <a href="../symbols/fabric.Object.html#opacity">opacity</a>, <a href="../symbols/fabric.Object.html#originX">originX</a>, <a href="../symbols/fabric.Object.html#originY">originY</a>, <a href="../symbols/fabric.Object.html#overlayFill">overlayFill</a>, <a href="../symbols/fabric.Object.html#padding">padding</a>, <a href="../symbols/fabric.Object.html#perPixelTargetFind">perPixelTargetFind</a>, <a href="../symbols/fabric.Object.html#rotate">rotate</a>, <a href="../symbols/fabric.Object.html#rotatingPointOffset">rotatingPointOffset</a>, <a href="../symbols/fabric.Object.html#scaleX">scaleX</a>, <a href="../symbols/fabric.Object.html#scaleY">scaleY</a>, <a href="../symbols/fabric.Object.html#selectable">selectable</a>, <a href="../symbols/fabric.Object.html#shadow">shadow</a>, <a href="../symbols/fabric.Object.html#stroke">stroke</a>, <a href="../symbols/fabric.Object.html#strokeDashArray">strokeDashArray</a>, <a href="../symbols/fabric.Object.html#top">top</a>, <a href="../symbols/fabric.Object.html#transformMatrix">transformMatrix</a>, <a href="../symbols/fabric.Object.html#transparentCorners">transparentCorners</a>, <a href="../symbols/fabric.Object.html#width">width</a></dd>
 		</dl>
 		
 	
@@ -573,24 +584,6 @@ ul.inheritsList {
 						<div class="fixedFont"><b><a href="../symbols/fabric.Text.html#setColor">setColor</a></b>(value)
 						</div>
 						<div class="description">Sets "color" of an instance (alias of `set('fill', &hellip;)`)</div>
-					</td>
-				</tr>
-			
-				<tr>
-					<td class="attributes">&nbsp;</td>
-					<td class="nameDescription">
-						<div class="fixedFont"><b><a href="../symbols/fabric.Text.html#setFontsize">setFontsize</a></b>(value)
-						</div>
-						<div class="description">Sets fontSize of an instance and updates its coordinates</div>
-					</td>
-				</tr>
-			
-				<tr>
-					<td class="attributes">&nbsp;</td>
-					<td class="nameDescription">
-						<div class="fixedFont"><b><a href="../symbols/fabric.Text.html#setText">setText</a></b>(value)
-						</div>
-						<div class="description">Sets text of an instance, and updates its coordinates</div>
 					</td>
 				</tr>
 			
@@ -833,6 +826,29 @@ ul.inheritsList {
 			</div>
 			<div class="description">
 				URL of a font file, when using Cufon
+				
+				
+			</div>
+			
+			
+
+				
+				
+				
+				
+
+			<hr />
+		
+			<a name="stateProperties"> </a>
+			<div class="fixedFont">
+			
+			<span class="light">{<a href="../symbols/Array.html">Array</a>}</span>
+			<b>stateProperties</b>
+			
+			</div>
+			<div class="description">
+				List of properties to consider when checking if state of an object is changed (fabric.Object#hasStateChanged)
+as well as for history (undo/redo) purposes
 				
 				
 			</div>
@@ -1288,92 +1304,6 @@ ul.inheritsList {
 
 			<hr />
 		
-			<a name="setFontsize"> </a>
-			<div class="fixedFont">
-			
-			<span class="light">{<a href="../symbols/fabric.Text.html">fabric.Text</a>}</span>
-			<b>setFontsize</b>(value)
-			
-			</div>
-			<div class="description">
-				Sets fontSize of an instance and updates its coordinates
-				
-				
-			</div>
-			
-			
-			
-				
-					<dl class="detailList">
-					<dt class="heading">Parameters:</dt>
-					
-						<dt>
-							<span class="light fixedFont">{Number}</span> <b>value</b>
-							
-						</dt>
-						<dd></dd>
-					
-					</dl>
-				
-				
-				
-				
-				
-					<dl class="detailList">
-					<dt class="heading">Returns:</dt>
-					
-						<dd><span class="light fixedFont">{<a href="../symbols/fabric.Text.html">fabric.Text</a>}</span> thisArg</dd>
-					
-					</dl>
-				
-				
-				
-
-			<hr />
-		
-			<a name="setText"> </a>
-			<div class="fixedFont">
-			
-			<span class="light">{<a href="../symbols/fabric.Text.html">fabric.Text</a>}</span>
-			<b>setText</b>(value)
-			
-			</div>
-			<div class="description">
-				Sets text of an instance, and updates its coordinates
-				
-				
-			</div>
-			
-			
-			
-				
-					<dl class="detailList">
-					<dt class="heading">Parameters:</dt>
-					
-						<dt>
-							<span class="light fixedFont">{<a href="../symbols/String.html">String</a>}</span> <b>value</b>
-							
-						</dt>
-						<dd></dd>
-					
-					</dl>
-				
-				
-				
-				
-				
-					<dl class="detailList">
-					<dt class="heading">Returns:</dt>
-					
-						<dd><span class="light fixedFont">{<a href="../symbols/fabric.Text.html">fabric.Text</a>}</span> thisArg</dd>
-					
-					</dl>
-				
-				
-				
-
-			<hr />
-		
 			<a name="toObject"> </a>
 			<div class="fixedFont">
 			
@@ -1493,5 +1423,5 @@ ul.inheritsList {
 <!-- ============================== footer ================================= -->
 <div class="fineprint" style="clear:both">
 	
-	Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Sun Feb 17 2013 13:27:47 GMT+0100 (CET)
+	Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Mon Feb 18 2013 16:19:14 GMT+0100 (CET)
 </div>

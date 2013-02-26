@@ -63,3 +63,5 @@ b.bench { font-family: monospace; font-size: 18px; background: #ffc; padding: 0 
 
 .note { font-size: 12px; margin-left: 10px; }
 .coming-soon { color: #f55; }
+
+.gsc-control-cse { padding: 4px 4px 0 4px !important; margin-top: 5px !important; }

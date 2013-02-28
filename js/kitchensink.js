@@ -791,7 +791,7 @@
     strokeWidthField.onchange = function() {
       var activeObject = canvas.getActiveObject();
       if (activeObject && activeObject.type === 'text') {
-        activeObject.strokeWidth = this.value;
+        activeObject.strokeWidth = parseInt(this.value, 10);
         canvas.renderAll();
       }
     };

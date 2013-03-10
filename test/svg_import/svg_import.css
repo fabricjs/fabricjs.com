@@ -1,0 +1,7 @@
+#bd-wrapper { text-align: center; }
+.canvas-container { border: 1px solid #ccc; display: inline-block; vertical-align: top; margin-bottom: 10px; background: #fff; }
+.block { float: left; margin-right: 10px; margin-bottom: 10px }
+.block.left { clear: left; }
+.test { background: #ccc; margin-right: 10px; margin-bottom: 10px; padding-left: 10px;
+  box-shadow: rgba(0,0,0,0.5) 1px 1px 3px; overflow: hidden; display: inline-block; }
+#bd-wrapper iframe { background: #fff; border: 0; }

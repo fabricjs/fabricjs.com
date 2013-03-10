@@ -1,0 +1,835 @@
+---
+layout: doc
+title: Fabric.js API Reference - fabric.SprayBrush
+---
+
+<style>
+	/* default.css */
+#bd-wrapper
+{
+	font: 12px "Lucida Grande", Tahoma, Arial, Helvetica, sans-serif;
+}
+
+.header
+{
+	clear: both;
+	background-color: #ccc;
+	padding: 8px;
+}
+
+h1
+{
+	font-size: 150%;
+	font-weight: bold;
+	padding: 0;
+	margin: 1em 0 0 .3em;
+}
+
+hr
+{
+	border: none 0;
+	border-top: 1px solid #7F8FB1;
+	height: 1px;
+}
+
+pre.code
+{
+	display: block;
+	padding: 8px;
+	border: 1px dashed #ccc;
+}
+
+#index {
+	margin-top: 24px;
+	float: left;
+	width: 240px;
+	position: absolute;
+	left: 8px;
+	background-color: #F3F3F3;
+	padding: 8px;
+}
+
+#content {
+	margin-left: 270px;
+	width: 770px;
+}
+
+.classList {
+	list-style-type: none;
+	padding: 0;
+	margin: 0 0 0 8px;
+	font-family: arial, sans-serif;
+	font-size: 1em;
+	overflow: auto;
+}
+
+.classList li {
+	paddinging: 0;
+	margin: 0 0 8px 0;
+}
+
+.summaryTable { width: 100%; }
+
+h1.classTitle {
+	font-size:170%;
+	line-height:130%;
+}
+
+h2 { font-size: 110%; }
+caption, div.sectionTitle {
+	background-color: #7F8FB1;
+	color: #fff;
+	font-size:130%;
+	text-align: left;
+	padding: 2px 6px 2px 6px;
+	border: 1px #7F8FB1 solid;
+}
+
+div.sectionTitle { margin-bottom: 8px; }
+.summaryTable thead { display: none; }
+
+.summaryTable td {
+	vertical-align: top;
+	padding: 4px;
+	border-bottom: 1px #C0C8D8 solid;
+	border-right: 1px #C0C8D8 solid;
+}
+
+/*col#summaryAttributes {}*/
+.summaryTable td.attributes {
+	border-left: 1px #C0C8D8 solid;
+	width: 140px;
+	text-align: right;
+}
+
+td.attributes, .fixedFont {
+	line-height: 15px;
+	color: #002EBE;
+	font-family: "Courier New",Courier,monospace;
+	font-size: 13px;
+}
+
+.summaryTable td.nameDescription {
+	text-align: left;
+	font-size: 13px;
+	line-height: 15px;
+}
+
+.summaryTable td.nameDescription, .description {
+	line-height: 15px;
+	padding: 4px;
+	padding-left: 4px;
+}
+
+.summaryTable { margin-bottom: 8px; }
+
+ul.inheritsList {
+	list-style: square;
+	margin-left: 20px;
+	padding-left: 0;
+}
+
+.detailList {
+	margin-left: 20px;
+	line-height: 15px;
+}
+.detailList dt { margin-left: 20px; }
+
+.detailList .heading {
+	font-weight: bold;
+	padding-bottom: 6px;
+	margin-left: 0;
+}
+
+.light, td.attributes, .light a:link, .light a:visited {
+	color: #777;
+	font-style: italic;
+}
+
+.fineprint {
+	text-align: right;
+	font-size: 10px;
+}
+
+.inheritsList dd {
+  margin-left: 0;
+  margin-top: 3px;
+  margin-bottom: 8px;
+}
+</style>
+
+<!-- ============================== header ================================= -->	
+<!-- begin static/header.html -->
+<div id="header">
+</div>
+<!-- end static/header.html -->
+
+<!-- ============================== classes index ============================ -->
+<div id="index">
+	<!-- begin publish.classesIndex -->
+	<div align="center"><a href="../index.html">Class Index</a>
+| <a href="../files.html">File Index</a></div>
+<hr>
+<h2>Classes</h2>
+<ul class="classList">
+	
+	<li><i><a href="../symbols/_global_.html">_global_</a></i></li>
+	
+	<li><a href="../symbols/Array.html">Array</a></li>
+	
+	<li><a href="../symbols/fabric.html">fabric</a></li>
+	
+	<li><a href="../symbols/fabric.BaseBrush.html">fabric.BaseBrush</a></li>
+	
+	<li><a href="../symbols/fabric.Canvas.html">fabric.Canvas</a></li>
+	
+	<li><a href="../symbols/fabric.Circle.html">fabric.Circle</a></li>
+	
+	<li><a href="../symbols/fabric.CircleBrush.html">fabric.CircleBrush</a></li>
+	
+	<li><a href="../symbols/fabric.Color.html">fabric.Color</a></li>
+	
+	<li><a href="../symbols/fabric.Element.html">fabric.Element</a></li>
+	
+	<li><a href="../symbols/fabric.Ellipse.html">fabric.Ellipse</a></li>
+	
+	<li><a href="../symbols/fabric.Gradient.html">fabric.Gradient</a></li>
+	
+	<li><a href="../symbols/fabric.Group.html">fabric.Group</a></li>
+	
+	<li><a href="../symbols/fabric.Image.html">fabric.Image</a></li>
+	
+	<li><a href="../symbols/fabric.Image.filters.html">fabric.Image.filters</a></li>
+	
+	<li><a href="../symbols/fabric.Image.filters.Brightness.html">fabric.Image.filters.Brightness</a></li>
+	
+	<li><a href="../symbols/fabric.Image.filters.Convolute.html">fabric.Image.filters.Convolute</a></li>
+	
+	<li><a href="../symbols/fabric.Image.filters.GradientTransparency.html">fabric.Image.filters.GradientTransparency</a></li>
+	
+	<li><a href="../symbols/fabric.Image.filters.Grayscale.html">fabric.Image.filters.Grayscale</a></li>
+	
+	<li><a href="../symbols/fabric.Image.filters.Invert.html">fabric.Image.filters.Invert</a></li>
+	
+	<li><a href="../symbols/fabric.Image.filters.Noise.html">fabric.Image.filters.Noise</a></li>
+	
+	<li><a href="../symbols/fabric.Image.filters.Pixelate.html">fabric.Image.filters.Pixelate</a></li>
+	
+	<li><a href="../symbols/fabric.Image.filters.RemoveWhite.html">fabric.Image.filters.RemoveWhite</a></li>
+	
+	<li><a href="../symbols/fabric.Image.filters.Sepia.html">fabric.Image.filters.Sepia</a></li>
+	
+	<li><a href="../symbols/fabric.Image.filters.Sepia2.html">fabric.Image.filters.Sepia2</a></li>
+	
+	<li><a href="../symbols/fabric.Image.filters.Tint.html">fabric.Image.filters.Tint</a></li>
+	
+	<li><a href="../symbols/fabric.Intersection.html">fabric.Intersection</a></li>
+	
+	<li><a href="../symbols/fabric.Line.html">fabric.Line</a></li>
+	
+	<li><a href="../symbols/fabric.Object.html">fabric.Object</a></li>
+	
+	<li><a href="../symbols/fabric.Observable.html">fabric.Observable</a></li>
+	
+	<li><a href="../symbols/fabric.Path.html">fabric.Path</a></li>
+	
+	<li><a href="../symbols/fabric.PathGroup.html">fabric.PathGroup</a></li>
+	
+	<li><a href="../symbols/fabric.PatternBrush.html">fabric.PatternBrush</a></li>
+	
+	<li><a href="../symbols/fabric.PencilBrush.html">fabric.PencilBrush</a></li>
+	
+	<li><a href="../symbols/fabric.Point.html">fabric.Point</a></li>
+	
+	<li><a href="../symbols/fabric.Polygon.html">fabric.Polygon</a></li>
+	
+	<li><a href="../symbols/fabric.Polyline.html">fabric.Polyline</a></li>
+	
+	<li><a href="../symbols/fabric.Rect.html">fabric.Rect</a></li>
+	
+	<li><a href="../symbols/fabric.SprayBrush.html">fabric.SprayBrush</a></li>
+	
+	<li><a href="../symbols/fabric.StaticCanvas.html">fabric.StaticCanvas</a></li>
+	
+	<li><a href="../symbols/fabric.Text.html">fabric.Text</a></li>
+	
+	<li><a href="../symbols/fabric.Triangle.html">fabric.Triangle</a></li>
+	
+	<li><a href="../symbols/fabric.util.html">fabric.util</a></li>
+	
+	<li><a href="../symbols/fabric.util.array.html">fabric.util.array</a></li>
+	
+	<li><a href="../symbols/fabric.util.ease.html">fabric.util.ease</a></li>
+	
+	<li><a href="../symbols/fabric.util.object.html">fabric.util.object</a></li>
+	
+	<li><a href="../symbols/fabric.util.string.html">fabric.util.string</a></li>
+	
+	<li><a href="../symbols/Function.html">Function</a></li>
+	
+	<li><a href="../symbols/String.html">String</a></li>
+	
+</ul>
+	<!-- end publish.classesIndex -->
+</div>
+
+<div id="content">
+<!-- ============================== class title ============================ -->
+	<h1 class="classTitle">
+		
+		Class fabric.SprayBrush
+	</h1>
+
+<!-- ============================== class summary ========================== -->			
+	<p class="description">
+		
+		
+	
+		fabric.SprayBrush
+		
+		
+			<br /><i>Defined in: </i> <a href="../symbols/src/lib_fabric.js.html">fabric.js</a>.
+		
+	</p>
+
+<!-- ============================== constructor summary ==================== -->			
+	
+	<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class fabric.SprayBrush.">
+		<caption>Class Summary</caption>
+		<thead>
+			<tr>
+				<th scope="col">Constructor Attributes</th>
+				<th scope="col">Constructor Name and Description</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td class="attributes">&nbsp;</td>
+				<td class="nameDescription" >
+					<div class="fixedFont">
+						<b><a href="../symbols/fabric.SprayBrush.html#constructor">fabric.SprayBrush</a></b>()
+					</div>
+					<div class="description">SprayBrush class</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	
+
+<!-- ============================== properties summary ===================== -->
+	
+		
+		
+		<table class="summaryTable" cellspacing="0" summary="A summary of the fields documented in the class fabric.SprayBrush.">
+			<caption>Field Summary</caption>
+			<thead>
+				<tr>
+					<th scope="col">Field Attributes</th>
+					<th scope="col">Field Name and Description</th>
+				</tr>
+			</thead>
+			<tbody>
+			
+				<tr>
+					<td class="attributes">&nbsp;</td>
+					<td class="nameDescription">
+						<div class="fixedFont">
+						<b><a href="../symbols/fabric.SprayBrush.html#density">density</a></b>
+						</div>
+						<div class="description">Density of a spray (number of dots per chunk)</div>
+					</td>
+				</tr>
+			
+				<tr>
+					<td class="attributes">&nbsp;</td>
+					<td class="nameDescription">
+						<div class="fixedFont">
+						<b><a href="../symbols/fabric.SprayBrush.html#dotWidth">dotWidth</a></b>
+						</div>
+						<div class="description">Width of spray dots</div>
+					</td>
+				</tr>
+			
+				<tr>
+					<td class="attributes">&nbsp;</td>
+					<td class="nameDescription">
+						<div class="fixedFont">
+						<b><a href="../symbols/fabric.SprayBrush.html#dotWidthVariance">dotWidthVariance</a></b>
+						</div>
+						<div class="description">Width variance of spray dots</div>
+					</td>
+				</tr>
+			
+				<tr>
+					<td class="attributes">&nbsp;</td>
+					<td class="nameDescription">
+						<div class="fixedFont">
+						<b><a href="../symbols/fabric.SprayBrush.html#randomOpacity">randomOpacity</a></b>
+						</div>
+						<div class="description">Whether opacity of a dot should be random</div>
+					</td>
+				</tr>
+			
+				<tr>
+					<td class="attributes">&nbsp;</td>
+					<td class="nameDescription">
+						<div class="fixedFont">
+						<b><a href="../symbols/fabric.SprayBrush.html#width">width</a></b>
+						</div>
+						<div class="description">Width of a spray</div>
+					</td>
+				</tr>
+			
+			</tbody>
+		</table>
+		
+		
+		
+	
+
+<!-- ============================== methods summary ======================== -->
+	
+		
+		
+		<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class fabric.SprayBrush.">
+			<caption>Method Summary</caption>
+			<thead>
+				<tr>
+					<th scope="col">Method Attributes</th>
+					<th scope="col">Method Name and Description</th>
+				</tr>
+			</thead>
+			<tbody>
+			
+				<tr>
+					<td class="attributes">&nbsp;</td>
+					<td class="nameDescription">
+						<div class="fixedFont"><b><a href="../symbols/fabric.SprayBrush.html#addSprayChunk">addSprayChunk</a></b>(pointer)
+						</div>
+						<div class="description"></div>
+					</td>
+				</tr>
+			
+				<tr>
+					<td class="attributes">&nbsp;</td>
+					<td class="nameDescription">
+						<div class="fixedFont"><b><a href="../symbols/fabric.SprayBrush.html#initialize">initialize</a></b>(canvas)
+						</div>
+						<div class="description">Constructor</div>
+					</td>
+				</tr>
+			
+				<tr>
+					<td class="attributes">&nbsp;</td>
+					<td class="nameDescription">
+						<div class="fixedFont"><b><a href="../symbols/fabric.SprayBrush.html#onMouseDown">onMouseDown</a></b>(pointer)
+						</div>
+						<div class="description"></div>
+					</td>
+				</tr>
+			
+				<tr>
+					<td class="attributes">&nbsp;</td>
+					<td class="nameDescription">
+						<div class="fixedFont"><b><a href="../symbols/fabric.SprayBrush.html#onMouseMove">onMouseMove</a></b>(pointer)
+						</div>
+						<div class="description"></div>
+					</td>
+				</tr>
+			
+				<tr>
+					<td class="attributes">&nbsp;</td>
+					<td class="nameDescription">
+						<div class="fixedFont"><b><a href="../symbols/fabric.SprayBrush.html#onMouseUp">onMouseUp</a></b>()
+						</div>
+						<div class="description"></div>
+					</td>
+				</tr>
+			
+				<tr>
+					<td class="attributes">&nbsp;</td>
+					<td class="nameDescription">
+						<div class="fixedFont"><b><a href="../symbols/fabric.SprayBrush.html#render">render</a></b>()
+						</div>
+						<div class="description"></div>
+					</td>
+				</tr>
+			
+			</tbody>
+		</table>
+		
+		
+		
+	
+<!-- ============================== events summary ======================== -->
+	
+
+<!-- ============================== constructor details ==================== -->		
+	
+	<div class="details"><a name="constructor"> </a>
+		<div class="sectionTitle">
+			Class Detail
+		</div>
+		
+		<div class="fixedFont">
+				<b>fabric.SprayBrush</b>()
+		</div>
+		
+		<div class="description">
+			SprayBrush class
+			
+		</div>
+		
+		
+		
+		
+			
+			
+			
+			
+			
+			
+			
+
+	</div>
+	
+
+<!-- ============================== field details ========================== -->		
+	
+		<div class="sectionTitle">
+			Field Detail
+		</div>
+		
+			<a name="density"> </a>
+			<div class="fixedFont">
+			
+			<span class="light">{Number}</span>
+			<b>density</b>
+			
+			</div>
+			<div class="description">
+				Density of a spray (number of dots per chunk)
+				
+				
+			</div>
+			
+			
+
+				
+				
+				
+				
+
+			<hr />
+		
+			<a name="dotWidth"> </a>
+			<div class="fixedFont">
+			
+			<span class="light">{Number}</span>
+			<b>dotWidth</b>
+			
+			</div>
+			<div class="description">
+				Width of spray dots
+				
+				
+			</div>
+			
+			
+
+				
+				
+				
+				
+
+			<hr />
+		
+			<a name="dotWidthVariance"> </a>
+			<div class="fixedFont">
+			
+			<span class="light">{Number}</span>
+			<b>dotWidthVariance</b>
+			
+			</div>
+			<div class="description">
+				Width variance of spray dots
+				
+				
+			</div>
+			
+			
+
+				
+				
+				
+				
+
+			<hr />
+		
+			<a name="randomOpacity"> </a>
+			<div class="fixedFont">
+			
+			<span class="light">{Boolean}</span>
+			<b>randomOpacity</b>
+			
+			</div>
+			<div class="description">
+				Whether opacity of a dot should be random
+				
+				
+			</div>
+			
+			
+
+				
+				
+				
+				
+
+			<hr />
+		
+			<a name="width"> </a>
+			<div class="fixedFont">
+			
+			<span class="light">{Number}</span>
+			<b>width</b>
+			
+			</div>
+			<div class="description">
+				Width of a spray
+				
+				
+			</div>
+			
+			
+
+				
+				
+				
+				
+
+			
+		
+	
+
+<!-- ============================== method details ========================= -->		
+	
+		<div class="sectionTitle">
+			Method Detail
+		</div>
+		
+			<a name="addSprayChunk"> </a>
+			<div class="fixedFont">
+			
+			
+			<b>addSprayChunk</b>(pointer)
+			
+			</div>
+			<div class="description">
+				
+				
+				
+			</div>
+			
+			
+			
+				
+					<dl class="detailList">
+					<dt class="heading">Parameters:</dt>
+					
+						<dt>
+							<span class="light fixedFont">{Object}</span> <b>pointer</b>
+							
+						</dt>
+						<dd></dd>
+					
+					</dl>
+				
+				
+				
+				
+				
+				
+				
+
+			<hr />
+		
+			<a name="initialize"> </a>
+			<div class="fixedFont">
+			
+			<span class="light">{<a href="../symbols/fabric.SprayBrush.html">fabric.SprayBrush</a>}</span>
+			<b>initialize</b>(canvas)
+			
+			</div>
+			<div class="description">
+				Constructor
+				
+				
+			</div>
+			
+			
+			
+				
+					<dl class="detailList">
+					<dt class="heading">Parameters:</dt>
+					
+						<dt>
+							<span class="light fixedFont">{<a href="../symbols/fabric.Canvas.html">fabric.Canvas</a>}</span> <b>canvas</b>
+							
+						</dt>
+						<dd></dd>
+					
+					</dl>
+				
+				
+				
+				
+				
+					<dl class="detailList">
+					<dt class="heading">Returns:</dt>
+					
+						<dd><span class="light fixedFont">{<a href="../symbols/fabric.SprayBrush.html">fabric.SprayBrush</a>}</span> Instance of a spray brush</dd>
+					
+					</dl>
+				
+				
+				
+
+			<hr />
+		
+			<a name="onMouseDown"> </a>
+			<div class="fixedFont">
+			
+			
+			<b>onMouseDown</b>(pointer)
+			
+			</div>
+			<div class="description">
+				
+				
+				
+			</div>
+			
+			
+			
+				
+					<dl class="detailList">
+					<dt class="heading">Parameters:</dt>
+					
+						<dt>
+							<span class="light fixedFont">{Object}</span> <b>pointer</b>
+							
+						</dt>
+						<dd></dd>
+					
+					</dl>
+				
+				
+				
+				
+				
+				
+				
+
+			<hr />
+		
+			<a name="onMouseMove"> </a>
+			<div class="fixedFont">
+			
+			
+			<b>onMouseMove</b>(pointer)
+			
+			</div>
+			<div class="description">
+				
+				
+				
+			</div>
+			
+			
+			
+				
+					<dl class="detailList">
+					<dt class="heading">Parameters:</dt>
+					
+						<dt>
+							<span class="light fixedFont">{Object}</span> <b>pointer</b>
+							
+						</dt>
+						<dd></dd>
+					
+					</dl>
+				
+				
+				
+				
+				
+				
+				
+
+			<hr />
+		
+			<a name="onMouseUp"> </a>
+			<div class="fixedFont">
+			
+			
+			<b>onMouseUp</b>()
+			
+			</div>
+			<div class="description">
+				
+				
+				
+			</div>
+			
+			
+			
+				
+				
+				
+				
+				
+				
+				
+
+			<hr />
+		
+			<a name="render"> </a>
+			<div class="fixedFont">
+			
+			
+			<b>render</b>()
+			
+			</div>
+			<div class="description">
+				
+				
+				
+			</div>
+			
+			
+			
+				
+				
+				
+				
+				
+				
+				
+
+			
+		
+	
+	
+<!-- ============================== event details ========================= -->		
+	
+	
+	<hr>
+</div>
+
+		
+<!-- ============================== footer ================================= -->
+<div class="fineprint" style="clear:both">
+	
+	Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Wed Jan 30 2013 17:47:40 GMT+0100 (CET)
+</div>

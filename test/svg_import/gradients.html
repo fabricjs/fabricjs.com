@@ -1,0 +1,67 @@
+---
+layout: test
+title: SVG Rendering — Gradients
+---
+
+<link rel="stylesheet" href="svg_import.css">
+
+<script>
+  function initCanvas(id) {
+    fabric.loadSVGFromURL('../../assets/' + id + '.svg', function(objects, options) {
+      var shape = fabric.util.groupSVGElements(objects, options);
+
+      var canvasEl = document.getElementById('c_' + id.replace('/', '_'));
+
+      canvasEl.width = shape.width || 600;
+      canvasEl.height = shape.height || 600;
+
+      var iframeEl = canvasEl.parentNode.nextSibling.childNodes[1];
+      if (iframeEl) {
+        iframeEl.style.width = canvasEl.width + 'px';
+        iframeEl.style.height = canvasEl.height + 'px';
+      }
+
+      var canvas = window['__canvas' + id] = new fabric.StaticCanvas(canvasEl, {
+        backgroundColor: '#fff'
+      });
+      canvas.add(shape);
+      shape.center();
+      canvas.renderAll();
+    });
+  }
+</script>
+
+<script>
+  var ids = [
+    'gradients/svg_linear_1',
+    'gradients/svg_linear_2',
+    'gradients/svg_linear_3',
+    'gradients/svg_linear_4',
+    'gradients/svg_linear_5',
+    'gradients/svg_linear_6',
+    'gradients/svg_linear_7',
+    'gradients/svg_linear_8',
+    'gradients/svg_radial_1',
+    'gradients/svg_radial_2',
+    'gradients/svg_radial_3',
+    'gradients/svg_radial_4',
+    'gradients/svg_radial_5',
+    'gradients/svg_radial_6',
+    'gradients/svg_radial_8',
+    'gradients/svg_radial_9',
+    'gradients/svg_radial_10',
+    'gradients/svg_radial_11',
+    'gradients/svg_radial_12',
+    'gradients/svg_radial_13'
+  ];
+  for (var i = 0; i < ids.length; i++) {
+    id = ids[i];
+    document.write(
+      '<div class="test"><div class="block left"><p>'+ id + '</p>' +
+      '<canvas id="c_' + id.replace('/', '_') + '" width="600" height="600"></canvas></div>' +
+      '<div class="block"><p><a href="../assets/'+ id + '.svg">SVG</a></p>' +
+      '<iframe src="../../assets/' + id + '.svg"></iframe></div></div><br>'
+    );
+    initCanvas(id);
+  }
+</script>

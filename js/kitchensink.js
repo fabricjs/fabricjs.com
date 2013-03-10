@@ -338,7 +338,8 @@
   };
 
   var gradientifyBtn = document.getElementById('gradientify'),
-      shadowifyBtn = document.getElementById('shadowify');
+      shadowifyBtn = document.getElementById('shadowify'),
+      clipBtn = document.getElementById('clip');
 
   var activeObjectButtons = [
     lockHorizontallyEl,
@@ -348,7 +349,8 @@
     lockRotationEl,
     removeSelectedEl,
     gradientifyBtn,
-    shadowifyBtn
+    shadowifyBtn,
+    clipBtn
   ];
 
   var opacityEl = document.getElementById('opacity');
@@ -587,7 +589,9 @@
   gradientifyBtn.onclick = function() {
     var obj = canvas.getActiveObject();
     if (obj) {
-      obj.setGradientFill({
+      obj.setGradient('fill', {
+        x1: 0,
+        y1: 0,
         x2: (getRandomInt(0, 1) ? 0 : obj.width),
         y2: (getRandomInt(0, 1) ? 0 : obj.height),
         colorStops: {
@@ -601,20 +605,36 @@
 
   shadowifyBtn.onclick = function() {
     var obj = canvas.getActiveObject();
-    if (obj) {
-      if (obj.shadow) {
-        obj.shadow = null;
-      }
-      else {
-        obj.setShadow({
-          color: 'rgba(0,0,0,0.3)',
-          blur: 10,
-          offsetX: 10,
-          offsetY: 10
-        });
-      }
-      canvas.renderAll();
+    if (!obj) return;
+
+    if (obj.shadow) {
+      obj.shadow = null;
     }
+    else {
+      obj.setShadow({
+        color: 'rgba(0,0,0,0.3)',
+        blur: 10,
+        offsetX: 10,
+        offsetY: 10
+      });
+    }
+    canvas.renderAll();
+  };
+
+  clipBtn.onclick = function() {
+    var obj = canvas.getActiveObject();
+    if (!obj) return;
+
+    if (obj.clipTo) {
+      obj.clipTo = null;
+    }
+    else {
+      var radius = obj.width < obj.height ? (obj.width / 2) : (obj.height / 2);
+      obj.clipTo = function (ctx) {
+        ctx.arc(0, 0, radius, 0, Math.PI * 2, true);
+      };
+    }
+    canvas.renderAll();
   };
 
   var textEl = document.getElementById('text');

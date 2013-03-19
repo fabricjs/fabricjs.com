@@ -394,6 +394,16 @@ ul.inheritsList {
 					<td class="attributes">&nbsp;</td>
 					<td class="nameDescription">
 						<div class="fixedFont">
+						<b><a href="../symbols/fabric.Object.html#clipTo">clipTo</a></b>
+						</div>
+						<div class="description">Function that determines clipping of an object (context is passed as a first argument)</div>
+					</td>
+				</tr>
+			
+				<tr>
+					<td class="attributes">&nbsp;</td>
+					<td class="nameDescription">
+						<div class="fixedFont">
 						<b><a href="../symbols/fabric.Object.html#cornerColor">cornerColor</a></b>
 						</div>
 						<div class="description">Corner color of an object (when it's active)</div>
@@ -506,7 +516,7 @@ ul.inheritsList {
 						<div class="fixedFont">
 						<b><a href="../symbols/fabric.Object.html#left">left</a></b>
 						</div>
-						<div class="description">Left position of an object</div>
+						<div class="description">Left position of an object.</div>
 					</td>
 				</tr>
 			
@@ -697,7 +707,7 @@ as well as for history (undo/redo) purposes</div>
 						<div class="fixedFont">
 						<b><a href="../symbols/fabric.Object.html#top">top</a></b>
 						</div>
-						<div class="description">Top position of an object</div>
+						<div class="description">Top position of an object.</div>
 					</td>
 				</tr>
 			
@@ -728,6 +738,16 @@ as well as for history (undo/redo) purposes</div>
 						<b><a href="../symbols/fabric.Object.html#type">type</a></b>
 						</div>
 						<div class="description">Type of an object (rect, circle, path, etc.</div>
+					</td>
+				</tr>
+			
+				<tr>
+					<td class="attributes">&nbsp;</td>
+					<td class="nameDescription">
+						<div class="fixedFont">
+						<b><a href="../symbols/fabric.Object.html#visible">visible</a></b>
+						</div>
+						<div class="description">When set to `false`, an object is not rendered on canvas</div>
 					</td>
 				</tr>
 			
@@ -1053,7 +1073,7 @@ as well as for history (undo/redo) purposes</div>
 				<tr>
 					<td class="attributes">&nbsp;</td>
 					<td class="nameDescription">
-						<div class="fixedFont"><b><a href="../symbols/fabric.Object.html#saveState">saveState</a></b>()
+						<div class="fixedFont"><b><a href="../symbols/fabric.Object.html#saveState">saveState</a></b>(options)
 						</div>
 						<div class="description">Saves state of an object</div>
 					</td>
@@ -1134,9 +1154,9 @@ as well as for history (undo/redo) purposes</div>
 				<tr>
 					<td class="attributes">&nbsp;</td>
 					<td class="nameDescription">
-						<div class="fixedFont"><b><a href="../symbols/fabric.Object.html#setGradientFill">setGradientFill</a></b>(options)
+						<div class="fixedFont"><b><a href="../symbols/fabric.Object.html#setGradient">setGradient</a></b>(property, options)
 						</div>
-						<div class="description">Sets gradient fill of an object</div>
+						<div class="description">Sets gradient (fill or stroke) of an object</div>
 					</td>
 				</tr>
 			
@@ -1435,6 +1455,28 @@ as well as for history (undo/redo) purposes</div>
 
 			<hr />
 		
+			<a name="clipTo"> </a>
+			<div class="fixedFont">
+			
+			<span class="light">{<a href="../symbols/Function.html">Function</a>}</span>
+			<b>clipTo</b>
+			
+			</div>
+			<div class="description">
+				Function that determines clipping of an object (context is passed as a first argument)
+				
+				
+			</div>
+			
+			
+
+				
+				
+				
+				
+
+			<hr />
+		
 			<a name="cornerColor"> </a>
 			<div class="fixedFont">
 			
@@ -1685,7 +1727,7 @@ as well as for history (undo/redo) purposes</div>
 			
 			</div>
 			<div class="description">
-				Left position of an object
+				Left position of an object. Note that by default it's relative to object center. You can change this by setting originX={left/center/right}
 				
 				
 			</div>
@@ -2104,7 +2146,7 @@ as well as for history (undo/redo) purposes
 			
 			</div>
 			<div class="description">
-				Top position of an object
+				Top position of an object. Note that by default it's relative to object center. You can change this by setting originY={top/center/bottom}
 				
 				
 			</div>
@@ -2171,6 +2213,28 @@ as well as for history (undo/redo) purposes
 			</div>
 			<div class="description">
 				Type of an object (rect, circle, path, etc.)
+				
+				
+			</div>
+			
+			
+
+				
+				
+				
+				
+
+			<hr />
+		
+			<a name="visible"> </a>
+			<div class="fixedFont">
+			
+			<span class="light">{Boolean}</span>
+			<b>visible</b>
+			
+			</div>
+			<div class="description">
+				When set to `false`, an object is not rendered on canvas
 				
 				
 			</div>
@@ -3411,7 +3475,7 @@ Requires public options: cornerSize, padding
 			<div class="fixedFont">
 			
 			<span class="light">{<a href="../symbols/fabric.Object.html">fabric.Object</a>}</span>
-			<b>saveState</b>()
+			<b>saveState</b>(options)
 			
 			</div>
 			<div class="description">
@@ -3422,6 +3486,17 @@ Requires public options: cornerSize, padding
 			
 			
 			
+				
+					<dl class="detailList">
+					<dt class="heading">Parameters:</dt>
+					
+						<dt>
+							<span class="light fixedFont">{Object}</span> <b>options</b>
+							<i>Optional</i>
+						</dt>
+						<dd>Object with additional `stateProperties` array to include when saving state</dd>
+					
+					</dl>
 				
 				
 				
@@ -3756,15 +3831,15 @@ Requires public options: cornerSize, padding
 
 			<hr />
 		
-			<a name="setGradientFill"> </a>
+			<a name="setGradient"> </a>
 			<div class="fixedFont">
 			
 			
-			<b>setGradientFill</b>(options)
+			<b>setGradient</b>(property, options)
 			
 			</div>
 			<div class="description">
-				Sets gradient fill of an object
+				Sets gradient (fill or stroke) of an object
 				
 				
 			</div>
@@ -3776,10 +3851,16 @@ Requires public options: cornerSize, padding
 					<dt class="heading">Parameters:</dt>
 					
 						<dt>
-							<span class="light fixedFont">{Object}</span> <b>options</b>
+							<span class="light fixedFont">{<a href="../symbols/String.html">String</a>}</span> <b>property</b>
 							
 						</dt>
-						<dd></dd>
+						<dd>Property name 'stroke' or 'fill'</dd>
+					
+						<dt>
+							<span class="light fixedFont">{Object}</span> <b>options</b>
+							<i>Optional</i>
+						</dt>
+						<dd>Options object</dd>
 					
 					</dl>
 				
@@ -4540,5 +4621,5 @@ Requires public options: cornerSize, padding
 <!-- ============================== footer ================================= -->
 <div class="fineprint" style="clear:both">
 	
-	Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Wed Feb 27 2013 00:41:34 GMT+0100 (CET)
+	Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Tue Mar 19 2013 13:21:08 GMT+0100 (CET)
 </div>

@@ -211,6 +211,8 @@ ul.inheritsList {
 	
 	<li><a href="../symbols/fabric.CircleBrush.html">fabric.CircleBrush</a></li>
 	
+	<li><a href="../symbols/fabric.Collection.html">fabric.Collection</a></li>
+	
 	<li><a href="../symbols/fabric.Color.html">fabric.Color</a></li>
 	
 	<li><a href="../symbols/fabric.Element.html">fabric.Element</a></li>
@@ -526,15 +528,6 @@ Should be set via `setOverlayImage`</div>
 				<tr>
 					<td class="attributes">&nbsp;</td>
 					<td class="nameDescription">
-						<div class="fixedFont"><b><a href="../symbols/fabric.StaticCanvas.html#add">add</a></b>()
-						</div>
-						<div class="description">Adds objects to canvas, then renders canvas (if `renderOnAddition` is not `false`).</div>
-					</td>
-				</tr>
-			
-				<tr>
-					<td class="attributes">&nbsp;</td>
-					<td class="nameDescription">
 						<div class="fixedFont"><b><a href="../symbols/fabric.StaticCanvas.html#bringForward">bringForward</a></b>(object)
 						</div>
 						<div class="description">Moves an object one level up in stack of drawn objects</div>
@@ -626,15 +619,6 @@ This method is also attached as "resize" event handler of window</div>
 				<tr>
 					<td class="attributes">&nbsp;</td>
 					<td class="nameDescription">
-						<div class="fixedFont"><b><a href="../symbols/fabric.StaticCanvas.html#complexity">complexity</a></b>()
-						</div>
-						<div class="description">Returns number representation of an instance complexity</div>
-					</td>
-				</tr>
-			
-				<tr>
-					<td class="attributes">&nbsp;</td>
-					<td class="nameDescription">
 						<div class="fixedFont"><b><a href="../symbols/fabric.StaticCanvas.html#createJPEGStream">createJPEGStream</a></b>(opts)
 						</div>
 						<div class="description"></div>
@@ -656,15 +640,6 @@ This method is also attached as "resize" event handler of window</div>
 						<div class="fixedFont"><b><a href="../symbols/fabric.StaticCanvas.html#drawControls">drawControls</a></b>(ctx)
 						</div>
 						<div class="description">Draws objects' controls (borders/controls)</div>
-					</td>
-				</tr>
-			
-				<tr>
-					<td class="attributes">&nbsp;</td>
-					<td class="nameDescription">
-						<div class="fixedFont"><b><a href="../symbols/fabric.StaticCanvas.html#forEachObject">forEachObject</a></b>(callback, context)
-						</div>
-						<div class="description">Iterates over all objects, invoking callback for each one of them</div>
 					</td>
 				</tr>
 			
@@ -764,33 +739,6 @@ This method is also attached as "resize" event handler of window</div>
 						<div class="fixedFont"><b><a href="../symbols/fabric.StaticCanvas.html#getWidth">getWidth</a></b>()
 						</div>
 						<div class="description">Returns canvas width (in px)</div>
-					</td>
-				</tr>
-			
-				<tr>
-					<td class="attributes">&nbsp;</td>
-					<td class="nameDescription">
-						<div class="fixedFont"><b><a href="../symbols/fabric.StaticCanvas.html#insertAt">insertAt</a></b>(object, index, nonSplicing)
-						</div>
-						<div class="description">Inserts an object to canvas at specified index and renders canvas.</div>
-					</td>
-				</tr>
-			
-				<tr>
-					<td class="attributes">&nbsp;</td>
-					<td class="nameDescription">
-						<div class="fixedFont"><b><a href="../symbols/fabric.StaticCanvas.html#isEmpty">isEmpty</a></b>()
-						</div>
-						<div class="description">Returns true if canvas contains no objects</div>
-					</td>
-				</tr>
-			
-				<tr>
-					<td class="attributes">&nbsp;</td>
-					<td class="nameDescription">
-						<div class="fixedFont"><b><a href="../symbols/fabric.StaticCanvas.html#item">item</a></b>(index)
-						</div>
-						<div class="description">Returns object at specified index</div>
 					</td>
 				</tr>
 			
@@ -1397,50 +1345,6 @@ Disabling this option could give a great performance boost when adding a lot of 
 			Method Detail
 		</div>
 		
-			<a name="add"> </a>
-			<div class="fixedFont">
-			
-			<span class="light">{<a href="../symbols/fabric.Canvas.html">fabric.Canvas</a>}</span>
-			<b>add</b>()
-			
-			</div>
-			<div class="description">
-				Adds objects to canvas, then renders canvas (if `renderOnAddition` is not `false`).
-Objects should be instances of (or inherit from) fabric.Object
-				
-				
-			</div>
-			
-			
-			
-				
-					<dl class="detailList">
-					<dt class="heading">Parameters:</dt>
-					
-						<dt>
-							<b>...</b>
-							<i>Optional</i>
-						</dt>
-						<dd>Zero or more fabric instances</dd>
-					
-					</dl>
-				
-				
-				
-				
-				
-					<dl class="detailList">
-					<dt class="heading">Returns:</dt>
-					
-						<dd><span class="light fixedFont">{<a href="../symbols/fabric.Canvas.html">fabric.Canvas</a>}</span> thisArg</dd>
-					
-					</dl>
-				
-				
-				
-
-			<hr />
-		
 			<a name="bringForward"> </a>
 			<div class="fixedFont">
 			
@@ -1838,38 +1742,6 @@ but leaves data empty (so that you can populate it with your own)
 
 			<hr />
 		
-			<a name="complexity"> </a>
-			<div class="fixedFont">
-			
-			<span class="light">{Number}</span>
-			<b>complexity</b>()
-			
-			</div>
-			<div class="description">
-				Returns number representation of an instance complexity
-				
-				
-			</div>
-			
-			
-			
-				
-				
-				
-				
-				
-					<dl class="detailList">
-					<dt class="heading">Returns:</dt>
-					
-						<dd><span class="light fixedFont">{Number}</span> complexity</dd>
-					
-					</dl>
-				
-				
-				
-
-			<hr />
-		
 			<a name="createJPEGStream"> </a>
 			<div class="fixedFont">
 			
@@ -1968,55 +1840,6 @@ but leaves data empty (so that you can populate it with your own)
 				
 				
 				
-				
-				
-				
-
-			<hr />
-		
-			<a name="forEachObject"> </a>
-			<div class="fixedFont">
-			
-			<span class="light">{<a href="../symbols/fabric.Canvas.html">fabric.Canvas</a>}</span>
-			<b>forEachObject</b>(callback, context)
-			
-			</div>
-			<div class="description">
-				Iterates over all objects, invoking callback for each one of them
-				
-				
-			</div>
-			
-			
-			
-				
-					<dl class="detailList">
-					<dt class="heading">Parameters:</dt>
-					
-						<dt>
-							<b>callback</b>
-							
-						</dt>
-						<dd></dd>
-					
-						<dt>
-							<b>context</b>
-							
-						</dt>
-						<dd></dd>
-					
-					</dl>
-				
-				
-				
-				
-				
-					<dl class="detailList">
-					<dt class="heading">Returns:</dt>
-					
-						<dd><span class="light fixedFont">{<a href="../symbols/fabric.Canvas.html">fabric.Canvas</a>}</span> thisArg</dd>
-					
-					</dl>
 				
 				
 				
@@ -2419,137 +2242,6 @@ Returned value is an object with top and left properties
 					<dt class="heading">Returns:</dt>
 					
 						<dd><span class="light fixedFont">{Number}</span> </dd>
-					
-					</dl>
-				
-				
-				
-
-			<hr />
-		
-			<a name="insertAt"> </a>
-			<div class="fixedFont">
-			
-			<span class="light">{<a href="../symbols/fabric.Canvas.html">fabric.Canvas</a>}</span>
-			<b>insertAt</b>(object, index, nonSplicing)
-			
-			</div>
-			<div class="description">
-				Inserts an object to canvas at specified index and renders canvas.
-An object should be an instance of (or inherit from) fabric.Object
-				
-				
-			</div>
-			
-			
-			
-				
-					<dl class="detailList">
-					<dt class="heading">Parameters:</dt>
-					
-						<dt>
-							<b>object</b>
-							
-						</dt>
-						<dd>{Object} Object to insert</dd>
-					
-						<dt>
-							<b>index</b>
-							
-						</dt>
-						<dd>{Number} index to insert object at</dd>
-					
-						<dt>
-							<b>nonSplicing</b>
-							
-						</dt>
-						<dd>{Boolean} when `true`, no splicing (shifting) of objects occurs</dd>
-					
-					</dl>
-				
-				
-				
-				
-				
-					<dl class="detailList">
-					<dt class="heading">Returns:</dt>
-					
-						<dd><span class="light fixedFont">{<a href="../symbols/fabric.Canvas.html">fabric.Canvas</a>}</span> thisArg</dd>
-					
-					</dl>
-				
-				
-				
-
-			<hr />
-		
-			<a name="isEmpty"> </a>
-			<div class="fixedFont">
-			
-			<span class="light">{Boolean}</span>
-			<b>isEmpty</b>()
-			
-			</div>
-			<div class="description">
-				Returns true if canvas contains no objects
-				
-				
-			</div>
-			
-			
-			
-				
-				
-				
-				
-				
-					<dl class="detailList">
-					<dt class="heading">Returns:</dt>
-					
-						<dd><span class="light fixedFont">{Boolean}</span> true if canvas is empty</dd>
-					
-					</dl>
-				
-				
-				
-
-			<hr />
-		
-			<a name="item"> </a>
-			<div class="fixedFont">
-			
-			<span class="light">{<a href="../symbols/fabric.Object.html">fabric.Object</a>}</span>
-			<b>item</b>(index)
-			
-			</div>
-			<div class="description">
-				Returns object at specified index
-				
-				
-			</div>
-			
-			
-			
-				
-					<dl class="detailList">
-					<dt class="heading">Parameters:</dt>
-					
-						<dt>
-							<span class="light fixedFont">{Number}</span> <b>index</b>
-							
-						</dt>
-						<dd></dd>
-					
-					</dl>
-				
-				
-				
-				
-				
-					<dl class="detailList">
-					<dt class="heading">Returns:</dt>
-					
-						<dd><span class="light fixedFont">{<a href="../symbols/fabric.Object.html">fabric.Object</a>}</span> </dd>
 					
 					</dl>
 				
@@ -3640,5 +3332,5 @@ will start the svg output directly at "<svg...")</dd>
 <!-- ============================== footer ================================= -->
 <div class="fineprint" style="clear:both">
 	
-	Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Tue Mar 19 2013 16:06:12 GMT+0100 (CET)
+	Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Wed Mar 20 2013 23:37:24 GMT+0100 (CET)
 </div>

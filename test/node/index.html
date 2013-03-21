@@ -18,16 +18,16 @@ title: Node.js
 <script type="text/script" id="test-template">
   <div class="test">
     <div class="column">
-      <p>Source</p>
-      <pre class="source"><code>#{code}</code></pre>
-    </div>
-    <div class="column">
       <p>Canvas</p>
       <canvas class="canvas" width="200" height="200"></canvas>
     </div>
     <div class="column">
       <p>Node</p>
       <img class="node" src="">
+    </div>
+    <div class="column">
+      <p>Source</p>
+      <pre class="source"><code>#{code}</code></pre>
     </div>
   </div>
 </script>
@@ -164,6 +164,13 @@ fabric.loadSVGFromURL('http://fabricjs.com/assets/85.svg', function(ob,op){
 <pre class="test-source async">
 fabric.loadSVGFromURL('http://fabricjs.com/assets/95.svg', function(ob,op){
   canvas.add(new fabric.PathGroup(ob, op).set({ left: 100, top: 100 }).scale(0.5));
+  proceed();
+});
+</pre>
+
+<pre class="test-source async">
+fabric.Image.fromURL('http://fabricjs.com/assets/pug.jpg', function(img){
+  canvas.add(img.set({ left: 100, top: 100 }).scale(0.2));
   proceed();
 });
 </pre>

@@ -499,10 +499,10 @@
     canvas.add(rect1, rect2);
 
     canvas.setActiveObject(rect1);
-    ok(rect1.isActive());
+    ok(rect1.active);
 
     canvas.setActiveObject(rect2);
-    ok(rect2.isActive());
+    ok(rect2.active);
   });
 
   test('getActiveObject', function() {
@@ -566,7 +566,7 @@
     canvas.setActiveObject(canvas.item(0));
 
     canvas.deactivateAll();
-    ok(!canvas.item(0).isActive());
+    ok(!canvas.item(0).active);
     equal(canvas.getActiveObject(), null);
     equal(canvas.getActiveGroup(), null);
   });
@@ -595,7 +595,7 @@
     });
 
     canvas.deactivateAllWithDispatch();
-    ok(!canvas.item(0).isActive());
+    ok(!canvas.item(0).active);
     equal(canvas.getActiveObject(), null);
     equal(canvas.getActiveGroup(), null);
 
@@ -904,6 +904,23 @@
 
       start();
     });
+  });
+
+  test('clipTo', function() {
+    canvas.clipTo = function(ctx) {
+      ctx.arc(0, 0, 10, 0, Math.PI * 2, false);
+    };
+
+    var error;
+    try {
+      canvas.renderAll();
+    }
+    catch(err) {
+      error = err;
+    }
+    delete canvas.clipTo;
+
+    ok(typeof error == 'undefined', 'renderAll with clipTo does not throw');
   });
 
 })();

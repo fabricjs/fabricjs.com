@@ -655,7 +655,6 @@
         else {
           activeObject.setText(this.value);
         }
-        console.log('rendering changed text');
         canvas.renderAll();
       }
     };
@@ -800,7 +799,7 @@
     strokeColorField.onchange = function() {
       var activeObject = canvas.getActiveObject();
       if (activeObject && activeObject.type === 'text') {
-        activeObject.strokeStyle = this.value;
+        activeObject.stroke = this.value;
         canvas.renderAll();
       }
     };

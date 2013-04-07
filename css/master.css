@@ -15,6 +15,30 @@ h3, h4 { margin-top: 1.5em !important; }
 #features .next-steps a:nth-child(2) { color: green; margin-right: 20px; }
 #features .next-steps a:nth-child(3) { color: blue; }
 
+#features .canvas-container { margin-top: 20px; }
+#to-svg { position: absolute; top: 1800px; left: -100px; font-size: 18px; }
+#to-json { position: absolute; top: 1800px; left: -190px; font-size: 18px; }
+
+.tooltip { background: #666; color: #f0f0f0; border-radius: 5px; width: 200px; position: absolute; padding: 10px; border: 1px solid rgba(255,255,255,0.8); transition: all 0.2s; cursor: pointer; }
+.tooltip:hover { background: #444; }
+.tooltip b { color: #faa; font-weight: normal; }
+.tooltip.simple-shapes { top: 50px; left: -100px; }
+.tooltip.complex-shapes { right: -100px; top: 50px; }
+.tooltip.images { left: -50px; top: 300px; width: 150px; }
+.tooltip.text { left: -100px; top: 600px; }
+.tooltip.gradients { right: -50px; top: 300px; width: 150px; }
+.tooltip.filters { right: -70px; top: 600px; width: 170px; }
+.tooltip.animation { left: -100px; top: 800px; }
+.tooltip.groups { right: -100px; top: 900px; }
+.tooltip.shadows { left: -130px; top: 950px; width: 230px; }
+.tooltip.flipping { right: -130px; top: 1150px; width: 230px; }
+.tooltip.events { left: -100px; top: 1300px; }
+.tooltip.clipping { right: -50px; top: 1450px; width: 150px; }
+.tooltip.patterns { left: -50px; top: 1550px; width: 150px; }
+.tooltip.freedrawing { right: -100px; top: 1750px; }
+.tooltip.serialization { left: -100px; top: 1730px; }
+
+
 #features img { box-shadow: rgba(0,0,0,0.3) 0 0 5px; margin-top: 20px; margin-bottom: 20px; width: 400px }
 #features img:hover { box-shadow: rgba(0,0,155,0.3) 0 0 5px; }
 

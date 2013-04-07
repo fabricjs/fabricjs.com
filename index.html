@@ -5,48 +5,416 @@ title: Features
 
 <div id="features">
 
-  <p class="primary">Fabric.js is a powerful and simple Javascript <strong>canvas library</strong></p>
-  <p class="primary">Fabric provides <strong>interactive object model</strong> on top of canvas element</p>
-  <p class="primary">Fabric also has <strong>SVG-to-canvas</strong> (and <strong>canvas-to-SVG</strong>) parser</p>
+  <h1 style="font-weight: normal">
+    <strong>Fabric.js</strong> is a powerful and simple<br>Javascript <strong>canvas library</strong>
+  </h1>
+  <h4 style="margin: 5px !important">Fabric provides <strong>interactive object model</strong> on top of canvas element</h4>
+  <h4 style="margin: 5px !important">Fabric also has <strong>SVG-to-canvas</strong> (and <strong>canvas-to-SVG</strong>) parser</h4>
 
-  <a href="kitchensink" class="kitchensink">
+  <!-- <a href="kitchensink" class="kitchensink">
     <img src="https://github.com/kangax/fabric.js/raw/master/lib/screenshot.png">
-  </a>
+  </a> -->
 
-  <div class="quick-features">
-    <h3>At a glance</h3>
-    <ul>
-      <li>Simple shapes <em>(rect, triangle, circle)</em></li>
-      <li>Complex shapes <em>(SVG paths)</em></li>
-      <li>Images</li>
-      <li>Image filters <em>(grayscale, noise, brightness)</em></li>
-      <li>Gradients</li>
-      <li>Powerful SVG parser</li>
-      <li>Grouping multiple objects</li>
-      <li>Object modification <em>(locking, flipping, cloning)</em></li>
-      <li>Free drawing <em>(paths become objects)</em></li>
-      <li>Text <em>(multiline, alignment, fonts, styles)</em></li>
-      <li>Animation <em>(with easing)</em></li>
-      <li>Per-pixel object detection</li>
-      <li>Canvas serialization <em>(toSVG, toJSON)</em></li>
-      <li>Color helpers</li>
-      <li>Events</li>
-      <li>Subclassing</li>
-      <li>Touch devices support</li>
-      <li>Node.js support <em>(and npm package)</em></li>
-      <li>IE&lt;9 support <em>(using excanvas)</em></li>
-    </ul>
+  <div style="position: relative">
+    <canvas id="intro-canvas" width="500" height="1850"></canvas>
+    <div class="tooltip simple-shapes">
+      Using Fabric.js, you can create and populate objects on canvas; objects like <b>simple geometrical shapes</b>
+    </div>
+    <div class="tooltip complex-shapes">
+      or <b>complex shapes</b> consisting of hundreds or thousands of simple paths
+    </div>
+    <div class="tooltip images">
+      or good old <b>images</b>
+    </div>
+    <div class="tooltip text">
+      You can add <b>text</b> and dynamically manipulate its <b>size, alignment, font family</b>, and other properties
+    </div>
+    <div class="tooltip gradients">
+      You can give any shape a <b>gradient</b>
+    </div>
+    <div class="tooltip filters">
+      and apply <b>image filters</b> to images
+    </div>
+    <div class="tooltip animation">
+      There's built-in <b>animation</b> support
+    </div>
+    <div class="tooltip groups">
+      You can <b>group</b> objects together, and manipulate them at the same time
+    </div>
+    <div class="tooltip shadows">
+      You can add <b>shadow</b> to any object. Or make it <b>draggable</b> only by its content. Try this star &rarr;
+    </div>
+    <div class="tooltip flipping">
+      Objects can be easily <b>flipped</b> in any direction. Or <b>locked</b> in movement, scaling, etc.<br> &larr; Try these cats.
+    </div>
+    <div class="tooltip events">
+      There's an extensive <b>event</b> system
+    </div>
+    <div class="tooltip clipping">
+      You can <b>clip</b> any object to any shape
+    </div>
+    <div class="tooltip patterns">
+      or use <b>pattern</b> to fill its content
+    </div>
+    <div class="tooltip freedrawing">
+      and, of course, use <b>free drawing</b> to create anything you like
+    </div>
+    <div class="tooltip serialization">
+      Canvas can be <b>serialized</b> to JSON or SVG, and <b>restored</b> at any time
+    </div>
   </div>
 
-  <p>Using Fabric.js, you can create and populate objects on canvas; objects like simple geometrical shapes — <strong>rectangles, circles, ellipses, polygons</strong>, or more complex shapes consisting of hundreds or thousands of simple paths.</p>
+  <script>
+    (function(){
+      var canvas = window.__canvas = new fabric.Canvas('intro-canvas');
 
-  <p>You can then <strong>scale, move, and rotate</strong> these objects with the mouse; modify their properties — color, transparency, z-index, etc. You can also manipulate these objects altogether — grouping them with a simple mouse selection.</p>
+      // simple shapes
+      var rect = new fabric.Rect({ width: 80, height: 60, left: 100, top: 100, fill: '#f55' })
+      var circle = new fabric.Circle({ radius: 30, left: 50, top: 50, fill: 'rgb(50, 205, 50)' });
+      var triangle = new fabric.Triangle({ width: 80, height: 80, left: 150, top: 130, fill: '#55f' });
 
-  <p>You can add <strong>text on canvas</strong> and dynamically manipulate its size, alignment, fontfamily and other properties. You can apply <strong>filters to images</strong>, making them grayscale or removing background. You can <strong>serialize the entire canvas</strong> into a JSON string — saving it locally or on a server — then completely restore it at any time. You can also export canvas data <strong>back into SVG</strong> at any time.</p>
+      canvas.add(triangle, rect, circle);
+
+      // complex shapes
+      fabric.loadSVGFromURL('assets/57.svg', function(objects, options) {
+        var shape = fabric.util.groupSVGElements(objects, options);
+        shape.set({
+          left: 400,
+          top: 110,
+          angle: -15
+        })
+        .scale(0.3);
+        canvas.add(shape);
+        canvas.calcOffset();
+      });
+
+      // images
+      fabric.Image.fromURL('assets/printio.png', function(image) {
+        image.set({
+          left: 130,
+          top: 350,
+          angle: 10
+        });
+        image.scale(0.3).setCoords();
+        canvas.add(image);
+        canvas.calcOffset();
+        canvas.setActiveObject(image);
+
+        // filters
+        image.clone(function(clone) {
+          clone.set({
+            left: 380,
+            top: 650
+          });
+          clone.filters.push(new fabric.Image.filters.Invert());
+          clone.applyFilters(canvas.renderAll.bind(canvas));
+          canvas.add(clone);
+        });
+      });
+
+      // arrow
+      fabric.loadSVGFromURL('assets/156.svg', function(objects, options) {
+        var shape = fabric.util.groupSVGElements(objects, options);
+        shape.set({
+          left: 280,
+          top: 500,
+          angle: 70,
+          scaleX: 2,
+          scaleY: 1.5,
+          flipY: true
+        });
+
+        canvas.add(shape);
+        canvas.calcOffset();
+      });
+
+      // gradients
+      fabric.loadSVGFromURL('assets/gradients/svg_radial_4.svg', function(objects, options) {
+        var shape = fabric.util.groupSVGElements(objects, options);
+        shape.set({
+          left: 380,
+          top: 300,
+          angle: -15
+        }).scale(0.5);
+
+        canvas.add(shape);
+        canvas.calcOffset();
+      });
+      fabric.loadSVGFromURL('assets/gradients/svg_linear_8.svg', function(objects, options) {
+        var shape = fabric.util.groupSVGElements(objects, options);
+        shape.set({
+          left: 380,
+          top: 400,
+          angle: 15
+        }).scale(0.75)
+
+        canvas.add(shape);
+        canvas.calcOffset();
+      });
+
+      // text
+      var text1 = new fabric.Text('Fabric', {
+        left: 90,
+        top: 570,
+        angle: -5,
+        fontFamily: 'Helvetica',
+        fontSize: 20,
+        fill: 'red'
+      });
+      var text2 = new fabric.Text('has', {
+        fontSize: 60,
+        left: 170,
+        top: 560,
+        fontFamily: 'Impact',
+        fill: '#eee',
+        strokeWidth: 1,
+        stroke: 'red'
+      });
+      var text3 = new fabric.Text('multiline text', {
+        left: 140,
+        top: 615,
+        angle: -5,
+        fontFamily: 'Georgia',
+        fontSize: 20,
+        fontWeight: 'bold',
+        fill: 'green'
+      });
+      var text4 = new fabric.Text('with extensive \ndecoration support', {
+        left: 140,
+        top: 660,
+        angle: -5,
+        fontFamily: 'Courier',
+        fontSize: 18,
+        textDecoration: 'underline',
+        fill: 'blue',
+        textAlign: 'center'
+      });
+      var text5 = new fabric.Text('and\neven\nalignment', {
+        left: 140,
+        top: 730,
+        angle: 5,
+        fontFamily: 'Arial',
+        fontStyle: 'italic',
+        fontSize: 20,
+        fill: 'grey',
+        textAlign: 'right'
+      });
+      canvas.add(text1, text2, text3, text4, text5);
+
+      // shadow and per-pixel drag drop
+      fabric.loadSVGFromURL('assets/112.svg', function(objects, options) {
+        var shape = fabric.util.groupSVGElements(objects, options);
+        shape.set({
+          left: 130,
+          top: 980,
+          angle: -15,
+          perPixelTargetFind: true,
+          targetFindTolerance: 4,
+          hasControls: false,
+          hasBorders: false,
+          hoverCursor: 'pointer'
+        })
+        .setShadow({ color: 'rgba(0,0,0,0.5)', offsetX: 10, offsetY: 10, blur: 10 });
+
+        canvas.add(shape);
+        canvas.calcOffset();
+      });
+
+      // to svg
+      var btnEl = document.createElement('button');
+      btnEl.innerHTML = 'toSVG';
+      btnEl.id = 'to-svg';
+      canvas.getElement().parentNode.appendChild(btnEl);
+      btnEl.onclick = function() {
+        alert(canvas.toSVG());
+      };
+
+      // to json
+      var btnEl = document.createElement('button');
+      btnEl.innerHTML = 'toJSON';
+      btnEl.id = 'to-json';
+      canvas.getElement().parentNode.appendChild(btnEl);
+      btnEl.onclick = function() {
+        alert(JSON.stringify(canvas));
+      };
+
+      // group
+      var ellipse1 = new fabric.Ellipse({
+        rx: 80,
+        ry: 40,
+        fill: '#800080',
+        stroke: '#555',
+        strokeWidth: 5,
+        angle: 30
+      });
+      var ellipse2 = new fabric.Ellipse({
+        rx: 80,
+        ry: 40,
+        fill: '#FFFF00',
+        stroke: '#555',
+        strokeWidth: 5,
+        angle: -30
+      });
+      var text = new fabric.Text('I am a group!', {
+        fill: '#333',
+        fontFamily: 'Helvetica',
+        fontSize: 17
+      });
+      var group = new fabric.Group([ ellipse1, ellipse2, text ], {
+        left: 400,
+        top: 1000,
+        angle: 30
+      });
+      canvas.add(group);
+
+      // locked, flipped
+      fabric.loadSVGFromURL('assets/57.svg', function(objects, options) {
+        var shape = fabric.util.groupSVGElements(objects, options);
+        shape.set({
+          left: 100,
+          top: 1200,
+          lockScalingX: true,
+          lockScalingY: true,
+          opacity: 0.75
+        })
+        .scale(0.25);
+        canvas.add(shape).calcOffset();
+
+        var clone = shape.clone();
+        clone.set('left', 250);
+        clone.flipX = true;
+        clone.lockMovementY = true;
+        canvas.add(clone).calcOffset();
+
+        var clone = shape.clone();
+        clone.set('left', 400);
+        clone.flipY = true;
+        clone.lockMovementX = true;
+        canvas.add(clone).calcOffset();
+      });
+
+      // events
+      (function(){
+        var rect = new fabric.Rect({ width: 200, height: 50, fill: '#faa', rx: 10, ry: 10 });
+        var text = new fabric.Text('Do stuff with me!', { fontSize: 20, fontFamily: 'Georgia' });
+        var group = new fabric.Group([ rect, text ], { left: 250, top: 1320 });
+
+        canvas.add(group).calcOffset();
+
+        group.on('mousedown', function() {
+          text.text = 'Mouse down';
+        });
+        group.on('mouseup', function() {
+          text.text = 'Mouse up';
+        });
+        group.on('scaling', function() {
+          text.text = 'Scaling';
+        });
+        group.on('moving', function() {
+          text.text = 'Moving';
+        });
+        group.on('rotating', function() {
+          text.text = 'Rotating';
+        });
+        group.on('mousemove', function() {
+          text.text = 'Mouse move';
+        });
+      })();
+
+      // clipping
+      fabric.Image.fromURL('assets/printio.png', function(image) {
+        image.set({
+          left: 250,
+          top: 1450,
+          clipTo: function(ctx) {
+            ctx.arc(0, 0, 220, 0, Math.PI * 2, true);
+          }
+        })
+        .scale(0.3);
+        canvas.add(image).calcOffset();
+      });
+
+      // patterns
+
+      var text = new fabric.Text('Patterns', {
+        fontSize: 150,
+        left: 250,
+        top: 1600,
+        fontFamily: 'Impact'
+      });
+      fabric.util.loadImage('assets/retina_wood.png', function(img) {
+        text.fill = new fabric.Pattern({
+          source: img,
+          repeat: 'repeat'
+        });
+        canvas.renderAll();
+      });
+      canvas.add(text);
+
+      // free drawing
+      var path = {"type":"path","originX":"center","originY":"center","left":173,"top":1800,"width":232,"height":49,"fill":null,"overlayFill":null,"stroke":"#aaf","strokeWidth":10,"strokeDashArray":null,"scaleX":1,"scaleY":1,"angle":0,"flipX":false,"flipY":false,"opacity":1,"selectable":true,"hasControls":true,"hasBorders":true,"hasRotatingPoint":true,"transparentCorners":true,"perPixelTargetFind":false,"shadow":{"color":"#aaf","blur":0,"offsetX":0,"offsetY":0},"visible":true,"path":[["M",0,42],["Q",0,42,0,42],["Q",0,42,0.5,42],["Q",1,42,1,41.5],["Q",1,41,3,39],["Q",5,37,10.5,31],["Q",16,25,24.5,18],["Q",33,11,37,8],["Q",41,5,45.5,2.5],["Q",50,0,52.5,0],["Q",55,0,57,0],["Q",59,0,60,3],["Q",61,6,64,19.5],["Q",67,33,68,37],["Q",69,41,69.5,44],["Q",70,47,71.5,48],["Q",73,49,76,49],["Q",79,49,85.5,44],["Q",92,39,100.5,33],["Q",109,27,113.5,23],["Q",118,19,125.5,16],["Q",133,13,139.5,13.5],["Q",146,14,149,17.5],["Q",152,21,153.5,24],["Q",155,27,156.5,29.5],["Q",158,32,160.5,32.5],["Q",163,33,166,32],["Q",169,31,172,27.5],["Q",175,24,179,20.5],["Q",183,17,185.5,14.5],["Q",188,12,189.5,12],["Q",191,12,192.5,12],["Q",194,12,195.5,15],["Q",197,18,199,19.5],["Q",201,21,203,22.5],["Q",205,24,207.5,24],["Q",210,24,214.5,23.5],["Q",219,23,222.5,20.5],["Q",226,18,229,15.5],["L",232,13]],"pathOffset":{"x":0,"y":0}};
+
+      var path = fabric.Path.fromObject(path);
+      canvas.add(path);
+
+      var clone = path.clone();
+      clone.stroke = '#afa';
+      clone.angle = 180;
+      clone.top -= 50;
+      clone.left += 150;
+      canvas.add(clone);
+
+    })();
+
+
+    // animation
+    fabric.Image.fromURL('assets/ladybug.png', function(image) {
+      image.set({
+        left: 50,
+        top: 840,
+        angle: 10,
+        opacity: 0.1
+      })
+      .scale(0.6);
+
+      __canvas.add(image);
+
+      window.__image = image;
+    });
+
+    function animate() {
+      var isStart = Math.round(__image.getLeft()) === 50;
+      __image && __image.animate({
+        'left': isStart ? 400 : 50,
+        opacity: isStart ? 1 : 0.1,
+        angle: isStart ? 100 : 10,
+        scaleX: isStart ? 1 : 0.6,
+        scaleY: isStart ? 1 : 0.6
+      }, {
+        duration: 1500,
+        onChange: __canvas.renderAll.bind(__canvas),
+        onComplete: animate
+      });
+    }
+
+    window.onscroll = function() {
+      animate();
+      __image && (window.onscroll = null);
+    };
+  </script>
+
+  <h3>Other features include</h3>
+  <ul style="width: 250px; text-align: left; margin: 0 auto">
+    <li>Subclassing</li>
+    <li>Touch devices support</li>
+    <li>Node.js support <em>(and npm package)</em></li>
+    <li>IE&lt;9 support <em>(using excanvas)</em></li>
+  </ul>
 
   <p class="next-steps">
     <a href="/demos">Check out <b>demos</b></a>
     <a href="/fabric-intro-part-1">Read <b>introduction</b></a>
     <a href="https://github.com/kangax/fabric.js/downloads">Download <b>latest version</b></a>
   </p>
+
 </div>

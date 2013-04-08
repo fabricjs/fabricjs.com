@@ -398,8 +398,9 @@ title: Features
     }
 
     window.onscroll = function() {
+      if (!__image) return
       animate();
-      __image && (window.onscroll = null);
+      window.onscroll = null;
     };
   </script>
 

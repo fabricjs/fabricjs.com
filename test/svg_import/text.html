@@ -4,3 +4,51 @@ title: SVG Rendering — Text
 ---
 
 <link rel="stylesheet" type="text/css" href="svg_import.css">
+
+<script>
+  function initCanvas(id) {
+    fabric.loadSVGFromURL('../../assets/' + id + '.svg', function(objects, options) {
+      var shape = fabric.util.groupSVGElements(objects, options);
+
+      var canvasEl = document.getElementById('c_' + id.replace('/', '_'));
+
+      canvasEl.width = 600;
+      canvasEl.height = 300;
+
+      var iframeEl = canvasEl.parentNode.nextSibling.childNodes[1];
+      if (iframeEl) {
+        iframeEl.style.width = canvasEl.width + 'px';
+        iframeEl.style.height = canvasEl.height + 'px';
+      }
+
+      var canvas = window['__canvas' + id] = new fabric.StaticCanvas(canvasEl, {
+        backgroundColor: '#fff'
+      });
+      canvas.add(shape);
+      canvas.renderAll();
+    });
+  }
+</script>
+
+<script>
+  var ids = [
+    'text/text01',
+    'text/tspan01',
+    'text/tspan02',
+    'text/tspan03',
+    'text/tspan04',
+    'text/tref01',
+    'text/textdecoration01',
+    'text/toap01'
+  ];
+  for (var i = 0; i < ids.length; i++) {
+    id = ids[i];
+    document.write(
+      '<div class="test"><div class="block left"><p>'+ id + '</p>' +
+      '<canvas id="c_' + id.replace('/', '_') + '" width="600" height="600"></canvas></div>' +
+      '<div class="block"><p><a href="../../assets/'+ id + '.svg">SVG</a></p>' +
+      '<iframe src="../../assets/' + id + '.svg"></iframe></div></div><br>'
+    );
+    initCanvas(id);
+  }
+</script>

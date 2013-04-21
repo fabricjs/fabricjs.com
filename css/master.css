@@ -47,7 +47,7 @@ h3, h4 { margin-top: 1.5em !important; }
 #header li a { display: inline-block; padding: 10px; color: pink; text-decoration: none; }
 #header li a:hover, #header li a:focus { text-decoration: underline; }
 #header li.secondary { float: right; }
-#header li.flattr { margin-top: 9px; margin-left: 5px }
+#header li.flattr, #header li.gittip { margin-top: 9px; margin-left: 5px }
 
 #demos { padding-left: 0; margin-top: 30px; }
 #demos li { list-style: none; text-align: center; width: 200px; display: inline-block; margin-right: 20px; margin-bottom: 25px !important; vertical-align: top; }

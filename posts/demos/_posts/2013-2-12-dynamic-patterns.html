@@ -2,19 +2,38 @@
 layout: demo
 title: Dynamic patterns
 ---
+<style>
+  p { display: inline-block; width: 200px; vertical-align: top; }
+  input[type=checkbox] { display: block; }
+</style>
 
-<p>
-  <label>Pattern image width</label>
-  <input type="range" min="50" max="1000" value="100" id="img-width">
-</p>
-<p>
-  <label>Pattern image angle</label>
-  <input type="range" min="-90" max="90" value="0" id="img-angle">
-</p>
-<p>
-  <label>Pattern image padding</label>
-  <input type="range" min="-50" max="50" value="0" id="img-padding">
-</p>
+<div>
+  <p>
+    <label>Repeat pattern?</label>
+    <input type="checkbox" id="img-repeat" checked>
+  </p>
+  <p>
+    <label>Pattern image width</label>
+    <input type="range" min="50" max="1000" value="100" id="img-width">
+  </p>
+  <p>
+    <label>Pattern left offset</label>
+    <input type="range" min="0" max="500" value="0" id="img-offset-x">
+  </p>
+  <p>
+    <label>Pattern top offset</label>
+    <input type="range" min="0" max="500" value="0" id="img-offset-y">
+  </p>
+  <br>
+  <p>
+    <label>Pattern image angle</label>
+    <input type="range" min="-90" max="90" value="0" id="img-angle">
+  </p>
+  <p>
+    <label>Pattern image padding</label>
+    <input type="range" min="-50" max="50" value="0" id="img-padding">
+  </p>
+</div>
 
 <canvas id="c" width="500" height="500" style="border:1px solid #ccc"></canvas>
 
@@ -63,6 +82,18 @@ fabric.Image.fromURL('../assets/pug.jpg', function(img) {
   };
   document.getElementById('img-padding').onchange = function() {
     padding = parseInt(this.value, 10);
+    canvas.renderAll();
+  };
+  document.getElementById('img-offset-x').onchange = function() {
+    pattern.offsetX = parseInt(this.value, 10);
+    canvas.renderAll();
+  };
+  document.getElementById('img-offset-y').onchange = function() {
+    pattern.offsetY = parseInt(this.value, 10);
+    canvas.renderAll();
+  };
+  document.getElementById('img-repeat').onclick = function() {
+    pattern.repeat = this.checked ? 'repeat' : 'no-repeat';
     canvas.renderAll();
   };
 });

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: Object</title>
+    <title>JSDoc: Class: Image</title>
     
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">Class: Object</h1>
+    <h1 class="page-title">Class: Image</h1>
     
     
 
@@ -29,7 +29,7 @@
     <h2>
         <span class="ancestors"><a href="fabric.html">fabric</a>.</span>
     
-    Object
+    Image
     </h2>
     
 </header>  
@@ -41,7 +41,7 @@
     
         
 <dt>
-    <h4 class="name" id="Object"><span class="type-signature"></span>new Object<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="Image"><span class="type-signature"></span>new Image<span class="signature">()</span><span class="type-signature"></span></h4>
     
     
 </dt>
@@ -49,7 +49,7 @@
     
     
     <div class="description">
-        Root object class from which all 2d shape classes inherit from
+        Image class
     </div>
     
 
@@ -82,7 +82,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 9630
+        <a href="fabric.js.html">fabric.js</a>, line 14566
     </li></ul></dd>
     
     
@@ -107,6 +107,11 @@
     </div>
     
     
+        <h3 class="subsection-title">Extends</h3>
+        
+        <ul>
+            <li><a href="fabric.Object.html">fabric.Object</a></li>
+        </ul>
     
     
     
@@ -114,12 +119,183 @@
     
     
     
+    
+    
+        <h3 class="subsection-title">Namespaces</h3>
+        
+        <dl>
+            <dt><a href="namespaces.html#fabric.Image.filters"><a href="fabric.Image.filters.html">filters</a></a></dt>
+            <dd></dd>
+        </dl>
     
     
     
         <h3 class="subsection-title">Members</h3>
         
         <dl>
+            
+<dt>
+    <h4 class="name" id="async"><span class="type-signature">&lt;static> </span>async<span class="type-signature"> :Boolean</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Indicates that instances of this type are async
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, line 14967
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="ATTRIBUTE_NAMES"><span class="type-signature">&lt;static> </span>ATTRIBUTE_NAMES<span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        List of attribute names to account for when parsing SVG element (used by <a href="fabric.Image.html#fromElement">fabric.Image.fromElement</a>)
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, line 14945
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li>http://www.w3.org/TR/SVG/struct.html#ImageElement</li>
+        </ul>
+    </dd>
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="CSS_CANVAS"><span class="type-signature">&lt;static> </span>CSS_CANVAS<span class="type-signature"> :String</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Default CSS class name for canvas
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, line 14882
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
             
 <dt>
     <h4 class="name" id="angle"><span class="type-signature"></span>angle<span class="type-signature"> :Number</span></h4>
@@ -141,6 +317,11 @@
     
     
 
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#angle">fabric.Object#angle</a>
+    </li></dd>
     
     
     
@@ -194,6 +375,11 @@
     
 
     
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#borderColor">fabric.Object#borderColor</a>
+    </li></dd>
+    
     
     
     
@@ -245,6 +431,11 @@
     
     
 
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#borderOpacityWhenMoving">fabric.Object#borderOpacityWhenMoving</a>
+    </li></dd>
     
     
     
@@ -298,6 +489,11 @@
     
 
     
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#borderScaleFactor">fabric.Object#borderScaleFactor</a>
+    </li></dd>
+    
     
     
     
@@ -349,6 +545,11 @@
     
     
 
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#clipTo">fabric.Object#clipTo</a>
+    </li></dd>
     
     
     
@@ -402,6 +603,11 @@
     
 
     
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#cornerColor">fabric.Object#cornerColor</a>
+    </li></dd>
+    
     
     
     
@@ -453,6 +659,11 @@
     
     
 
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#cornerSize">fabric.Object#cornerSize</a>
+    </li></dd>
     
     
     
@@ -506,6 +717,11 @@
     
 
     
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#fill">fabric.Object#fill</a>
+    </li></dd>
+    
     
     
     
@@ -557,6 +773,11 @@
     
     
 
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#fillRule">fabric.Object#fillRule</a>
+    </li></dd>
     
     
     
@@ -610,6 +831,11 @@
     
 
     
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#flipX">fabric.Object#flipX</a>
+    </li></dd>
+    
     
     
     
@@ -662,6 +888,11 @@
     
 
     
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#flipY">fabric.Object#flipY</a>
+    </li></dd>
+    
     
     
     
@@ -677,6 +908,58 @@
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
         <a href="fabric.js.html">fabric.js</a>, line 9700
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="getSvgSrc"><span class="type-signature"></span>getSvgSrc<span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Alias for getSrc
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, line 14888
     </li></ul></dd>
     
     
@@ -713,6 +996,11 @@
     
     
 
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#hasBorders">fabric.Object#hasBorders</a>
+    </li></dd>
     
     
     
@@ -766,6 +1054,11 @@
     
 
     
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#hasControls">fabric.Object#hasControls</a>
+    </li></dd>
+    
     
     
     
@@ -818,6 +1111,11 @@
     
 
     
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#hasRotatingPoint">fabric.Object#hasRotatingPoint</a>
+    </li></dd>
+    
     
     
     
@@ -833,58 +1131,6 @@
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
         <a href="fabric.js.html">fabric.js</a>, line 9838
-    </li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="height"><span class="type-signature"></span>height<span class="type-signature"> :Number</span></h4>
-    
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        Object height
-    </div>
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 9676
     </li></ul></dd>
     
     
@@ -921,6 +1167,11 @@
     
     
 
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#includeDefaultValues">fabric.Object#includeDefaultValues</a>
+    </li></dd>
     
     
     
@@ -974,6 +1225,11 @@
     
 
     
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#left">fabric.Object#left</a>
+    </li></dd>
+    
     
     
     
@@ -1025,6 +1281,11 @@
     
     
 
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#lockMovementX">fabric.Object#lockMovementX</a>
+    </li></dd>
     
     
     
@@ -1078,6 +1339,11 @@
     
 
     
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#lockMovementY">fabric.Object#lockMovementY</a>
+    </li></dd>
+    
     
     
     
@@ -1129,6 +1395,11 @@
     
     
 
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#lockRotation">fabric.Object#lockRotation</a>
+    </li></dd>
     
     
     
@@ -1182,6 +1453,11 @@
     
 
     
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#lockScalingX">fabric.Object#lockScalingX</a>
+    </li></dd>
+    
     
     
     
@@ -1233,6 +1509,11 @@
     
     
 
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#lockScalingY">fabric.Object#lockScalingY</a>
+    </li></dd>
     
     
     
@@ -1286,6 +1567,11 @@
     
 
     
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#lockUniScaling">fabric.Object#lockUniScaling</a>
+    </li></dd>
+    
     
     
     
@@ -1337,6 +1623,11 @@
     
     
 
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#minScaleLimit">fabric.Object#minScaleLimit</a>
+    </li></dd>
     
     
     
@@ -1390,6 +1681,11 @@
     
 
     
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#opacity">fabric.Object#opacity</a>
+    </li></dd>
+    
     
     
     
@@ -1441,6 +1737,11 @@
     
     
 
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#originX">fabric.Object#originX</a>
+    </li></dd>
     
     
     
@@ -1494,6 +1795,11 @@
     
 
     
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#originY">fabric.Object#originY</a>
+    </li></dd>
+    
     
     
     
@@ -1545,6 +1851,11 @@
     
     
 
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#overlayFill">fabric.Object#overlayFill</a>
+    </li></dd>
     
     
     
@@ -1598,6 +1909,11 @@
     
 
     
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#padding">fabric.Object#padding</a>
+    </li></dd>
+    
     
     
     
@@ -1649,6 +1965,11 @@
     
     
 
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#perPixelTargetFind">fabric.Object#perPixelTargetFind</a>
+    </li></dd>
     
     
     
@@ -1702,6 +2023,11 @@
     
 
     
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#rotatingPointOffset">fabric.Object#rotatingPointOffset</a>
+    </li></dd>
+    
     
     
     
@@ -1753,6 +2079,11 @@
     
     
 
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#scaleX">fabric.Object#scaleX</a>
+    </li></dd>
     
     
     
@@ -1806,6 +2137,11 @@
     
 
     
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#scaleY">fabric.Object#scaleY</a>
+    </li></dd>
+    
     
     
     
@@ -1858,6 +2194,11 @@
     
 
     
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#selectable">fabric.Object#selectable</a>
+    </li></dd>
+    
     
     
     
@@ -1909,6 +2250,11 @@
     
     
 
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#shadow">fabric.Object#shadow</a>
+    </li></dd>
     
     
     
@@ -1963,6 +2309,11 @@ as well as for history (undo/redo) purposes
     
 
     
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#stateProperties">fabric.Object#stateProperties</a>
+    </li></dd>
+    
     
     
     
@@ -2014,6 +2365,11 @@ as well as for history (undo/redo) purposes
     
     
 
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#stroke">fabric.Object#stroke</a>
+    </li></dd>
     
     
     
@@ -2067,6 +2423,11 @@ as well as for history (undo/redo) purposes
     
 
     
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#strokeDashArray">fabric.Object#strokeDashArray</a>
+    </li></dd>
+    
     
     
     
@@ -2118,6 +2479,11 @@ as well as for history (undo/redo) purposes
     
     
 
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#strokeWidth">fabric.Object#strokeWidth</a>
+    </li></dd>
     
     
     
@@ -2171,6 +2537,11 @@ as well as for history (undo/redo) purposes
     
 
     
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#top">fabric.Object#top</a>
+    </li></dd>
+    
     
     
     
@@ -2222,6 +2593,11 @@ as well as for history (undo/redo) purposes
     
     
 
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#transformMatrix">fabric.Object#transformMatrix</a>
+    </li></dd>
     
     
     
@@ -2275,6 +2651,11 @@ as well as for history (undo/redo) purposes
     
 
     
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#transparentCorners">fabric.Object#transparentCorners</a>
+    </li></dd>
+    
     
     
     
@@ -2314,7 +2695,7 @@ as well as for history (undo/redo) purposes
 <dd>
     
     <div class="description">
-        Type of an object (rect, circle, path, etc.)
+        Type of an object
     </div>
     
     
@@ -2341,7 +2722,7 @@ as well as for history (undo/redo) purposes
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 9640
+        <a href="fabric.js.html">fabric.js</a>, line 14577
     </li></ul></dd>
     
     
@@ -2379,6 +2760,11 @@ as well as for history (undo/redo) purposes
     
 
     
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#visible">fabric.Object#visible</a>
+    </li></dd>
+    
     
     
     
@@ -2408,18 +2794,147 @@ as well as for history (undo/redo) purposes
     
 </dd>
 
+        </dl>
+    
+    
+    
+        <h3 class="subsection-title">Methods</h3>
         
+        <dl>
             
 <dt>
-    <h4 class="name" id="width"><span class="type-signature"></span>width<span class="type-signature"> :Number</span></h4>
+    <h4 class="name" id="fromElement"><span class="type-signature">&lt;static> </span>fromElement<span class="signature">(element, callback, <span class="optional">options</span>)</span><span class="type-signature"> &rarr; {<a href="fabric.Image.html">fabric.Image</a>}</span></h4>
     
     
 </dt>
 <dd>
     
+    
     <div class="description">
-        Object width
+        Returns <a href="fabric.Image.html">fabric.Image</a> instance from an SVG element
     </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>element</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">SVGElement</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">Element to parse</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Function.html">Function</a></span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">Callback to execute when fabric.Image object is created</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">Options object</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
     
     
     
@@ -2445,7 +2960,7 @@ as well as for history (undo/redo) purposes
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 9670
+        <a href="fabric.js.html">fabric.js</a>, line 14955
     </li></ul></dd>
     
     
@@ -2458,15 +2973,368 @@ as well as for history (undo/redo) purposes
 
     
     
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type"><a href="fabric.Image.html">fabric.Image</a></span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
 </dd>
 
-        </dl>
-    
-    
-    
-        <h3 class="subsection-title">Methods</h3>
         
-        <dl>
+            
+<dt>
+    <h4 class="name" id="fromObject"><span class="type-signature">&lt;static> </span>fromObject<span class="signature">(object, <span class="optional">callback</span>)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Creates an instance of fabric.Image from its object representation
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>object</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last"></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Function.html">Function</a></span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">Callback to invoke when an image instance is created</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, line 14896
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="fromURL"><span class="type-signature">&lt;static> </span>fromURL<span class="signature">(url, <span class="optional">callback</span>, <span class="optional">imgOptions</span>)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Creates an instance of fabric.Image from an URL string
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>url</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">URL to create an image from</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Function.html">Function</a></span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">Callback to invoke when image is created (newly created image is passed as a first argument)</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>imgOptions</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">Options object</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, line 14934
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
             
 <dt>
     <h4 class="name" id="adjustPosition"><span class="type-signature"></span>adjustPosition<span class="signature">(to)</span><span class="type-signature"></span></h4>
@@ -2539,6 +3407,11 @@ as well as for history (undo/redo) purposes
     
     
 
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#adjustPosition">fabric.Object#adjustPosition</a>
+    </li></dd>
     
     
     
@@ -2682,6 +3555,11 @@ as well as for history (undo/redo) purposes
     
 
     
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#animate">fabric.Object#animate</a>
+    </li></dd>
+    
     
     
     
@@ -2742,6 +3620,141 @@ as well as for history (undo/redo) purposes
         
             
 <dt>
+    <h4 class="name" id="applyFilters"><span class="type-signature"></span>applyFilters<span class="signature">(callback)</span><span class="type-signature"> &rarr; {<a href="fabric.Image.html">fabric.Image</a>}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Applies filters assigned to this image (from "filters" array)
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Function.html">Function</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Callback is invoked when all filters have been applied and new image is generated</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, line 14747
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    thisArg
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type"><a href="fabric.Image.html">fabric.Image</a></span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
     <h4 class="name" id="bringForward"><span class="type-signature"></span>bringForward<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span></h4>
     
     
@@ -2768,6 +3781,11 @@ as well as for history (undo/redo) purposes
     
     
 
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#bringForward">fabric.Object#bringForward</a>
+    </li></dd>
     
     
     
@@ -2856,6 +3874,11 @@ as well as for history (undo/redo) purposes
     
 
     
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#bringToFront">fabric.Object#bringToFront</a>
+    </li></dd>
+    
     
     
     
@@ -2942,6 +3965,11 @@ as well as for history (undo/redo) purposes
     
     
 
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#center">fabric.Object#center</a>
+    </li></dd>
     
     
     
@@ -3030,6 +4058,11 @@ as well as for history (undo/redo) purposes
     
 
     
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#centerH">fabric.Object#centerH</a>
+    </li></dd>
+    
     
     
     
@@ -3117,6 +4150,11 @@ as well as for history (undo/redo) purposes
     
 
     
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#centerV">fabric.Object#centerV</a>
+    </li></dd>
+    
     
     
     
@@ -3177,7 +4215,7 @@ as well as for history (undo/redo) purposes
         
             
 <dt>
-    <h4 class="name" id="clone"><span class="type-signature"></span>clone<span class="signature">(callback, propertiesToInclude)</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span></h4>
+    <h4 class="name" id="clone"><span class="type-signature"></span>clone<span class="signature">(callback, propertiesToInclude)</span><span class="type-signature"></span></h4>
     
     
 </dt>
@@ -3185,7 +4223,7 @@ as well as for history (undo/redo) purposes
     
     
     <div class="description">
-        Clones an instance
+        Returns a clone of an instance
     </div>
     
 
@@ -3289,7 +4327,7 @@ as well as for history (undo/redo) purposes
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 10296
+        <a href="fabric.js.html">fabric.js</a>, line 14736
     </li></ul></dd>
     
     
@@ -3306,28 +4344,6 @@ as well as for history (undo/redo) purposes
     
     
     
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    clone of an instance
-</div>
-
-
-
-<dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
-<span class="param-type"><a href="fabric.Object.html">fabric.Object</a></span>
-
-
-	</dd>
-</dl>
-
-        
     
     
 </dd>
@@ -3404,6 +4420,11 @@ as well as for history (undo/redo) purposes
     
     
 
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#cloneAsImage">fabric.Object#cloneAsImage</a>
+    </li></dd>
     
     
     
@@ -3506,7 +4527,7 @@ as well as for history (undo/redo) purposes
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 10438
+        <a href="fabric.js.html">fabric.js</a>, line 14872
     </li></ul></dd>
     
     
@@ -3628,6 +4649,11 @@ Requires public options: padding, borderColor
     
     
 
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#drawBorders">fabric.Object#drawBorders</a>
+    </li></dd>
     
     
     
@@ -3766,6 +4792,11 @@ Requires public options: cornerSize, padding
     
 
     
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#drawControls">fabric.Object#drawControls</a>
+    </li></dd>
+    
     
     
     
@@ -3902,6 +4933,11 @@ Requires public options: cornerSize, padding
     
 
     
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#fxStraighten">fabric.Object#fxStraighten</a>
+    </li></dd>
+    
     
     
     
@@ -4037,6 +5073,11 @@ Requires public options: cornerSize, padding
     
 
     
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#get">fabric.Object#get</a>
+    </li></dd>
+    
     
     
     
@@ -4124,6 +5165,11 @@ Requires public options: cornerSize, padding
     
 
     
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#getBoundingRect">fabric.Object#getBoundingRect</a>
+    </li></dd>
+    
     
     
     
@@ -4210,6 +5256,11 @@ Requires public options: cornerSize, padding
     
     
 
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#getBoundingRectHeight">fabric.Object#getBoundingRectHeight</a>
+    </li></dd>
     
     
     
@@ -4300,6 +5351,11 @@ Requires public options: cornerSize, padding
     
 
     
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#getBoundingRectWidth">fabric.Object#getBoundingRectWidth</a>
+    </li></dd>
+    
     
     
         <dt class="important tag-deprecated">Deprecated:</dt><dd><ul class="dummy"><li>since 1.0.4</li><ul></dd>
@@ -4389,6 +5445,11 @@ Requires public options: cornerSize, padding
     
 
     
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#getCenterPoint">fabric.Object#getCenterPoint</a>
+    </li></dd>
+    
     
     
     
@@ -4445,6 +5506,93 @@ Requires public options: cornerSize, padding
         
             
 <dt>
+    <h4 class="name" id="getElement"><span class="type-signature"></span>getElement<span class="signature">()</span><span class="type-signature"> &rarr; {HTMLImageElement}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Returns image element which this instance if based on
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, line 14605
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    image element
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">HTMLImageElement</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
     <h4 class="name" id="getHeight"><span class="type-signature"></span>getHeight<span class="signature">()</span><span class="type-signature"> &rarr; {Number}</span></h4>
     
     
@@ -4471,6 +5619,11 @@ Requires public options: cornerSize, padding
     
     
 
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#getHeight">fabric.Object#getHeight</a>
+    </li></dd>
     
     
     
@@ -4532,6 +5685,180 @@ Requires public options: cornerSize, padding
         
             
 <dt>
+    <h4 class="name" id="getOriginalSize"><span class="type-signature"></span>getOriginalSize<span class="signature">()</span><span class="type-signature"> &rarr; {Object}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Returns original size of an image
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, line 14625
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    object with "width" and "height" properties
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">Object</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="getSrc"><span class="type-signature"></span>getSrc<span class="signature">()</span><span class="type-signature"> &rarr; {String}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Returns source of an image
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, line 14719
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    Source of an image
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">String</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
     <h4 class="name" id="getSvgStyles"><span class="type-signature"></span>getSvgStyles<span class="signature">()</span><span class="type-signature"> &rarr; {String}</span></h4>
     
     
@@ -4558,6 +5885,11 @@ Requires public options: cornerSize, padding
     
     
 
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#getSvgStyles">fabric.Object#getSvgStyles</a>
+    </li></dd>
     
     
     
@@ -4642,6 +5974,11 @@ Requires public options: cornerSize, padding
     
 
     
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#getSvgTransform">fabric.Object#getSvgTransform</a>
+    </li></dd>
+    
     
     
     
@@ -4724,6 +6061,11 @@ Requires public options: cornerSize, padding
     
     
 
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#getWidth">fabric.Object#getWidth</a>
+    </li></dd>
     
     
     
@@ -4812,6 +6154,11 @@ Requires public options: cornerSize, padding
     
 
     
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#hasStateChanged">fabric.Object#hasStateChanged</a>
+    </li></dd>
+    
     
     
     
@@ -4872,7 +6219,7 @@ Requires public options: cornerSize, padding
         
             
 <dt>
-    <h4 class="name" id="initialize"><span class="type-signature"></span>initialize<span class="signature">(<span class="optional">options</span>)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="initialize"><span class="type-signature"></span>initialize<span class="signature">(element, <span class="optional">options</span>)</span><span class="type-signature"> &rarr; {<a href="fabric.Image.html">fabric.Image</a>}</span></h4>
     
     
 </dt>
@@ -4912,6 +6259,38 @@ Requires public options: cornerSize, padding
 	</thead>
 	
 	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>element</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">HTMLImageElement</span>
+|
+
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">Image element</td>
+        </tr>
+	
 	
 	
         <tr>
@@ -4971,7 +6350,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 9916
+        <a href="fabric.js.html">fabric.js</a>, line 14585
     </li></ul></dd>
     
     
@@ -4988,6 +6367,24 @@ Requires public options: cornerSize, padding
     
     
     
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type"><a href="fabric.Image.html">fabric.Image</a></span>
+
+
+	</dd>
+</dl>
+
+        
     
     
 </dd>
@@ -5069,6 +6466,11 @@ Requires public options: cornerSize, padding
     
     
 
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#intersectsWithObject">fabric.Object#intersectsWithObject</a>
+    </li></dd>
     
     
     
@@ -5224,6 +6626,11 @@ Requires public options: cornerSize, padding
     
 
     
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#intersectsWithRect">fabric.Object#intersectsWithRect</a>
+    </li></dd>
+    
     
     
     
@@ -5354,6 +6761,11 @@ Requires public options: cornerSize, padding
     
     
 
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#isContainedWithinObject">fabric.Object#isContainedWithinObject</a>
+    </li></dd>
     
     
     
@@ -5509,6 +6921,11 @@ Requires public options: cornerSize, padding
     
 
     
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#isContainedWithinRect">fabric.Object#isContainedWithinRect</a>
+    </li></dd>
+    
     
     
     
@@ -5634,6 +7051,11 @@ Requires public options: cornerSize, padding
     
     
 
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#isType">fabric.Object#isType</a>
+    </li></dd>
     
     
     
@@ -5766,6 +7188,11 @@ Requires public options: cornerSize, padding
     
 
     
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#moveTo">fabric.Object#moveTo</a>
+    </li></dd>
+    
     
     
     
@@ -5853,6 +7280,11 @@ Requires public options: cornerSize, padding
     
 
     
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#remove">fabric.Object#remove</a>
+    </li></dd>
+    
     
     
     
@@ -5921,7 +7353,7 @@ Requires public options: cornerSize, padding
     
     
     <div class="description">
-        Renders an object on a specified context
+        Renders image on a specified context
     </div>
     
 
@@ -5979,7 +7411,7 @@ Requires public options: cornerSize, padding
             
             
             
-            <td class="description last">context to render on</td>
+            <td class="description last">Context to render on</td>
         </tr>
 	
 	
@@ -6041,7 +7473,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 10200
+        <a href="fabric.js.html">fabric.js</a>, line 14638
     </li></ul></dd>
     
     
@@ -6149,6 +7581,11 @@ Requires public options: cornerSize, padding
     
     
 
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#saveState">fabric.Object#saveState</a>
+    </li></dd>
     
     
     
@@ -6280,6 +7717,11 @@ Requires public options: cornerSize, padding
     
 
     
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#scale">fabric.Object#scale</a>
+    </li></dd>
+    
     
     
     
@@ -6409,6 +7851,11 @@ Requires public options: cornerSize, padding
     
     
 
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#scaleToHeight">fabric.Object#scaleToHeight</a>
+    </li></dd>
     
     
     
@@ -6540,6 +7987,11 @@ Requires public options: cornerSize, padding
     
 
     
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#scaleToWidth">fabric.Object#scaleToWidth</a>
+    </li></dd>
+    
     
     
     
@@ -6627,6 +8079,11 @@ Requires public options: cornerSize, padding
     
 
     
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#sendBackwards">fabric.Object#sendBackwards</a>
+    </li></dd>
+    
     
     
     
@@ -6713,6 +8170,11 @@ Requires public options: cornerSize, padding
     
     
 
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#sendToBack">fabric.Object#sendToBack</a>
+    </li></dd>
     
     
     
@@ -6875,6 +8337,11 @@ Requires public options: cornerSize, padding
     
 
     
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#set">fabric.Object#set</a>
+    </li></dd>
+    
     
     
     
@@ -6962,6 +8429,11 @@ Requires public options: cornerSize, padding
     
 
     
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#setCoords">fabric.Object#setCoords</a>
+    </li></dd>
+    
     
     
     
@@ -7009,6 +8481,141 @@ Requires public options: cornerSize, padding
 	<dd>
 		
 <span class="param-type"><a href="fabric.Object.html">fabric.Object</a></span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="setElement"><span class="type-signature"></span>setElement<span class="signature">(element)</span><span class="type-signature"> &rarr; {<a href="fabric.Image.html">fabric.Image</a>}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Sets image element for this instance to a specified one
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>element</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">HTMLImageElement</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last"></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, line 14615
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    thisArg
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type"><a href="fabric.Image.html">fabric.Image</a></span>
 
 
 	</dd>
@@ -7136,6 +8743,11 @@ Requires public options: cornerSize, padding
     
 
     
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#setGradient">fabric.Object#setGradient</a>
+    </li></dd>
+    
     
     
     
@@ -7259,6 +8871,11 @@ Requires public options: cornerSize, padding
     
 
     
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#setOptions">fabric.Object#setOptions</a>
+    </li></dd>
+    
     
     
     
@@ -7381,6 +8998,11 @@ Requires public options: cornerSize, padding
     
     
 
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#setPatternFill">fabric.Object#setPatternFill</a>
+    </li></dd>
     
     
     
@@ -7563,6 +9185,11 @@ Requires public options: cornerSize, padding
     
 
     
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#setPositionByOrigin">fabric.Object#setPositionByOrigin</a>
+    </li></dd>
+    
     
     
     
@@ -7704,6 +9331,11 @@ Requires public options: cornerSize, padding
     
 
     
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#setShadow">fabric.Object#setShadow</a>
+    </li></dd>
+    
     
     
     
@@ -7839,6 +9471,11 @@ Requires public options: cornerSize, padding
     
 
     
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#setSourcePath">fabric.Object#setSourcePath</a>
+    </li></dd>
+    
     
     
     
@@ -7926,6 +9563,11 @@ Requires public options: cornerSize, padding
     
 
     
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#setupState">fabric.Object#setupState</a>
+    </li></dd>
+    
     
     
     
@@ -7990,6 +9632,11 @@ Requires public options: cornerSize, padding
     
     
 
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#straighten">fabric.Object#straighten</a>
+    </li></dd>
     
     
     
@@ -8136,6 +9783,11 @@ Requires public options: cornerSize, padding
     
 
     
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#toDatalessObject">fabric.Object#toDatalessObject</a>
+    </li></dd>
+    
     
     
     
@@ -8266,6 +9918,11 @@ Requires public options: cornerSize, padding
     
 
     
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#toDataURL">fabric.Object#toDataURL</a>
+    </li></dd>
+    
     
     
     
@@ -8379,6 +10036,11 @@ Requires public options: cornerSize, padding
     
 
     
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#toggle">fabric.Object#toggle</a>
+    </li></dd>
+    
     
     
     
@@ -8465,6 +10127,11 @@ Requires public options: cornerSize, padding
     
     
 
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#toGrayscale">fabric.Object#toGrayscale</a>
+    </li></dd>
     
     
     
@@ -8601,6 +10268,11 @@ Requires public options: cornerSize, padding
     
 
     
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#toJSON">fabric.Object#toJSON</a>
+    </li></dd>
+    
     
     
     
@@ -8736,6 +10408,11 @@ Requires public options: cornerSize, padding
     
 
     
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#toLocalPoint">fabric.Object#toLocalPoint</a>
+    </li></dd>
+    
     
     
     
@@ -8800,7 +10477,7 @@ Requires public options: cornerSize, padding
     
     
     <div class="description">
-        Returns an object representation of an instance
+        Returns object representation of an instance
     </div>
     
 
@@ -8881,7 +10558,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 9986
+        <a href="fabric.js.html">fabric.js</a>, line 14691
     </li></ul></dd>
     
     
@@ -8902,7 +10579,7 @@ Requires public options: cornerSize, padding
     
             
 <div class="param-desc">
-    object representation of an instance
+    propertiesToInclude Object representation of an instance
 </div>
 
 
@@ -8935,7 +10612,7 @@ Requires public options: cornerSize, padding
     
     
     <div class="description">
-        Returns a string representation of an instance
+        Returns string representation of an instance
     </div>
     
 
@@ -8968,7 +10645,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 10105
+        <a href="fabric.js.html">fabric.js</a>, line 14727
     </li></ul></dd>
     
     
@@ -8988,6 +10665,97 @@ Requires public options: cornerSize, padding
     <h5>Returns:</h5>
     
             
+<div class="param-desc">
+    String representation of an instance
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">String</span>
+
+
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="toSVG"><span class="type-signature"></span>toSVG<span class="signature">()</span><span class="type-signature"> &rarr; {String}</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Returns SVG representation of an instance
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, line 14702
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    svg representation of an instance
+</div>
+
 
 
 <dl>
@@ -9084,6 +10852,11 @@ Requires public options: cornerSize, padding
     
     
 
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#transform">fabric.Object#transform</a>
+    </li></dd>
     
     
     
@@ -9243,6 +11016,11 @@ Requires public options: cornerSize, padding
     
     
 
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#translateToCenterPoint">fabric.Object#translateToCenterPoint</a>
+    </li></dd>
     
     
     
@@ -9421,6 +11199,11 @@ Requires public options: cornerSize, padding
     
 
     
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#translateToOriginPoint">fabric.Object#translateToOriginPoint</a>
+    </li></dd>
+    
     
     
     
@@ -9496,7 +11279,7 @@ Requires public options: cornerSize, padding
 <br clear="both">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.1.1</a> on Thu Apr 25 2013 14:20:41 GMT-0400 (EDT)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.1.1</a> on Thu Apr 25 2013 14:20:37 GMT-0400 (EDT)
 </footer>
 
 <script> prettyPrint(); </script>

@@ -1,10 +1,7 @@
 var exec = require('child_process').exec;
+var command = 'jsdoc-3.1.1/jsdoc lib/fabric.js -d docs';
 
-var command = 'java -jar jsdoc-toolkit/jsrun.jar \
-                         jsdoc-toolkit/app/run.js -a \
-                         -t=jsdoc-toolkit/templates/jsdoc \
-                         -d=docs lib/fabric.js \
-                         -D="noGlobal:true"';
+console.log('Running:', command);
 
 var start = new Date();
 exec(command, function (error, output) {

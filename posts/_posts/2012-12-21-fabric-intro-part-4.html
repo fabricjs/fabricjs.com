@@ -272,6 +272,94 @@ server.listen(PORT);
 
 <p>As you can see, working with Fabric on a server is very easy and straightforward. Feel free to experiment with this snippet. Perhaps change canvas dimensions from within URL parameters, or modify client data before returning image as a response.</p>
 
+<h4>Custom fonts in Fabric on Node</h4>
+
+<p>
+Before we can use custom fonts in Fabric we need to load them first.
+In the browser (client-side) the most common way to load fonts is by using the <a href="http://www.w3.org/TR/css3-fonts/#font-face-rule" target="_blank">CSS3 @font-face rule</a>.
+In Fabric on Node (server-side) we can utilize the node-canvas <b>Font API</b>, which makes loading fonts a walk in the park.
+</p>
+
+<p>
+The example below demonstrates how to load and use custom fonts.
+Save it to customfont.js and make sure the paths to the font files are correct.
+In this example we use <a href="http://www.google.com/fonts/specimen/Ubuntu" target="_blank">Ubuntu</a> as our custom font.
+</p>
+
+<pre>
+var fs = require('fs'),
+    fabric = require('fabric').fabric,
+    canvas = fabric.createCanvasForNode(300, 250);
+
+var font = new canvas.Font('Ubuntu', __dirname + '/fonts/Ubuntu-Regular.ttf');
+font.addFace(__dirname + '/fonts/Ubuntu-Bold.ttf', 'bold');
+font.addFace(__dirname + '/fonts/Ubuntu-Italic.ttf', 'normal', 'italic');
+font.addFace(__dirname + '/fonts/Ubuntu-BoldItalic.ttf', 'bold', 'italic');
+
+canvas.contextContainer.addFont(font);  // when using createPNGStream or createJPEGStream
+//canvas.contextTop.addFont(font);      // when using toDataURL or toDataURLWithMultiplier
+
+var text = new fabric.Text('regular', {
+    left: 150,
+    top: 50,
+    fontFamily: 'Ubuntu'
+});
+canvas.add(text);
+
+text = new fabric.Text('bold', {
+    left: 150,
+    top: 100,
+    fontFamily: 'Ubuntu',
+    fontWeight: 'bold'
+});
+canvas.add(text);
+
+text = new fabric.Text('italic', {
+    left: 150,
+    top: 150,
+    fontFamily: 'Ubuntu',
+    fontStyle: 'italic'
+});
+canvas.add(text);
+
+text = new fabric.Text('bold italic', {
+    left: 150,
+    top: 200,
+    fontFamily: 'Ubuntu',
+    fontWeight: 'bold',
+    fontStyle: 'italic'
+});
+canvas.add(text);
+
+var out = fs.createWriteStream(__dirname + '/customfont.png');
+var stream = canvas.createPNGStream();
+stream.on('data', function(chunk) {
+    out.write(chunk);
+});
+</pre>
+
+<p>
+Running the example with <code>node customfont.js</code> creates an image (customfont.png) that looks like this:
+</p>
+
+<p><img src="/article_assets/4_16.png" alt="Custom fonts" style="border:1px solid #eee"></p>
+
+<p>
+Lets have a closer look at what's happening.
+First we create a font object with <code>new canvas.Font()</code> by passing the font <i>name</i> and <i>path</i> (to the regular font file) as parameters.
+Then additional font faces are added using <code>font.addFace()</code> by passing the font face <i>path</i>, <i>weight</i> and <i>style</i> as parameters.
+Finaly the font is ready to be added to the desired context using <code>canvas.contextContainer.addFont()</code> (when using <b>createPNGStream</b> or <b>createJPEGStream</b>)
+or <code>canvas.contextTop.addFont()</code> (when using <b>toDataURL</b> or <b>toDataURLWithMultiplier</b>).
+</p>
+
+<p>
+Now we can use our font by setting the <b>fontFamily</b> property of <code>fabric.Text</code> objects to the font name.
+In combination with the <b>fontWeight</b> and <b>fontStyle</b> properties we are able to apply the font faces we've added.
+See <a href="http://fabricjs.com/fabric-intro-part-2/#text">Part 2 (Text)</a> for more info on these properties.
+<br>
+Note that the example shows how to use custom fonts when creating new text objects, but this also applies to text objects loaded via JSON.
+</p>
+
 <p>And so this brings us to the end of the 4-part series on Fabric. I hope you're now equiped with enough knowledge to create something interesting, cool, useful, funny, challenging, exciting!</p>
 
 </div>

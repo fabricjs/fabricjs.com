@@ -1,0 +1,403 @@
+---
+layout: test
+title: SVG Export (stroke)
+---
+
+<link rel="stylesheet" href="master.css">
+
+<script type="text/script" id="test-template">
+  <div class="test">
+    <div class="column">
+      <p>Source</p>
+      <pre class="source"><code>#{code}</code></pre>
+    </div>
+    <div class="column">
+      <p>Canvas</p>
+      <canvas class="canvas" width="300" height="300"></canvas>
+    </div>
+    <div class="column">
+      <p>SVG</p>
+      <div class="svg"></div>
+    </div>
+  </div>
+</script>
+
+<pre class="test-source async">
+var circle = new fabric.Circle({
+  left: 100,
+  top: 100,
+  radius: 75,
+  fill: '#ddd',
+  stroke: '#333',
+  strokeWidth: 3,
+  strokeDashArray: [5, 10]
+});
+canvas.add(circle);
+</pre>
+
+<pre class="test-source async">
+var circle = new fabric.Circle({
+  left: 100,
+  top: 100,
+  radius: 75,
+  fill: '#ddd',
+  stroke: '#333',
+  strokeWidth: 3,
+  strokeDashArray: [10, 5]
+});
+canvas.add(circle);
+</pre>
+
+<pre class="test-source async">
+var circle = new fabric.Circle({
+  left: 100,
+  top: 100,
+  radius: 75,
+  fill: '#ddd',
+  stroke: '#333',
+  strokeWidth: 3,
+  strokeDashArray: [5, 20, 20, 5]
+});
+canvas.add(circle);
+</pre>
+
+<pre class="test-source async">
+var shape = new fabric.Rect({
+  left: 150,
+  top: 150,
+  width: 175,
+  height: 140,
+  fill: '#ddd',
+  stroke: '#333',
+  strokeWidth: 3,
+  strokeDashArray: [5, 10]
+});
+canvas.add(shape);
+</pre>
+
+<pre class="test-source async">
+var shape = new fabric.Rect({
+  left: 150,
+  top: 150,
+  width: 175,
+  height: 140,
+  fill: '#ddd',
+  stroke: '#333',
+  strokeWidth: 3,
+  strokeDashArray: [10, 5]
+});
+canvas.add(shape);
+</pre>
+
+<pre class="test-source async">
+var shape = new fabric.Rect({
+  left: 150,
+  top: 150,
+  width: 175,
+  height: 140,
+  fill: '#ddd',
+  stroke: '#333',
+  strokeWidth: 3,
+  strokeDashArray: [5, 20, 20, 5]
+});
+canvas.add(shape);
+</pre>
+
+<pre class="test-source async">
+var shape = new fabric.Triangle({
+  left: 150,
+  top: 150,
+  width: 175,
+  height: 140,
+  fill: '#ddd',
+  stroke: '#333',
+  strokeWidth: 3,
+  strokeDashArray: [5, 10]
+});
+canvas.add(shape);
+</pre>
+
+<pre class="test-source async">
+var shape = new fabric.Triangle({
+  left: 150,
+  top: 150,
+  width: 175,
+  height: 140,
+  fill: '#ddd',
+  stroke: '#333',
+  strokeWidth: 3,
+  strokeDashArray: [10, 5]
+});
+canvas.add(shape);
+</pre>
+
+<pre class="test-source async">
+var shape = new fabric.Triangle({
+  left: 150,
+  top: 150,
+  width: 175,
+  height: 140,
+  fill: '#ddd',
+  stroke: '#333',
+  strokeWidth: 3,
+  strokeDashArray: [5, 20, 20, 5]
+});
+canvas.add(shape);
+</pre>
+
+<pre class="test-source async">
+var shape = new fabric.Line([10,10,100,100], {
+  fill: '#ddd',
+  stroke: '#333',
+  strokeWidth: 3,
+  strokeDashArray: [5, 10]
+});
+canvas.add(shape);
+</pre>
+
+<pre class="test-source async">
+var shape = new fabric.Line([10,10,100,100], {
+  fill: '#ddd',
+  stroke: '#333',
+  strokeWidth: 3,
+  strokeDashArray: [10, 5]
+});
+canvas.add(shape);
+</pre>
+
+<pre class="test-source async">
+var shape = new fabric.Line([10,10,100,100], {
+  fill: '#ddd',
+  stroke: '#333',
+  strokeWidth: 3,
+  strokeDashArray: [5, 20, 20, 5]
+});
+canvas.add(shape);
+</pre>
+
+<pre class="test-source async">
+var shape = new fabric.Ellipse({
+  left: 150,
+  top: 150,
+  rx: 100,
+  ry: 50,
+  fill: '#ddd',
+  stroke: '#333',
+  strokeWidth: 3,
+  strokeDashArray: [5, 10]
+});
+canvas.add(shape);
+</pre>
+
+<pre class="test-source async">
+var shape = new fabric.Ellipse({
+  left: 150,
+  top: 150,
+  rx: 100,
+  ry: 50,
+  fill: '#ddd',
+  stroke: '#333',
+  strokeWidth: 3,
+  strokeDashArray: [10, 5]
+});
+canvas.add(shape);
+</pre>
+
+<pre class="test-source async">
+var shape = new fabric.Ellipse({
+  left: 150,
+  top: 150,
+  rx: 100,
+  ry: 50,
+  fill: '#ddd',
+  stroke: '#333',
+  strokeWidth: 3,
+  strokeDashArray: [5, 20, 20, 5]
+});
+canvas.add(shape);
+</pre>
+
+<pre class="test-source async">
+var shape = new fabric.Polyline([
+  {x:100,y:100},
+  {x:150,y:150},
+  {x:300,y:150},
+  {x:400,y:100},
+  {x:300,y:0},
+  {x:-100,y:-100}
+], {
+  left: 150,
+  top: 150,
+  fill: '#ddd',
+  stroke: '#333',
+  strokeWidth: 3,
+  strokeDashArray: [5, 10]
+});
+canvas.add(shape);
+</pre>
+
+<pre class="test-source async">
+var shape = new fabric.Polyline([
+  {x:100,y:100},
+  {x:150,y:150},
+  {x:300,y:150},
+  {x:400,y:100},
+  {x:300,y:0},
+  {x:-100,y:-100}
+], {
+  left: 150,
+  top: 150,
+  fill: '#ddd',
+  stroke: '#333',
+  strokeWidth: 3,
+  strokeDashArray: [10, 5]
+});
+canvas.add(shape);
+</pre>
+
+<pre class="test-source async">
+var shape = new fabric.Polyline([
+  {x:100,y:100},
+  {x:150,y:150},
+  {x:300,y:150},
+  {x:400,y:100},
+  {x:300,y:0},
+  {x:-100,y:-100}
+], {
+  left: 150,
+  top: 150,
+  fill: '#ddd',
+  stroke: '#333',
+  strokeWidth: 3,
+  strokeDashArray: [5, 20, 20, 5]
+});
+canvas.add(shape);
+</pre>
+
+<pre class="test-source async">
+var shape = new fabric.Path('M 0 0 L 300 100 L 200 300 z', {
+  left: 150,
+  top: 150,
+  width: 175,
+  height: 140,
+  fill: '#ddd',
+  stroke: '#333',
+  strokeWidth: 3,
+  strokeDashArray: [5, 10]
+});
+canvas.add(shape);
+</pre>
+
+<pre class="test-source async">
+var shape = new fabric.Path('M 0 0 L 300 100 L 200 300 z', {
+  left: 150,
+  top: 150,
+  width: 175,
+  height: 140,
+  fill: '#ddd',
+  stroke: '#333',
+  strokeWidth: 3,
+  strokeDashArray: [10, 5]
+});
+canvas.add(shape);
+</pre>
+
+<pre class="test-source async">
+var shape = new fabric.Path('M 0 0 L 300 100 L 200 300 z', {
+  left: 150,
+  top: 150,
+  width: 175,
+  height: 140,
+  fill: '#ddd',
+  stroke: '#333',
+  strokeWidth: 3,
+  strokeDashArray: [5, 20, 20, 5]
+});
+canvas.add(shape);
+</pre>
+
+<pre class="test-source async">
+  fabric.Image.fromURL('/assets/ladybug.png', function(img) {
+    img.set({
+      stroke: '#333',
+      strokeWidth: 3,
+      strokeDashArray: [5, 10],
+      padding: 20,
+      left: 150,
+      top: 150
+    });
+    canvas.add(img);
+  });
+</pre>
+
+<pre class="test-source async">
+  fabric.Image.fromURL('/assets/ladybug.png', function(img) {
+    img.set({
+      stroke: '#333',
+      strokeWidth: 3,
+      strokeDashArray: [10, 5],
+      padding: 20,
+      left: 150,
+      top: 150
+    });
+    canvas.add(img);
+  });
+</pre>
+
+<pre class="test-source async">
+  fabric.Image.fromURL('/assets/ladybug.png', function(img) {
+    img.set({
+      stroke: '#333',
+      strokeWidth: 3,
+      strokeDashArray: [5, 20, 20, 5],
+      padding: 20,
+      left: 150,
+      top: 150
+    });
+    canvas.add(img);
+  });
+</pre>
+
+<pre class="test-source async">
+var shape = new fabric.Rect({
+  left: 150,
+  top: 150,
+  width: 175,
+  height: 140,
+  fill: '#ddd',
+  stroke: '#333',
+  strokeWidth: 10,
+  strokeDashArray: [1, 1]
+});
+canvas.add(shape);
+</pre>
+
+<pre class="test-source async">
+var shape = new fabric.Rect({
+  left: 150,
+  top: 150,
+  width: 175,
+  height: 140,
+  fill: '#ddd',
+  stroke: '#333',
+  strokeWidth: 1,
+  strokeDashArray: [1, 1]
+});
+canvas.add(shape);
+</pre>
+
+<pre class="test-source async">
+var shape = new fabric.Rect({
+  left: 150,
+  top: 150,
+  width: 175,
+  height: 140,
+  fill: '#ddd',
+  stroke: '#333',
+  strokeWidth: 10,
+  strokeDashArray: [54, 2]
+});
+canvas.add(shape);
+</pre>
+
+<script src="master.js"></script>

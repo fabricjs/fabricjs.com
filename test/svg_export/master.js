@@ -21,6 +21,10 @@
 
       function proceed() {
         __svgEl.innerHTML = canvas.toSVG();
+
+        __svgEl.onclick = function() {
+          console.log(canvas.toSVG());
+        };
       }
 
       function onShapeLoaded(objects, options) {
@@ -38,11 +42,7 @@
 
       eval(__code);
 
-      __svgEl.innerHTML = canvas.toSVG();
-
-      __svgEl.onclick = function() {
-        console.log(canvas.toSVG());
-      };
+      proceed();
 
     })(__all[__i]);
   }

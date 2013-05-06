@@ -1,0 +1,231 @@
+---
+layout: test
+title: Origin
+---
+
+<style>
+.canvas-container {
+  background-color: #000;
+  background-image: -webkit-linear-gradient(white 2px, transparent 2px),
+                    -webkit-linear-gradient(0, white 2px, transparent 2px),
+                    -webkit-linear-gradient(rgba(255,255,255,.7) 1px, transparent 1px),
+                    -webkit-linear-gradient(0, rgba(255,255,255,.7) 1px, transparent 1px);
+
+  background-size: 500px 500px, 500px 500px, 100px 100px, 100px 100px;
+  background-position: -3px -3px, -3px -3px, -1px -1px, -1px -1px;
+  margin-bottom: 20px;
+}
+.info { display: inline-block; margin-left: 10px; }
+.test { display: inline-block; margin-right: 40px; margin-bottom: 40px; }
+</style>
+
+<div class="test">
+  <canvas id="c1" width="200" height="200"></canvas>
+  <div class="info">
+    <p>left: 100</p>
+    <p>top: 100</p>
+    <p>originX: left</p>
+    <p>originY: top</p>
+  </div>
+  <script>
+    var canvas = new fabric.Canvas('c1');
+    var rect = new fabric.Rect({
+      fill: 'rgba(255,0,0,0.9)',
+      width: 50,
+      height: 50,
+      left: 100,
+      top: 100,
+      originX: 'left',
+      originY: 'top',
+    });
+    canvas.add(rect);
+  </script>
+</div>
+
+<div class="test">
+  <canvas id="c2" width="200" height="200"></canvas>
+  <div class="info">
+    <p>left: 100</p>
+    <p>top: 100</p>
+    <p>originX: center</p>
+    <p>originY: top</p>
+  </div>
+  <script>
+    var canvas = new fabric.Canvas('c2');
+    var rect = new fabric.Rect({
+      fill: 'rgba(255,0,0,0.9)',
+      width: 50,
+      height: 50,
+      left: 100,
+      top: 100,
+      originX: 'center',
+      originY: 'top',
+    });
+    canvas.add(rect);
+  </script>
+</div>
+
+<div class="test">
+  <canvas id="c3" width="200" height="200"></canvas>
+  <div class="info">
+    <p>left: 100</p>
+    <p>top: 100</p>
+    <p>originX: right</p>
+    <p>originY: top</p>
+  </div>
+  <script>
+    var canvas = new fabric.Canvas('c3');
+    var rect = new fabric.Rect({
+      fill: 'rgba(255,0,0,0.9)',
+      width: 50,
+      height: 50,
+      left: 100,
+      top: 100,
+      originX: 'right',
+      originY: 'top',
+    });
+    canvas.add(rect);
+  </script>
+</div>
+
+<br>
+
+<div class="test">
+  <canvas id="c4" width="200" height="200"></canvas>
+  <div class="info">
+    <p>left: 100</p>
+    <p>top: 100</p>
+    <p>originX: left</p>
+    <p>originY: center</p>
+  </div>
+  <script>
+    var canvas = new fabric.Canvas('c4');
+    var rect = new fabric.Rect({
+      fill: 'rgba(255,0,0,0.9)',
+      width: 50,
+      height: 50,
+      left: 100,
+      top: 100,
+      originX: 'left',
+      originY: 'center',
+    });
+    canvas.add(rect);
+  </script>
+</div>
+
+<div class="test">
+  <canvas id="c5" width="200" height="200"></canvas>
+  <div class="info">
+    <p>left: 100</p>
+    <p>top: 100</p>
+    <p>originX: center</p>
+    <p>originY: center</p>
+  </div>
+  <script>
+    var canvas = new fabric.Canvas('c5');
+    var rect = new fabric.Rect({
+      fill: 'rgba(255,0,0,0.9)',
+      width: 50,
+      height: 50,
+      left: 100,
+      top: 100,
+      originX: 'center',
+      originY: 'center',
+    });
+    canvas.add(rect);
+  </script>
+</div>
+
+<div class="test">
+  <canvas id="c6" width="200" height="200"></canvas>
+  <div class="info">
+    <p>left: 100</p>
+    <p>top: 100</p>
+    <p>originX: right</p>
+    <p>originY: center</p>
+  </div>
+  <script>
+    var canvas = new fabric.Canvas('c6');
+    var rect = new fabric.Rect({
+      fill: 'rgba(255,0,0,0.9)',
+      width: 50,
+      height: 50,
+      left: 100,
+      top: 100,
+      originX: 'right',
+      originY: 'center',
+    });
+    canvas.add(rect);
+  </script>
+</div>
+
+<br>
+
+<div class="test">
+  <canvas id="c7" width="200" height="200"></canvas>
+  <div class="info">
+    <p>left: 100</p>
+    <p>top: 100</p>
+    <p>originX: left</p>
+    <p>originY: bottom</p>
+  </div>
+  <script>
+    var canvas = new fabric.Canvas('c7');
+    var rect = new fabric.Rect({
+      fill: 'rgba(255,0,0,0.9)',
+      width: 50,
+      height: 50,
+      left: 100,
+      top: 100,
+      originX: 'left',
+      originY: 'bottom',
+    });
+    canvas.add(rect);
+  </script>
+</div>
+
+<div class="test">
+  <canvas id="c8" width="200" height="200"></canvas>
+  <div class="info">
+    <p>left: 100</p>
+    <p>top: 100</p>
+    <p>originX: center</p>
+    <p>originY: bottom</p>
+  </div>
+  <script>
+    var canvas = new fabric.Canvas('c8');
+    var rect = new fabric.Rect({
+      fill: 'rgba(255,0,0,0.9)',
+      width: 50,
+      height: 50,
+      left: 100,
+      top: 100,
+      originX: 'center',
+      originY: 'bottom',
+    });
+    canvas.add(rect);
+  </script>
+</div>
+
+<div class="test">
+  <canvas id="c9" width="200" height="200"></canvas>
+  <div class="info">
+    <p>left: 100</p>
+    <p>top: 100</p>
+    <p>originX: right</p>
+    <p>originY: bottom</p>
+  </div>
+  <script>
+    var canvas = new fabric.Canvas('c9');
+    var rect = new fabric.Rect({
+      fill: 'rgba(255,0,0,0.9)',
+      width: 50,
+      height: 50,
+      left: 100,
+      top: 100,
+      originX: 'right',
+      originY: 'bottom',
+    });
+    canvas.add(rect);
+  </script>
+</div>

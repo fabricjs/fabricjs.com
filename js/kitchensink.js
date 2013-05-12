@@ -853,6 +853,14 @@
     });
   };
 
+  document.getElementById('load-svg-without-grouping').onclick = function() {
+    var svg = document.getElementById('svg-console').value;
+    fabric.loadSVGFromString(svg, function(objects) {
+      canvas.add.apply(canvas, objects);
+      canvas.renderAll();
+    });
+  };
+
   if (typeof Cufon !== 'undefined' && Cufon.fonts.delicious) {
     Cufon.fonts.delicious.offsetLeft = 75;
     Cufon.fonts.delicious.offsetTop = 25;

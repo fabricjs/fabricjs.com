@@ -362,6 +362,20 @@ canvas.add(shape);
 </pre>
 
 <pre class="test-source">
+  var shape = new fabric.Text('Text', {
+    left: 150,
+    top: 150,
+    fontSize: 100,
+    fontFamily: 'Impact',
+    fill: '#ddd',
+    stroke: 'red',
+    strokeWidth: 3,
+    strokeDashArray: [6, 3]
+  });
+  canvas.add(shape);
+</pre>
+
+<pre class="test-source">
 var shape = new fabric.Rect({
   left: 150,
   top: 150,

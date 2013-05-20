@@ -1,0 +1,55 @@
+---
+layout: test
+title: SVG Rendering — Stroke Properties
+---
+
+<link rel="stylesheet" href="svg_import.css">
+
+<script>
+  function initCanvas(id) {
+    fabric.loadSVGFromURL('../../assets/' + id + '.svg', function(objects, options) {
+      var shape = fabric.util.groupSVGElements(objects, options);
+
+      var canvasEl = document.getElementById('c_' + id.replace('/', '_'));
+
+      canvasEl.width = shape.width || 600;
+      canvasEl.height = shape.height || 600;
+
+      var iframeEl = canvasEl.parentNode.nextSibling.childNodes[1];
+      if (iframeEl) {
+        iframeEl.style.width = canvasEl.width + 'px';
+        iframeEl.style.height = canvasEl.height + 'px';
+      }
+
+      var canvas = window['__canvas' + id] = new fabric.StaticCanvas(canvasEl, {
+        backgroundColor: '#fff'
+      });
+      canvas.add(shape);
+      shape.center();
+      canvas.renderAll();
+    });
+  }
+</script>
+
+<script>
+  var ids = [
+    'stroke/svg_stroke_1',
+    'stroke/svg_stroke_2',
+    'stroke/svg_stroke_3',
+    'stroke/svg_stroke_4',
+    'stroke/svg_stroke_5',
+    'stroke/svg_stroke_6',
+    'stroke/svg_stroke_7',
+    'stroke/svg_stroke_8'
+  ];
+  for (var i = 0; i < ids.length; i++) {
+    id = ids[i];
+    document.write(
+      '<div class="test"><div class="block left"><p>'+ id + '</p>' +
+      '<canvas id="c_' + id.replace('/', '_') + '" width="600" height="600"></canvas></div>' +
+      '<div class="block"><p><a href="../../assets/'+ id + '.svg">SVG</a></p>' +
+      '<iframe src="../../assets/' + id + '.svg"></iframe></div></div><br>'
+    );
+    initCanvas(id);
+  }
+</script>

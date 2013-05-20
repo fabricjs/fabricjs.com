@@ -1,8 +1,8 @@
 ul { margin-left: 0; }
-label { display: inline-block; }
+label { display: inline-block; margin-right: 8px; }
 button.selected { font-weight: bold; vertical-align: top }
 textarea { font-family: monospace; }
-input[type=color] { width: 30px; }
+input[type=color] { width: 40px; padding: 0; margin: 0; height: 20px; position: relative; top: 2px;}
 
 .canvas-container { margin: 0 auto; float: left; border: 1px solid #aaa; }
 
@@ -22,7 +22,6 @@ input[type=color] { width: 30px; }
 
 #text-controls { display: inline-block; vertical-align: top; margin-left: 10px; border: 1px dotted #ccc; padding: 10px; width: 220px; }
 #text-controls textarea { float: left; margin-right: 10px; }
-#text-controls label { display: block; }
 
 #text-controls-additional { display: inline-block; vertical-align: top; border: 1px dotted #ccc; padding: 10px; }
 #text-controls-additional button { vertical-align: top; display: block; margin-bottom: 7px; }
@@ -37,4 +36,4 @@ input[type=color] { width: 30px; }
 
 #svg-console, #canvas-console { width: 430px; height: 500px; display: block; }
 
-#canvas-background { display: inline-block; position: absolute; bottom: -10px; right: 0; }
+#canvas-background { display: inline-block; position: absolute; top: 0; right: 0; }

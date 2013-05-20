@@ -398,6 +398,7 @@
       activeObjectButtons[i].disabled = true;
     }
     $('#controls').hide();
+    $('#text-wrapper').hide();
   });
 
   var drawingModeEl = document.getElementById('drawing-mode'),
@@ -789,6 +790,17 @@
       var activeObject = canvas.getActiveObject();
       if (activeObject && activeObject.type === 'text') {
         activeObject.textBackgroundColor = this.value;
+        canvas.renderAll();
+      }
+    };
+  }
+
+  var textFontSizeField = document.getElementById('text-font-size');
+  if (textFontSizeField) {
+    textFontSizeField.onchange = function() {
+      var activeObject = canvas.getActiveObject();
+      if (activeObject && activeObject.type === 'text') {
+        activeObject.setFontSize(parseInt(this.value, 10));
         canvas.renderAll();
       }
     };

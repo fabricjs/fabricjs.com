@@ -5,6 +5,7 @@
 <svg width="220" height="320"
      xmlns="http://www.w3.org/2000/svg" version="1.1">
   <desc>Example stroke6 - stroke-linejoin/stroke-linecap</desc>
+
   <g style="fill: none"  stroke="black">
     <polyline stroke-linejoin="miter" stroke-width="40" stroke-linecap="butt" points="30,115 110,40 190,115" />
     <polyline style="stroke-linejoin:round; stroke-width:40; stroke-linecap: square;" points="30,200 110,125 190,200" />

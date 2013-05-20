@@ -337,6 +337,38 @@
     }
   };
 
+  var sendBackwardsEl = document.getElementById('send-backwards');
+  sendBackwardsEl.onclick = function() {
+    var activeObject = canvas.getActiveObject();
+    if (activeObject) {
+      canvas.sendBackwards(activeObject);
+    }
+  };
+
+  var sendToBackEl = document.getElementById('send-to-back');
+  sendToBackEl.onclick = function() {
+    var activeObject = canvas.getActiveObject();
+    if (activeObject) {
+      canvas.sendToBack(activeObject);
+    }
+  };
+
+  var bringForwardEl = document.getElementById('bring-forward');
+  bringForwardEl.onclick = function() {
+    var activeObject = canvas.getActiveObject();
+    if (activeObject) {
+      canvas.bringForward(activeObject);
+    }
+  };
+
+  var bringToFrontEl = document.getElementById('bring-to-front');
+  bringToFrontEl.onclick = function() {
+    var activeObject = canvas.getActiveObject();
+    if (activeObject) {
+      canvas.bringToFront(activeObject);
+    }
+  };
+
   var gradientifyBtn = document.getElementById('gradientify'),
       shadowifyBtn = document.getElementById('shadowify'),
       clipBtn = document.getElementById('clip');
@@ -350,7 +382,11 @@
     removeSelectedEl,
     gradientifyBtn,
     shadowifyBtn,
-    clipBtn
+    clipBtn,
+    sendBackwardsEl,
+    sendToBackEl,
+    bringForwardEl,
+    bringToFrontEl
   ];
 
   var opacityEl = document.getElementById('opacity');
@@ -382,9 +418,33 @@
     lockScalingYEl.innerHTML = (selectedObject.lockScalingY ? 'Unlock vertical scaling' : 'Lock vertical scaling');
     lockRotationEl.innerHTML = (selectedObject.lockRotation ? 'Unlock rotation' : 'Lock rotation');
 
+    var colorEl = document.getElementById('color');
+    colorEl && (colorEl.value = selectedObject.getFill());
+
+    var opacityEl = document.getElementById('opacity');
+    opacityEl && (opacityEl.value = parseInt(selectedObject.getOpacity() * 100, 10));
+
     if (selectedObject.type === 'text') {
       $('#text-wrapper').show();
       $('#text-wrapper textarea').val(selectedObject.getText());
+
+      cmdBoldBtn.className = cmdUnderlineBtn.className = cmdLinethroughBtn.className = cmdOverlineBtn.className = cmdItalicBtn.className = cmdShadowBtn.className = 'btn';
+
+      cmdBoldBtn.className = selectedObject.fontWeight === 'bold' ? cmdBoldBtn.className + ' selected' : cmdBoldBtn.className;
+      cmdUnderlineBtn.className = selectedObject.textDecoration === 'underline' ? cmdUnderlineBtn.className + ' selected' : cmdUnderlineBtn.className;
+      cmdLinethroughBtn.className = selectedObject.textDecoration === 'line-through' ? cmdLinethroughBtn.className + ' selected' : cmdLinethroughBtn.className;
+      cmdOverlineBtn.className = selectedObject.textDecoration === 'overline' ? cmdOverlineBtn.className + ' selected' : cmdOverlineBtn.className;
+      cmdItalicBtn.className = selectedObject.fontStyle === 'italic' ? cmdItalicBtn.className + ' selected' : cmdItalicBtn.className;
+      cmdShadowBtn.className = selectedObject.textShadow ? cmdShadowBtn.className + ' selected' : cmdShadowBtn.className;
+
+      fontFamilySwitch.value = selectedObject.get('fontFamily').toLowerCase();
+      textAlignSwitch.value = fabric.util.string.capitalize(selectedObject.get('textAlign'));
+      bgColorField.value = selectedObject.get('backgroundColor');
+      bgLineColorField.value = selectedObject.get('textBackgroundColor');
+      textFontSizeField.value = selectedObject.get('fontSize');
+      strokeColorField.value = selectedObject.get('stroke');
+      strokeWidthField.value = selectedObject.get('strokeWidth');
+      textLineHeightField.value = selectedObject.get('lineHeight');
     }
     else {
       $('#text-wrapper').hide();
@@ -398,6 +458,7 @@
       activeObjectButtons[i].disabled = true;
     }
     $('#controls').hide();
+    $('#text-wrapper').hide();
   });
 
   var drawingModeEl = document.getElementById('drawing-mode'),
@@ -660,7 +721,10 @@
     };
   }
 
-  var cmdUnderlineBtn = document.getElementById('text-cmd-underline');
+  var cmdUnderlineBtn = document.getElementById('text-cmd-underline'),
+      cmdLinethroughBtn = document.getElementById('text-cmd-linethrough'),
+      cmdOverlineBtn = document.getElementById('text-cmd-overline');
+
   if (cmdUnderlineBtn) {
     activeObjectButtons.push(cmdUnderlineBtn);
     cmdUnderlineBtn.disabled = true;
@@ -668,13 +732,18 @@
       var activeObject = canvas.getActiveObject();
       if (activeObject && activeObject.type === 'text') {
         activeObject.textDecoration = (activeObject.textDecoration == 'underline' ? '' : 'underline');
-        this.className = activeObject.textDecoration ? 'selected' : '';
+        if (activeObject.textDecoration === 'underline') {
+          this.className += ' selected';
+          cmdLinethroughBtn.className = cmdOverlineBtn.className = 'btn';
+        }
+        else {
+          this.className = 'btn';
+        }
         canvas.renderAll();
       }
     };
   }
 
-  var cmdLinethroughBtn = document.getElementById('text-cmd-linethrough');
   if (cmdLinethroughBtn) {
     activeObjectButtons.push(cmdLinethroughBtn);
     cmdLinethroughBtn.disabled = true;
@@ -682,13 +751,18 @@
       var activeObject = canvas.getActiveObject();
       if (activeObject && activeObject.type === 'text') {
         activeObject.textDecoration = (activeObject.textDecoration == 'line-through' ? '' : 'line-through');
-        this.className = activeObject.textDecoration ? 'selected' : '';
+        if (activeObject.textDecoration === 'line-through') {
+          this.className += ' selected';
+          cmdUnderlineBtn.className = cmdOverlineBtn.className = 'btn';
+        }
+        else {
+          this.className = 'btn';
+        }
         canvas.renderAll();
       }
     };
   }
 
-  var cmdOverlineBtn = document.getElementById('text-cmd-overline');
   if (cmdOverlineBtn) {
     activeObjectButtons.push(cmdOverlineBtn);
     cmdOverlineBtn.disabled = true;
@@ -696,7 +770,13 @@
       var activeObject = canvas.getActiveObject();
       if (activeObject && activeObject.type === 'text') {
         activeObject.textDecoration = (activeObject.textDecoration == 'overline' ? '' : 'overline');
-        this.className = activeObject.textDecoration ? 'selected' : '';
+        if (activeObject.textDecoration === 'overline') {
+          this.className += ' selected';
+          cmdUnderlineBtn.className = cmdLinethroughBtn.className = 'btn';
+        }
+        else {
+          this.className = 'btn';
+        }
         canvas.renderAll();
       }
     };
@@ -710,7 +790,7 @@
       var activeObject = canvas.getActiveObject();
       if (activeObject && activeObject.type === 'text') {
         activeObject.fontWeight = (activeObject.fontWeight == 'bold' ? '' : 'bold');
-        this.className = activeObject.fontWeight ? 'selected' : '';
+        this.className = activeObject.fontWeight ? this.className + ' selected' : this.className.replace(' selected', '');
         canvas.renderAll();
       }
     };
@@ -724,7 +804,7 @@
       var activeObject = canvas.getActiveObject();
       if (activeObject && activeObject.type === 'text') {
         activeObject.fontStyle = (activeObject.fontStyle == 'italic' ? '' : 'italic');
-        this.className = activeObject.fontStyle ? 'selected' : '';
+        this.className = activeObject.fontStyle ? this.className + ' selected' : this.className.replace(' selected', '');
         canvas.renderAll();
       }
     };
@@ -738,7 +818,7 @@
       var activeObject = canvas.getActiveObject();
       if (activeObject && activeObject.type === 'text') {
         activeObject.textShadow = !activeObject.textShadow ? 'rgba(0,0,0,0.2) 2px 2px 10px' : '';
-        this.className = activeObject.textShadow ? 'selected' : '';
+        this.className = activeObject.textShadow ? this.className + ' selected' : this.className.replace(' selected', '');
         canvas.renderAll();
       }
     };
@@ -766,7 +846,7 @@
     fontFamilySwitch.onchange = function() {
       var activeObject = canvas.getActiveObject();
       if (activeObject && activeObject.type === 'text') {
-        activeObject.fontFamily = this.value;
+        activeObject.fontFamily = this.value.toLowerCase();
         canvas.renderAll();
       }
     };
@@ -783,12 +863,23 @@
     };
   }
 
-  var bgColorField = document.getElementById('text-lines-bg-color');
-  if (bgColorField) {
-    bgColorField.onchange = function() {
+  var bgLineColorField = document.getElementById('text-lines-bg-color');
+  if (bgLineColorField) {
+    bgLineColorField.onchange = function() {
       var activeObject = canvas.getActiveObject();
       if (activeObject && activeObject.type === 'text') {
         activeObject.textBackgroundColor = this.value;
+        canvas.renderAll();
+      }
+    };
+  }
+
+  var textFontSizeField = document.getElementById('text-font-size');
+  if (textFontSizeField) {
+    textFontSizeField.onchange = function() {
+      var activeObject = canvas.getActiveObject();
+      if (activeObject && activeObject.type === 'text') {
+        activeObject.setFontSize(parseInt(this.value, 10));
         canvas.renderAll();
       }
     };
@@ -816,32 +907,15 @@
     };
   }
 
-  if (supportsSlider) {
-    (function(){
-      var container = document.getElementById('text-controls');
-      var slider = document.createElement('input');
-      var label = document.createElement('label');
-      label.innerHTML = 'Line height: ';
-      try { slider.type = 'range'; } catch(err) { }
-      slider.min = 0;
-      slider.max = 10;
-      slider.step = 0.1;
-      slider.value = 1.5;
-      container.appendChild(label);
-      label.appendChild(slider);
-      slider.title = "Line height";
-      slider.onchange = function(){
-        var activeObject = canvas.getActiveObject();
-        if (activeObject && activeObject.type === 'text') {
-          activeObject.lineHeight = this.value;
-          canvas.renderAll();
-        }
-      };
-
-      canvas.on('object:selected', function(e) {
-        slider.value = e.target.lineHeight;
-      });
-    })();
+  var textLineHeightField = document.getElementById('text-line-height');
+  if (textLineHeightField) {
+    textLineHeightField.onchange = function() {
+      var activeObject = canvas.getActiveObject();
+      if (activeObject && activeObject.type === 'text') {
+        activeObject.setLineHeight(parseInt(this.value, 10));
+        canvas.renderAll();
+      }
+    };
   }
 
   document.getElementById('load-svg').onclick = function() {

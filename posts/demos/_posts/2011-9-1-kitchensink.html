@@ -15,31 +15,31 @@ title: Kitchensink
 <link href='http://fonts.googleapis.com/css?family=Engagement' rel='stylesheet' type='text/css'>
 
 <div style="position:relative;width:704px;float:left;" id="canvas-wrapper">
+  <div id="complexity">Canvas complexity (number of paths):<strong></strong></div>
+  <div id="canvas-background"><label for="canvas-background-picker">Canvas background:</label><input type="color" id="canvas-background-picker"></div>
   <canvas id="canvas" width="700" height="600"></canvas>
 
   <div id="controls" style="display: none"></div>
-  <div id="complexity">Canvas complexity (number of paths):<strong></strong></div>
-  <div id="canvas-background">Canvas background: <input type="color" id="canvas-background-picker"></div>
 
   <div id="text-wrapper" style="margin-top: 10px; display: none">
     <textarea id="text"></textarea>
     <div id="text-controls">
       <label for="font-family" style="display:inline-block">Font family:</label>
       <select id="font-family">
-        <option>Arial</option>
-        <option selected>Helvetica</option>
-        <option>Myriad Pro</option>
-        <option>Delicious</option>
-        <option>Verdana</option>
-        <option>Georgia</option>
-        <option>Courier</option>
-        <option>Comic Sans MS</option>
-        <option>Impact</option>
-        <option>Monaco</option>
-        <option>Optima</option>
-        <option>Hoefler Text</option>
-        <option>Plaster</option>
-        <option>Engagement</option>
+        <option value="arial">Arial</option>
+        <option value="helvetica" selected>Helvetica</option>
+        <option value="myriad pro">Myriad Pro</option>
+        <option value="delicious">Delicious</option>
+        <option value="verdana">Verdana</option>
+        <option value="georgia">Georgia</option>
+        <option value="courier">Courier</option>
+        <option value="comic sans ms">Comic Sans MS</option>
+        <option value="impact">Impact</option>
+        <option value="monaco">Monaco</option>
+        <option value="optima">Optima</option>
+        <option value="hoefler text">Hoefler Text</option>
+        <option value="plaster">Plaster</option>
+        <option value="engagement">Engagement</option>
       </select>
       <br>
       <label for="text-align" style="display:inline-block">Text align:</label>
@@ -49,10 +49,12 @@ title: Kitchensink
         <option>Right</option>
         <option>Justify</option>
       </select>
-      <label>Background color: <input type="color" value="" id="text-bg-color" size="10"></label>
-      <label>Background text color: <input type="color" value="" id="text-lines-bg-color" size="10"></label>
-      <label>Stroke color: <input type="color" value="" id="text-stroke-color"></label>
-      <label>Stroke width: <input type="range" value="1" min="1" max="5" id="text-stroke-width"></label>
+      <div><label for="text-bg-color">Background color:</label><input type="color" value="" id="text-bg-color" size="10"></div>
+      <div><label for="text-lines-bg-color">Background text color:</label><input type="color" value="" id="text-lines-bg-color" size="10"></div>
+      <div><label for="text-stroke-color">Stroke color:</label><input type="color" value="" id="text-stroke-color"></div>
+      <div><label for="text-stroke-width">Stroke width:</label><input type="range" value="1" min="1" max="5" id="text-stroke-width"></div>
+      <div><label for="text-font-size">Font size:</label><input type="range" value="" min="1" max="120" step="1" id="text-font-size"></div>
+      <div><label for="text-line-height">Line height:</label><input type="range" value="" min="0" max="10" step="0.1" id="text-line-height"></div>
     </div>
     <div id="text-controls-additional">
       <button type="button" class="btn" id="text-cmd-bold">Bold</button>
@@ -269,6 +271,16 @@ title: Kitchensink
         </li>
 
         <li style="margin-top:10px;">
+          <button id="send-backwards" class="btn">Send backwards</button>
+          <button id="send-to-back" class="btn">Send to back</button>
+        </li>
+
+        <li style="margin-top:4px;">
+          <button id="bring-forward" class="btn">Bring forwards</button>
+          <button id="bring-to-front" class="btn">Bring to front</button>
+        </li>
+
+        <li style="margin-top:10px;">
           <button id="gradientify" class="btn">Gradientify</button>
           <button id="shadowify" class="btn">Shadowify</button>
           <button id="clip" class="btn">Clip</button>
@@ -277,7 +289,7 @@ title: Kitchensink
         <li style="margin-top:10px;">
           <button id="drawing-mode" class="btn btn-info">Enter drawing mode</button>
           <div style="display:none;" id="drawing-mode-options">
-            Mode:
+            <label for="drawing-mode-selector">Mode:</label>
             <select id="drawing-mode-selector">
               <option>Pencil</option>
               <option>Circle</option>
@@ -290,11 +302,11 @@ title: Kitchensink
               <option>diamond</option>
               <option>texture</option>
             </select><br>
-            Line width:
+            <label for="drawing-line-width">Line width:</label>
             <input type="range" value="30" min="0" max="150" id="drawing-line-width"><br>
-            Line color:
+            <label for="drawing-color">Line color:</label>
             <input type="color" value="#005E7A" id="drawing-color"><br>
-            Line shadow width:
+            <lable for="drawing-shadow-width">Line shadow width:</label>
             <input type="range" value="0" min="0" max="50" id="drawing-shadow-width"><br>
           </div>
         </li>

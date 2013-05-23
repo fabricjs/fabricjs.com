@@ -35,6 +35,15 @@ console.log('Server listening on http://localhost:' + PORT);
 function serveImage(__response, __code, __async) {
   var canvas = __fabric.createCanvasForNode(200, 200);
 
+  var font = new canvas.Font('Arial', __dirname + '/assets/fonts/Arial.ttf');
+
+  font.addFace(__dirname + '/assets/fonts/Arial Bold.ttf', 'bold');
+  font.addFace(__dirname + '/assets/fonts/Arial Italic.ttf', 'normal', 'italic');
+  font.addFace(__dirname + '/assets/fonts/Arial Bold Italic.ttf', 'bold', 'italic');
+
+  canvas.contextContainer.addFont(font);  // when using createPNGStream or createJPEGStream
+  canvas.contextTop.addFont(font);      // when using toDataURL or toDataURLWithMultiplier
+
   eval(__code);
 
   __response.writeHead(200, { 'Content-Type': 'image/png' });

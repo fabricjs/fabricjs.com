@@ -13,6 +13,11 @@ title: Node.js
     padding: 10px; box-shadow: 1px 1px 1px rgba(0,0,0,0.4) }
   .test-source { display: none }
   .note { background: #ffc; padding: 3px; box-shadow: 0 0 1px rgba(0,0,0,0.3); display: inline-block; }
+
+  @font-face {
+    font-family: 'Arial';
+    src: url('/assets/fonts/Arial.ttf');
+  }
 </style>
 
 <script type="text/script" id="test-template">
@@ -55,6 +60,16 @@ var circle = new fabric.Circle({
   fill: 'green'
 });
 canvas.add(circle);
+</pre>
+
+<pre class="test-source">
+var line = new fabric.Line([10, 10, 120, 60], {
+  left: 100,
+  top: 100,
+  stroke: 'rgba(255,0,0,0.5)',
+  strokeWidth: 5
+});
+canvas.add(line);
 </pre>
 
 <pre class="test-source">
@@ -173,6 +188,252 @@ fabric.Image.fromURL('http://fabricjs.com/assets/pug.jpg', function(img){
   canvas.add(img.set({ left: 100, top: 100 }).scale(0.2));
   proceed();
 });
+</pre>
+
+<pre class="test-source async">
+fabric.Image.fromURL('http://fabricjs.com/assets/pug.jpg', function(img){
+  canvas.add(img.set({ flipX: true, left: 100, top: 100 }).scale(0.2));
+  proceed();
+});
+</pre>
+
+<pre class="test-source async">
+fabric.Image.fromURL('http://fabricjs.com/assets/pug.jpg', function(img){
+  canvas.add(img.set({ flipY: true, left: 100, top: 100 }).scale(0.2));
+  proceed();
+});
+</pre>
+
+<pre class="test-source async">
+fabric.Image.fromURL('http://fabricjs.com/assets/pug.jpg', function(img){
+  canvas.add(img.set({ flipX: true, flipY: true, left: 100, top: 100 }).scale(0.2));
+  proceed();
+});
+</pre>
+
+<pre class="test-source">
+var rect = new fabric.Rect({
+  left: 100,
+  top: 100,
+  width: 100,
+  height: 100,
+  fill: '#ddd',
+  strokeWidth: 3,
+  strokeDashArray: [10, 5],
+  stroke: '#555'
+});
+canvas.add(rect);
+</pre>
+
+<pre class="test-source">
+var text = new fabric.Text('Hello world', {
+  fontFamily: 'Arial',
+  fontSize: 30,
+  left: 100,
+  top: 100,
+  fill: 'red'
+});
+canvas.add(text);
+</pre>
+
+<pre class="test-source">
+var text = new fabric.Text('Hello world', {
+  fontFamily: 'Arial',
+  fontStyle: 'italic',
+  fontSize: 30,
+  left: 100,
+  top: 100,
+  fill: 'red'
+});
+canvas.add(text);
+</pre>
+
+<pre class="test-source">
+var text = new fabric.Text('Hello world', {
+  fontFamily: 'Arial',
+  fontSize: 30,
+  fontWeight: 'bold',
+  left: 100,
+  top: 100,
+  fill: 'red'
+});
+canvas.add(text);
+</pre>
+
+<pre class="test-source">
+var text = new fabric.Text('Hello world', {
+  fontFamily: 'Arial',
+  fontSize: 30,
+  fontWeight: 'bold',
+  fontStyle: 'italic',
+  left: 100,
+  top: 100,
+  fill: 'red'
+});
+canvas.add(text);
+</pre>
+
+<pre class="test-source">
+var text = new fabric.Text('Hello world', {
+  fontFamily: 'Arial',
+  fontSize: 30,
+  left: 100,
+  top: 100,
+  fill: 'green',
+  flipX: true
+});
+canvas.add(text);
+</pre>
+
+<pre class="test-source">
+var text = new fabric.Text('Hello world', {
+  fontFamily: 'Arial',
+  fontSize: 30,
+  left: 100,
+  top: 100,
+  fill: 'green',
+  flipY: true
+});
+canvas.add(text);
+</pre>
+
+<pre class="test-source">
+var text = new fabric.Text('Hello world', {
+  fontFamily: 'Arial',
+  fontSize: 30,
+  left: 10,
+  top: 20,
+  fill: 'blue',
+  originX: 'left',
+  originY: 'top'
+});
+canvas.add(text);
+</pre>
+
+<pre class="test-source">
+var text = new fabric.Text('Hello world', {
+  fontFamily: 'Arial',
+  fontSize: 30,
+  left: 10,
+  top: 20,
+  fill: 'blue',
+  originX: 'left',
+  originY: 'center'
+});
+canvas.add(text);
+</pre>
+
+<pre class="test-source">
+var text = new fabric.Text('Hello world', {
+  fontFamily: 'Arial',
+  fontSize: 30,
+  left: 10,
+  top: 20,
+  fill: 'blue',
+  originX: 'left',
+  originY: 'bottom'
+});
+canvas.add(text);
+</pre>
+
+<pre class="test-source">
+var text = new fabric.Text('Hello world', {
+  fontFamily: 'Arial',
+  fontSize: 30,
+  left: 100,
+  top: 20,
+  fill: 'blue',
+  originX: 'center',
+  originY: 'top'
+});
+canvas.add(text);
+</pre>
+
+<pre class="test-source">
+var text = new fabric.Text('Hello world', {
+  fontFamily: 'Arial',
+  fontSize: 30,
+  left: 160,
+  top: 20,
+  fill: 'blue',
+  originX: 'right',
+  originY: 'top'
+});
+canvas.add(text);
+</pre>
+
+<pre class="test-source">
+var text = new fabric.Text('Hello world', {
+  fontFamily: 'Arial',
+  fontSize: 30,
+  left: 160,
+  top: 20,
+  fill: 'blue',
+  originX: 'right',
+  originY: 'center'
+});
+canvas.add(text);
+</pre>
+
+<pre class="test-source">
+var text = new fabric.Text('Hello world', {
+  fontFamily: 'Arial',
+  fontSize: 30,
+  left: 160,
+  top: 20,
+  fill: 'blue',
+  originX: 'right',
+  originY: 'bottom'
+});
+canvas.add(text);
+</pre>
+
+<pre class="test-source">
+var text = new fabric.Text('Hello world', {
+  fontFamily: 'Arial',
+  fontSize: 30,
+  left: 100,
+  top: 50,
+  fill: 'green',
+  textDecoration: 'underline line-through overline'
+});
+canvas.add(text);
+</pre>
+
+<pre class="test-source">
+var text = new fabric.Text('foo\nbar\nbaz', {
+  fontFamily: 'Arial',
+  fontSize: 30,
+  left: 50,
+  top: 75,
+  fill: 'red'
+});
+canvas.add(text);
+</pre>
+
+<pre class="test-source">
+var text = new fabric.Text('foo\nbar\nbaz', {
+  fontFamily: 'Arial',
+  fontSize: 30,
+  left: 50,
+  top: 75,
+  fill: 'red',
+  lineHeight: 2
+});
+canvas.add(text);
+</pre>
+
+<pre class="test-source">
+var text = new fabric.Text('foo\nbar\nbaz', {
+  fontFamily: 'Arial',
+  fontSize: 30,
+  left: 50,
+  top: 75,
+  fill: 'red',
+  lineHeight: 2,
+  textDecoration: 'underline'
+});
+canvas.add(text);
 </pre>
 
 <script>

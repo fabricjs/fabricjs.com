@@ -77,7 +77,7 @@
       canvas.add(new fabric.Line([ 50, 100, 200, 200], {
         left: left,
         top: top,
-        fill: '#' + getRandomColor()
+        stroke: '#' + getRandomColor()
       }));
     }
     if ($(element).hasClass('polygon')) {
@@ -934,6 +934,26 @@
       canvas.renderAll();
     });
   };
+
+  [].forEach.call(document.getElementsByClassName('origin-x'), function(el) {
+    el.onclick = function() {
+      var activeObject = canvas.getActiveObject();
+      if (activeObject) {
+        activeObject.set('originX', this.value).setCoords();
+        canvas.renderAll();
+      }
+    };
+  });
+
+  [].forEach.call(document.getElementsByClassName('origin-y'), function(el) {
+    el.onclick = function() {
+      var activeObject = canvas.getActiveObject();
+      if (activeObject) {
+        activeObject.set('originY', this.value).setCoords();
+        canvas.renderAll();
+      }
+    };
+  });
 
   if (typeof Cufon !== 'undefined' && Cufon.fonts.delicious) {
     Cufon.fonts.delicious.offsetLeft = 75;

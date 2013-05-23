@@ -3,6 +3,7 @@ label { display: inline-block; margin-right: 8px; }
 button.selected { font-weight: bold; vertical-align: top }
 textarea { font-family: monospace; }
 input[type=color] { width: 40px; padding: 0; margin: 0; height: 20px; position: relative; top: 2px;}
+input[type=radio] { margin-top: -3px; }
 
 .canvas-container { margin: 0 auto; float: left; border: 1px solid #aaa; }
 

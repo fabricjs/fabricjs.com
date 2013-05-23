@@ -28,7 +28,7 @@
             <pre class="prettyprint source"><code>/* build: `node build.js modules=ALL exclude=gestures` */
 /*! Fabric.js Copyright 2008-2013, Printio (Juriy Zaytsev, Maxim Chernyak) */
 
-var fabric = fabric || { version: "1.1.15" };
+var fabric = fabric || { version: "1.1.16" };
 
 if (typeof exports !== 'undefined') {
   exports.fabric = fabric;
@@ -3391,15 +3391,25 @@ fabric.util.string = {
    * @return {Object} Object with "left" and "top" properties
    */
   function getElementOffset(element) {
-    // TODO (kangax): need to fix this method
-    var valueT = 0, valueL = 0;
-    do {
-      valueT += element.offsetTop  || 0;
-      valueL += element.offsetLeft || 0;
-      element = element.offsetParent;
+    var docElem, win,
+        box = {left: 0, top: 0},
+        doc = element && element.ownerDocument;
+    if (!doc){
+      return {left: 0, top: 0};
     }
-    while (element);
-    return ({ left: valueL, top: valueT });
+    docElem = doc.documentElement;
+    if ( typeof element.getBoundingClientRect !== "undefined" ) {
+      box = element.getBoundingClientRect();
+    }
+    if(doc != null && doc === doc.window){
+      win = doc;
+    } else {
+      win = doc.nodeType === 9 && doc.defaultView;
+    }
+    return {
+      left: box.left + win.pageXOffset - (docElem.clientLeft || 0),
+      top: box.top + win.pageYOffset - (docElem.clientTop || 0)
+    };
   }
 
   /**
@@ -11093,26 +11103,32 @@ fabric.util.object.extend(fabric.StaticCanvas.prototype, /** @lends fabric.Stati
       var angle = degreesToRadians(this.angle);
       var hypotHalf = this.getWidth() / 2;
       var xHalf = Math.cos(angle) * hypotHalf;
+      var yHalf = Math.sin(angle) * hypotHalf;
       var hypotFull = this.getWidth();
       var xFull = Math.cos(angle) * hypotFull;
+      var yFull = Math.sin(angle) * hypotFull;
 
       if (this.originX === 'center' && to === 'left' ||
           this.originX === 'right' && to === 'center') {
         // move half left
         this.left -= xHalf;
+        this.top -= yHalf;
       }
       else if (this.originX === 'left' && to === 'center' ||
                this.originX === 'center' && to === 'right') {
         // move half right
         this.left += xHalf;
+        this.top += yHalf;
       }
       else if (this.originX === 'left' && to === 'right') {
         // move full right
         this.left += xFull;
+        this.top += yFull;
       }
       else if (this.originX === 'right' && to === 'left') {
         // move full left
         this.left -= xFull;
+        this.top -= yFull;
       }
 
       this.setCoords();
@@ -12055,8 +12071,8 @@ fabric.util.object.extend(fabric.Object.prototype, /** @lends fabric.Object.prot
     _setWidthHeight: function(options) {
       options || (options = { });
 
-      this.set('width', (this.x2 - this.x1) || 1);
-      this.set('height', (this.y2 - this.y1) || 1);
+      this.set('width', Math.abs(this.x2 - this.x1) || 1);
+      this.set('height', Math.abs(this.y2 - this.y1) || 1);
 
       this.set('left', 'left' in options ? options.left : (this.x1 + this.width / 2));
       this.set('top', 'top' in options ? options.top : (this.y1 + this.height / 2));
@@ -12085,9 +12101,6 @@ fabric.util.object.extend(fabric.Object.prototype, /** @lends fabric.Object.prot
       var isInPathGroup = this.group && this.group.type !== 'group';
       if (isInPathGroup && !this.transformMatrix) {
         ctx.translate(-this.group.width/2 + this.left, -this.group.height / 2 + this.top);
-      }
-      else {
-        ctx.translate(this.left, this.top);
       }
 
       if (!this.strokeDashArray || this.strokeDashArray && supportsLineDash) {
@@ -12971,7 +12984,8 @@ fabric.util.object.extend(fabric.Object.prototype, /** @lends fabric.Object.prot
   "use strict";
 
   var fabric = global.fabric || (global.fabric = { }),
-      toFixed = fabric.util.toFixed;
+      toFixed = fabric.util.toFixed,
+      min = fabric.util.array.min;
 
   if (fabric.Polyline) {
     fabric.warn('fabric.Polyline is already defined');
@@ -12994,9 +13008,9 @@ fabric.util.object.extend(fabric.Object.prototype, /** @lends fabric.Object.prot
 
     /**
      * Constructor
-     * @param {Array} points array of points
+     * @param {Array} points Array of points
      * @param {Object} [options] Options object
-     * @param {Boolean} skipOffset Whether points offsetting should be skipped
+     * @param {Boolean} [skipOffset] Whether points offsetting should be skipped
      * @return {fabric.Polyline} thisArg
      */
     initialize: function(points, options, skipOffset) {
@@ -13008,7 +13022,7 @@ fabric.util.object.extend(fabric.Object.prototype, /** @lends fabric.Object.prot
 
     /**
      * @private
-     * @param {Boolean} skipOffset Whether points offsetting should be skipped
+     * @param {Boolean} [skipOffset] Whether points offsetting should be skipped
      */
     _calcDimensions: function(skipOffset) {
       return fabric.Polygon.prototype._calcDimensions.call(this, skipOffset);
@@ -13016,8 +13030,8 @@ fabric.util.object.extend(fabric.Object.prototype, /** @lends fabric.Object.prot
 
     /**
      * Returns object representation of an instance
-     * @param {Array} propertiesToInclude
-     * @return {Object} object representation of an instance
+     * @param {Array} [propertiesToInclude] Any properties that you might want to additionally include in the output
+     * @return {Object} Object representation of an instance
      */
     toObject: function(propertiesToInclude) {
       return fabric.Polygon.prototype.toObject.call(this, propertiesToInclude);
@@ -13089,7 +13103,7 @@ fabric.util.object.extend(fabric.Object.prototype, /** @lends fabric.Object.prot
 
     /**
      * Returns complexity of an instance
-     * @return {Number} complexity
+     * @return {Number} complexity of this instance
      */
     complexity: function() {
       return this.get('points').length;
@@ -13108,7 +13122,7 @@ fabric.util.object.extend(fabric.Object.prototype, /** @lends fabric.Object.prot
    * @static
    * @param {SVGElement} element Element to parse
    * @param {Object} [options] Options object
-   * @return {Object} instance of fabric.Polyline
+   * @return {fabric.Polyline} Instance of fabric.Polyline
    */
   fabric.Polyline.fromElement = function(element, options) {
     if (!element) {
@@ -13117,12 +13131,17 @@ fabric.util.object.extend(fabric.Object.prototype, /** @lends fabric.Object.prot
     options || (options = { });
 
     var points = fabric.parsePointsAttribute(element.getAttribute('points')),
-        parsedAttributes = fabric.parseAttributes(element, fabric.Polyline.ATTRIBUTE_NAMES);
+        parsedAttributes = fabric.parseAttributes(element, fabric.Polyline.ATTRIBUTE_NAMES),
+        minX = min(points, 'x'),
+        minY = min(points, 'y');
+
+    minX = minX &lt; 0 ? minX : 0;
+    minY = minX &lt; 0 ? minY : 0;
 
     for (var i = 0, len = points.length; i &lt; len; i++) {
       // normalize coordinates, according to containing box (dimensions of which are passed via `options`)
-      points[i].x -= (options.width / 2) || 0;
-      points[i].y -= (options.height / 2) || 0;
+      points[i].x -= (options.width / 2 + minX) || 0;
+      points[i].y -= (options.height / 2 + minY) || 0;
     }
 
     return new fabric.Polyline(points, fabric.util.object.extend(parsedAttributes, options), true);
@@ -13131,8 +13150,8 @@ fabric.util.object.extend(fabric.Object.prototype, /** @lends fabric.Object.prot
   /**
    * Returns fabric.Polyline instance from an object representation
    * @static
-   * @param {Object} [object] Object to create an instance from
-   * @return {fabric.Polyline}
+   * @param object {Object} object Object to create an instance from
+   * @return {fabric.Polyline} Instance of fabric.Polyline
    */
   fabric.Polyline.fromObject = function(object) {
     var points = object.points;
@@ -13174,7 +13193,7 @@ fabric.util.object.extend(fabric.Object.prototype, /** @lends fabric.Object.prot
      * Constructor
      * @param {Array} points Array of points
      * @param {Object} [options] Options object
-     * @param {Boolean} Whether points offsetting should be skipped
+     * @param {Boolean} [skipOffset] Whether points offsetting should be skipped
      * @return {fabric.Polygon} thisArg
      */
     initialize: function(points, options, skipOffset) {
@@ -13186,6 +13205,7 @@ fabric.util.object.extend(fabric.Object.prototype, /** @lends fabric.Object.prot
 
     /**
      * @private
+     * @param {Boolean} [skipOffset] Whether points offsetting should be skipped
      */
     _calcDimensions: function(skipOffset) {
 
@@ -13203,8 +13223,8 @@ fabric.util.object.extend(fabric.Object.prototype, /** @lends fabric.Object.prot
 
       if (skipOffset) return;
 
-      var halfWidth = this.width / 2,
-          halfHeight = this.height / 2;
+      var halfWidth = this.width / 2 + this.minX,
+          halfHeight = this.height / 2 + this.minY;
 
       // change points to offset polygon into a bounding box
       this.points.forEach(function(p) {
@@ -13215,8 +13235,8 @@ fabric.util.object.extend(fabric.Object.prototype, /** @lends fabric.Object.prot
 
     /**
      * Returns object representation of an instance
-     * @param {Array} propertiesToInclude
-     * @return {Object} object representation of an instance
+     * @param {Array} [propertiesToInclude] Any properties that you might want to additionally include in the output
+     * @return {Object} Object representation of an instance
      */
     toObject: function(propertiesToInclude) {
       return extend(this.callSuper('toObject', propertiesToInclude), {
@@ -13258,7 +13278,7 @@ fabric.util.object.extend(fabric.Object.prototype, /** @lends fabric.Object.prot
 
     /**
      * @private
-     * @param ctx {CanvasRenderingContext2D} context to render on
+     * @param {CanvasRenderingContext2D} ctx Context to render on
      */
     _render: function(ctx) {
       var point;
@@ -13277,7 +13297,7 @@ fabric.util.object.extend(fabric.Object.prototype, /** @lends fabric.Object.prot
 
     /**
      * @private
-     * @param ctx {CanvasRenderingContext2D} context to render on
+     * @param {CanvasRenderingContext2D} ctx Context to render on
      */
     _renderDashedStroke: function(ctx) {
       var p1, p2;
@@ -13312,7 +13332,7 @@ fabric.util.object.extend(fabric.Object.prototype, /** @lends fabric.Object.prot
    * @static
    * @param {SVGElement} element Element to parse
    * @param {Object} [options] Options object
-   * @return {fabric.Polygon}
+   * @return {fabric.Polygon} Instance of fabric.Polygon
    */
   fabric.Polygon.fromElement = function(element, options) {
     if (!element) {
@@ -13321,12 +13341,17 @@ fabric.util.object.extend(fabric.Object.prototype, /** @lends fabric.Object.prot
     options || (options = { });
 
     var points = fabric.parsePointsAttribute(element.getAttribute('points')),
-        parsedAttributes = fabric.parseAttributes(element, fabric.Polygon.ATTRIBUTE_NAMES);
+        parsedAttributes = fabric.parseAttributes(element, fabric.Polygon.ATTRIBUTE_NAMES),
+        minX = min(points, 'x'),
+        minY = min(points, 'y');
+
+    minX = minX &lt; 0 ? minX : 0;
+    minY = minX &lt; 0 ? minY : 0;
 
     for (var i = 0, len = points.length; i &lt; len; i++) {
       // normalize coordinates, according to containing box (dimensions of which are passed via `options`)
-      points[i].x -= (options.width / 2) || 0;
-      points[i].y -= (options.height / 2) || 0;
+      points[i].x -= (options.width / 2 + minX) || 0;
+      points[i].y -= (options.height / 2 + minY) || 0;
     }
 
     return new fabric.Polygon(points, extend(parsedAttributes, options), true);
@@ -13335,8 +13360,8 @@ fabric.util.object.extend(fabric.Object.prototype, /** @lends fabric.Object.prot
   /**
    * Returns fabric.Polygon instance from an object representation
    * @static
-   * @param {Object} object Object to create an instance from
-   * @return {fabric.Polygon}
+   * @param object {Object} object Object to create an instance from
+   * @return {fabric.Polygon} Instance of fabric.Polygon
    */
   fabric.Polygon.fromObject = function(object) {
     return new fabric.Polygon(object.points, object, true);
@@ -14777,24 +14802,6 @@ fabric.util.object.extend(fabric.Object.prototype, /** @lends fabric.Object.prot
 
       this.left = (minX + width / 2) || 0;
       this.top = (minY + height / 2) || 0;
-    },
-
-    /**
-     * Checks if point is contained within the group
-     * @param {fabric.Point} point point with `x` and `y` properties
-     * @return {Boolean} true if point is contained within group
-     */
-    containsPoint: function(point) {
-
-      var halfWidth = this.get('width') / 2,
-          halfHeight = this.get('height') / 2,
-          centerX = this.get('left'),
-          centerY = this.get('top');
-
-      return  centerX - halfWidth &lt; point.x &&
-              centerX + halfWidth > point.x &&
-              centerY - halfHeight &lt; point.y &&
-              centerY + halfHeight > point.y;
     },
 
     /* _TO_SVG_START_ */
@@ -16682,7 +16689,7 @@ fabric.Image.filters.Pixelate.fromObject = function(object) {
             ctx,
             textLines[i],
             this._getLeftOffset(),
-            this._getTopOffset() + (i * this.fontSize * this.lineHeight) + this.fontSize
+            this._getTopOffset() + ((i + 1) * this.fontSize * this.lineHeight)
           );
         }
       }
@@ -16708,7 +16715,7 @@ fabric.Image.filters.Pixelate.fromObject = function(object) {
             ctx,
             textLines[i],
             this._getLeftOffset(),
-            this._getTopOffset() + (i * this.fontSize * this.lineHeight) + this.fontSize
+            this._getTopOffset() + ((i + 1) * this.fontSize * this.lineHeight)
           );
         }
         ctx.closePath();
@@ -16817,10 +16824,10 @@ fabric.Image.filters.Pixelate.fromObject = function(object) {
       }
 
       if (this.textDecoration.indexOf('underline') > -1) {
-        renderLinesAtOffset(this.fontSize);
+        renderLinesAtOffset(this.fontSize * this.lineHeight);
       }
       if (this.textDecoration.indexOf('line-through') > -1) {
-        renderLinesAtOffset(this.fontSize / 2);
+        renderLinesAtOffset((this.fontSize * this.lineHeight) - (this.fontSize / 2));
       }
       if (this.textDecoration.indexOf('overline') > -1) {
         renderLinesAtOffset(0);
@@ -17104,6 +17111,14 @@ fabric.Image.filters.Pixelate.fromObject = function(object) {
         this._initDimensions();
         this.setCoords();
       }
+    },
+
+    /**
+     * Returns complexity of an instance
+     * @return {Number} complexity
+     */
+    complexity: function() {
+      return 1;
     }
   });
 
@@ -17362,7 +17377,7 @@ fabric.Image.filters.Pixelate.fromObject = function(object) {
 <br clear="both">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.1.1</a> on Sat May 18 2013 16:41:30 GMT+0200 (CEST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.1.1</a> on Thu May 23 2013 20:17:44 GMT+0200 (CEST)
 </footer>
 
 <script> prettyPrint(); </script>

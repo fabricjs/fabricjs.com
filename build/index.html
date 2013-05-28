@@ -4,16 +4,20 @@ title: Custom Fabric build
 ---
 
 <style>
+  ul { padding: 0; }
   p { background: #eee; display: inline-block; padding: 5px 10px; border-radius: 3px; margin-top: 5px; width: 350px; min-height: 60px; }
   label { font-weight: bold; font-size: 22px; }
   .build-btn {
-    font-size: 30px; padding: 10px 20px; background: #51a351; color: #fff; border: 0; border-radius: 3px; cursor: pointer; }
+    font-size: 30px; padding: 10px 20px; background: #51a351; color: #fff; border: 0; border-radius: 3px; cursor: pointer; margin-right: 20px; }
   .build-min-btn {
     background: #2f96b4; }
   #options li { width: 450px; list-style: none; display: inline-block; vertical-align: top; margin-bottom: 20px !important; }
   input[type=checkbox] { position: relative; top: -4px; }
   input:checked + label { background: green; color: #fff; }
+  .version { background: #ffc; padding: 5px; display: inline-block; }
 </style>
+
+<div class="version">Fabric version: <b>1.1.16</b></div>
 
 <ul id="options">
   <li>
@@ -63,7 +67,7 @@ title: Custom Fabric build
   </li>
 </ul>
 
-<button id="build" class="build-btn" style="margin-left: 45px">Dev build</button>
+<button id="build" class="build-btn">Dev build</button>
 <button id="build-min" class="build-btn build-min-btn">Minified build</button>
 
 <script>

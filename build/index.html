@@ -26,6 +26,11 @@ title: Custom Fabric build
     <p>Adds support for text rendering via `fabric.Text`</p>
   </li>
   <li>
+    <input type="checkbox" id="cufon">
+    <label for="cufon">Cufon</label><br>
+    <p>Adds support for non-native text rendering via (modified) <a href="http://cufon.shoqolate.com/generate/">Cufon</a> library. Depends on "Text" module.</p>
+  </li>
+  <li>
     <input type="checkbox" id="gestures">
     <label for="gestures">Gestures</label><br>
     <p>Adds support for multitouch gestures with help of <a href="https://github.com/mudcube/Event.js">Event.js</a>. Depends on "Interaction" module.</p>
@@ -101,6 +106,17 @@ title: Custom Fabric build
     document.getElementById('interaction').onclick = function() {
       if (!this.checked) {
         document.getElementById('gestures').checked = false;
+      }
+    };
+
+    document.getElementById('cufon').onclick = function() {
+      if (this.checked) {
+        document.getElementById('text').checked = true;
+      }
+    };
+    document.getElementById('text').onclick = function() {
+      if (!this.checked) {
+        document.getElementById('cufon').checked = false;
       }
     };
   })();

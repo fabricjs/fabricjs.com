@@ -28,7 +28,7 @@ title: Custom Fabric build
   <li>
     <input type="checkbox" id="gestures">
     <label for="gestures">Gestures</label><br>
-    <p>Adds support for multitouch gestures with help of <a href="https://github.com/mudcube/Event.js">Event.js</a></p>
+    <p>Adds support for multitouch gestures with help of <a href="https://github.com/mudcube/Event.js">Event.js</a>. Depends on "Interaction" module.</p>
   </li>
   <li>
     <input type="checkbox" id="easing">
@@ -91,6 +91,17 @@ title: Custom Fabric build
     };
     document.getElementById('build-min').onclick = function() {
       window.location = '/build/files/' + getModulesStr() + '.min.js';
+    };
+
+    document.getElementById('gestures').onclick = function() {
+      if (this.checked) {
+        document.getElementById('interaction').checked = true;
+      }
+    };
+    document.getElementById('interaction').onclick = function() {
+      if (!this.checked) {
+        document.getElementById('gestures').checked = false;
+      }
     };
   })();
 </script>

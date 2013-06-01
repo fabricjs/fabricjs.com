@@ -61,6 +61,12 @@ title: Image Filters
   <p>
     <label><span>Emboss:</span> <input type="checkbox" id="emboss" disabled></label>
   </p>
+  <p>
+    <label><span>Waterize:</span> <input type="checkbox" id="waterize" disabled></label><br>
+    <label>Amplitude: <input type="range" id="waterize-amplitude" value="14"></label><br>
+    <label>Frequency: <input type="range" id="waterize-frequency" min="0" max="10" value="1"></label><br>
+    <label>Offset: <input type="range" id="waterize-offset" min="0" max="100" value="0"></label>
+  </p>
 </div>
 
 <script id="main">var $ = function(id){return document.getElementById(id)};
@@ -183,5 +189,17 @@ $('emboss').onclick = function() {
               1, 0.7, -1,
              -1,  -1, -1 ]
   }));
+};
+$('waterize').onclick = function() {
+  applyFilter(12, this.checked && new f.Waterize());
+};
+$('waterize-amplitude').onchange = function() {
+  applyFilterValue(12, 'amplitude', parseInt(this.value, 10));
+};
+$('waterize-frequency').onchange = function() {
+  applyFilterValue(12, 'frequency', parseInt(this.value) / 10);
+};
+$('waterize-offset').onchange = function() {
+  applyFilterValue(12, 'frames', parseInt(this.value));
 };
 </script>

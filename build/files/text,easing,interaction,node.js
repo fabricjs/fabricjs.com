@@ -1,7 +1,7 @@
 /* build: `node build.js modules=text,easing,interaction,node` */
 /*! Fabric.js Copyright 2008-2013, Printio (Juriy Zaytsev, Maxim Chernyak) */
 
-var fabric = fabric || { version: "1.1.16" };
+var fabric = fabric || { version: "1.1.17" };
 
 if (typeof exports !== 'undefined') {
   exports.fabric = fabric;
@@ -1663,6 +1663,16 @@ fabric.Collection = {
   };
 
   /**
+    * Returns klass "Class" object of given fabric.Object type
+    * @memberOf fabric.util
+    * @param {String} type Type of object (eg. 'circle')
+    * @return {Object} klass "Class"
+    */
+  function getKlass(type) {
+    return fabric[fabric.util.string.camelize(fabric.util.string.capitalize(type))];
+  }
+
+  /**
     * Loads image element from given url and passes it to a callback
     * @memberOf fabric.util
     * @param {String} url URL representing an image
@@ -1693,10 +1703,6 @@ fabric.Collection = {
    */
   function enlivenObjects(objects, callback) {
 
-    function getKlass(type) {
-      return fabric[fabric.util.string.camelize(fabric.util.string.capitalize(type))];
-    }
-
     function onLoaded() {
       if (++numLoadedObjects === numTotalObjects) {
         if (callback) {
@@ -1713,7 +1719,7 @@ fabric.Collection = {
       if (!o.type) {
         return;
       }
-      var klass = getKlass(o.type);
+      var klass = fabric.util.getKlass(o.type);
       if (klass.async) {
         klass.fromObject(o, function (o, error) {
           if (!error) {
@@ -1949,6 +1955,7 @@ fabric.Collection = {
   fabric.util.falseFunction = falseFunction;
   fabric.util.animate = animate;
   fabric.util.requestAnimFrame = requestAnimFrame;
+  fabric.util.getKlass = getKlass;
   fabric.util.loadImage = loadImage;
   fabric.util.enlivenObjects = enlivenObjects;
   fabric.util.groupSVGElements = groupSVGElements;
@@ -2886,11 +2893,11 @@ fabric.util.string = {
     if(doc != null && doc === doc.window){
       win = doc;
     } else {
-      win = doc.nodeType === 9 && doc.defaultView;
+      win = doc.nodeType === 9 && (doc.defaultView || doc.parentWindow);
     }
     return {
-      left: box.left + win.pageXOffset - (docElem.clientLeft || 0) + offset.left,
-      top: box.top + win.pageYOffset - (docElem.clientTop || 0)  + offset.top
+      left: box.left + (win.pageXOffset || docElem.scrollLeft) - (docElem.clientLeft || 0) + offset.left,
+      top: box.top + (win.pageYOffset || docElem.scrollTop) - (docElem.clientTop || 0)  + offset.top
     };
   }
 
@@ -3907,7 +3914,7 @@ fabric.util.string = {
 
       if (this.type === 'linear') {
         gradient = ctx.createLinearGradient(
-          this.coords.x1, this.coords.y1, this.coords.x2 || ctx.canvas.width, this.coords.y2);
+          this.coords.x1, this.coords.y1, this.coords.x2, this.coords.y2);
       }
       else if (this.type === 'radial') {
         gradient = ctx.createRadialGradient(
@@ -7673,35 +7680,35 @@ fabric.util.object.extend(fabric.StaticCanvas.prototype, /** @lends fabric.Stati
     angle:                    0,
 
     /**
-     * Size of object's corners (in pixels)
+     * Size of object's controlling corners (in pixels)
      * @type Number
      * @default
      */
     cornerSize:               12,
 
     /**
-     * When true, object's corners are rendered as transparent inside (i.e. stroke instead of fill)
+     * When true, object's controlling corners are rendered as transparent inside (i.e. stroke instead of fill)
      * @type Boolean
      * @default
      */
     transparentCorners:       true,
 
     /**
-     * Padding between object and its borders (in pixels)
+     * Padding between object and its controlling borders (in pixels)
      * @type Number
      * @default
      */
     padding:                  0,
 
     /**
-     * Border color of an object (when it's active)
+     * Color of controlling borders of an object (when it's active)
      * @type String
      * @default
      */
     borderColor:              'rgba(102,153,255,0.75)',
 
     /**
-     * Corner color of an object (when it's active)
+     * Color of controlling corners of an object (when it's active)
      * @type String
      * @default
      */
@@ -7776,14 +7783,14 @@ fabric.util.object.extend(fabric.StaticCanvas.prototype, /** @lends fabric.Stati
     shadow:                   null,
 
     /**
-     * Border opacity when object is active and moving
+     * Opacity of object's controlling borders when object is active and moving
      * @type Number
      * @default
      */
     borderOpacityWhenMoving:  0.4,
 
     /**
-     * Border scale factor
+     * Scale factor of object's controlling borders
      * @type Number
      * @default
      */
@@ -7824,21 +7831,21 @@ fabric.util.object.extend(fabric.StaticCanvas.prototype, /** @lends fabric.Stati
     hasControls:              true,
 
     /**
-     * When set to `false`, object's borders are not rendered
+     * When set to `false`, object's controlling borders are not rendered
      * @type Boolean
      * @default
      */
     hasBorders:               true,
 
     /**
-     * When set to `false`, object's rotating point will not be visible or selectable
+     * When set to `false`, object's controlling rotating point will not be visible or selectable
      * @type Boolean
      * @default
      */
     hasRotatingPoint:         true,
 
     /**
-     * Offset for object's rotating point (when enabled via `hasRotatingPoint`)
+     * Offset for object's controlling rotating point (when enabled via `hasRotatingPoint`)
      * @type Number
      * @default
      */

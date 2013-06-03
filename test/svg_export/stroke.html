@@ -275,6 +275,63 @@ canvas.add(shape);
 </pre>
 
 <pre class="test-source">
+var shape = new fabric.Polygon([
+  {x:100,y:100},
+  {x:150,y:150},
+  {x:200,y:250},
+  {x:220,y:100},
+  {x:300,y:80},
+  {x:80,y:20}
+], {
+  left: 150,
+  top: 150,
+  fill: '#ddd',
+  stroke: '#333',
+  strokeWidth: 3,
+  strokeDashArray: [5, 10]
+});
+canvas.add(shape);
+</pre>
+
+<pre class="test-source">
+var shape = new fabric.Polygon([
+  {x:100,y:100},
+  {x:150,y:150},
+  {x:200,y:250},
+  {x:220,y:100},
+  {x:300,y:80},
+  {x:80,y:20}
+], {
+  left: 150,
+  top: 150,
+  fill: '#ddd',
+  stroke: '#333',
+  strokeWidth: 3,
+  strokeDashArray: [10, 5]
+});
+canvas.add(shape);
+</pre>
+
+<pre class="test-source">
+var shape = new fabric.Polygon([
+  {x:100,y:100},
+  {x:150,y:150},
+  {x:200,y:250},
+  {x:220,y:100},
+  {x:300,y:80},
+  {x:80,y:20}
+], {
+  left: 150,
+  top: 150,
+  fill: '#ddd',
+  stroke: '#333',
+  strokeWidth: 3,
+  strokeDashArray: [5, 20, 20, 5]
+});
+canvas.add(shape);
+</pre>
+
+<pre class="test-source">
 var shape = new fabric.Path('M 0 0 L 300 100 L 200 300 z', {
   left: 150,
   top: 150,

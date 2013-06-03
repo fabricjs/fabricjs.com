@@ -41,7 +41,7 @@ title: Node.js
   <p class="note">Node.js has to be started with `<code>node server.js</code>` from root "fabricjs.com" dir.</p>
 </div>
 
-<pre class="test-source">
+<!--<pre class="test-source">
 var rect = new fabric.Rect({
   left: 100,
   top: 100,
@@ -223,7 +223,7 @@ var rect = new fabric.Rect({
   stroke: '#555'
 });
 canvas.add(rect);
-</pre>
+</pre>-->
 
 <pre class="test-source">
 var text = new fabric.Text('Hello world', {
@@ -231,7 +231,8 @@ var text = new fabric.Text('Hello world', {
   fontSize: 30,
   left: 100,
   top: 100,
-  fill: 'red'
+  fill: 'red',
+  originY: 'center'
 });
 canvas.add(text);
 </pre>

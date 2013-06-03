@@ -41,7 +41,7 @@ title: Node.js
   <p class="note">Node.js has to be started with `<code>node server.js</code>` from root "fabricjs.com" dir.</p>
 </div>
 
-<!--<pre class="test-source">
+<pre class="test-source">
 var rect = new fabric.Rect({
   left: 100,
   top: 100,
@@ -223,7 +223,7 @@ var rect = new fabric.Rect({
   stroke: '#555'
 });
 canvas.add(rect);
-</pre>-->
+</pre>
 
 <pre class="test-source">
 var text = new fabric.Text('Hello world', {
@@ -433,6 +433,54 @@ var text = new fabric.Text('foo\nbar\nbaz', {
   fill: 'red',
   lineHeight: 2,
   textDecoration: 'underline'
+});
+canvas.add(text);
+</pre>
+
+<pre class="test-source">
+var text = new fabric.Text('XY', {
+  fontFamily: 'Impact',
+  fontSize: 100,
+  left: 100,
+  top: 50,
+  fill: 'green',
+  stroke: 'red',
+  strokeWidth: 2
+});
+canvas.add(text);
+</pre>
+
+<pre class="test-source">
+var text = new fabric.Text('Tрололо', {
+  fontSize: 40,
+  left: 100,
+  top: 50,
+  fill: 'blue'
+});
+canvas.add(text);
+</pre>
+
+<pre class="test-source">
+var text = new fabric.Text('foo\nbar\nbaz', {
+  fontFamily: 'Arial',
+  fontSize: 30,
+  angle: -30,
+  left: 75,
+  top: 75,
+  fill: 'red'
+});
+canvas.add(text);
+</pre>
+
+<pre class="test-source">
+var text = new fabric.Text('foo\nbar\nbaz', {
+  fontFamily: 'Arial',
+  fontSize: 30,
+  angle: -30,
+  left: 75,
+  top: 75,
+  fill: '#fff',
+  textBackgroundColor: 'grey'
 });
 canvas.add(text);
 </pre>

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/bootstrap-3.0.0-wip.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/font-awesome-ie7.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet">
+  <link href="../../assets/css/plato.css" rel="stylesheet">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="brand" href="http://github.com/jsoverson/plato">Plato on Github</a>
+    <ul class="nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>src/shapes/path_group.class.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="span6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"></i></a></h2>
+      <p class="stat">68.03</p>
+    </div>
+    <div class="span6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC"></i></h2>
+      <p class="stat">234</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="span6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="span6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="span6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty"></i></a></h2>
+      <p class="stat">43.01</p>
+    </div>
+    <div class="span6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs"></i></a></h2>
+      <p class="stat">1.55</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="span6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="span6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="span12">(function(global) {
+
+  "use strict";
+
+  var fabric = global.fabric || (global.fabric = { }),
+      extend = fabric.util.object.extend,
+      invoke = fabric.util.array.invoke,
+      parentToObject = fabric.Object.prototype.toObject,
+      camelize = fabric.util.string.camelize,
+      capitalize = fabric.util.string.capitalize;
+
+  if (fabric.PathGroup) {
+    fabric.warn('fabric.PathGroup is already defined');
+    return;
+  }
+
+  /**
+   * Path group class
+   * @class fabric.PathGroup
+   * @extends fabric.Path
+   */
+  fabric.PathGroup = fabric.util.createClass(fabric.Path, /** @lends fabric.PathGroup.prototype */ {
+
+    /**
+     * Type of an object
+     * @type String
+     * @default
+     */
+    type: 'path-group',
+
+    /**
+     * Fill value
+     * @type String
+     * @default
+     */
+    fill: '',
+
+    /**
+     * Constructor
+     * @param {Array} paths
+     * @param {Object} [options] Options object
+     * @return {fabric.PathGroup} thisArg
+     */
+    initialize: function(paths, options) {
+
+      options = options || { };
+      this.paths = paths || [ ];
+
+      for (var i = this.paths.length; i--; ) {
+        this.paths[i].group = this;
+      }
+
+      this.setOptions(options);
+      this.setCoords();
+
+      if (options.sourcePath) {
+        this.setSourcePath(options.sourcePath);
+      }
+    },
+
+    /**
+     * Renders this group on a specified context
+     * @param {CanvasRenderingContext2D} ctx Context to render this instance on
+     */
+    render: function(ctx) {
+      // do not render if object is not visible
+      if (!this.visible) return;
+
+      ctx.save();
+
+      var m = this.transformMatrix;
+      if (m) {
+        ctx.transform(m[0], m[1], m[2], m[3], m[4], m[5]);
+      }
+
+      this.transform(ctx);
+
+      this._setShadow(ctx);
+      this.clipTo && fabric.util.clipContext(this, ctx);
+      for (var i = 0, l = this.paths.length; i < l; ++i) {
+        this.paths[i].render(ctx, true);
+      }
+      this.clipTo && ctx.restore();
+      this._removeShadow(ctx);
+
+      if (this.active) {
+        this.drawBorders(ctx);
+        this.drawControls(ctx);
+      }
+      ctx.restore();
+    },
+
+    /**
+     * Sets certain property to a certain value
+     * @param {String} prop
+     * @param {Any} value
+     * @return {fabric.PathGroup} thisArg
+     */
+    _set: function(prop, value) {
+
+      if ((prop === 'fill' || prop === 'overlayFill') && value && this.isSameColor()) {
+        var i = this.paths.length;
+        while (i--) {
+          this.paths[i]._set(prop, value);
+        }
+      }
+
+      return this.callSuper('_set', prop, value);
+    },
+
+    /**
+     * Returns object representation of this path group
+     * @param {Array} [propertiesToInclude]
+     * @return {Object} object representation of an instance
+     */
+    toObject: function(propertiesToInclude) {
+      return extend(parentToObject.call(this, propertiesToInclude), {
+        paths: invoke(this.getObjects(), 'toObject', propertiesToInclude),
+        sourcePath: this.sourcePath
+      });
+    },
+
+    /**
+     * Returns dataless object representation of this path group
+     * @param {Array} [propertiesToInclude]
+     * @return {Object} dataless object representation of an instance
+     */
+    toDatalessObject: function(propertiesToInclude) {
+      var o = this.toObject(propertiesToInclude);
+      if (this.sourcePath) {
+        o.paths = this.sourcePath;
+      }
+      return o;
+    },
+
+    /* _TO_SVG_START_ */
+    /**
+     * Returns svg representation of an instance
+     * @return {String} svg representation of an instance
+     */
+    toSVG: function() {
+      var objects = this.getObjects();
+      var markup = [
+        '<g ',
+          'style="', this.getSvgStyles(), '" ',
+          'transform="', this.getSvgTransform(), '" ',
+        '>'
+      ];
+
+      for (var i = 0, len = objects.length; i < len; i++) {
+        markup.push(objects[i].toSVG());
+      }
+      markup.push('</g>');
+
+      return markup.join('');
+    },
+    /* _TO_SVG_END_ */
+
+    /**
+     * Returns a string representation of this path group
+     * @return {String} string representation of an object
+     */
+    toString: function() {
+      return '#<fabric.PathGroup (' + this.complexity() +
+        '): { top: ' + this.top + ', left: ' + this.left + ' }>';
+    },
+
+    /**
+     * Returns true if all paths in this group are of same color
+     * @return {Boolean} true if all paths are of the same color (`fill`)
+     */
+    isSameColor: function() {
+      var firstPathFill = this.getObjects()[0].get('fill');
+      return this.getObjects().every(function(path) {
+        return path.get('fill') === firstPathFill;
+      });
+    },
+
+    /**
+     * Returns number representation of object's complexity
+     * @return {Number} complexity
+     */
+    complexity: function() {
+      return this.paths.reduce(function(total, path) {
+        return total + ((path && path.complexity) ? path.complexity() : 0);
+      }, 0);
+    },
+
+    /**
+      * Makes path group grayscale
+      * @return {fabric.PathGroup} thisArg
+      */
+    toGrayscale: function() {
+      var i = this.paths.length;
+      while (i--) {
+        this.paths[i].toGrayscale();
+      }
+      return this;
+    },
+
+    /**
+     * Returns all paths in this path group
+     * @return {Array} array of path objects included in this path group
+     */
+    getObjects: function() {
+      return this.paths;
+    }
+  });
+
+  /**
+   * @private
+   */
+  function instantiatePaths(paths) {
+    for (var i = 0, len = paths.length; i < len; i++) {
+      if (!(paths[i] instanceof fabric.Object)) {
+        var klassName = camelize(capitalize(paths[i].type));
+        paths[i] = fabric[klassName].fromObject(paths[i]);
+      }
+    }
+    return paths;
+  }
+
+  /**
+   * Creates fabric.PathGroup instance from an object representation
+   * @static
+   * @param {Object} object
+   * @return {fabric.PathGroup}
+   */
+  fabric.PathGroup.fromObject = function(object) {
+    var paths = instantiatePaths(object.paths);
+    return new fabric.PathGroup(paths, object);
+  };
+
+})(typeof exports !== 'undefined' ? exports : this);</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>

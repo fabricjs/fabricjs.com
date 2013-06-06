@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/bootstrap-3.0.0-wip.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/font-awesome-ie7.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet">
+  <link href="../../assets/css/plato.css" rel="stylesheet">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="brand" href="http://github.com/jsoverson/plato">Plato on Github</a>
+    <ul class="nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>src/util/anim_ease.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="span6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"></i></a></h2>
+      <p class="stat">66.94</p>
+    </div>
+    <div class="span6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC"></i></h2>
+      <p class="stat">331</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="span6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="span6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="span6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty"></i></a></h2>
+      <p class="stat">135.63</p>
+    </div>
+    <div class="span6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs"></i></a></h2>
+      <p class="stat">3.11</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="span6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="span6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="span12">(function() {
+
+  /**
+   * Quadratic easing in
+   * @memberOf fabric.util.ease
+   */
+  function easeInQuad(t, b, c, d) {
+    return c*(t/=d)*t + b;
+  }
+
+  /**
+   * Quadratic easing out
+   * @memberOf fabric.util.ease
+   */
+  function easeOutQuad(t, b, c, d) {
+    return -c *(t/=d)*(t-2) + b;
+  }
+
+  /**
+   * Quadratic easing in and out
+   * @memberOf fabric.util.ease
+   */
+  function easeInOutQuad(t, b, c, d) {
+    t /= (d/2);
+    if (t < 1) return c/2*t*t + b;
+    return -c/2 * ((--t)*(t-2) - 1) + b;
+  }
+
+  /**
+   * Cubic easing in
+   * @memberOf fabric.util.ease
+   */
+  function easeInCubic(t, b, c, d) {
+    return c*(t/=d)*t*t + b;
+  }
+
+  /**
+   * Cubic easing out
+   * @memberOf fabric.util.ease
+   */
+  function easeOutCubic(t, b, c, d) {
+    return c*((t=t/d-1)*t*t + 1) + b;
+  }
+
+  /**
+   * Cubic easing in and out
+   * @memberOf fabric.util.ease
+   */
+  function easeInOutCubic(t, b, c, d) {
+    t /= d/2;
+    if (t < 1) return c/2*t*t*t + b;
+    return c/2*((t-=2)*t*t + 2) + b;
+  }
+
+  /**
+   * Quartic easing in
+   * @memberOf fabric.util.ease
+   */
+  function easeInQuart(t, b, c, d) {
+    return c*(t/=d)*t*t*t + b;
+  }
+
+  /**
+   * Quartic easing out
+   * @memberOf fabric.util.ease
+   */
+  function easeOutQuart(t, b, c, d) {
+    return -c * ((t=t/d-1)*t*t*t - 1) + b;
+  }
+
+  /**
+   * Quartic easing in and out
+   * @memberOf fabric.util.ease
+   */
+  function easeInOutQuart(t, b, c, d) {
+    t /= d/2;
+    if (t < 1) return c/2*t*t*t*t + b;
+    return -c/2 * ((t-=2)*t*t*t - 2) + b;
+  }
+
+  /**
+   * Quintic easing in
+   * @memberOf fabric.util.ease
+   */
+  function easeInQuint(t, b, c, d) {
+    return c*(t/=d)*t*t*t*t + b;
+  }
+
+  /**
+   * Quintic easing out
+   * @memberOf fabric.util.ease
+   */
+  function easeOutQuint(t, b, c, d) {
+    return c*((t=t/d-1)*t*t*t*t + 1) + b;
+  }
+
+  /**
+   * Quintic easing in and out
+   * @memberOf fabric.util.ease
+   */
+  function easeInOutQuint(t, b, c, d) {
+    t /= d/2;
+    if (t < 1) return c/2*t*t*t*t*t + b;
+    return c/2*((t-=2)*t*t*t*t + 2) + b;
+  }
+
+  /**
+   * Sinusoidal easing in
+   * @memberOf fabric.util.ease
+   */
+  function easeInSine(t, b, c, d) {
+    return -c * Math.cos(t/d * (Math.PI/2)) + c + b;
+  }
+
+  /**
+   * Sinusoidal easing out
+   * @memberOf fabric.util.ease
+   */
+  function easeOutSine(t, b, c, d) {
+    return c * Math.sin(t/d * (Math.PI/2)) + b;
+  }
+
+  /**
+   * Sinusoidal easing in and out
+   * @memberOf fabric.util.ease
+   */
+  function easeInOutSine(t, b, c, d) {
+    return -c/2 * (Math.cos(Math.PI*t/d) - 1) + b;
+  }
+
+  /**
+   * Exponential easing in
+   * @memberOf fabric.util.ease
+   */
+  function easeInExpo(t, b, c, d) {
+    return (t===0) ? b : c * Math.pow(2, 10 * (t/d - 1)) + b;
+  }
+
+  /**
+   * Exponential easing out
+   * @memberOf fabric.util.ease
+   */
+  function easeOutExpo(t, b, c, d) {
+    return (t===d) ? b+c : c * (-Math.pow(2, -10 * t/d) + 1) + b;
+  }
+
+  /**
+   * Exponential easing in and out
+   * @memberOf fabric.util.ease
+   */
+  function easeInOutExpo(t, b, c, d) {
+    if (t===0) return b;
+    if (t===d) return b+c;
+    t /= d/2;
+    if (t < 1) return c/2 * Math.pow(2, 10 * (t - 1)) + b;
+    return c/2 * (-Math.pow(2, -10 * --t) + 2) + b;
+  }
+
+  /**
+   * Circular easing in
+   * @memberOf fabric.util.ease
+   */
+  function easeInCirc(t, b, c, d) {
+    return -c * (Math.sqrt(1 - (t/=d)*t) - 1) + b;
+  }
+
+  /**
+   * Circular easing out
+   * @memberOf fabric.util.ease
+   */
+  function easeOutCirc(t, b, c, d) {
+    return c * Math.sqrt(1 - (t=t/d-1)*t) + b;
+  }
+
+  /**
+   * Circular easing in and out
+   * @memberOf fabric.util.ease
+   */
+  function easeInOutCirc(t, b, c, d) {
+    t /= d/2;
+    if (t < 1) return -c/2 * (Math.sqrt(1 - t*t) - 1) + b;
+    return c/2 * (Math.sqrt(1 - (t-=2)*t) + 1) + b;
+  }
+
+  /**
+   * Elastic easing in
+   * @memberOf fabric.util.ease
+   */
+  function easeInElastic(t, b, c, d) {
+    var s=1.70158;var p=0;var a=c;
+    if (t===0) return b;
+    t /= d;
+    if (t===1) return b+c;
+    if (!p) p=d*0.3;
+    if (a < Math.abs(c)) { a=c; s=p/4; }
+    else s = p/(2*Math.PI) * Math.asin (c/a);
+    return -(a*Math.pow(2,10*(t-=1)) * Math.sin( (t*d-s)*(2*Math.PI)/p )) + b;
+  }
+
+  /**
+   * Elastic easing out
+   * @memberOf fabric.util.ease
+   */
+  function easeOutElastic(t, b, c, d) {
+    var s=1.70158;var p=0;var a=c;
+    if (t===0) return b;
+    t /= d;
+    if (t===1) return b+c;
+    if (!p) p=d*0.3;
+    if (a < Math.abs(c)) { a=c; s=p/4; }
+    else s = p/(2*Math.PI) * Math.asin (c/a);
+    return a*Math.pow(2,-10*t) * Math.sin( (t*d-s)*(2*Math.PI)/p ) + c + b;
+  }
+
+  /**
+   * Elastic easing in and out
+   * @memberOf fabric.util.ease
+   */
+  function easeInOutElastic(t, b, c, d) {
+    var s=1.70158;var p=0;var a=c;
+    if (t===0) return b;
+    t /= d/2;
+    if (t===2) return b+c;
+    if (!p) p=d*(0.3*1.5);
+    if (a < Math.abs(c)) { a=c; s=p/4; }
+    else s = p/(2*Math.PI) * Math.asin (c/a);
+    if (t < 1) return -0.5*(a*Math.pow(2,10*(t-=1)) * Math.sin( (t*d-s)*(2*Math.PI)/p )) + b;
+    return a*Math.pow(2,-10*(t-=1)) * Math.sin( (t*d-s)*(2*Math.PI)/p )*0.5 + c + b;
+  }
+
+  /**
+   * Backwards easing in
+   * @memberOf fabric.util.ease
+   */
+  function easeInBack(t, b, c, d, s) {
+    if (s === undefined) s = 1.70158;
+    return c*(t/=d)*t*((s+1)*t - s) + b;
+  }
+
+  /**
+   * Backwards easing out
+   * @memberOf fabric.util.ease
+   */
+  function easeOutBack(t, b, c, d, s) {
+    if (s === undefined) s = 1.70158;
+    return c*((t=t/d-1)*t*((s+1)*t + s) + 1) + b;
+  }
+
+  /**
+   * Backwards easing in and out
+   * @memberOf fabric.util.ease
+   */
+  function easeInOutBack(t, b, c, d, s) {
+    if (s === undefined) s = 1.70158;
+    t /= d/2;
+    if (t < 1) return c/2*(t*t*(((s*=(1.525))+1)*t - s)) + b;
+    return c/2*((t-=2)*t*(((s*=(1.525))+1)*t + s) + 2) + b;
+  }
+
+  /**
+   * Bouncing easing in
+   * @memberOf fabric.util.ease
+   */
+  function easeInBounce(t, b, c, d) {
+    return c - easeOutBounce (d-t, 0, c, d) + b;
+  }
+
+  /**
+   * Bouncing easing out
+   * @memberOf fabric.util.ease
+   */
+  function easeOutBounce(t, b, c, d) {
+    if ((t/=d) < (1/2.75)) {
+      return c*(7.5625*t*t) + b;
+    } else if (t < (2/2.75)) {
+      return c*(7.5625*(t-=(1.5/2.75))*t + 0.75) + b;
+    } else if (t < (2.5/2.75)) {
+      return c*(7.5625*(t-=(2.25/2.75))*t + 0.9375) + b;
+    } else {
+      return c*(7.5625*(t-=(2.625/2.75))*t + 0.984375) + b;
+    }
+  }
+
+  /**
+   * Bouncing easing in and out
+   * @memberOf fabric.util.ease
+   */
+  function easeInOutBounce(t, b, c, d) {
+    if (t < d/2) return easeInBounce (t*2, 0, c, d) * 0.5 + b;
+    return easeOutBounce (t*2-d, 0, c, d) * 0.5 + c*0.5 + b;
+  }
+
+  /**
+   * Easing functions
+   * See <a href="http://gizma.com/easing/">Easing Equations by Robert Penner</a>
+   * @namespace fabric.util.ease
+   */
+  fabric.util.ease = {
+    easeInQuad: easeInQuad,
+    easeOutQuad: easeOutQuad,
+    easeInOutQuad: easeInOutQuad,
+    easeInCubic: easeInCubic,
+    easeOutCubic: easeOutCubic,
+    easeInOutCubic: easeInOutCubic,
+    easeInQuart: easeInQuart,
+    easeOutQuart: easeOutQuart,
+    easeInOutQuart: easeInOutQuart,
+    easeInQuint: easeInQuint,
+    easeOutQuint: easeOutQuint,
+    easeInOutQuint: easeInOutQuint,
+    easeInSine: easeInSine,
+    easeOutSine: easeOutSine,
+    easeInOutSine: easeInOutSine,
+    easeInExpo: easeInExpo,
+    easeOutExpo: easeOutExpo,
+    easeInOutExpo: easeInOutExpo,
+    easeInCirc: easeInCirc,
+    easeOutCirc: easeOutCirc,
+    easeInOutCirc: easeInOutCirc,
+    easeInElastic: easeInElastic,
+    easeOutElastic: easeOutElastic,
+    easeInOutElastic: easeInOutElastic,
+    easeInBack: easeInBack,
+    easeOutBack: easeOutBack,
+    easeInOutBack: easeInOutBack,
+    easeInBounce: easeInBounce,
+    easeOutBounce: easeOutBounce,
+    easeInOutBounce: easeInOutBounce
+  };
+
+}());</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>

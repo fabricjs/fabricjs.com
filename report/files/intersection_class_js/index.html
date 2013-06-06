@@ -44,22 +44,30 @@
 <div class="container aggregate-stats">
   <div class="row">
     <div class="span6">
-      <h2 class="header">Maintainability</h2>
-      <p class="stat">105.49</p>
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"></i></a></h2>
+      <p class="stat">60.69</p>
     </div>
     <div class="span6">
-      <h2 class="header">Estimated # Bugs</h2>
-      <p class="stat">1.30</p>
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC"></i></h2>
+      <p class="stat">160</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="span6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="span6">
+      <p id="chart_historical_sloc" class="chart"></p>
     </div>
   </div>
   <div class="row">
     <div class="span6">
-      <h2 class="header">Difficulty</h2>
-      <p class="stat">81.59</p>
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty"></i></a></h2>
+      <p class="stat">82.73</p>
     </div>
     <div class="span6">
-      <h2 class="header">SLOC/LSLOC</h2>
-      <p class="stat">178 / 79</p>
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs"></i></a></h2>
+      <p class="stat">1.25</p>
     </div>
   </div>
 </div>
@@ -70,11 +78,11 @@
   </div>
   <div class="row">
     <div class="span6">
-      <h3 class="chart-header">By Complexity</h3>
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity"></i></a></h3>
       <div id="fn-by-complexity" class="stat"></div>
     </div>
     <div class="span6">
-      <h3 class="chart-header">By SLOC</h3>
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC"></i></h3>
       <div id="fn-by-sloc" class="stat"></div>
     </div>
   </div>
@@ -97,32 +105,20 @@
 
   /**
    * Intersection class
-   * @class Intersection
-   * @memberOf fabric
+   * @class fabric.Intersection
+   * @constructor
    */
   function Intersection(status) {
-    if (arguments.length > 0) {
-      this.init(status);
-    }
+    this.status = status;
+    this.points = [];
   }
 
   fabric.Intersection = Intersection;
 
-  fabric.Intersection.prototype = /** @scope fabric.Intersection.prototype */ {
-
-    /**
-     * Constructor
-     * @method init
-     * @param {String} status
-     */
-    init: function (status) {
-      this.status = status;
-      this.points = [];
-    },
+  fabric.Intersection.prototype = /** @lends fabric.Intersection.prototype */ {
 
     /**
      * Appends a point to intersection
-     * @method appendPoint
      * @param {fabric.Point} point
      */
     appendPoint: function (point) {
@@ -131,7 +127,6 @@
 
     /**
      * Appends points to intersection
-     * @method appendPoints
      * @param {Array} points
      */
     appendPoints: function (points) {
@@ -142,7 +137,6 @@
   /**
    * Checks if one line intersects another
    * @static
-   * @method intersectLineLine
    * @param {fabric.Point} a1
    * @param {fabric.Point} a2
    * @param {fabric.Point} b1
@@ -162,7 +156,7 @@
         result.points.push(new fabric.Point(a1.x + ua * (a2.x - a1.x), a1.y + ua * (a2.y - a1.y)));
       }
       else {
-        result = new Intersection("No Intersection");
+        result = new Intersection();
       }
     }
     else {
@@ -178,7 +172,6 @@
 
   /**
    * Checks if line intersects polygon
-   * @method intersectLinePolygon
    * @static
    * @param {fabric.Point} a1
    * @param {fabric.Point} a2
@@ -186,7 +179,7 @@
    * @return {fabric.Intersection}
    */
   fabric.Intersection.intersectLinePolygon = function(a1,a2,points){
-    var result = new Intersection("No Intersection"),
+    var result = new Intersection(),
         length = points.length;
 
     for (var i = 0; i < length; i++) {
@@ -204,14 +197,13 @@
 
   /**
    * Checks if polygon intersects another polygon
-   * @method intersectPolygonPolygon
    * @static
    * @param {Array} points1
    * @param {Array} points2
    * @return {fabric.Intersection}
    */
   fabric.Intersection.intersectPolygonPolygon = function (points1, points2) {
-    var result = new Intersection("No Intersection"),
+    var result = new Intersection(),
         length = points1.length;
 
     for (var i = 0; i < length; i++) {
@@ -229,8 +221,6 @@
 
   /**
    * Checks if polygon intersects rectangle
-   * @method intersectPolygonRectangle
-
    * @static
    * @param {Array} points
    * @param {Number} r1
@@ -246,7 +236,7 @@
         inter2 = Intersection.intersectLinePolygon(topRight, max, points),
         inter3 = Intersection.intersectLinePolygon(max, bottomLeft, points),
         inter4 = Intersection.intersectLinePolygon(bottomLeft, min, points),
-        result = new Intersection("No Intersection");
+        result = new Intersection();
 
     result.appendPoints(inter1.points);
     result.appendPoints(inter2.points);
@@ -282,7 +272,7 @@
 <script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
 <script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
 <script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
 <script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
-
 </body>
 </html>

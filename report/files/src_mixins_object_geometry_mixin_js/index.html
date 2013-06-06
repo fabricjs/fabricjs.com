@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/bootstrap-3.0.0-wip.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/font-awesome-ie7.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet">
+  <link href="../../assets/css/plato.css" rel="stylesheet">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="brand" href="http://github.com/jsoverson/plato">Plato on Github</a>
+    <ul class="nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>src/mixins/object_geometry.mixin.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="span6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"></i></a></h2>
+      <p class="stat">60.18</p>
+    </div>
+    <div class="span6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC"></i></h2>
+      <p class="stat">391</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="span6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="span6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="span6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty"></i></a></h2>
+      <p class="stat">105.49</p>
+    </div>
+    <div class="span6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs"></i></a></h2>
+      <p class="stat">3.51</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="span6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="span6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="span12">(function() {
+
+  var degreesToRadians = fabric.util.degreesToRadians;
+
+  fabric.util.object.extend(fabric.Object.prototype, /** @lends fabric.Object.prototype */ {
+
+    /**
+     * Checks if object intersects with an area formed by 2 points
+     * @param {Object} pointTL top-left point of area
+     * @param {Object} pointBR bottom-right point of area
+     * @return {Boolean} true if object intersects with an area formed by 2 points
+     */
+    intersectsWithRect: function(pointTL, pointBR) {
+      var oCoords = this.oCoords,
+          tl = new fabric.Point(oCoords.tl.x, oCoords.tl.y),
+          tr = new fabric.Point(oCoords.tr.x, oCoords.tr.y),
+          bl = new fabric.Point(oCoords.bl.x, oCoords.bl.y),
+          br = new fabric.Point(oCoords.br.x, oCoords.br.y);
+
+      var intersection = fabric.Intersection.intersectPolygonRectangle(
+        [tl, tr, br, bl],
+        pointTL,
+        pointBR
+      );
+      return intersection.status === 'Intersection';
+    },
+
+    /**
+     * Checks if object intersects with another object
+     * @param {Object} other Object to test
+     * @return {Boolean} true if object intersects with another object
+     */
+    intersectsWithObject: function(other) {
+      // extracts coords
+      function getCoords(oCoords) {
+        return {
+          tl: new fabric.Point(oCoords.tl.x, oCoords.tl.y),
+          tr: new fabric.Point(oCoords.tr.x, oCoords.tr.y),
+          bl: new fabric.Point(oCoords.bl.x, oCoords.bl.y),
+          br: new fabric.Point(oCoords.br.x, oCoords.br.y)
+        };
+      }
+      var thisCoords = getCoords(this.oCoords),
+          otherCoords = getCoords(other.oCoords);
+
+      var intersection = fabric.Intersection.intersectPolygonPolygon(
+        [thisCoords.tl, thisCoords.tr, thisCoords.br, thisCoords.bl],
+        [otherCoords.tl, otherCoords.tr, otherCoords.br, otherCoords.bl]
+      );
+
+      return intersection.status === 'Intersection';
+    },
+
+    /**
+     * Checks if object is fully contained within area of another object
+     * @param {Object} other Object to test
+     * @return {Boolean} true if object is fully contained within area of another object
+     */
+    isContainedWithinObject: function(other) {
+      var boundingRect = other.getBoundingRect(),
+          point1 = new fabric.Point(boundingRect.left, boundingRect.top),
+          point2 = new fabric.Point(boundingRect.left + boundingRect.width, boundingRect.top + boundingRect.height);
+
+      return this.isContainedWithinRect(point1, point2);
+    },
+
+    /**
+     * Checks if object is fully contained within area formed by 2 points
+     * @param {Object} pointTL top-left point of area
+     * @param {Object} pointBR bottom-right point of area
+     * @return {Boolean} true if object is fully contained within area formed by 2 points
+     */
+    isContainedWithinRect: function(pointTL, pointBR) {
+      var boundingRect = this.getBoundingRect();
+
+      return (
+        boundingRect.left > pointTL.x &&
+        boundingRect.left + boundingRect.width < pointBR.x &&
+        boundingRect.top > pointTL.y &&
+        boundingRect.top + boundingRect.height < pointBR.y
+      );
+    },
+
+    /**
+     * Checks if point is inside the object
+     * @param {Object} point
+     * @return {Boolean} true if point is inside the object
+     */
+    containsPoint: function(point) {
+      var lines = this._getImageLines(this.oCoords),
+          xPoints = this._findCrossPoints(point, lines);
+
+      // if xPoints is odd then point is inside the object
+      return (xPoints !== 0 && xPoints % 2 === 1);
+    },
+
+    /**
+     * Method that returns an object with the object edges in it, given the coordinates of the corners
+     * @private
+     * @param {Object} oCoords Coordinates of the object corners
+     */
+    _getImageLines: function(oCoords) {
+      return {
+        topline: {
+          o: oCoords.tl,
+          d: oCoords.tr
+        },
+        rightline: {
+          o: oCoords.tr,
+          d: oCoords.br
+        },
+        bottomline: {
+          o: oCoords.br,
+          d: oCoords.bl
+        },
+        leftline: {
+          o: oCoords.bl,
+          d: oCoords.tl
+        }
+      };
+    },
+
+    /**
+     * Helper method to determine how many cross points are between the 4 object edges
+     * and the horizontal line determined by a point on canvas
+     * @private
+     * @param {Object} point
+     * @param {Object} oCoords Coordinates of the image being evaluated
+     */
+    _findCrossPoints: function(point, oCoords) {
+      var b1, b2, a1, a2, xi, yi,
+          xcount = 0,
+          iLine;
+
+      for (var lineKey in oCoords) {
+        iLine = oCoords[lineKey];
+        // optimisation 1: line below point. no cross
+        if ((iLine.o.y < point.y) && (iLine.d.y < point.y)) {
+          continue;
+        }
+        // optimisation 2: line above point. no cross
+        if ((iLine.o.y >= point.y) && (iLine.d.y >= point.y)) {
+          continue;
+        }
+        // optimisation 3: vertical line case
+        if ((iLine.o.x === iLine.d.x) && (iLine.o.x >= point.x)) {
+          xi = iLine.o.x;
+          yi = point.y;
+        }
+        // calculate the intersection point
+        else {
+          b1 = 0;
+          b2 = (iLine.d.y - iLine.o.y) / (iLine.d.x - iLine.o.x);
+          a1 = point.y- b1 * point.x;
+          a2 = iLine.o.y - b2 * iLine.o.x;
+
+          xi = - (a1 - a2) / (b1 - b2);
+          yi = a1 + b1 * xi;
+        }
+        // dont count xi < point.x cases
+        if (xi >= point.x) {
+          xcount += 1;
+        }
+        // optimisation 4: specific for square images
+        if (xcount === 2) {
+          break;
+        }
+      }
+      return xcount;
+    },
+
+    /**
+     * Returns width of an object's bounding rectangle
+     * @deprecated since 1.0.4
+     * @return {Number} width value
+     */
+    getBoundingRectWidth: function() {
+      return this.getBoundingRect().width;
+    },
+
+    /**
+     * Returns height of an object's bounding rectangle
+     * @deprecated since 1.0.4
+     * @return {Number} height value
+     */
+    getBoundingRectHeight: function() {
+      return this.getBoundingRect().height;
+    },
+
+    /**
+     * Returns coordinates of object's bounding rectangle (left, top, width, height)
+     * @return {Object} Object with left, top, width, height properties
+     */
+    getBoundingRect: function() {
+      this.oCoords || this.setCoords();
+
+      var xCoords = [this.oCoords.tl.x, this.oCoords.tr.x, this.oCoords.br.x, this.oCoords.bl.x];
+      var minX = fabric.util.array.min(xCoords);
+      var maxX = fabric.util.array.max(xCoords);
+      var width = Math.abs(minX - maxX);
+
+      var yCoords = [this.oCoords.tl.y, this.oCoords.tr.y, this.oCoords.br.y, this.oCoords.bl.y];
+      var minY = fabric.util.array.min(yCoords);
+      var maxY = fabric.util.array.max(yCoords);
+      var height = Math.abs(minY - maxY);
+
+      return {
+        left: minX,
+        top: minY,
+        width: width,
+        height: height
+      };
+    },
+
+    /**
+     * Returns width of an object
+     * @return {Number} width value
+     */
+    getWidth: function() {
+      return this.width * this.scaleX;
+    },
+
+    /**
+     * Returns height of an object
+     * @return {Number} height value
+     */
+    getHeight: function() {
+      return this.height * this.scaleY;
+    },
+
+    /**
+     * Makes sure the scale is valid and modifies it if necessary
+     * @private
+     * @param {Number} value
+     * @return {Number}
+     */
+    _constrainScale: function(value) {
+      if (Math.abs(value) < this.minScaleLimit) {
+        if (value < 0)
+          return -this.minScaleLimit;
+        else
+          return this.minScaleLimit;
+      }
+
+      return value;
+    },
+
+    /**
+     * Scales an object (equally by x and y)
+     * @param value {Number} scale factor
+     * @return {fabric.Object} thisArg
+     * @chainable
+     */
+    scale: function(value) {
+      value = this._constrainScale(value);
+
+      if (value < 0) {
+        this.flipX = !this.flipX;
+        this.flipY = !this.flipY;
+        value *= -1;
+      }
+
+      this.scaleX = value;
+      this.scaleY = value;
+      this.setCoords();
+      return this;
+    },
+
+    /**
+     * Scales an object to a given width, with respect to bounding box (scaling by x/y equally)
+     * @param value {Number} new width value
+     * @return {fabric.Object} thisArg
+     * @chainable
+     */
+    scaleToWidth: function(value) {
+      // adjust to bounding rect factor so that rotated shapes would fit as well
+      var boundingRectFactor = this.getBoundingRectWidth() / this.getWidth();
+      return this.scale(value / this.width / boundingRectFactor);
+    },
+
+    /**
+     * Scales an object to a given height, with respect to bounding box (scaling by x/y equally)
+     * @param value {Number} new height value
+     * @return {fabric.Object} thisArg
+     * @chainable
+     */
+    scaleToHeight: function(value) {
+      // adjust to bounding rect factor so that rotated shapes would fit as well
+      var boundingRectFactor = this.getBoundingRectHeight() / this.getHeight();
+      return this.scale(value / this.height / boundingRectFactor);
+    },
+
+    /**
+     * Sets corner position coordinates based on current angle, width and height
+     * @return {fabric.Object} thisArg
+     * @chainable
+     */
+    setCoords: function() {
+
+      var strokeWidth = this.strokeWidth > 1 ? this.strokeWidth : 0,
+          padding = this.padding,
+          theta = degreesToRadians(this.angle);
+
+      this.currentWidth = (this.width + strokeWidth) * this.scaleX + padding * 2;
+      this.currentHeight = (this.height + strokeWidth) * this.scaleY + padding * 2;
+
+      // If width is negative, make postive. Fixes path selection issue
+      if (this.currentWidth < 0) {
+        this.currentWidth = Math.abs(this.currentWidth);
+      }
+
+      var _hypotenuse = Math.sqrt(
+        Math.pow(this.currentWidth / 2, 2) +
+        Math.pow(this.currentHeight / 2, 2));
+
+      var _angle = Math.atan(isFinite(this.currentHeight / this.currentWidth) ? this.currentHeight / this.currentWidth : 0);
+
+      // offset added for rotate and scale actions
+      var offsetX = Math.cos(_angle + theta) * _hypotenuse,
+          offsetY = Math.sin(_angle + theta) * _hypotenuse,
+          sinTh = Math.sin(theta),
+          cosTh = Math.cos(theta);
+
+      var coords = this.getCenterPoint();
+      var tl = {
+        x: coords.x - offsetX,
+        y: coords.y - offsetY
+      };
+      var tr = {
+        x: tl.x + (this.currentWidth * cosTh),
+        y: tl.y + (this.currentWidth * sinTh)
+      };
+      var br = {
+        x: tr.x - (this.currentHeight * sinTh),
+        y: tr.y + (this.currentHeight * cosTh)
+      };
+      var bl = {
+        x: tl.x - (this.currentHeight * sinTh),
+        y: tl.y + (this.currentHeight * cosTh)
+      };
+      var ml = {
+        x: tl.x - (this.currentHeight/2 * sinTh),
+        y: tl.y + (this.currentHeight/2 * cosTh)
+      };
+      var mt = {
+        x: tl.x + (this.currentWidth/2 * cosTh),
+        y: tl.y + (this.currentWidth/2 * sinTh)
+      };
+      var mr = {
+        x: tr.x - (this.currentHeight/2 * sinTh),
+        y: tr.y + (this.currentHeight/2 * cosTh)
+      };
+      var mb = {
+        x: bl.x + (this.currentWidth/2 * cosTh),
+        y: bl.y + (this.currentWidth/2 * sinTh)
+      };
+      var mtr = {
+        x: mt.x,
+        y: mt.y
+      };
+
+      // debugging
+
+      // setTimeout(function() {
+      //   canvas.contextTop.fillStyle = 'green';
+      //   canvas.contextTop.fillRect(mb.x, mb.y, 3, 3);
+      //   canvas.contextTop.fillRect(bl.x, bl.y, 3, 3);
+      //   canvas.contextTop.fillRect(br.x, br.y, 3, 3);
+      //   canvas.contextTop.fillRect(tl.x, tl.y, 3, 3);
+      //   canvas.contextTop.fillRect(tr.x, tr.y, 3, 3);
+      //   canvas.contextTop.fillRect(ml.x, ml.y, 3, 3);
+      //   canvas.contextTop.fillRect(mr.x, mr.y, 3, 3);
+      //   canvas.contextTop.fillRect(mt.x, mt.y, 3, 3);
+      // }, 50);
+
+      this.oCoords = {
+        // corners
+        tl: tl, tr: tr, br: br, bl: bl,
+        // middle
+        ml: ml, mt: mt, mr: mr, mb: mb,
+        // rotating point
+        mtr: mtr
+      };
+
+      // set coordinates of the draggable boxes in the corners used to scale/rotate the image
+      this._setCornerCoords && this._setCornerCoords();
+
+      return this;
+    }
+  });
+})();</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>

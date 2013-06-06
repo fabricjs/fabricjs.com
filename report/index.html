@@ -12,6 +12,10 @@
   <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
 
+  <script>
+    var __options = {"flags":{"complexity":{"logicalor":true,"switchcase":true,"forin":false,"trycatch":false,"newmi":true},"jshint":{"options":{},"globals":{}}}}
+  </script>
+
   <link href="assets/css/vendor/bootstrap-3.0.0-wip.css" rel="stylesheet">
   <link href="assets/css/vendor/font-awesome.css" rel="stylesheet">
   <link href="assets/css/vendor/font-awesome-ie7.css" rel="stylesheet">
@@ -45,33 +49,47 @@
   </div>
   <div class="row">
     <div class="span6">
-      <h2 class="header">Total SLOC</h2>
-      <p class="stat">12634</p>
+      <h2 class="header">Total/Average Lines <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code" data-original-title="SLOC"></i></h2>
+      <p class="stat">15922 / 248</p>
     </div>
     <div class="span6">
-      <h2 class="header">Average Maintainability</h2>
-      <p class="stat">114.14</p>
+      <h2 class="header">Average Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"></i></a></h2>
+      <p class="stat">66.63</p>
+    </div>
+  </div>
+</div>
+<div class="container historical">
+  <div class="row">
+    <div class="span6">
+      <div id="chart_historical_sloc" class="chart js-chart"></div>
+    </div>
+    <div class="span6">
+      <div id="chart_historical_maint" class="chart js-chart"></div>
     </div>
   </div>
 </div>
 
 
-<div class="container">
+<div class="container overview">
   <div class="row">
-    <h2 class="span12">Maintainability</h2>
-    <div class="span12"><div id='chart_maintainability' class='chart'></div></div>
+    <h2 class="span12">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"></i></a></h2>
+    <div class="span12"><div id='chart_maintainability' class='chart js-chart'></div></div>
   </div>
   <div class="row">
-    <h2 class="span12">Lines of code</h2>
-    <div class="span12"><div id='chart_sloc' class='chart'></div></div>
+    <h2 class="span12">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code" data-original-title="SLOC"></i></h2>
+    <div class="span12"><div id='chart_sloc' class='chart js-chart'></div></div>
   </div>
   <div class="row">
-    <h2 class="span12">Estimated number of bugs</h2>
-    <div class="span12"><div id='chart_bugs' class='chart'></div></div>
+    <h2 class="span12">Estimated errors in implementation <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs"></i></a></h2>
+    <div class="span12"><div id='chart_bugs' class='chart js-chart'></div></div>
   </div>
+  
+  <div class="row">
+    <h2 class="span12">Lint errors</h2>
+    <div class="span12"><div id='chart_lint' class='chart js-chart'></div></div>
+  </div>
+  
 </div>
-
-
 
 <div class="container">
   <div class="row">
@@ -80,214 +98,708 @@
   <div class="row">
     <ul class="file-list list-unstyled">
       
-      <li class="span12" id="plato-file-0">
-        <span class="fade-left plato-file-fade visible-desktop"></span>
-        <span class="span4 plato-file"><a class="plato-file-link" href="./files/canvas_class_js/index.html">canvas.class.js</a></span>
-        <span class="span8 plato-file-chart"></span>
+      <li class="span12">
+        <span class="fade-left fadeout visible-desktop"></span>
+        <span class="span4 file"><a class="file-link" href="./files/src_brushes_base_brush_class_js/index.html">src/brushes/base_brush.class.js</a></span>
+        <span class="span8 file-chart js-file-chart"
+              data-lint="0"
+              data-sloc="92"
+              data-bugs="0.26"
+              data-complexity="2"
+          ></span>
       </li>
       
-      <li class="span12" id="plato-file-1">
-        <span class="fade-left plato-file-fade visible-desktop"></span>
-        <span class="span4 plato-file"><a class="plato-file-link" href="./files/canvas_animation_mixin_js/index.html">canvas_animation.mixin.js</a></span>
-        <span class="span8 plato-file-chart"></span>
+      <li class="span12">
+        <span class="fade-left fadeout visible-desktop"></span>
+        <span class="span4 file"><a class="file-link" href="./files/src_brushes_circle_brush_class_js/index.html">src/brushes/circle_brush.class.js</a></span>
+        <span class="span8 file-chart js-file-chart"
+              data-lint="0"
+              data-sloc="95"
+              data-bugs="0.74"
+              data-complexity="3"
+          ></span>
       </li>
       
-      <li class="span12" id="plato-file-2">
-        <span class="fade-left plato-file-fade visible-desktop"></span>
-        <span class="span4 plato-file"><a class="plato-file-link" href="./files/canvas_events_mixin_js/index.html">canvas_events.mixin.js</a></span>
-        <span class="span8 plato-file-chart"></span>
+      <li class="span12">
+        <span class="fade-left fadeout visible-desktop"></span>
+        <span class="span4 file"><a class="file-link" href="./files/src_brushes_pattern_brush_class_js/index.html">src/brushes/pattern_brush.class.js</a></span>
+        <span class="span8 file-chart js-file-chart"
+              data-lint="0"
+              data-sloc="50"
+              data-bugs="0.39"
+              data-complexity="3"
+          ></span>
       </li>
       
-      <li class="span12" id="plato-file-3">
-        <span class="fade-left plato-file-fade visible-desktop"></span>
-        <span class="span4 plato-file"><a class="plato-file-link" href="./files/canvas_gestures_mixin_js/index.html">canvas_gestures.mixin.js</a></span>
-        <span class="span8 plato-file-chart"></span>
+      <li class="span12">
+        <span class="fade-left fadeout visible-desktop"></span>
+        <span class="span4 file"><a class="file-link" href="./files/src_brushes_pencil_brush_class_js/index.html">src/brushes/pencil_brush.class.js</a></span>
+        <span class="span8 file-chart js-file-chart"
+              data-lint="0"
+              data-sloc="264"
+              data-bugs="2.16"
+              data-complexity="7"
+          ></span>
       </li>
       
-      <li class="span12" id="plato-file-4">
-        <span class="fade-left plato-file-fade visible-desktop"></span>
-        <span class="span4 plato-file"><a class="plato-file-link" href="./files/canvas_serialization_mixin_js/index.html">canvas_serialization.mixin.js</a></span>
-        <span class="span8 plato-file-chart"></span>
+      <li class="span12">
+        <span class="fade-left fadeout visible-desktop"></span>
+        <span class="span4 file"><a class="file-link" href="./files/src_brushes_spray_brush_class_js/index.html">src/brushes/spray_brush.class.js</a></span>
+        <span class="span8 file-chart js-file-chart"
+              data-lint="0"
+              data-sloc="153"
+              data-bugs="1.10"
+              data-complexity="9"
+          ></span>
       </li>
       
-      <li class="span12" id="plato-file-5">
-        <span class="fade-left plato-file-fade visible-desktop"></span>
-        <span class="span4 plato-file"><a class="plato-file-link" href="./files/circle_class_js/index.html">circle.class.js</a></span>
-        <span class="span8 plato-file-chart"></span>
+      <li class="span12">
+        <span class="fade-left fadeout visible-desktop"></span>
+        <span class="span4 file"><a class="file-link" href="./files/src_canvas_class_js/index.html">src/canvas.class.js</a></span>
+        <span class="span8 file-chart js-file-chart"
+              data-lint="9"
+              data-sloc="992"
+              data-bugs="8.74"
+              data-complexity="113"
+          ></span>
       </li>
       
-      <li class="span12" id="plato-file-6">
-        <span class="fade-left plato-file-fade visible-desktop"></span>
-        <span class="span4 plato-file"><a class="plato-file-link" href="./files/color_class_js/index.html">color.class.js</a></span>
-        <span class="span8 plato-file-chart"></span>
+      <li class="span12">
+        <span class="fade-left fadeout visible-desktop"></span>
+        <span class="span4 file"><a class="file-link" href="./files/src_color_class_js/index.html">src/color.class.js</a></span>
+        <span class="span8 file-chart js-file-chart"
+              data-lint="0"
+              data-sloc="450"
+              data-bugs="3.72"
+              data-complexity="45"
+          ></span>
       </li>
       
-      <li class="span12" id="plato-file-7">
-        <span class="fade-left plato-file-fade visible-desktop"></span>
-        <span class="span4 plato-file"><a class="plato-file-link" href="./files/ellipse_class_js/index.html">ellipse.class.js</a></span>
-        <span class="span8 plato-file-chart"></span>
+      <li class="span12">
+        <span class="fade-left fadeout visible-desktop"></span>
+        <span class="span4 file"><a class="file-link" href="./files/src_filters_brightness_filter_class_js/index.html">src/filters/brightness_filter.class.js</a></span>
+        <span class="span8 file-chart js-file-chart"
+              data-lint="0"
+              data-sloc="66"
+              data-bugs="0.32"
+              data-complexity="5"
+          ></span>
       </li>
       
-      <li class="span12" id="plato-file-8">
-        <span class="fade-left plato-file-fade visible-desktop"></span>
-        <span class="span4 plato-file"><a class="plato-file-link" href="./files/freedrawing_class_js/index.html">freedrawing.class.js</a></span>
-        <span class="span8 plato-file-chart"></span>
+      <li class="span12">
+        <span class="fade-left fadeout visible-desktop"></span>
+        <span class="span4 file"><a class="file-link" href="./files/src_filters_convolute_filter_class_js/index.html">src/filters/convolute_filter.class.js</a></span>
+        <span class="span8 file-chart js-file-chart"
+              data-lint="0"
+              data-sloc="118"
+              data-bugs="0.98"
+              data-complexity="10"
+          ></span>
       </li>
       
-      <li class="span12" id="plato-file-9">
-        <span class="fade-left plato-file-fade visible-desktop"></span>
-        <span class="span4 plato-file"><a class="plato-file-link" href="./files/gradient_class_js/index.html">gradient.class.js</a></span>
-        <span class="span8 plato-file-chart"></span>
+      <li class="span12">
+        <span class="fade-left fadeout visible-desktop"></span>
+        <span class="span4 file"><a class="file-link" href="./files/src_filters_gradienttransparency_filter_class_js/index.html">src/filters/gradienttransparency_filter.class.js</a></span>
+        <span class="span8 file-chart js-file-chart"
+              data-lint="0"
+              data-sloc="65"
+              data-bugs="0.33"
+              data-complexity="5"
+          ></span>
       </li>
       
-      <li class="span12" id="plato-file-10">
-        <span class="fade-left plato-file-fade visible-desktop"></span>
-        <span class="span4 plato-file"><a class="plato-file-link" href="./files/group_class_js/index.html">group.class.js</a></span>
-        <span class="span8 plato-file-chart"></span>
+      <li class="span12">
+        <span class="fade-left fadeout visible-desktop"></span>
+        <span class="span4 file"><a class="file-link" href="./files/src_filters_grayscale_filter_class_js/index.html">src/filters/grayscale_filter.class.js</a></span>
+        <span class="span8 file-chart js-file-chart"
+              data-lint="0"
+              data-sloc="57"
+              data-bugs="0.31"
+              data-complexity="3"
+          ></span>
       </li>
       
-      <li class="span12" id="plato-file-11">
-        <span class="fade-left plato-file-fade visible-desktop"></span>
-        <span class="span4 plato-file"><a class="plato-file-link" href="./files/image_class_js/index.html">image.class.js</a></span>
-        <span class="span8 plato-file-chart"></span>
+      <li class="span12">
+        <span class="fade-left fadeout visible-desktop"></span>
+        <span class="span4 file"><a class="file-link" href="./files/src_filters_invert_filter_class_js/index.html">src/filters/invert_filter.class.js</a></span>
+        <span class="span8 file-chart js-file-chart"
+              data-lint="0"
+              data-sloc="53"
+              data-bugs="0.29"
+              data-complexity="3"
+          ></span>
       </li>
       
-      <li class="span12" id="plato-file-12">
-        <span class="fade-left plato-file-fade visible-desktop"></span>
-        <span class="span4 plato-file"><a class="plato-file-link" href="./files/image_filters_js/index.html">image_filters.js</a></span>
-        <span class="span8 plato-file-chart"></span>
+      <li class="span12">
+        <span class="fade-left fadeout visible-desktop"></span>
+        <span class="span4 file"><a class="file-link" href="./files/src_filters_noise_filter_class_js/index.html">src/filters/noise_filter.class.js</a></span>
+        <span class="span8 file-chart js-file-chart"
+              data-lint="0"
+              data-sloc="69"
+              data-bugs="0.35"
+              data-complexity="5"
+          ></span>
       </li>
       
-      <li class="span12" id="plato-file-13">
-        <span class="fade-left plato-file-fade visible-desktop"></span>
-        <span class="span4 plato-file"><a class="plato-file-link" href="./files/intersection_class_js/index.html">intersection.class.js</a></span>
-        <span class="span8 plato-file-chart"></span>
+      <li class="span12">
+        <span class="fade-left fadeout visible-desktop"></span>
+        <span class="span4 file"><a class="file-link" href="./files/src_filters_pixelate_filter_class_js/index.html">src/filters/pixelate_filter.class.js</a></span>
+        <span class="span8 file-chart js-file-chart"
+              data-lint="0"
+              data-sloc="94"
+              data-bugs="0.56"
+              data-complexity="8"
+          ></span>
       </li>
       
-      <li class="span12" id="plato-file-14">
-        <span class="fade-left plato-file-fade visible-desktop"></span>
-        <span class="span4 plato-file"><a class="plato-file-link" href="./files/line_class_js/index.html">line.class.js</a></span>
-        <span class="span8 plato-file-chart"></span>
+      <li class="span12">
+        <span class="fade-left fadeout visible-desktop"></span>
+        <span class="span4 file"><a class="file-link" href="./files/src_filters_removewhite_filter_class_js/index.html">src/filters/removewhite_filter.class.js</a></span>
+        <span class="span8 file-chart js-file-chart"
+              data-lint="0"
+              data-sloc="82"
+              data-bugs="0.49"
+              data-complexity="7"
+          ></span>
       </li>
       
-      <li class="span12" id="plato-file-15">
-        <span class="fade-left plato-file-fade visible-desktop"></span>
-        <span class="span4 plato-file"><a class="plato-file-link" href="./files/log_js/index.html">log.js</a></span>
-        <span class="span8 plato-file-chart"></span>
+      <li class="span12">
+        <span class="fade-left fadeout visible-desktop"></span>
+        <span class="span4 file"><a class="file-link" href="./files/src_filters_sepia2_filter_class_js/index.html">src/filters/sepia2_filter.class.js</a></span>
+        <span class="span8 file-chart js-file-chart"
+              data-lint="0"
+              data-sloc="57"
+              data-bugs="0.39"
+              data-complexity="3"
+          ></span>
       </li>
       
-      <li class="span12" id="plato-file-16">
-        <span class="fade-left plato-file-fade visible-desktop"></span>
-        <span class="span4 plato-file"><a class="plato-file-link" href="./files/node_js/index.html">node.js</a></span>
-        <span class="span8 plato-file-chart"></span>
+      <li class="span12">
+        <span class="fade-left fadeout visible-desktop"></span>
+        <span class="span4 file"><a class="file-link" href="./files/src_filters_sepia_filter_class_js/index.html">src/filters/sepia_filter.class.js</a></span>
+        <span class="span8 file-chart js-file-chart"
+              data-lint="0"
+              data-sloc="54"
+              data-bugs="0.32"
+              data-complexity="3"
+          ></span>
       </li>
       
-      <li class="span12" id="plato-file-17">
-        <span class="fade-left plato-file-fade visible-desktop"></span>
-        <span class="span4 plato-file"><a class="plato-file-link" href="./files/object_class_js/index.html">object.class.js</a></span>
-        <span class="span8 plato-file-chart"></span>
+      <li class="span12">
+        <span class="fade-left fadeout visible-desktop"></span>
+        <span class="span4 file"><a class="file-link" href="./files/src_filters_tint_filter_class_js/index.html">src/filters/tint_filter.class.js</a></span>
+        <span class="span8 file-chart js-file-chart"
+              data-lint="0"
+              data-sloc="76"
+              data-bugs="0.46"
+              data-complexity="6"
+          ></span>
       </li>
       
-      <li class="span12" id="plato-file-18">
-        <span class="fade-left plato-file-fade visible-desktop"></span>
-        <span class="span4 plato-file"><a class="plato-file-link" href="./files/object_geometry_mixin_js/index.html">object_geometry.mixin.js</a></span>
-        <span class="span8 plato-file-chart"></span>
+      <li class="span12">
+        <span class="fade-left fadeout visible-desktop"></span>
+        <span class="span4 file"><a class="file-link" href="./files/src_gradient_class_js/index.html">src/gradient.class.js</a></span>
+        <span class="span8 file-chart js-file-chart"
+              data-lint="2"
+              data-sloc="363"
+              data-bugs="3.09"
+              data-complexity="67"
+          ></span>
       </li>
       
-      <li class="span12" id="plato-file-19">
-        <span class="fade-left plato-file-fade visible-desktop"></span>
-        <span class="span4 plato-file"><a class="plato-file-link" href="./files/object_interactivity_mixin_js/index.html">object_interactivity.mixin.js</a></span>
-        <span class="span8 plato-file-chart"></span>
+      <li class="span12">
+        <span class="fade-left fadeout visible-desktop"></span>
+        <span class="span4 file"><a class="file-link" href="./files/src_intersection_class_js/index.html">src/intersection.class.js</a></span>
+        <span class="span8 file-chart js-file-chart"
+              data-lint="0"
+              data-sloc="160"
+              data-bugs="1.25"
+              data-complexity="13"
+          ></span>
       </li>
       
-      <li class="span12" id="plato-file-20">
-        <span class="fade-left plato-file-fade visible-desktop"></span>
-        <span class="span4 plato-file"><a class="plato-file-link" href="./files/object_origin_mixin_js/index.html">object_origin.mixin.js</a></span>
-        <span class="span8 plato-file-chart"></span>
+      <li class="span12">
+        <span class="fade-left fadeout visible-desktop"></span>
+        <span class="span4 file"><a class="file-link" href="./files/src_log_js/index.html">src/log.js</a></span>
+        <span class="span8 file-chart js-file-chart"
+              data-lint="0"
+              data-sloc="20"
+              data-bugs="0.10"
+              data-complexity="4"
+          ></span>
       </li>
       
-      <li class="span12" id="plato-file-21">
-        <span class="fade-left plato-file-fade visible-desktop"></span>
-        <span class="span4 plato-file"><a class="plato-file-link" href="./files/object_straightening_mixin_js/index.html">object_straightening.mixin.js</a></span>
-        <span class="span8 plato-file-chart"></span>
+      <li class="span12">
+        <span class="fade-left fadeout visible-desktop"></span>
+        <span class="span4 file"><a class="file-link" href="./files/src_mixins_canvas_animation_mixin_js/index.html">src/mixins/canvas_animation.mixin.js</a></span>
+        <span class="span8 file-chart js-file-chart"
+              data-lint="0"
+              data-sloc="110"
+              data-bugs="0.55"
+              data-complexity="10"
+          ></span>
       </li>
       
-      <li class="span12" id="plato-file-22">
-        <span class="fade-left plato-file-fade visible-desktop"></span>
-        <span class="span4 plato-file"><a class="plato-file-link" href="./files/observable_mixin_js/index.html">observable.mixin.js</a></span>
-        <span class="span8 plato-file-chart"></span>
+      <li class="span12">
+        <span class="fade-left fadeout visible-desktop"></span>
+        <span class="span4 file"><a class="file-link" href="./files/src_mixins_canvas_dataurl_exporter_mixin_js/index.html">src/mixins/canvas_dataurl_exporter.mixin.js</a></span>
+        <span class="span8 file-chart js-file-chart"
+              data-lint="4"
+              data-sloc="137"
+              data-bugs="0.84"
+              data-complexity="13"
+          ></span>
       </li>
       
-      <li class="span12" id="plato-file-23">
-        <span class="fade-left plato-file-fade visible-desktop"></span>
-        <span class="span4 plato-file"><a class="plato-file-link" href="./files/parser_js/index.html">parser.js</a></span>
-        <span class="span8 plato-file-chart"></span>
+      <li class="span12">
+        <span class="fade-left fadeout visible-desktop"></span>
+        <span class="span4 file"><a class="file-link" href="./files/src_mixins_canvas_events_mixin_js/index.html">src/mixins/canvas_events.mixin.js</a></span>
+        <span class="span8 file-chart js-file-chart"
+              data-lint="20"
+              data-sloc="435"
+              data-bugs="4.18"
+              data-complexity="45"
+          ></span>
       </li>
       
-      <li class="span12" id="plato-file-24">
-        <span class="fade-left plato-file-fade visible-desktop"></span>
-        <span class="span4 plato-file"><a class="plato-file-link" href="./files/path_class_js/index.html">path.class.js</a></span>
-        <span class="span8 plato-file-chart"></span>
+      <li class="span12">
+        <span class="fade-left fadeout visible-desktop"></span>
+        <span class="span4 file"><a class="file-link" href="./files/src_mixins_canvas_gestures_mixin_js/index.html">src/mixins/canvas_gestures.mixin.js</a></span>
+        <span class="span8 file-chart js-file-chart"
+              data-lint="2"
+              data-sloc="75"
+              data-bugs="0.53"
+              data-complexity="14"
+          ></span>
       </li>
       
-      <li class="span12" id="plato-file-25">
-        <span class="fade-left plato-file-fade visible-desktop"></span>
-        <span class="span4 plato-file"><a class="plato-file-link" href="./files/path_group_class_js/index.html">path_group.class.js</a></span>
-        <span class="span8 plato-file-chart"></span>
+      <li class="span12">
+        <span class="fade-left fadeout visible-desktop"></span>
+        <span class="span4 file"><a class="file-link" href="./files/src_mixins_canvas_serialization_mixin_js/index.html">src/mixins/canvas_serialization.mixin.js</a></span>
+        <span class="span8 file-chart js-file-chart"
+              data-lint="9"
+              data-sloc="313"
+              data-bugs="2.00"
+              data-complexity="29"
+          ></span>
       </li>
       
-      <li class="span12" id="plato-file-26">
-        <span class="fade-left plato-file-fade visible-desktop"></span>
-        <span class="span4 plato-file"><a class="plato-file-link" href="./files/point_class_js/index.html">point.class.js</a></span>
-        <span class="span8 plato-file-chart"></span>
+      <li class="span12">
+        <span class="fade-left fadeout visible-desktop"></span>
+        <span class="span4 file"><a class="file-link" href="./files/src_mixins_collection_mixin_js/index.html">src/mixins/collection.mixin.js</a></span>
+        <span class="span8 file-chart js-file-chart"
+              data-lint="3"
+              data-sloc="134"
+              data-bugs="0.53"
+              data-complexity="6"
+          ></span>
       </li>
       
-      <li class="span12" id="plato-file-27">
-        <span class="fade-left plato-file-fade visible-desktop"></span>
-        <span class="span4 plato-file"><a class="plato-file-link" href="./files/polygon_class_js/index.html">polygon.class.js</a></span>
-        <span class="span8 plato-file-chart"></span>
+      <li class="span12">
+        <span class="fade-left fadeout visible-desktop"></span>
+        <span class="span4 file"><a class="file-link" href="./files/src_mixins_object_geometry_mixin_js/index.html">src/mixins/object_geometry.mixin.js</a></span>
+        <span class="span8 file-chart js-file-chart"
+              data-lint="2"
+              data-sloc="391"
+              data-bugs="3.51"
+              data-complexity="13"
+          ></span>
       </li>
       
-      <li class="span12" id="plato-file-28">
-        <span class="fade-left plato-file-fade visible-desktop"></span>
-        <span class="span4 plato-file"><a class="plato-file-link" href="./files/polyline_class_js/index.html">polyline.class.js</a></span>
-        <span class="span8 plato-file-chart"></span>
+      <li class="span12">
+        <span class="fade-left fadeout visible-desktop"></span>
+        <span class="span4 file"><a class="file-link" href="./files/src_mixins_object_interactivity_mixin_js/index.html">src/mixins/object_interactivity.mixin.js</a></span>
+        <span class="span8 file-chart js-file-chart"
+              data-lint="10"
+              data-sloc="415"
+              data-bugs="4.90"
+              data-complexity="40"
+          ></span>
       </li>
       
-      <li class="span12" id="plato-file-29">
-        <span class="fade-left plato-file-fade visible-desktop"></span>
-        <span class="span4 plato-file"><a class="plato-file-link" href="./files/rect_class_js/index.html">rect.class.js</a></span>
-        <span class="span8 plato-file-chart"></span>
+      <li class="span12">
+        <span class="fade-left fadeout visible-desktop"></span>
+        <span class="span4 file"><a class="file-link" href="./files/src_mixins_object_origin_mixin_js/index.html">src/mixins/object_origin.mixin.js</a></span>
+        <span class="span8 file-chart js-file-chart"
+              data-lint="0"
+              data-sloc="217"
+              data-bugs="1.50"
+              data-complexity="24"
+          ></span>
       </li>
       
-      <li class="span12" id="plato-file-30">
-        <span class="fade-left plato-file-fade visible-desktop"></span>
-        <span class="span4 plato-file"><a class="plato-file-link" href="./files/scout_js/index.html">scout.js</a></span>
-        <span class="span8 plato-file-chart"></span>
+      <li class="span12">
+        <span class="fade-left fadeout visible-desktop"></span>
+        <span class="span4 file"><a class="file-link" href="./files/src_mixins_object_straightening_mixin_js/index.html">src/mixins/object_straightening.mixin.js</a></span>
+        <span class="span8 file-chart js-file-chart"
+              data-lint="0"
+              data-sloc="89"
+              data-bugs="0.42"
+              data-complexity="5"
+          ></span>
       </li>
       
-      <li class="span12" id="plato-file-31">
-        <span class="fade-left plato-file-fade visible-desktop"></span>
-        <span class="span4 plato-file"><a class="plato-file-link" href="./files/stateful_js/index.html">stateful.js</a></span>
-        <span class="span8 plato-file-chart"></span>
+      <li class="span12">
+        <span class="fade-left fadeout visible-desktop"></span>
+        <span class="span4 file"><a class="file-link" href="./files/src_mixins_observable_mixin_js/index.html">src/mixins/observable.mixin.js</a></span>
+        <span class="span8 file-chart js-file-chart"
+              data-lint="0"
+              data-sloc="83"
+              data-bugs="0.33"
+              data-complexity="11"
+          ></span>
       </li>
       
-      <li class="span12" id="plato-file-32">
-        <span class="fade-left plato-file-fade visible-desktop"></span>
-        <span class="span4 plato-file"><a class="plato-file-link" href="./files/static_canvas_class_js/index.html">static_canvas.class.js</a></span>
-        <span class="span8 plato-file-chart"></span>
+      <li class="span12">
+        <span class="fade-left fadeout visible-desktop"></span>
+        <span class="span4 file"><a class="file-link" href="./files/src_mixins_stateful_mixin_js/index.html">src/mixins/stateful.mixin.js</a></span>
+        <span class="span8 file-chart js-file-chart"
+              data-lint="0"
+              data-sloc="42"
+              data-bugs="0.18"
+              data-complexity="2"
+          ></span>
       </li>
       
-      <li class="span12" id="plato-file-33">
-        <span class="fade-left plato-file-fade visible-desktop"></span>
-        <span class="span4 plato-file"><a class="plato-file-link" href="./files/text_class_js/index.html">text.class.js</a></span>
-        <span class="span8 plato-file-chart"></span>
+      <li class="span12">
+        <span class="fade-left fadeout visible-desktop"></span>
+        <span class="span4 file"><a class="file-link" href="./files/src_node_js/index.html">src/node.js</a></span>
+        <span class="span8 file-chart js-file-chart"
+              data-lint="4"
+              data-sloc="185"
+              data-bugs="1.72"
+              data-complexity="17"
+          ></span>
       </li>
       
-      <li class="span12" id="plato-file-34">
-        <span class="fade-left plato-file-fade visible-desktop"></span>
-        <span class="span4 plato-file"><a class="plato-file-link" href="./files/triangle_class_js/index.html">triangle.class.js</a></span>
-        <span class="span8 plato-file-chart"></span>
+      <li class="span12">
+        <span class="fade-left fadeout visible-desktop"></span>
+        <span class="span4 file"><a class="file-link" href="./files/src_parser_js/index.html">src/parser.js</a></span>
+        <span class="span8 file-chart js-file-chart"
+              data-lint="7"
+              data-sloc="871"
+              data-bugs="7.63"
+              data-complexity="82"
+          ></span>
+      </li>
+      
+      <li class="span12">
+        <span class="fade-left fadeout visible-desktop"></span>
+        <span class="span4 file"><a class="file-link" href="./files/src_pattern_class_js/index.html">src/pattern.class.js</a></span>
+        <span class="span8 file-chart js-file-chart"
+              data-lint="2"
+              data-sloc="94"
+              data-bugs="0.43"
+              data-complexity="11"
+          ></span>
+      </li>
+      
+      <li class="span12">
+        <span class="fade-left fadeout visible-desktop"></span>
+        <span class="span4 file"><a class="file-link" href="./files/src_point_class_js/index.html">src/point.class.js</a></span>
+        <span class="span8 file-chart js-file-chart"
+              data-lint="0"
+              data-sloc="288"
+              data-bugs="1.35"
+              data-complexity="4"
+          ></span>
+      </li>
+      
+      <li class="span12">
+        <span class="fade-left fadeout visible-desktop"></span>
+        <span class="span4 file"><a class="file-link" href="./files/src_shadow_class_js/index.html">src/shadow.class.js</a></span>
+        <span class="span8 file-chart js-file-chart"
+              data-lint="0"
+              data-sloc="66"
+              data-bugs="0.12"
+              data-complexity="1"
+          ></span>
+      </li>
+      
+      <li class="span12">
+        <span class="fade-left fadeout visible-desktop"></span>
+        <span class="span4 file"><a class="file-link" href="./files/src_shapes_circle_class_js/index.html">src/shapes/circle.class.js</a></span>
+        <span class="span8 file-chart js-file-chart"
+              data-lint="1"
+              data-sloc="185"
+              data-bugs="1.15"
+              data-complexity="19"
+          ></span>
+      </li>
+      
+      <li class="span12">
+        <span class="fade-left fadeout visible-desktop"></span>
+        <span class="span4 file"><a class="file-link" href="./files/src_shapes_ellipse_class_js/index.html">src/shapes/ellipse.class.js</a></span>
+        <span class="span8 file-chart js-file-chart"
+              data-lint="1"
+              data-sloc="187"
+              data-bugs="1.18"
+              data-complexity="22"
+          ></span>
+      </li>
+      
+      <li class="span12">
+        <span class="fade-left fadeout visible-desktop"></span>
+        <span class="span4 file"><a class="file-link" href="./files/src_shapes_group_class_js/index.html">src/shapes/group.class.js</a></span>
+        <span class="span8 file-chart js-file-chart"
+              data-lint="3"
+              data-sloc="454"
+              data-bugs="3.29"
+              data-complexity="28"
+          ></span>
+      </li>
+      
+      <li class="span12">
+        <span class="fade-left fadeout visible-desktop"></span>
+        <span class="span4 file"><a class="file-link" href="./files/src_shapes_image_class_js/index.html">src/shapes/image.class.js</a></span>
+        <span class="span8 file-chart js-file-chart"
+              data-lint="14"
+              data-sloc="480"
+              data-bugs="3.75"
+              data-complexity="29"
+          ></span>
+      </li>
+      
+      <li class="span12">
+        <span class="fade-left fadeout visible-desktop"></span>
+        <span class="span4 file"><a class="file-link" href="./files/src_shapes_line_class_js/index.html">src/shapes/line.class.js</a></span>
+        <span class="span8 file-chart js-file-chart"
+              data-lint="1"
+              data-sloc="219"
+              data-bugs="1.81"
+              data-complexity="29"
+          ></span>
+      </li>
+      
+      <li class="span12">
+        <span class="fade-left fadeout visible-desktop"></span>
+        <span class="span4 file"><a class="file-link" href="./files/src_shapes_object_class_js/index.html">src/shapes/object.class.js</a></span>
+        <span class="span8 file-chart js-file-chart"
+              data-lint="15"
+              data-sloc="1201"
+              data-bugs="8.02"
+              data-complexity="94"
+          ></span>
+      </li>
+      
+      <li class="span12">
+        <span class="fade-left fadeout visible-desktop"></span>
+        <span class="span4 file"><a class="file-link" href="./files/src_shapes_path_class_js/index.html">src/shapes/path.class.js</a></span>
+        <span class="span8 file-chart js-file-chart"
+              data-lint="10"
+              data-sloc="709"
+              data-bugs="6.10"
+              data-complexity="85"
+          ></span>
+      </li>
+      
+      <li class="span12">
+        <span class="fade-left fadeout visible-desktop"></span>
+        <span class="span4 file"><a class="file-link" href="./files/src_shapes_path_group_class_js/index.html">src/shapes/path_group.class.js</a></span>
+        <span class="span8 file-chart js-file-chart"
+              data-lint="2"
+              data-sloc="234"
+              data-bugs="1.55"
+              data-complexity="21"
+          ></span>
+      </li>
+      
+      <li class="span12">
+        <span class="fade-left fadeout visible-desktop"></span>
+        <span class="span4 file"><a class="file-link" href="./files/src_shapes_polygon_class_js/index.html">src/shapes/polygon.class.js</a></span>
+        <span class="span8 file-chart js-file-chart"
+              data-lint="1"
+              data-sloc="210"
+              data-bugs="1.64"
+              data-complexity="23"
+          ></span>
+      </li>
+      
+      <li class="span12">
+        <span class="fade-left fadeout visible-desktop"></span>
+        <span class="span4 file"><a class="file-link" href="./files/src_shapes_polyline_class_js/index.html">src/shapes/polyline.class.js</a></span>
+        <span class="span8 file-chart js-file-chart"
+              data-lint="1"
+              data-sloc="182"
+              data-bugs="1.34"
+              data-complexity="18"
+          ></span>
+      </li>
+      
+      <li class="span12">
+        <span class="fade-left fadeout visible-desktop"></span>
+        <span class="span4 file"><a class="file-link" href="./files/src_shapes_rect_class_js/index.html">src/shapes/rect.class.js</a></span>
+        <span class="span8 file-chart js-file-chart"
+              data-lint="0"
+              data-sloc="262"
+              data-bugs="2.18"
+              data-complexity="26"
+          ></span>
+      </li>
+      
+      <li class="span12">
+        <span class="fade-left fadeout visible-desktop"></span>
+        <span class="span4 file"><a class="file-link" href="./files/src_shapes_text_class_js/index.html">src/shapes/text.class.js</a></span>
+        <span class="span8 file-chart js-file-chart"
+              data-lint="10"
+              data-sloc="928"
+              data-bugs="7.82"
+              data-complexity="88"
+          ></span>
+      </li>
+      
+      <li class="span12">
+        <span class="fade-left fadeout visible-desktop"></span>
+        <span class="span4 file"><a class="file-link" href="./files/src_shapes_text_cufon_js/index.html">src/shapes/text.cufon.js</a></span>
+        <span class="span8 file-chart js-file-chart"
+              data-lint="0"
+              data-sloc="75"
+              data-bugs="0.58"
+              data-complexity="4"
+          ></span>
+      </li>
+      
+      <li class="span12">
+        <span class="fade-left fadeout visible-desktop"></span>
+        <span class="span4 file"><a class="file-link" href="./files/src_shapes_triangle_class_js/index.html">src/shapes/triangle.class.js</a></span>
+        <span class="span8 file-chart js-file-chart"
+              data-lint="0"
+              data-sloc="128"
+              data-bugs="0.76"
+              data-complexity="9"
+          ></span>
+      </li>
+      
+      <li class="span12">
+        <span class="fade-left fadeout visible-desktop"></span>
+        <span class="span4 file"><a class="file-link" href="./files/src_static_canvas_class_js/index.html">src/static_canvas.class.js</a></span>
+        <span class="span8 file-chart js-file-chart"
+              data-lint="11"
+              data-sloc="1056"
+              data-bugs="7.64"
+              data-complexity="98"
+          ></span>
+      </li>
+      
+      <li class="span12">
+        <span class="fade-left fadeout visible-desktop"></span>
+        <span class="span4 file"><a class="file-link" href="./files/src_util_anim_ease_js/index.html">src/util/anim_ease.js</a></span>
+        <span class="span8 file-chart js-file-chart"
+              data-lint="0"
+              data-sloc="331"
+              data-bugs="3.11"
+              data-complexity="32"
+          ></span>
+      </li>
+      
+      <li class="span12">
+        <span class="fade-left fadeout visible-desktop"></span>
+        <span class="span4 file"><a class="file-link" href="./files/src_util_dom_event_js/index.html">src/util/dom_event.js</a></span>
+        <span class="span8 file-chart js-file-chart"
+              data-lint="1"
+              data-sloc="242"
+              data-bugs="2.34"
+              data-complexity="48"
+          ></span>
+      </li>
+      
+      <li class="span12">
+        <span class="fade-left fadeout visible-desktop"></span>
+        <span class="span4 file"><a class="file-link" href="./files/src_util_dom_misc_js/index.html">src/util/dom_misc.js</a></span>
+        <span class="span8 file-chart js-file-chart"
+              data-lint="5"
+              data-sloc="255"
+              data-bugs="1.77"
+              data-complexity="35"
+          ></span>
+      </li>
+      
+      <li class="span12">
+        <span class="fade-left fadeout visible-desktop"></span>
+        <span class="span4 file"><a class="file-link" href="./files/src_util_dom_request_js/index.html">src/util/dom_request.js</a></span>
+        <span class="span8 file-chart js-file-chart"
+              data-lint="1"
+              data-sloc="71"
+              data-bugs="0.39"
+              data-complexity="12"
+          ></span>
+      </li>
+      
+      <li class="span12">
+        <span class="fade-left fadeout visible-desktop"></span>
+        <span class="span4 file"><a class="file-link" href="./files/src_util_dom_style_js/index.html">src/util/dom_style.js</a></span>
+        <span class="span8 file-chart js-file-chart"
+              data-lint="2"
+              data-sloc="70"
+              data-bugs="0.49"
+              data-complexity="13"
+          ></span>
+      </li>
+      
+      <li class="span12">
+        <span class="fade-left fadeout visible-desktop"></span>
+        <span class="span4 file"><a class="file-link" href="./files/src_util_lang_array_js/index.html">src/util/lang_array.js</a></span>
+        <span class="span8 file-chart js-file-chart"
+              data-lint="0"
+              data-sloc="256"
+              data-bugs="1.63"
+              data-complexity="54"
+          ></span>
+      </li>
+      
+      <li class="span12">
+        <span class="fade-left fadeout visible-desktop"></span>
+        <span class="span4 file"><a class="file-link" href="./files/src_util_lang_class_js/index.html">src/util/lang_class.js</a></span>
+        <span class="span8 file-chart js-file-chart"
+              data-lint="2"
+              data-sloc="96"
+              data-bugs="0.72"
+              data-complexity="12"
+          ></span>
+      </li>
+      
+      <li class="span12">
+        <span class="fade-left fadeout visible-desktop"></span>
+        <span class="span4 file"><a class="file-link" href="./files/src_util_lang_function_js/index.html">src/util/lang_function.js</a></span>
+        <span class="span8 file-chart js-file-chart"
+              data-lint="0"
+              data-sloc="35"
+              data-bugs="0.18"
+              data-complexity="5"
+          ></span>
+      </li>
+      
+      <li class="span12">
+        <span class="fade-left fadeout visible-desktop"></span>
+        <span class="span4 file"><a class="file-link" href="./files/src_util_lang_object_js/index.html">src/util/lang_object.js</a></span>
+        <span class="span8 file-chart js-file-chart"
+              data-lint="0"
+              data-sloc="34"
+              data-bugs="0.06"
+              data-complexity="1"
+          ></span>
+      </li>
+      
+      <li class="span12">
+        <span class="fade-left fadeout visible-desktop"></span>
+        <span class="span4 file"><a class="file-link" href="./files/src_util_lang_string_js/index.html">src/util/lang_string.js</a></span>
+        <span class="span8 file-chart js-file-chart"
+              data-lint="0"
+              data-sloc="62"
+              data-bugs="0.22"
+              data-complexity="3"
+          ></span>
+      </li>
+      
+      <li class="span12">
+        <span class="fade-left fadeout visible-desktop"></span>
+        <span class="span4 file"><a class="file-link" href="./files/src_util_misc_js/index.html">src/util/misc.js</a></span>
+        <span class="span8 file-chart js-file-chart"
+              data-lint="11"
+              data-sloc="585"
+              data-bugs="5.47"
+              data-complexity="50"
+          ></span>
       </li>
       
     </ul>
@@ -303,7 +815,7 @@
 
 <script type="text/javascript" src="assets/scripts/bundles/core-bundle.js"></script>
 <script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
 <script type="text/javascript" src="assets/scripts/plato-overview.js"></script>
-
 </body>
 </html>

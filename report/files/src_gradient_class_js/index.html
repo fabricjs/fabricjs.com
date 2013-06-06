@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/bootstrap-3.0.0-wip.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/font-awesome-ie7.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet">
+  <link href="../../assets/css/plato.css" rel="stylesheet">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="brand" href="http://github.com/jsoverson/plato">Plato on Github</a>
+    <ul class="nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>src/gradient.class.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="span6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"></i></a></h2>
+      <p class="stat">56.23</p>
+    </div>
+    <div class="span6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC"></i></h2>
+      <p class="stat">363</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="span6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="span6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="span6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty"></i></a></h2>
+      <p class="stat">73.67</p>
+    </div>
+    <div class="span6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs"></i></a></h2>
+      <p class="stat">3.09</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="span6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="span6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="span12">(function() {
+
+  /* _FROM_SVG_START_ */
+  function getColorStop(el) {
+    var style = el.getAttribute('style'),
+        offset = el.getAttribute('offset'),
+        color, opacity;
+
+    // convert percents to absolute values
+    offset = parseFloat(offset) / (/%$/.test(offset) ? 100 : 1);
+
+    if (style) {
+      var keyValuePairs = style.split(/\s*;\s*/);
+
+      if (keyValuePairs[keyValuePairs.length-1] === '') {
+        keyValuePairs.pop();
+      }
+
+      for (var i = keyValuePairs.length; i--; ) {
+
+        var split = keyValuePairs[i].split(/\s*:\s*/),
+            key = split[0].trim(),
+            value = split[1].trim();
+
+        if (key === 'stop-color') {
+          color = value;
+        }
+        else if (key === 'stop-opacity') {
+          opacity = value;
+        }
+      }
+    }
+
+    if (!color) {
+      color = el.getAttribute('stop-color');
+    }
+    if (!opacity) {
+      opacity = el.getAttribute('stop-opacity');
+    }
+
+    // convert rgba color to rgb color - alpha value has no affect in svg
+    color = new fabric.Color(color).toRgb();
+
+    return {
+      offset: offset,
+      color: color,
+      opacity: opacity
+    };
+  }
+  /* _FROM_SVG_END_ */
+
+  /**
+   * Gradient class
+   * @class fabric.Gradient
+   */
+  fabric.Gradient = fabric.util.createClass(/** @lends fabric.Gradient.prototype */ {
+
+    /**
+     * Constructor
+     * @param {Object} [options] Options object with type, coords, gradientUnits and colorStops
+     * @return {fabric.Gradient} thisArg
+     */
+    initialize: function(options) {
+      options || (options = { });
+
+      var coords = { };
+
+      this.id = fabric.Object.__uid++;
+      this.type = options.type || 'linear';
+
+      coords = {
+        x1: options.coords.x1 || 0,
+        y1: options.coords.y1 || 0,
+        x2: options.coords.x2 || 0,
+        y2: options.coords.y2 || 0
+      };
+
+      if (this.type === 'radial') {
+        coords.r1 = options.coords.r1 || 0;
+        coords.r2 = options.coords.r2 || 0;
+      }
+
+      this.coords = coords;
+      this.gradientUnits = options.gradientUnits || 'objectBoundingBox';
+      this.colorStops = options.colorStops.slice();
+    },
+
+    /**
+     * Adds another colorStop
+     * @param {Object} colorStop Object with offset and color
+     * @return {fabric.Gradient} thisArg
+     */
+    addColorStop: function(colorStop) {
+      for (var position in colorStop) {
+        var color = new fabric.Color(colorStop[position]);
+        this.colorStops.push({offset: position, color: color.toRgb(), opacity: color.getAlpha()});
+      }
+      return this;
+    },
+
+    /**
+     * Returns object representation of a gradient
+     * @return {Object}
+     */
+    toObject: function() {
+      return {
+        type: this.type,
+        coords: this.coords,
+        gradientUnits: this.gradientUnits,
+        colorStops: this.colorStops
+      };
+    },
+
+    /* _TO_SVG_START_ */
+    /**
+     * Returns SVG representation of an gradient
+     * @param {Object} object Object to create a gradient for
+     * @param {Boolean} normalize Whether coords should be normalized
+     * @return {String} SVG representation of an gradient (linear/radial)
+     */
+    toSVG: function(object, normalize) {
+      var coords = fabric.util.object.clone(this.coords),
+          markup;
+
+      // colorStops must be sorted ascending
+      this.colorStops.sort(function(a, b) {
+        return a.offset - b.offset;
+      });
+
+      if (normalize && this.gradientUnits === 'userSpaceOnUse') {
+        coords.x1 += object.width / 2;
+        coords.y1 += object.height / 2;
+        coords.x2 += object.width / 2;
+        coords.y2 += object.height / 2;
+      }
+      else if (this.gradientUnits === 'objectBoundingBox') {
+        _convertValuesToPercentUnits(object, coords);
+      }
+
+      if (this.type === 'linear') {
+        markup = [
+          '<linearGradient ',
+            'id="SVGID_', this.id,
+            '" gradientUnits="', this.gradientUnits,
+            '" x1="', coords.x1,
+            '" y1="', coords.y1,
+            '" x2="', coords.x2,
+            '" y2="', coords.y2,
+          '">'
+        ];
+      }
+      else if (this.type === 'radial') {
+        markup = [
+          '<radialGradient ',
+            'id="SVGID_', this.id,
+            '" gradientUnits="', this.gradientUnits,
+            '" cx="', coords.x2,
+            '" cy="', coords.y2,
+            '" r="', coords.r2,
+            '" fx="', coords.x1,
+            '" fy="', coords.y1,
+          '">'
+        ];
+      }
+
+      for (var i = 0; i < this.colorStops.length; i++) {
+        markup.push(
+          '<stop ',
+            'offset="', (this.colorStops[i].offset * 100) + '%',
+            '" style="stop-color:', this.colorStops[i].color,
+            (this.colorStops[i].opacity ? ';stop-opacity: ' + this.colorStops[i].opacity : ';'),
+          '"/>'
+        );
+      }
+
+      markup.push((this.type === 'linear' ? '</linearGradient>' : '</radialGradient>'));
+
+      return markup.join('');
+    },
+    /* _TO_SVG_END_ */
+
+    /**
+     * Returns an instance of CanvasGradient
+     * @param ctx
+     * @return {CanvasGradient}
+     */
+    toLive: function(ctx) {
+      var gradient;
+
+      if (!this.type) return;
+
+      if (this.type === 'linear') {
+        gradient = ctx.createLinearGradient(
+          this.coords.x1, this.coords.y1, this.coords.x2, this.coords.y2);
+      }
+      else if (this.type === 'radial') {
+        gradient = ctx.createRadialGradient(
+          this.coords.x1, this.coords.y1, this.coords.r1, this.coords.x2, this.coords.y2, this.coords.r2);
+      }
+
+      for (var i = 0, len = this.colorStops.length; i < len; i++) {
+        var color = this.colorStops[i].color,
+            opacity = this.colorStops[i].opacity,
+            offset = this.colorStops[i].offset;
+
+        if (opacity) {
+          color = new fabric.Color(color).setAlpha(opacity).toRgba();
+        }
+        gradient.addColorStop(parseFloat(offset), color);
+      }
+
+      return gradient;
+    }
+  });
+
+  fabric.util.object.extend(fabric.Gradient, {
+
+    /* _FROM_SVG_START_ */
+    /**
+     * Returns {@link fabric.Gradient} instance from an SVG element
+     * @static
+     * @memberof fabric.Gradient
+     * @see http://www.w3.org/TR/SVG/pservers.html#LinearGradientElement
+     * @see http://www.w3.org/TR/SVG/pservers.html#RadialGradientElement
+     */
+    fromElement: function(el, instance) {
+
+      /**
+       *  @example:
+       *
+       *  <linearGradient id="linearGrad1">
+       *    <stop offset="0%" stop-color="white"/>
+       *    <stop offset="100%" stop-color="black"/>
+       *  </linearGradient>
+       *
+       *  OR
+       *
+       *  <linearGradient id="linearGrad2">
+       *    <stop offset="0" style="stop-color:rgb(255,255,255)"/>
+       *    <stop offset="1" style="stop-color:rgb(0,0,0)"/>
+       *  </linearGradient>
+       *
+       *  OR
+       *
+       *  <radialGradient id="radialGrad1">
+       *    <stop offset="0%" stop-color="white" stop-opacity="1" />
+       *    <stop offset="50%" stop-color="black" stop-opacity="0.5" />
+       *    <stop offset="100%" stop-color="white" stop-opacity="1" />
+       *  </radialGradient>
+       *
+       *  OR
+       *
+       *  <radialGradient id="radialGrad2">
+       *    <stop offset="0" stop-color="rgb(255,255,255)" />
+       *    <stop offset="0.5" stop-color="rgb(0,0,0)" />
+       *    <stop offset="1" stop-color="rgb(255,255,255)" />
+       *  </radialGradient>
+       *
+       */
+
+      var colorStopEls = el.getElementsByTagName('stop'),
+          type = (el.nodeName === 'linearGradient' ? 'linear' : 'radial'),
+          gradientUnits = el.getAttribute('gradientUnits') || 'objectBoundingBox',
+          colorStops = [],
+          coords = { };
+
+      if (type === 'linear') {
+        coords = {
+          x1: el.getAttribute('x1') || 0,
+          y1: el.getAttribute('y1') || 0,
+          x2: el.getAttribute('x2') || '100%',
+          y2: el.getAttribute('y2') || 0
+        };
+      }
+      else if (type === 'radial') {
+        coords = {
+          x1: el.getAttribute('fx') || el.getAttribute('cx') || '50%',
+          y1: el.getAttribute('fy') || el.getAttribute('cy') || '50%',
+          r1: 0,
+          x2: el.getAttribute('cx') || '50%',
+          y2: el.getAttribute('cy') || '50%',
+          r2: el.getAttribute('r') || '50%'
+        };
+      }
+
+      for (var i = colorStopEls.length; i--; ) {
+        colorStops.push(getColorStop(colorStopEls[i]));
+      }
+
+      _convertPercentUnitsToValues(instance, coords);
+
+      return new fabric.Gradient({
+        type: type,
+        coords: coords,
+        gradientUnits: gradientUnits,
+        colorStops: colorStops
+      });
+    },
+    /* _FROM_SVG_END_ */
+
+    /**
+     * Returns {@link fabric.Gradient} instance from its object representation
+     * @static
+     * @param {Object} obj
+     * @param {Object} [options] Options object
+     * @memberof fabric.Gradient
+     */
+    forObject: function(obj, options) {
+      options || (options = { });
+      _convertPercentUnitsToValues(obj, options);
+      return new fabric.Gradient(options);
+    }
+  });
+
+  /**
+   * @private
+   */
+  function _convertPercentUnitsToValues(object, options) {
+    for (var prop in options) {
+      if (typeof options[prop] === 'string' && /^\d+%$/.test(options[prop])) {
+        var percents = parseFloat(options[prop], 10);
+        if (prop === 'x1' || prop === 'x2' || prop === 'r2') {
+          options[prop] = fabric.util.toFixed(object.width * percents / 100, 2);
+        }
+        else if (prop === 'y1' || prop === 'y2') {
+          options[prop] = fabric.util.toFixed(object.height * percents / 100, 2);
+        }
+      }
+      // normalize rendering point (should be from top/left corner rather than center of the shape)
+      if (prop === 'x1' || prop === 'x2') {
+        options[prop] -= fabric.util.toFixed(object.width / 2, 2);
+      }
+      else if (prop === 'y1' || prop === 'y2') {
+        options[prop] -= fabric.util.toFixed(object.height / 2, 2);
+      }
+    }
+  }
+
+  /* _TO_SVG_START_ */
+  /**
+   * @private
+   */
+  function _convertValuesToPercentUnits(object, options) {
+    for (var prop in options) {
+      // normalize rendering point (should be from center rather than top/left corner of the shape)
+      if (prop === 'x1' || prop === 'x2') {
+        options[prop] += fabric.util.toFixed(object.width / 2, 2);
+      }
+      else if (prop === 'y1' || prop === 'y2') {
+        options[prop] += fabric.util.toFixed(object.height / 2, 2);
+      }
+      // convert to percent units
+      if (prop === 'x1' || prop === 'x2' || prop === 'r2') {
+        options[prop] = fabric.util.toFixed(options[prop] / object.width * 100, 2) + '%';
+      }
+      else if (prop === 'y1' || prop === 'y2') {
+        options[prop] = fabric.util.toFixed(options[prop] / object.height * 100, 2) + '%';
+      }
+    }
+  }
+  /* _TO_SVG_END_ */
+
+})();</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>

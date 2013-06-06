@@ -44,22 +44,30 @@
 <div class="container aggregate-stats">
   <div class="row">
     <div class="span6">
-      <h2 class="header">Maintainability</h2>
-      <p class="stat">123.55</p>
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"></i></a></h2>
+      <p class="stat">71.86</p>
     </div>
     <div class="span6">
-      <h2 class="header">Estimated # Bugs</h2>
-      <p class="stat">1.36</p>
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC"></i></h2>
+      <p class="stat">185</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="span6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="span6">
+      <p id="chart_historical_sloc" class="chart"></p>
     </div>
   </div>
   <div class="row">
     <div class="span6">
-      <h2 class="header">Difficulty</h2>
-      <p class="stat">28.73</p>
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty"></i></a></h2>
+      <p class="stat">35.34</p>
     </div>
     <div class="span6">
-      <h2 class="header">SLOC/LSLOC</h2>
-      <p class="stat">144 / 85</p>
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs"></i></a></h2>
+      <p class="stat">1.72</p>
     </div>
   </div>
 </div>
@@ -70,11 +78,11 @@
   </div>
   <div class="row">
     <div class="span6">
-      <h3 class="chart-header">By Complexity</h3>
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity"></i></a></h3>
       <div id="fn-by-complexity" class="stat"></div>
     </div>
     <div class="span6">
-      <h3 class="chart-header">By SLOC</h3>
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC"></i></h3>
       <div id="fn-by-sloc" class="stat"></div>
     </div>
   </div>
@@ -91,27 +99,29 @@
   var DOMParser = new require('xmldom').DOMParser,
       URL = require('url'),
       HTTP = require('http'),
+      HTTPS = require('https'),
 
       Canvas = require('canvas'),
       Image = require('canvas').Image;
 
   /** @private */
   function request(url, encoding, callback) {
-    var oURL = URL.parse(url),
-        client = HTTP.createClient(oURL.port, oURL.hostname),
-        req = client.request('GET', oURL.pathname, { 'host': oURL.hostname });
+    var oURL = URL.parse(url);
 
-    client.addListener('error', function(err) {
-      if (err.errno === process.ECONNREFUSED) {
-        fabric.log('ECONNREFUSED: connection refused to ' + client.host + ':' + client.port);
-      }
-      else {
-        fabric.log(err.message);
-      }
-    });
+    // detect if http or https is used
+    if ( !oURL.port ) {
+      oURL.port = ( oURL.protocol.indexOf('https:') === 0 ) ? 443 : 80;
+    }
 
-    req.end();
-    req.on('response', function (response) {
+    // assign request handler based on protocol
+    var reqHandler = ( oURL.port === 443 ) ? HTTPS : HTTP;
+
+    var req = reqHandler.request({
+      hostname: oURL.hostname,
+      port: oURL.port,
+      path: oURL.path,
+      method: 'GET'
+    }, function(response){
       var body = "";
       if (encoding) {
         response.setEncoding(encoding);
@@ -125,29 +135,64 @@
         }
       });
     });
+
+    req.on('error', function(err) {
+      if (err.errno === process.ECONNREFUSED) {
+        fabric.log('ECONNREFUSED: connection refused to ' + oURL.hostname + ':' + oURL.port);
+      }
+      else {
+        fabric.log(err.message);
+      }
+    });
+
+    req.end();
+  }
+
+  /** @private */
+  function request_fs(url, callback){
+    var fs = require('fs'),
+    stream = fs.createReadStream(url),
+    body = '';
+    stream.on('data', function(chunk){
+        body += chunk;
+    });
+    stream.on('end', function(){
+      callback(body);
+    });
   }
 
   fabric.util.loadImage = function(url, callback, context) {
+    var createImageAndCallBack = function(data){
+      img.src = new Buffer(data, 'binary');
+      // preserving original url, which seems to be lost in node-canvas
+      img._src = url;
+      callback && callback.call(context, img);
+    };
     var img = new Image();
     if (url && url.indexOf('data') === 0) {
       img.src = img._src = url;
       callback && callback.call(context, img);
     }
+    else if (url && url.indexOf('http') !== 0) {
+      request_fs(url, createImageAndCallBack);
+    }
     else if (url) {
-      request(url, 'binary', function(body) {
-        img.src = new Buffer(body, 'binary');
-        // preserving original url, which seems to be lost in node-canvas
-        img._src = url;
-        callback && callback.call(context, img);
-      });
+      request(url, 'binary', createImageAndCallBack);
     }
   };
 
   fabric.loadSVGFromURL = function(url, callback) {
     url = url.replace(/^\n\s*/, '').replace(/\?.*$/, '').trim();
-    request(url, '', function(body) {
-      fabric.loadSVGFromString(body, callback);
-    });
+    if (url.indexOf('http') !== 0) {
+      request_fs(url, function(body) {
+        fabric.loadSVGFromString(body, callback);
+      });
+    }
+    else {
+      request(url, '', function(body) {
+        fabric.loadSVGFromString(body, callback);
+      });
+    }
   };
 
   fabric.loadSVGFromString = function(string, callback) {
@@ -176,7 +221,6 @@
 
   /**
    * Only available when running fabric on node.js
-   * @method createCanvasForNode
    * @param width Canvas width
    * @param height Canvas height
    * @return {Object} wrapped canvas instance
@@ -196,6 +240,7 @@
     var fabricCanvas = new FabricCanvas(canvasEl);
     fabricCanvas.contextContainer = nodeCanvas.getContext('2d');
     fabricCanvas.nodeCanvas = nodeCanvas;
+    fabricCanvas.Font = Canvas.Font;
 
     return fabricCanvas;
   };
@@ -205,9 +250,13 @@
     return this.nodeCanvas.createPNGStream();
   };
 
+  fabric.StaticCanvas.prototype.createJPEGStream = function(opts) {
+    return this.nodeCanvas.createJPEGStream(opts);
+  };
+
   var origSetWidth = fabric.StaticCanvas.prototype.setWidth;
   fabric.StaticCanvas.prototype.setWidth = function(width) {
-    origSetWidth.call(this);
+    origSetWidth.call(this, width);
     this.nodeCanvas.width = width;
     return this;
   };
@@ -217,7 +266,7 @@
 
   var origSetHeight = fabric.StaticCanvas.prototype.setHeight;
   fabric.StaticCanvas.prototype.setHeight = function(height) {
-    origSetHeight.call(this);
+    origSetHeight.call(this, height);
     this.nodeCanvas.height = height;
     return this;
   };
@@ -248,7 +297,7 @@
 <script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
 <script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
 <script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
 <script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
-
 </body>
 </html>

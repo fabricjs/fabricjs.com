@@ -485,6 +485,52 @@ var text = new fabric.Text('foo\nbar\nbaz', {
 canvas.add(text);
 </pre>
 
+<pre class="test-source">
+var text = new fabric.Text('Hello\nbar\nworld!', {
+  fontFamily: 'Arial',
+  fontSize: 30,
+  left: 75,
+  top: 75,
+  textAlign: 'center'
+});
+canvas.add(text);
+</pre>
+
+<pre class="test-source">
+var text = new fabric.Text('Hello\nbar\nworld!', {
+  fontFamily: 'Arial',
+  fontSize: 30,
+  left: 75,
+  top: 75,
+  textAlign: 'right'
+});
+canvas.add(text);
+</pre>
+
+<pre class="test-source">
+var text = new fabric.Text('lorem ipsum\ndolor sit\namet', {
+  fontFamily: 'Arial',
+  fontSize: 24,
+  left: 100,
+  top: 75,
+  textAlign: 'justify'
+});
+canvas.add(text);
+</pre>
+
+<pre class="test-source">
+var text = new fabric.Text('lorem ipsum\ndolor sit\namet', {
+  fontFamily: 'Arial',
+  fontSize: 24,
+  left: 100,
+  top: 75,
+  fill: 'purple',
+  textAlign: 'right',
+  textDecoration: 'underline'
+});
+canvas.add(text);
+</pre>
+
 <script>
   (function(){
     function proceed(){ }

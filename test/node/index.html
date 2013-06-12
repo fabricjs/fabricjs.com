@@ -531,6 +531,57 @@ var text = new fabric.Text('lorem ipsum\ndolor sit\namet', {
 canvas.add(text);
 </pre>
 
+<pre class="test-source">
+var text = new fabric.Text('     New Text L', {
+  fontFamily: 'Arial',
+  fontSize: 24,
+  left: 100,
+  top: 75,
+  fill: 'purple',
+  textAlign: 'left'
+});
+canvas.add(text);
+</pre>
+
+<pre class="test-source">
+var text = new fabric.Text('     New Text L', {
+  fontFamily: 'Arial',
+  fontSize: 24,
+  left: 100,
+  top: 50,
+  fill: 'purple',
+  textAlign: 'left',
+  backgroundColor: 'yellow'
+});
+canvas.add(text);
+</pre>
+
+<pre class="test-source">
+var text = new fabric.Text('     New Text C', {
+  fontFamily: 'Arial',
+  fontSize: 24,
+  left: 100,
+  top: 50,
+  fill: 'purple',
+  textAlign: 'center',
+  backgroundColor: 'yellow'
+});
+canvas.add(text);
+</pre>
+
+<pre class="test-source">
+var text = new fabric.Text('     New Text R', {
+  fontFamily: 'Arial',
+  fontSize: 24,
+  left: 100,
+  top: 50,
+  fill: 'purple',
+  textAlign: 'right',
+  backgroundColor: 'yellow'
+});
+canvas.add(text);
+</pre>
+
 <script>
   (function(){
     function proceed(){ }

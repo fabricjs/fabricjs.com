@@ -136,6 +136,7 @@
       var id = element.id, match;
       if (match = /\d+$/.exec(id)) {
         fabric.loadSVGFromURL('../assets/' + match[0] + '.svg', function(objects, options) {
+
           var loadedObject = fabric.util.groupSVGElements(objects, options);
 
           loadedObject.set({

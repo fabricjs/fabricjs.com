@@ -18,6 +18,9 @@
     );
   }
 
+  fabric.Object.prototype.padding = 5;
+  fabric.Object.prototype.transparentCorners = false;
+
   function getRandomNum(min, max) {
     return Math.random() * (max - min) + min;
   }
@@ -97,7 +100,6 @@
           left: left,
           top: top,
           angle: angle,
-          padding: 10,
           cornersize: 10
         });
         image.scale(getRandomNum(0.1, 0.25)).setCoords();
@@ -110,7 +112,6 @@
           left: left,
           top: top,
           angle: angle,
-          padding: 10,
           cornersize: 10
         });
         image.scale(getRandomNum(0.1, 1)).setCoords();
@@ -124,7 +125,6 @@
           left: left,
           top: top,
           angle: angle,
-          padding: 10,
           cornersize: 10
         });
         image.scale(getRandomNum(0.5, 0.75)).setCoords();
@@ -143,7 +143,6 @@
             left: left,
             top: top,
             angle: angle,
-            padding: 10,
             cornersize: 10
           });
           loadedObject/*.scaleToWidth(300)*/.setCoords();

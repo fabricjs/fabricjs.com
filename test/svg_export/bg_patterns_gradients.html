@@ -112,7 +112,7 @@ canvas.setOverlayImage(src, function () {
 });
 </pre>
 
-<pre class="test-source async">
+<pre class="test-source">
 var rect = new fabric.Rect({
   left: 100,
   top: 100,
@@ -129,7 +129,7 @@ rect.setGradient('fill', {
 canvas.renderAll();
 </pre>
 
-<pre class="test-source async">
+<pre class="test-source">
 var circle = new fabric.Circle({
   left: 100,
   top: 100,
@@ -141,6 +141,24 @@ circle.setGradient('fill', {
   x1: 0, y1: 0, r1: 0,
   x2: 0, y2: 0, r2: circle.get('radius'),
   colorStops: {'0': '#fff', '0.8': '#555', '1': '#222' }
+});
+canvas.renderAll();
+</pre>
+
+<pre class="test-source">
+var circle = new fabric.Circle({
+  left: 100,
+  top: 100,
+  radius: 50,
+  fill: 'red'
+});
+canvas.add(circle);
+
+circle.setShadow({
+  color: '#333',
+  blur: 10,
+  offsetX: 5,
+  offsetY: 5
 });
 canvas.renderAll();
 </pre>

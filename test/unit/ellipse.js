@@ -52,10 +52,11 @@
       'transparentCorners': true,
       'perPixelTargetFind': false,
       'shadow':             null,
-      'visible':            true
+      'visible':            true,
+      'clipTo':             null
     };
     ok(typeof ellipse.toObject == 'function');
-    deepEqual(defaultProperties, ellipse.toObject());
+    deepEqual(ellipse.toObject(), defaultProperties);
 
     ellipse.set('left', 100).set('top', 200).set('rx', 15).set('ry', 25);
 
@@ -66,7 +67,7 @@
       ry: 25
     });
 
-    deepEqual(augmentedProperties, ellipse.toObject());
+    deepEqual(ellipse.toObject(), augmentedProperties);
   });
 
   test('render', function() {
@@ -92,7 +93,7 @@
         left             = 12,
         top              = 15,
         fill             = 'ff5555',
-        fillOpacity      = 0.5,
+        opacity          = 0.5,
         strokeWidth      = 2,
         strokeDashArray  = [5, 2],
         strokeLineCap    = 'round',
@@ -104,7 +105,7 @@
     elEllipse.setAttribute('cx', left);
     elEllipse.setAttribute('cy', top);
     elEllipse.setAttribute('fill', fill);
-    elEllipse.setAttribute('fill-opacity', fillOpacity);
+    elEllipse.setAttribute('opacity', opacity);
     elEllipse.setAttribute('stroke-width', strokeWidth);
     elEllipse.setAttribute('stroke-dasharray', '5, 2');
     elEllipse.setAttribute('stroke-linecap', strokeLineCap);
@@ -119,7 +120,7 @@
     equal(oEllipse.get('left'), left);
     equal(oEllipse.get('top'), top);
     equal(oEllipse.get('fill'), fill);
-    equal(oEllipse.get('opacity'), fillOpacity);
+    equal(oEllipse.get('opacity'), opacity);
     equal(oEllipse.get('strokeWidth'), strokeWidth);
     deepEqual(oEllipse.get('strokeDashArray'), strokeDashArray);
     equal(oEllipse.get('strokeLineCap'), strokeLineCap);
@@ -150,6 +151,6 @@
     var expected = ellipse.toObject();
     var actual = fabric.Ellipse.fromObject(expected).toObject();
 
-    deepEqual(expected, actual);
+    deepEqual(actual, expected);
   });
 })();

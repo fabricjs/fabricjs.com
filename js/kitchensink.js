@@ -188,6 +188,12 @@
       window.open(canvas.toDataURL('png'));
     }
   };
+  document.getElementById('rasterize-svg').onclick = function() {
+    window.open('data:image/svg+xml;utf8,' + canvas.toSVG());
+  };
+  document.getElementById('rasterize-json').onclick = function() {
+    alert(JSON.stringify(canvas));
+  };
 
   var removeSelectedEl = document.getElementById('remove-selected');
   removeSelectedEl.onclick = function() {

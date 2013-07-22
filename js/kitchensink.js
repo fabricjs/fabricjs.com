@@ -966,12 +966,12 @@
     Cufon.fonts.delicious.offsetTop = 25;
   }
 
-  canvas.getElement().parentNode.onmousewheel = function(e) {
-    var delta = e.wheelDelta / 100;
-    canvas.setScale(canvas._scale + delta);
-    canvas.forEachObject(function(o){ o.setCoords() });
-    canvas.renderAll();
-    return false;
-  };
+  // canvas.getElement().parentNode.onmousewheel = function(e) {
+  //   var delta = e.wheelDelta / 100;
+  //   canvas.setScale(canvas._scale + delta);
+  //   canvas.forEachObject(function(o){ o.setCoords() });
+  //   canvas.renderAll();
+  //   return false;
+  // };
 
 })(this);

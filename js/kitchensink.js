@@ -199,15 +199,15 @@
   removeSelectedEl.onclick = function() {
     var activeObject = canvas.getActiveObject(),
         activeGroup = canvas.getActiveGroup();
-    if (activeObject) {
-      canvas.remove(activeObject);
-    }
-    else if (activeGroup) {
+    if (activeGroup) {
       var objectsInGroup = activeGroup.getObjects();
       canvas.discardActiveGroup();
       objectsInGroup.forEach(function(object) {
         canvas.remove(object);
       });
+    }
+    else if (activeObject) {
+      canvas.remove(activeObject);
     }
   };
 

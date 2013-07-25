@@ -163,4 +163,102 @@ circle.setShadow({
 canvas.renderAll();
 </pre>
 
+<pre class="test-source async">
+var rect = new fabric.Rect({
+  left: 100,
+  top: 100,
+  width: 100,
+  height: 100
+});
+canvas.add(rect);
+
+fabric.util.loadImage('/assets/retina_wood.png', function(img) {
+  rect.fill = new fabric.Pattern({
+    source: img,
+    repeat: 'repeat'
+  });
+  canvas.renderAll();
+  proceed();
+});
+</pre>
+
+<pre class="test-source async">
+var rect = new fabric.Rect({
+  left: 100,
+  top: 100,
+  width: 100,
+  height: 100
+});
+canvas.add(rect);
+
+fabric.util.loadImage('/assets/escheresque.png', function(img) {
+  rect.fill = new fabric.Pattern({
+    source: img,
+    repeat: 'repeat-x'
+  });
+  canvas.renderAll();
+  proceed();
+});
+</pre>
+
+<pre class="test-source async">
+var rect = new fabric.Rect({
+  left: 100,
+  top: 100,
+  width: 100,
+  height: 100
+});
+canvas.add(rect);
+
+fabric.util.loadImage('/assets/escheresque.png', function(img) {
+  rect.fill = new fabric.Pattern({
+    source: img,
+    repeat: 'repeat-y'
+  });
+  canvas.renderAll();
+  proceed();
+});
+</pre>
+
+<pre class="test-source async">
+var rect = new fabric.Rect({
+  left: 100,
+  top: 100,
+  width: 100,
+  height: 100
+});
+canvas.add(rect);
+
+fabric.util.loadImage('/assets/escheresque.png', function(img) {
+  rect.fill = new fabric.Pattern({
+    source: img,
+    repeat: 'no-repeat'
+  });
+  canvas.renderAll();
+  proceed();
+});
+</pre>
+
+<pre class="test-source async">
+var rect = new fabric.Rect({
+  left: 100,
+  top: 100,
+  width: 100,
+  height: 100,
+  stroke: 'red'
+});
+canvas.add(rect);
+
+fabric.util.loadImage('/assets/escheresque.png', function(img) {
+  rect.fill = new fabric.Pattern({
+    source: img,
+    repeat: 'no-repeat',
+    offsetX: 20,
+    offsetY: 20
+  });
+  canvas.renderAll();
+  proceed();
+});
+</pre>
+
 <script src="master.js"></script>

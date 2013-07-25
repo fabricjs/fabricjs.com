@@ -49,7 +49,7 @@
     </div>
     <div class="span6">
       <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC"></i></h2>
-      <p class="stat">928</p>
+      <p class="stat">930</p>
     </div>
   </div>
   <div class="row historical">
@@ -318,6 +318,8 @@
       this.width = this._getTextWidth(ctx, textLines);
       this.height = this._getTextHeight(ctx, textLines);
 
+      this.clipTo && fabric.util.clipContext(this, ctx);
+
       this._renderTextBackground(ctx, textLines);
 
       if (this.textAlign !== 'left' && this.textAlign !== 'justify') {
@@ -327,10 +329,8 @@
 
       ctx.save();
       this._setTextShadow(ctx);
-      this.clipTo && fabric.util.clipContext(this, ctx);
       this._renderTextFill(ctx, textLines);
       this._renderTextStroke(ctx, textLines);
-      this.clipTo && ctx.restore();
       this.textShadow && ctx.restore();
       ctx.restore();
 
@@ -339,6 +339,8 @@
       }
 
       this._renderTextDecoration(ctx, textLines);
+      this.clipTo && ctx.restore();
+
       this._setBoundaries(ctx, textLines);
       this._totalLineHeight = 0;
 

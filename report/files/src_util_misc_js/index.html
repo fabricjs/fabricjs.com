@@ -45,11 +45,11 @@
   <div class="row">
     <div class="span6">
       <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"></i></a></h2>
-      <p class="stat">63.28</p>
+      <p class="stat">63.24</p>
     </div>
     <div class="span6">
       <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC"></i></h2>
-      <p class="stat">585</p>
+      <p class="stat">571</p>
     </div>
   </div>
   <div class="row historical">
@@ -63,11 +63,11 @@
   <div class="row">
     <div class="span6">
       <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty"></i></a></h2>
-      <p class="stat">76.26</p>
+      <p class="stat">76.47</p>
     </div>
     <div class="span6">
       <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs"></i></a></h2>
-      <p class="stat">5.47</p>
+      <p class="stat">5.49</p>
     </div>
   </div>
 </div>
@@ -339,23 +339,7 @@
     var object;
 
     if (elements.length > 1) {
-      //var hasText = elements.some(function(el) { return el.type === 'text'; });
-
-      // if (hasText) {
-      //   object = new fabric.Group([ ], options);
-      //   elements.reverse().forEach(function(obj) {
-      //     if (obj.cx) {
-      //       obj.left = obj.cx;
-      //     }
-      //     if (obj.cy) {
-      //       obj.top = obj.cy;
-      //     }
-      //     object.addWithUpdate(obj);
-      //   });
-      // }
-      // else {
-        object = new fabric.PathGroup(elements, options);
-      //}
+      object = new fabric.PathGroup(elements, options);
     }
     else {
       object = elements[0];
@@ -378,7 +362,9 @@
   function populateWithProperties(source, destination, properties) {
     if (properties && Object.prototype.toString.call(properties) === '[object Array]') {
       for (var i = 0, len = properties.length; i < len; i++) {
-        destination[properties[i]] = source[properties[i]];
+        if (properties[i] in source) {
+          destination[properties[i]] = source[properties[i]];
+        }
       }
     }
   }

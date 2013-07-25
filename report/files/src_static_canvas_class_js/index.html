@@ -45,11 +45,11 @@
   <div class="row">
     <div class="span6">
       <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"></i></a></h2>
-      <p class="stat">64.67</p>
+      <p class="stat">64.40</p>
     </div>
     <div class="span6">
       <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC"></i></h2>
-      <p class="stat">1056</p>
+      <p class="stat">1074</p>
     </div>
   </div>
   <div class="row historical">
@@ -63,11 +63,11 @@
   <div class="row">
     <div class="span6">
       <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty"></i></a></h2>
-      <p class="stat">92.32</p>
+      <p class="stat">93.17</p>
     </div>
     <div class="span6">
       <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs"></i></a></h2>
-      <p class="stat">7.64</p>
+      <p class="stat">7.71</p>
     </div>
   </div>
 </div>
@@ -814,7 +814,7 @@
       }
       fabric.util.populateWithProperties(this, data, propertiesToInclude);
       if (activeGroup) {
-        this.setActiveGroup(new fabric.Group(activeGroup.objects));
+        this.setActiveGroup(new fabric.Group(activeGroup.getObjects()));
         activeGroup.forEachObject(function(o) { o.set('active', true) });
       }
       return data;
@@ -836,7 +836,7 @@
         markup.push(
           '<?xml version="1.0" standalone="no" ?>',
             '<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" ',
-              '"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">'
+              '"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">\n'
         );
       }
       markup.push(
@@ -894,7 +894,7 @@
         markup.push(objects[i].toSVG());
       }
       if (activeGroup) {
-        this.setActiveGroup(new fabric.Group(activeGroup.objects));
+        this.setActiveGroup(new fabric.Group(activeGroup.getObjects()));
         activeGroup.forEachObject(function(o) { o.set('active', true) });
       }
       markup.push('</svg>');
@@ -944,67 +944,85 @@
     },
 
     /**
-     * Moves an object one level down in stack of drawn objects
+     * Moves an object down in stack of drawn objects
      * @param object {fabric.Object} Object to send
+     * @param intersecting {Boolean} If `true`, send object behind next lower intersecting object
      * @return {fabric.Canvas} thisArg
      * @chainable
      */
-    sendBackwards: function (object) {
-      var idx = this._objects.indexOf(object),
-          nextIntersectingIdx = idx;
+    sendBackwards: function (object, intersecting) {
+      var idx = this._objects.indexOf(object);
 
       // if object is not on the bottom of stack
       if (idx !== 0) {
+        var newIdx;
 
-        // traverse down the stack looking for the nearest intersecting object
-        for (var i=idx-1; i>=0; --i) {
+        if (intersecting) {
+          newIdx = idx;
 
-          var isIntersecting = object.intersectsWithObject(this._objects[i]) ||
-                               object.isContainedWithinObject(this._objects[i]) ||
-                               this._objects[i].isContainedWithinObject(object);
+          // traverse down the stack looking for the nearest intersecting object
+          for (var i=idx-1; i>=0; --i) {
 
-          if (isIntersecting) {
-            nextIntersectingIdx = i;
-            break;
+            var isIntersecting = object.intersectsWithObject(this._objects[i]) ||
+                                 object.isContainedWithinObject(this._objects[i]) ||
+                                 this._objects[i].isContainedWithinObject(object);
+
+            if (isIntersecting) {
+              newIdx = i;
+              break;
+            }
           }
         }
+        else {
+          newIdx = idx-1;
+        }
+
         removeFromArray(this._objects, object);
-        this._objects.splice(nextIntersectingIdx, 0, object);
+        this._objects.splice(newIdx, 0, object);
+        this.renderAll && this.renderAll();
       }
-      return this.renderAll && this.renderAll();
+      return this;
     },
 
     /**
-     * Moves an object one level up in stack of drawn objects
+     * Moves an object up in stack of drawn objects
      * @param object {fabric.Object} Object to send
+     * @param intersecting {Boolean} If `true`, send object in front of next upper intersecting object
      * @return {fabric.Canvas} thisArg
      * @chainable
      */
-    bringForward: function (object) {
-      var objects = this.getObjects(),
-          idx = objects.indexOf(object),
-          nextIntersectingIdx = idx;
-
+    bringForward: function (object, intersecting) {
+      var idx = this._objects.indexOf(object);
 
       // if object is not on top of stack (last item in an array)
-      if (idx !== objects.length-1) {
+      if (idx !== this._objects.length-1) {
+        var newIdx;
 
-        // traverse up the stack looking for the nearest intersecting object
-        for (var i = idx + 1, l = this._objects.length; i < l; ++i) {
+        if (intersecting) {
+          newIdx = idx;
 
-          var isIntersecting = object.intersectsWithObject(objects[i]) ||
-                               object.isContainedWithinObject(this._objects[i]) ||
-                               this._objects[i].isContainedWithinObject(object);
+          // traverse up the stack looking for the nearest intersecting object
+          for (var i = idx + 1; i < this._objects.length; ++i) {
 
-          if (isIntersecting) {
-            nextIntersectingIdx = i;
-            break;
+            var isIntersecting = object.intersectsWithObject(this._objects[i]) ||
+                                 object.isContainedWithinObject(this._objects[i]) ||
+                                 this._objects[i].isContainedWithinObject(object);
+
+            if (isIntersecting) {
+              newIdx = i;
+              break;
+            }
           }
         }
-        removeFromArray(objects, object);
-        objects.splice(nextIntersectingIdx, 0, object);
+        else {
+          newIdx = idx+1;
+        }
+
+        removeFromArray(this._objects, object);
+        this._objects.splice(newIdx, 0, object);
+        this.renderAll && this.renderAll();
       }
-      return this.renderAll && this.renderAll();
+      return this;
     },
 
     /**

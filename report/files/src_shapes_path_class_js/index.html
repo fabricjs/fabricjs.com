@@ -45,11 +45,11 @@
   <div class="row">
     <div class="span6">
       <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"></i></a></h2>
-      <p class="stat">50.15</p>
+      <p class="stat">50.47</p>
     </div>
     <div class="span6">
       <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC"></i></h2>
-      <p class="stat">709</p>
+      <p class="stat">732</p>
     </div>
   </div>
   <div class="row historical">
@@ -63,11 +63,11 @@
   <div class="row">
     <div class="span6">
       <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty"></i></a></h2>
-      <p class="stat">102.39</p>
+      <p class="stat">106.89</p>
     </div>
     <div class="span6">
       <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs"></i></a></h2>
-      <p class="stat">6.10</p>
+      <p class="stat">6.36</p>
     </div>
   </div>
 </div>
@@ -191,10 +191,12 @@
      * @param {Object} [options] Options object
      */
     _initializePath: function (options) {
-      var isWidthSet = 'width' in options,
-          isHeightSet = 'height' in options,
+      var isWidthSet = 'width' in options && options.width != null,
+          isHeightSet = 'height' in options && options.width != null,
           isLeftSet = 'left' in options,
-          isTopSet = 'top' in options;
+          isTopSet = 'top' in options,
+          origLeft = isLeftSet ? this.left : 0,
+          origTop = isTopSet ? this.top : 0;
 
       if (!isWidthSet || !isHeightSet) {
         extend(this, this._parseDimensions());
@@ -213,17 +215,17 @@
           this.left = this.width / 2;
         }
       }
-      this.pathOffset = this.pathOffset || this._calculatePathOffset(isTopSet || isLeftSet); //Save top-left coords as offset
+      this.pathOffset = this.pathOffset || this._calculatePathOffset(origLeft, origTop); //Save top-left coords as offset
     },
 
     /**
      * @private
      * @param {Boolean} positionSet When false, path offset is returned otherwise 0
      */
-    _calculatePathOffset: function (positionSet) {
+    _calculatePathOffset: function (origLeft, origTop) {
       return {
-        x: positionSet ? 0 : this.left - (this.width / 2),
-        y: positionSet ? 0 : this.top - (this.height / 2)
+        x: this.left - origLeft - (this.width / 2),
+        y: this.top - origTop - (this.height / 2)
       };
     },
 
@@ -580,7 +582,8 @@
      */
     toObject: function(propertiesToInclude) {
       var o = extend(this.callSuper('toObject', propertiesToInclude), {
-        path: this.path
+        path: this.path,
+        pathOffset: this.pathOffset
       });
       if (this.sourcePath) {
         o.sourcePath = this.sourcePath;
@@ -755,14 +758,11 @@
           deltaY = maxY - minY;
 
       var o = {
-        top: minY + deltaY / 2,
-        left: minX + deltaX / 2,
-        bottom: max(aY) - deltaY,
-        right: max(aX) - deltaX
+        left: this.left + (minX + deltaX / 2),
+        top: this.top + (minY + deltaY / 2),
+        width: deltaX,
+        height: deltaY
       };
-
-      o.width = deltaX;
-      o.height = deltaY;
 
       return o;
     }
@@ -771,10 +771,26 @@
   /**
    * Creates an instance of fabric.Path from an object
    * @static
-   * @return {fabric.Path} Instance of fabric.Path
+   * @param {Object} object
+   * @param {Function} callback Callback to invoke when an fabric.Path instance is created
    */
-  fabric.Path.fromObject = function(object) {
-    return new fabric.Path(object.path, object);
+  fabric.Path.fromObject = function(object, callback) {
+    if (typeof object.path === 'string') {
+      fabric.loadSVGFromURL(object.path, function (elements) {
+        var path = elements[0];
+
+        var pathUrl = object.path;
+        delete object.path;
+
+        fabric.util.object.extend(path, object);
+        path.setSourcePath(pathUrl);
+
+        callback(path);
+      });
+    }
+    else {
+      callback(new fabric.Path(object.path, object));
+    }
   };
 
   /* _FROM_SVG_START_ */
@@ -789,14 +805,21 @@
    * Creates an instance of fabric.Path from an SVG <path> element
    * @static
    * @param {SVGElement} element to parse
+   * @param {Function} callback Callback to invoke when an fabric.Path instance is created
    * @param {Object} [options] Options object
-   * @return {fabric.Path} Instance of fabric.Path
    */
-  fabric.Path.fromElement = function(element, options) {
+  fabric.Path.fromElement = function(element, callback, options) {
     var parsedAttributes = fabric.parseAttributes(element, fabric.Path.ATTRIBUTE_NAMES);
-    return new fabric.Path(parsedAttributes.d, extend(parsedAttributes, options));
+    callback && callback(new fabric.Path(parsedAttributes.d, extend(parsedAttributes, options)));
   };
   /* _FROM_SVG_END_ */
+
+  /**
+   * Indicates that instances of this type are async
+   * @static
+   * @type Boolean
+   */
+  fabric.Path.async = true;
 
 })(typeof exports !== 'undefined' ? exports : this);</textarea>
   </div>

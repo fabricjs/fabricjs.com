@@ -1,5 +1,5 @@
 var exec = require('child_process').exec;
-var command = 'jsdoc-3.1.1/jsdoc lib/fabric.js -d docs';
+var command = 'plato -r -d report ../fabric.js/src';
 
 console.log('Running:', command);
 

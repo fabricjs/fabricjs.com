@@ -163,6 +163,54 @@ circle.setShadow({
 canvas.renderAll();
 </pre>
 
+<pre class="test-source">
+var circle = new fabric.Circle({
+  left: 100,
+  top: 100,
+  radius: 50,
+  fill: 'green'
+});
+canvas.add(circle);
+
+circle.setShadow({
+  color: 'green',
+  blur: 10,
+  offsetX: 5,
+  offsetY: 5
+});
+canvas.renderAll();
+</pre>
+
+<pre class="test-source">
+var circle = new fabric.Circle({
+  left: 100,
+  top: 100,
+  radius: 50,
+  fill: 'grey'
+});
+canvas.add(circle);
+
+circle.setShadow({
+  blur: 10,
+  offsetX: 30,
+  offsetY: 5
+});
+canvas.renderAll();
+</pre>
+
+<pre class="test-source">
+var line = new fabric.Line([50, 100, 200, 200], {
+  stroke: 'red',
+  strokeWidth: 10
+});
+canvas.add(line);
+line.setShadow({
+  color: 'red',
+  blur: 10
+});
+canvas.renderAll();
+</pre>
+
 <pre class="test-source async">
 var rect = new fabric.Rect({
   left: 100,

@@ -45,11 +45,11 @@
   <div class="row">
     <div class="span6">
       <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"></i></a></h2>
-      <p class="stat">80.52</p>
+      <p class="stat">71.90</p>
     </div>
     <div class="span6">
       <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC"></i></h2>
-      <p class="stat">66</p>
+      <p class="stat">84</p>
     </div>
   </div>
   <div class="row historical">
@@ -63,11 +63,11 @@
   <div class="row">
     <div class="span6">
       <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty"></i></a></h2>
-      <p class="stat">9.95</p>
+      <p class="stat">16.38</p>
     </div>
     <div class="span6">
       <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs"></i></a></h2>
-      <p class="stat">0.12</p>
+      <p class="stat">0.31</p>
     </div>
   </div>
 </div>
@@ -135,15 +135,33 @@ fabric.Shadow = fabric.util.createClass(/** @lends fabric.Shadow.prototype */ {
     for (var prop in options) {
       this[prop] = options[prop];
     }
+
+    this.id = fabric.Object.__uid++;
   },
 
   /* _TO_SVG_START_ */
   /**
    * Returns SVG representation of a shadow
-   * @return {String}
+   * @return {String} SVG representation of a shadow
    */
-  toSVG: function() {
+  toSVG: function(object) {
+    var mode = 'SourceAlpha';
 
+    if (object.fill === this.color || object.stroke === this.color) {
+      mode = 'SourceGraphic';
+    }
+
+    return (
+      '<filter id="SVGID_' + this.id + '" y="-40%" height="180%">' +
+        '<feGaussianBlur in="' + mode + '" stdDeviation="' +
+          (this.blur ? this.blur / 3 : 0) +
+        '"></feGaussianBlur>' +
+        '<feOffset dx="' + this.offsetX + '" dy="' + this.offsetY + '"></feOffset>' +
+        '<feMerge>' +
+          '<feMergeNode></feMergeNode>' +
+          '<feMergeNode in="SourceGraphic"></feMergeNode>' +
+        '</feMerge>' +
+      '</filter>');
   },
   /* _TO_SVG_END_ */
 

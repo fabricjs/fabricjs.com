@@ -478,7 +478,7 @@ canvas.on('mouse:down', function(options) {
 
 <p>Этот пример выведет "an object was clicked!" если мы нажмём на объект. Также покажется тип этого объекта.</p>
 
-<p>Какие ещё события доступны в Fabric? На уровне мышки, у нас есть "<b>mouse:down</b>", "<b>mouse:move</b>", и "<b>mouse:up</b>". Из общих, есть "<b>after:render</b>". Есть события касающиеся выбора объектов: "<b>before:selection:cleared</b>", "<b>selection:created</b>", "<b>selection:cleared</b>". Ну и конечно же, события объектов: "<b>object:modified</b>", "<b>object:selected</b>", "<b>object:moving</b>", "<b>object:scaling</b>", "<b>object:rotating</b>", и "<b>object:added</b>".</p>
+<p>Какие ещё события доступны в Fabric? На уровне мышки, у нас есть "<b>mouse:down</b>", "<b>mouse:move</b>", и "<b>mouse:up</b>". Из общих, есть "<b>after:render</b>". Есть события касающиеся выбора объектов: "<b>before:selection:cleared</b>", "<b>selection:created</b>", "<b>selection:cleared</b>". Ну и конечно же, события объектов: "<b>object:modified</b>", "<b>object:selected</b>", "<b>object:moving</b>", "<b>object:scaling</b>", "<b>object:rotating</b>", "<b>object:added</b>", и "<b>object:removed</b>".</p>
 
 <p>Стоит заметить, что события типа "object:moving" (или "object:scaling") происходят постоянно, во время движения или масштабирования объекта, даже если на один пиксель. В то же время, события типа "object:modified" или "selection:created" происходят только в конце действия (изменение объкта, создание групы объектов, и т.д.).</p>
 

@@ -17,7 +17,12 @@ title: Custom Fabric build
   .version { background: #ffc; padding: 5px; display: inline-block; }
 </style>
 
-<div class="version">Fabric version: <b>1.2.5</b></div>
+<div class="version">Fabric version: <b>1.2.9</b></div>
+
+<p>
+  <button id="select-all">Select all</button>
+  <button id="select-none">Select none</button>
+</p>
 
 <ul id="options">
   <li>
@@ -132,6 +137,18 @@ title: Custom Fabric build
     document.getElementById('text').onclick = function() {
       if (!this.checked) {
         document.getElementById('cufon').checked = false;
+      }
+    };
+    document.getElementById('select-all').onclick = function() {
+      var inputs = document.getElementsByTagName('input');
+      for (var i = 0, len = inputs.length; i < len; i++) {
+        inputs[i].checked = true;
+      }
+    };
+    document.getElementById('select-none').onclick = function() {
+      var inputs = document.getElementsByTagName('input');
+      for (var i = 0, len = inputs.length; i < len; i++) {
+        inputs[i].checked = false;
       }
     };
   })();

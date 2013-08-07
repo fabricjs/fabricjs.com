@@ -63,7 +63,7 @@ results1.innerHTML = 'Regular rendering of <strong>100</strong> elements in <str
 //
 // Rendering canvas #2
 //
-var canvas2  = new fabric.Canvas('c2', { backgroundColor: "#000", renderOnAddition: false }),
+var canvas2  = new fabric.Canvas('c2', { backgroundColor: "#000", renderOnAddRemove: false }),
     results2 = document.getElementById('results-c2');
 
 startTimer();
@@ -77,5 +77,5 @@ for (i = 1000; i >= 0; i--) {
     canvas2.add(dot);
 }
 canvas2.renderAll(); // Note, calling renderAll() is important in this case
-results2.innerHTML = 'Rendering <strong>1000</strong> elements using <code>canvas.renderOnAddition = false</code> in <strong>' + stopTimer() + 'ms</strong>';
+results2.innerHTML = 'Rendering <strong>1000</strong> elements using <code>canvas.renderOnAddRemove = false</code> in <strong>' + stopTimer() + 'ms</strong>';
 </script>

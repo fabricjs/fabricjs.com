@@ -198,7 +198,7 @@ redish.toGrayscale().toHex(); // "A1A1A1"
 
 <p>An even more expressive way to work with colors is via gradients. Gradients allow us to blend one color into another, creating some stunning graphical effects.</p>
 
-<p>Fabric supports gradients via <code>setGradientFill</code> method, defined on all objects. Calling <code>setGradientFill</code> is just like setting "fill" value of an object, except that we fill object with gradient, rather than single color.</p>
+<p>Fabric supports gradients via <code>setGradient</code> method (<code>setGradientFill</code> before v1.1.0), defined on all objects. Calling <code>setGradient('fill', { ... })</code> is just like setting "fill" value of an object, except that we fill object with gradient, rather than single color.</p>
 
 <pre>
 var circle = new fabric.Circle({
@@ -207,7 +207,7 @@ var circle = new fabric.Circle({
   radius: 50
 });
 
-circle.setGradientFill({
+circle.setGradient('fill', {
   x1: 0,
   y1: 0,
   x2: 0,
@@ -228,7 +228,7 @@ circle.setGradientFill({
 <p>Here's an example of left-to-right red-blue gradient:</p>
 
 <pre>
-circle.setGradientFill({
+circle.setGradient('fill', {
   x1: 0,
   y1: circle.height / 2,
   x2: circle.width,
@@ -245,7 +245,7 @@ circle.setGradientFill({
 <p>And here's a 5-stops rainbow gradient, with colors spanning at even 20% intervals:</p>
 
 <pre>
-circle.setGradientFill({
+circle.setGradient('fill', {
   x1: 0,
   y1: circle.height / 2,
   x2: circle.width,

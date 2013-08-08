@@ -198,7 +198,7 @@ redish.toGrayscale().toHex(); // "A1A1A1"
 
 <p>Ещё более экспрессивный способ работы с цветами — используя градиенты. Градиенты позволяет плавно смешать один цвет с другим, открывая возможность довольно изумительным эффектам.</p>
 
-<p>Fabric поддерживает их с помощью метода <code>setGradientFill</code>, который присутствует на всех объектах. Вызывание <code>setGradientFill</code> это почти как выставление значения "fill" у объекта, только вместо цвета используется градиент.</p>
+<p>Fabric поддерживает их с помощью метода <code>setGradient</code> (<code>setGradientFill</code> до 1.1.0 версии), который присутствует на всех объектах. Вызывание <code>setGradient('fill', { ... })</code> это почти как выставление значения "fill" у объекта, только вместо цвета используется градиент.</p>
 
 <pre>
 var circle = new fabric.Circle({
@@ -207,7 +207,7 @@ var circle = new fabric.Circle({
   radius: 50
 });
 
-circle.setGradientFill({
+circle.setGradient('fill', {
   x1: 0,
   y1: 0,
   x2: 0,
@@ -228,7 +228,7 @@ circle.setGradientFill({
 <p>Вот пример красно-голубого градиента, идущего слева направо:</p>
 
 <pre>
-circle.setGradientFill({
+circle.setGradient('fill', {
   x1: 0,
   y1: circle.height / 2,
   x2: circle.width,
@@ -245,7 +245,7 @@ circle.setGradientFill({
 <p>А вот 5-ти шаговый градиент-радуга, с цветами занимающими по 20% всей длины:</p>
 
 <pre>
-circle.setGradientFill({
+circle.setGradient('fill', {
   x1: 0,
   y1: circle.height / 2,
   x2: circle.width,

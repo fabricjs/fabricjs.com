@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <title>JSDoc: Class: BaseBrush</title>
 
-    <script src="/js/prettify.js"> </script>
-    <script src="/js/lang-css.js"> </script>
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
     <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -15,55 +15,56 @@
 </head>
 
 <body>
-<ul id="header">
-  <li><a href="http://fabricjs.com/">Features</a></li>
-  <li><a href="http://fabricjs.com/demos">Demos</a></li>
-  <li><a href="http://fabricjs.com/docs">Docs</a></li>
-  <li><a href="http://fabricjs.com/articles">Tutorial</a></li>
-  <li><a href="http://fabricjs.com/test">Tests</a></li>
-  <li><a href="http://fabricjs.com/benchmarks">Benchmarks</a></li>
-  <li><a href="http://fabricjs.com/build">Build</a></li>
-  <li class="secondary">
-    <a href="http://travis-ci.org/#!/kangax/fabric.js"><img src="https://secure.travis-ci.org/kangax/fabric.js.png?branch=master"></a>
-  </li>
-  <li class="gittip secondary">
-    <iframe style="border: 0; margin: 0; padding: 0;" src="https://www.gittip.com/5c2ec8b83e18/widget.html" width="48pt" height="22pt"></iframe>
-  </li>
-  <li class="flattr secondary">
-    <a class="FlattrButton" style="display:none;" rev="flattr;button:compact;" href="http://kangax.github.com/fabric.js"></a>
-    <noscript><a href="http://flattr.com/thing/391332/Fabric-js" target="_blank">
-    <img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0" /></a></noscript>
-  </li>
-  <li class="github secondary">
-    <iframe src="http://ghbtns.com/github-btn.html?user=kangax&repo=fabric.js&type=watch&count=true"
-      allowtransparency="true" frameborder="0" scrolling="0" width="95px" height="20px"></iframe>
-  </li>
-  <li class="twitter secondary">
-    <a href="https://twitter.com/fabricjs" class="twitter-follow-button" data-show-count="true">Follow @fabricjs</a>
-    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-  </li>
-  <li class="secondary"><a href="http://stackoverflow.com/questions/tagged/fabricjs"><span>StackOverflow</span></a></li>
-  <li class="secondary"><a href="https://github.com/kangax/fabric.js/wiki"><span>Wiki</span></a></li>
-  <li class="secondary"><a href="http://groups.google.com/group/fabricjs"><span>Discussion</span></a></li>
-</ul>
 
-<script>
-(function() {
+    <ul id="header">
+      <li><a href="http://fabricjs.com/">Features</a></li>
+      <li><a href="http://fabricjs.com/demos">Demos</a></li>
+      <li><a href="http://fabricjs.com/docs">Docs</a></li>
+      <li><a href="http://fabricjs.com/articles">Tutorial</a></li>
+      <li><a href="http://fabricjs.com/test">Tests</a></li>
+      <li><a href="http://fabricjs.com/benchmarks">Benchmarks</a></li>
+      <li><a href="http://fabricjs.com/build">Build</a></li>
+      <li class="secondary">
+        <a href="http://travis-ci.org/#!/kangax/fabric.js"><img src="https://secure.travis-ci.org/kangax/fabric.js.png?branch=master"></a>
+      </li>
+      <li class="gittip secondary">
+        <iframe style="border: 0; margin: 0; padding: 0;" src="https://www.gittip.com/5c2ec8b83e18/widget.html" width="48pt" height="22pt"></iframe>
+      </li>
+      <li class="flattr secondary">
+        <a class="FlattrButton" style="display:none;" rev="flattr;button:compact;" href="http://kangax.github.com/fabric.js"></a>
+        <noscript><a href="http://flattr.com/thing/391332/Fabric-js" target="_blank">
+        <img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0" /></a></noscript>
+      </li>
+      <li class="github secondary">
+        <iframe src="http://ghbtns.com/github-btn.html?user=kangax&repo=fabric.js&type=watch&count=true"
+          allowtransparency="true" frameborder="0" scrolling="0" width="95px" height="20px"></iframe>
+      </li>
+      <li class="twitter secondary">
+        <a href="https://twitter.com/fabricjs" class="twitter-follow-button" data-show-count="true">Follow @fabricjs</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+      </li>
+      <li class="secondary"><a href="http://stackoverflow.com/questions/tagged/fabricjs"><span>StackOverflow</span></a></li>
+      <li class="secondary"><a href="https://github.com/kangax/fabric.js/wiki"><span>Wiki</span></a></li>
+      <li class="secondary"><a href="http://groups.google.com/group/fabricjs"><span>Discussion</span></a></li>
+    </ul>
 
-  var s = document.createElement('script'), t = document.getElementsByTagName('script')[0];
-  s.async = true;
-  s.src = 'http://api.flattr.com/js/0.6/load.js?mode=auto';
-  t.parentNode.insertBefore(s, t);
+    <script>
+    (function() {
 
-  if (document.location.hostname === 'localhost') {
-    var links = document.getElementById('header').getElementsByTagName('a');
-    for (var i = 0, len = links.length; i < len; i++) {
-      // very retarted fix but fuck it
-      links[i].href = links[i].href.replace('fabricjs.com', 'localhost:4000');
-    }
-  }
-})();
-</script>
+      var s = document.createElement('script'), t = document.getElementsByTagName('script')[0];
+      s.async = true;
+      s.src = 'http://api.flattr.com/js/0.6/load.js?mode=auto';
+      t.parentNode.insertBefore(s, t);
+
+      if (document.location.hostname === 'localhost') {
+        var links = document.getElementById('header').getElementsByTagName('a');
+        for (var i = 0, len = links.length; i < len; i++) {
+          // very retarted fix but fuck it
+          links[i].href = links[i].href.replace('fabricjs.com', 'localhost:4000');
+        }
+      }
+    })();
+    </script>
 
 <div id="main">
 
@@ -92,8 +93,8 @@
         
 <dt>
     <h4 class="name" id="BaseBrush">
-      <span class="type-signature"></span>new BaseBrush<span class="signature">()</span><span class="type-signature"></span>
-      <a href="#BaseBrush" class="anchor">§</a>
+        <span class="type-signature"></span>new BaseBrush<span class="signature">()</span><span class="type-signature"></span>
+        <a href="#BaseBrush" class="anchor">§</a>
     </h4>
 
     
@@ -135,7 +136,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 7532
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7547">line 7547</a>
     </li></ul></dd>
     
     
@@ -146,6 +147,10 @@
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -176,8 +181,8 @@
             
 <dt>
     <h4 class="name" id="color">
-      <span class="type-signature"></span>color<span class="type-signature"> :String</span>
-      <a href="#color" class="anchor">§</a>
+        <span class="type-signature"></span>color<span class="type-signature"> :String</span>
+        <a href="#color" class="anchor">§</a>
     </h4>
 
     
@@ -187,6 +192,18 @@
     <div class="description">
         Color of a brush
     </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">String</span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -215,7 +232,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 7543
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7558">line 7558</a>
     </li></ul></dd>
     
     
@@ -234,8 +251,8 @@
             
 <dt>
     <h4 class="name" id="shadowBlur">
-      <span class="type-signature"></span>shadowBlur<span class="type-signature"> :Number</span>
-      <a href="#shadowBlur" class="anchor">§</a>
+        <span class="type-signature"></span>shadowBlur<span class="type-signature"> :Number</span>
+        <a href="#shadowBlur" class="anchor">§</a>
     </h4>
 
     
@@ -245,6 +262,18 @@
     <div class="description">
         Shadow blur of a brush
     </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Number</span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -273,7 +302,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 7557
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7572">line 7572</a>
     </li></ul></dd>
     
     
@@ -292,8 +321,8 @@
             
 <dt>
     <h4 class="name" id="shadowColor">
-      <span class="type-signature"></span>shadowColor<span class="type-signature"> :String</span>
-      <a href="#shadowColor" class="anchor">§</a>
+        <span class="type-signature"></span>shadowColor<span class="type-signature"> :String</span>
+        <a href="#shadowColor" class="anchor">§</a>
     </h4>
 
     
@@ -303,6 +332,18 @@
     <div class="description">
         Shadow color of a brush
     </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">String</span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -328,7 +369,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 7564
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7579">line 7579</a>
     </li></ul></dd>
     
     
@@ -347,8 +388,8 @@
             
 <dt>
     <h4 class="name" id="shadowOffsetX">
-      <span class="type-signature"></span>shadowOffsetX<span class="type-signature"> :Number</span>
-      <a href="#shadowOffsetX" class="anchor">§</a>
+        <span class="type-signature"></span>shadowOffsetX<span class="type-signature"> :Number</span>
+        <a href="#shadowOffsetX" class="anchor">§</a>
     </h4>
 
     
@@ -358,6 +399,18 @@
     <div class="description">
         Shadow offset x of a brush
     </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Number</span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -386,7 +439,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 7571
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7586">line 7586</a>
     </li></ul></dd>
     
     
@@ -405,8 +458,8 @@
             
 <dt>
     <h4 class="name" id="shadowOffsetY">
-      <span class="type-signature"></span>shadowOffsetY<span class="type-signature"> :Number</span>
-      <a href="#shadowOffsetY" class="anchor">§</a>
+        <span class="type-signature"></span>shadowOffsetY<span class="type-signature"> :Number</span>
+        <a href="#shadowOffsetY" class="anchor">§</a>
     </h4>
 
     
@@ -416,6 +469,18 @@
     <div class="description">
         Shadow offset y of a brush
     </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Number</span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -444,7 +509,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 7578
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7593">line 7593</a>
     </li></ul></dd>
     
     
@@ -463,8 +528,8 @@
             
 <dt>
     <h4 class="name" id="strokeLineCap">
-      <span class="type-signature"></span>strokeLineCap<span class="type-signature"> :String</span>
-      <a href="#strokeLineCap" class="anchor">§</a>
+        <span class="type-signature"></span>strokeLineCap<span class="type-signature"> :String</span>
+        <a href="#strokeLineCap" class="anchor">§</a>
     </h4>
 
     
@@ -474,6 +539,18 @@
     <div class="description">
         Line endings style of a brush (one of "butt", "round", "square")
     </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">String</span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -502,7 +579,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 7585
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7600">line 7600</a>
     </li></ul></dd>
     
     
@@ -521,8 +598,8 @@
             
 <dt>
     <h4 class="name" id="strokeLineJoin">
-      <span class="type-signature"></span>strokeLineJoin<span class="type-signature"> :String</span>
-      <a href="#strokeLineJoin" class="anchor">§</a>
+        <span class="type-signature"></span>strokeLineJoin<span class="type-signature"> :String</span>
+        <a href="#strokeLineJoin" class="anchor">§</a>
     </h4>
 
     
@@ -532,6 +609,18 @@
     <div class="description">
         Corner style of a brush (one of "bevil", "round", "miter")
     </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">String</span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -560,7 +649,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 7592
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7607">line 7607</a>
     </li></ul></dd>
     
     
@@ -579,8 +668,8 @@
             
 <dt>
     <h4 class="name" id="width">
-      <span class="type-signature"></span>width<span class="type-signature"> :Number</span>
-      <a href="#width" class="anchor">§</a>
+        <span class="type-signature"></span>width<span class="type-signature"> :Number</span>
+        <a href="#width" class="anchor">§</a>
     </h4>
 
     
@@ -590,6 +679,18 @@
     <div class="description">
         Width of a brush
     </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Number</span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -618,7 +719,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 7550
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7565">line 7565</a>
     </li></ul></dd>
     
     
@@ -643,8 +744,8 @@
             
 <dt>
     <h4 class="name" id="removeShadowStyles">
-      <span class="type-signature"></span>removeShadowStyles<span class="signature">()</span><span class="type-signature"></span>
-      <a href="#removeShadowStyles" class="anchor">§</a>
+        <span class="type-signature"></span>removeShadowStyles<span class="signature">()</span><span class="type-signature"></span>
+        <a href="#removeShadowStyles" class="anchor">§</a>
     </h4>
 
     
@@ -686,7 +787,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 7623
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7638">line 7638</a>
     </li></ul></dd>
     
     
@@ -705,14 +806,18 @@
     
 
     
+
+    
+
+    
 </dd>
 
         
             
 <dt>
     <h4 class="name" id="setBrushStyles">
-      <span class="type-signature"></span>setBrushStyles<span class="signature">()</span><span class="type-signature"></span>
-      <a href="#setBrushStyles" class="anchor">§</a>
+        <span class="type-signature"></span>setBrushStyles<span class="signature">()</span><span class="type-signature"></span>
+        <a href="#setBrushStyles" class="anchor">§</a>
     </h4>
 
     
@@ -754,7 +859,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 7597
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7612">line 7612</a>
     </li></ul></dd>
     
     
@@ -773,14 +878,18 @@
     
 
     
+
+    
+
+    
 </dd>
 
         
             
 <dt>
     <h4 class="name" id="setShadowStyles">
-      <span class="type-signature"></span>setShadowStyles<span class="signature">()</span><span class="type-signature"></span>
-      <a href="#setShadowStyles" class="anchor">§</a>
+        <span class="type-signature"></span>setShadowStyles<span class="signature">()</span><span class="type-signature"></span>
+        <a href="#setShadowStyles" class="anchor">§</a>
     </h4>
 
     
@@ -822,7 +931,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 7609
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7624">line 7624</a>
     </li></ul></dd>
     
     
@@ -833,6 +942,10 @@
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -865,9 +978,10 @@
 <br clear="both">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.1.1</a> on Sun Aug 11 2013 23:16:49 GMT+0200 (CEST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0</a> on Sun Aug 11 2013 23:42:18 GMT+0200 (CEST)
 </footer>
 
-<script> prettyPrint(); </script>
+<script> /*prettyPrint();*/ </script>
+<script src="scripts/linenumber.js"> </script>
 </body>
 </html>

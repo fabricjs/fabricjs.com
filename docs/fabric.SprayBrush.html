@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <title>JSDoc: Class: SprayBrush</title>
 
-    <script src="/js/prettify.js"> </script>
-    <script src="/js/lang-css.js"> </script>
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
     <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -15,55 +15,56 @@
 </head>
 
 <body>
-<ul id="header">
-  <li><a href="http://fabricjs.com/">Features</a></li>
-  <li><a href="http://fabricjs.com/demos">Demos</a></li>
-  <li><a href="http://fabricjs.com/docs">Docs</a></li>
-  <li><a href="http://fabricjs.com/articles">Tutorial</a></li>
-  <li><a href="http://fabricjs.com/test">Tests</a></li>
-  <li><a href="http://fabricjs.com/benchmarks">Benchmarks</a></li>
-  <li><a href="http://fabricjs.com/build">Build</a></li>
-  <li class="secondary">
-    <a href="http://travis-ci.org/#!/kangax/fabric.js"><img src="https://secure.travis-ci.org/kangax/fabric.js.png?branch=master"></a>
-  </li>
-  <li class="gittip secondary">
-    <iframe style="border: 0; margin: 0; padding: 0;" src="https://www.gittip.com/5c2ec8b83e18/widget.html" width="48pt" height="22pt"></iframe>
-  </li>
-  <li class="flattr secondary">
-    <a class="FlattrButton" style="display:none;" rev="flattr;button:compact;" href="http://kangax.github.com/fabric.js"></a>
-    <noscript><a href="http://flattr.com/thing/391332/Fabric-js" target="_blank">
-    <img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0" /></a></noscript>
-  </li>
-  <li class="github secondary">
-    <iframe src="http://ghbtns.com/github-btn.html?user=kangax&repo=fabric.js&type=watch&count=true"
-      allowtransparency="true" frameborder="0" scrolling="0" width="95px" height="20px"></iframe>
-  </li>
-  <li class="twitter secondary">
-    <a href="https://twitter.com/fabricjs" class="twitter-follow-button" data-show-count="true">Follow @fabricjs</a>
-    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-  </li>
-  <li class="secondary"><a href="http://stackoverflow.com/questions/tagged/fabricjs"><span>StackOverflow</span></a></li>
-  <li class="secondary"><a href="https://github.com/kangax/fabric.js/wiki"><span>Wiki</span></a></li>
-  <li class="secondary"><a href="http://groups.google.com/group/fabricjs"><span>Discussion</span></a></li>
-</ul>
 
-<script>
-(function() {
+    <ul id="header">
+      <li><a href="http://fabricjs.com/">Features</a></li>
+      <li><a href="http://fabricjs.com/demos">Demos</a></li>
+      <li><a href="http://fabricjs.com/docs">Docs</a></li>
+      <li><a href="http://fabricjs.com/articles">Tutorial</a></li>
+      <li><a href="http://fabricjs.com/test">Tests</a></li>
+      <li><a href="http://fabricjs.com/benchmarks">Benchmarks</a></li>
+      <li><a href="http://fabricjs.com/build">Build</a></li>
+      <li class="secondary">
+        <a href="http://travis-ci.org/#!/kangax/fabric.js"><img src="https://secure.travis-ci.org/kangax/fabric.js.png?branch=master"></a>
+      </li>
+      <li class="gittip secondary">
+        <iframe style="border: 0; margin: 0; padding: 0;" src="https://www.gittip.com/5c2ec8b83e18/widget.html" width="48pt" height="22pt"></iframe>
+      </li>
+      <li class="flattr secondary">
+        <a class="FlattrButton" style="display:none;" rev="flattr;button:compact;" href="http://kangax.github.com/fabric.js"></a>
+        <noscript><a href="http://flattr.com/thing/391332/Fabric-js" target="_blank">
+        <img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0" /></a></noscript>
+      </li>
+      <li class="github secondary">
+        <iframe src="http://ghbtns.com/github-btn.html?user=kangax&repo=fabric.js&type=watch&count=true"
+          allowtransparency="true" frameborder="0" scrolling="0" width="95px" height="20px"></iframe>
+      </li>
+      <li class="twitter secondary">
+        <a href="https://twitter.com/fabricjs" class="twitter-follow-button" data-show-count="true">Follow @fabricjs</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+      </li>
+      <li class="secondary"><a href="http://stackoverflow.com/questions/tagged/fabricjs"><span>StackOverflow</span></a></li>
+      <li class="secondary"><a href="https://github.com/kangax/fabric.js/wiki"><span>Wiki</span></a></li>
+      <li class="secondary"><a href="http://groups.google.com/group/fabricjs"><span>Discussion</span></a></li>
+    </ul>
 
-  var s = document.createElement('script'), t = document.getElementsByTagName('script')[0];
-  s.async = true;
-  s.src = 'http://api.flattr.com/js/0.6/load.js?mode=auto';
-  t.parentNode.insertBefore(s, t);
+    <script>
+    (function() {
 
-  if (document.location.hostname === 'localhost') {
-    var links = document.getElementById('header').getElementsByTagName('a');
-    for (var i = 0, len = links.length; i < len; i++) {
-      // very retarted fix but fuck it
-      links[i].href = links[i].href.replace('fabricjs.com', 'localhost:4000');
-    }
-  }
-})();
-</script>
+      var s = document.createElement('script'), t = document.getElementsByTagName('script')[0];
+      s.async = true;
+      s.src = 'http://api.flattr.com/js/0.6/load.js?mode=auto';
+      t.parentNode.insertBefore(s, t);
+
+      if (document.location.hostname === 'localhost') {
+        var links = document.getElementById('header').getElementsByTagName('a');
+        for (var i = 0, len = links.length; i < len; i++) {
+          // very retarted fix but fuck it
+          links[i].href = links[i].href.replace('fabricjs.com', 'localhost:4000');
+        }
+      }
+    })();
+    </script>
 
 <div id="main">
 
@@ -92,8 +93,8 @@
         
 <dt>
     <h4 class="name" id="SprayBrush">
-      <span class="type-signature"></span>new SprayBrush<span class="signature">()</span><span class="type-signature"></span>
-      <a href="#SprayBrush" class="anchor">§</a>
+        <span class="type-signature"></span>new SprayBrush<span class="signature">()</span><span class="type-signature"></span>
+        <a href="#SprayBrush" class="anchor">§</a>
     </h4>
 
     
@@ -135,7 +136,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 8025
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line8040">line 8040</a>
     </li></ul></dd>
     
     
@@ -146,6 +147,10 @@
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -176,8 +181,8 @@
             
 <dt>
     <h4 class="name" id="density">
-      <span class="type-signature"></span>density<span class="type-signature"> :Number</span>
-      <a href="#density" class="anchor">§</a>
+        <span class="type-signature"></span>density<span class="type-signature"> :Number</span>
+        <a href="#density" class="anchor">§</a>
     </h4>
 
     
@@ -187,6 +192,18 @@
     <div class="description">
         Density of a spray (number of dots per chunk)
     </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Number</span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -215,7 +232,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 8043
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line8058">line 8058</a>
     </li></ul></dd>
     
     
@@ -234,8 +251,8 @@
             
 <dt>
     <h4 class="name" id="dotWidth">
-      <span class="type-signature"></span>dotWidth<span class="type-signature"> :Number</span>
-      <a href="#dotWidth" class="anchor">§</a>
+        <span class="type-signature"></span>dotWidth<span class="type-signature"> :Number</span>
+        <a href="#dotWidth" class="anchor">§</a>
     </h4>
 
     
@@ -245,6 +262,18 @@
     <div class="description">
         Width of spray dots
     </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Number</span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -273,7 +302,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 8050
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line8065">line 8065</a>
     </li></ul></dd>
     
     
@@ -292,8 +321,8 @@
             
 <dt>
     <h4 class="name" id="dotWidthVariance">
-      <span class="type-signature"></span>dotWidthVariance<span class="type-signature"> :Number</span>
-      <a href="#dotWidthVariance" class="anchor">§</a>
+        <span class="type-signature"></span>dotWidthVariance<span class="type-signature"> :Number</span>
+        <a href="#dotWidthVariance" class="anchor">§</a>
     </h4>
 
     
@@ -303,6 +332,18 @@
     <div class="description">
         Width variance of spray dots
     </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Number</span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -331,7 +372,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 8057
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line8072">line 8072</a>
     </li></ul></dd>
     
     
@@ -350,8 +391,8 @@
             
 <dt>
     <h4 class="name" id="randomOpacity">
-      <span class="type-signature"></span>randomOpacity<span class="type-signature"> :Boolean</span>
-      <a href="#randomOpacity" class="anchor">§</a>
+        <span class="type-signature"></span>randomOpacity<span class="type-signature"> :Boolean</span>
+        <a href="#randomOpacity" class="anchor">§</a>
     </h4>
 
     
@@ -361,6 +402,18 @@
     <div class="description">
         Whether opacity of a dot should be random
     </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Boolean</span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -389,7 +442,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 8064
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line8079">line 8079</a>
     </li></ul></dd>
     
     
@@ -408,8 +461,8 @@
             
 <dt>
     <h4 class="name" id="width">
-      <span class="type-signature"></span>width<span class="type-signature"> :Number</span>
-      <a href="#width" class="anchor">§</a>
+        <span class="type-signature"></span>width<span class="type-signature"> :Number</span>
+        <a href="#width" class="anchor">§</a>
     </h4>
 
     
@@ -419,6 +472,18 @@
     <div class="description">
         Width of a spray
     </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Number</span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -447,7 +512,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 8036
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line8051">line 8051</a>
     </li></ul></dd>
     
     
@@ -472,8 +537,8 @@
             
 <dt>
     <h4 class="name" id="addSprayChunk">
-      <span class="type-signature"></span>addSprayChunk<span class="signature">(pointer)</span><span class="type-signature"></span>
-      <a href="#addSprayChunk" class="anchor">§</a>
+        <span class="type-signature"></span>addSprayChunk<span class="signature">(pointer)</span><span class="type-signature"></span>
+        <a href="#addSprayChunk" class="anchor">§</a>
     </h4>
 
     
@@ -559,7 +624,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 8159
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line8174">line 8174</a>
     </li></ul></dd>
     
     
@@ -578,14 +643,18 @@
     
 
     
+
+    
+
+    
 </dd>
 
         
             
 <dt>
     <h4 class="name" id="initialize">
-      <span class="type-signature"></span>initialize<span class="signature">(canvas)</span><span class="type-signature"> &rarr; {<a href="fabric.SprayBrush.html">fabric.SprayBrush</a>}</span>
-      <a href="#initialize" class="anchor">§</a>
+        <span class="type-signature"></span>initialize<span class="signature">(canvas)</span><span class="type-signature"> &rarr; {<a href="fabric.SprayBrush.html">fabric.SprayBrush</a>}</span>
+        <a href="#initialize" class="anchor">§</a>
     </h4>
 
     
@@ -675,7 +744,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 8071
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line8086">line 8086</a>
     </li></ul></dd>
     
     
@@ -686,6 +755,10 @@
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -722,8 +795,8 @@
             
 <dt>
     <h4 class="name" id="onMouseDown">
-      <span class="type-signature"></span>onMouseDown<span class="signature">(pointer)</span><span class="type-signature"></span>
-      <a href="#onMouseDown" class="anchor">§</a>
+        <span class="type-signature"></span>onMouseDown<span class="signature">(pointer)</span><span class="type-signature"></span>
+        <a href="#onMouseDown" class="anchor">§</a>
     </h4>
 
     
@@ -813,7 +886,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 8080
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line8095">line 8095</a>
     </li></ul></dd>
     
     
@@ -832,14 +905,18 @@
     
 
     
+
+    
+
+    
 </dd>
 
         
             
 <dt>
     <h4 class="name" id="onMouseMove">
-      <span class="type-signature"></span>onMouseMove<span class="signature">(pointer)</span><span class="type-signature"></span>
-      <a href="#onMouseMove" class="anchor">§</a>
+        <span class="type-signature"></span>onMouseMove<span class="signature">(pointer)</span><span class="type-signature"></span>
+        <a href="#onMouseMove" class="anchor">§</a>
     </h4>
 
     
@@ -929,7 +1006,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 8093
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line8108">line 8108</a>
     </li></ul></dd>
     
     
@@ -948,14 +1025,18 @@
     
 
     
+
+    
+
+    
 </dd>
 
         
             
 <dt>
     <h4 class="name" id="onMouseUp">
-      <span class="type-signature"></span>onMouseUp<span class="signature">()</span><span class="type-signature"></span>
-      <a href="#onMouseUp" class="anchor">§</a>
+        <span class="type-signature"></span>onMouseUp<span class="signature">()</span><span class="type-signature"></span>
+        <a href="#onMouseUp" class="anchor">§</a>
     </h4>
 
     
@@ -997,7 +1078,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 8101
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line8116">line 8116</a>
     </li></ul></dd>
     
     
@@ -1016,14 +1097,18 @@
     
 
     
+
+    
+
+    
 </dd>
 
         
             
 <dt>
     <h4 class="name" id="render">
-      <span class="type-signature"></span>render<span class="signature">()</span><span class="type-signature"></span>
-      <a href="#render" class="anchor">§</a>
+        <span class="type-signature"></span>render<span class="signature">()</span><span class="type-signature"></span>
+        <a href="#render" class="anchor">§</a>
     </h4>
 
     
@@ -1065,7 +1150,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 8141
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line8156">line 8156</a>
     </li></ul></dd>
     
     
@@ -1076,6 +1161,10 @@
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -1108,9 +1197,10 @@
 <br clear="both">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.1.1</a> on Sun Aug 11 2013 23:16:58 GMT+0200 (CEST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0</a> on Sun Aug 11 2013 23:42:30 GMT+0200 (CEST)
 </footer>
 
-<script> prettyPrint(); </script>
+<script> /*prettyPrint();*/ </script>
+<script src="scripts/linenumber.js"> </script>
 </body>
 </html>

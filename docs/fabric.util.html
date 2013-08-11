@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <title>JSDoc: Namespace: util</title>
 
-    <script src="/js/prettify.js"> </script>
-    <script src="/js/lang-css.js"> </script>
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
     <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -15,55 +15,56 @@
 </head>
 
 <body>
-<ul id="header">
-  <li><a href="http://fabricjs.com/">Features</a></li>
-  <li><a href="http://fabricjs.com/demos">Demos</a></li>
-  <li><a href="http://fabricjs.com/docs">Docs</a></li>
-  <li><a href="http://fabricjs.com/articles">Tutorial</a></li>
-  <li><a href="http://fabricjs.com/test">Tests</a></li>
-  <li><a href="http://fabricjs.com/benchmarks">Benchmarks</a></li>
-  <li><a href="http://fabricjs.com/build">Build</a></li>
-  <li class="secondary">
-    <a href="http://travis-ci.org/#!/kangax/fabric.js"><img src="https://secure.travis-ci.org/kangax/fabric.js.png?branch=master"></a>
-  </li>
-  <li class="gittip secondary">
-    <iframe style="border: 0; margin: 0; padding: 0;" src="https://www.gittip.com/5c2ec8b83e18/widget.html" width="48pt" height="22pt"></iframe>
-  </li>
-  <li class="flattr secondary">
-    <a class="FlattrButton" style="display:none;" rev="flattr;button:compact;" href="http://kangax.github.com/fabric.js"></a>
-    <noscript><a href="http://flattr.com/thing/391332/Fabric-js" target="_blank">
-    <img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0" /></a></noscript>
-  </li>
-  <li class="github secondary">
-    <iframe src="http://ghbtns.com/github-btn.html?user=kangax&repo=fabric.js&type=watch&count=true"
-      allowtransparency="true" frameborder="0" scrolling="0" width="95px" height="20px"></iframe>
-  </li>
-  <li class="twitter secondary">
-    <a href="https://twitter.com/fabricjs" class="twitter-follow-button" data-show-count="true">Follow @fabricjs</a>
-    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-  </li>
-  <li class="secondary"><a href="http://stackoverflow.com/questions/tagged/fabricjs"><span>StackOverflow</span></a></li>
-  <li class="secondary"><a href="https://github.com/kangax/fabric.js/wiki"><span>Wiki</span></a></li>
-  <li class="secondary"><a href="http://groups.google.com/group/fabricjs"><span>Discussion</span></a></li>
-</ul>
 
-<script>
-(function() {
+    <ul id="header">
+      <li><a href="http://fabricjs.com/">Features</a></li>
+      <li><a href="http://fabricjs.com/demos">Demos</a></li>
+      <li><a href="http://fabricjs.com/docs">Docs</a></li>
+      <li><a href="http://fabricjs.com/articles">Tutorial</a></li>
+      <li><a href="http://fabricjs.com/test">Tests</a></li>
+      <li><a href="http://fabricjs.com/benchmarks">Benchmarks</a></li>
+      <li><a href="http://fabricjs.com/build">Build</a></li>
+      <li class="secondary">
+        <a href="http://travis-ci.org/#!/kangax/fabric.js"><img src="https://secure.travis-ci.org/kangax/fabric.js.png?branch=master"></a>
+      </li>
+      <li class="gittip secondary">
+        <iframe style="border: 0; margin: 0; padding: 0;" src="https://www.gittip.com/5c2ec8b83e18/widget.html" width="48pt" height="22pt"></iframe>
+      </li>
+      <li class="flattr secondary">
+        <a class="FlattrButton" style="display:none;" rev="flattr;button:compact;" href="http://kangax.github.com/fabric.js"></a>
+        <noscript><a href="http://flattr.com/thing/391332/Fabric-js" target="_blank">
+        <img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0" /></a></noscript>
+      </li>
+      <li class="github secondary">
+        <iframe src="http://ghbtns.com/github-btn.html?user=kangax&repo=fabric.js&type=watch&count=true"
+          allowtransparency="true" frameborder="0" scrolling="0" width="95px" height="20px"></iframe>
+      </li>
+      <li class="twitter secondary">
+        <a href="https://twitter.com/fabricjs" class="twitter-follow-button" data-show-count="true">Follow @fabricjs</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+      </li>
+      <li class="secondary"><a href="http://stackoverflow.com/questions/tagged/fabricjs"><span>StackOverflow</span></a></li>
+      <li class="secondary"><a href="https://github.com/kangax/fabric.js/wiki"><span>Wiki</span></a></li>
+      <li class="secondary"><a href="http://groups.google.com/group/fabricjs"><span>Discussion</span></a></li>
+    </ul>
 
-  var s = document.createElement('script'), t = document.getElementsByTagName('script')[0];
-  s.async = true;
-  s.src = 'http://api.flattr.com/js/0.6/load.js?mode=auto';
-  t.parentNode.insertBefore(s, t);
+    <script>
+    (function() {
 
-  if (document.location.hostname === 'localhost') {
-    var links = document.getElementById('header').getElementsByTagName('a');
-    for (var i = 0, len = links.length; i < len; i++) {
-      // very retarted fix but fuck it
-      links[i].href = links[i].href.replace('fabricjs.com', 'localhost:4000');
-    }
-  }
-})();
-</script>
+      var s = document.createElement('script'), t = document.getElementsByTagName('script')[0];
+      s.async = true;
+      s.src = 'http://api.flattr.com/js/0.6/load.js?mode=auto';
+      t.parentNode.insertBefore(s, t);
+
+      if (document.location.hostname === 'localhost') {
+        var links = document.getElementById('header').getElementsByTagName('a');
+        for (var i = 0, len = links.length; i < len; i++) {
+          // very retarted fix but fuck it
+          links[i].href = links[i].href.replace('fabricjs.com', 'localhost:4000');
+        }
+      }
+    })();
+    </script>
 
 <div id="main">
 
@@ -114,7 +115,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 2008
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2007">line 2007</a>
     </li></ul></dd>
     
     
@@ -165,8 +166,8 @@
             
 <dt>
     <h4 class="name" id="addClass">
-      <span class="type-signature">&lt;static> </span>addClass<span class="signature">(element, className)</span><span class="type-signature"></span>
-      <a href="#addClass" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>addClass<span class="signature">(element, className)</span><span class="type-signature"></span>
+        <a href="#addClass" class="anchor">§</a>
     </h4>
 
     
@@ -279,7 +280,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 3405
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3404">line 3404</a>
     </li></ul></dd>
     
     
@@ -298,14 +299,18 @@
     
 
     
+
+    
+
+    
 </dd>
 
         
             
 <dt>
     <h4 class="name" id="addListener">
-      <span class="type-signature">&lt;static> </span>addListener<span class="signature">(element, eventName, handler)</span><span class="type-signature"></span>
-      <a href="#addListener" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>addListener<span class="signature">(element, eventName, handler)</span><span class="type-signature"></span>
+        <a href="#addListener" class="anchor">§</a>
     </h4>
 
     
@@ -441,7 +446,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 3167
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3166">line 3166</a>
     </li></ul></dd>
     
     
@@ -460,14 +465,18 @@
     
 
     
+
+    
+
+    
 </dd>
 
         
             
 <dt>
     <h4 class="name" id="animate">
-      <span class="type-signature">&lt;static> </span>animate<span class="signature">(<span class="optional">options</span>)</span><span class="type-signature"></span>
-      <a href="#animate" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>animate<span class="signature">(<span class="optional">options</span>)</span><span class="type-signature"></span>
+        <a href="#animate" class="anchor">§</a>
     </h4>
 
     
@@ -531,6 +540,8 @@
                 
                     
                 
+                    
+                
                 </td>
             
             
@@ -585,6 +596,8 @@
                 
                     
                 
+                    
+                
                 </td>
             
             
@@ -620,6 +633,8 @@
                 
                     
                 
+                    
+                
                 </td>
             
             
@@ -652,6 +667,8 @@
                 <td class="attributes">
                 
                     &lt;optional><br>
+                
+                    
                 
                     
                 
@@ -692,6 +709,8 @@
                 
                     
                 
+                    
+                
                 </td>
             
             
@@ -726,6 +745,8 @@
                 <td class="attributes">
                 
                     &lt;optional><br>
+                
+                    
                 
                     
                 
@@ -766,6 +787,8 @@
                 
                     
                 
+                    
+                
                 </td>
             
             
@@ -798,6 +821,8 @@
                 <td class="attributes">
                 
                     &lt;optional><br>
+                
+                    
                 
                     
                 
@@ -849,7 +874,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 3680
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3679">line 3679</a>
     </li></ul></dd>
     
     
@@ -868,14 +893,18 @@
     
 
     
+
+    
+
+    
 </dd>
 
         
             
 <dt>
     <h4 class="name" id="clipContext">
-      <span class="type-signature">&lt;static> </span>clipContext<span class="signature">(receiver, ctx)</span><span class="type-signature"></span>
-      <a href="#clipContext" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>clipContext<span class="signature">(receiver, ctx)</span><span class="type-signature"></span>
+        <a href="#clipContext" class="anchor">§</a>
     </h4>
 
     
@@ -984,7 +1013,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 2327
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2326">line 2326</a>
     </li></ul></dd>
     
     
@@ -1003,14 +1032,18 @@
     
 
     
+
+    
+
+    
 </dd>
 
         
             
 <dt>
     <h4 class="name" id="createAccessors">
-      <span class="type-signature">&lt;static> </span>createAccessors<span class="signature">(klass)</span><span class="type-signature"></span>
-      <a href="#createAccessors" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>createAccessors<span class="signature">(klass)</span><span class="type-signature"></span>
+        <a href="#createAccessors" class="anchor">§</a>
     </h4>
 
     
@@ -1100,7 +1133,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 2297
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2296">line 2296</a>
     </li></ul></dd>
     
     
@@ -1119,14 +1152,18 @@
     
 
     
+
+    
+
+    
 </dd>
 
         
             
 <dt>
     <h4 class="name" id="createCanvasElement">
-      <span class="type-signature">&lt;static> </span>createCanvasElement<span class="signature">(<span class="optional">canvasEl</span>)</span><span class="type-signature"> &rarr; {CanvasElement}</span>
-      <a href="#createCanvasElement" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>createCanvasElement<span class="signature">(<span class="optional">canvasEl</span>)</span><span class="type-signature"> &rarr; {CanvasElement}</span>
+        <a href="#createCanvasElement" class="anchor">§</a>
     </h4>
 
     
@@ -1190,6 +1227,8 @@
                 
                     
                 
+                    
+                
                 </td>
             
             
@@ -1226,7 +1265,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 2271
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2270">line 2270</a>
     </li></ul></dd>
     
     
@@ -1237,6 +1276,10 @@
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -1273,8 +1316,8 @@
             
 <dt>
     <h4 class="name" id="createClass">
-      <span class="type-signature">&lt;static> </span>createClass<span class="signature">(parent, properties)</span><span class="type-signature"></span>
-      <a href="#createClass" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>createClass<span class="signature">(parent, properties)</span><span class="type-signature"></span>
+        <a href="#createClass" class="anchor">§</a>
     </h4>
 
     
@@ -1378,7 +1421,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 2977
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2976">line 2976</a>
     </li></ul></dd>
     
     
@@ -1397,14 +1440,18 @@
     
 
     
+
+    
+
+    
 </dd>
 
         
             
 <dt>
     <h4 class="name" id="createImage">
-      <span class="type-signature">&lt;static> </span>createImage<span class="signature">()</span><span class="type-signature"> &rarr; {Image}</span>
-      <a href="#createImage" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>createImage<span class="signature">()</span><span class="type-signature"> &rarr; {Image}</span>
+        <a href="#createImage" class="anchor">§</a>
     </h4>
 
     
@@ -1446,7 +1493,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 2285
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2284">line 2284</a>
     </li></ul></dd>
     
     
@@ -1457,6 +1504,10 @@
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -1493,8 +1544,8 @@
             
 <dt>
     <h4 class="name" id="degreesToRadians">
-      <span class="type-signature">&lt;static> </span>degreesToRadians<span class="signature">(degrees)</span><span class="type-signature"> &rarr; {Number}</span>
-      <a href="#degreesToRadians" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>degreesToRadians<span class="signature">(degrees)</span><span class="type-signature"> &rarr; {Number}</span>
+        <a href="#degreesToRadians" class="anchor">§</a>
     </h4>
 
     
@@ -1584,7 +1635,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 2051
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2050">line 2050</a>
     </li></ul></dd>
     
     
@@ -1595,6 +1646,10 @@
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -1631,8 +1686,8 @@
             
 <dt>
     <h4 class="name" id="enlivenObjects">
-      <span class="type-signature">&lt;static> </span>enlivenObjects<span class="signature">(objects, callback)</span><span class="type-signature"></span>
-      <a href="#enlivenObjects" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>enlivenObjects<span class="signature">(objects, callback)</span><span class="type-signature"></span>
+        <a href="#enlivenObjects" class="anchor">§</a>
     </h4>
 
     
@@ -1745,7 +1800,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 2148
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2147">line 2147</a>
     </li></ul></dd>
     
     
@@ -1764,14 +1819,18 @@
     
 
     
+
+    
+
+    
 </dd>
 
         
             
 <dt>
     <h4 class="name" id="falseFunction">
-      <span class="type-signature">&lt;static> </span>falseFunction<span class="signature">()</span><span class="type-signature"> &rarr; {Boolean}</span>
-      <a href="#falseFunction" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>falseFunction<span class="signature">()</span><span class="type-signature"> &rarr; {Boolean}</span>
+        <a href="#falseFunction" class="anchor">§</a>
     </h4>
 
     
@@ -1813,7 +1872,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 2105
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2104">line 2104</a>
     </li></ul></dd>
     
     
@@ -1824,6 +1883,10 @@
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -1856,8 +1919,8 @@
             
 <dt>
     <h4 class="name" id="getById">
-      <span class="type-signature">&lt;static> </span>getById<span class="signature">(id)</span><span class="type-signature"> &rarr; {HTMLElement|null}</span>
-      <a href="#getById" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>getById<span class="signature">(id)</span><span class="type-signature"> &rarr; {HTMLElement|null}</span>
+        <a href="#getById" class="anchor">§</a>
     </h4>
 
     
@@ -1950,7 +2013,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 3346
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3345">line 3345</a>
     </li></ul></dd>
     
     
@@ -1961,6 +2024,10 @@
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -1996,8 +2063,8 @@
             
 <dt>
     <h4 class="name" id="getElementOffset">
-      <span class="type-signature">&lt;static> </span>getElementOffset<span class="signature">(element)</span><span class="type-signature"> &rarr; {Object}</span>
-      <a href="#getElementOffset" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>getElementOffset<span class="signature">(element)</span><span class="type-signature"> &rarr; {Object}</span>
+        <a href="#getElementOffset" class="anchor">§</a>
     </h4>
 
     
@@ -2087,7 +2154,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 3437
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3436">line 3436</a>
     </li></ul></dd>
     
     
@@ -2098,6 +2165,10 @@
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -2134,8 +2205,8 @@
             
 <dt>
     <h4 class="name" id="getElementStyle">
-      <span class="type-signature">&lt;static> </span>getElementStyle<span class="signature">(element, attr)</span><span class="type-signature"> &rarr; {String}</span>
-      <a href="#getElementStyle" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>getElementStyle<span class="signature">(element, attr)</span><span class="type-signature"> &rarr; {String}</span>
+        <a href="#getElementStyle" class="anchor">§</a>
     </h4>
 
     
@@ -2248,7 +2319,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 3479
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3478">line 3478</a>
     </li></ul></dd>
     
     
@@ -2259,6 +2330,10 @@
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -2295,8 +2370,8 @@
             
 <dt>
     <h4 class="name" id="getKlass">
-      <span class="type-signature">&lt;static> </span>getKlass<span class="signature">(type)</span><span class="type-signature"> &rarr; {Object}</span>
-      <a href="#getKlass" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>getKlass<span class="signature">(type)</span><span class="type-signature"> &rarr; {Object}</span>
+        <a href="#getKlass" class="anchor">§</a>
     </h4>
 
     
@@ -2386,7 +2461,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 2115
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2114">line 2114</a>
     </li></ul></dd>
     
     
@@ -2397,6 +2472,10 @@
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -2433,8 +2512,8 @@
             
 <dt>
     <h4 class="name" id="getPointer">
-      <span class="type-signature">&lt;static> </span>getPointer<span class="signature">(event, upperCanvasEl)</span><span class="type-signature"></span>
-      <a href="#getPointer" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>getPointer<span class="signature">(event, upperCanvasEl)</span><span class="type-signature"></span>
+        <a href="#getPointer" class="anchor">§</a>
     </h4>
 
     
@@ -2547,7 +2626,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 3186
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3185">line 3185</a>
     </li></ul></dd>
     
     
@@ -2566,14 +2645,18 @@
     
 
     
+
+    
+
+    
 </dd>
 
         
             
 <dt>
     <h4 class="name" id="getRandomInt">
-      <span class="type-signature">&lt;static> </span>getRandomInt<span class="signature">(min, max)</span><span class="type-signature"> &rarr; {Number}</span>
-      <a href="#getRandomInt" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>getRandomInt<span class="signature">(min, max)</span><span class="type-signature"> &rarr; {Number}</span>
+        <a href="#getRandomInt" class="anchor">§</a>
     </h4>
 
     
@@ -2686,7 +2769,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 2038
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2037">line 2037</a>
     </li></ul></dd>
     
     
@@ -2697,6 +2780,10 @@
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -2733,8 +2820,8 @@
             
 <dt>
     <h4 class="name" id="getScript">
-      <span class="type-signature">&lt;static> </span>getScript<span class="signature">(url, callback)</span><span class="type-signature"></span>
-      <a href="#getScript" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>getScript<span class="signature">(url, callback)</span><span class="type-signature"></span>
+        <a href="#getScript" class="anchor">§</a>
     </h4>
 
     
@@ -2847,7 +2934,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 3557
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3556">line 3556</a>
     </li></ul></dd>
     
     
@@ -2866,14 +2953,18 @@
     
 
     
+
+    
+
+    
 </dd>
 
         
             
 <dt>
     <h4 class="name" id="groupSVGElements">
-      <span class="type-signature">&lt;static> </span>groupSVGElements<span class="signature">(elements, <span class="optional">options</span>)</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>|<a href="fabric.PathGroup.html">fabric.PathGroup</a>}</span>
-      <a href="#groupSVGElements" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>groupSVGElements<span class="signature">(elements, <span class="optional">options</span>)</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>|<a href="fabric.PathGroup.html">fabric.PathGroup</a>}</span>
+        <a href="#groupSVGElements" class="anchor">§</a>
     </h4>
 
     
@@ -2935,6 +3026,8 @@
                 
                     
                 
+                    
+                
                 </td>
             
             
@@ -2963,6 +3056,8 @@
                 <td class="attributes">
                 
                     &lt;optional><br>
+                
+                    
                 
                     
                 
@@ -3002,7 +3097,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 2190
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2189">line 2189</a>
     </li></ul></dd>
     
     
@@ -3013,6 +3108,10 @@
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -3048,8 +3147,8 @@
             
 <dt>
     <h4 class="name" id="loadImage">
-      <span class="type-signature">&lt;static> </span>loadImage<span class="signature">(url, callback, context)</span><span class="type-signature"></span>
-      <a href="#loadImage" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>loadImage<span class="signature">(url, callback, context)</span><span class="type-signature"></span>
+        <a href="#loadImage" class="anchor">§</a>
     </h4>
 
     
@@ -3185,7 +3284,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 2126
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2125">line 2125</a>
     </li></ul></dd>
     
     
@@ -3204,14 +3303,18 @@
     
 
     
+
+    
+
+    
 </dd>
 
         
             
 <dt>
     <h4 class="name" id="makeElement">
-      <span class="type-signature">&lt;static> </span>makeElement<span class="signature">(tagName, <span class="optional">attributes</span>)</span><span class="type-signature"> &rarr; {HTMLElement}</span>
-      <a href="#makeElement" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>makeElement<span class="signature">(tagName, <span class="optional">attributes</span>)</span><span class="type-signature"> &rarr; {HTMLElement}</span>
+        <a href="#makeElement" class="anchor">§</a>
     </h4>
 
     
@@ -3273,6 +3376,8 @@
                 
                     
                 
+                    
+                
                 </td>
             
             
@@ -3301,6 +3406,8 @@
                 <td class="attributes">
                 
                     &lt;optional><br>
+                
+                    
                 
                     
                 
@@ -3340,7 +3447,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 3383
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3382">line 3382</a>
     </li></ul></dd>
     
     
@@ -3351,6 +3458,10 @@
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -3387,8 +3498,8 @@
             
 <dt>
     <h4 class="name" id="makeElementSelectable">
-      <span class="type-signature">&lt;static> </span>makeElementSelectable<span class="signature">(element)</span><span class="type-signature"> &rarr; {HTMLElement}</span>
-      <a href="#makeElementSelectable" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>makeElementSelectable<span class="signature">(element)</span><span class="type-signature"> &rarr; {HTMLElement}</span>
+        <a href="#makeElementSelectable" class="anchor">§</a>
     </h4>
 
     
@@ -3478,7 +3589,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 3532
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3531">line 3531</a>
     </li></ul></dd>
     
     
@@ -3489,6 +3600,10 @@
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -3525,8 +3640,8 @@
             
 <dt>
     <h4 class="name" id="makeElementUnselectable">
-      <span class="type-signature">&lt;static> </span>makeElementUnselectable<span class="signature">(element)</span><span class="type-signature"> &rarr; {HTMLElement}</span>
-      <a href="#makeElementUnselectable" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>makeElementUnselectable<span class="signature">(element)</span><span class="type-signature"> &rarr; {HTMLElement}</span>
+        <a href="#makeElementUnselectable" class="anchor">§</a>
     </h4>
 
     
@@ -3616,7 +3731,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 3513
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3512">line 3512</a>
     </li></ul></dd>
     
     
@@ -3627,6 +3742,10 @@
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -3663,8 +3782,8 @@
             
 <dt>
     <h4 class="name" id="multiplyTransformMatrices">
-      <span class="type-signature">&lt;static> </span>multiplyTransformMatrices<span class="signature">(matrixA, matrixB)</span><span class="type-signature"> &rarr; {<a href="Array.html">Array</a>}</span>
-      <a href="#multiplyTransformMatrices" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>multiplyTransformMatrices<span class="signature">(matrixA, matrixB)</span><span class="type-signature"> &rarr; {<a href="Array.html">Array</a>}</span>
+        <a href="#multiplyTransformMatrices" class="anchor">§</a>
     </h4>
 
     
@@ -3777,7 +3896,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 2342
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2341">line 2341</a>
     </li></ul></dd>
     
     
@@ -3788,6 +3907,10 @@
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -3824,8 +3947,8 @@
             
 <dt>
     <h4 class="name" id="populateWithProperties">
-      <span class="type-signature">&lt;static> </span>populateWithProperties<span class="signature">(source, destination)</span><span class="type-signature"> &rarr; {<a href="Array.html">Array</a>}</span>
-      <a href="#populateWithProperties" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>populateWithProperties<span class="signature">(source, destination)</span><span class="type-signature"> &rarr; {<a href="Array.html">Array</a>}</span>
+        <a href="#populateWithProperties" class="anchor">§</a>
     </h4>
 
     
@@ -3938,7 +4061,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 2214
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2213">line 2213</a>
     </li></ul></dd>
     
     
@@ -3949,6 +4072,10 @@
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -3985,8 +4112,8 @@
             
 <dt>
     <h4 class="name" id="radiansToDegrees">
-      <span class="type-signature">&lt;static> </span>radiansToDegrees<span class="signature">(radians)</span><span class="type-signature"> &rarr; {Number}</span>
-      <a href="#radiansToDegrees" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>radiansToDegrees<span class="signature">(radians)</span><span class="type-signature"> &rarr; {Number}</span>
+        <a href="#radiansToDegrees" class="anchor">§</a>
     </h4>
 
     
@@ -4076,7 +4203,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 2062
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2061">line 2061</a>
     </li></ul></dd>
     
     
@@ -4087,6 +4214,10 @@
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -4123,8 +4254,8 @@
             
 <dt>
     <h4 class="name" id="removeFromArray">
-      <span class="type-signature">&lt;static> </span>removeFromArray<span class="signature">(array, value)</span><span class="type-signature"> &rarr; {<a href="Array.html">Array</a>}</span>
-      <a href="#removeFromArray" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>removeFromArray<span class="signature">(array, value)</span><span class="type-signature"> &rarr; {<a href="Array.html">Array</a>}</span>
+        <a href="#removeFromArray" class="anchor">§</a>
     </h4>
 
     
@@ -4238,7 +4369,7 @@ Presence of value (and its position in an array) is determined via `Array.protot
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 2022
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2021">line 2021</a>
     </li></ul></dd>
     
     
@@ -4249,6 +4380,10 @@ Presence of value (and its position in an array) is determined via `Array.protot
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -4285,8 +4420,8 @@ Presence of value (and its position in an array) is determined via `Array.protot
             
 <dt>
     <h4 class="name" id="removeListener">
-      <span class="type-signature">&lt;static> </span>removeListener<span class="signature">(element, eventName, handler)</span><span class="type-signature"></span>
-      <a href="#removeListener" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>removeListener<span class="signature">(element, eventName, handler)</span><span class="type-signature"></span>
+        <a href="#removeListener" class="anchor">§</a>
     </h4>
 
     
@@ -4422,7 +4557,7 @@ Presence of value (and its position in an array) is determined via `Array.protot
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 3178
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3177">line 3177</a>
     </li></ul></dd>
     
     
@@ -4441,14 +4576,18 @@ Presence of value (and its position in an array) is determined via `Array.protot
     
 
     
+
+    
+
+    
 </dd>
 
         
             
 <dt>
     <h4 class="name" id="request">
-      <span class="type-signature">&lt;static> </span>request<span class="signature">(url, <span class="optional">options</span>)</span><span class="type-signature"> &rarr; {XMLHttpRequest}</span>
-      <a href="#request" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>request<span class="signature">(url, <span class="optional">options</span>)</span><span class="type-signature"> &rarr; {XMLHttpRequest}</span>
+        <a href="#request" class="anchor">§</a>
     </h4>
 
     
@@ -4510,6 +4649,8 @@ Presence of value (and its position in an array) is determined via `Array.protot
                 
                     
                 
+                    
+                
                 </td>
             
             
@@ -4538,6 +4679,8 @@ Presence of value (and its position in an array) is determined via `Array.protot
                 <td class="attributes">
                 
                     &lt;optional><br>
+                
+                    
                 
                     
                 
@@ -4595,6 +4738,8 @@ Presence of value (and its position in an array) is determined via `Array.protot
                 
                     
                 
+                    
+                
                 </td>
             
             
@@ -4627,6 +4772,8 @@ Presence of value (and its position in an array) is determined via `Array.protot
             
             
                 <td class="attributes">
+                
+                    
                 
                     
                 
@@ -4676,7 +4823,7 @@ Presence of value (and its position in an array) is determined via `Array.protot
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 3628
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3627">line 3627</a>
     </li></ul></dd>
     
     
@@ -4687,6 +4834,10 @@ Presence of value (and its position in an array) is determined via `Array.protot
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -4723,8 +4874,8 @@ Presence of value (and its position in an array) is determined via `Array.protot
             
 <dt>
     <h4 class="name" id="requestAnimFrame">
-      <span class="type-signature">&lt;static> </span>requestAnimFrame<span class="signature">(callback, element)</span><span class="type-signature"></span>
-      <a href="#requestAnimFrame" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>requestAnimFrame<span class="signature">(callback, element)</span><span class="type-signature"></span>
+        <a href="#requestAnimFrame" class="anchor">§</a>
     </h4>
 
     
@@ -4837,7 +4988,7 @@ Presence of value (and its position in an array) is determined via `Array.protot
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 3722
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3721">line 3721</a>
     </li></ul></dd>
     
     
@@ -4856,14 +5007,18 @@ Presence of value (and its position in an array) is determined via `Array.protot
     
 
     
+
+    
+
+    
 </dd>
 
         
             
 <dt>
     <h4 class="name" id="rotatePoint">
-      <span class="type-signature">&lt;static> </span>rotatePoint<span class="signature">(The, The, The)</span><span class="type-signature"> &rarr; {<a href="fabric.Point.html">fabric.Point</a>}</span>
-      <a href="#rotatePoint" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>rotatePoint<span class="signature">(The, The, The)</span><span class="type-signature"> &rarr; {<a href="fabric.Point.html">fabric.Point</a>}</span>
+        <a href="#rotatePoint" class="anchor">§</a>
     </h4>
 
     
@@ -4999,7 +5154,7 @@ Presence of value (and its position in an array) is determined via `Array.protot
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 2075
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2074">line 2074</a>
     </li></ul></dd>
     
     
@@ -5010,6 +5165,10 @@ Presence of value (and its position in an array) is determined via `Array.protot
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -5046,8 +5205,8 @@ Presence of value (and its position in an array) is determined via `Array.protot
             
 <dt>
     <h4 class="name" id="setStyle">
-      <span class="type-signature">&lt;static> </span>setStyle<span class="signature">(element, styles)</span><span class="type-signature"> &rarr; {HTMLElement}</span>
-      <a href="#setStyle" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>setStyle<span class="signature">(element, styles)</span><span class="type-signature"> &rarr; {HTMLElement}</span>
+        <a href="#setStyle" class="anchor">§</a>
     </h4>
 
     
@@ -5160,7 +5319,7 @@ Presence of value (and its position in an array) is determined via `Array.protot
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 3273
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3272">line 3272</a>
     </li></ul></dd>
     
     
@@ -5171,6 +5330,10 @@ Presence of value (and its position in an array) is determined via `Array.protot
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -5207,8 +5370,8 @@ Presence of value (and its position in an array) is determined via `Array.protot
             
 <dt>
     <h4 class="name" id="toArray">
-      <span class="type-signature">&lt;static> </span>toArray<span class="signature">(arrayLike)</span><span class="type-signature"> &rarr; {<a href="Array.html">Array</a>}</span>
-      <a href="#toArray" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>toArray<span class="signature">(arrayLike)</span><span class="type-signature"> &rarr; {<a href="Array.html">Array</a>}</span>
+        <a href="#toArray" class="anchor">§</a>
     </h4>
 
     
@@ -5298,7 +5461,7 @@ Presence of value (and its position in an array) is determined via `Array.protot
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 3356
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3355">line 3355</a>
     </li></ul></dd>
     
     
@@ -5309,6 +5472,10 @@ Presence of value (and its position in an array) is determined via `Array.protot
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -5341,8 +5508,8 @@ Presence of value (and its position in an array) is determined via `Array.protot
             
 <dt>
     <h4 class="name" id="toFixed">
-      <span class="type-signature">&lt;static> </span>toFixed<span class="signature">(number, fractionDigits)</span><span class="type-signature"> &rarr; {Number}</span>
-      <a href="#toFixed" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>toFixed<span class="signature">(number, fractionDigits)</span><span class="type-signature"> &rarr; {Number}</span>
+        <a href="#toFixed" class="anchor">§</a>
     </h4>
 
     
@@ -5458,7 +5625,7 @@ Presence of value (and its position in an array) is determined via `Array.protot
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 2095
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2094">line 2094</a>
     </li></ul></dd>
     
     
@@ -5469,6 +5636,10 @@ Presence of value (and its position in an array) is determined via `Array.protot
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -5501,8 +5672,8 @@ Presence of value (and its position in an array) is determined via `Array.protot
             
 <dt>
     <h4 class="name" id="wrapElement">
-      <span class="type-signature">&lt;static> </span>wrapElement<span class="signature">(element, wrapper, <span class="optional">attributes</span>)</span><span class="type-signature"> &rarr; {HTMLElement}</span>
-      <a href="#wrapElement" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>wrapElement<span class="signature">(element, wrapper, <span class="optional">attributes</span>)</span><span class="type-signature"> &rarr; {HTMLElement}</span>
+        <a href="#wrapElement" class="anchor">§</a>
     </h4>
 
     
@@ -5564,6 +5735,8 @@ Presence of value (and its position in an array) is determined via `Array.protot
                 
                     
                 
+                    
+                
                 </td>
             
             
@@ -5596,6 +5769,8 @@ Presence of value (and its position in an array) is determined via `Array.protot
                 
                     
                 
+                    
+                
                 </td>
             
             
@@ -5624,6 +5799,8 @@ Presence of value (and its position in an array) is determined via `Array.protot
                 <td class="attributes">
                 
                     &lt;optional><br>
+                
+                    
                 
                     
                 
@@ -5663,7 +5840,7 @@ Presence of value (and its position in an array) is determined via `Array.protot
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 3419
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3418">line 3418</a>
     </li></ul></dd>
     
     
@@ -5674,6 +5851,10 @@ Presence of value (and its position in an array) is determined via `Array.protot
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -5728,9 +5909,10 @@ Presence of value (and its position in an array) is determined via `Array.protot
 <br clear="both">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.1.1</a> on Sun Aug 11 2013 23:16:59 GMT+0200 (CEST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0</a> on Sun Aug 11 2013 23:42:32 GMT+0200 (CEST)
 </footer>
 
-<script> prettyPrint(); </script>
+<script> /*prettyPrint();*/ </script>
+<script src="scripts/linenumber.js"> </script>
 </body>
 </html>

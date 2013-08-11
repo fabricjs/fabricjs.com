@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <title>JSDoc: Namespace: ease</title>
 
-    <script src="/js/prettify.js"> </script>
-    <script src="/js/lang-css.js"> </script>
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
     <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -15,55 +15,56 @@
 </head>
 
 <body>
-<ul id="header">
-  <li><a href="http://fabricjs.com/">Features</a></li>
-  <li><a href="http://fabricjs.com/demos">Demos</a></li>
-  <li><a href="http://fabricjs.com/docs">Docs</a></li>
-  <li><a href="http://fabricjs.com/articles">Tutorial</a></li>
-  <li><a href="http://fabricjs.com/test">Tests</a></li>
-  <li><a href="http://fabricjs.com/benchmarks">Benchmarks</a></li>
-  <li><a href="http://fabricjs.com/build">Build</a></li>
-  <li class="secondary">
-    <a href="http://travis-ci.org/#!/kangax/fabric.js"><img src="https://secure.travis-ci.org/kangax/fabric.js.png?branch=master"></a>
-  </li>
-  <li class="gittip secondary">
-    <iframe style="border: 0; margin: 0; padding: 0;" src="https://www.gittip.com/5c2ec8b83e18/widget.html" width="48pt" height="22pt"></iframe>
-  </li>
-  <li class="flattr secondary">
-    <a class="FlattrButton" style="display:none;" rev="flattr;button:compact;" href="http://kangax.github.com/fabric.js"></a>
-    <noscript><a href="http://flattr.com/thing/391332/Fabric-js" target="_blank">
-    <img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0" /></a></noscript>
-  </li>
-  <li class="github secondary">
-    <iframe src="http://ghbtns.com/github-btn.html?user=kangax&repo=fabric.js&type=watch&count=true"
-      allowtransparency="true" frameborder="0" scrolling="0" width="95px" height="20px"></iframe>
-  </li>
-  <li class="twitter secondary">
-    <a href="https://twitter.com/fabricjs" class="twitter-follow-button" data-show-count="true">Follow @fabricjs</a>
-    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-  </li>
-  <li class="secondary"><a href="http://stackoverflow.com/questions/tagged/fabricjs"><span>StackOverflow</span></a></li>
-  <li class="secondary"><a href="https://github.com/kangax/fabric.js/wiki"><span>Wiki</span></a></li>
-  <li class="secondary"><a href="http://groups.google.com/group/fabricjs"><span>Discussion</span></a></li>
-</ul>
 
-<script>
-(function() {
+    <ul id="header">
+      <li><a href="http://fabricjs.com/">Features</a></li>
+      <li><a href="http://fabricjs.com/demos">Demos</a></li>
+      <li><a href="http://fabricjs.com/docs">Docs</a></li>
+      <li><a href="http://fabricjs.com/articles">Tutorial</a></li>
+      <li><a href="http://fabricjs.com/test">Tests</a></li>
+      <li><a href="http://fabricjs.com/benchmarks">Benchmarks</a></li>
+      <li><a href="http://fabricjs.com/build">Build</a></li>
+      <li class="secondary">
+        <a href="http://travis-ci.org/#!/kangax/fabric.js"><img src="https://secure.travis-ci.org/kangax/fabric.js.png?branch=master"></a>
+      </li>
+      <li class="gittip secondary">
+        <iframe style="border: 0; margin: 0; padding: 0;" src="https://www.gittip.com/5c2ec8b83e18/widget.html" width="48pt" height="22pt"></iframe>
+      </li>
+      <li class="flattr secondary">
+        <a class="FlattrButton" style="display:none;" rev="flattr;button:compact;" href="http://kangax.github.com/fabric.js"></a>
+        <noscript><a href="http://flattr.com/thing/391332/Fabric-js" target="_blank">
+        <img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0" /></a></noscript>
+      </li>
+      <li class="github secondary">
+        <iframe src="http://ghbtns.com/github-btn.html?user=kangax&repo=fabric.js&type=watch&count=true"
+          allowtransparency="true" frameborder="0" scrolling="0" width="95px" height="20px"></iframe>
+      </li>
+      <li class="twitter secondary">
+        <a href="https://twitter.com/fabricjs" class="twitter-follow-button" data-show-count="true">Follow @fabricjs</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+      </li>
+      <li class="secondary"><a href="http://stackoverflow.com/questions/tagged/fabricjs"><span>StackOverflow</span></a></li>
+      <li class="secondary"><a href="https://github.com/kangax/fabric.js/wiki"><span>Wiki</span></a></li>
+      <li class="secondary"><a href="http://groups.google.com/group/fabricjs"><span>Discussion</span></a></li>
+    </ul>
 
-  var s = document.createElement('script'), t = document.getElementsByTagName('script')[0];
-  s.async = true;
-  s.src = 'http://api.flattr.com/js/0.6/load.js?mode=auto';
-  t.parentNode.insertBefore(s, t);
+    <script>
+    (function() {
 
-  if (document.location.hostname === 'localhost') {
-    var links = document.getElementById('header').getElementsByTagName('a');
-    for (var i = 0, len = links.length; i < len; i++) {
-      // very retarted fix but fuck it
-      links[i].href = links[i].href.replace('fabricjs.com', 'localhost:4000');
-    }
-  }
-})();
-</script>
+      var s = document.createElement('script'), t = document.getElementsByTagName('script')[0];
+      s.async = true;
+      s.src = 'http://api.flattr.com/js/0.6/load.js?mode=auto';
+      t.parentNode.insertBefore(s, t);
+
+      if (document.location.hostname === 'localhost') {
+        var links = document.getElementById('header').getElementsByTagName('a');
+        for (var i = 0, len = links.length; i < len; i++) {
+          // very retarted fix but fuck it
+          links[i].href = links[i].href.replace('fabricjs.com', 'localhost:4000');
+        }
+      }
+    })();
+    </script>
 
 <div id="main">
 
@@ -117,7 +118,7 @@ See <a href="http://gizma.com/easing/">Easing Equations by Robert Penner</a></di
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 4024
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line4023">line 4023</a>
     </li></ul></dd>
     
     
@@ -152,8 +153,8 @@ See <a href="http://gizma.com/easing/">Easing Equations by Robert Penner</a></di
             
 <dt>
     <h4 class="name" id="easeInBack">
-      <span class="type-signature">&lt;static> </span>easeInBack<span class="signature">()</span><span class="type-signature"></span>
-      <a href="#easeInBack" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>easeInBack<span class="signature">()</span><span class="type-signature"></span>
+        <a href="#easeInBack" class="anchor">§</a>
     </h4>
 
     
@@ -195,7 +196,7 @@ See <a href="http://gizma.com/easing/">Easing Equations by Robert Penner</a></di
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 3966
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3965">line 3965</a>
     </li></ul></dd>
     
     
@@ -214,14 +215,18 @@ See <a href="http://gizma.com/easing/">Easing Equations by Robert Penner</a></di
     
 
     
+
+    
+
+    
 </dd>
 
         
             
 <dt>
     <h4 class="name" id="easeInBounce">
-      <span class="type-signature">&lt;static> </span>easeInBounce<span class="signature">()</span><span class="type-signature"></span>
-      <a href="#easeInBounce" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>easeInBounce<span class="signature">()</span><span class="type-signature"></span>
+        <a href="#easeInBounce" class="anchor">§</a>
     </h4>
 
     
@@ -263,7 +268,7 @@ See <a href="http://gizma.com/easing/">Easing Equations by Robert Penner</a></di
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 3995
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3994">line 3994</a>
     </li></ul></dd>
     
     
@@ -282,14 +287,18 @@ See <a href="http://gizma.com/easing/">Easing Equations by Robert Penner</a></di
     
 
     
+
+    
+
+    
 </dd>
 
         
             
 <dt>
     <h4 class="name" id="easeInCirc">
-      <span class="type-signature">&lt;static> </span>easeInCirc<span class="signature">()</span><span class="type-signature"></span>
-      <a href="#easeInCirc" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>easeInCirc<span class="signature">()</span><span class="type-signature"></span>
+        <a href="#easeInCirc" class="anchor">§</a>
     </h4>
 
     
@@ -331,7 +340,7 @@ See <a href="http://gizma.com/easing/">Easing Equations by Robert Penner</a></di
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 3894
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3893">line 3893</a>
     </li></ul></dd>
     
     
@@ -350,14 +359,18 @@ See <a href="http://gizma.com/easing/">Easing Equations by Robert Penner</a></di
     
 
     
+
+    
+
+    
 </dd>
 
         
             
 <dt>
     <h4 class="name" id="easeInCubic">
-      <span class="type-signature">&lt;static> </span>easeInCubic<span class="signature">()</span><span class="type-signature"></span>
-      <a href="#easeInCubic" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>easeInCubic<span class="signature">()</span><span class="type-signature"></span>
+        <a href="#easeInCubic" class="anchor">§</a>
     </h4>
 
     
@@ -399,7 +412,7 @@ See <a href="http://gizma.com/easing/">Easing Equations by Robert Penner</a></di
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 3764
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3763">line 3763</a>
     </li></ul></dd>
     
     
@@ -418,14 +431,18 @@ See <a href="http://gizma.com/easing/">Easing Equations by Robert Penner</a></di
     
 
     
+
+    
+
+    
 </dd>
 
         
             
 <dt>
     <h4 class="name" id="easeInElastic">
-      <span class="type-signature">&lt;static> </span>easeInElastic<span class="signature">()</span><span class="type-signature"></span>
-      <a href="#easeInElastic" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>easeInElastic<span class="signature">()</span><span class="type-signature"></span>
+        <a href="#easeInElastic" class="anchor">§</a>
     </h4>
 
     
@@ -467,7 +484,7 @@ See <a href="http://gizma.com/easing/">Easing Equations by Robert Penner</a></di
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 3920
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3919">line 3919</a>
     </li></ul></dd>
     
     
@@ -486,14 +503,18 @@ See <a href="http://gizma.com/easing/">Easing Equations by Robert Penner</a></di
     
 
     
+
+    
+
+    
 </dd>
 
         
             
 <dt>
     <h4 class="name" id="easeInExpo">
-      <span class="type-signature">&lt;static> </span>easeInExpo<span class="signature">()</span><span class="type-signature"></span>
-      <a href="#easeInExpo" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>easeInExpo<span class="signature">()</span><span class="type-signature"></span>
+        <a href="#easeInExpo" class="anchor">§</a>
     </h4>
 
     
@@ -535,7 +556,7 @@ See <a href="http://gizma.com/easing/">Easing Equations by Robert Penner</a></di
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 3866
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3865">line 3865</a>
     </li></ul></dd>
     
     
@@ -554,14 +575,18 @@ See <a href="http://gizma.com/easing/">Easing Equations by Robert Penner</a></di
     
 
     
+
+    
+
+    
 </dd>
 
         
             
 <dt>
     <h4 class="name" id="easeInOutBack">
-      <span class="type-signature">&lt;static> </span>easeInOutBack<span class="signature">()</span><span class="type-signature"></span>
-      <a href="#easeInOutBack" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>easeInOutBack<span class="signature">()</span><span class="type-signature"></span>
+        <a href="#easeInOutBack" class="anchor">§</a>
     </h4>
 
     
@@ -603,7 +628,7 @@ See <a href="http://gizma.com/easing/">Easing Equations by Robert Penner</a></di
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 3984
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3983">line 3983</a>
     </li></ul></dd>
     
     
@@ -622,14 +647,18 @@ See <a href="http://gizma.com/easing/">Easing Equations by Robert Penner</a></di
     
 
     
+
+    
+
+    
 </dd>
 
         
             
 <dt>
     <h4 class="name" id="easeInOutBounce">
-      <span class="type-signature">&lt;static> </span>easeInOutBounce<span class="signature">()</span><span class="type-signature"></span>
-      <a href="#easeInOutBounce" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>easeInOutBounce<span class="signature">()</span><span class="type-signature"></span>
+        <a href="#easeInOutBounce" class="anchor">§</a>
     </h4>
 
     
@@ -671,7 +700,7 @@ See <a href="http://gizma.com/easing/">Easing Equations by Robert Penner</a></di
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 4019
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line4018">line 4018</a>
     </li></ul></dd>
     
     
@@ -690,14 +719,18 @@ See <a href="http://gizma.com/easing/">Easing Equations by Robert Penner</a></di
     
 
     
+
+    
+
+    
 </dd>
 
         
             
 <dt>
     <h4 class="name" id="easeInOutCirc">
-      <span class="type-signature">&lt;static> </span>easeInOutCirc<span class="signature">()</span><span class="type-signature"></span>
-      <a href="#easeInOutCirc" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>easeInOutCirc<span class="signature">()</span><span class="type-signature"></span>
+        <a href="#easeInOutCirc" class="anchor">§</a>
     </h4>
 
     
@@ -739,7 +772,7 @@ See <a href="http://gizma.com/easing/">Easing Equations by Robert Penner</a></di
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 3910
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3909">line 3909</a>
     </li></ul></dd>
     
     
@@ -758,14 +791,18 @@ See <a href="http://gizma.com/easing/">Easing Equations by Robert Penner</a></di
     
 
     
+
+    
+
+    
 </dd>
 
         
             
 <dt>
     <h4 class="name" id="easeInOutCubic">
-      <span class="type-signature">&lt;static> </span>easeInOutCubic<span class="signature">()</span><span class="type-signature"></span>
-      <a href="#easeInOutCubic" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>easeInOutCubic<span class="signature">()</span><span class="type-signature"></span>
+        <a href="#easeInOutCubic" class="anchor">§</a>
     </h4>
 
     
@@ -807,7 +844,7 @@ See <a href="http://gizma.com/easing/">Easing Equations by Robert Penner</a></di
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 3780
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3779">line 3779</a>
     </li></ul></dd>
     
     
@@ -826,14 +863,18 @@ See <a href="http://gizma.com/easing/">Easing Equations by Robert Penner</a></di
     
 
     
+
+    
+
+    
 </dd>
 
         
             
 <dt>
     <h4 class="name" id="easeInOutElastic">
-      <span class="type-signature">&lt;static> </span>easeInOutElastic<span class="signature">()</span><span class="type-signature"></span>
-      <a href="#easeInOutElastic" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>easeInOutElastic<span class="signature">()</span><span class="type-signature"></span>
+        <a href="#easeInOutElastic" class="anchor">§</a>
     </h4>
 
     
@@ -875,7 +916,7 @@ See <a href="http://gizma.com/easing/">Easing Equations by Robert Penner</a></di
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 3950
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3949">line 3949</a>
     </li></ul></dd>
     
     
@@ -894,14 +935,18 @@ See <a href="http://gizma.com/easing/">Easing Equations by Robert Penner</a></di
     
 
     
+
+    
+
+    
 </dd>
 
         
             
 <dt>
     <h4 class="name" id="easeInOutExpo">
-      <span class="type-signature">&lt;static> </span>easeInOutExpo<span class="signature">()</span><span class="type-signature"></span>
-      <a href="#easeInOutExpo" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>easeInOutExpo<span class="signature">()</span><span class="type-signature"></span>
+        <a href="#easeInOutExpo" class="anchor">§</a>
     </h4>
 
     
@@ -943,7 +988,7 @@ See <a href="http://gizma.com/easing/">Easing Equations by Robert Penner</a></di
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 3882
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3881">line 3881</a>
     </li></ul></dd>
     
     
@@ -962,14 +1007,18 @@ See <a href="http://gizma.com/easing/">Easing Equations by Robert Penner</a></di
     
 
     
+
+    
+
+    
 </dd>
 
         
             
 <dt>
     <h4 class="name" id="easeInOutQuad">
-      <span class="type-signature">&lt;static> </span>easeInOutQuad<span class="signature">()</span><span class="type-signature"></span>
-      <a href="#easeInOutQuad" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>easeInOutQuad<span class="signature">()</span><span class="type-signature"></span>
+        <a href="#easeInOutQuad" class="anchor">§</a>
     </h4>
 
     
@@ -1011,7 +1060,7 @@ See <a href="http://gizma.com/easing/">Easing Equations by Robert Penner</a></di
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 3754
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3753">line 3753</a>
     </li></ul></dd>
     
     
@@ -1030,14 +1079,18 @@ See <a href="http://gizma.com/easing/">Easing Equations by Robert Penner</a></di
     
 
     
+
+    
+
+    
 </dd>
 
         
             
 <dt>
     <h4 class="name" id="easeInOutQuart">
-      <span class="type-signature">&lt;static> </span>easeInOutQuart<span class="signature">()</span><span class="type-signature"></span>
-      <a href="#easeInOutQuart" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>easeInOutQuart<span class="signature">()</span><span class="type-signature"></span>
+        <a href="#easeInOutQuart" class="anchor">§</a>
     </h4>
 
     
@@ -1079,7 +1132,7 @@ See <a href="http://gizma.com/easing/">Easing Equations by Robert Penner</a></di
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 3806
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3805">line 3805</a>
     </li></ul></dd>
     
     
@@ -1098,14 +1151,18 @@ See <a href="http://gizma.com/easing/">Easing Equations by Robert Penner</a></di
     
 
     
+
+    
+
+    
 </dd>
 
         
             
 <dt>
     <h4 class="name" id="easeInOutQuint">
-      <span class="type-signature">&lt;static> </span>easeInOutQuint<span class="signature">()</span><span class="type-signature"></span>
-      <a href="#easeInOutQuint" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>easeInOutQuint<span class="signature">()</span><span class="type-signature"></span>
+        <a href="#easeInOutQuint" class="anchor">§</a>
     </h4>
 
     
@@ -1147,7 +1204,7 @@ See <a href="http://gizma.com/easing/">Easing Equations by Robert Penner</a></di
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 3832
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3831">line 3831</a>
     </li></ul></dd>
     
     
@@ -1166,14 +1223,18 @@ See <a href="http://gizma.com/easing/">Easing Equations by Robert Penner</a></di
     
 
     
+
+    
+
+    
 </dd>
 
         
             
 <dt>
     <h4 class="name" id="easeInOutSine">
-      <span class="type-signature">&lt;static> </span>easeInOutSine<span class="signature">()</span><span class="type-signature"></span>
-      <a href="#easeInOutSine" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>easeInOutSine<span class="signature">()</span><span class="type-signature"></span>
+        <a href="#easeInOutSine" class="anchor">§</a>
     </h4>
 
     
@@ -1215,7 +1276,7 @@ See <a href="http://gizma.com/easing/">Easing Equations by Robert Penner</a></di
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 3858
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3857">line 3857</a>
     </li></ul></dd>
     
     
@@ -1234,14 +1295,18 @@ See <a href="http://gizma.com/easing/">Easing Equations by Robert Penner</a></di
     
 
     
+
+    
+
+    
 </dd>
 
         
             
 <dt>
     <h4 class="name" id="easeInQuad">
-      <span class="type-signature">&lt;static> </span>easeInQuad<span class="signature">()</span><span class="type-signature"></span>
-      <a href="#easeInQuad" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>easeInQuad<span class="signature">()</span><span class="type-signature"></span>
+        <a href="#easeInQuad" class="anchor">§</a>
     </h4>
 
     
@@ -1283,7 +1348,7 @@ See <a href="http://gizma.com/easing/">Easing Equations by Robert Penner</a></di
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 3738
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3737">line 3737</a>
     </li></ul></dd>
     
     
@@ -1302,14 +1367,18 @@ See <a href="http://gizma.com/easing/">Easing Equations by Robert Penner</a></di
     
 
     
+
+    
+
+    
 </dd>
 
         
             
 <dt>
     <h4 class="name" id="easeInQuart">
-      <span class="type-signature">&lt;static> </span>easeInQuart<span class="signature">()</span><span class="type-signature"></span>
-      <a href="#easeInQuart" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>easeInQuart<span class="signature">()</span><span class="type-signature"></span>
+        <a href="#easeInQuart" class="anchor">§</a>
     </h4>
 
     
@@ -1351,7 +1420,7 @@ See <a href="http://gizma.com/easing/">Easing Equations by Robert Penner</a></di
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 3790
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3789">line 3789</a>
     </li></ul></dd>
     
     
@@ -1370,14 +1439,18 @@ See <a href="http://gizma.com/easing/">Easing Equations by Robert Penner</a></di
     
 
     
+
+    
+
+    
 </dd>
 
         
             
 <dt>
     <h4 class="name" id="easeInQuint">
-      <span class="type-signature">&lt;static> </span>easeInQuint<span class="signature">()</span><span class="type-signature"></span>
-      <a href="#easeInQuint" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>easeInQuint<span class="signature">()</span><span class="type-signature"></span>
+        <a href="#easeInQuint" class="anchor">§</a>
     </h4>
 
     
@@ -1419,7 +1492,7 @@ See <a href="http://gizma.com/easing/">Easing Equations by Robert Penner</a></di
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 3816
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3815">line 3815</a>
     </li></ul></dd>
     
     
@@ -1438,14 +1511,18 @@ See <a href="http://gizma.com/easing/">Easing Equations by Robert Penner</a></di
     
 
     
+
+    
+
+    
 </dd>
 
         
             
 <dt>
     <h4 class="name" id="easeInSine">
-      <span class="type-signature">&lt;static> </span>easeInSine<span class="signature">()</span><span class="type-signature"></span>
-      <a href="#easeInSine" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>easeInSine<span class="signature">()</span><span class="type-signature"></span>
+        <a href="#easeInSine" class="anchor">§</a>
     </h4>
 
     
@@ -1487,7 +1564,7 @@ See <a href="http://gizma.com/easing/">Easing Equations by Robert Penner</a></di
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 3842
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3841">line 3841</a>
     </li></ul></dd>
     
     
@@ -1506,14 +1583,18 @@ See <a href="http://gizma.com/easing/">Easing Equations by Robert Penner</a></di
     
 
     
+
+    
+
+    
 </dd>
 
         
             
 <dt>
     <h4 class="name" id="easeOutBack">
-      <span class="type-signature">&lt;static> </span>easeOutBack<span class="signature">()</span><span class="type-signature"></span>
-      <a href="#easeOutBack" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>easeOutBack<span class="signature">()</span><span class="type-signature"></span>
+        <a href="#easeOutBack" class="anchor">§</a>
     </h4>
 
     
@@ -1555,7 +1636,7 @@ See <a href="http://gizma.com/easing/">Easing Equations by Robert Penner</a></di
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 3975
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3974">line 3974</a>
     </li></ul></dd>
     
     
@@ -1574,14 +1655,18 @@ See <a href="http://gizma.com/easing/">Easing Equations by Robert Penner</a></di
     
 
     
+
+    
+
+    
 </dd>
 
         
             
 <dt>
     <h4 class="name" id="easeOutBounce">
-      <span class="type-signature">&lt;static> </span>easeOutBounce<span class="signature">()</span><span class="type-signature"></span>
-      <a href="#easeOutBounce" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>easeOutBounce<span class="signature">()</span><span class="type-signature"></span>
+        <a href="#easeOutBounce" class="anchor">§</a>
     </h4>
 
     
@@ -1623,7 +1708,7 @@ See <a href="http://gizma.com/easing/">Easing Equations by Robert Penner</a></di
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 4003
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line4002">line 4002</a>
     </li></ul></dd>
     
     
@@ -1642,14 +1727,18 @@ See <a href="http://gizma.com/easing/">Easing Equations by Robert Penner</a></di
     
 
     
+
+    
+
+    
 </dd>
 
         
             
 <dt>
     <h4 class="name" id="easeOutCirc">
-      <span class="type-signature">&lt;static> </span>easeOutCirc<span class="signature">()</span><span class="type-signature"></span>
-      <a href="#easeOutCirc" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>easeOutCirc<span class="signature">()</span><span class="type-signature"></span>
+        <a href="#easeOutCirc" class="anchor">§</a>
     </h4>
 
     
@@ -1691,7 +1780,7 @@ See <a href="http://gizma.com/easing/">Easing Equations by Robert Penner</a></di
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 3902
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3901">line 3901</a>
     </li></ul></dd>
     
     
@@ -1710,14 +1799,18 @@ See <a href="http://gizma.com/easing/">Easing Equations by Robert Penner</a></di
     
 
     
+
+    
+
+    
 </dd>
 
         
             
 <dt>
     <h4 class="name" id="easeOutCubic">
-      <span class="type-signature">&lt;static> </span>easeOutCubic<span class="signature">()</span><span class="type-signature"></span>
-      <a href="#easeOutCubic" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>easeOutCubic<span class="signature">()</span><span class="type-signature"></span>
+        <a href="#easeOutCubic" class="anchor">§</a>
     </h4>
 
     
@@ -1759,7 +1852,7 @@ See <a href="http://gizma.com/easing/">Easing Equations by Robert Penner</a></di
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 3772
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3771">line 3771</a>
     </li></ul></dd>
     
     
@@ -1778,14 +1871,18 @@ See <a href="http://gizma.com/easing/">Easing Equations by Robert Penner</a></di
     
 
     
+
+    
+
+    
 </dd>
 
         
             
 <dt>
     <h4 class="name" id="easeOutElastic">
-      <span class="type-signature">&lt;static> </span>easeOutElastic<span class="signature">()</span><span class="type-signature"></span>
-      <a href="#easeOutElastic" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>easeOutElastic<span class="signature">()</span><span class="type-signature"></span>
+        <a href="#easeOutElastic" class="anchor">§</a>
     </h4>
 
     
@@ -1827,7 +1924,7 @@ See <a href="http://gizma.com/easing/">Easing Equations by Robert Penner</a></di
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 3935
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3934">line 3934</a>
     </li></ul></dd>
     
     
@@ -1846,14 +1943,18 @@ See <a href="http://gizma.com/easing/">Easing Equations by Robert Penner</a></di
     
 
     
+
+    
+
+    
 </dd>
 
         
             
 <dt>
     <h4 class="name" id="easeOutExpo">
-      <span class="type-signature">&lt;static> </span>easeOutExpo<span class="signature">()</span><span class="type-signature"></span>
-      <a href="#easeOutExpo" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>easeOutExpo<span class="signature">()</span><span class="type-signature"></span>
+        <a href="#easeOutExpo" class="anchor">§</a>
     </h4>
 
     
@@ -1895,7 +1996,7 @@ See <a href="http://gizma.com/easing/">Easing Equations by Robert Penner</a></di
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 3874
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3873">line 3873</a>
     </li></ul></dd>
     
     
@@ -1914,14 +2015,18 @@ See <a href="http://gizma.com/easing/">Easing Equations by Robert Penner</a></di
     
 
     
+
+    
+
+    
 </dd>
 
         
             
 <dt>
     <h4 class="name" id="easeOutQuad">
-      <span class="type-signature">&lt;static> </span>easeOutQuad<span class="signature">()</span><span class="type-signature"></span>
-      <a href="#easeOutQuad" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>easeOutQuad<span class="signature">()</span><span class="type-signature"></span>
+        <a href="#easeOutQuad" class="anchor">§</a>
     </h4>
 
     
@@ -1963,7 +2068,7 @@ See <a href="http://gizma.com/easing/">Easing Equations by Robert Penner</a></di
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 3746
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3745">line 3745</a>
     </li></ul></dd>
     
     
@@ -1982,14 +2087,18 @@ See <a href="http://gizma.com/easing/">Easing Equations by Robert Penner</a></di
     
 
     
+
+    
+
+    
 </dd>
 
         
             
 <dt>
     <h4 class="name" id="easeOutQuart">
-      <span class="type-signature">&lt;static> </span>easeOutQuart<span class="signature">()</span><span class="type-signature"></span>
-      <a href="#easeOutQuart" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>easeOutQuart<span class="signature">()</span><span class="type-signature"></span>
+        <a href="#easeOutQuart" class="anchor">§</a>
     </h4>
 
     
@@ -2031,7 +2140,7 @@ See <a href="http://gizma.com/easing/">Easing Equations by Robert Penner</a></di
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 3798
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3797">line 3797</a>
     </li></ul></dd>
     
     
@@ -2050,14 +2159,18 @@ See <a href="http://gizma.com/easing/">Easing Equations by Robert Penner</a></di
     
 
     
+
+    
+
+    
 </dd>
 
         
             
 <dt>
     <h4 class="name" id="easeOutQuint">
-      <span class="type-signature">&lt;static> </span>easeOutQuint<span class="signature">()</span><span class="type-signature"></span>
-      <a href="#easeOutQuint" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>easeOutQuint<span class="signature">()</span><span class="type-signature"></span>
+        <a href="#easeOutQuint" class="anchor">§</a>
     </h4>
 
     
@@ -2099,7 +2212,7 @@ See <a href="http://gizma.com/easing/">Easing Equations by Robert Penner</a></di
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 3824
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3823">line 3823</a>
     </li></ul></dd>
     
     
@@ -2118,14 +2231,18 @@ See <a href="http://gizma.com/easing/">Easing Equations by Robert Penner</a></di
     
 
     
+
+    
+
+    
 </dd>
 
         
             
 <dt>
     <h4 class="name" id="easeOutSine">
-      <span class="type-signature">&lt;static> </span>easeOutSine<span class="signature">()</span><span class="type-signature"></span>
-      <a href="#easeOutSine" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>easeOutSine<span class="signature">()</span><span class="type-signature"></span>
+        <a href="#easeOutSine" class="anchor">§</a>
     </h4>
 
     
@@ -2167,7 +2284,7 @@ See <a href="http://gizma.com/easing/">Easing Equations by Robert Penner</a></di
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 3850
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3849">line 3849</a>
     </li></ul></dd>
     
     
@@ -2178,6 +2295,10 @@ See <a href="http://gizma.com/easing/">Easing Equations by Robert Penner</a></di
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -2210,9 +2331,10 @@ See <a href="http://gizma.com/easing/">Easing Equations by Robert Penner</a></di
 <br clear="both">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.1.1</a> on Sun Aug 11 2013 23:17:00 GMT+0200 (CEST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0</a> on Sun Aug 11 2013 23:42:32 GMT+0200 (CEST)
 </footer>
 
-<script> prettyPrint(); </script>
+<script> /*prettyPrint();*/ </script>
+<script src="scripts/linenumber.js"> </script>
 </body>
 </html>

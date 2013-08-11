@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <title>JSDoc: Class: Color</title>
 
-    <script src="/js/prettify.js"> </script>
-    <script src="/js/lang-css.js"> </script>
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
     <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -15,55 +15,56 @@
 </head>
 
 <body>
-<ul id="header">
-  <li><a href="http://fabricjs.com/">Features</a></li>
-  <li><a href="http://fabricjs.com/demos">Demos</a></li>
-  <li><a href="http://fabricjs.com/docs">Docs</a></li>
-  <li><a href="http://fabricjs.com/articles">Tutorial</a></li>
-  <li><a href="http://fabricjs.com/test">Tests</a></li>
-  <li><a href="http://fabricjs.com/benchmarks">Benchmarks</a></li>
-  <li><a href="http://fabricjs.com/build">Build</a></li>
-  <li class="secondary">
-    <a href="http://travis-ci.org/#!/kangax/fabric.js"><img src="https://secure.travis-ci.org/kangax/fabric.js.png?branch=master"></a>
-  </li>
-  <li class="gittip secondary">
-    <iframe style="border: 0; margin: 0; padding: 0;" src="https://www.gittip.com/5c2ec8b83e18/widget.html" width="48pt" height="22pt"></iframe>
-  </li>
-  <li class="flattr secondary">
-    <a class="FlattrButton" style="display:none;" rev="flattr;button:compact;" href="http://kangax.github.com/fabric.js"></a>
-    <noscript><a href="http://flattr.com/thing/391332/Fabric-js" target="_blank">
-    <img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0" /></a></noscript>
-  </li>
-  <li class="github secondary">
-    <iframe src="http://ghbtns.com/github-btn.html?user=kangax&repo=fabric.js&type=watch&count=true"
-      allowtransparency="true" frameborder="0" scrolling="0" width="95px" height="20px"></iframe>
-  </li>
-  <li class="twitter secondary">
-    <a href="https://twitter.com/fabricjs" class="twitter-follow-button" data-show-count="true">Follow @fabricjs</a>
-    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-  </li>
-  <li class="secondary"><a href="http://stackoverflow.com/questions/tagged/fabricjs"><span>StackOverflow</span></a></li>
-  <li class="secondary"><a href="https://github.com/kangax/fabric.js/wiki"><span>Wiki</span></a></li>
-  <li class="secondary"><a href="http://groups.google.com/group/fabricjs"><span>Discussion</span></a></li>
-</ul>
 
-<script>
-(function() {
+    <ul id="header">
+      <li><a href="http://fabricjs.com/">Features</a></li>
+      <li><a href="http://fabricjs.com/demos">Demos</a></li>
+      <li><a href="http://fabricjs.com/docs">Docs</a></li>
+      <li><a href="http://fabricjs.com/articles">Tutorial</a></li>
+      <li><a href="http://fabricjs.com/test">Tests</a></li>
+      <li><a href="http://fabricjs.com/benchmarks">Benchmarks</a></li>
+      <li><a href="http://fabricjs.com/build">Build</a></li>
+      <li class="secondary">
+        <a href="http://travis-ci.org/#!/kangax/fabric.js"><img src="https://secure.travis-ci.org/kangax/fabric.js.png?branch=master"></a>
+      </li>
+      <li class="gittip secondary">
+        <iframe style="border: 0; margin: 0; padding: 0;" src="https://www.gittip.com/5c2ec8b83e18/widget.html" width="48pt" height="22pt"></iframe>
+      </li>
+      <li class="flattr secondary">
+        <a class="FlattrButton" style="display:none;" rev="flattr;button:compact;" href="http://kangax.github.com/fabric.js"></a>
+        <noscript><a href="http://flattr.com/thing/391332/Fabric-js" target="_blank">
+        <img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0" /></a></noscript>
+      </li>
+      <li class="github secondary">
+        <iframe src="http://ghbtns.com/github-btn.html?user=kangax&repo=fabric.js&type=watch&count=true"
+          allowtransparency="true" frameborder="0" scrolling="0" width="95px" height="20px"></iframe>
+      </li>
+      <li class="twitter secondary">
+        <a href="https://twitter.com/fabricjs" class="twitter-follow-button" data-show-count="true">Follow @fabricjs</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+      </li>
+      <li class="secondary"><a href="http://stackoverflow.com/questions/tagged/fabricjs"><span>StackOverflow</span></a></li>
+      <li class="secondary"><a href="https://github.com/kangax/fabric.js/wiki"><span>Wiki</span></a></li>
+      <li class="secondary"><a href="http://groups.google.com/group/fabricjs"><span>Discussion</span></a></li>
+    </ul>
 
-  var s = document.createElement('script'), t = document.getElementsByTagName('script')[0];
-  s.async = true;
-  s.src = 'http://api.flattr.com/js/0.6/load.js?mode=auto';
-  t.parentNode.insertBefore(s, t);
+    <script>
+    (function() {
 
-  if (document.location.hostname === 'localhost') {
-    var links = document.getElementById('header').getElementsByTagName('a');
-    for (var i = 0, len = links.length; i < len; i++) {
-      // very retarted fix but fuck it
-      links[i].href = links[i].href.replace('fabricjs.com', 'localhost:4000');
-    }
-  }
-})();
-</script>
+      var s = document.createElement('script'), t = document.getElementsByTagName('script')[0];
+      s.async = true;
+      s.src = 'http://api.flattr.com/js/0.6/load.js?mode=auto';
+      t.parentNode.insertBefore(s, t);
+
+      if (document.location.hostname === 'localhost') {
+        var links = document.getElementById('header').getElementsByTagName('a');
+        for (var i = 0, len = links.length; i < len; i++) {
+          // very retarted fix but fuck it
+          links[i].href = links[i].href.replace('fabricjs.com', 'localhost:4000');
+        }
+      }
+    })();
+    </script>
 
 <div id="main">
 
@@ -92,8 +93,8 @@
         
 <dt>
     <h4 class="name" id="Color">
-      <span class="type-signature"></span>new Color<span class="signature">(color)</span><span class="type-signature"> &rarr; {<a href="fabric.Color.html">fabric.Color</a>}</span>
-      <a href="#Color" class="anchor">§</a>
+        <span class="type-signature"></span>new Color<span class="signature">(color)</span><span class="type-signature"> &rarr; {<a href="fabric.Color.html">fabric.Color</a>}</span>
+        <a href="#Color" class="anchor">§</a>
     </h4>
 
     
@@ -185,7 +186,7 @@ The purpose of <a href="fabric.Color.html">fabric.Color</a> is to abstract and e
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 5410
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5409">line 5409</a>
     </li></ul></dd>
     
     
@@ -196,6 +197,10 @@ The purpose of <a href="fabric.Color.html">fabric.Color</a> is to abstract and e
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -248,8 +253,8 @@ The purpose of <a href="fabric.Color.html">fabric.Color</a> is to abstract and e
             
 <dt>
     <h4 class="name" id="colorNameMap">
-      <span class="type-signature">&lt;static> </span>colorNameMap<span class="type-signature"></span>
-      <a href="#colorNameMap" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>colorNameMap<span class="type-signature"></span>
+        <a href="#colorNameMap" class="anchor">§</a>
     </h4>
 
     
@@ -257,8 +262,10 @@ The purpose of <a href="fabric.Color.html">fabric.Color</a> is to abstract and e
 <dd>
     
     <div class="description">
-        Map of the 16 basic color names with HEX code
+        Map of the 17 basic color names with HEX code
     </div>
+    
+
     
 
     
@@ -284,7 +291,7 @@ The purpose of <a href="fabric.Color.html">fabric.Color</a> is to abstract and e
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 5680
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5679">line 5679</a>
     </li></ul></dd>
     
     
@@ -303,8 +310,8 @@ The purpose of <a href="fabric.Color.html">fabric.Color</a> is to abstract and e
             
 <dt>
     <h4 class="name" id="reHex">
-      <span class="type-signature">&lt;static> </span>reHex<span class="type-signature"></span>
-      <a href="#reHex" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>reHex<span class="type-signature"></span>
+        <a href="#reHex" class="anchor">§</a>
     </h4>
 
     
@@ -314,6 +321,8 @@ The purpose of <a href="fabric.Color.html">fabric.Color</a> is to abstract and e
     <div class="description">
         Regex matching color in HEX format (ex: #FF5555, 010155, aff)
     </div>
+    
+
     
 
     
@@ -339,7 +348,7 @@ The purpose of <a href="fabric.Color.html">fabric.Color</a> is to abstract and e
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 5672
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5671">line 5671</a>
     </li></ul></dd>
     
     
@@ -358,8 +367,8 @@ The purpose of <a href="fabric.Color.html">fabric.Color</a> is to abstract and e
             
 <dt>
     <h4 class="name" id="reHSLa">
-      <span class="type-signature">&lt;static> </span>reHSLa<span class="type-signature"></span>
-      <a href="#reHSLa" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>reHSLa<span class="type-signature"></span>
+        <a href="#reHSLa" class="anchor">§</a>
     </h4>
 
     
@@ -369,6 +378,8 @@ The purpose of <a href="fabric.Color.html">fabric.Color</a> is to abstract and e
     <div class="description">
         Regex matching color in HSL or HSLA formats (ex: hsl(200, 80%, 10%), hsla(300, 50%, 80%, 0.5), hsla( 300 , 50% , 80% , 0.5 ))
     </div>
+    
+
     
 
     
@@ -394,7 +405,7 @@ The purpose of <a href="fabric.Color.html">fabric.Color</a> is to abstract and e
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 5664
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5663">line 5663</a>
     </li></ul></dd>
     
     
@@ -413,8 +424,8 @@ The purpose of <a href="fabric.Color.html">fabric.Color</a> is to abstract and e
             
 <dt>
     <h4 class="name" id="reRGBa">
-      <span class="type-signature">&lt;static> </span>reRGBa<span class="type-signature"></span>
-      <a href="#reRGBa" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>reRGBa<span class="type-signature"></span>
+        <a href="#reRGBa" class="anchor">§</a>
     </h4>
 
     
@@ -424,6 +435,8 @@ The purpose of <a href="fabric.Color.html">fabric.Color</a> is to abstract and e
     <div class="description">
         Regex matching color in RGB or RGBA formats (ex: rgb(0, 0, 0), rgba(255, 100, 10, 0.5), rgba( 255 , 100 , 10 , 0.5 ), rgb(1,1,1), rgba(100%, 60%, 10%, 0.5))
     </div>
+    
+
     
 
     
@@ -449,7 +462,7 @@ The purpose of <a href="fabric.Color.html">fabric.Color</a> is to abstract and e
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 5656
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5655">line 5655</a>
     </li></ul></dd>
     
     
@@ -474,8 +487,8 @@ The purpose of <a href="fabric.Color.html">fabric.Color</a> is to abstract and e
             
 <dt>
     <h4 class="name" id="fromHex">
-      <span class="type-signature">&lt;static> </span>fromHex<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="fabric.Color.html">fabric.Color</a>}</span>
-      <a href="#fromHex" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>fromHex<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="fabric.Color.html">fabric.Color</a>}</span>
+        <a href="#fromHex" class="anchor">§</a>
     </h4>
 
     
@@ -517,7 +530,7 @@ The purpose of <a href="fabric.Color.html">fabric.Color</a> is to abstract and e
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 5820
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5820">line 5820</a>
     </li></ul></dd>
     
     
@@ -528,6 +541,10 @@ The purpose of <a href="fabric.Color.html">fabric.Color</a> is to abstract and e
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -560,8 +577,8 @@ The purpose of <a href="fabric.Color.html">fabric.Color</a> is to abstract and e
             
 <dt>
     <h4 class="name" id="fromHsl">
-      <span class="type-signature">&lt;static> </span>fromHsl<span class="signature">(color)</span><span class="type-signature"> &rarr; {<a href="fabric.Color.html">fabric.Color</a>}</span>
-      <a href="#fromHsl" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>fromHsl<span class="signature">(color)</span><span class="type-signature"> &rarr; {<a href="fabric.Color.html">fabric.Color</a>}</span>
+        <a href="#fromHsl" class="anchor">§</a>
     </h4>
 
     
@@ -651,7 +668,7 @@ The purpose of <a href="fabric.Color.html">fabric.Color</a> is to abstract and e
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 5763
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5763">line 5763</a>
     </li></ul></dd>
     
     
@@ -662,6 +679,10 @@ The purpose of <a href="fabric.Color.html">fabric.Color</a> is to abstract and e
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -694,8 +715,8 @@ The purpose of <a href="fabric.Color.html">fabric.Color</a> is to abstract and e
             
 <dt>
     <h4 class="name" id="fromHsla">
-      <span class="type-signature">&lt;static> </span>fromHsla<span class="signature">(color)</span><span class="type-signature"> &rarr; {<a href="fabric.Color.html">fabric.Color</a>}</span>
-      <a href="#fromHsla" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>fromHsla<span class="signature">(color)</span><span class="type-signature"> &rarr; {<a href="fabric.Color.html">fabric.Color</a>}</span>
+        <a href="#fromHsla" class="anchor">§</a>
     </h4>
 
     
@@ -785,7 +806,7 @@ The purpose of <a href="fabric.Color.html">fabric.Color</a> is to abstract and e
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 5812
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5812">line 5812</a>
     </li></ul></dd>
     
     
@@ -796,6 +817,10 @@ The purpose of <a href="fabric.Color.html">fabric.Color</a> is to abstract and e
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -828,8 +853,8 @@ The purpose of <a href="fabric.Color.html">fabric.Color</a> is to abstract and e
             
 <dt>
     <h4 class="name" id="fromRgb">
-      <span class="type-signature">&lt;static> </span>fromRgb<span class="signature">(color)</span><span class="type-signature"> &rarr; {<a href="fabric.Color.html">fabric.Color</a>}</span>
-      <a href="#fromRgb" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>fromRgb<span class="signature">(color)</span><span class="type-signature"> &rarr; {<a href="fabric.Color.html">fabric.Color</a>}</span>
+        <a href="#fromRgb" class="anchor">§</a>
     </h4>
 
     
@@ -919,7 +944,7 @@ The purpose of <a href="fabric.Color.html">fabric.Color</a> is to abstract and e
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 5721
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5721">line 5721</a>
     </li></ul></dd>
     
     
@@ -930,6 +955,10 @@ The purpose of <a href="fabric.Color.html">fabric.Color</a> is to abstract and e
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -962,8 +991,8 @@ The purpose of <a href="fabric.Color.html">fabric.Color</a> is to abstract and e
             
 <dt>
     <h4 class="name" id="fromRgba">
-      <span class="type-signature">&lt;static> </span>fromRgba<span class="signature">(color)</span><span class="type-signature"> &rarr; {<a href="fabric.Color.html">fabric.Color</a>}</span>
-      <a href="#fromRgba" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>fromRgba<span class="signature">(color)</span><span class="type-signature"> &rarr; {<a href="fabric.Color.html">fabric.Color</a>}</span>
+        <a href="#fromRgba" class="anchor">§</a>
     </h4>
 
     
@@ -1053,7 +1082,7 @@ The purpose of <a href="fabric.Color.html">fabric.Color</a> is to abstract and e
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 5755
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5755">line 5755</a>
     </li></ul></dd>
     
     
@@ -1064,6 +1093,10 @@ The purpose of <a href="fabric.Color.html">fabric.Color</a> is to abstract and e
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -1096,8 +1129,8 @@ The purpose of <a href="fabric.Color.html">fabric.Color</a> is to abstract and e
             
 <dt>
     <h4 class="name" id="fromSource">
-      <span class="type-signature">&lt;static> </span>fromSource<span class="signature">(source)</span><span class="type-signature"> &rarr; {<a href="fabric.Color.html">fabric.Color</a>}</span>
-      <a href="#fromSource" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>fromSource<span class="signature">(source)</span><span class="type-signature"> &rarr; {<a href="fabric.Color.html">fabric.Color</a>}</span>
+        <a href="#fromSource" class="anchor">§</a>
     </h4>
 
     
@@ -1187,7 +1220,7 @@ The purpose of <a href="fabric.Color.html">fabric.Color</a> is to abstract and e
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 5855
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5855">line 5855</a>
     </li></ul></dd>
     
     
@@ -1198,6 +1231,10 @@ The purpose of <a href="fabric.Color.html">fabric.Color</a> is to abstract and e
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -1230,8 +1267,8 @@ The purpose of <a href="fabric.Color.html">fabric.Color</a> is to abstract and e
             
 <dt>
     <h4 class="name" id="sourceFromHex">
-      <span class="type-signature">&lt;static> </span>sourceFromHex<span class="signature">(color)</span><span class="type-signature"> &rarr; {<a href="Array.html">Array</a>}</span>
-      <a href="#sourceFromHex" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>sourceFromHex<span class="signature">(color)</span><span class="type-signature"> &rarr; {<a href="Array.html">Array</a>}</span>
+        <a href="#sourceFromHex" class="anchor">§</a>
     </h4>
 
     
@@ -1321,7 +1358,7 @@ The purpose of <a href="fabric.Color.html">fabric.Color</a> is to abstract and e
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 5831
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5831">line 5831</a>
     </li></ul></dd>
     
     
@@ -1332,6 +1369,10 @@ The purpose of <a href="fabric.Color.html">fabric.Color</a> is to abstract and e
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -1368,8 +1409,8 @@ The purpose of <a href="fabric.Color.html">fabric.Color</a> is to abstract and e
             
 <dt>
     <h4 class="name" id="sourceFromHsl">
-      <span class="type-signature">&lt;static> </span>sourceFromHsl<span class="signature">(color)</span><span class="type-signature"> &rarr; {<a href="Array.html">Array</a>}</span>
-      <a href="#sourceFromHsl" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>sourceFromHsl<span class="signature">(color)</span><span class="type-signature"> &rarr; {<a href="Array.html">Array</a>}</span>
+        <a href="#sourceFromHsl" class="anchor">§</a>
     </h4>
 
     
@@ -1460,7 +1501,7 @@ Adapted from <a href="https://rawgithub.com/mjijackson/mjijackson.github.com/mas
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 5775
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5775">line 5775</a>
     </li></ul></dd>
     
     
@@ -1470,7 +1511,7 @@ Adapted from <a href="https://rawgithub.com/mjijackson/mjijackson.github.com/mas
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
         <ul>
-            <li>http://http://www.w3.org/TR/css3-color/#hsl-color</li>
+            <li><a href="http://http://www.w3.org/TR/css3-color/#hsl-color">http://http://www.w3.org/TR/css3-color/#hsl-color</a></li>
         </ul>
     </dd>
     
@@ -1478,6 +1519,10 @@ Adapted from <a href="https://rawgithub.com/mjijackson/mjijackson.github.com/mas
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -1514,8 +1559,8 @@ Adapted from <a href="https://rawgithub.com/mjijackson/mjijackson.github.com/mas
             
 <dt>
     <h4 class="name" id="sourceFromRgb">
-      <span class="type-signature">&lt;static> </span>sourceFromRgb<span class="signature">(color)</span><span class="type-signature"> &rarr; {<a href="Array.html">Array</a>}</span>
-      <a href="#sourceFromRgb" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>sourceFromRgb<span class="signature">(color)</span><span class="type-signature"> &rarr; {<a href="Array.html">Array</a>}</span>
+        <a href="#sourceFromRgb" class="anchor">§</a>
     </h4>
 
     
@@ -1605,7 +1650,7 @@ Adapted from <a href="https://rawgithub.com/mjijackson/mjijackson.github.com/mas
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 5731
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5731">line 5731</a>
     </li></ul></dd>
     
     
@@ -1616,6 +1661,10 @@ Adapted from <a href="https://rawgithub.com/mjijackson/mjijackson.github.com/mas
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -1652,8 +1701,8 @@ Adapted from <a href="https://rawgithub.com/mjijackson/mjijackson.github.com/mas
             
 <dt>
     <h4 class="name" id="getAlpha">
-      <span class="type-signature"></span>getAlpha<span class="signature">()</span><span class="type-signature"> &rarr; {Number}</span>
-      <a href="#getAlpha" class="anchor">§</a>
+        <span class="type-signature"></span>getAlpha<span class="signature">()</span><span class="type-signature"> &rarr; {Number}</span>
+        <a href="#getAlpha" class="anchor">§</a>
     </h4>
 
     
@@ -1695,7 +1744,7 @@ Adapted from <a href="https://rawgithub.com/mjijackson/mjijackson.github.com/mas
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 5579
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5578">line 5578</a>
     </li></ul></dd>
     
     
@@ -1706,6 +1755,10 @@ Adapted from <a href="https://rawgithub.com/mjijackson/mjijackson.github.com/mas
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -1742,8 +1795,8 @@ Adapted from <a href="https://rawgithub.com/mjijackson/mjijackson.github.com/mas
             
 <dt>
     <h4 class="name" id="getSource">
-      <span class="type-signature"></span>getSource<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="Array.html">Array</a>}</span>
-      <a href="#getSource" class="anchor">§</a>
+        <span class="type-signature"></span>getSource<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="Array.html">Array</a>}</span>
+        <a href="#getSource" class="anchor">§</a>
     </h4>
 
     
@@ -1785,7 +1838,7 @@ Adapted from <a href="https://rawgithub.com/mjijackson/mjijackson.github.com/mas
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 5504
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5503">line 5503</a>
     </li></ul></dd>
     
     
@@ -1796,6 +1849,10 @@ Adapted from <a href="https://rawgithub.com/mjijackson/mjijackson.github.com/mas
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -1828,8 +1885,8 @@ Adapted from <a href="https://rawgithub.com/mjijackson/mjijackson.github.com/mas
             
 <dt>
     <h4 class="name" id="overlayWith">
-      <span class="type-signature"></span>overlayWith<span class="signature">(otherColor)</span><span class="type-signature"> &rarr; {<a href="fabric.Color.html">fabric.Color</a>}</span>
-      <a href="#overlayWith" class="anchor">§</a>
+        <span class="type-signature"></span>overlayWith<span class="signature">(otherColor)</span><span class="type-signature"> &rarr; {<a href="fabric.Color.html">fabric.Color</a>}</span>
+        <a href="#overlayWith" class="anchor">§</a>
     </h4>
 
     
@@ -1922,7 +1979,7 @@ Adapted from <a href="https://rawgithub.com/mjijackson/mjijackson.github.com/mas
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 5629
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5628">line 5628</a>
     </li></ul></dd>
     
     
@@ -1933,6 +1990,10 @@ Adapted from <a href="https://rawgithub.com/mjijackson/mjijackson.github.com/mas
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -1969,8 +2030,8 @@ Adapted from <a href="https://rawgithub.com/mjijackson/mjijackson.github.com/mas
             
 <dt>
     <h4 class="name" id="setAlpha">
-      <span class="type-signature"></span>setAlpha<span class="signature">(alpha)</span><span class="type-signature"> &rarr; {<a href="fabric.Color.html">fabric.Color</a>}</span>
-      <a href="#setAlpha" class="anchor">§</a>
+        <span class="type-signature"></span>setAlpha<span class="signature">(alpha)</span><span class="type-signature"> &rarr; {<a href="fabric.Color.html">fabric.Color</a>}</span>
+        <a href="#setAlpha" class="anchor">§</a>
     </h4>
 
     
@@ -2060,7 +2121,7 @@ Adapted from <a href="https://rawgithub.com/mjijackson/mjijackson.github.com/mas
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 5588
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5587">line 5587</a>
     </li></ul></dd>
     
     
@@ -2071,6 +2132,10 @@ Adapted from <a href="https://rawgithub.com/mjijackson/mjijackson.github.com/mas
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -2107,8 +2172,8 @@ Adapted from <a href="https://rawgithub.com/mjijackson/mjijackson.github.com/mas
             
 <dt>
     <h4 class="name" id="setSource">
-      <span class="type-signature"></span>setSource<span class="signature">(source)</span><span class="type-signature"></span>
-      <a href="#setSource" class="anchor">§</a>
+        <span class="type-signature"></span>setSource<span class="signature">(source)</span><span class="type-signature"></span>
+        <a href="#setSource" class="anchor">§</a>
     </h4>
 
     
@@ -2198,7 +2263,7 @@ Adapted from <a href="https://rawgithub.com/mjijackson/mjijackson.github.com/mas
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 5512
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5511">line 5511</a>
     </li></ul></dd>
     
     
@@ -2217,14 +2282,18 @@ Adapted from <a href="https://rawgithub.com/mjijackson/mjijackson.github.com/mas
     
 
     
+
+    
+
+    
 </dd>
 
         
             
 <dt>
     <h4 class="name" id="toBlackWhite">
-      <span class="type-signature"></span>toBlackWhite<span class="signature">(threshold)</span><span class="type-signature"> &rarr; {<a href="fabric.Color.html">fabric.Color</a>}</span>
-      <a href="#toBlackWhite" class="anchor">§</a>
+        <span class="type-signature"></span>toBlackWhite<span class="signature">(threshold)</span><span class="type-signature"> &rarr; {<a href="fabric.Color.html">fabric.Color</a>}</span>
+        <a href="#toBlackWhite" class="anchor">§</a>
     </h4>
 
     
@@ -2314,7 +2383,7 @@ Adapted from <a href="https://rawgithub.com/mjijackson/mjijackson.github.com/mas
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 5612
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5611">line 5611</a>
     </li></ul></dd>
     
     
@@ -2325,6 +2394,10 @@ Adapted from <a href="https://rawgithub.com/mjijackson/mjijackson.github.com/mas
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -2361,8 +2434,8 @@ Adapted from <a href="https://rawgithub.com/mjijackson/mjijackson.github.com/mas
             
 <dt>
     <h4 class="name" id="toGrayscale">
-      <span class="type-signature"></span>toGrayscale<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="fabric.Color.html">fabric.Color</a>}</span>
-      <a href="#toGrayscale" class="anchor">§</a>
+        <span class="type-signature"></span>toGrayscale<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="fabric.Color.html">fabric.Color</a>}</span>
+        <a href="#toGrayscale" class="anchor">§</a>
     </h4>
 
     
@@ -2404,7 +2477,7 @@ Adapted from <a href="https://rawgithub.com/mjijackson/mjijackson.github.com/mas
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 5599
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5598">line 5598</a>
     </li></ul></dd>
     
     
@@ -2415,6 +2488,10 @@ Adapted from <a href="https://rawgithub.com/mjijackson/mjijackson.github.com/mas
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -2451,8 +2528,8 @@ Adapted from <a href="https://rawgithub.com/mjijackson/mjijackson.github.com/mas
             
 <dt>
     <h4 class="name" id="toHex">
-      <span class="type-signature"></span>toHex<span class="signature">()</span><span class="type-signature"> &rarr; {String}</span>
-      <a href="#toHex" class="anchor">§</a>
+        <span class="type-signature"></span>toHex<span class="signature">()</span><span class="type-signature"> &rarr; {String}</span>
+        <a href="#toHex" class="anchor">§</a>
     </h4>
 
     
@@ -2494,7 +2571,7 @@ Adapted from <a href="https://rawgithub.com/mjijackson/mjijackson.github.com/mas
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 5560
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5559">line 5559</a>
     </li></ul></dd>
     
     
@@ -2505,6 +2582,10 @@ Adapted from <a href="https://rawgithub.com/mjijackson/mjijackson.github.com/mas
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -2541,8 +2622,8 @@ Adapted from <a href="https://rawgithub.com/mjijackson/mjijackson.github.com/mas
             
 <dt>
     <h4 class="name" id="toHsl">
-      <span class="type-signature"></span>toHsl<span class="signature">()</span><span class="type-signature"> &rarr; {String}</span>
-      <a href="#toHsl" class="anchor">§</a>
+        <span class="type-signature"></span>toHsl<span class="signature">()</span><span class="type-signature"> &rarr; {String}</span>
+        <a href="#toHsl" class="anchor">§</a>
     </h4>
 
     
@@ -2584,7 +2665,7 @@ Adapted from <a href="https://rawgithub.com/mjijackson/mjijackson.github.com/mas
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 5538
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5537">line 5537</a>
     </li></ul></dd>
     
     
@@ -2595,6 +2676,10 @@ Adapted from <a href="https://rawgithub.com/mjijackson/mjijackson.github.com/mas
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -2631,8 +2716,8 @@ Adapted from <a href="https://rawgithub.com/mjijackson/mjijackson.github.com/mas
             
 <dt>
     <h4 class="name" id="toHsla">
-      <span class="type-signature"></span>toHsla<span class="signature">()</span><span class="type-signature"> &rarr; {String}</span>
-      <a href="#toHsla" class="anchor">§</a>
+        <span class="type-signature"></span>toHsla<span class="signature">()</span><span class="type-signature"> &rarr; {String}</span>
+        <a href="#toHsla" class="anchor">§</a>
     </h4>
 
     
@@ -2674,7 +2759,7 @@ Adapted from <a href="https://rawgithub.com/mjijackson/mjijackson.github.com/mas
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 5549
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5548">line 5548</a>
     </li></ul></dd>
     
     
@@ -2685,6 +2770,10 @@ Adapted from <a href="https://rawgithub.com/mjijackson/mjijackson.github.com/mas
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -2721,8 +2810,8 @@ Adapted from <a href="https://rawgithub.com/mjijackson/mjijackson.github.com/mas
             
 <dt>
     <h4 class="name" id="toRgb">
-      <span class="type-signature"></span>toRgb<span class="signature">()</span><span class="type-signature"> &rarr; {String}</span>
-      <a href="#toRgb" class="anchor">§</a>
+        <span class="type-signature"></span>toRgb<span class="signature">()</span><span class="type-signature"> &rarr; {String}</span>
+        <a href="#toRgb" class="anchor">§</a>
     </h4>
 
     
@@ -2764,7 +2853,7 @@ Adapted from <a href="https://rawgithub.com/mjijackson/mjijackson.github.com/mas
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 5520
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5519">line 5519</a>
     </li></ul></dd>
     
     
@@ -2775,6 +2864,10 @@ Adapted from <a href="https://rawgithub.com/mjijackson/mjijackson.github.com/mas
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -2811,8 +2904,8 @@ Adapted from <a href="https://rawgithub.com/mjijackson/mjijackson.github.com/mas
             
 <dt>
     <h4 class="name" id="toRgba">
-      <span class="type-signature"></span>toRgba<span class="signature">()</span><span class="type-signature"> &rarr; {String}</span>
-      <a href="#toRgba" class="anchor">§</a>
+        <span class="type-signature"></span>toRgba<span class="signature">()</span><span class="type-signature"> &rarr; {String}</span>
+        <a href="#toRgba" class="anchor">§</a>
     </h4>
 
     
@@ -2854,7 +2947,7 @@ Adapted from <a href="https://rawgithub.com/mjijackson/mjijackson.github.com/mas
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 5529
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5528">line 5528</a>
     </li></ul></dd>
     
     
@@ -2865,6 +2958,10 @@ Adapted from <a href="https://rawgithub.com/mjijackson/mjijackson.github.com/mas
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -2919,9 +3016,10 @@ Adapted from <a href="https://rawgithub.com/mjijackson/mjijackson.github.com/mas
 <br clear="both">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.1.1</a> on Sun Aug 11 2013 23:16:51 GMT+0200 (CEST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0</a> on Sun Aug 11 2013 23:42:20 GMT+0200 (CEST)
 </footer>
 
-<script> prettyPrint(); </script>
+<script> /*prettyPrint();*/ </script>
+<script src="scripts/linenumber.js"> </script>
 </body>
 </html>

@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <title>JSDoc: Class: StaticCanvas</title>
 
-    <script src="/js/prettify.js"> </script>
-    <script src="/js/lang-css.js"> </script>
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
     <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -15,55 +15,56 @@
 </head>
 
 <body>
-<ul id="header">
-  <li><a href="http://fabricjs.com/">Features</a></li>
-  <li><a href="http://fabricjs.com/demos">Demos</a></li>
-  <li><a href="http://fabricjs.com/docs">Docs</a></li>
-  <li><a href="http://fabricjs.com/articles">Tutorial</a></li>
-  <li><a href="http://fabricjs.com/test">Tests</a></li>
-  <li><a href="http://fabricjs.com/benchmarks">Benchmarks</a></li>
-  <li><a href="http://fabricjs.com/build">Build</a></li>
-  <li class="secondary">
-    <a href="http://travis-ci.org/#!/kangax/fabric.js"><img src="https://secure.travis-ci.org/kangax/fabric.js.png?branch=master"></a>
-  </li>
-  <li class="gittip secondary">
-    <iframe style="border: 0; margin: 0; padding: 0;" src="https://www.gittip.com/5c2ec8b83e18/widget.html" width="48pt" height="22pt"></iframe>
-  </li>
-  <li class="flattr secondary">
-    <a class="FlattrButton" style="display:none;" rev="flattr;button:compact;" href="http://kangax.github.com/fabric.js"></a>
-    <noscript><a href="http://flattr.com/thing/391332/Fabric-js" target="_blank">
-    <img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0" /></a></noscript>
-  </li>
-  <li class="github secondary">
-    <iframe src="http://ghbtns.com/github-btn.html?user=kangax&repo=fabric.js&type=watch&count=true"
-      allowtransparency="true" frameborder="0" scrolling="0" width="95px" height="20px"></iframe>
-  </li>
-  <li class="twitter secondary">
-    <a href="https://twitter.com/fabricjs" class="twitter-follow-button" data-show-count="true">Follow @fabricjs</a>
-    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-  </li>
-  <li class="secondary"><a href="http://stackoverflow.com/questions/tagged/fabricjs"><span>StackOverflow</span></a></li>
-  <li class="secondary"><a href="https://github.com/kangax/fabric.js/wiki"><span>Wiki</span></a></li>
-  <li class="secondary"><a href="http://groups.google.com/group/fabricjs"><span>Discussion</span></a></li>
-</ul>
 
-<script>
-(function() {
+    <ul id="header">
+      <li><a href="http://fabricjs.com/">Features</a></li>
+      <li><a href="http://fabricjs.com/demos">Demos</a></li>
+      <li><a href="http://fabricjs.com/docs">Docs</a></li>
+      <li><a href="http://fabricjs.com/articles">Tutorial</a></li>
+      <li><a href="http://fabricjs.com/test">Tests</a></li>
+      <li><a href="http://fabricjs.com/benchmarks">Benchmarks</a></li>
+      <li><a href="http://fabricjs.com/build">Build</a></li>
+      <li class="secondary">
+        <a href="http://travis-ci.org/#!/kangax/fabric.js"><img src="https://secure.travis-ci.org/kangax/fabric.js.png?branch=master"></a>
+      </li>
+      <li class="gittip secondary">
+        <iframe style="border: 0; margin: 0; padding: 0;" src="https://www.gittip.com/5c2ec8b83e18/widget.html" width="48pt" height="22pt"></iframe>
+      </li>
+      <li class="flattr secondary">
+        <a class="FlattrButton" style="display:none;" rev="flattr;button:compact;" href="http://kangax.github.com/fabric.js"></a>
+        <noscript><a href="http://flattr.com/thing/391332/Fabric-js" target="_blank">
+        <img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0" /></a></noscript>
+      </li>
+      <li class="github secondary">
+        <iframe src="http://ghbtns.com/github-btn.html?user=kangax&repo=fabric.js&type=watch&count=true"
+          allowtransparency="true" frameborder="0" scrolling="0" width="95px" height="20px"></iframe>
+      </li>
+      <li class="twitter secondary">
+        <a href="https://twitter.com/fabricjs" class="twitter-follow-button" data-show-count="true">Follow @fabricjs</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+      </li>
+      <li class="secondary"><a href="http://stackoverflow.com/questions/tagged/fabricjs"><span>StackOverflow</span></a></li>
+      <li class="secondary"><a href="https://github.com/kangax/fabric.js/wiki"><span>Wiki</span></a></li>
+      <li class="secondary"><a href="http://groups.google.com/group/fabricjs"><span>Discussion</span></a></li>
+    </ul>
 
-  var s = document.createElement('script'), t = document.getElementsByTagName('script')[0];
-  s.async = true;
-  s.src = 'http://api.flattr.com/js/0.6/load.js?mode=auto';
-  t.parentNode.insertBefore(s, t);
+    <script>
+    (function() {
 
-  if (document.location.hostname === 'localhost') {
-    var links = document.getElementById('header').getElementsByTagName('a');
-    for (var i = 0, len = links.length; i < len; i++) {
-      // very retarted fix but fuck it
-      links[i].href = links[i].href.replace('fabricjs.com', 'localhost:4000');
-    }
-  }
-})();
-</script>
+      var s = document.createElement('script'), t = document.getElementsByTagName('script')[0];
+      s.async = true;
+      s.src = 'http://api.flattr.com/js/0.6/load.js?mode=auto';
+      t.parentNode.insertBefore(s, t);
+
+      if (document.location.hostname === 'localhost') {
+        var links = document.getElementById('header').getElementsByTagName('a');
+        for (var i = 0, len = links.length; i < len; i++) {
+          // very retarted fix but fuck it
+          links[i].href = links[i].href.replace('fabricjs.com', 'localhost:4000');
+        }
+      }
+    })();
+    </script>
 
 <div id="main">
 
@@ -94,8 +95,8 @@
         
 <dt>
     <h4 class="name" id="StaticCanvas">
-      <span class="type-signature"></span>new StaticCanvas<span class="signature">(el, <span class="optional">options</span>)</span><span class="type-signature"></span>
-      <a href="#StaticCanvas" class="anchor">§</a>
+        <span class="type-signature"></span>new StaticCanvas<span class="signature">(el, <span class="optional">options</span>)</span><span class="type-signature"></span>
+        <a href="#StaticCanvas" class="anchor">§</a>
     </h4>
 
     
@@ -160,6 +161,8 @@
                 
                     
                 
+                    
+                
                 </td>
             
             
@@ -188,6 +191,8 @@
                 <td class="attributes">
                 
                     &lt;optional><br>
+                
+                    
                 
                     
                 
@@ -227,7 +232,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 6481
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6481">line 6481</a>
     </li></ul></dd>
     
     
@@ -238,6 +243,10 @@
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -276,13 +285,25 @@
             
 <dt>
     <h4 class="name" id="EMPTY_JSON">
-      <span class="type-signature">&lt;static> </span>EMPTY_JSON<span class="type-signature"> :String</span>
-      <a href="#EMPTY_JSON" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>EMPTY_JSON<span class="type-signature"> :String</span>
+        <a href="#EMPTY_JSON" class="anchor">§</a>
     </h4>
 
     
 </dt>
 <dd>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">String</span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -308,7 +329,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 7445
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7460">line 7460</a>
     </li></ul></dd>
     
     
@@ -327,8 +348,8 @@
             
 <dt>
     <h4 class="name" id="backgroundColor">
-      <span class="type-signature"></span>backgroundColor<span class="type-signature"> :String</span>
-      <a href="#backgroundColor" class="anchor">§</a>
+        <span class="type-signature"></span>backgroundColor<span class="type-signature"> :String</span>
+        <a href="#backgroundColor" class="anchor">§</a>
     </h4>
 
     
@@ -338,6 +359,18 @@
     <div class="description">
         Background color of canvas instance
     </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">String</span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -363,7 +396,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 6498
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6499">line 6499</a>
     </li></ul></dd>
     
     
@@ -382,8 +415,8 @@
             
 <dt>
     <h4 class="name" id="backgroundImage">
-      <span class="type-signature"></span>backgroundImage<span class="type-signature"> :String</span>
-      <a href="#backgroundImage" class="anchor">§</a>
+        <span class="type-signature"></span>backgroundImage<span class="type-signature"> :String</span>
+        <a href="#backgroundImage" class="anchor">§</a>
     </h4>
 
     
@@ -394,6 +427,18 @@
         Background image of canvas instance
 Should be set via <a href="fabric.StaticCanvas.html#setBackgroundImage">fabric.StaticCanvas#setBackgroundImage</a>
     </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">String</span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -419,7 +464,7 @@ Should be set via <a href="fabric.StaticCanvas.html#setBackgroundImage">fabric.S
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 6505
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6507">line 6507</a>
     </li></ul></dd>
     
     
@@ -438,8 +483,8 @@ Should be set via <a href="fabric.StaticCanvas.html#setBackgroundImage">fabric.S
             
 <dt>
     <h4 class="name" id="backgroundImageOpacity">
-      <span class="type-signature"></span>backgroundImageOpacity<span class="type-signature"> :Float</span>
-      <a href="#backgroundImageOpacity" class="anchor">§</a>
+        <span class="type-signature"></span>backgroundImageOpacity<span class="type-signature"> :Float</span>
+        <a href="#backgroundImageOpacity" class="anchor">§</a>
     </h4>
 
     
@@ -449,6 +494,18 @@ Should be set via <a href="fabric.StaticCanvas.html#setBackgroundImage">fabric.S
     <div class="description">
         Opacity of the background image of the canvas instance
     </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Float</span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -470,11 +527,14 @@ Should be set via <a href="fabric.StaticCanvas.html#setBackgroundImage">fabric.S
     
     
     
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy"><li>1</li></ul></dd>
+    
     
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 6511
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6514">line 6514</a>
     </li></ul></dd>
     
     
@@ -493,8 +553,8 @@ Should be set via <a href="fabric.StaticCanvas.html#setBackgroundImage">fabric.S
             
 <dt>
     <h4 class="name" id="backgroundImageStretch">
-      <span class="type-signature"></span>backgroundImageStretch<span class="type-signature"> :Boolean</span>
-      <a href="#backgroundImageStretch" class="anchor">§</a>
+        <span class="type-signature"></span>backgroundImageStretch<span class="type-signature"> :Boolean</span>
+        <a href="#backgroundImageStretch" class="anchor">§</a>
     </h4>
 
     
@@ -505,6 +565,18 @@ Should be set via <a href="fabric.StaticCanvas.html#setBackgroundImage">fabric.S
         Indicates whether the background image should be stretched to fit the
 dimensions of the canvas instance.
     </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Boolean</span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -526,11 +598,14 @@ dimensions of the canvas instance.
     
     
     
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy"><li>true</li></ul></dd>
+    
     
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 6518
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6522">line 6522</a>
     </li></ul></dd>
     
     
@@ -549,8 +624,8 @@ dimensions of the canvas instance.
             
 <dt>
     <h4 class="name" id="clipTo">
-      <span class="type-signature"></span>clipTo<span class="type-signature"> :<a href="Function.html">Function</a></span>
-      <a href="#clipTo" class="anchor">§</a>
+        <span class="type-signature"></span>clipTo<span class="type-signature"> :<a href="Function.html">Function</a></span>
+        <a href="#clipTo" class="anchor">§</a>
     </h4>
 
     
@@ -561,6 +636,18 @@ dimensions of the canvas instance.
         Function that determines clipping of entire canvas area
 Being passed context as first argument. See clipping canvas area in <a href="https://github.com/kangax/fabric.js/wiki/FAQ">https://github.com/kangax/fabric.js/wiki/FAQ</a>
     </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="Function.html">Function</a></span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -582,11 +669,14 @@ Being passed context as first argument. See clipping canvas area in <a href="htt
     
     
     
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy"><li>null</li></ul></dd>
+    
     
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 6564
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6575">line 6575</a>
     </li></ul></dd>
     
     
@@ -605,8 +695,8 @@ Being passed context as first argument. See clipping canvas area in <a href="htt
             
 <dt>
     <h4 class="name" id="controlsAboveOverlay">
-      <span class="type-signature"></span>controlsAboveOverlay<span class="type-signature"> :Boolean</span>
-      <a href="#controlsAboveOverlay" class="anchor">§</a>
+        <span class="type-signature"></span>controlsAboveOverlay<span class="type-signature"> :Boolean</span>
+        <a href="#controlsAboveOverlay" class="anchor">§</a>
     </h4>
 
     
@@ -616,6 +706,18 @@ Being passed context as first argument. See clipping canvas area in <a href="htt
     <div class="description">
         Indicates whether object controls (borders/controls) are rendered above overlay image
     </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Boolean</span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -637,11 +739,14 @@ Being passed context as first argument. See clipping canvas area in <a href="htt
     
     
     
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy"><li>false</li></ul></dd>
+    
     
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 6570
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6582">line 6582</a>
     </li></ul></dd>
     
     
@@ -660,8 +765,8 @@ Being passed context as first argument. See clipping canvas area in <a href="htt
             
 <dt>
     <h4 class="name" id="FX_DURATION">
-      <span class="type-signature"></span>FX_DURATION<span class="type-signature"> :Number</span>
-      <a href="#FX_DURATION" class="anchor">§</a>
+        <span class="type-signature"></span>FX_DURATION<span class="type-signature"> :Number</span>
+        <a href="#FX_DURATION" class="anchor">§</a>
     </h4>
 
     
@@ -671,6 +776,18 @@ Being passed context as first argument. See clipping canvas area in <a href="htt
     <div class="description">
         Animation duration (in ms) for fx* methods
     </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Number</span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -696,7 +813,7 @@ Being passed context as first argument. See clipping canvas area in <a href="htt
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 12319
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line12334">line 12334</a>
     </li></ul></dd>
     
     
@@ -715,8 +832,8 @@ Being passed context as first argument. See clipping canvas area in <a href="htt
             
 <dt>
     <h4 class="name" id="includeDefaultValues">
-      <span class="type-signature"></span>includeDefaultValues<span class="type-signature"> :Boolean</span>
-      <a href="#includeDefaultValues" class="anchor">§</a>
+        <span class="type-signature"></span>includeDefaultValues<span class="type-signature"> :Boolean</span>
+        <a href="#includeDefaultValues" class="anchor">§</a>
     </h4>
 
     
@@ -726,6 +843,18 @@ Being passed context as first argument. See clipping canvas area in <a href="htt
     <div class="description">
         Indicates whether toObject/toDatalessObject should include default values
     </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Boolean</span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -747,11 +876,14 @@ Being passed context as first argument. See clipping canvas area in <a href="htt
     
     
     
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy"><li>true</li></ul></dd>
+    
     
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 6543
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6551">line 6551</a>
     </li></ul></dd>
     
     
@@ -770,8 +902,8 @@ Being passed context as first argument. See clipping canvas area in <a href="htt
             
 <dt>
     <h4 class="name" id="overlayImage">
-      <span class="type-signature"></span>overlayImage<span class="type-signature"> :String</span>
-      <a href="#overlayImage" class="anchor">§</a>
+        <span class="type-signature"></span>overlayImage<span class="type-signature"> :String</span>
+        <a href="#overlayImage" class="anchor">§</a>
     </h4>
 
     
@@ -782,6 +914,18 @@ Being passed context as first argument. See clipping canvas area in <a href="htt
         Overlay image of canvas instance
 Should be set via <a href="fabric.StaticCanvas.html#setOverlayImage">fabric.StaticCanvas#setOverlayImage</a>
     </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">String</span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -807,7 +951,7 @@ Should be set via <a href="fabric.StaticCanvas.html#setOverlayImage">fabric.Stat
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 6525
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6530">line 6530</a>
     </li></ul></dd>
     
     
@@ -826,8 +970,8 @@ Should be set via <a href="fabric.StaticCanvas.html#setOverlayImage">fabric.Stat
             
 <dt>
     <h4 class="name" id="overlayImageLeft">
-      <span class="type-signature"></span>overlayImageLeft<span class="type-signature"> :Number</span>
-      <a href="#overlayImageLeft" class="anchor">§</a>
+        <span class="type-signature"></span>overlayImageLeft<span class="type-signature"> :Number</span>
+        <a href="#overlayImageLeft" class="anchor">§</a>
     </h4>
 
     
@@ -837,6 +981,18 @@ Should be set via <a href="fabric.StaticCanvas.html#setOverlayImage">fabric.Stat
     <div class="description">
         Left offset of overlay image (if present)
     </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Number</span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -858,11 +1014,14 @@ Should be set via <a href="fabric.StaticCanvas.html#setOverlayImage">fabric.Stat
     
     
     
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy"><li>0</li></ul></dd>
+    
     
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 6531
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6537">line 6537</a>
     </li></ul></dd>
     
     
@@ -881,8 +1040,8 @@ Should be set via <a href="fabric.StaticCanvas.html#setOverlayImage">fabric.Stat
             
 <dt>
     <h4 class="name" id="overlayImageTop">
-      <span class="type-signature"></span>overlayImageTop<span class="type-signature"> :Number</span>
-      <a href="#overlayImageTop" class="anchor">§</a>
+        <span class="type-signature"></span>overlayImageTop<span class="type-signature"> :Number</span>
+        <a href="#overlayImageTop" class="anchor">§</a>
     </h4>
 
     
@@ -892,6 +1051,18 @@ Should be set via <a href="fabric.StaticCanvas.html#setOverlayImage">fabric.Stat
     <div class="description">
         Top offset of overlay image (if present)
     </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Number</span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -913,11 +1084,14 @@ Should be set via <a href="fabric.StaticCanvas.html#setOverlayImage">fabric.Stat
     
     
     
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy"><li>0</li></ul></dd>
+    
     
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 6537
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6544">line 6544</a>
     </li></ul></dd>
     
     
@@ -935,9 +1109,9 @@ Should be set via <a href="fabric.StaticCanvas.html#setOverlayImage">fabric.Stat
         
             
 <dt>
-    <h4 class="name" id="renderOnAddition">
-      <span class="type-signature"></span>renderOnAddition<span class="type-signature"> :Boolean</span>
-      <a href="#renderOnAddition" class="anchor">§</a>
+    <h4 class="name" id="renderOnAddRemove">
+        <span class="type-signature"></span>renderOnAddRemove<span class="type-signature"> :Boolean</span>
+        <a href="#renderOnAddRemove" class="anchor">§</a>
     </h4>
 
     
@@ -945,10 +1119,22 @@ Should be set via <a href="fabric.StaticCanvas.html#setOverlayImage">fabric.Stat
 <dd>
     
     <div class="description">
-        Indicates whether fabric.Canvas.prototype.add should also re-render canvas.
-Disabling this option could give a great performance boost when adding a lot of objects to canvas at once
-(followed by a manual rendering after addition)
+        Indicates whether <a href="fabric.Collection.html#add">fabric.Collection.add</a>, <a href="fabric.Collection.html#insertAt">fabric.Collection.insertAt</a> and <a href="fabric.Collection.html#remove">fabric.Collection.remove</a> should also re-render canvas.
+Disabling this option could give a great performance boost when adding/removing a lot of objects to/from canvas at once
+(followed by a manual rendering after addition/deletion)
     </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Boolean</span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -970,11 +1156,14 @@ Disabling this option could give a great performance boost when adding a lot of 
     
     
     
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy"><li>true</li></ul></dd>
+    
     
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 6557
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6567">line 6567</a>
     </li></ul></dd>
     
     
@@ -993,8 +1182,8 @@ Disabling this option could give a great performance boost when adding a lot of 
             
 <dt>
     <h4 class="name" id="stateful">
-      <span class="type-signature"></span>stateful<span class="type-signature"> :Boolean</span>
-      <a href="#stateful" class="anchor">§</a>
+        <span class="type-signature"></span>stateful<span class="type-signature"> :Boolean</span>
+        <a href="#stateful" class="anchor">§</a>
     </h4>
 
     
@@ -1004,6 +1193,18 @@ Disabling this option could give a great performance boost when adding a lot of 
     <div class="description">
         Indicates whether objects' state should be saved
     </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Boolean</span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -1025,11 +1226,14 @@ Disabling this option could give a great performance boost when adding a lot of 
     
     
     
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy"><li>true</li></ul></dd>
+    
     
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 6549
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6558">line 6558</a>
     </li></ul></dd>
     
     
@@ -1054,8 +1258,8 @@ Disabling this option could give a great performance boost when adding a lot of 
             
 <dt>
     <h4 class="name" id="supports">
-      <span class="type-signature">&lt;static> </span>supports<span class="signature">(methodName)</span><span class="type-signature"> &rarr; {Boolean|null}</span>
-      <a href="#supports" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>supports<span class="signature">(methodName)</span><span class="type-signature"> &rarr; {Boolean|null}</span>
+        <a href="#supports" class="anchor">§</a>
     </h4>
 
     
@@ -1104,13 +1308,18 @@ Disabling this option could give a great performance boost when adding a lot of 
             
             <td class="type">
             
+                
+<span class="param-type">String</span>
+
+
+            
             </td>
             
             
             
             
             
-            <td class="description last">{String} Method to check support for;
+            <td class="description last">Method to check support for;
                            Could be one of "getImageData", "toDataURL", "toDataURLWithQuality" or "setLineDash"</td>
         </tr>
 	
@@ -1142,7 +1351,7 @@ Disabling this option could give a great performance boost when adding a lot of 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 7484
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7499">line 7499</a>
     </li></ul></dd>
     
     
@@ -1153,6 +1362,10 @@ Disabling this option could give a great performance boost when adding a lot of 
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -1193,8 +1406,8 @@ Disabling this option could give a great performance boost when adding a lot of 
             
 <dt>
     <h4 class="name" id="toGrayscale">
-      <span class="type-signature">&lt;static> </span>toGrayscale<span class="signature">(canvasEl)</span><span class="type-signature"></span>
-      <a href="#toGrayscale" class="anchor">§</a>
+        <span class="type-signature">&lt;static> </span>toGrayscale<span class="signature">(canvasEl)</span><span class="type-signature"></span>
+        <a href="#toGrayscale" class="anchor">§</a>
     </h4>
 
     
@@ -1284,7 +1497,7 @@ Disabling this option could give a great performance boost when adding a lot of 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 7452
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7467">line 7467</a>
     </li></ul></dd>
     
     
@@ -1303,14 +1516,18 @@ Disabling this option could give a great performance boost when adding a lot of 
     
 
     
+
+    
+
+    
 </dd>
 
         
             
 <dt>
     <h4 class="name" id="bringForward">
-      <span class="type-signature"></span>bringForward<span class="signature">(object, intersecting)</span><span class="type-signature"> &rarr; {<a href="fabric.Canvas.html">fabric.Canvas</a>}</span>
-      <a href="#bringForward" class="anchor">§</a>
+        <span class="type-signature"></span>bringForward<span class="signature">(object, intersecting)</span><span class="type-signature"> &rarr; {<a href="fabric.Canvas.html">fabric.Canvas</a>}</span>
+        <a href="#bringForward" class="anchor">§</a>
     </h4>
 
     
@@ -1358,13 +1575,18 @@ Disabling this option could give a great performance boost when adding a lot of 
             
             <td class="type">
             
+                
+<span class="param-type"><a href="fabric.Object.html">fabric.Object</a></span>
+
+
+            
             </td>
             
             
             
             
             
-            <td class="description last">{fabric.Object} Object to send</td>
+            <td class="description last">Object to send</td>
         </tr>
 	
 	
@@ -1376,13 +1598,18 @@ Disabling this option could give a great performance boost when adding a lot of 
             
             <td class="type">
             
+                
+<span class="param-type">Boolean</span>
+
+
+            
             </td>
             
             
             
             
             
-            <td class="description last">{Boolean} If `true`, send object in front of next upper intersecting object</td>
+            <td class="description last">If `true`, send object in front of next upper intersecting object</td>
         </tr>
 	
 	
@@ -1413,7 +1640,7 @@ Disabling this option could give a great performance boost when adding a lot of 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 7357
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7372">line 7372</a>
     </li></ul></dd>
     
     
@@ -1424,6 +1651,10 @@ Disabling this option could give a great performance boost when adding a lot of 
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -1460,8 +1691,8 @@ Disabling this option could give a great performance boost when adding a lot of 
             
 <dt>
     <h4 class="name" id="bringToFront">
-      <span class="type-signature"></span>bringToFront<span class="signature">(object)</span><span class="type-signature"> &rarr; {<a href="fabric.Canvas.html">fabric.Canvas</a>}</span>
-      <a href="#bringToFront" class="anchor">§</a>
+        <span class="type-signature"></span>bringToFront<span class="signature">(object)</span><span class="type-signature"> &rarr; {<a href="fabric.Canvas.html">fabric.Canvas</a>}</span>
+        <a href="#bringToFront" class="anchor">§</a>
     </h4>
 
     
@@ -1509,13 +1740,18 @@ Disabling this option could give a great performance boost when adding a lot of 
             
             <td class="type">
             
+                
+<span class="param-type"><a href="fabric.Object.html">fabric.Object</a></span>
+
+
+            
             </td>
             
             
             
             
             
-            <td class="description last">{fabric.Object} Object to send</td>
+            <td class="description last">Object to send</td>
         </tr>
 	
 	
@@ -1546,7 +1782,7 @@ Disabling this option could give a great performance boost when adding a lot of 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 7303
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7318">line 7318</a>
     </li></ul></dd>
     
     
@@ -1557,6 +1793,10 @@ Disabling this option could give a great performance boost when adding a lot of 
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -1593,8 +1833,8 @@ Disabling this option could give a great performance boost when adding a lot of 
             
 <dt>
     <h4 class="name" id="calcOffset">
-      <span class="type-signature"></span>calcOffset<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="fabric.Canvas.html">fabric.Canvas</a>}</span>
-      <a href="#calcOffset" class="anchor">§</a>
+        <span class="type-signature"></span>calcOffset<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="fabric.Canvas.html">fabric.Canvas</a>}</span>
+        <a href="#calcOffset" class="anchor">§</a>
     </h4>
 
     
@@ -1637,7 +1877,7 @@ This method is also attached as "resize" event handler of window
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 6607
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6621">line 6621</a>
     </li></ul></dd>
     
     
@@ -1648,6 +1888,10 @@ This method is also attached as "resize" event handler of window
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -1684,8 +1928,8 @@ This method is also attached as "resize" event handler of window
             
 <dt>
     <h4 class="name" id="centerObject">
-      <span class="type-signature"></span>centerObject<span class="signature">(object)</span><span class="type-signature"> &rarr; {<a href="fabric.Canvas.html">fabric.Canvas</a>}</span>
-      <a href="#centerObject" class="anchor">§</a>
+        <span class="type-signature"></span>centerObject<span class="signature">(object)</span><span class="type-signature"> &rarr; {<a href="fabric.Canvas.html">fabric.Canvas</a>}</span>
+        <a href="#centerObject" class="anchor">§</a>
     </h4>
 
     
@@ -1776,7 +2020,7 @@ You might need to call `setCoords` on an object after centering, to update contr
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 7110
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7125">line 7125</a>
     </li></ul></dd>
     
     
@@ -1787,6 +2031,10 @@ You might need to call `setCoords` on an object after centering, to update contr
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -1823,8 +2071,8 @@ You might need to call `setCoords` on an object after centering, to update contr
             
 <dt>
     <h4 class="name" id="centerObjectH">
-      <span class="type-signature"></span>centerObjectH<span class="signature">(object)</span><span class="type-signature"> &rarr; {<a href="fabric.Canvas.html">fabric.Canvas</a>}</span>
-      <a href="#centerObjectH" class="anchor">§</a>
+        <span class="type-signature"></span>centerObjectH<span class="signature">(object)</span><span class="type-signature"> &rarr; {<a href="fabric.Canvas.html">fabric.Canvas</a>}</span>
+        <a href="#centerObjectH" class="anchor">§</a>
     </h4>
 
     
@@ -1915,7 +2163,7 @@ You might need to call `setCoords` on an object after centering, to update contr
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 7084
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7099">line 7099</a>
     </li></ul></dd>
     
     
@@ -1926,6 +2174,10 @@ You might need to call `setCoords` on an object after centering, to update contr
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -1962,8 +2214,8 @@ You might need to call `setCoords` on an object after centering, to update contr
             
 <dt>
     <h4 class="name" id="centerObjectV">
-      <span class="type-signature"></span>centerObjectV<span class="signature">(object)</span><span class="type-signature"> &rarr; {<a href="fabric.Canvas.html">fabric.Canvas</a>}</span>
-      <a href="#centerObjectV" class="anchor">§</a>
+        <span class="type-signature"></span>centerObjectV<span class="signature">(object)</span><span class="type-signature"> &rarr; {<a href="fabric.Canvas.html">fabric.Canvas</a>}</span>
+        <a href="#centerObjectV" class="anchor">§</a>
     </h4>
 
     
@@ -2054,7 +2306,7 @@ You might need to call `setCoords` on an object after centering, to update contr
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 7097
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7112">line 7112</a>
     </li></ul></dd>
     
     
@@ -2065,6 +2317,10 @@ You might need to call `setCoords` on an object after centering, to update contr
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -2101,8 +2357,8 @@ You might need to call `setCoords` on an object after centering, to update contr
             
 <dt>
     <h4 class="name" id="clear">
-      <span class="type-signature"></span>clear<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="fabric.Canvas.html">fabric.Canvas</a>}</span>
-      <a href="#clear" class="anchor">§</a>
+        <span class="type-signature"></span>clear<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="fabric.Canvas.html">fabric.Canvas</a>}</span>
+        <a href="#clear" class="anchor">§</a>
     </h4>
 
     
@@ -2144,7 +2400,7 @@ You might need to call `setCoords` on an object after centering, to update contr
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 6924
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6939">line 6939</a>
     </li></ul></dd>
     
     
@@ -2155,6 +2411,10 @@ You might need to call `setCoords` on an object after centering, to update contr
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -2191,8 +2451,8 @@ You might need to call `setCoords` on an object after centering, to update contr
             
 <dt>
     <h4 class="name" id="clearContext">
-      <span class="type-signature"></span>clearContext<span class="signature">(context)</span><span class="type-signature"> &rarr; {<a href="fabric.Canvas.html">fabric.Canvas</a>}</span>
-      <a href="#clearContext" class="anchor">§</a>
+        <span class="type-signature"></span>clearContext<span class="signature">(context)</span><span class="type-signature"> &rarr; {<a href="fabric.Canvas.html">fabric.Canvas</a>}</span>
+        <a href="#clearContext" class="anchor">§</a>
     </h4>
 
     
@@ -2240,13 +2500,18 @@ You might need to call `setCoords` on an object after centering, to update contr
             
             <td class="type">
             
+                
+<span class="param-type">Object</span>
+
+
+            
             </td>
             
             
             
             
             
-            <td class="description last">{Object} ctx context to clear</td>
+            <td class="description last">ctx context to clear</td>
         </tr>
 	
 	
@@ -2277,7 +2542,7 @@ You might need to call `setCoords` on an object after centering, to update contr
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 6906
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6921">line 6921</a>
     </li></ul></dd>
     
     
@@ -2288,6 +2553,10 @@ You might need to call `setCoords` on an object after centering, to update contr
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -2324,8 +2593,8 @@ You might need to call `setCoords` on an object after centering, to update contr
             
 <dt>
     <h4 class="name" id="clone">
-      <span class="type-signature"></span>clone<span class="signature">(<span class="optional">callback</span>)</span><span class="type-signature"></span>
-      <a href="#clone" class="anchor">§</a>
+        <span class="type-signature"></span>clone<span class="signature">(<span class="optional">callback</span>)</span><span class="type-signature"></span>
+        <a href="#clone" class="anchor">§</a>
     </h4>
 
     
@@ -2389,6 +2658,8 @@ You might need to call `setCoords` on an object after centering, to update contr
                 
                     
                 
+                    
+                
                 </td>
             
             
@@ -2425,7 +2696,7 @@ You might need to call `setCoords` on an object after centering, to update contr
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 10041
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10056">line 10056</a>
     </li></ul></dd>
     
     
@@ -2444,14 +2715,18 @@ You might need to call `setCoords` on an object after centering, to update contr
     
 
     
+
+    
+
+    
 </dd>
 
         
             
 <dt>
     <h4 class="name" id="cloneWithoutData">
-      <span class="type-signature"></span>cloneWithoutData<span class="signature">(<span class="optional">callback</span>)</span><span class="type-signature"></span>
-      <a href="#cloneWithoutData" class="anchor">§</a>
+        <span class="type-signature"></span>cloneWithoutData<span class="signature">(<span class="optional">callback</span>)</span><span class="type-signature"></span>
+        <a href="#cloneWithoutData" class="anchor">§</a>
     </h4>
 
     
@@ -2517,6 +2792,8 @@ but leaves data empty (so that you can populate it with your own)
                 
                     
                 
+                    
+                
                 </td>
             
             
@@ -2553,7 +2830,7 @@ but leaves data empty (so that you can populate it with your own)
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 10056
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10071">line 10071</a>
     </li></ul></dd>
     
     
@@ -2572,14 +2849,18 @@ but leaves data empty (so that you can populate it with your own)
     
 
     
+
+    
+
+    
 </dd>
 
         
             
 <dt>
     <h4 class="name" id="dispose">
-      <span class="type-signature"></span>dispose<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="fabric.Canvas.html">fabric.Canvas</a>}</span>
-      <a href="#dispose" class="anchor">§</a>
+        <span class="type-signature"></span>dispose<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="fabric.Canvas.html">fabric.Canvas</a>}</span>
+        <a href="#dispose" class="anchor">§</a>
     </h4>
 
     
@@ -2621,7 +2902,7 @@ but leaves data empty (so that you can populate it with your own)
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 7409
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7424">line 7424</a>
     </li></ul></dd>
     
     
@@ -2632,6 +2913,10 @@ but leaves data empty (so that you can populate it with your own)
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -2668,8 +2953,8 @@ but leaves data empty (so that you can populate it with your own)
             
 <dt>
     <h4 class="name" id="fxCenterObjectH">
-      <span class="type-signature"></span>fxCenterObjectH<span class="signature">(object, <span class="optional">callbacks</span>)</span><span class="type-signature"> &rarr; {<a href="fabric.Canvas.html">fabric.Canvas</a>}</span>
-      <a href="#fxCenterObjectH" class="anchor">§</a>
+        <span class="type-signature"></span>fxCenterObjectH<span class="signature">(object, <span class="optional">callbacks</span>)</span><span class="type-signature"> &rarr; {<a href="fabric.Canvas.html">fabric.Canvas</a>}</span>
+        <a href="#fxCenterObjectH" class="anchor">§</a>
     </h4>
 
     
@@ -2731,6 +3016,8 @@ but leaves data empty (so that you can populate it with your own)
                 
                     
                 
+                    
+                
                 </td>
             
             
@@ -2759,6 +3046,8 @@ but leaves data empty (so that you can populate it with your own)
                 <td class="attributes">
                 
                     &lt;optional><br>
+                
+                    
                 
                     
                 
@@ -2798,7 +3087,7 @@ but leaves data empty (so that you can populate it with your own)
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 12328
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line12343">line 12343</a>
     </li></ul></dd>
     
     
@@ -2809,6 +3098,10 @@ but leaves data empty (so that you can populate it with your own)
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -2845,8 +3138,8 @@ but leaves data empty (so that you can populate it with your own)
             
 <dt>
     <h4 class="name" id="fxCenterObjectV">
-      <span class="type-signature"></span>fxCenterObjectV<span class="signature">(object, <span class="optional">callbacks</span>)</span><span class="type-signature"> &rarr; {<a href="fabric.Canvas.html">fabric.Canvas</a>}</span>
-      <a href="#fxCenterObjectV" class="anchor">§</a>
+        <span class="type-signature"></span>fxCenterObjectV<span class="signature">(object, <span class="optional">callbacks</span>)</span><span class="type-signature"> &rarr; {<a href="fabric.Canvas.html">fabric.Canvas</a>}</span>
+        <a href="#fxCenterObjectV" class="anchor">§</a>
     </h4>
 
     
@@ -2908,6 +3201,8 @@ but leaves data empty (so that you can populate it with your own)
                 
                     
                 
+                    
+                
                 </td>
             
             
@@ -2936,6 +3231,8 @@ but leaves data empty (so that you can populate it with your own)
                 <td class="attributes">
                 
                     &lt;optional><br>
+                
+                    
                 
                     
                 
@@ -2975,7 +3272,7 @@ but leaves data empty (so that you can populate it with your own)
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 12361
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line12376">line 12376</a>
     </li></ul></dd>
     
     
@@ -2986,6 +3283,10 @@ but leaves data empty (so that you can populate it with your own)
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -3022,8 +3323,8 @@ but leaves data empty (so that you can populate it with your own)
             
 <dt>
     <h4 class="name" id="fxRemove">
-      <span class="type-signature"></span>fxRemove<span class="signature">(object, callback)</span><span class="type-signature"> &rarr; {<a href="fabric.Canvas.html">fabric.Canvas</a>}</span>
-      <a href="#fxRemove" class="anchor">§</a>
+        <span class="type-signature"></span>fxRemove<span class="signature">(object, callback)</span><span class="type-signature"> &rarr; {<a href="fabric.Canvas.html">fabric.Canvas</a>}</span>
+        <a href="#fxRemove" class="anchor">§</a>
     </h4>
 
     
@@ -3136,7 +3437,7 @@ but leaves data empty (so that you can populate it with your own)
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 12394
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line12409">line 12409</a>
     </li></ul></dd>
     
     
@@ -3147,6 +3448,10 @@ but leaves data empty (so that you can populate it with your own)
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -3183,8 +3488,8 @@ but leaves data empty (so that you can populate it with your own)
             
 <dt>
     <h4 class="name" id="fxStraightenObject">
-      <span class="type-signature"></span>fxStraightenObject<span class="signature">(object)</span><span class="type-signature"> &rarr; {<a href="fabric.Canvas.html">fabric.Canvas</a>}</span>
-      <a href="#fxStraightenObject" class="anchor">§</a>
+        <span class="type-signature"></span>fxStraightenObject<span class="signature">(object)</span><span class="type-signature"> &rarr; {<a href="fabric.Canvas.html">fabric.Canvas</a>}</span>
+        <a href="#fxStraightenObject" class="anchor">§</a>
     </h4>
 
     
@@ -3274,7 +3579,7 @@ but leaves data empty (so that you can populate it with your own)
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 15868
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line15882">line 15882</a>
     </li></ul></dd>
     
     
@@ -3285,6 +3590,10 @@ but leaves data empty (so that you can populate it with your own)
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -3321,8 +3630,8 @@ but leaves data empty (so that you can populate it with your own)
             
 <dt>
     <h4 class="name" id="getActiveGroup">
-      <span class="type-signature"></span>getActiveGroup<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="fabric.Group.html">fabric.Group</a>}</span>
-      <a href="#getActiveGroup" class="anchor">§</a>
+        <span class="type-signature"></span>getActiveGroup<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="fabric.Group.html">fabric.Group</a>}</span>
+        <a href="#getActiveGroup" class="anchor">§</a>
     </h4>
 
     
@@ -3364,7 +3673,7 @@ but leaves data empty (so that you can populate it with your own)
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 6848
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6863">line 6863</a>
     </li></ul></dd>
     
     
@@ -3375,6 +3684,10 @@ but leaves data empty (so that you can populate it with your own)
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -3407,8 +3720,8 @@ but leaves data empty (so that you can populate it with your own)
             
 <dt>
     <h4 class="name" id="getActiveObject">
-      <span class="type-signature"></span>getActiveObject<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span>
-      <a href="#getActiveObject" class="anchor">§</a>
+        <span class="type-signature"></span>getActiveObject<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span>
+        <a href="#getActiveObject" class="anchor">§</a>
     </h4>
 
     
@@ -3450,7 +3763,7 @@ but leaves data empty (so that you can populate it with your own)
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 6840
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6855">line 6855</a>
     </li></ul></dd>
     
     
@@ -3461,6 +3774,10 @@ but leaves data empty (so that you can populate it with your own)
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -3493,8 +3810,8 @@ but leaves data empty (so that you can populate it with your own)
             
 <dt>
     <h4 class="name" id="getCenter">
-      <span class="type-signature"></span>getCenter<span class="signature">()</span><span class="type-signature"> &rarr; {Object}</span>
-      <a href="#getCenter" class="anchor">§</a>
+        <span class="type-signature"></span>getCenter<span class="signature">()</span><span class="type-signature"> &rarr; {Object}</span>
+        <a href="#getCenter" class="anchor">§</a>
     </h4>
 
     
@@ -3537,7 +3854,7 @@ Returned value is an object with top and left properties
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 7071
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7086">line 7086</a>
     </li></ul></dd>
     
     
@@ -3548,6 +3865,10 @@ Returned value is an object with top and left properties
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -3584,8 +3905,8 @@ Returned value is an object with top and left properties
             
 <dt>
     <h4 class="name" id="getContext">
-      <span class="type-signature"></span>getContext<span class="signature">()</span><span class="type-signature"> &rarr; {CanvasRenderingContext2D}</span>
-      <a href="#getContext" class="anchor">§</a>
+        <span class="type-signature"></span>getContext<span class="signature">()</span><span class="type-signature"> &rarr; {CanvasRenderingContext2D}</span>
+        <a href="#getContext" class="anchor">§</a>
     </h4>
 
     
@@ -3627,7 +3948,7 @@ Returned value is an object with top and left properties
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 6915
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6930">line 6930</a>
     </li></ul></dd>
     
     
@@ -3638,6 +3959,10 @@ Returned value is an object with top and left properties
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -3670,8 +3995,8 @@ Returned value is an object with top and left properties
             
 <dt>
     <h4 class="name" id="getElement">
-      <span class="type-signature"></span>getElement<span class="signature">()</span><span class="type-signature"> &rarr; {HTMLCanvasElement}</span>
-      <a href="#getElement" class="anchor">§</a>
+        <span class="type-signature"></span>getElement<span class="signature">()</span><span class="type-signature"> &rarr; {HTMLCanvasElement}</span>
+        <a href="#getElement" class="anchor">§</a>
     </h4>
 
     
@@ -3713,7 +4038,7 @@ Returned value is an object with top and left properties
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 6832
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6847">line 6847</a>
     </li></ul></dd>
     
     
@@ -3724,6 +4049,10 @@ Returned value is an object with top and left properties
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -3756,8 +4085,8 @@ Returned value is an object with top and left properties
             
 <dt>
     <h4 class="name" id="getHeight">
-      <span class="type-signature"></span>getHeight<span class="signature">()</span><span class="type-signature"> &rarr; {Number}</span>
-      <a href="#getHeight" class="anchor">§</a>
+        <span class="type-signature"></span>getHeight<span class="signature">()</span><span class="type-signature"> &rarr; {Number}</span>
+        <a href="#getHeight" class="anchor">§</a>
     </h4>
 
     
@@ -3799,7 +4128,7 @@ Returned value is an object with top and left properties
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 6758
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6773">line 6773</a>
     </li></ul></dd>
     
     
@@ -3810,6 +4139,10 @@ Returned value is an object with top and left properties
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -3842,8 +4175,8 @@ Returned value is an object with top and left properties
             
 <dt>
     <h4 class="name" id="getObjects">
-      <span class="type-signature"></span>getObjects<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="Array.html">Array</a>}</span>
-      <a href="#getObjects" class="anchor">§</a>
+        <span class="type-signature"></span>getObjects<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="Array.html">Array</a>}</span>
+        <a href="#getObjects" class="anchor">§</a>
     </h4>
 
     
@@ -3885,7 +4218,7 @@ Returned value is an object with top and left properties
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 6896
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6911">line 6911</a>
     </li></ul></dd>
     
     
@@ -3896,6 +4229,10 @@ Returned value is an object with top and left properties
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -3928,8 +4265,8 @@ Returned value is an object with top and left properties
             
 <dt>
     <h4 class="name" id="getWidth">
-      <span class="type-signature"></span>getWidth<span class="signature">()</span><span class="type-signature"> &rarr; {Number}</span>
-      <a href="#getWidth" class="anchor">§</a>
+        <span class="type-signature"></span>getWidth<span class="signature">()</span><span class="type-signature"> &rarr; {Number}</span>
+        <a href="#getWidth" class="anchor">§</a>
     </h4>
 
     
@@ -3971,7 +4308,7 @@ Returned value is an object with top and left properties
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 6750
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6765">line 6765</a>
     </li></ul></dd>
     
     
@@ -3982,6 +4319,10 @@ Returned value is an object with top and left properties
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -4014,8 +4355,8 @@ Returned value is an object with top and left properties
             
 <dt>
     <h4 class="name" id="loadFromDatalessJSON">
-      <span class="type-signature"></span>loadFromDatalessJSON<span class="signature">(json, callback)</span><span class="type-signature"> &rarr; {<a href="fabric.Canvas.html">fabric.Canvas</a>}</span>
-      <a href="#loadFromDatalessJSON" class="anchor">§</a>
+        <span class="type-signature"></span>loadFromDatalessJSON<span class="signature">(json, callback)</span><span class="type-signature"> &rarr; {<a href="fabric.Canvas.html">fabric.Canvas</a>}</span>
+        <a href="#loadFromDatalessJSON" class="anchor">§</a>
     </h4>
 
     
@@ -4136,7 +4477,7 @@ JSON format must conform to the one of `fabric.Canvas#toDatalessJSON`
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 9895
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line9910">line 9910</a>
     </li></ul></dd>
     
     
@@ -4147,6 +4488,10 @@ JSON format must conform to the one of `fabric.Canvas#toDatalessJSON`
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -4183,8 +4528,8 @@ JSON format must conform to the one of `fabric.Canvas#toDatalessJSON`
             
 <dt>
     <h4 class="name" id="loadFromJSON">
-      <span class="type-signature"></span>loadFromJSON<span class="signature">(json, callback)</span><span class="type-signature"> &rarr; {<a href="fabric.Canvas.html">fabric.Canvas</a>}</span>
-      <a href="#loadFromJSON" class="anchor">§</a>
+        <span class="type-signature"></span>loadFromJSON<span class="signature">(json, callback)</span><span class="type-signature"> &rarr; {<a href="fabric.Canvas.html">fabric.Canvas</a>}</span>
+        <a href="#loadFromJSON" class="anchor">§</a>
     </h4>
 
     
@@ -4303,7 +4648,7 @@ JSON format must conform to the one of `fabric.Canvas#toJSON`
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 9909
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line9924">line 9924</a>
     </li></ul></dd>
     
     
@@ -4314,6 +4659,10 @@ JSON format must conform to the one of `fabric.Canvas#toJSON`
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -4350,8 +4699,8 @@ JSON format must conform to the one of `fabric.Canvas#toJSON`
             
 <dt>
     <h4 class="name" id="moveTo">
-      <span class="type-signature"></span>moveTo<span class="signature">(object, index)</span><span class="type-signature"> &rarr; {<a href="fabric.Canvas.html">fabric.Canvas</a>}</span>
-      <a href="#moveTo" class="anchor">§</a>
+        <span class="type-signature"></span>moveTo<span class="signature">(object, index)</span><span class="type-signature"> &rarr; {<a href="fabric.Canvas.html">fabric.Canvas</a>}</span>
+        <a href="#moveTo" class="anchor">§</a>
     </h4>
 
     
@@ -4399,13 +4748,18 @@ JSON format must conform to the one of `fabric.Canvas#toJSON`
             
             <td class="type">
             
+                
+<span class="param-type"><a href="fabric.Object.html">fabric.Object</a></span>
+
+
+            
             </td>
             
             
             
             
             
-            <td class="description last">{fabric.Object} Object to send</td>
+            <td class="description last">Object to send</td>
         </tr>
 	
 	
@@ -4459,7 +4813,7 @@ JSON format must conform to the one of `fabric.Canvas#toJSON`
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 7398
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7413">line 7413</a>
     </li></ul></dd>
     
     
@@ -4470,6 +4824,10 @@ JSON format must conform to the one of `fabric.Canvas#toJSON`
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -4506,8 +4864,8 @@ JSON format must conform to the one of `fabric.Canvas#toJSON`
             
 <dt>
     <h4 class="name" id="onBeforeScaleRotate">
-      <span class="type-signature"></span>onBeforeScaleRotate<span class="signature">(target)</span><span class="type-signature"></span>
-      <a href="#onBeforeScaleRotate" class="anchor">§</a>
+        <span class="type-signature"></span>onBeforeScaleRotate<span class="signature">(target)</span><span class="type-signature"></span>
+        <a href="#onBeforeScaleRotate" class="anchor">§</a>
     </h4>
 
     
@@ -4597,7 +4955,7 @@ JSON format must conform to the one of `fabric.Canvas#toJSON`
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 6576
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6588">line 6588</a>
     </li></ul></dd>
     
     
@@ -4616,14 +4974,18 @@ JSON format must conform to the one of `fabric.Canvas#toJSON`
     
 
     
+
+    
+
+    
 </dd>
 
         
             
 <dt>
     <h4 class="name" id="remove">
-      <span class="type-signature"></span>remove<span class="signature">(object)</span><span class="type-signature"> &rarr; {Object}</span>
-      <a href="#remove" class="anchor">§</a>
+        <span class="type-signature"></span>remove<span class="signature">(object)</span><span class="type-signature"> &rarr; {Object}</span>
+        <a href="#remove" class="anchor">§</a>
     </h4>
 
     
@@ -4671,13 +5033,18 @@ JSON format must conform to the one of `fabric.Canvas#toJSON`
             
             <td class="type">
             
+                
+<span class="param-type">Object</span>
+
+
+            
             </td>
             
             
             
             
             
-            <td class="description last">{Object} Object to remove</td>
+            <td class="description last">Object to remove</td>
         </tr>
 	
 	
@@ -4708,7 +5075,7 @@ JSON format must conform to the one of `fabric.Canvas#toJSON`
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 7274
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7289">line 7289</a>
     </li></ul></dd>
     
     
@@ -4719,6 +5086,10 @@ JSON format must conform to the one of `fabric.Canvas#toJSON`
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -4755,8 +5126,8 @@ JSON format must conform to the one of `fabric.Canvas#toJSON`
             
 <dt>
     <h4 class="name" id="renderAll">
-      <span class="type-signature"></span>renderAll<span class="signature">(allOnTop)</span><span class="type-signature"> &rarr; {<a href="fabric.Canvas.html">fabric.Canvas</a>}</span>
-      <a href="#renderAll" class="anchor">§</a>
+        <span class="type-signature"></span>renderAll<span class="signature">(allOnTop)</span><span class="type-signature"> &rarr; {<a href="fabric.Canvas.html">fabric.Canvas</a>}</span>
+        <a href="#renderAll" class="anchor">§</a>
     </h4>
 
     
@@ -4804,13 +5175,18 @@ JSON format must conform to the one of `fabric.Canvas#toJSON`
             
             <td class="type">
             
+                
+<span class="param-type">Boolean</span>
+
+
+            
             </td>
             
             
             
             
             
-            <td class="description last">{Boolean} optional Whether we want to force all images to be rendered on the top canvas</td>
+            <td class="description last">optional Whether we want to force all images to be rendered on the top canvas</td>
         </tr>
 	
 	
@@ -4841,7 +5217,7 @@ JSON format must conform to the one of `fabric.Canvas#toJSON`
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 6947
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6962">line 6962</a>
     </li></ul></dd>
     
     
@@ -4852,6 +5228,10 @@ JSON format must conform to the one of `fabric.Canvas#toJSON`
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -4888,8 +5268,8 @@ JSON format must conform to the one of `fabric.Canvas#toJSON`
             
 <dt>
     <h4 class="name" id="renderTop">
-      <span class="type-signature"></span>renderTop<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="fabric.Canvas.html">fabric.Canvas</a>}</span>
-      <a href="#renderTop" class="anchor">§</a>
+        <span class="type-signature"></span>renderTop<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="fabric.Canvas.html">fabric.Canvas</a>}</span>
+        <a href="#renderTop" class="anchor">§</a>
     </h4>
 
     
@@ -4932,7 +5312,7 @@ Also used to render the group selection box.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 7041
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7056">line 7056</a>
     </li></ul></dd>
     
     
@@ -4943,6 +5323,10 @@ Also used to render the group selection box.
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -4979,8 +5363,8 @@ Also used to render the group selection box.
             
 <dt>
     <h4 class="name" id="sendBackwards">
-      <span class="type-signature"></span>sendBackwards<span class="signature">(object, intersecting)</span><span class="type-signature"> &rarr; {<a href="fabric.Canvas.html">fabric.Canvas</a>}</span>
-      <a href="#sendBackwards" class="anchor">§</a>
+        <span class="type-signature"></span>sendBackwards<span class="signature">(object, intersecting)</span><span class="type-signature"> &rarr; {<a href="fabric.Canvas.html">fabric.Canvas</a>}</span>
+        <a href="#sendBackwards" class="anchor">§</a>
     </h4>
 
     
@@ -5028,13 +5412,18 @@ Also used to render the group selection box.
             
             <td class="type">
             
+                
+<span class="param-type"><a href="fabric.Object.html">fabric.Object</a></span>
+
+
+            
             </td>
             
             
             
             
             
-            <td class="description last">{fabric.Object} Object to send</td>
+            <td class="description last">Object to send</td>
         </tr>
 	
 	
@@ -5046,13 +5435,18 @@ Also used to render the group selection box.
             
             <td class="type">
             
+                
+<span class="param-type">Boolean</span>
+
+
+            
             </td>
             
             
             
             
             
-            <td class="description last">{Boolean} If `true`, send object behind next lower intersecting object</td>
+            <td class="description last">If `true`, send object behind next lower intersecting object</td>
         </tr>
 	
 	
@@ -5083,7 +5477,7 @@ Also used to render the group selection box.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 7316
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7331">line 7331</a>
     </li></ul></dd>
     
     
@@ -5094,6 +5488,10 @@ Also used to render the group selection box.
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -5130,8 +5528,8 @@ Also used to render the group selection box.
             
 <dt>
     <h4 class="name" id="sendToBack">
-      <span class="type-signature"></span>sendToBack<span class="signature">(object)</span><span class="type-signature"> &rarr; {<a href="fabric.Canvas.html">fabric.Canvas</a>}</span>
-      <a href="#sendToBack" class="anchor">§</a>
+        <span class="type-signature"></span>sendToBack<span class="signature">(object)</span><span class="type-signature"> &rarr; {<a href="fabric.Canvas.html">fabric.Canvas</a>}</span>
+        <a href="#sendToBack" class="anchor">§</a>
     </h4>
 
     
@@ -5179,13 +5577,18 @@ Also used to render the group selection box.
             
             <td class="type">
             
+                
+<span class="param-type"><a href="fabric.Object.html">fabric.Object</a></span>
+
+
+            
             </td>
             
             
             
             
             
-            <td class="description last">{fabric.Object} Object to send to back</td>
+            <td class="description last">Object to send to back</td>
         </tr>
 	
 	
@@ -5216,7 +5619,7 @@ Also used to render the group selection box.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 7291
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7306">line 7306</a>
     </li></ul></dd>
     
     
@@ -5227,6 +5630,10 @@ Also used to render the group selection box.
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -5263,8 +5670,8 @@ Also used to render the group selection box.
             
 <dt>
     <h4 class="name" id="setBackgroundColor">
-      <span class="type-signature"></span>setBackgroundColor<span class="signature">(Color, callback)</span><span class="type-signature"> &rarr; {<a href="fabric.Canvas.html">fabric.Canvas</a>}</span>
-      <a href="#setBackgroundColor" class="anchor">§</a>
+        <span class="type-signature"></span>setBackgroundColor<span class="signature">(Color, callback)</span><span class="type-signature"> &rarr; {<a href="fabric.Canvas.html">fabric.Canvas</a>}</span>
+        <a href="#setBackgroundColor" class="anchor">§</a>
     </h4>
 
     
@@ -5380,7 +5787,7 @@ Also used to render the group selection box.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 6665
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6679">line 6679</a>
     </li></ul></dd>
     
     
@@ -5391,6 +5798,10 @@ Also used to render the group selection box.
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -5427,8 +5838,8 @@ Also used to render the group selection box.
             
 <dt>
     <h4 class="name" id="setBackgroundImage">
-      <span class="type-signature"></span>setBackgroundImage<span class="signature">(url, callback, <span class="optional">options</span>)</span><span class="type-signature"> &rarr; {<a href="fabric.Canvas.html">fabric.Canvas</a>}</span>
-      <a href="#setBackgroundImage" class="anchor">§</a>
+        <span class="type-signature"></span>setBackgroundImage<span class="signature">(url, callback, <span class="optional">options</span>)</span><span class="type-signature"> &rarr; {<a href="fabric.Canvas.html">fabric.Canvas</a>}</span>
+        <a href="#setBackgroundImage" class="anchor">§</a>
     </h4>
 
     
@@ -5490,6 +5901,8 @@ Also used to render the group selection box.
                 
                     
                 
+                    
+                
                 </td>
             
             
@@ -5516,6 +5929,8 @@ Also used to render the group selection box.
             
             
                 <td class="attributes">
+                
+                    
                 
                     
                 
@@ -5547,6 +5962,8 @@ Also used to render the group selection box.
                 <td class="attributes">
                 
                     &lt;optional><br>
+                
+                    
                 
                     
                 
@@ -5586,7 +6003,7 @@ Also used to render the group selection box.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 6643
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6657">line 6657</a>
     </li></ul></dd>
     
     
@@ -5597,6 +6014,10 @@ Also used to render the group selection box.
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -5633,8 +6054,8 @@ Also used to render the group selection box.
             
 <dt>
     <h4 class="name" id="setDimensions">
-      <span class="type-signature"></span>setDimensions<span class="signature">(dimensions)</span><span class="type-signature"> &rarr; {<a href="fabric.Canvas.html">fabric.Canvas</a>}</span>
-      <a href="#setDimensions" class="anchor">§</a>
+        <span class="type-signature"></span>setDimensions<span class="signature">(dimensions)</span><span class="type-signature"> &rarr; {<a href="fabric.Canvas.html">fabric.Canvas</a>}</span>
+        <a href="#setDimensions" class="anchor">§</a>
     </h4>
 
     
@@ -5724,7 +6145,7 @@ Also used to render the group selection box.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 6788
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6803">line 6803</a>
     </li></ul></dd>
     
     
@@ -5735,6 +6156,10 @@ Also used to render the group selection box.
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -5771,8 +6196,8 @@ Also used to render the group selection box.
             
 <dt>
     <h4 class="name" id="setHeight">
-      <span class="type-signature"></span>setHeight<span class="signature">(height)</span><span class="type-signature"> &rarr; {<a href="fabric.Canvas.html">fabric.Canvas</a>}</span>
-      <a href="#setHeight" class="anchor">§</a>
+        <span class="type-signature"></span>setHeight<span class="signature">(height)</span><span class="type-signature"> &rarr; {<a href="fabric.Canvas.html">fabric.Canvas</a>}</span>
+        <a href="#setHeight" class="anchor">§</a>
     </h4>
 
     
@@ -5862,7 +6287,7 @@ Also used to render the group selection box.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 6778
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6793">line 6793</a>
     </li></ul></dd>
     
     
@@ -5873,6 +6298,10 @@ Also used to render the group selection box.
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -5909,8 +6338,8 @@ Also used to render the group selection box.
             
 <dt>
     <h4 class="name" id="setOverlayImage">
-      <span class="type-signature"></span>setOverlayImage<span class="signature">(url, callback, <span class="optional">options</span>)</span><span class="type-signature"> &rarr; {<a href="fabric.Canvas.html">fabric.Canvas</a>}</span>
-      <a href="#setOverlayImage" class="anchor">§</a>
+        <span class="type-signature"></span>setOverlayImage<span class="signature">(url, callback, <span class="optional">options</span>)</span><span class="type-signature"> &rarr; {<a href="fabric.Canvas.html">fabric.Canvas</a>}</span>
+        <a href="#setOverlayImage" class="anchor">§</a>
     </h4>
 
     
@@ -5972,6 +6401,8 @@ Also used to render the group selection box.
                 
                     
                 
+                    
+                
                 </td>
             
             
@@ -5998,6 +6429,8 @@ Also used to render the group selection box.
             
             
                 <td class="attributes">
+                
+                    
                 
                     
                 
@@ -6029,6 +6462,8 @@ Also used to render the group selection box.
                 <td class="attributes">
                 
                     &lt;optional><br>
+                
+                    
                 
                     
                 
@@ -6068,7 +6503,7 @@ Also used to render the group selection box.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 6620
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6634">line 6634</a>
     </li></ul></dd>
     
     
@@ -6079,6 +6514,10 @@ Also used to render the group selection box.
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -6115,8 +6554,8 @@ Also used to render the group selection box.
             
 <dt>
     <h4 class="name" id="setWidth">
-      <span class="type-signature"></span>setWidth<span class="signature">(width)</span><span class="type-signature"> &rarr; {<a href="fabric.Canvas.html">fabric.Canvas</a>}</span>
-      <a href="#setWidth" class="anchor">§</a>
+        <span class="type-signature"></span>setWidth<span class="signature">(width)</span><span class="type-signature"> &rarr; {<a href="fabric.Canvas.html">fabric.Canvas</a>}</span>
+        <a href="#setWidth" class="anchor">§</a>
     </h4>
 
     
@@ -6206,7 +6645,7 @@ Also used to render the group selection box.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 6768
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6783">line 6783</a>
     </li></ul></dd>
     
     
@@ -6217,6 +6656,10 @@ Also used to render the group selection box.
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -6253,8 +6696,8 @@ Also used to render the group selection box.
             
 <dt>
     <h4 class="name" id="straightenObject">
-      <span class="type-signature"></span>straightenObject<span class="signature">(object)</span><span class="type-signature"> &rarr; {<a href="fabric.Canvas.html">fabric.Canvas</a>}</span>
-      <a href="#straightenObject" class="anchor">§</a>
+        <span class="type-signature"></span>straightenObject<span class="signature">(object)</span><span class="type-signature"> &rarr; {<a href="fabric.Canvas.html">fabric.Canvas</a>}</span>
+        <a href="#straightenObject" class="anchor">§</a>
     </h4>
 
     
@@ -6344,7 +6787,7 @@ Also used to render the group selection box.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 15856
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line15870">line 15870</a>
     </li></ul></dd>
     
     
@@ -6355,6 +6798,10 @@ Also used to render the group selection box.
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -6391,8 +6838,8 @@ Also used to render the group selection box.
             
 <dt>
     <h4 class="name" id="toDatalessJSON">
-      <span class="type-signature"></span>toDatalessJSON<span class="signature">(propertiesToInclude)</span><span class="type-signature"> &rarr; {String}</span>
-      <a href="#toDatalessJSON" class="anchor">§</a>
+        <span class="type-signature"></span>toDatalessJSON<span class="signature">(propertiesToInclude)</span><span class="type-signature"> &rarr; {String}</span>
+        <a href="#toDatalessJSON" class="anchor">§</a>
     </h4>
 
     
@@ -6482,7 +6929,7 @@ Also used to render the group selection box.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 7119
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7134">line 7134</a>
     </li></ul></dd>
     
     
@@ -6493,6 +6940,10 @@ Also used to render the group selection box.
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -6529,8 +6980,8 @@ Also used to render the group selection box.
             
 <dt>
     <h4 class="name" id="toDatalessObject">
-      <span class="type-signature"></span>toDatalessObject<span class="signature">(propertiesToInclude)</span><span class="type-signature"> &rarr; {Object}</span>
-      <a href="#toDatalessObject" class="anchor">§</a>
+        <span class="type-signature"></span>toDatalessObject<span class="signature">(propertiesToInclude)</span><span class="type-signature"> &rarr; {Object}</span>
+        <a href="#toDatalessObject" class="anchor">§</a>
     </h4>
 
     
@@ -6620,7 +7071,7 @@ Also used to render the group selection box.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 7137
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7152">line 7152</a>
     </li></ul></dd>
     
     
@@ -6631,6 +7082,10 @@ Also used to render the group selection box.
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -6667,8 +7122,8 @@ Also used to render the group selection box.
             
 <dt>
     <h4 class="name" id="toDataURL">
-      <span class="type-signature"></span>toDataURL<span class="signature">(options)</span><span class="type-signature"> &rarr; {String}</span>
-      <a href="#toDataURL" class="anchor">§</a>
+        <span class="type-signature"></span>toDataURL<span class="signature">(options)</span><span class="type-signature"> &rarr; {String}</span>
+        <a href="#toDataURL" class="anchor">§</a>
     </h4>
 
     
@@ -6760,7 +7215,7 @@ Also used to render the group selection box.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 9755
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line9770">line 9770</a>
     </li></ul></dd>
     
     
@@ -6771,6 +7226,10 @@ Also used to render the group selection box.
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -6803,8 +7262,8 @@ Also used to render the group selection box.
             
 <dt>
     <h4 class="name" id="toDataURLWithMultiplier">
-      <span class="type-signature"></span>toDataURLWithMultiplier<span class="signature">(format, multiplier, quality)</span><span class="type-signature"> &rarr; {String}</span>
-      <a href="#toDataURLWithMultiplier" class="anchor">§</a>
+        <span class="type-signature"></span>toDataURLWithMultiplier<span class="signature">(format, multiplier, quality)</span><span class="type-signature"> &rarr; {String}</span>
+        <a href="#toDataURLWithMultiplier" class="anchor">§</a>
     </h4>
 
     
@@ -6942,7 +7401,7 @@ Also used to render the group selection box.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 9843
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line9858">line 9858</a>
     </li></ul></dd>
     
     
@@ -6953,6 +7412,10 @@ Also used to render the group selection box.
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -6985,8 +7448,8 @@ Also used to render the group selection box.
             
 <dt>
     <h4 class="name" id="toJSON">
-      <span class="type-signature"></span>toJSON<span class="signature">(propertiesToInclude)</span><span class="type-signature"> &rarr; {String}</span>
-      <a href="#toJSON" class="anchor">§</a>
+        <span class="type-signature"></span>toJSON<span class="signature">(propertiesToInclude)</span><span class="type-signature"> &rarr; {String}</span>
+        <a href="#toJSON" class="anchor">§</a>
     </h4>
 
     
@@ -7076,7 +7539,7 @@ Also used to render the group selection box.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 7527
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7542">line 7542</a>
     </li></ul></dd>
     
     
@@ -7087,6 +7550,10 @@ Also used to render the group selection box.
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -7123,8 +7590,8 @@ Also used to render the group selection box.
             
 <dt>
     <h4 class="name" id="toObject">
-      <span class="type-signature"></span>toObject<span class="signature">(propertiesToInclude)</span><span class="type-signature"> &rarr; {Object}</span>
-      <a href="#toObject" class="anchor">§</a>
+        <span class="type-signature"></span>toObject<span class="signature">(propertiesToInclude)</span><span class="type-signature"> &rarr; {Object}</span>
+        <a href="#toObject" class="anchor">§</a>
     </h4>
 
     
@@ -7214,7 +7681,7 @@ Also used to render the group selection box.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 7128
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7143">line 7143</a>
     </li></ul></dd>
     
     
@@ -7225,6 +7692,10 @@ Also used to render the group selection box.
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -7261,8 +7732,8 @@ Also used to render the group selection box.
             
 <dt>
     <h4 class="name" id="toString">
-      <span class="type-signature"></span>toString<span class="signature">()</span><span class="type-signature"> &rarr; {String}</span>
-      <a href="#toString" class="anchor">§</a>
+        <span class="type-signature"></span>toString<span class="signature">()</span><span class="type-signature"> &rarr; {String}</span>
+        <a href="#toString" class="anchor">§</a>
     </h4>
 
     
@@ -7304,7 +7775,7 @@ Also used to render the group selection box.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 7434
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7449">line 7449</a>
     </li></ul></dd>
     
     
@@ -7315,6 +7786,10 @@ Also used to render the group selection box.
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -7351,8 +7826,8 @@ Also used to render the group selection box.
             
 <dt>
     <h4 class="name" id="toSVG">
-      <span class="type-signature"></span>toSVG<span class="signature">(<span class="optional">options</span>)</span><span class="type-signature"> &rarr; {String}</span>
-      <a href="#toSVG" class="anchor">§</a>
+        <span class="type-signature"></span>toSVG<span class="signature">(<span class="optional">options</span>)</span><span class="type-signature"> &rarr; {String}</span>
+        <a href="#toSVG" class="anchor">§</a>
     </h4>
 
     
@@ -7416,6 +7891,8 @@ Also used to render the group selection box.
                 
                     
                 
+                    
+                
                 </td>
             
             
@@ -7453,7 +7930,7 @@ viewBox: {x, y, width, height} to define the svg output viewBox)</td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 7194
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7209">line 7209</a>
     </li></ul></dd>
     
     
@@ -7464,6 +7941,10 @@ viewBox: {x, y, width, height} to define the svg output viewBox)</td>
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -7514,9 +7995,10 @@ viewBox: {x, y, width, height} to define the svg output viewBox)</td>
 <br clear="both">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.1.1</a> on Sun Aug 11 2013 23:16:58 GMT+0200 (CEST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0</a> on Sun Aug 11 2013 23:42:31 GMT+0200 (CEST)
 </footer>
 
-<script> prettyPrint(); </script>
+<script> /*prettyPrint();*/ </script>
+<script src="scripts/linenumber.js"> </script>
 </body>
 </html>

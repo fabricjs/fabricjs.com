@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <title>JSDoc: Class: PathGroup</title>
 
-    <script src="/js/prettify.js"> </script>
-    <script src="/js/lang-css.js"> </script>
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
     <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -15,55 +15,56 @@
 </head>
 
 <body>
-<ul id="header">
-  <li><a href="http://fabricjs.com/">Features</a></li>
-  <li><a href="http://fabricjs.com/demos">Demos</a></li>
-  <li><a href="http://fabricjs.com/docs">Docs</a></li>
-  <li><a href="http://fabricjs.com/articles">Tutorial</a></li>
-  <li><a href="http://fabricjs.com/test">Tests</a></li>
-  <li><a href="http://fabricjs.com/benchmarks">Benchmarks</a></li>
-  <li><a href="http://fabricjs.com/build">Build</a></li>
-  <li class="secondary">
-    <a href="http://travis-ci.org/#!/kangax/fabric.js"><img src="https://secure.travis-ci.org/kangax/fabric.js.png?branch=master"></a>
-  </li>
-  <li class="gittip secondary">
-    <iframe style="border: 0; margin: 0; padding: 0;" src="https://www.gittip.com/5c2ec8b83e18/widget.html" width="48pt" height="22pt"></iframe>
-  </li>
-  <li class="flattr secondary">
-    <a class="FlattrButton" style="display:none;" rev="flattr;button:compact;" href="http://kangax.github.com/fabric.js"></a>
-    <noscript><a href="http://flattr.com/thing/391332/Fabric-js" target="_blank">
-    <img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0" /></a></noscript>
-  </li>
-  <li class="github secondary">
-    <iframe src="http://ghbtns.com/github-btn.html?user=kangax&repo=fabric.js&type=watch&count=true"
-      allowtransparency="true" frameborder="0" scrolling="0" width="95px" height="20px"></iframe>
-  </li>
-  <li class="twitter secondary">
-    <a href="https://twitter.com/fabricjs" class="twitter-follow-button" data-show-count="true">Follow @fabricjs</a>
-    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-  </li>
-  <li class="secondary"><a href="http://stackoverflow.com/questions/tagged/fabricjs"><span>StackOverflow</span></a></li>
-  <li class="secondary"><a href="https://github.com/kangax/fabric.js/wiki"><span>Wiki</span></a></li>
-  <li class="secondary"><a href="http://groups.google.com/group/fabricjs"><span>Discussion</span></a></li>
-</ul>
 
-<script>
-(function() {
+    <ul id="header">
+      <li><a href="http://fabricjs.com/">Features</a></li>
+      <li><a href="http://fabricjs.com/demos">Demos</a></li>
+      <li><a href="http://fabricjs.com/docs">Docs</a></li>
+      <li><a href="http://fabricjs.com/articles">Tutorial</a></li>
+      <li><a href="http://fabricjs.com/test">Tests</a></li>
+      <li><a href="http://fabricjs.com/benchmarks">Benchmarks</a></li>
+      <li><a href="http://fabricjs.com/build">Build</a></li>
+      <li class="secondary">
+        <a href="http://travis-ci.org/#!/kangax/fabric.js"><img src="https://secure.travis-ci.org/kangax/fabric.js.png?branch=master"></a>
+      </li>
+      <li class="gittip secondary">
+        <iframe style="border: 0; margin: 0; padding: 0;" src="https://www.gittip.com/5c2ec8b83e18/widget.html" width="48pt" height="22pt"></iframe>
+      </li>
+      <li class="flattr secondary">
+        <a class="FlattrButton" style="display:none;" rev="flattr;button:compact;" href="http://kangax.github.com/fabric.js"></a>
+        <noscript><a href="http://flattr.com/thing/391332/Fabric-js" target="_blank">
+        <img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0" /></a></noscript>
+      </li>
+      <li class="github secondary">
+        <iframe src="http://ghbtns.com/github-btn.html?user=kangax&repo=fabric.js&type=watch&count=true"
+          allowtransparency="true" frameborder="0" scrolling="0" width="95px" height="20px"></iframe>
+      </li>
+      <li class="twitter secondary">
+        <a href="https://twitter.com/fabricjs" class="twitter-follow-button" data-show-count="true">Follow @fabricjs</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+      </li>
+      <li class="secondary"><a href="http://stackoverflow.com/questions/tagged/fabricjs"><span>StackOverflow</span></a></li>
+      <li class="secondary"><a href="https://github.com/kangax/fabric.js/wiki"><span>Wiki</span></a></li>
+      <li class="secondary"><a href="http://groups.google.com/group/fabricjs"><span>Discussion</span></a></li>
+    </ul>
 
-  var s = document.createElement('script'), t = document.getElementsByTagName('script')[0];
-  s.async = true;
-  s.src = 'http://api.flattr.com/js/0.6/load.js?mode=auto';
-  t.parentNode.insertBefore(s, t);
+    <script>
+    (function() {
 
-  if (document.location.hostname === 'localhost') {
-    var links = document.getElementById('header').getElementsByTagName('a');
-    for (var i = 0, len = links.length; i < len; i++) {
-      // very retarted fix but fuck it
-      links[i].href = links[i].href.replace('fabricjs.com', 'localhost:4000');
-    }
-  }
-})();
-</script>
+      var s = document.createElement('script'), t = document.getElementsByTagName('script')[0];
+      s.async = true;
+      s.src = 'http://api.flattr.com/js/0.6/load.js?mode=auto';
+      t.parentNode.insertBefore(s, t);
+
+      if (document.location.hostname === 'localhost') {
+        var links = document.getElementById('header').getElementsByTagName('a');
+        for (var i = 0, len = links.length; i < len; i++) {
+          // very retarted fix but fuck it
+          links[i].href = links[i].href.replace('fabricjs.com', 'localhost:4000');
+        }
+      }
+    })();
+    </script>
 
 <div id="main">
 
@@ -92,8 +93,8 @@
         
 <dt>
     <h4 class="name" id="PathGroup">
-      <span class="type-signature"></span>new PathGroup<span class="signature">()</span><span class="type-signature"></span>
-      <a href="#PathGroup" class="anchor">§</a>
+        <span class="type-signature"></span>new PathGroup<span class="signature">()</span><span class="type-signature"></span>
+        <a href="#PathGroup" class="anchor">§</a>
     </h4>
 
     
@@ -135,7 +136,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 14614
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14629">line 14629</a>
     </li></ul></dd>
     
     
@@ -146,6 +147,10 @@
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -182,8 +187,8 @@
             
 <dt>
     <h4 class="name" id="angle">
-      <span class="type-signature"></span>angle<span class="type-signature"> :Number</span>
-      <a href="#angle" class="anchor">§</a>
+        <span class="type-signature"></span>angle<span class="type-signature"> :Number</span>
+        <a href="#angle" class="anchor">§</a>
     </h4>
 
     
@@ -193,6 +198,18 @@
     <div class="description">
         Angle of rotation of an object (in degrees)
     </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Number</span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -226,7 +243,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 10189
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10204">line 10204</a>
     </li></ul></dd>
     
     
@@ -245,8 +262,8 @@
             
 <dt>
     <h4 class="name" id="borderColor">
-      <span class="type-signature"></span>borderColor<span class="type-signature"> :String</span>
-      <a href="#borderColor" class="anchor">§</a>
+        <span class="type-signature"></span>borderColor<span class="type-signature"> :String</span>
+        <a href="#borderColor" class="anchor">§</a>
     </h4>
 
     
@@ -256,6 +273,18 @@
     <div class="description">
         Color of controlling borders of an object (when it's active)
     </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">String</span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -289,7 +318,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 10217
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10232">line 10232</a>
     </li></ul></dd>
     
     
@@ -308,8 +337,8 @@
             
 <dt>
     <h4 class="name" id="borderOpacityWhenMoving">
-      <span class="type-signature"></span>borderOpacityWhenMoving<span class="type-signature"> :Number</span>
-      <a href="#borderOpacityWhenMoving" class="anchor">§</a>
+        <span class="type-signature"></span>borderOpacityWhenMoving<span class="type-signature"> :Number</span>
+        <a href="#borderOpacityWhenMoving" class="anchor">§</a>
     </h4>
 
     
@@ -319,6 +348,18 @@
     <div class="description">
         Opacity of object's controlling borders when object is active and moving
     </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Number</span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -352,7 +393,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 10306
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10321">line 10321</a>
     </li></ul></dd>
     
     
@@ -371,8 +412,8 @@
             
 <dt>
     <h4 class="name" id="borderScaleFactor">
-      <span class="type-signature"></span>borderScaleFactor<span class="type-signature"> :Number</span>
-      <a href="#borderScaleFactor" class="anchor">§</a>
+        <span class="type-signature"></span>borderScaleFactor<span class="type-signature"> :Number</span>
+        <a href="#borderScaleFactor" class="anchor">§</a>
     </h4>
 
     
@@ -382,6 +423,18 @@
     <div class="description">
         Scale factor of object's controlling borders
     </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Number</span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -415,7 +468,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 10313
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10328">line 10328</a>
     </li></ul></dd>
     
     
@@ -434,8 +487,8 @@
             
 <dt>
     <h4 class="name" id="centerTransform">
-      <span class="type-signature"></span>centerTransform<span class="type-signature"> :Boolean</span>
-      <a href="#centerTransform" class="anchor">§</a>
+        <span class="type-signature"></span>centerTransform<span class="type-signature"> :Boolean</span>
+        <a href="#centerTransform" class="anchor">§</a>
     </h4>
 
     
@@ -446,6 +499,18 @@
         When true, this object will use center point as the origin of transformation
 when being resized via the controls
     </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Boolean</span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -476,7 +541,7 @@ when being resized via the controls
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 10231
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10246">line 10246</a>
     </li></ul></dd>
     
     
@@ -495,8 +560,8 @@ when being resized via the controls
             
 <dt>
     <h4 class="name" id="clipTo">
-      <span class="type-signature"></span>clipTo<span class="type-signature"> :<a href="Function.html">Function</a></span>
-      <a href="#clipTo" class="anchor">§</a>
+        <span class="type-signature"></span>clipTo<span class="type-signature"> :<a href="Function.html">Function</a></span>
+        <a href="#clipTo" class="anchor">§</a>
     </h4>
 
     
@@ -506,6 +571,18 @@ when being resized via the controls
     <div class="description">
         Function that determines clipping of an object (context is passed as a first argument)
     </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="Function.html">Function</a></span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -536,7 +613,7 @@ when being resized via the controls
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 10388
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10403">line 10403</a>
     </li></ul></dd>
     
     
@@ -555,8 +632,8 @@ when being resized via the controls
             
 <dt>
     <h4 class="name" id="cornerColor">
-      <span class="type-signature"></span>cornerColor<span class="type-signature"> :String</span>
-      <a href="#cornerColor" class="anchor">§</a>
+        <span class="type-signature"></span>cornerColor<span class="type-signature"> :String</span>
+        <a href="#cornerColor" class="anchor">§</a>
     </h4>
 
     
@@ -566,6 +643,18 @@ when being resized via the controls
     <div class="description">
         Color of controlling corners of an object (when it's active)
     </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">String</span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -599,7 +688,7 @@ when being resized via the controls
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 10224
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10239">line 10239</a>
     </li></ul></dd>
     
     
@@ -618,8 +707,8 @@ when being resized via the controls
             
 <dt>
     <h4 class="name" id="cornerSize">
-      <span class="type-signature"></span>cornerSize<span class="type-signature"> :Number</span>
-      <a href="#cornerSize" class="anchor">§</a>
+        <span class="type-signature"></span>cornerSize<span class="type-signature"> :Number</span>
+        <a href="#cornerSize" class="anchor">§</a>
     </h4>
 
     
@@ -629,6 +718,18 @@ when being resized via the controls
     <div class="description">
         Size of object's controlling corners (in pixels)
     </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Number</span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -662,7 +763,7 @@ when being resized via the controls
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 10196
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10211">line 10211</a>
     </li></ul></dd>
     
     
@@ -681,8 +782,8 @@ when being resized via the controls
             
 <dt>
     <h4 class="name" id="fill">
-      <span class="type-signature"></span>fill<span class="type-signature"> :String</span>
-      <a href="#fill" class="anchor">§</a>
+        <span class="type-signature"></span>fill<span class="type-signature"> :String</span>
+        <a href="#fill" class="anchor">§</a>
     </h4>
 
     
@@ -692,6 +793,18 @@ when being resized via the controls
     <div class="description">
         Fill value
     </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">String</span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -717,7 +830,7 @@ when being resized via the controls
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 14633
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14648">line 14648</a>
     </li></ul></dd>
     
     
@@ -736,8 +849,8 @@ when being resized via the controls
             
 <dt>
     <h4 class="name" id="fillRule">
-      <span class="type-signature"></span>fillRule<span class="type-signature"> :String</span>
-      <a href="#fillRule" class="anchor">§</a>
+        <span class="type-signature"></span>fillRule<span class="type-signature"> :String</span>
+        <a href="#fillRule" class="anchor">§</a>
     </h4>
 
     
@@ -747,6 +860,18 @@ when being resized via the controls
     <div class="description">
         Fill rule used to fill an object
     </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">String</span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -780,7 +905,7 @@ when being resized via the controls
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 10245
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10260">line 10260</a>
     </li></ul></dd>
     
     
@@ -799,8 +924,8 @@ when being resized via the controls
             
 <dt>
     <h4 class="name" id="flipX">
-      <span class="type-signature"></span>flipX<span class="type-signature"> :Boolean</span>
-      <a href="#flipX" class="anchor">§</a>
+        <span class="type-signature"></span>flipX<span class="type-signature"> :Boolean</span>
+        <a href="#flipX" class="anchor">§</a>
     </h4>
 
     
@@ -810,6 +935,18 @@ when being resized via the controls
     <div class="description">
         When true, an object is rendered as flipped horizontally
     </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Boolean</span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -843,7 +980,7 @@ when being resized via the controls
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 10168
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10183">line 10183</a>
     </li></ul></dd>
     
     
@@ -862,8 +999,8 @@ when being resized via the controls
             
 <dt>
     <h4 class="name" id="flipY">
-      <span class="type-signature"></span>flipY<span class="type-signature"> :Boolean</span>
-      <a href="#flipY" class="anchor">§</a>
+        <span class="type-signature"></span>flipY<span class="type-signature"> :Boolean</span>
+        <a href="#flipY" class="anchor">§</a>
     </h4>
 
     
@@ -873,6 +1010,18 @@ when being resized via the controls
     <div class="description">
         When true, an object is rendered as flipped vertically
     </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Boolean</span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -906,7 +1055,7 @@ when being resized via the controls
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 10175
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10190">line 10190</a>
     </li></ul></dd>
     
     
@@ -925,8 +1074,8 @@ when being resized via the controls
             
 <dt>
     <h4 class="name" id="hasBorders">
-      <span class="type-signature"></span>hasBorders<span class="type-signature"> :Boolean</span>
-      <a href="#hasBorders" class="anchor">§</a>
+        <span class="type-signature"></span>hasBorders<span class="type-signature"> :Boolean</span>
+        <a href="#hasBorders" class="anchor">§</a>
     </h4>
 
     
@@ -936,6 +1085,18 @@ when being resized via the controls
     <div class="description">
         When set to `false`, object's controlling borders are not rendered
     </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Boolean</span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -969,7 +1130,7 @@ when being resized via the controls
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 10354
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10369">line 10369</a>
     </li></ul></dd>
     
     
@@ -988,8 +1149,8 @@ when being resized via the controls
             
 <dt>
     <h4 class="name" id="hasControls">
-      <span class="type-signature"></span>hasControls<span class="type-signature"> :Boolean</span>
-      <a href="#hasControls" class="anchor">§</a>
+        <span class="type-signature"></span>hasControls<span class="type-signature"> :Boolean</span>
+        <a href="#hasControls" class="anchor">§</a>
     </h4>
 
     
@@ -999,6 +1160,18 @@ when being resized via the controls
     <div class="description">
         When set to `false`, object's controls are not displayed and can not be used to manipulate object
     </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Boolean</span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -1032,7 +1205,7 @@ when being resized via the controls
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 10347
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10362">line 10362</a>
     </li></ul></dd>
     
     
@@ -1051,8 +1224,8 @@ when being resized via the controls
             
 <dt>
     <h4 class="name" id="hasRotatingPoint">
-      <span class="type-signature"></span>hasRotatingPoint<span class="type-signature"> :Boolean</span>
-      <a href="#hasRotatingPoint" class="anchor">§</a>
+        <span class="type-signature"></span>hasRotatingPoint<span class="type-signature"> :Boolean</span>
+        <a href="#hasRotatingPoint" class="anchor">§</a>
     </h4>
 
     
@@ -1062,6 +1235,18 @@ when being resized via the controls
     <div class="description">
         When set to `false`, object's controlling rotating point will not be visible or selectable
     </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Boolean</span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -1095,7 +1280,7 @@ when being resized via the controls
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 10361
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10376">line 10376</a>
     </li></ul></dd>
     
     
@@ -1114,8 +1299,8 @@ when being resized via the controls
             
 <dt>
     <h4 class="name" id="includeDefaultValues">
-      <span class="type-signature"></span>includeDefaultValues<span class="type-signature"> :Boolean</span>
-      <a href="#includeDefaultValues" class="anchor">§</a>
+        <span class="type-signature"></span>includeDefaultValues<span class="type-signature"> :Boolean</span>
+        <a href="#includeDefaultValues" class="anchor">§</a>
     </h4>
 
     
@@ -1125,6 +1310,18 @@ when being resized via the controls
     <div class="description">
         When `false`, default object's values are not included in its serialization
     </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Boolean</span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -1158,7 +1355,7 @@ when being resized via the controls
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 10382
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10397">line 10397</a>
     </li></ul></dd>
     
     
@@ -1177,8 +1374,8 @@ when being resized via the controls
             
 <dt>
     <h4 class="name" id="lockMovementX">
-      <span class="type-signature"></span>lockMovementX<span class="type-signature"> :Boolean</span>
-      <a href="#lockMovementX" class="anchor">§</a>
+        <span class="type-signature"></span>lockMovementX<span class="type-signature"> :Boolean</span>
+        <a href="#lockMovementX" class="anchor">§</a>
     </h4>
 
     
@@ -1188,6 +1385,18 @@ when being resized via the controls
     <div class="description">
         When `true`, object horizontal movement is locked
     </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Boolean</span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -1221,7 +1430,7 @@ when being resized via the controls
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 10395
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10410">line 10410</a>
     </li></ul></dd>
     
     
@@ -1240,8 +1449,8 @@ when being resized via the controls
             
 <dt>
     <h4 class="name" id="lockMovementY">
-      <span class="type-signature"></span>lockMovementY<span class="type-signature"> :Boolean</span>
-      <a href="#lockMovementY" class="anchor">§</a>
+        <span class="type-signature"></span>lockMovementY<span class="type-signature"> :Boolean</span>
+        <a href="#lockMovementY" class="anchor">§</a>
     </h4>
 
     
@@ -1251,6 +1460,18 @@ when being resized via the controls
     <div class="description">
         When `true`, object vertical movement is locked
     </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Boolean</span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -1284,7 +1505,7 @@ when being resized via the controls
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 10402
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10417">line 10417</a>
     </li></ul></dd>
     
     
@@ -1303,8 +1524,8 @@ when being resized via the controls
             
 <dt>
     <h4 class="name" id="lockRotation">
-      <span class="type-signature"></span>lockRotation<span class="type-signature"> :Boolean</span>
-      <a href="#lockRotation" class="anchor">§</a>
+        <span class="type-signature"></span>lockRotation<span class="type-signature"> :Boolean</span>
+        <a href="#lockRotation" class="anchor">§</a>
     </h4>
 
     
@@ -1314,6 +1535,18 @@ when being resized via the controls
     <div class="description">
         When `true`, object rotation is locked
     </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Boolean</span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -1347,7 +1580,7 @@ when being resized via the controls
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 10409
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10424">line 10424</a>
     </li></ul></dd>
     
     
@@ -1366,8 +1599,8 @@ when being resized via the controls
             
 <dt>
     <h4 class="name" id="lockScalingX">
-      <span class="type-signature"></span>lockScalingX<span class="type-signature"> :Boolean</span>
-      <a href="#lockScalingX" class="anchor">§</a>
+        <span class="type-signature"></span>lockScalingX<span class="type-signature"> :Boolean</span>
+        <a href="#lockScalingX" class="anchor">§</a>
     </h4>
 
     
@@ -1377,6 +1610,18 @@ when being resized via the controls
     <div class="description">
         When `true`, object horizontal scaling is locked
     </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Boolean</span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -1410,7 +1655,7 @@ when being resized via the controls
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 10416
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10431">line 10431</a>
     </li></ul></dd>
     
     
@@ -1429,8 +1674,8 @@ when being resized via the controls
             
 <dt>
     <h4 class="name" id="lockScalingY">
-      <span class="type-signature"></span>lockScalingY<span class="type-signature"> :Boolean</span>
-      <a href="#lockScalingY" class="anchor">§</a>
+        <span class="type-signature"></span>lockScalingY<span class="type-signature"> :Boolean</span>
+        <a href="#lockScalingY" class="anchor">§</a>
     </h4>
 
     
@@ -1440,6 +1685,18 @@ when being resized via the controls
     <div class="description">
         When `true`, object vertical scaling is locked
     </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Boolean</span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -1473,7 +1730,7 @@ when being resized via the controls
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 10423
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10438">line 10438</a>
     </li></ul></dd>
     
     
@@ -1492,8 +1749,8 @@ when being resized via the controls
             
 <dt>
     <h4 class="name" id="lockUniScaling">
-      <span class="type-signature"></span>lockUniScaling<span class="type-signature"> :Boolean</span>
-      <a href="#lockUniScaling" class="anchor">§</a>
+        <span class="type-signature"></span>lockUniScaling<span class="type-signature"> :Boolean</span>
+        <a href="#lockUniScaling" class="anchor">§</a>
     </h4>
 
     
@@ -1503,6 +1760,18 @@ when being resized via the controls
     <div class="description">
         When `true`, object non-uniform scaling is locked
     </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Boolean</span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -1536,7 +1805,7 @@ when being resized via the controls
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 10430
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10445">line 10445</a>
     </li></ul></dd>
     
     
@@ -1555,8 +1824,8 @@ when being resized via the controls
             
 <dt>
     <h4 class="name" id="minScaleLimit">
-      <span class="type-signature"></span>minScaleLimit<span class="type-signature"> :Number</span>
-      <a href="#minScaleLimit" class="anchor">§</a>
+        <span class="type-signature"></span>minScaleLimit<span class="type-signature"> :Number</span>
+        <a href="#minScaleLimit" class="anchor">§</a>
     </h4>
 
     
@@ -1566,6 +1835,18 @@ when being resized via the controls
     <div class="description">
         Minimum allowed scale value of an object
     </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Number</span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -1599,7 +1880,7 @@ when being resized via the controls
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 10326
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10341">line 10341</a>
     </li></ul></dd>
     
     
@@ -1618,8 +1899,8 @@ when being resized via the controls
             
 <dt>
     <h4 class="name" id="oCoords">
-      <span class="type-signature"></span>oCoords<span class="type-signature"> :Object</span>
-      <a href="#oCoords" class="anchor">§</a>
+        <span class="type-signature"></span>oCoords<span class="type-signature"> :Object</span>
+        <a href="#oCoords" class="anchor">§</a>
     </h4>
 
     
@@ -1629,6 +1910,18 @@ when being resized via the controls
     <div class="description">
         Object containing coordinates of object's controls
     </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Object</span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -1662,7 +1955,7 @@ when being resized via the controls
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 11460
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11475">line 11475</a>
     </li></ul></dd>
     
     
@@ -1681,8 +1974,8 @@ when being resized via the controls
             
 <dt>
     <h4 class="name" id="opacity">
-      <span class="type-signature"></span>opacity<span class="type-signature"> :Number</span>
-      <a href="#opacity" class="anchor">§</a>
+        <span class="type-signature"></span>opacity<span class="type-signature"> :Number</span>
+        <a href="#opacity" class="anchor">§</a>
     </h4>
 
     
@@ -1692,6 +1985,18 @@ when being resized via the controls
     <div class="description">
         Opacity of an object
     </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Number</span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -1725,7 +2030,7 @@ when being resized via the controls
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 10182
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10197">line 10197</a>
     </li></ul></dd>
     
     
@@ -1744,8 +2049,8 @@ when being resized via the controls
             
 <dt>
     <h4 class="name" id="originX">
-      <span class="type-signature"></span>originX<span class="type-signature"> :String</span>
-      <a href="#originX" class="anchor">§</a>
+        <span class="type-signature"></span>originX<span class="type-signature"> :String</span>
+        <a href="#originX" class="anchor">§</a>
     </h4>
 
     
@@ -1755,6 +2060,18 @@ when being resized via the controls
     <div class="description">
         Horizontal origin of transformation of an object (one of "left", "right", "center")
     </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">String</span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -1788,7 +2105,7 @@ when being resized via the controls
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 10112
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10127">line 10127</a>
     </li></ul></dd>
     
     
@@ -1807,8 +2124,8 @@ when being resized via the controls
             
 <dt>
     <h4 class="name" id="originY">
-      <span class="type-signature"></span>originY<span class="type-signature"> :String</span>
-      <a href="#originY" class="anchor">§</a>
+        <span class="type-signature"></span>originY<span class="type-signature"> :String</span>
+        <a href="#originY" class="anchor">§</a>
     </h4>
 
     
@@ -1818,6 +2135,18 @@ when being resized via the controls
     <div class="description">
         Vertical origin of transformation of an object (one of "top", "bottom", "center")
     </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">String</span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -1851,7 +2180,7 @@ when being resized via the controls
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 10119
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10134">line 10134</a>
     </li></ul></dd>
     
     
@@ -1870,8 +2199,8 @@ when being resized via the controls
             
 <dt>
     <h4 class="name" id="overlayFill">
-      <span class="type-signature"></span>overlayFill<span class="type-signature"> :String</span>
-      <a href="#overlayFill" class="anchor">§</a>
+        <span class="type-signature"></span>overlayFill<span class="type-signature"> :String</span>
+        <a href="#overlayFill" class="anchor">§</a>
     </h4>
 
     
@@ -1881,6 +2210,18 @@ when being resized via the controls
     <div class="description">
         Overlay fill (takes precedence over fill value)
     </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">String</span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -1914,7 +2255,7 @@ when being resized via the controls
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 10252
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10267">line 10267</a>
     </li></ul></dd>
     
     
@@ -1933,8 +2274,8 @@ when being resized via the controls
             
 <dt>
     <h4 class="name" id="padding">
-      <span class="type-signature"></span>padding<span class="type-signature"> :Number</span>
-      <a href="#padding" class="anchor">§</a>
+        <span class="type-signature"></span>padding<span class="type-signature"> :Number</span>
+        <a href="#padding" class="anchor">§</a>
     </h4>
 
     
@@ -1944,6 +2285,18 @@ when being resized via the controls
     <div class="description">
         Padding between object and its controlling borders (in pixels)
     </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Number</span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -1977,7 +2330,7 @@ when being resized via the controls
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 10210
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10225">line 10225</a>
     </li></ul></dd>
     
     
@@ -1996,8 +2349,8 @@ when being resized via the controls
             
 <dt>
     <h4 class="name" id="perPixelTargetFind">
-      <span class="type-signature"></span>perPixelTargetFind<span class="type-signature"> :Boolean</span>
-      <a href="#perPixelTargetFind" class="anchor">§</a>
+        <span class="type-signature"></span>perPixelTargetFind<span class="type-signature"> :Boolean</span>
+        <a href="#perPixelTargetFind" class="anchor">§</a>
     </h4>
 
     
@@ -2007,6 +2360,18 @@ when being resized via the controls
     <div class="description">
         When set to `true`, objects are "found" on canvas on per-pixel basis rather than according to bounding box
     </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Boolean</span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -2040,7 +2405,7 @@ when being resized via the controls
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 10375
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10390">line 10390</a>
     </li></ul></dd>
     
     
@@ -2059,8 +2424,8 @@ when being resized via the controls
             
 <dt>
     <h4 class="name" id="rotatingPointOffset">
-      <span class="type-signature"></span>rotatingPointOffset<span class="type-signature"> :Number</span>
-      <a href="#rotatingPointOffset" class="anchor">§</a>
+        <span class="type-signature"></span>rotatingPointOffset<span class="type-signature"> :Number</span>
+        <a href="#rotatingPointOffset" class="anchor">§</a>
     </h4>
 
     
@@ -2070,6 +2435,18 @@ when being resized via the controls
     <div class="description">
         Offset for object's controlling rotating point (when enabled via `hasRotatingPoint`)
     </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Number</span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -2103,7 +2480,7 @@ when being resized via the controls
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 10368
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10383">line 10383</a>
     </li></ul></dd>
     
     
@@ -2122,8 +2499,8 @@ when being resized via the controls
             
 <dt>
     <h4 class="name" id="scaleX">
-      <span class="type-signature"></span>scaleX<span class="type-signature"> :Number</span>
-      <a href="#scaleX" class="anchor">§</a>
+        <span class="type-signature"></span>scaleX<span class="type-signature"> :Number</span>
+        <a href="#scaleX" class="anchor">§</a>
     </h4>
 
     
@@ -2133,6 +2510,18 @@ when being resized via the controls
     <div class="description">
         Object scale factor (horizontal)
     </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Number</span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -2166,7 +2555,7 @@ when being resized via the controls
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 10154
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10169">line 10169</a>
     </li></ul></dd>
     
     
@@ -2185,8 +2574,8 @@ when being resized via the controls
             
 <dt>
     <h4 class="name" id="scaleY">
-      <span class="type-signature"></span>scaleY<span class="type-signature"> :Number</span>
-      <a href="#scaleY" class="anchor">§</a>
+        <span class="type-signature"></span>scaleY<span class="type-signature"> :Number</span>
+        <a href="#scaleY" class="anchor">§</a>
     </h4>
 
     
@@ -2196,6 +2585,18 @@ when being resized via the controls
     <div class="description">
         Object scale factor (vertical)
     </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Number</span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -2229,7 +2630,7 @@ when being resized via the controls
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 10161
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10176">line 10176</a>
     </li></ul></dd>
     
     
@@ -2248,8 +2649,8 @@ when being resized via the controls
             
 <dt>
     <h4 class="name" id="selectable">
-      <span class="type-signature"></span>selectable<span class="type-signature"> :Boolean</span>
-      <a href="#selectable" class="anchor">§</a>
+        <span class="type-signature"></span>selectable<span class="type-signature"> :Boolean</span>
+        <a href="#selectable" class="anchor">§</a>
     </h4>
 
     
@@ -2259,6 +2660,18 @@ when being resized via the controls
     <div class="description">
         When set to `false`, an object can not be selected for modification (using either point-click-based or group-based selection)
     </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Boolean</span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -2292,7 +2705,7 @@ when being resized via the controls
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 10333
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10348">line 10348</a>
     </li></ul></dd>
     
     
@@ -2311,8 +2724,8 @@ when being resized via the controls
             
 <dt>
     <h4 class="name" id="shadow">
-      <span class="type-signature"></span>shadow<span class="type-signature"> :<a href="fabric.Shadow.html">fabric.Shadow</a></span>
-      <a href="#shadow" class="anchor">§</a>
+        <span class="type-signature"></span>shadow<span class="type-signature"> :<a href="fabric.Shadow.html">fabric.Shadow</a></span>
+        <a href="#shadow" class="anchor">§</a>
     </h4>
 
     
@@ -2322,6 +2735,18 @@ when being resized via the controls
     <div class="description">
         Shadow object representing shadow of this shape
     </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="fabric.Shadow.html">fabric.Shadow</a></span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -2352,7 +2777,7 @@ when being resized via the controls
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 10299
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10314">line 10314</a>
     </li></ul></dd>
     
     
@@ -2371,8 +2796,8 @@ when being resized via the controls
             
 <dt>
     <h4 class="name" id="stateProperties">
-      <span class="type-signature"></span>stateProperties<span class="type-signature"> :<a href="Array.html">Array</a></span>
-      <a href="#stateProperties" class="anchor">§</a>
+        <span class="type-signature"></span>stateProperties<span class="type-signature"> :<a href="Array.html">Array</a></span>
+        <a href="#stateProperties" class="anchor">§</a>
     </h4>
 
     
@@ -2384,6 +2809,18 @@ when being resized via the controls
 of an object is changed (fabric.Object#hasStateChanged)
 as well as for history (undo/redo) purposes
     </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="Array.html">Array</a></span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -2414,7 +2851,7 @@ as well as for history (undo/redo) purposes
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 10438
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10453">line 10453</a>
     </li></ul></dd>
     
     
@@ -2433,8 +2870,8 @@ as well as for history (undo/redo) purposes
             
 <dt>
     <h4 class="name" id="stroke">
-      <span class="type-signature"></span>stroke<span class="type-signature"> :String</span>
-      <a href="#stroke" class="anchor">§</a>
+        <span class="type-signature"></span>stroke<span class="type-signature"> :String</span>
+        <a href="#stroke" class="anchor">§</a>
     </h4>
 
     
@@ -2444,6 +2881,18 @@ as well as for history (undo/redo) purposes
     <div class="description">
         When defined, an object is rendered via stroke and this property specifies its color
     </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">String</span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -2477,7 +2926,7 @@ as well as for history (undo/redo) purposes
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 10259
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10274">line 10274</a>
     </li></ul></dd>
     
     
@@ -2496,8 +2945,8 @@ as well as for history (undo/redo) purposes
             
 <dt>
     <h4 class="name" id="strokeDashArray">
-      <span class="type-signature"></span>strokeDashArray<span class="type-signature"> :<a href="Array.html">Array</a></span>
-      <a href="#strokeDashArray" class="anchor">§</a>
+        <span class="type-signature"></span>strokeDashArray<span class="type-signature"> :<a href="Array.html">Array</a></span>
+        <a href="#strokeDashArray" class="anchor">§</a>
     </h4>
 
     
@@ -2507,6 +2956,18 @@ as well as for history (undo/redo) purposes
     <div class="description">
         Array specifying dash pattern of an object's stroke (stroke must be defined)
     </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="Array.html">Array</a></span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -2537,7 +2998,7 @@ as well as for history (undo/redo) purposes
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 10272
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10287">line 10287</a>
     </li></ul></dd>
     
     
@@ -2556,8 +3017,8 @@ as well as for history (undo/redo) purposes
             
 <dt>
     <h4 class="name" id="strokeLineCap">
-      <span class="type-signature"></span>strokeLineCap<span class="type-signature"> :String</span>
-      <a href="#strokeLineCap" class="anchor">§</a>
+        <span class="type-signature"></span>strokeLineCap<span class="type-signature"> :String</span>
+        <a href="#strokeLineCap" class="anchor">§</a>
     </h4>
 
     
@@ -2567,6 +3028,18 @@ as well as for history (undo/redo) purposes
     <div class="description">
         Line endings style of an object's stroke (one of "butt", "round", "square")
     </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">String</span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -2600,7 +3073,7 @@ as well as for history (undo/redo) purposes
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 10279
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10294">line 10294</a>
     </li></ul></dd>
     
     
@@ -2619,8 +3092,8 @@ as well as for history (undo/redo) purposes
             
 <dt>
     <h4 class="name" id="strokeLineJoin">
-      <span class="type-signature"></span>strokeLineJoin<span class="type-signature"> :String</span>
-      <a href="#strokeLineJoin" class="anchor">§</a>
+        <span class="type-signature"></span>strokeLineJoin<span class="type-signature"> :String</span>
+        <a href="#strokeLineJoin" class="anchor">§</a>
     </h4>
 
     
@@ -2630,6 +3103,18 @@ as well as for history (undo/redo) purposes
     <div class="description">
         Corner style of an object's stroke (one of "bevil", "round", "miter")
     </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">String</span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -2663,7 +3148,7 @@ as well as for history (undo/redo) purposes
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 10286
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10301">line 10301</a>
     </li></ul></dd>
     
     
@@ -2682,8 +3167,8 @@ as well as for history (undo/redo) purposes
             
 <dt>
     <h4 class="name" id="strokeMiterLimit">
-      <span class="type-signature"></span>strokeMiterLimit<span class="type-signature"> :Number</span>
-      <a href="#strokeMiterLimit" class="anchor">§</a>
+        <span class="type-signature"></span>strokeMiterLimit<span class="type-signature"> :Number</span>
+        <a href="#strokeMiterLimit" class="anchor">§</a>
     </h4>
 
     
@@ -2693,6 +3178,18 @@ as well as for history (undo/redo) purposes
     <div class="description">
         Maximum miter length (used for strokeLineJoin = "miter") of an object's stroke
     </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Number</span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -2726,7 +3223,7 @@ as well as for history (undo/redo) purposes
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 10293
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10308">line 10308</a>
     </li></ul></dd>
     
     
@@ -2745,8 +3242,8 @@ as well as for history (undo/redo) purposes
             
 <dt>
     <h4 class="name" id="strokeWidth">
-      <span class="type-signature"></span>strokeWidth<span class="type-signature"> :Number</span>
-      <a href="#strokeWidth" class="anchor">§</a>
+        <span class="type-signature"></span>strokeWidth<span class="type-signature"> :Number</span>
+        <a href="#strokeWidth" class="anchor">§</a>
     </h4>
 
     
@@ -2756,6 +3253,18 @@ as well as for history (undo/redo) purposes
     <div class="description">
         Width of a stroke used to render this object
     </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Number</span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -2789,7 +3298,7 @@ as well as for history (undo/redo) purposes
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 10266
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10281">line 10281</a>
     </li></ul></dd>
     
     
@@ -2808,8 +3317,8 @@ as well as for history (undo/redo) purposes
             
 <dt>
     <h4 class="name" id="transformMatrix">
-      <span class="type-signature"></span>transformMatrix<span class="type-signature"> :<a href="Array.html">Array</a></span>
-      <a href="#transformMatrix" class="anchor">§</a>
+        <span class="type-signature"></span>transformMatrix<span class="type-signature"> :<a href="Array.html">Array</a></span>
+        <a href="#transformMatrix" class="anchor">§</a>
     </h4>
 
     
@@ -2819,6 +3328,18 @@ as well as for history (undo/redo) purposes
     <div class="description">
         Transform matrix (similar to SVG's transform matrix)
     </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type"><a href="Array.html">Array</a></span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -2849,7 +3370,7 @@ as well as for history (undo/redo) purposes
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 10319
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10334">line 10334</a>
     </li></ul></dd>
     
     
@@ -2868,8 +3389,8 @@ as well as for history (undo/redo) purposes
             
 <dt>
     <h4 class="name" id="transparentCorners">
-      <span class="type-signature"></span>transparentCorners<span class="type-signature"> :Boolean</span>
-      <a href="#transparentCorners" class="anchor">§</a>
+        <span class="type-signature"></span>transparentCorners<span class="type-signature"> :Boolean</span>
+        <a href="#transparentCorners" class="anchor">§</a>
     </h4>
 
     
@@ -2879,6 +3400,18 @@ as well as for history (undo/redo) purposes
     <div class="description">
         When true, object's controlling corners are rendered as transparent inside (i.e. stroke instead of fill)
     </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Boolean</span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -2912,7 +3445,7 @@ as well as for history (undo/redo) purposes
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 10203
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10218">line 10218</a>
     </li></ul></dd>
     
     
@@ -2931,8 +3464,8 @@ as well as for history (undo/redo) purposes
             
 <dt>
     <h4 class="name" id="type">
-      <span class="type-signature"></span>type<span class="type-signature"> :String</span>
-      <a href="#type" class="anchor">§</a>
+        <span class="type-signature"></span>type<span class="type-signature"> :String</span>
+        <a href="#type" class="anchor">§</a>
     </h4>
 
     
@@ -2942,6 +3475,18 @@ as well as for history (undo/redo) purposes
     <div class="description">
         Type of an object
     </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">String</span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -2970,7 +3515,7 @@ as well as for history (undo/redo) purposes
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 14626
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14641">line 14641</a>
     </li></ul></dd>
     
     
@@ -2989,8 +3534,8 @@ as well as for history (undo/redo) purposes
             
 <dt>
     <h4 class="name" id="visible">
-      <span class="type-signature"></span>visible<span class="type-signature"> :Boolean</span>
-      <a href="#visible" class="anchor">§</a>
+        <span class="type-signature"></span>visible<span class="type-signature"> :Boolean</span>
+        <a href="#visible" class="anchor">§</a>
     </h4>
 
     
@@ -3000,6 +3545,18 @@ as well as for history (undo/redo) purposes
     <div class="description">
         When set to `false`, an object is not rendered on canvas
     </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Boolean</span>
+
+
+            </li>
+        </ul>
     
 
     
@@ -3033,7 +3590,7 @@ as well as for history (undo/redo) purposes
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 10340
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10355">line 10355</a>
     </li></ul></dd>
     
     
@@ -3058,8 +3615,8 @@ as well as for history (undo/redo) purposes
             
 <dt>
     <h4 class="name" id="_set">
-      <span class="type-signature"></span>_set<span class="signature">(prop, value)</span><span class="type-signature"> &rarr; {<a href="fabric.PathGroup.html">fabric.PathGroup</a>}</span>
-      <a href="#_set" class="anchor">§</a>
+        <span class="type-signature"></span>_set<span class="signature">(prop, value)</span><span class="type-signature"> &rarr; {<a href="fabric.PathGroup.html">fabric.PathGroup</a>}</span>
+        <a href="#_set" class="anchor">§</a>
     </h4>
 
     
@@ -3172,7 +3729,7 @@ as well as for history (undo/redo) purposes
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 14696
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14711">line 14711</a>
     </li></ul></dd>
     
     
@@ -3183,6 +3740,10 @@ as well as for history (undo/redo) purposes
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -3219,8 +3780,8 @@ as well as for history (undo/redo) purposes
             
 <dt>
     <h4 class="name" id="adjustPosition">
-      <span class="type-signature"></span>adjustPosition<span class="signature">(to)</span><span class="type-signature"></span>
-      <a href="#adjustPosition" class="anchor">§</a>
+        <span class="type-signature"></span>adjustPosition<span class="signature">(to)</span><span class="type-signature"></span>
+        <a href="#adjustPosition" class="anchor">§</a>
     </h4>
 
     
@@ -3311,7 +3872,7 @@ as well as for history (undo/redo) purposes
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 11387
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11402">line 11402</a>
     </li></ul></dd>
     
     
@@ -3330,14 +3891,18 @@ as well as for history (undo/redo) purposes
     
 
     
+
+    
+
+    
 </dd>
 
         
             
 <dt>
     <h4 class="name" id="animate">
-      <span class="type-signature"></span>animate<span class="signature">(property, value)</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span>
-      <a href="#animate" class="anchor">§</a>
+        <span class="type-signature"></span>animate<span class="signature">(property, value)</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span>
+        <a href="#animate" class="anchor">§</a>
     </h4>
 
     
@@ -3461,7 +4026,7 @@ as well as for history (undo/redo) purposes
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 12443
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line12458">line 12458</a>
     </li></ul></dd>
     
     
@@ -3472,6 +4037,10 @@ as well as for history (undo/redo) purposes
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -3508,8 +4077,8 @@ as well as for history (undo/redo) purposes
             
 <dt>
     <h4 class="name" id="bringForward">
-      <span class="type-signature"></span>bringForward<span class="signature">(intersecting)</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span>
-      <a href="#bringForward" class="anchor">§</a>
+        <span class="type-signature"></span>bringForward<span class="signature">(intersecting)</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span>
+        <a href="#bringForward" class="anchor">§</a>
     </h4>
 
     
@@ -3557,13 +4126,18 @@ as well as for history (undo/redo) purposes
             
             <td class="type">
             
+                
+<span class="param-type">Boolean</span>
+
+
+            
             </td>
             
             
             
             
             
-            <td class="description last">{Boolean} If `true`, send object in front of next upper intersecting object</td>
+            <td class="description last">If `true`, send object in front of next upper intersecting object</td>
         </tr>
 	
 	
@@ -3599,7 +4173,7 @@ as well as for history (undo/redo) purposes
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 11176
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11191">line 11191</a>
     </li></ul></dd>
     
     
@@ -3610,6 +4184,10 @@ as well as for history (undo/redo) purposes
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -3646,8 +4224,8 @@ as well as for history (undo/redo) purposes
             
 <dt>
     <h4 class="name" id="bringToFront">
-      <span class="type-signature"></span>bringToFront<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span>
-      <a href="#bringToFront" class="anchor">§</a>
+        <span class="type-signature"></span>bringToFront<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span>
+        <a href="#bringToFront" class="anchor">§</a>
     </h4>
 
     
@@ -3694,7 +4272,7 @@ as well as for history (undo/redo) purposes
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 11144
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11159">line 11159</a>
     </li></ul></dd>
     
     
@@ -3705,6 +4283,10 @@ as well as for history (undo/redo) purposes
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -3741,8 +4323,8 @@ as well as for history (undo/redo) purposes
             
 <dt>
     <h4 class="name" id="center">
-      <span class="type-signature"></span>center<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span>
-      <a href="#center" class="anchor">§</a>
+        <span class="type-signature"></span>center<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span>
+        <a href="#center" class="anchor">§</a>
     </h4>
 
     
@@ -3790,7 +4372,7 @@ You might need to call `setCoords` on an object after centering, to update contr
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 11111
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11126">line 11126</a>
     </li></ul></dd>
     
     
@@ -3801,6 +4383,10 @@ You might need to call `setCoords` on an object after centering, to update contr
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -3837,8 +4423,8 @@ You might need to call `setCoords` on an object after centering, to update contr
             
 <dt>
     <h4 class="name" id="centerH">
-      <span class="type-signature"></span>centerH<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span>
-      <a href="#centerH" class="anchor">§</a>
+        <span class="type-signature"></span>centerH<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span>
+        <a href="#centerH" class="anchor">§</a>
     </h4>
 
     
@@ -3886,7 +4472,7 @@ You might need to call `setCoords` on an object after centering, to update contr
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 11089
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11104">line 11104</a>
     </li></ul></dd>
     
     
@@ -3897,6 +4483,10 @@ You might need to call `setCoords` on an object after centering, to update contr
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -3933,8 +4523,8 @@ You might need to call `setCoords` on an object after centering, to update contr
             
 <dt>
     <h4 class="name" id="centerV">
-      <span class="type-signature"></span>centerV<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span>
-      <a href="#centerV" class="anchor">§</a>
+        <span class="type-signature"></span>centerV<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span>
+        <a href="#centerV" class="anchor">§</a>
     </h4>
 
     
@@ -3982,7 +4572,7 @@ You might need to call `setCoords` on an object after centering, to update contr
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 11100
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11115">line 11115</a>
     </li></ul></dd>
     
     
@@ -3993,6 +4583,10 @@ You might need to call `setCoords` on an object after centering, to update contr
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -4029,8 +4623,8 @@ You might need to call `setCoords` on an object after centering, to update contr
             
 <dt>
     <h4 class="name" id="clone">
-      <span class="type-signature"></span>clone<span class="signature">(callback, <span class="optional">propertiesToInclude</span>)</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span>
-      <a href="#clone" class="anchor">§</a>
+        <span class="type-signature"></span>clone<span class="signature">(callback, <span class="optional">propertiesToInclude</span>)</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span>
+        <a href="#clone" class="anchor">§</a>
     </h4>
 
     
@@ -4092,6 +4686,8 @@ You might need to call `setCoords` on an object after centering, to update contr
                 
                     
                 
+                    
+                
                 </td>
             
             
@@ -4120,6 +4716,8 @@ You might need to call `setCoords` on an object after centering, to update contr
                 <td class="attributes">
                 
                     &lt;optional><br>
+                
+                    
                 
                     
                 
@@ -4164,7 +4762,7 @@ You might need to call `setCoords` on an object after centering, to update contr
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 10925
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10940">line 10940</a>
     </li></ul></dd>
     
     
@@ -4175,6 +4773,10 @@ You might need to call `setCoords` on an object after centering, to update contr
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -4211,8 +4813,8 @@ You might need to call `setCoords` on an object after centering, to update contr
             
 <dt>
     <h4 class="name" id="cloneAsImage">
-      <span class="type-signature"></span>cloneAsImage<span class="signature">(callback)</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span>
-      <a href="#cloneAsImage" class="anchor">§</a>
+        <span class="type-signature"></span>cloneAsImage<span class="signature">(callback)</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span>
+        <a href="#cloneAsImage" class="anchor">§</a>
     </h4>
 
     
@@ -4260,13 +4862,18 @@ You might need to call `setCoords` on an object after centering, to update contr
             
             <td class="type">
             
+                
+<span class="param-type"><a href="Function.html">Function</a></span>
+
+
+            
             </td>
             
             
             
             
             
-            <td class="description last">{Function} callback, invoked with an instance as a first argument</td>
+            <td class="description last">callback, invoked with an instance as a first argument</td>
         </tr>
 	
 	
@@ -4302,7 +4909,7 @@ You might need to call `setCoords` on an object after centering, to update contr
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 10937
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10952">line 10952</a>
     </li></ul></dd>
     
     
@@ -4313,6 +4920,10 @@ You might need to call `setCoords` on an object after centering, to update contr
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -4349,8 +4960,8 @@ You might need to call `setCoords` on an object after centering, to update contr
             
 <dt>
     <h4 class="name" id="complexity">
-      <span class="type-signature"></span>complexity<span class="signature">()</span><span class="type-signature"> &rarr; {Number}</span>
-      <a href="#complexity" class="anchor">§</a>
+        <span class="type-signature"></span>complexity<span class="signature">()</span><span class="type-signature"> &rarr; {Number}</span>
+        <a href="#complexity" class="anchor">§</a>
     </h4>
 
     
@@ -4392,7 +5003,7 @@ You might need to call `setCoords` on an object after centering, to update contr
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 14780
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14795">line 14795</a>
     </li></ul></dd>
     
     
@@ -4403,6 +5014,10 @@ You might need to call `setCoords` on an object after centering, to update contr
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -4439,8 +5054,8 @@ You might need to call `setCoords` on an object after centering, to update contr
             
 <dt>
     <h4 class="name" id="containsPoint">
-      <span class="type-signature"></span>containsPoint<span class="signature">(point)</span><span class="type-signature"> &rarr; {Boolean}</span>
-      <a href="#containsPoint" class="anchor">§</a>
+        <span class="type-signature"></span>containsPoint<span class="signature">(point)</span><span class="type-signature"> &rarr; {Boolean}</span>
+        <a href="#containsPoint" class="anchor">§</a>
     </h4>
 
     
@@ -4535,7 +5150,7 @@ You might need to call `setCoords` on an object after centering, to update contr
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 11544
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11559">line 11559</a>
     </li></ul></dd>
     
     
@@ -4546,6 +5161,10 @@ You might need to call `setCoords` on an object after centering, to update contr
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -4582,8 +5201,8 @@ You might need to call `setCoords` on an object after centering, to update contr
             
 <dt>
     <h4 class="name" id="drawBorders">
-      <span class="type-signature"></span>drawBorders<span class="signature">(ctx)</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span>
-      <a href="#drawBorders" class="anchor">§</a>
+        <span class="type-signature"></span>drawBorders<span class="signature">(ctx)</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span>
+        <a href="#drawBorders" class="anchor">§</a>
     </h4>
 
     
@@ -4680,7 +5299,7 @@ Requires public options: padding, borderColor
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 12148
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line12163">line 12163</a>
     </li></ul></dd>
     
     
@@ -4691,6 +5310,10 @@ Requires public options: padding, borderColor
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -4727,8 +5350,8 @@ Requires public options: padding, borderColor
             
 <dt>
     <h4 class="name" id="drawControls">
-      <span class="type-signature"></span>drawControls<span class="signature">(ctx)</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span>
-      <a href="#drawControls" class="anchor">§</a>
+        <span class="type-signature"></span>drawControls<span class="signature">(ctx)</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span>
+        <a href="#drawControls" class="anchor">§</a>
     </h4>
 
     
@@ -4825,7 +5448,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 12204
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line12219">line 12219</a>
     </li></ul></dd>
     
     
@@ -4836,6 +5459,10 @@ Requires public options: cornerSize, padding
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -4872,8 +5499,8 @@ Requires public options: cornerSize, padding
             
 <dt>
     <h4 class="name" id="fxStraighten">
-      <span class="type-signature"></span>fxStraighten<span class="signature">(callbacks)</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span>
-      <a href="#fxStraighten" class="anchor">§</a>
+        <span class="type-signature"></span>fxStraighten<span class="signature">(callbacks)</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span>
+        <a href="#fxStraighten" class="anchor">§</a>
     </h4>
 
     
@@ -4969,7 +5596,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 15819
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line15833">line 15833</a>
     </li></ul></dd>
     
     
@@ -4980,6 +5607,10 @@ Requires public options: cornerSize, padding
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -5016,8 +5647,8 @@ Requires public options: cornerSize, padding
             
 <dt>
     <h4 class="name" id="get">
-      <span class="type-signature"></span>get<span class="signature">(property)</span><span class="type-signature"> &rarr; {Any}</span>
-      <a href="#get" class="anchor">§</a>
+        <span class="type-signature"></span>get<span class="signature">(property)</span><span class="type-signature"> &rarr; {Any}</span>
+        <a href="#get" class="anchor">§</a>
     </h4>
 
     
@@ -5112,7 +5743,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 10706
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10721">line 10721</a>
     </li></ul></dd>
     
     
@@ -5123,6 +5754,10 @@ Requires public options: cornerSize, padding
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -5159,8 +5794,8 @@ Requires public options: cornerSize, padding
             
 <dt>
     <h4 class="name" id="getBoundingRect">
-      <span class="type-signature"></span>getBoundingRect<span class="signature">()</span><span class="type-signature"> &rarr; {Object}</span>
-      <a href="#getBoundingRect" class="anchor">§</a>
+        <span class="type-signature"></span>getBoundingRect<span class="signature">()</span><span class="type-signature"> &rarr; {Object}</span>
+        <a href="#getBoundingRect" class="anchor">§</a>
     </h4>
 
     
@@ -5207,7 +5842,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 11649
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11664">line 11664</a>
     </li></ul></dd>
     
     
@@ -5218,6 +5853,10 @@ Requires public options: cornerSize, padding
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -5254,8 +5893,8 @@ Requires public options: cornerSize, padding
             
 <dt>
     <h4 class="name" id="getBoundingRectHeight">
-      <span class="type-signature"></span>getBoundingRectHeight<span class="signature">()</span><span class="type-signature"> &rarr; {Number}</span>
-      <a href="#getBoundingRectHeight" class="anchor">§</a>
+        <span class="type-signature"></span>getBoundingRectHeight<span class="signature">()</span><span class="type-signature"> &rarr; {Number}</span>
+        <a href="#getBoundingRectHeight" class="anchor">§</a>
     </h4>
 
     
@@ -5304,7 +5943,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 11641
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11656">line 11656</a>
     </li></ul></dd>
     
     
@@ -5315,6 +5954,10 @@ Requires public options: cornerSize, padding
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -5351,8 +5994,8 @@ Requires public options: cornerSize, padding
             
 <dt>
     <h4 class="name" id="getBoundingRectWidth">
-      <span class="type-signature"></span>getBoundingRectWidth<span class="signature">()</span><span class="type-signature"> &rarr; {Number}</span>
-      <a href="#getBoundingRectWidth" class="anchor">§</a>
+        <span class="type-signature"></span>getBoundingRectWidth<span class="signature">()</span><span class="type-signature"> &rarr; {Number}</span>
+        <a href="#getBoundingRectWidth" class="anchor">§</a>
     </h4>
 
     
@@ -5401,7 +6044,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 11632
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11647">line 11647</a>
     </li></ul></dd>
     
     
@@ -5412,6 +6055,10 @@ Requires public options: cornerSize, padding
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -5448,8 +6095,8 @@ Requires public options: cornerSize, padding
             
 <dt>
     <h4 class="name" id="getCenterPoint">
-      <span class="type-signature"></span>getCenterPoint<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="fabric.Point.html">fabric.Point</a>}</span>
-      <a href="#getCenterPoint" class="anchor">§</a>
+        <span class="type-signature"></span>getCenterPoint<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="fabric.Point.html">fabric.Point</a>}</span>
+        <a href="#getCenterPoint" class="anchor">§</a>
     </h4>
 
     
@@ -5496,7 +6143,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 11296
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11311">line 11311</a>
     </li></ul></dd>
     
     
@@ -5507,6 +6154,10 @@ Requires public options: cornerSize, padding
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -5539,8 +6190,8 @@ Requires public options: cornerSize, padding
             
 <dt>
     <h4 class="name" id="getHeight">
-      <span class="type-signature"></span>getHeight<span class="signature">()</span><span class="type-signature"> &rarr; {Number}</span>
-      <a href="#getHeight" class="anchor">§</a>
+        <span class="type-signature"></span>getHeight<span class="signature">()</span><span class="type-signature"> &rarr; {Number}</span>
+        <a href="#getHeight" class="anchor">§</a>
     </h4>
 
     
@@ -5587,7 +6238,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 11682
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11697">line 11697</a>
     </li></ul></dd>
     
     
@@ -5598,6 +6249,10 @@ Requires public options: cornerSize, padding
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -5634,8 +6289,8 @@ Requires public options: cornerSize, padding
             
 <dt>
     <h4 class="name" id="getObjects">
-      <span class="type-signature"></span>getObjects<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="Array.html">Array</a>}</span>
-      <a href="#getObjects" class="anchor">§</a>
+        <span class="type-signature"></span>getObjects<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="Array.html">Array</a>}</span>
+        <a href="#getObjects" class="anchor">§</a>
     </h4>
 
     
@@ -5677,7 +6332,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 14802
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14817">line 14817</a>
     </li></ul></dd>
     
     
@@ -5688,6 +6343,10 @@ Requires public options: cornerSize, padding
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -5724,8 +6383,8 @@ Requires public options: cornerSize, padding
             
 <dt>
     <h4 class="name" id="getSvgStyles">
-      <span class="type-signature"></span>getSvgStyles<span class="signature">()</span><span class="type-signature"> &rarr; {String}</span>
-      <a href="#getSvgStyles" class="anchor">§</a>
+        <span class="type-signature"></span>getSvgStyles<span class="signature">()</span><span class="type-signature"> &rarr; {String}</span>
+        <a href="#getSvgStyles" class="anchor">§</a>
     </h4>
 
     
@@ -5772,7 +6431,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 10593
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10608">line 10608</a>
     </li></ul></dd>
     
     
@@ -5783,6 +6442,10 @@ Requires public options: cornerSize, padding
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -5815,8 +6478,8 @@ Requires public options: cornerSize, padding
             
 <dt>
     <h4 class="name" id="getSvgTransform">
-      <span class="type-signature"></span>getSvgTransform<span class="signature">()</span><span class="type-signature"> &rarr; {String}</span>
-      <a href="#getSvgTransform" class="anchor">§</a>
+        <span class="type-signature"></span>getSvgTransform<span class="signature">()</span><span class="type-signature"> &rarr; {String}</span>
+        <a href="#getSvgTransform" class="anchor">§</a>
     </h4>
 
     
@@ -5863,7 +6526,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 10631
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10646">line 10646</a>
     </li></ul></dd>
     
     
@@ -5874,6 +6537,10 @@ Requires public options: cornerSize, padding
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -5906,8 +6573,8 @@ Requires public options: cornerSize, padding
             
 <dt>
     <h4 class="name" id="getWidth">
-      <span class="type-signature"></span>getWidth<span class="signature">()</span><span class="type-signature"> &rarr; {Number}</span>
-      <a href="#getWidth" class="anchor">§</a>
+        <span class="type-signature"></span>getWidth<span class="signature">()</span><span class="type-signature"> &rarr; {Number}</span>
+        <a href="#getWidth" class="anchor">§</a>
     </h4>
 
     
@@ -5954,7 +6621,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 11674
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11689">line 11689</a>
     </li></ul></dd>
     
     
@@ -5965,6 +6632,10 @@ Requires public options: cornerSize, padding
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -6001,8 +6672,8 @@ Requires public options: cornerSize, padding
             
 <dt>
     <h4 class="name" id="hasStateChanged">
-      <span class="type-signature"></span>hasStateChanged<span class="signature">()</span><span class="type-signature"> &rarr; {Boolean}</span>
-      <a href="#hasStateChanged" class="anchor">§</a>
+        <span class="type-signature"></span>hasStateChanged<span class="signature">()</span><span class="type-signature"> &rarr; {Boolean}</span>
+        <a href="#hasStateChanged" class="anchor">§</a>
     </h4>
 
     
@@ -6049,7 +6720,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 11858
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11873">line 11873</a>
     </li></ul></dd>
     
     
@@ -6060,6 +6731,10 @@ Requires public options: cornerSize, padding
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -6096,8 +6771,8 @@ Requires public options: cornerSize, padding
             
 <dt>
     <h4 class="name" id="initialize">
-      <span class="type-signature"></span>initialize<span class="signature">(paths, <span class="optional">options</span>)</span><span class="type-signature"> &rarr; {<a href="fabric.PathGroup.html">fabric.PathGroup</a>}</span>
-      <a href="#initialize" class="anchor">§</a>
+        <span class="type-signature"></span>initialize<span class="signature">(paths, <span class="optional">options</span>)</span><span class="type-signature"> &rarr; {<a href="fabric.PathGroup.html">fabric.PathGroup</a>}</span>
+        <a href="#initialize" class="anchor">§</a>
     </h4>
 
     
@@ -6159,6 +6834,8 @@ Requires public options: cornerSize, padding
                 
                     
                 
+                    
+                
                 </td>
             
             
@@ -6187,6 +6864,8 @@ Requires public options: cornerSize, padding
                 <td class="attributes">
                 
                     &lt;optional><br>
+                
+                    
                 
                     
                 
@@ -6226,7 +6905,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 14641
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14656">line 14656</a>
     </li></ul></dd>
     
     
@@ -6237,6 +6916,10 @@ Requires public options: cornerSize, padding
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -6273,8 +6956,8 @@ Requires public options: cornerSize, padding
             
 <dt>
     <h4 class="name" id="intersectsWithObject">
-      <span class="type-signature"></span>intersectsWithObject<span class="signature">(other)</span><span class="type-signature"> &rarr; {Boolean}</span>
-      <a href="#intersectsWithObject" class="anchor">§</a>
+        <span class="type-signature"></span>intersectsWithObject<span class="signature">(other)</span><span class="type-signature"> &rarr; {Boolean}</span>
+        <a href="#intersectsWithObject" class="anchor">§</a>
     </h4>
 
     
@@ -6369,7 +7052,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 11488
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11503">line 11503</a>
     </li></ul></dd>
     
     
@@ -6380,6 +7063,10 @@ Requires public options: cornerSize, padding
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -6416,8 +7103,8 @@ Requires public options: cornerSize, padding
             
 <dt>
     <h4 class="name" id="intersectsWithRect">
-      <span class="type-signature"></span>intersectsWithRect<span class="signature">(pointTL, pointBR)</span><span class="type-signature"> &rarr; {Boolean}</span>
-      <a href="#intersectsWithRect" class="anchor">§</a>
+        <span class="type-signature"></span>intersectsWithRect<span class="signature">(pointTL, pointBR)</span><span class="type-signature"> &rarr; {Boolean}</span>
+        <a href="#intersectsWithRect" class="anchor">§</a>
     </h4>
 
     
@@ -6535,7 +7222,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 11468
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11483">line 11483</a>
     </li></ul></dd>
     
     
@@ -6546,6 +7233,10 @@ Requires public options: cornerSize, padding
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -6582,8 +7273,8 @@ Requires public options: cornerSize, padding
             
 <dt>
     <h4 class="name" id="isContainedWithinObject">
-      <span class="type-signature"></span>isContainedWithinObject<span class="signature">(other)</span><span class="type-signature"> &rarr; {Boolean}</span>
-      <a href="#isContainedWithinObject" class="anchor">§</a>
+        <span class="type-signature"></span>isContainedWithinObject<span class="signature">(other)</span><span class="type-signature"> &rarr; {Boolean}</span>
+        <a href="#isContainedWithinObject" class="anchor">§</a>
     </h4>
 
     
@@ -6678,7 +7369,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 11514
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11529">line 11529</a>
     </li></ul></dd>
     
     
@@ -6689,6 +7380,10 @@ Requires public options: cornerSize, padding
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -6725,8 +7420,8 @@ Requires public options: cornerSize, padding
             
 <dt>
     <h4 class="name" id="isContainedWithinRect">
-      <span class="type-signature"></span>isContainedWithinRect<span class="signature">(pointTL, pointBR)</span><span class="type-signature"> &rarr; {Boolean}</span>
-      <a href="#isContainedWithinRect" class="anchor">§</a>
+        <span class="type-signature"></span>isContainedWithinRect<span class="signature">(pointTL, pointBR)</span><span class="type-signature"> &rarr; {Boolean}</span>
+        <a href="#isContainedWithinRect" class="anchor">§</a>
     </h4>
 
     
@@ -6844,7 +7539,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 11528
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11543">line 11543</a>
     </li></ul></dd>
     
     
@@ -6855,6 +7550,10 @@ Requires public options: cornerSize, padding
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -6891,8 +7590,8 @@ Requires public options: cornerSize, padding
             
 <dt>
     <h4 class="name" id="isSameColor">
-      <span class="type-signature"></span>isSameColor<span class="signature">()</span><span class="type-signature"> &rarr; {Boolean}</span>
-      <a href="#isSameColor" class="anchor">§</a>
+        <span class="type-signature"></span>isSameColor<span class="signature">()</span><span class="type-signature"> &rarr; {Boolean}</span>
+        <a href="#isSameColor" class="anchor">§</a>
     </h4>
 
     
@@ -6934,7 +7633,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 14769
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14784">line 14784</a>
     </li></ul></dd>
     
     
@@ -6945,6 +7644,10 @@ Requires public options: cornerSize, padding
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -6981,8 +7684,8 @@ Requires public options: cornerSize, padding
             
 <dt>
     <h4 class="name" id="isType">
-      <span class="type-signature"></span>isType<span class="signature">(type)</span><span class="type-signature"> &rarr; {Boolean}</span>
-      <a href="#isType" class="anchor">§</a>
+        <span class="type-signature"></span>isType<span class="signature">(type)</span><span class="type-signature"> &rarr; {Boolean}</span>
+        <a href="#isType" class="anchor">§</a>
     </h4>
 
     
@@ -7030,13 +7733,18 @@ Requires public options: cornerSize, padding
             
             <td class="type">
             
+                
+<span class="param-type">String</span>
+
+
+            
             </td>
             
             
             
             
             
-            <td class="description last">{String} type to check against</td>
+            <td class="description last">type to check against</td>
         </tr>
 	
 	
@@ -7072,7 +7780,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 10999
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11014">line 11014</a>
     </li></ul></dd>
     
     
@@ -7083,6 +7791,10 @@ Requires public options: cornerSize, padding
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -7115,8 +7827,8 @@ Requires public options: cornerSize, padding
             
 <dt>
     <h4 class="name" id="moveTo">
-      <span class="type-signature"></span>moveTo<span class="signature">(index)</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span>
-      <a href="#moveTo" class="anchor">§</a>
+        <span class="type-signature"></span>moveTo<span class="signature">(index)</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span>
+        <a href="#moveTo" class="anchor">§</a>
     </h4>
 
     
@@ -7211,7 +7923,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 11192
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11207">line 11207</a>
     </li></ul></dd>
     
     
@@ -7222,6 +7934,10 @@ Requires public options: cornerSize, padding
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -7258,8 +7974,8 @@ Requires public options: cornerSize, padding
             
 <dt>
     <h4 class="name" id="remove">
-      <span class="type-signature"></span>remove<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span>
-      <a href="#remove" class="anchor">§</a>
+        <span class="type-signature"></span>remove<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span>
+        <a href="#remove" class="anchor">§</a>
     </h4>
 
     
@@ -7306,7 +8022,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 11120
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11135">line 11135</a>
     </li></ul></dd>
     
     
@@ -7317,6 +8033,10 @@ Requires public options: cornerSize, padding
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -7353,8 +8073,8 @@ Requires public options: cornerSize, padding
             
 <dt>
     <h4 class="name" id="render">
-      <span class="type-signature"></span>render<span class="signature">(ctx)</span><span class="type-signature"></span>
-      <a href="#render" class="anchor">§</a>
+        <span class="type-signature"></span>render<span class="signature">(ctx)</span><span class="type-signature"></span>
+        <a href="#render" class="anchor">§</a>
     </h4>
 
     
@@ -7444,7 +8164,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 14662
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14677">line 14677</a>
     </li></ul></dd>
     
     
@@ -7463,14 +8183,18 @@ Requires public options: cornerSize, padding
     
 
     
+
+    
+
+    
 </dd>
 
         
             
 <dt>
     <h4 class="name" id="saveState">
-      <span class="type-signature"></span>saveState<span class="signature">(<span class="optional">options</span>)</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span>
-      <a href="#saveState" class="anchor">§</a>
+        <span class="type-signature"></span>saveState<span class="signature">(<span class="optional">options</span>)</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span>
+        <a href="#saveState" class="anchor">§</a>
     </h4>
 
     
@@ -7534,6 +8258,8 @@ Requires public options: cornerSize, padding
                 
                     
                 
+                    
+                
                 </td>
             
             
@@ -7575,7 +8301,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 11869
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11884">line 11884</a>
     </li></ul></dd>
     
     
@@ -7586,6 +8312,10 @@ Requires public options: cornerSize, padding
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -7622,8 +8352,8 @@ Requires public options: cornerSize, padding
             
 <dt>
     <h4 class="name" id="scale">
-      <span class="type-signature"></span>scale<span class="signature">(value)</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span>
-      <a href="#scale" class="anchor">§</a>
+        <span class="type-signature"></span>scale<span class="signature">(value)</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span>
+        <a href="#scale" class="anchor">§</a>
     </h4>
 
     
@@ -7671,13 +8401,18 @@ Requires public options: cornerSize, padding
             
             <td class="type">
             
+                
+<span class="param-type">Number</span>
+
+
+            
             </td>
             
             
             
             
             
-            <td class="description last">{Number} scale factor</td>
+            <td class="description last">scale factor</td>
         </tr>
 	
 	
@@ -7713,7 +8448,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 11709
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11724">line 11724</a>
     </li></ul></dd>
     
     
@@ -7724,6 +8459,10 @@ Requires public options: cornerSize, padding
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -7760,8 +8499,8 @@ Requires public options: cornerSize, padding
             
 <dt>
     <h4 class="name" id="scaleToHeight">
-      <span class="type-signature"></span>scaleToHeight<span class="signature">(value)</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span>
-      <a href="#scaleToHeight" class="anchor">§</a>
+        <span class="type-signature"></span>scaleToHeight<span class="signature">(value)</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span>
+        <a href="#scaleToHeight" class="anchor">§</a>
     </h4>
 
     
@@ -7809,13 +8548,18 @@ Requires public options: cornerSize, padding
             
             <td class="type">
             
+                
+<span class="param-type">Number</span>
+
+
+            
             </td>
             
             
             
             
             
-            <td class="description last">{Number} new height value</td>
+            <td class="description last">new height value</td>
         </tr>
 	
 	
@@ -7851,7 +8595,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 11742
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11757">line 11757</a>
     </li></ul></dd>
     
     
@@ -7862,6 +8606,10 @@ Requires public options: cornerSize, padding
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -7898,8 +8646,8 @@ Requires public options: cornerSize, padding
             
 <dt>
     <h4 class="name" id="scaleToWidth">
-      <span class="type-signature"></span>scaleToWidth<span class="signature">(value)</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span>
-      <a href="#scaleToWidth" class="anchor">§</a>
+        <span class="type-signature"></span>scaleToWidth<span class="signature">(value)</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span>
+        <a href="#scaleToWidth" class="anchor">§</a>
     </h4>
 
     
@@ -7947,13 +8695,18 @@ Requires public options: cornerSize, padding
             
             <td class="type">
             
+                
+<span class="param-type">Number</span>
+
+
+            
             </td>
             
             
             
             
             
-            <td class="description last">{Number} new width value</td>
+            <td class="description last">new width value</td>
         </tr>
 	
 	
@@ -7989,7 +8742,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 11730
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11745">line 11745</a>
     </li></ul></dd>
     
     
@@ -8000,6 +8753,10 @@ Requires public options: cornerSize, padding
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -8036,8 +8793,8 @@ Requires public options: cornerSize, padding
             
 <dt>
     <h4 class="name" id="sendBackwards">
-      <span class="type-signature"></span>sendBackwards<span class="signature">(intersecting)</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span>
-      <a href="#sendBackwards" class="anchor">§</a>
+        <span class="type-signature"></span>sendBackwards<span class="signature">(intersecting)</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span>
+        <a href="#sendBackwards" class="anchor">§</a>
     </h4>
 
     
@@ -8085,13 +8842,18 @@ Requires public options: cornerSize, padding
             
             <td class="type">
             
+                
+<span class="param-type">Boolean</span>
+
+
+            
             </td>
             
             
             
             
             
-            <td class="description last">{Boolean} If `true`, send object behind next lower intersecting object</td>
+            <td class="description last">If `true`, send object behind next lower intersecting object</td>
         </tr>
 	
 	
@@ -8127,7 +8889,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 11160
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11175">line 11175</a>
     </li></ul></dd>
     
     
@@ -8138,6 +8900,10 @@ Requires public options: cornerSize, padding
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -8174,8 +8940,8 @@ Requires public options: cornerSize, padding
             
 <dt>
     <h4 class="name" id="sendToBack">
-      <span class="type-signature"></span>sendToBack<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span>
-      <a href="#sendToBack" class="anchor">§</a>
+        <span class="type-signature"></span>sendToBack<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span>
+        <a href="#sendToBack" class="anchor">§</a>
     </h4>
 
     
@@ -8222,7 +8988,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 11129
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11144">line 11144</a>
     </li></ul></dd>
     
     
@@ -8233,6 +8999,10 @@ Requires public options: cornerSize, padding
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -8269,8 +9039,8 @@ Requires public options: cornerSize, padding
             
 <dt>
     <h4 class="name" id="set">
-      <span class="type-signature"></span>set<span class="signature">(key, value)</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span>
-      <a href="#set" class="anchor">§</a>
+        <span class="type-signature"></span>set<span class="signature">(key, value)</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span>
+        <a href="#set" class="anchor">§</a>
     </h4>
 
     
@@ -8394,7 +9164,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 10717
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10732">line 10732</a>
     </li></ul></dd>
     
     
@@ -8405,6 +9175,10 @@ Requires public options: cornerSize, padding
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -8441,8 +9215,8 @@ Requires public options: cornerSize, padding
             
 <dt>
     <h4 class="name" id="setCoords">
-      <span class="type-signature"></span>setCoords<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span>
-      <a href="#setCoords" class="anchor">§</a>
+        <span class="type-signature"></span>setCoords<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span>
+        <a href="#setCoords" class="anchor">§</a>
     </h4>
 
     
@@ -8489,7 +9263,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 11753
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11768">line 11768</a>
     </li></ul></dd>
     
     
@@ -8500,6 +9274,10 @@ Requires public options: cornerSize, padding
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -8536,8 +9314,8 @@ Requires public options: cornerSize, padding
             
 <dt>
     <h4 class="name" id="setGradient">
-      <span class="type-signature"></span>setGradient<span class="signature">(property, <span class="optional">options</span>)</span><span class="type-signature"></span>
-      <a href="#setGradient" class="anchor">§</a>
+        <span class="type-signature"></span>setGradient<span class="signature">(property, <span class="optional">options</span>)</span><span class="type-signature"></span>
+        <a href="#setGradient" class="anchor">§</a>
     </h4>
 
     
@@ -8599,6 +9377,8 @@ Requires public options: cornerSize, padding
                 
                     
                 
+                    
+                
                 </td>
             
             
@@ -8627,6 +9407,8 @@ Requires public options: cornerSize, padding
                 <td class="attributes">
                 
                     &lt;optional><br>
+                
+                    
                 
                     
                 
@@ -8671,7 +9453,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 11038
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11053">line 11053</a>
     </li></ul></dd>
     
     
@@ -8690,14 +9472,18 @@ Requires public options: cornerSize, padding
     
 
     
+
+    
+
+    
 </dd>
 
         
             
 <dt>
     <h4 class="name" id="setOptions">
-      <span class="type-signature"></span>setOptions<span class="signature">(<span class="optional">options</span>)</span><span class="type-signature"></span>
-      <a href="#setOptions" class="anchor">§</a>
+        <span class="type-signature"></span>setOptions<span class="signature">(<span class="optional">options</span>)</span><span class="type-signature"></span>
+        <a href="#setOptions" class="anchor">§</a>
     </h4>
 
     
@@ -8761,6 +9547,8 @@ Requires public options: cornerSize, padding
                 
                     
                 
+                    
+                
                 </td>
             
             
@@ -8802,7 +9590,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 10501
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10516">line 10516</a>
     </li></ul></dd>
     
     
@@ -8821,14 +9609,18 @@ Requires public options: cornerSize, padding
     
 
     
+
+    
+
+    
 </dd>
 
         
             
 <dt>
     <h4 class="name" id="setPatternFill">
-      <span class="type-signature"></span>setPatternFill<span class="signature">(<span class="optional">options</span>)</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span>
-      <a href="#setPatternFill" class="anchor">§</a>
+        <span class="type-signature"></span>setPatternFill<span class="signature">(<span class="optional">options</span>)</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span>
+        <a href="#setPatternFill" class="anchor">§</a>
     </h4>
 
     
@@ -8892,6 +9684,8 @@ Requires public options: cornerSize, padding
                 
                     
                 
+                    
+                
                 </td>
             
             
@@ -8933,7 +9727,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 11070
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11085">line 11085</a>
     </li></ul></dd>
     
     
@@ -8944,6 +9738,10 @@ Requires public options: cornerSize, padding
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -8980,8 +9778,8 @@ Requires public options: cornerSize, padding
             
 <dt>
     <h4 class="name" id="setPositionByOrigin">
-      <span class="type-signature"></span>setPositionByOrigin<span class="signature">(point, enum('left',, enum('top',)</span><span class="type-signature"> &rarr; {void}</span>
-      <a href="#setPositionByOrigin" class="anchor">§</a>
+        <span class="type-signature"></span>setPositionByOrigin<span class="signature">(point, enum('left',, enum('top',)</span><span class="type-signature"> &rarr; {void}</span>
+        <a href="#setPositionByOrigin" class="anchor">§</a>
     </h4>
 
     
@@ -9122,7 +9920,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 11376
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11391">line 11391</a>
     </li></ul></dd>
     
     
@@ -9133,6 +9931,10 @@ Requires public options: cornerSize, padding
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -9165,8 +9967,8 @@ Requires public options: cornerSize, padding
             
 <dt>
     <h4 class="name" id="setShadow">
-      <span class="type-signature"></span>setShadow<span class="signature">(<span class="optional">options</span>)</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span>
-      <a href="#setShadow" class="anchor">§</a>
+        <span class="type-signature"></span>setShadow<span class="signature">(<span class="optional">options</span>)</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span>
+        <a href="#setShadow" class="anchor">§</a>
     </h4>
 
     
@@ -9230,6 +10032,8 @@ Requires public options: cornerSize, padding
                 
                     
                 
+                    
+                
                 </td>
             
             
@@ -9271,7 +10075,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 11080
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11095">line 11095</a>
     </li></ul></dd>
     
     
@@ -9282,6 +10086,10 @@ Requires public options: cornerSize, padding
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -9318,8 +10126,8 @@ Requires public options: cornerSize, padding
             
 <dt>
     <h4 class="name" id="setSourcePath">
-      <span class="type-signature"></span>setSourcePath<span class="signature">(value)</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span>
-      <a href="#setSourcePath" class="anchor">§</a>
+        <span class="type-signature"></span>setSourcePath<span class="signature">(value)</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span>
+        <a href="#setSourcePath" class="anchor">§</a>
     </h4>
 
     
@@ -9414,7 +10222,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 10783
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10798">line 10798</a>
     </li></ul></dd>
     
     
@@ -9425,6 +10233,10 @@ Requires public options: cornerSize, padding
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -9461,8 +10273,8 @@ Requires public options: cornerSize, padding
             
 <dt>
     <h4 class="name" id="setupState">
-      <span class="type-signature"></span>setupState<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span>
-      <a href="#setupState" class="anchor">§</a>
+        <span class="type-signature"></span>setupState<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span>
+        <a href="#setupState" class="anchor">§</a>
     </h4>
 
     
@@ -9509,7 +10321,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 11887
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11902">line 11902</a>
     </li></ul></dd>
     
     
@@ -9520,6 +10332,10 @@ Requires public options: cornerSize, padding
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -9556,8 +10372,8 @@ Requires public options: cornerSize, padding
             
 <dt>
     <h4 class="name" id="straighten">
-      <span class="type-signature"></span>straighten<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span>
-      <a href="#straighten" class="anchor">§</a>
+        <span class="type-signature"></span>straighten<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span>
+        <a href="#straighten" class="anchor">§</a>
     </h4>
 
     
@@ -9604,7 +10420,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 15805
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line15819">line 15819</a>
     </li></ul></dd>
     
     
@@ -9615,6 +10431,10 @@ Requires public options: cornerSize, padding
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -9651,8 +10471,8 @@ Requires public options: cornerSize, padding
             
 <dt>
     <h4 class="name" id="toDatalessObject">
-      <span class="type-signature"></span>toDatalessObject<span class="signature">(<span class="optional">propertiesToInclude</span>)</span><span class="type-signature"> &rarr; {Object}</span>
-      <a href="#toDatalessObject" class="anchor">§</a>
+        <span class="type-signature"></span>toDatalessObject<span class="signature">(<span class="optional">propertiesToInclude</span>)</span><span class="type-signature"> &rarr; {Object}</span>
+        <a href="#toDatalessObject" class="anchor">§</a>
     </h4>
 
     
@@ -9716,6 +10536,8 @@ Requires public options: cornerSize, padding
                 
                     
                 
+                    
+                
                 </td>
             
             
@@ -9752,7 +10574,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 14725
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14740">line 14740</a>
     </li></ul></dd>
     
     
@@ -9763,6 +10585,10 @@ Requires public options: cornerSize, padding
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -9799,8 +10625,8 @@ Requires public options: cornerSize, padding
             
 <dt>
     <h4 class="name" id="toDataURL">
-      <span class="type-signature"></span>toDataURL<span class="signature">(options)</span><span class="type-signature"> &rarr; {String}</span>
-      <a href="#toDataURL" class="anchor">§</a>
+        <span class="type-signature"></span>toDataURL<span class="signature">(options)</span><span class="type-signature"> &rarr; {String}</span>
+        <a href="#toDataURL" class="anchor">§</a>
     </h4>
 
     
@@ -9899,7 +10725,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 10957
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10972">line 10972</a>
     </li></ul></dd>
     
     
@@ -9910,6 +10736,10 @@ Requires public options: cornerSize, padding
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -9946,8 +10776,8 @@ Requires public options: cornerSize, padding
             
 <dt>
     <h4 class="name" id="toggle">
-      <span class="type-signature"></span>toggle<span class="signature">(property)</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span>
-      <a href="#toggle" class="anchor">§</a>
+        <span class="type-signature"></span>toggle<span class="signature">(property)</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span>
+        <a href="#toggle" class="anchor">§</a>
     </h4>
 
     
@@ -10042,7 +10872,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 10769
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10784">line 10784</a>
     </li></ul></dd>
     
     
@@ -10053,6 +10883,10 @@ Requires public options: cornerSize, padding
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -10089,8 +10923,8 @@ Requires public options: cornerSize, padding
             
 <dt>
     <h4 class="name" id="toGrayscale">
-      <span class="type-signature"></span>toGrayscale<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="fabric.PathGroup.html">fabric.PathGroup</a>}</span>
-      <a href="#toGrayscale" class="anchor">§</a>
+        <span class="type-signature"></span>toGrayscale<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="fabric.PathGroup.html">fabric.PathGroup</a>}</span>
+        <a href="#toGrayscale" class="anchor">§</a>
     </h4>
 
     
@@ -10132,7 +10966,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 14790
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14805">line 14805</a>
     </li></ul></dd>
     
     
@@ -10143,6 +10977,10 @@ Requires public options: cornerSize, padding
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -10179,8 +11017,8 @@ Requires public options: cornerSize, padding
             
 <dt>
     <h4 class="name" id="toJSON">
-      <span class="type-signature"></span>toJSON<span class="signature">(<span class="optional">propertiesToInclude</span>)</span><span class="type-signature"> &rarr; {Object}</span>
-      <a href="#toJSON" class="anchor">§</a>
+        <span class="type-signature"></span>toJSON<span class="signature">(<span class="optional">propertiesToInclude</span>)</span><span class="type-signature"> &rarr; {Object}</span>
+        <a href="#toJSON" class="anchor">§</a>
     </h4>
 
     
@@ -10244,6 +11082,8 @@ Requires public options: cornerSize, padding
                 
                     
                 
+                    
+                
                 </td>
             
             
@@ -10285,7 +11125,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 11028
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11043">line 11043</a>
     </li></ul></dd>
     
     
@@ -10296,6 +11136,10 @@ Requires public options: cornerSize, padding
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -10332,8 +11176,8 @@ Requires public options: cornerSize, padding
             
 <dt>
     <h4 class="name" id="toLocalPoint">
-      <span class="type-signature"></span>toLocalPoint<span class="signature">(The)</span><span class="type-signature"> &rarr; {<a href="fabric.Point.html">fabric.Point</a>}</span>
-      <a href="#toLocalPoint" class="anchor">§</a>
+        <span class="type-signature"></span>toLocalPoint<span class="signature">(The)</span><span class="type-signature"> &rarr; {<a href="fabric.Point.html">fabric.Point</a>}</span>
+        <a href="#toLocalPoint" class="anchor">§</a>
     </h4>
 
     
@@ -10428,7 +11272,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 11327
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11342">line 11342</a>
     </li></ul></dd>
     
     
@@ -10439,6 +11283,10 @@ Requires public options: cornerSize, padding
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -10471,8 +11319,8 @@ Requires public options: cornerSize, padding
             
 <dt>
     <h4 class="name" id="toObject">
-      <span class="type-signature"></span>toObject<span class="signature">(<span class="optional">propertiesToInclude</span>)</span><span class="type-signature"> &rarr; {Object}</span>
-      <a href="#toObject" class="anchor">§</a>
+        <span class="type-signature"></span>toObject<span class="signature">(<span class="optional">propertiesToInclude</span>)</span><span class="type-signature"> &rarr; {Object}</span>
+        <a href="#toObject" class="anchor">§</a>
     </h4>
 
     
@@ -10536,6 +11384,8 @@ Requires public options: cornerSize, padding
                 
                     
                 
+                    
+                
                 </td>
             
             
@@ -10572,7 +11422,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 14713
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14728">line 14728</a>
     </li></ul></dd>
     
     
@@ -10583,6 +11433,10 @@ Requires public options: cornerSize, padding
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -10619,8 +11473,8 @@ Requires public options: cornerSize, padding
             
 <dt>
     <h4 class="name" id="toString">
-      <span class="type-signature"></span>toString<span class="signature">()</span><span class="type-signature"> &rarr; {String}</span>
-      <a href="#toString" class="anchor">§</a>
+        <span class="type-signature"></span>toString<span class="signature">()</span><span class="type-signature"> &rarr; {String}</span>
+        <a href="#toString" class="anchor">§</a>
     </h4>
 
     
@@ -10662,7 +11516,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 14760
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14775">line 14775</a>
     </li></ul></dd>
     
     
@@ -10673,6 +11527,10 @@ Requires public options: cornerSize, padding
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -10709,8 +11567,8 @@ Requires public options: cornerSize, padding
             
 <dt>
     <h4 class="name" id="toSVG">
-      <span class="type-signature"></span>toSVG<span class="signature">()</span><span class="type-signature"> &rarr; {String}</span>
-      <a href="#toSVG" class="anchor">§</a>
+        <span class="type-signature"></span>toSVG<span class="signature">()</span><span class="type-signature"> &rarr; {String}</span>
+        <a href="#toSVG" class="anchor">§</a>
     </h4>
 
     
@@ -10752,7 +11610,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 14738
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14753">line 14753</a>
     </li></ul></dd>
     
     
@@ -10763,6 +11621,10 @@ Requires public options: cornerSize, padding
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -10799,8 +11661,8 @@ Requires public options: cornerSize, padding
             
 <dt>
     <h4 class="name" id="transform">
-      <span class="type-signature"></span>transform<span class="signature">(ctx, fromLeft)</span><span class="type-signature"></span>
-      <a href="#transform" class="anchor">§</a>
+        <span class="type-signature"></span>transform<span class="signature">(ctx, fromLeft)</span><span class="type-signature"></span>
+        <a href="#transform" class="anchor">§</a>
     </h4>
 
     
@@ -10918,7 +11780,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 10516
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10531">line 10531</a>
     </li></ul></dd>
     
     
@@ -10937,14 +11799,18 @@ Requires public options: cornerSize, padding
     
 
     
+
+    
+
+    
 </dd>
 
         
             
 <dt>
     <h4 class="name" id="translateToCenterPoint">
-      <span class="type-signature"></span>translateToCenterPoint<span class="signature">(point, enum('left',, enum('top',)</span><span class="type-signature"> &rarr; {<a href="fabric.Point.html">fabric.Point</a>}</span>
-      <a href="#translateToCenterPoint" class="anchor">§</a>
+        <span class="type-signature"></span>translateToCenterPoint<span class="signature">(point, enum('left',, enum('top',)</span><span class="type-signature"> &rarr; {<a href="fabric.Point.html">fabric.Point</a>}</span>
+        <a href="#translateToCenterPoint" class="anchor">§</a>
     </h4>
 
     
@@ -11085,7 +11951,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 11243
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11258">line 11258</a>
     </li></ul></dd>
     
     
@@ -11096,6 +11962,10 @@ Requires public options: cornerSize, padding
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -11128,8 +11998,8 @@ Requires public options: cornerSize, padding
             
 <dt>
     <h4 class="name" id="translateToOriginPoint">
-      <span class="type-signature"></span>translateToOriginPoint<span class="signature">(point, enum('left',, enum('top',)</span><span class="type-signature"> &rarr; {<a href="fabric.Point.html">fabric.Point</a>}</span>
-      <a href="#translateToOriginPoint" class="anchor">§</a>
+        <span class="type-signature"></span>translateToOriginPoint<span class="signature">(point, enum('left',, enum('top',)</span><span class="type-signature"> &rarr; {<a href="fabric.Point.html">fabric.Point</a>}</span>
+        <a href="#translateToOriginPoint" class="anchor">§</a>
     </h4>
 
     
@@ -11270,7 +12140,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, line 11271
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11286">line 11286</a>
     </li></ul></dd>
     
     
@@ -11281,6 +12151,10 @@ Requires public options: cornerSize, padding
     
 </dl>
 
+
+    
+
+    
 
     
 
@@ -11331,9 +12205,10 @@ Requires public options: cornerSize, padding
 <br clear="both">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.1.1</a> on Sun Aug 11 2013 23:16:56 GMT+0200 (CEST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0</a> on Sun Aug 11 2013 23:42:27 GMT+0200 (CEST)
 </footer>
 
-<script> prettyPrint(); </script>
+<script> /*prettyPrint();*/ </script>
+<script src="scripts/linenumber.js"> </script>
 </body>
 </html>

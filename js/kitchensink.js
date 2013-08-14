@@ -189,7 +189,7 @@
     }
   };
   document.getElementById('rasterize-svg').onclick = function() {
-    window.open('data:image/svg+xml;utf8,' + canvas.toSVG());
+    window.open('data:image/svg+xml;utf8,' + encodeURIComponent(canvas.toSVG()));
   };
   document.getElementById('rasterize-json').onclick = function() {
     alert(JSON.stringify(canvas));
@@ -638,10 +638,6 @@
     });
     canvas.add(textSample);
     updateComplexity();
-  };
-
-  document.onkeyup = function(e) {
-    canvas.renderAll();
   };
 
   setTimeout(function() {

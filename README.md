@@ -53,3 +53,11 @@ Here's a hierarchy of Fabric's **object model**, to make it easier:
     - [fabric.util.array](/docs/fabric.util.array.html)
     - [fabric.util.string](/docs/fabric.util.string.html)
     - [fabric.util.string](/docs/fabric.util.ease.html)
+
+#### Fabric freedrawing brushes
+
+- [fabric.BaseBrush](/docs/fabric.BaseBrush.html)
+    - [fabric.PencilBrush](/docs/fabric.PencilBrush.html)
+    - [fabric.CircleBrush](/docs/fabric.CircleBrush.html)
+    - [fabric.SprayBrush](/docs/fabric.SprayBrush.html)
+    - [fabric.PatternBrush](/docs/fabric.PatternBrush.html)

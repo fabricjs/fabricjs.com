@@ -7,15 +7,21 @@
   <li><a href="http://fabricjs.com/benchmarks">Benchmarks</a></li>
   <li><a href="http://fabricjs.com/build">Build</a></li>
   <li class="secondary">
-    <a href="http://travis-ci.org/#!/kangax/fabric.js"><img src="https://secure.travis-ci.org/kangax/fabric.js.png?branch=master"></a>
+    <a href="http://travis-ci.org/#!/kangax/fabric.js">
+      <img src="https://api.travis-ci.org/kangax/fabric.js.png?branch=master">
+    </a>
   </li>
   <li class="gittip secondary">
-    <iframe style="border: 0; margin: 0; padding: 0;" src="https://www.gittip.com/kangax/widget.html" width="48pt" height="22pt"></iframe>
+    <iframe style="border: 0; margin: 0; padding: 0;"
+      src="https://www.gittip.com/kangax/widget.html" width="48pt" height="22pt"></iframe>
   </li>
   <li class="flattr secondary">
     <a class="FlattrButton" style="display:none;" rev="flattr;button:compact;" href="http://kangax.github.com/fabric.js"></a>
-    <noscript><a href="http://flattr.com/thing/391332/Fabric-js" target="_blank">
-    <img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0" /></a></noscript>
+    <noscript>
+      <a href="http://flattr.com/thing/391332/Fabric-js" target="_blank">
+        <img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0" />
+      </a>
+    </noscript>
   </li>
   <li class="github secondary">
     <iframe src="http://ghbtns.com/github-btn.html?user=kangax&repo=fabric.js&type=watch&count=true"
@@ -23,7 +29,6 @@
   </li>
   <li class="twitter secondary">
     <a href="https://twitter.com/fabricjs" class="twitter-follow-button" data-show-count="true">Follow @fabricjs</a>
-    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
   </li>
   <li class="secondary"><a href="http://stackoverflow.com/questions/tagged/fabricjs"><span>StackOverflow</span></a></li>
   <li class="secondary"><a href="https://github.com/kangax/fabric.js/wiki"><span>Wiki</span></a></li>
@@ -33,17 +38,20 @@
 <script>
 (function() {
 
-  var s = document.createElement('script'), t = document.getElementsByTagName('script')[0];
-  s.async = true;
-  s.src = 'http://api.flattr.com/js/0.6/load.js?mode=auto';
-  t.parentNode.insertBefore(s, t);
-
   if (document.location.hostname === 'localhost') {
     var links = document.getElementById('header').getElementsByTagName('a');
     for (var i = 0, len = links.length; i < len; i++) {
       // very retarted fix but fuck it
       links[i].href = links[i].href.replace('fabricjs.com', 'localhost:4000');
     }
+  }
+  else {
+    var s = document.createElement('script'), t = document.getElementsByTagName('script')[0];
+    s.async = true;
+    s.src = 'http://api.flattr.com/js/0.6/load.js?mode=auto';
+    t.parentNode.insertBefore(s, t);
+
+    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
   }
 })();
 </script>

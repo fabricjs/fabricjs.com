@@ -3998,13 +3998,34 @@ fabric.Collection = {
    }
 
   /**
-    * Returns klass "Class" object of given fabric.Object type
+    * Returns klass "Class" object of given namespace
     * @memberOf fabric.util
     * @param {String} type Type of object (eg. 'circle')
+    * @param {String} namespace Namespace to get klass "Class" object from
     * @return {Object} klass "Class"
     */
-  function getKlass(type) {
-    return fabric[fabric.util.string.camelize(fabric.util.string.capitalize(type))];
+  function getKlass(type, namespace) {
+    return resolveNamespace(namespace)[fabric.util.string.camelize(fabric.util.string.capitalize(type))];
+  }
+
+  /**
+    * Returns object of given namespace
+    * @memberOf fabric.util
+    * @param {String} namespace Namespace string e.g. 'fabric.Image.filter' or 'fabric'
+    * @return {Object} Object for given namespace (default fabric)
+    */
+  function resolveNamespace(namespace) {
+    if (!namespace) return fabric;
+
+    var parts = namespace.split('.'),
+        len = parts.length,
+        obj = fabric.window;
+
+    for (var i = 0; i < len; ++i) {
+      obj = obj[parts[i]];
+    }
+
+    return obj;
   }
 
   /**
@@ -4036,7 +4057,7 @@ fabric.Collection = {
    * @param {Array} objects Objects to enliven
    * @param {Function} callback Callback to invoke when all objects are created
    */
-  function enlivenObjects(objects, callback) {
+  function enlivenObjects(objects, callback, namespace) {
 
     function onLoaded() {
       if (++numLoadedObjects === numTotalObjects) {
@@ -4054,7 +4075,7 @@ fabric.Collection = {
       if (!o.type) {
         return;
       }
-      var klass = fabric.util.getKlass(o.type);
+      var klass = fabric.util.getKlass(o.type, namespace);
       if (klass.async) {
         klass.fromObject(o, function (o, error) {
           if (!error) {
@@ -4171,7 +4192,7 @@ fabric.Collection = {
    * Creates image element (works on client and node)
    * @static
    * @memberOf fabric.util
-   * @return {Image} image element
+   * @return {HTMLImageElement} HTML image element
    */
   function createImage() {
     return fabric.isLikelyNode
@@ -4388,6 +4409,7 @@ fabric.Collection = {
   fabric.util.getRandomInt = getRandomInt;
   fabric.util.falseFunction = falseFunction;
   fabric.util.getKlass = getKlass;
+  fabric.util.resolveNamespace = resolveNamespace;
   fabric.util.loadImage = loadImage;
   fabric.util.enlivenObjects = enlivenObjects;
   fabric.util.groupSVGElements = groupSVGElements;
@@ -10236,9 +10258,6 @@ fabric.PatternBrush = fabric.util.createClass(fabric.PencilBrush, /** @lends fab
 
       this._setCursorFromEvent(e, target);
 
-      // fix for FF
-      this._setCursor('');
-
       var _this = this;
       setTimeout(function () {
         _this._setCursorFromEvent(e, target);
@@ -13138,6 +13157,219 @@ fabric.util.object.extend(fabric.Object.prototype, /** @lends fabric.Object.prot
     }
   });
 })();
+fabric.util.object.extend(fabric.StaticCanvas.prototype, /** @lends fabric.StaticCanvas.prototype */ {
+
+  /**
+   * Animation duration (in ms) for fx* methods
+   * @type Number
+   * @default
+   */
+  FX_DURATION: 500,
+
+  /**
+   * Centers object horizontally with animation.
+   * @param {fabric.Object} object Object to center
+   * @param {Object} [callbacks] Callbacks object with optional "onComplete" and/or "onChange" properties
+   * @return {fabric.Canvas} thisArg
+   * @chainable
+   */
+  fxCenterObjectH: function (object, callbacks) {
+    callbacks = callbacks || { };
+
+    var empty = function() { },
+        onComplete = callbacks.onComplete || empty,
+        onChange = callbacks.onChange || empty,
+        _this = this;
+
+    fabric.util.animate({
+      startValue: object.get('left'),
+      endValue: this.getCenter().left,
+      duration: this.FX_DURATION,
+      onChange: function(value) {
+        object.set('left', value);
+        _this.renderAll();
+        onChange();
+      },
+      onComplete: function() {
+        object.setCoords();
+        onComplete();
+      }
+    });
+
+    return this;
+  },
+
+  /**
+   * Centers object vertically with animation.
+   * @param {fabric.Object} object Object to center
+   * @param {Object} [callbacks] Callbacks object with optional "onComplete" and/or "onChange" properties
+   * @return {fabric.Canvas} thisArg
+   * @chainable
+   */
+  fxCenterObjectV: function (object, callbacks) {
+    callbacks = callbacks || { };
+
+    var empty = function() { },
+        onComplete = callbacks.onComplete || empty,
+        onChange = callbacks.onChange || empty,
+        _this = this;
+
+    fabric.util.animate({
+      startValue: object.get('top'),
+      endValue: this.getCenter().top,
+      duration: this.FX_DURATION,
+      onChange: function(value) {
+        object.set('top', value);
+        _this.renderAll();
+        onChange();
+      },
+      onComplete: function() {
+        object.setCoords();
+        onComplete();
+      }
+    });
+
+    return this;
+  },
+
+  /**
+   * Same as `fabric.Canvas#remove` but animated
+   * @param {fabric.Object} object Object to remove
+   * @param {Function} callback Callback, invoked on effect completion
+   * @return {fabric.Canvas} thisArg
+   * @chainable
+   */
+  fxRemove: function (object, callbacks) {
+    callbacks = callbacks || { };
+
+    var empty = function() { },
+        onComplete = callbacks.onComplete || empty,
+        onChange = callbacks.onChange || empty,
+        _this = this;
+
+    fabric.util.animate({
+      startValue: object.get('opacity'),
+      endValue: 0,
+      duration: this.FX_DURATION,
+      onStart: function() {
+        object.set('active', false);
+      },
+      onChange: function(value) {
+        object.set('opacity', value);
+        _this.renderAll();
+        onChange();
+      },
+      onComplete: function () {
+        _this.remove(object);
+        onComplete();
+      }
+    });
+
+    return this;
+  }
+});
+
+fabric.util.object.extend(fabric.Object.prototype, /** @lends fabric.Object.prototype */ {
+  /**
+   * Animates object's properties
+   * @param {String|Object} property to animate (if string) or properties to animate (if object)
+   * @param {Number|Object} value to animate property to (if string was given first) or options object
+   * @return {fabric.Object} thisArg
+   * @chainable
+   *
+   * As object — multiple properties
+   *
+   * object.animate({ left: ..., top: ... });
+   * object.animate({ left: ..., top: ... }, { duration: ... });
+   *
+   * As string — one property
+   *
+   * object.animate('left', ...);
+   * object.animate('left', { duration: ... });
+   *
+   */
+  animate: function() {
+    if (arguments[0] && typeof arguments[0] === 'object') {
+      var propsToAnimate = [ ], prop, skipCallbacks;
+      for (prop in arguments[0]) {
+        propsToAnimate.push(prop);
+      }
+      for (var i = 0, len = propsToAnimate.length; i<len; i++) {
+        prop = propsToAnimate[i];
+        skipCallbacks = i !== len - 1;
+        this._animate(prop, arguments[0][prop], arguments[1], skipCallbacks);
+      }
+    }
+    else {
+      this._animate.apply(this, arguments);
+    }
+    return this;
+  },
+
+  /**
+   * @private
+   * @param {String} property Property to animate
+   * @param {String} to Value to animate to
+   * @param {Object} [options] Options object
+   * @param {Boolean} [skipCallbacks] When true, callbacks like onchange and oncomplete are not invoked
+   */
+  _animate: function(property, to, options, skipCallbacks) {
+    var obj = this, propPair;
+
+    to = to.toString();
+
+    if (!options) {
+      options = { };
+    }
+    else {
+      options = fabric.util.object.clone(options);
+    }
+
+    if (~property.indexOf('.')) {
+      propPair = property.split('.');
+    }
+
+    var currentValue = propPair
+      ? this.get(propPair[0])[propPair[1]]
+      : this.get(property);
+
+    if (!('from' in options)) {
+      options.from = currentValue;
+    }
+
+    if (~to.indexOf('=')) {
+      to = currentValue + parseFloat(to.replace('=', ''));
+    }
+    else {
+      to = parseFloat(to);
+    }
+
+    fabric.util.animate({
+      startValue: options.from,
+      endValue: to,
+      byValue: options.by,
+      easing: options.easing,
+      duration: options.duration,
+      abort: options.abort,
+      onChange: function(value) {
+        if (propPair) {
+          obj[propPair[0]][propPair[1]] = value;
+        }
+        else {
+          obj.set(property, value);
+        }
+        if (skipCallbacks) return;
+        options.onChange && options.onChange();
+      },
+      onComplete: function() {
+        if (skipCallbacks) return;
+
+        obj.setCoords();
+        options.onComplete && options.onComplete();
+      }
+    });
+  }
+});
 (function(global) {
 
   "use strict";
@@ -16001,7 +16233,7 @@ fabric.util.object.extend(fabric.Object.prototype, /** @lends fabric.Object.prot
 
     /**
      * Returns original size of an image
-     * @return {Object} object with "width" and "height" properties
+     * @return {Object} Object with "width" and "height" properties
      */
     getOriginalSize: function() {
       var element = this.getElement();
@@ -16103,7 +16335,7 @@ fabric.util.object.extend(fabric.Object.prototype, /** @lends fabric.Object.prot
 
     /**
      * Returns object representation of an instance
-     * @param {Array} propertiesToInclude
+     * @param {Array} propertiesToInclude Any properties that you might want to additionally include in the output
      * @return {Object} Object representation of an instance
      */
     toObject: function(propertiesToInclude) {
@@ -16174,7 +16406,7 @@ fabric.util.object.extend(fabric.Object.prototype, /** @lends fabric.Object.prot
     /**
      * Returns a clone of an instance
      * @param {Function} callback Callback is invoked with a clone as a first argument
-     * @param {Array} propertiesToInclude
+     * @param {Array} propertiesToInclude Any properties that you might want to additionally include in the output
      */
     clone: function(callback, propertiesToInclude) {
       this.constructor.fromObject(this.toObject(propertiesToInclude), callback);
@@ -16235,7 +16467,7 @@ fabric.util.object.extend(fabric.Object.prototype, /** @lends fabric.Object.prot
 
     /**
      * @private
-     * @param ctx
+     * @param {CanvasRenderingContext2D} ctx Context to render on
      */
     _render: function(ctx) {
       ctx.drawImage(
@@ -16261,7 +16493,7 @@ fabric.util.object.extend(fabric.Object.prototype, /** @lends fabric.Object.prot
      * The Image class's initialization method. This method is automatically
      * called by the constructor.
      * @private
-     * @param {HTMLImageElement|String} el The element representing the image
+     * @param {HTMLImageElement|String} element The element representing the image
      */
     _initElement: function(element) {
       this.setElement(fabric.util.getById(element));
@@ -16281,12 +16513,13 @@ fabric.util.object.extend(fabric.Object.prototype, /** @lends fabric.Object.prot
     /**
      * @private
      * @param {Object} object Object with filters property
+     * @param {Function} callback Callback to invoke when all fabric.Image.filters instances are created
      */
-    _initFilters: function(object) {
+    _initFilters: function(object, callback) {
       if (object.filters && object.filters.length) {
-        this.filters = object.filters.map(function(filterObj) {
-          return filterObj && fabric.Image.filters[filterObj.type].fromObject(filterObj);
-        });
+        fabric.util.enlivenObjects(object.filters, function(enlivenedObjects) {
+          callback(enlivenedObjects);
+        }, 'fabric.Image.filters');
       }
     },
 
@@ -16317,6 +16550,7 @@ fabric.util.object.extend(fabric.Object.prototype, /** @lends fabric.Object.prot
    * Default CSS class name for canvas
    * @static
    * @type String
+   * @default
    */
   fabric.Image.CSS_CANVAS = "canvas-img";
 
@@ -16338,11 +16572,13 @@ fabric.util.object.extend(fabric.Object.prototype, /** @lends fabric.Object.prot
 
     /** @ignore */
     img.onload = function() {
-      fabric.Image.prototype._initFilters.call(object, object);
+      fabric.Image.prototype._initFilters.call(object, object, function(filters) {
+        object.filters = filters;
 
-      var instance = new fabric.Image(img, object);
-      callback && callback(instance);
-      img = img.onload = img.onerror = null;
+        var instance = new fabric.Image(img, object);
+        callback && callback(instance);
+        img = img.onload = img.onerror = null;
+      });
     };
 
     /** @ignore */
@@ -16403,8 +16639,8 @@ fabric.util.object.extend(fabric.Object.prototype, /** @lends fabric.Object.prot
   /**
    * Indicates compression level used when generating PNG under Node (in applyFilters). Any of 0-9
    * @static
-   * @default
    * @type Number
+   * @default
    */
   fabric.Image.pngCompression = 1;
 

@@ -61,7 +61,7 @@ rect.animate('angle', '-=5', { onChange: canvas.renderAll.bind(canvas) });
 
 <p>All of these options should be self-explanatory, except perhaps easing one. Let's take a closer look.</p>
 
-<p>By default, <code>animate</code> uses linear function for animation. If that's not what you need, there's a whole slew of easing options available under <code>fabric.util.ease</code>. For example, if we wanted to move object to the right in a bouncy fashion:</p>
+<p>By default, <code>animate</code> uses "easeInSine" function for animation. If that's not what you need, there's a whole slew of easing options available under <code>fabric.util.ease</code>. For example, if we wanted to move object to the right in a bouncy fashion:</p>
 
 <pre>
 rect.animate('left', 500, {

@@ -1,0 +1,85 @@
+---
+layout: benchmark
+title: Group performance
+---
+
+<button onclick="start()">start</button>
+<button onclick="stop()">stop</button>
+<p id="status">started</p>
+<p>Below is a set of 1200 groups, consisting of text and circle objects. Press "start" and try hovering over with a mouse to see how responsive mouse circle is.</p>
+
+<canvas id="c" width="1000" height="750" style="border:1px solid #ccc"></canvas>
+
+<script>
+var canvas  = new fabric.Canvas('c');
+var status = document.getElementById('status');
+var mouseShape;
+
+// add shapes
+var shapes = [];
+for (var i=1; i < 30; i++) {
+  for (var j=1; j < 40; j++) {
+    var circle = new fabric.Circle({
+      radius: 10
+    });
+    var text = new fabric.Text(i+','+j, {
+      fill: '#fff',
+      fontSize: 8,
+      fontFamily: 'sans-serif'
+    });
+    shapes.push(new fabric.Group([circle, text], {
+      left: j * 25,
+      top: i * 25,
+      hasControls: false
+    }));
+  }
+}
+canvas.add.apply(canvas, shapes);
+
+function start() {
+    // cache the shapes
+    // ??
+
+    // disable editing
+    canvas.selection = false;
+    canvas.skipTargetFind = true;
+
+    // do some intensive animation
+    canvas.on('mouse:move', function(o) {
+        var pos = canvas.getPointer(o.e);
+        if (mouseShape) {
+          mouseShape.set({ left: pos.x, top: pos.y });
+          canvas.renderAll();
+        }
+        else {
+          mouseShape = new fabric.Circle({
+            selectable: false,
+            radius: 30,
+            fill: 'rgba(0,0,255,0.5)',
+            left: pos.x,
+            top: pos.y
+          });
+          canvas.add(mouseShape);
+        }
+    });
+
+    status.innerHTML = 'started';
+}
+
+function stop() {
+  // remove shapes from cache
+  // ??
+
+  // enable editing
+  canvas.selection = true;
+
+  // remove animation
+  canvas.off('mouse:move');
+  canvas.remove(mouseShape);
+  mouseShape = null;
+
+  status.innerHTML = 'stopped';
+}
+
+start();
+</script>

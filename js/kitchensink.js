@@ -430,7 +430,8 @@
     var opacityEl = document.getElementById('opacity');
     opacityEl && (opacityEl.value = parseInt(selectedObject.getOpacity() * 100, 10));
 
-    if (selectedObject.type === 'text') {
+    if (/text/.test(selectedObject.type)) {
+
       $('#text-wrapper').show();
       $('#text-wrapper textarea').val(selectedObject.getText());
 
@@ -705,7 +706,7 @@
     textEl.onfocus = function() {
       var activeObject = canvas.getActiveObject();
 
-      if (activeObject && activeObject.type === 'text') {
+      if (activeObject && /text/.test(activeObject.type)) {
         this.value = activeObject.text;
       }
     };
@@ -732,7 +733,7 @@
     cmdUnderlineBtn.disabled = true;
     cmdUnderlineBtn.onclick = function() {
       var activeObject = canvas.getActiveObject();
-      if (activeObject && activeObject.type === 'text') {
+      if (activeObject && /text/.test(activeObject.type)) {
         activeObject.textDecoration = (activeObject.textDecoration == 'underline' ? '' : 'underline');
         if (activeObject.textDecoration === 'underline') {
           this.className += ' selected';
@@ -751,7 +752,7 @@
     cmdLinethroughBtn.disabled = true;
     cmdLinethroughBtn.onclick = function() {
       var activeObject = canvas.getActiveObject();
-      if (activeObject && activeObject.type === 'text') {
+      if (activeObject && /text/.test(activeObject.type)) {
         activeObject.textDecoration = (activeObject.textDecoration == 'line-through' ? '' : 'line-through');
         if (activeObject.textDecoration === 'line-through') {
           this.className += ' selected';
@@ -770,7 +771,7 @@
     cmdOverlineBtn.disabled = true;
     cmdOverlineBtn.onclick = function() {
       var activeObject = canvas.getActiveObject();
-      if (activeObject && activeObject.type === 'text') {
+      if (activeObject && /text/.test(activeObject.type)) {
         activeObject.textDecoration = (activeObject.textDecoration == 'overline' ? '' : 'overline');
         if (activeObject.textDecoration === 'overline') {
           this.className += ' selected';
@@ -790,7 +791,7 @@
     cmdBoldBtn.disabled = true;
     cmdBoldBtn.onclick = function() {
       var activeObject = canvas.getActiveObject();
-      if (activeObject && activeObject.type === 'text') {
+      if (activeObject && /text/.test(activeObject.type)) {
         activeObject.fontWeight = (activeObject.fontWeight == 'bold' ? '' : 'bold');
         this.className = activeObject.fontWeight ? this.className + ' selected' : this.className.replace(' selected', '');
         canvas.renderAll();
@@ -804,7 +805,7 @@
     cmdItalicBtn.disabled = true;
     cmdItalicBtn.onclick = function() {
       var activeObject = canvas.getActiveObject();
-      if (activeObject && activeObject.type === 'text') {
+      if (activeObject && /text/.test(activeObject.type)) {
         activeObject.fontStyle = (activeObject.fontStyle == 'italic' ? '' : 'italic');
         this.className = activeObject.fontStyle ? this.className + ' selected' : this.className.replace(' selected', '');
         canvas.renderAll();
@@ -818,7 +819,7 @@
     cmdShadowBtn.disabled = true;
     cmdShadowBtn.onclick = function() {
       var activeObject = canvas.getActiveObject();
-      if (activeObject && activeObject.type === 'text') {
+      if (activeObject && /text/.test(activeObject.type)) {
         activeObject.textShadow = !activeObject.textShadow ? 'rgba(0,0,0,0.2) 2px 2px 10px' : '';
         this.className = activeObject.textShadow ? this.className + ' selected' : this.className.replace(' selected', '');
         canvas.renderAll();
@@ -832,7 +833,7 @@
     textAlignSwitch.disabled = true;
     textAlignSwitch.onchange = function() {
       var activeObject = canvas.getActiveObject();
-      if (activeObject && activeObject.type === 'text') {
+      if (activeObject && /text/.test(activeObject.type)) {
         var value = this.value.toLowerCase();
         activeObject.textAlign = value;
         canvas._adjustPosition && canvas._adjustPosition(activeObject, value === 'justify' ? 'left' : value);
@@ -847,7 +848,7 @@
     fontFamilySwitch.disabled = true;
     fontFamilySwitch.onchange = function() {
       var activeObject = canvas.getActiveObject();
-      if (activeObject && activeObject.type === 'text') {
+      if (activeObject && /text/.test(activeObject.type)) {
         activeObject.fontFamily = this.value.toLowerCase();
         canvas.renderAll();
       }
@@ -858,7 +859,7 @@
   if (bgColorField) {
     bgColorField.onchange = function() {
       var activeObject = canvas.getActiveObject();
-      if (activeObject && activeObject.type === 'text') {
+      if (activeObject && /text/.test(activeObject.type)) {
         activeObject.backgroundColor = this.value;
         canvas.renderAll();
       }
@@ -869,7 +870,7 @@
   if (bgLineColorField) {
     bgLineColorField.onchange = function() {
       var activeObject = canvas.getActiveObject();
-      if (activeObject && activeObject.type === 'text') {
+      if (activeObject && /text/.test(activeObject.type)) {
         activeObject.textBackgroundColor = this.value;
         canvas.renderAll();
       }
@@ -880,7 +881,7 @@
   if (textFontSizeField) {
     textFontSizeField.onchange = function() {
       var activeObject = canvas.getActiveObject();
-      if (activeObject && activeObject.type === 'text') {
+      if (activeObject && /text/.test(activeObject.type)) {
         activeObject.setFontSize(parseInt(this.value, 10));
         canvas.renderAll();
       }
@@ -891,7 +892,7 @@
   if (strokeColorField) {
     strokeColorField.onchange = function() {
       var activeObject = canvas.getActiveObject();
-      if (activeObject && activeObject.type === 'text') {
+      if (activeObject && /text/.test(activeObject.type)) {
         activeObject.stroke = this.value;
         canvas.renderAll();
       }
@@ -902,7 +903,7 @@
   if (strokeWidthField) {
     strokeWidthField.onchange = function() {
       var activeObject = canvas.getActiveObject();
-      if (activeObject && activeObject.type === 'text') {
+      if (activeObject && /text/.test(activeObject.type)) {
         activeObject.strokeWidth = parseInt(this.value, 10);
         canvas.renderAll();
       }
@@ -913,7 +914,7 @@
   if (textLineHeightField) {
     textLineHeightField.onchange = function() {
       var activeObject = canvas.getActiveObject();
-      if (activeObject && activeObject.type === 'text') {
+      if (activeObject && /text/.test(activeObject.type)) {
         activeObject.setLineHeight(parseInt(this.value, 10));
         canvas.renderAll();
       }

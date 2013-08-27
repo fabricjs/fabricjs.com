@@ -49,7 +49,7 @@
     </div>
     <div class="span6">
       <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC"></i></h2>
-      <p class="stat">241</p>
+      <p class="stat">244</p>
     </div>
   </div>
   <div class="row historical">
@@ -300,6 +300,7 @@
   /**
    * Creates fabric.PathGroup instance from an object representation
    * @static
+   * @memberOf fabric.PathGroup
    * @param {Object} object
    * @param {Function} callback Callback to invoke when an fabric.PathGroup instance is created
    */
@@ -326,7 +327,9 @@
   /**
    * Indicates that instances of this type are async
    * @static
+   * @memberOf fabric.PathGroup
    * @type Boolean
+   * @default
    */
   fabric.PathGroup.async = true;
 

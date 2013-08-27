@@ -49,7 +49,7 @@
     </div>
     <div class="span6">
       <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC"></i></h2>
-      <p class="stat">363</p>
+      <p class="stat">365</p>
     </div>
   </div>
   <div class="row historical">
@@ -312,6 +312,8 @@
      * Returns {@link fabric.Gradient} instance from an SVG element
      * @static
      * @memberof fabric.Gradient
+     * @param {SVGGradientElement} el SVG gradient element
+     * @param {Object} instance
      * @see http://www.w3.org/TR/SVG/pservers.html#LinearGradientElement
      * @see http://www.w3.org/TR/SVG/pservers.html#RadialGradientElement
      */
@@ -393,9 +395,9 @@
     /**
      * Returns {@link fabric.Gradient} instance from its object representation
      * @static
+     * @memberof fabric.Gradient
      * @param {Object} obj
      * @param {Object} [options] Options object
-     * @memberof fabric.Gradient
      */
     forObject: function(obj, options) {
       options || (options = { });

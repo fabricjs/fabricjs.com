@@ -49,7 +49,7 @@
     </div>
     <div class="span6">
       <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC"></i></h2>
-      <p class="stat">203</p>
+      <p class="stat">206</p>
     </div>
   </div>
   <div class="row historical">
@@ -247,6 +247,7 @@
   /**
    * List of attribute names to account for when parsing SVG element (used by `fabric.Polygon.fromElement`)
    * @static
+   * @memberOf fabric.Polygon
    * @see: http://www.w3.org/TR/SVG/shapes.html#PolygonElement
    */
   fabric.Polygon.ATTRIBUTE_NAMES = fabric.SHARED_ATTRIBUTES.concat();
@@ -254,6 +255,7 @@
   /**
    * Returns {@link fabric.Polygon} instance from an SVG element
    * @static
+   * @memberOf fabric.Polygon
    * @param {SVGElement} element Element to parse
    * @param {Object} [options] Options object
    * @return {fabric.Polygon} Instance of fabric.Polygon
@@ -285,6 +287,7 @@
   /**
    * Returns fabric.Polygon instance from an object representation
    * @static
+   * @memberOf fabric.Polygon
    * @param object {Object} object Object to create an instance from
    * @return {fabric.Polygon} Instance of fabric.Polygon
    */

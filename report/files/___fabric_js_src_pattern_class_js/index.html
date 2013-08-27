@@ -49,7 +49,7 @@
     </div>
     <div class="span6">
       <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC"></i></h2>
-      <p class="stat">128</p>
+      <p class="stat">132</p>
     </div>
   </div>
   <div class="row historical">
@@ -99,24 +99,27 @@ fabric.Pattern = fabric.util.createClass(/** @lends fabric.Pattern.prototype */ 
   /**
    * Repeat property of a pattern (one of repeat, repeat-x, repeat-y)
    * @type String
+   * @default
    */
   repeat: 'repeat',
 
   /**
    * Pattern horizontal offset from object's left/top corner
    * @type Number
+   * @default
    */
   offsetX: 0,
 
   /**
    * Pattern vertical offset from object's left/top corner
    * @type Number
+   * @default
    */
   offsetY: 0,
 
   /**
    * Constructor
-   * @param {Object} [options]
+   * @param {Object} [options] Options object
    * @return {fabric.Pattern} thisArg
    */
   initialize: function(options) {
@@ -157,7 +160,7 @@ fabric.Pattern = fabric.util.createClass(/** @lends fabric.Pattern.prototype */ 
 
   /**
    * Returns object representation of a pattern
-   * @return {Object}
+   * @return {Object} Object representation of a pattern instance
    */
   toObject: function() {
 
@@ -183,6 +186,7 @@ fabric.Pattern = fabric.util.createClass(/** @lends fabric.Pattern.prototype */ 
   /* _TO_SVG_START_ */
   /**
    * Returns SVG representation of a pattern
+   * @param {Object} object
    * @return {String} SVG representation of a pattern
    */
   toSVG: function(object) {
@@ -214,7 +218,7 @@ fabric.Pattern = fabric.util.createClass(/** @lends fabric.Pattern.prototype */ 
 
   /**
    * Returns an instance of CanvasPattern
-   * @param ctx
+   * @param {CanvasRenderingContext2D} ctx Context to create pattern
    * @return {CanvasPattern}
    */
   toLive: function(ctx) {

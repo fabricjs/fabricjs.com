@@ -386,21 +386,23 @@ var anotherItalicText = new fabric.Text("another italic text", {
 
 <p><img src="/article_assets/2_10.png" style="border:1px solid #eee"></p>
 
-<h4>strokeStyle & strokeWidth</h4>
+<h4>stroke & strokeWidth</h4>
 
-<p>By combining strokeStyle (color of the stroke) and strokeWidth (its width), you can achieve some interesting effects on your text. Here's a couple of examples:</p>
+<p>By combining stroke (color of the stroke) and strokeWidth (its width), you can achieve some interesting effects on your text. Here's a couple of examples:</p>
 
 <pre>
 var textWithStroke = new fabric.Text("Text with a stroke", {
-  strokeStyle: '#ff1318',
+  stroke: '#ff1318',
   strokeWidth: 1
 });
 var loremIpsumDolor = new fabric.Text("Lorem ipsum dolor", {
   fontFamily: 'Impact',
-  strokeStyle: '#c3bfbf',
+  stroke: '#c3bfbf',
   strokeWidth: 3
 });
 </pre>
+
+<p>Note that "stroke" property was named "strokeStyle" until v1.1.6</p>
 
 <p><img src="/article_assets/2_11.png" style="border:1px solid #eee"></p>
 

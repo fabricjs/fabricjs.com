@@ -377,6 +377,7 @@
 
   var gradientifyBtn = document.getElementById('gradientify'),
       shadowifyBtn = document.getElementById('shadowify'),
+      patternifyBtn = document.getElementById('patternify'),
       clipBtn = document.getElementById('clip');
 
   var activeObjectButtons = [
@@ -388,6 +389,7 @@
     removeSelectedEl,
     gradientifyBtn,
     shadowifyBtn,
+    patternifyBtn,
     clipBtn,
     sendBackwardsEl,
     sendToBackEl,
@@ -681,6 +683,28 @@
         offsetX: 10,
         offsetY: 10
       });
+    }
+    canvas.renderAll();
+  };
+
+  var pattern = window.__pattern = new fabric.Pattern({
+    source: '/assets/escheresque.png',
+    repeat: 'repeat'
+  });
+  patternifyBtn.onclick = function() {
+    var obj = canvas.getActiveObject();
+    if (!obj) return;
+
+    if (obj.fill instanceof fabric.Pattern) {
+      obj.fill = null;
+    }
+    else {
+      if (obj instanceof fabric.PathGroup) {
+        obj.getObjects().forEach(function(o) { o.fill = pattern; });
+      }
+      else {
+        obj.fill = pattern;
+      }
     }
     canvas.renderAll();
   };

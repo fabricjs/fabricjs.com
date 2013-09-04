@@ -45,11 +45,11 @@
   <div class="row">
     <div class="span6">
       <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"></i></a></h2>
-      <p class="stat">56.62</p>
+      <p class="stat">56.46</p>
     </div>
     <div class="span6">
       <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC"></i></h2>
-      <p class="stat">1056</p>
+      <p class="stat">1057</p>
     </div>
   </div>
   <div class="row historical">
@@ -63,11 +63,11 @@
   <div class="row">
     <div class="span6">
       <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty"></i></a></h2>
-      <p class="stat">104.21</p>
+      <p class="stat">103.78</p>
     </div>
     <div class="span6">
       <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs"></i></a></h2>
-      <p class="stat">9.19</p>
+      <p class="stat">9.09</p>
     </div>
   </div>
 </div>
@@ -92,8 +92,7 @@
   <div class="row">
     <textarea id="file-source" class="span12">(function() {
 
-  var extend = fabric.util.object.extend,
-      getPointer = fabric.util.getPointer,
+  var getPointer = fabric.util.getPointer,
       degreesToRadians = fabric.util.degreesToRadians,
       radiansToDegrees = fabric.util.radiansToDegrees,
       atan2 = Math.atan2,
@@ -106,26 +105,25 @@
   /**
    * Canvas class
    * @class fabric.Canvas
-   * @constructor
    * @extends fabric.StaticCanvas
-   * @param {HTMLElement | String} el &lt;canvas> element to initialize instance on
-   * @param {Object} [options] Options object
    */
-  fabric.Canvas = function(el, options) {
-    options || (options = { });
+  fabric.Canvas = fabric.util.createClass(fabric.StaticCanvas, /** @lends fabric.Canvas.prototype */ {
 
-    this._initStatic(el, options);
-    this._initInteractive();
-    this._createCacheCanvas();
+    /**
+     * Constructor
+     * @param {HTMLElement | String} el &lt;canvas> element to initialize instance on
+     * @param {Object} [options] Options object
+     * @return {Object} thisArg
+     */
+    initialize: function(el, options) {
+      options || (options = { });
 
-    fabric.Canvas.activeInstance = this;
-  };
+      this._initStatic(el, options);
+      this._initInteractive();
+      this._createCacheCanvas();
 
-  function ProtoProxy(){ }
-  ProtoProxy.prototype = fabric.StaticCanvas.prototype;
-  fabric.Canvas.prototype = new ProtoProxy();
-
-  var InteractiveMethods = /** @lends fabric.Canvas.prototype */ {
+      fabric.Canvas.activeInstance = this;
+    },
 
     /**
      * When true, objects can be transformed by one side (unproportionally)
@@ -857,8 +855,14 @@
       // then check all of the objects on canvas
       // Cache all targets where their bounding box contains point.
       var possibleTargets = [];
+
       for (var i = this._objects.length; i--; ) {
-        if (this._objects[i] && this._objects[i].visible && this.containsPoint(e, this._objects[i])) {
+
+        if (this._objects[i] &&
+            this._objects[i].visible &&
+            this._objects[i].selectable &&
+            this.containsPoint(e, this._objects[i])) {
+
           if (this.perPixelTargetFind || this._objects[i].perPixelTargetFind) {
             possibleTargets[possibleTargets.length] = this._objects[i];
           }
@@ -1120,12 +1124,9 @@
         }
       }
     }
-  };
+  });
 
-  fabric.Canvas.prototype.toString = fabric.StaticCanvas.prototype.toString;
-  extend(fabric.Canvas.prototype, InteractiveMethods);
-
-  // iterating manually to workaround Opera's bug
+  // copying static properties manually to work around Opera's bug,
   // where "prototype" property is enumerable and overrides existing prototype
   for (var prop in fabric.StaticCanvas) {
     if (prop !== 'prototype') {

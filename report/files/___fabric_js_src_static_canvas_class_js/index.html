@@ -45,11 +45,11 @@
   <div class="row">
     <div class="span6">
       <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"></i></a></h2>
-      <p class="stat">64.37</p>
+      <p class="stat">64.38</p>
     </div>
     <div class="span6">
       <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC"></i></h2>
-      <p class="stat">1100</p>
+      <p class="stat">1101</p>
     </div>
   </div>
   <div class="row historical">
@@ -63,7 +63,7 @@
   <div class="row">
     <div class="span6">
       <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty"></i></a></h2>
-      <p class="stat">92.32</p>
+      <p class="stat">91.54</p>
     </div>
     <div class="span6">
       <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs"></i></a></h2>
@@ -110,26 +110,23 @@
   /**
    * Static canvas class
    * @class fabric.StaticCanvas
-   * @constructor
-   *
-   * @param {HTMLElement | String} el &lt;canvas> element to initialize instance on
-   * @param {Object} [options] Options object
-   *
    * @extends fabric.Collection
    * @extends fabric.Observable
    */
-  fabric.StaticCanvas = function (el, options) {
-    options || (options = { });
+  fabric.StaticCanvas = fabric.util.createClass(/** @lends fabric.StaticCanvas.prototype */ {
 
-    this._initStatic(el, options);
-    fabric.StaticCanvas.activeInstance = this;
-  };
+    /**
+     * Constructor
+     * @param {HTMLElement | String} el &lt;canvas> element to initialize instance on
+     * @param {Object} [options] Options object
+     * @return {Object} thisArg
+     */
+    initialize: function(el, options) {
+      options || (options = { });
 
-  extend(fabric.StaticCanvas.prototype, fabric.Observable);
-  extend(fabric.StaticCanvas.prototype, fabric.Collection);
-  extend(fabric.StaticCanvas.prototype, fabric.DataURLExporter);
-
-  extend(fabric.StaticCanvas.prototype, /** @lends fabric.StaticCanvas.prototype */ {
+      this._initStatic(el, options);
+      fabric.StaticCanvas.activeInstance = this;
+    },
 
     /**
      * Background color of canvas instance
@@ -1086,17 +1083,21 @@
         removeListener(fabric.window, 'resize', this._onResize);
       }
       return this;
+    },
+
+    /**
+     * Returns a string representation of an instance
+     * @return {String} string representation of an instance
+     */
+    toString: function () {
+      return '#<fabric.Canvas (' + this.complexity() + '): '+
+               '{ objects: ' + this.getObjects().length + ' }>';
     }
   });
 
-  /**
-   * Returns a string representation of an instance
-   * @return {String} string representation of an instance
-   */
-  fabric.StaticCanvas.prototype.toString = function () { // Assign explicitly since `extend` doesn't take care of DontEnum bug yet
-    return '#<fabric.Canvas (' + this.complexity() + '): '+
-           '{ objects: ' + this.getObjects().length + ' }>';
-  };
+  extend(fabric.StaticCanvas.prototype, fabric.Observable);
+  extend(fabric.StaticCanvas.prototype, fabric.Collection);
+  extend(fabric.StaticCanvas.prototype, fabric.DataURLExporter);
 
   extend(fabric.StaticCanvas, /** @lends fabric.StaticCanvas */ {
 

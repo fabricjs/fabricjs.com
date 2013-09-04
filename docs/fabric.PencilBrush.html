@@ -136,7 +136,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7692">line 7692</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7749">line 7749</a>
     </li></ul></dd>
     
     
@@ -243,7 +243,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7598">line 7598</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7660">line 7660</a>
     </li></ul></dd>
     
     
@@ -261,9 +261,9 @@
         
             
 <dt>
-    <h4 class="name" id="shadowBlur">
-        <span class="type-signature"></span>shadowBlur<span class="type-signature"> :Number</span>
-        <a href="#shadowBlur" class="anchor">§</a>
+    <h4 class="name" id="shadow">
+        <span class="type-signature"></span>shadow<span class="type-signature"> :<a href="fabric.Shadow.html">fabric.Shadow</a></span>
+        <a href="#shadow" class="anchor">§</a>
     </h4>
 
     
@@ -271,7 +271,9 @@
 <dd>
     
     <div class="description">
-        Shadow blur of a brush
+        Shadow object representing shadow of this shape.
+<b>Backwards incompatibility note:</b> This property replaces "shadowColor" (String), "shadowOffsetX" (Number),
+"shadowOffsetY" (Number) and "shadowBlur" (Number) since v1.2.12
     </div>
     
 
@@ -280,7 +282,7 @@
         <ul>
             <li>
                 
-<span class="param-type">Number</span>
+<span class="param-type"><a href="fabric.Shadow.html">fabric.Shadow</a></span>
 
 
             </li>
@@ -298,7 +300,7 @@
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="dummy"><li>
-        <a href="fabric.BaseBrush.html#shadowBlur">fabric.BaseBrush#shadowBlur</a>
+        <a href="fabric.BaseBrush.html#shadow">fabric.BaseBrush#shadow</a>
     </li></dd>
     
     
@@ -312,235 +314,13 @@
     
     
     <dt class="tag-default">Default Value:</dt>
-    <dd class="tag-default"><ul class="dummy"><li>0</li></ul></dd>
+    <dd class="tag-default"><ul class="dummy"><li>null</li></ul></dd>
     
     
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7612">line 7612</a>
-    </li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="shadowColor">
-        <span class="type-signature"></span>shadowColor<span class="type-signature"> :String</span>
-        <a href="#shadowColor" class="anchor">§</a>
-    </h4>
-
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        Shadow color of a brush
-    </div>
-    
-
-    
-        <h5>Type:</h5>
-        <ul>
-            <li>
-                
-<span class="param-type">String</span>
-
-
-            </li>
-        </ul>
-    
-
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    <dt class="inherited-from">Inherited From:</dt>
-    <dd class="inherited-from"><ul class="dummy"><li>
-        <a href="fabric.BaseBrush.html#shadowColor">fabric.BaseBrush#shadowColor</a>
-    </li></dd>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7619">line 7619</a>
-    </li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="shadowOffsetX">
-        <span class="type-signature"></span>shadowOffsetX<span class="type-signature"> :Number</span>
-        <a href="#shadowOffsetX" class="anchor">§</a>
-    </h4>
-
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        Shadow offset x of a brush
-    </div>
-    
-
-    
-        <h5>Type:</h5>
-        <ul>
-            <li>
-                
-<span class="param-type">Number</span>
-
-
-            </li>
-        </ul>
-    
-
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    <dt class="inherited-from">Inherited From:</dt>
-    <dd class="inherited-from"><ul class="dummy"><li>
-        <a href="fabric.BaseBrush.html#shadowOffsetX">fabric.BaseBrush#shadowOffsetX</a>
-    </li></dd>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <dt class="tag-default">Default Value:</dt>
-    <dd class="tag-default"><ul class="dummy"><li>0</li></ul></dd>
-    
-    
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7626">line 7626</a>
-    </li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="shadowOffsetY">
-        <span class="type-signature"></span>shadowOffsetY<span class="type-signature"> :Number</span>
-        <a href="#shadowOffsetY" class="anchor">§</a>
-    </h4>
-
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        Shadow offset y of a brush
-    </div>
-    
-
-    
-        <h5>Type:</h5>
-        <ul>
-            <li>
-                
-<span class="param-type">Number</span>
-
-
-            </li>
-        </ul>
-    
-
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    <dt class="inherited-from">Inherited From:</dt>
-    <dd class="inherited-from"><ul class="dummy"><li>
-        <a href="fabric.BaseBrush.html#shadowOffsetY">fabric.BaseBrush#shadowOffsetY</a>
-    </li></dd>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <dt class="tag-default">Default Value:</dt>
-    <dd class="tag-default"><ul class="dummy"><li>0</li></ul></dd>
-    
-    
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7633">line 7633</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7676">line 7676</a>
     </li></ul></dd>
     
     
@@ -615,7 +395,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7640">line 7640</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7683">line 7683</a>
     </li></ul></dd>
     
     
@@ -690,7 +470,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7647">line 7647</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7690">line 7690</a>
     </li></ul></dd>
     
     
@@ -765,7 +545,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7605">line 7605</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7667">line 7667</a>
     </li></ul></dd>
     
     
@@ -835,7 +615,7 @@ and add it to the fabric canvas.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7929">line 7929</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7981">line 7981</a>
     </li></ul></dd>
     
     
@@ -951,7 +731,7 @@ and add it to the fabric canvas.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7743">line 7743</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7800">line 7800</a>
     </li></ul></dd>
     
     
@@ -1071,7 +851,7 @@ and add it to the fabric canvas.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7876">line 7876</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7933">line 7933</a>
     </li></ul></dd>
     
     
@@ -1213,7 +993,7 @@ and add it to the fabric canvas.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7902">line 7902</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7959">line 7959</a>
     </li></ul></dd>
     
     
@@ -1355,7 +1135,7 @@ and add it to the fabric canvas.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7840">line 7840</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7897">line 7897</a>
     </li></ul></dd>
     
     
@@ -1497,7 +1277,7 @@ and add it to the fabric canvas.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7704">line 7704</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7761">line 7761</a>
     </li></ul></dd>
     
     
@@ -1639,7 +1419,7 @@ and add it to the fabric canvas.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7713">line 7713</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7770">line 7770</a>
     </li></ul></dd>
     
     
@@ -1759,7 +1539,7 @@ and add it to the fabric canvas.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7725">line 7725</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7782">line 7782</a>
     </li></ul></dd>
     
     
@@ -1831,7 +1611,7 @@ and add it to the fabric canvas.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7736">line 7736</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7793">line 7793</a>
     </li></ul></dd>
     
     
@@ -1859,9 +1639,9 @@ and add it to the fabric canvas.
         
             
 <dt>
-    <h4 class="name" id="removeShadowStyles">
-        <span class="type-signature"></span>removeShadowStyles<span class="signature">()</span><span class="type-signature"></span>
-        <a href="#removeShadowStyles" class="anchor">§</a>
+    <h4 class="name" id="setShadow">
+        <span class="type-signature"></span>setShadow<span class="signature">(<span class="optional">options</span>)</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span>
+        <a href="#setShadow" class="anchor">§</a>
     </h4>
 
     
@@ -1870,7 +1650,7 @@ and add it to the fabric canvas.
 
     
     <div class="description">
-        Remove brush shadow styles
+        Sets shadow of an object
     </div>
     
 
@@ -1879,159 +1659,68 @@ and add it to the fabric canvas.
     
 
     
-
-    
-<dl class="details">
-    
+        <h5>Parameters:</h5>
         
-    
-    
-    
 
-    
-    <dt class="inherited-from">Inherited From:</dt>
-    <dd class="inherited-from"><ul class="dummy"><li>
-        <a href="fabric.BaseBrush.html#removeShadowStyles">fabric.BaseBrush#removeShadowStyles</a>
-    </li></dd>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7678">line 7678</a>
-    </li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dd>
-
-        
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
             
-<dt>
-    <h4 class="name" id="setBrushStyles">
-        <span class="type-signature"></span>setBrushStyles<span class="signature">()</span><span class="type-signature"></span>
-        <a href="#setBrushStyles" class="anchor">§</a>
-    </h4>
-
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        Sets brush styles
-    </div>
-    
-
-    
-
-    
-
-    
-
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    <dt class="inherited-from">Inherited From:</dt>
-    <dd class="inherited-from"><ul class="dummy"><li>
-        <a href="fabric.BaseBrush.html#setBrushStyles">fabric.BaseBrush#setBrushStyles</a>
-    </li></dd>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7652">line 7652</a>
-    </li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dd>
-
-        
+                <td class="name"><code>options</code></td>
             
-<dt>
-    <h4 class="name" id="setShadowStyles">
-        <span class="type-signature"></span>setShadowStyles<span class="signature">()</span><span class="type-signature"></span>
-        <a href="#setShadowStyles" class="anchor">§</a>
-    </h4>
+            
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+|
 
-    
-</dt>
-<dd>
+<span class="param-type">String</span>
 
-    
-    <div class="description">
-        Sets brush shadow styles
-    </div>
-    
 
-    
-
-    
-
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">Options object or string (e.g. "2px 2px 10px rgba(0,0,0,0.2)")</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
     
 
     
@@ -2045,7 +1734,7 @@ and add it to the fabric canvas.
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="dummy"><li>
-        <a href="fabric.BaseBrush.html#setShadowStyles">fabric.BaseBrush#setShadowStyles</a>
+        <a href="fabric.BaseBrush.html#setShadow">fabric.BaseBrush#setShadow</a>
     </li></dd>
     
     
@@ -2062,7 +1751,7 @@ and add it to the fabric canvas.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7664">line 7664</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7698">line 7698</a>
     </li></ul></dd>
     
     
@@ -2083,6 +1772,28 @@ and add it to the fabric canvas.
     
 
     
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    thisArg
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type"><a href="fabric.Object.html">fabric.Object</a></span>
+
+
+	</dd>
+</dl>
+
+        
 
     
 </dd>
@@ -2122,7 +1833,7 @@ and add it to the fabric canvas.
 <br clear="both">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0</a> on Wed Aug 28 2013 14:55:52 GMT+0200 (CEST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0</a> on Tue Sep 03 2013 21:31:01 GMT+0200 (CEST)
 </footer>
 
 <script> /*prettyPrint();*/ </script>

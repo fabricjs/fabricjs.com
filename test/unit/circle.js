@@ -42,7 +42,26 @@
     var circle = new fabric.Circle({ radius: 10 });
 
     ok(typeof circle.setRadius == 'function');
+
+    equal(circle.getRadiusX(), 10);
+    equal(circle.getRadiusY(), 10);
+
+    equal(circle.getWidth(), 20);
+    equal(circle.getHeight(), 20);
+
     circle.setRadius(20);
+
+    equal(circle.getRadiusX(), 20);
+    equal(circle.getRadiusY(), 20);
+
+    equal(circle.getWidth(), 40);
+    equal(circle.getHeight(), 40);
+  });
+
+  test('set radius', function() {
+    var circle = new fabric.Circle();
+
+    circle.set('radius', 20);
 
     equal(circle.getRadiusX(), 20);
     equal(circle.getRadiusY(), 20);
@@ -100,6 +119,8 @@
     var augmentedProperties = fabric.util.object.extend(fabric.util.object.clone(defaultProperties), {
       left:   100,
       top:    200,
+      width:  30,
+      height: 30,
       radius: 15
     });
 

@@ -45,11 +45,11 @@
   <div class="row">
     <div class="span6">
       <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"></i></a></h2>
-      <p class="stat">63.65</p>
+      <p class="stat">62.57</p>
     </div>
     <div class="span6">
       <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC"></i></h2>
-      <p class="stat">83</p>
+      <p class="stat">92</p>
     </div>
   </div>
   <div class="row historical">
@@ -63,11 +63,11 @@
   <div class="row">
     <div class="span6">
       <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty"></i></a></h2>
-      <p class="stat">34.20</p>
+      <p class="stat">34.62</p>
     </div>
     <div class="span6">
       <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs"></i></a></h2>
-      <p class="stat">0.33</p>
+      <p class="stat">0.34</p>
     </div>
   </div>
 </div>
@@ -99,6 +99,8 @@
    * @alias on
    * @param {String} eventName
    * @param {Function} handler
+   * @return {Self} thisArg
+   * @chainable
    */
   function observe(eventName, handler) {
     if (!this.__eventListeners) {
@@ -116,6 +118,7 @@
       }
       this.__eventListeners[eventName].push(handler);
     }
+    return this;
   }
 
   /**
@@ -125,6 +128,8 @@
    * @alias off
    * @param {String} eventName
    * @param {Function} handler
+   * @return {Self} thisArg
+   * @chainable
    */
   function stopObserving(eventName, handler) {
     if (!this.__eventListeners) {
@@ -138,6 +143,7 @@
         this.__eventListeners[eventName].length = 0;
       }
     }
+    return this;
   }
 
   /**
@@ -147,6 +153,8 @@
    * @alias trigger
    * @param {String} eventName Event name to fire
    * @param {Object} [options] Options object
+   * @return {Self} thisArg
+   * @chainable
    */
   function fire(eventName, options) {
     if (!this.__eventListeners) {
@@ -156,8 +164,9 @@
     if (!listenersForEvent) return;
     for (var i = 0, len = listenersForEvent.length; i < len; i++) {
       // avoiding try/catch for perf. reasons
-      listenersForEvent[i](options || { });
+      listenersForEvent[i].call(this, options || { });
     }
+    return this;
   }
 
   /**

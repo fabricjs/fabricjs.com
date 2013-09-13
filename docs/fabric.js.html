@@ -80,7 +80,7 @@
 /*! Fabric.js Copyright 2008-2013, Printio (Juriy Zaytsev, Maxim Chernyak) */
 
 var exports = exports || {};
-var fabric = fabric || { version: "1.2.11" };
+var fabric = fabric || { version: "1.2.13" };
 
 // make sure exports.fabric is always defined when used as 'global' later scopes
 exports.fabric = fabric;
@@ -8762,7 +8762,7 @@ fabric.PatternBrush = fabric.util.createClass(fabric.PencilBrush, /** @lends fab
               : 'scale';
       }
 
-      var originX = "center", originY = "center";
+      var originX = target.originX, originY = target.originY;
 
       if (corner === 'ml' || corner === 'tl' || corner === 'bl') {
         originX = "right";
@@ -8778,10 +8778,10 @@ fabric.PatternBrush = fabric.util.createClass(fabric.PencilBrush, /** @lends fab
         originY = "top";
       }
 
-      if (corner === 'mtr') {
-        originX = 'center';
-        originY = 'center';
-      }
+      // if (corner === 'mtr') {
+      //   originX = 'center';
+      //   originY = 'center';
+      // }
 
       // var center = target.getCenterPoint();
       this._currentTransform = {
@@ -9629,9 +9629,21 @@ fabric.PatternBrush = fabric.util.createClass(fabric.PencilBrush, /** @lends fab
           target.fire('modified');
         }
 
-        if (this._previousOriginX) {
-          this._currentTransform.target.adjustPosition(this._previousOriginX);
+        if (this._previousOriginX && this._previousOriginY) {
+
+          var originPoint = target.translateToOriginPoint(
+            target.getCenterPoint(),
+            this._previousOriginX,
+            this._previousOriginY);
+
+          target.originX = this._previousOriginX;
+          target.originY = this._previousOriginY;
+
+          target.left = originPoint.x;
+          target.top = originPoint.y;
+
           this._previousOriginX = null;
+          this._previousOriginY = null;
         }
       }
 
@@ -9732,12 +9744,21 @@ fabric.PatternBrush = fabric.util.createClass(fabric.PencilBrush, /** @lends fab
       this.fire('mouse:down', { target: target, e: e });
       target && target.fire('mousedown', { e: e });
 
-      // center origin when rotating
-      if (corner === 'mtr') {
+      if (corner === 'mtr' && target.centerTransform) {
+
         this._previousOriginX = this._currentTransform.target.originX;
-        this._currentTransform.target.adjustPosition('center');
-        this._currentTransform.left = this._currentTransform.target.left;
-        this._currentTransform.top = this._currentTransform.target.top;
+        this._previousOriginY = this._currentTransform.target.originY;
+
+        var center = target.getCenterPoint();
+
+        target.originX = 'center';
+        target.originY = 'center';
+
+        target.left = center.x;
+        target.top = center.y;
+
+        this._currentTransform.left = target.left;
+        this._currentTransform.top = target.top;
       }
     },
 
@@ -10620,10 +10641,9 @@ fabric.util.object.extend(fabric.StaticCanvas.prototype, /** @lends fabric.Stati
      * @type Array
      */
     stateProperties:  (
-      'top left width height scaleX scaleY flipX flipY ' +
-      'angle opacity cornerSize fill overlayFill originX originY ' +
-      'stroke strokeWidth strokeDashArray fillRule ' +
-      'borderScaleFactor transformMatrix selectable shadow visible'
+      'top left width height scaleX scaleY flipX flipY originX originY transformMatrix ' +
+      'stroke strokeWidth strokeDashArray strokeLineCap strokeLineJoin strokeMiterLimit ' +
+      'angle opacity fill fillRule overlayFill shadow clipTo visible'
     ).split(' '),
 
     /**
@@ -10730,12 +10750,6 @@ fabric.util.object.extend(fabric.StaticCanvas.prototype, /** @lends fabric.Stati
         flipX:              this.flipX,
         flipY:              this.flipY,
         opacity:            toFixed(this.opacity, NUM_FRACTION_DIGITS),
-        selectable:         this.selectable,
-        hasControls:        this.hasControls,
-        hasBorders:         this.hasBorders,
-        hasRotatingPoint:   this.hasRotatingPoint,
-        transparentCorners: this.transparentCorners,
-        perPixelTargetFind: this.perPixelTargetFind,
         shadow:             (this.shadow && this.shadow.toObject) ? this.shadow.toObject() : this.shadow,
         visible:            this.visible,
         clipTo:             this.clipTo && String(this.clipTo)
@@ -10744,6 +10758,7 @@ fabric.util.object.extend(fabric.StaticCanvas.prototype, /** @lends fabric.Stati
       if (!this.includeDefaultValues) {
         object = this._removeDefaultValues(object);
       }
+
       fabric.util.populateWithProperties(this, object, propertiesToInclude);
 
       return object;
@@ -10853,14 +10868,11 @@ fabric.util.object.extend(fabric.StaticCanvas.prototype, /** @lends fabric.Stati
      * @param {Object} object
      */
     _removeDefaultValues: function(object) {
-      var defaultOptions = fabric.Object.prototype.options;
-      if (defaultOptions) {
-        this.stateProperties.forEach(function(prop) {
-          if (object[prop] === defaultOptions[prop]) {
-            delete object[prop];
-          }
-        });
-      }
+      this.stateProperties.forEach(function(prop) {
+        if (object[prop] === this.constructor.prototype[prop]) {
+          delete object[prop];
+        }
+      }, this);
       return object;
     },
 
@@ -17148,7 +17160,6 @@ fabric.Image.filters.BaseFilter = fabric.util.createClass(/** @lends fabric.Imag
     'fontFamily',
     'fontWeight',
     'fontSize',
-    'path',
     'text',
     'textDecoration',
     'textAlign',
@@ -17156,7 +17167,8 @@ fabric.Image.filters.BaseFilter = fabric.util.createClass(/** @lends fabric.Imag
     'lineHeight',
     'backgroundColor',
     'textBackgroundColor',
-    'useNative'
+    'useNative',
+    'path'
   );
 
   /**
@@ -17185,6 +17197,150 @@ fabric.Image.filters.BaseFilter = fabric.util.createClass(/** @lends fabric.Imag
     },
 
     /**
+     * Retrieves object's fontSize
+     * @method getFontSize
+     * @memberOf fabric.Text.prototype
+     * @return {String} Font size (in pixels)
+     */
+
+    /**
+     * Sets object's fontSize
+     * @method setFontSize
+     * @memberOf fabric.Text.prototype
+     * @param {Number} fontSize Font size (in pixels)
+     * @return {fabric.Text}
+     * @chainable
+     */
+
+    /**
+     * Retrieves object's fontWeight
+     * @method getFontWeight
+     * @memberOf fabric.Text.prototype
+     * @return {(String|Number)} Font weight
+     */
+
+    /**
+     * Sets object's fontWeight
+     * @method setFontWeight
+     * @memberOf fabric.Text.prototype
+     * @param {(Number|String)} fontWeight Font weight
+     * @return {fabric.Text}
+     * @chainable
+     */
+
+    /**
+     * Retrieves object's fontFamily
+     * @method getFontFamily
+     * @memberOf fabric.Text.prototype
+     * @return {String} Font family
+     */
+
+    /**
+     * Sets object's fontFamily
+     * @method setFontFamily
+     * @memberOf fabric.Text.prototype
+     * @param {String} fontFamily Font family
+     * @return {fabric.Text}
+     * @chainable
+     */
+
+    /**
+     * Retrieves object's text
+     * @method getText
+     * @memberOf fabric.Text.prototype
+     * @return {String} text
+     */
+
+    /**
+     * Sets object's text
+     * @method setText
+     * @memberOf fabric.Text.prototype
+     * @param {String} text Text
+     * @return {fabric.Text}
+     * @chainable
+     */
+
+    /**
+     * Retrieves object's textDecoration
+     * @method getTextDecoration
+     * @memberOf fabric.Text.prototype
+     * @return {String} Text decoration
+     */
+
+    /**
+     * Sets object's textDecoration
+     * @method setTextDecoration
+     * @memberOf fabric.Text.prototype
+     * @param {String} textDecoration Text decoration
+     * @return {fabric.Text}
+     * @chainable
+     */
+
+    /**
+     * Retrieves object's fontStyle
+     * @method getFontStyle
+     * @memberOf fabric.Text.prototype
+     * @return {String} Font style
+     */
+
+    /**
+     * Sets object's fontStyle
+     * @method setFontStyle
+     * @memberOf fabric.Text.prototype
+     * @param {String} fontStyle Font style
+     * @return {fabric.Text}
+     * @chainable
+     */
+
+    /**
+     * Retrieves object's lineHeight
+     * @method getLineHeight
+     * @memberOf fabric.Text.prototype
+     * @return {Number} Line height
+     */
+
+    /**
+     * Sets object's lineHeight
+     * @method setLineHeight
+     * @memberOf fabric.Text.prototype
+     * @param {Number} lineHeight Line height
+     * @return {fabric.Text}
+     * @chainable
+     */
+
+    /**
+     * Retrieves object's textAlign
+     * @method getTextAlign
+     * @memberOf fabric.Text.prototype
+     * @return {String} Text alignment
+     */
+
+    /**
+     * Sets object's textAlign
+     * @method setTextAlign
+     * @memberOf fabric.Text.prototype
+     * @param {String} textAlign Text alignment
+     * @return {fabric.Text}
+     * @chainable
+     */
+
+    /**
+     * Retrieves object's textBackgroundColor
+     * @method getTextBackgroundColor
+     * @memberOf fabric.Text.prototype
+     * @return {String} Text background color
+     */
+
+    /**
+     * Sets object's textBackgroundColor
+     * @method setTextBackgroundColor
+     * @memberOf fabric.Text.prototype
+     * @param {String} textBackgroundColor Text background color
+     * @return {fabric.Text}
+     * @chainable
+     */
+
+    /**
      * Type of an object
      * @type String
      * @default
@@ -17200,7 +17356,7 @@ fabric.Image.filters.BaseFilter = fabric.util.createClass(/** @lends fabric.Imag
 
     /**
      * Font weight (e.g. bold, normal, 400, 600, 800)
-     * @type Number
+     * @type {(Number|String)}
      * @default
      */
     fontWeight:           'normal',
@@ -18353,7 +18509,7 @@ fabric.util.object.extend(fabric.Text.prototype, {
 <br clear="both">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0</a> on Mon Sep 09 2013 02:36:30 GMT+0200 (CEST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0</a> on Fri Sep 13 2013 18:55:31 GMT+0200 (CEST)
 </footer>
 
 <script> /*prettyPrint();*/ </script>

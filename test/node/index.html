@@ -16,9 +16,12 @@ title: Node.js
 
   @font-face {
     font-family: 'Arial';
+    font-weight: normal;
     src: url('/assets/fonts/Arial.ttf');
   }
 </style>
+
+<p style="font-family: Arial; position: absolute; top: -9999px; left: -9999px">Hello gejhM</p>
 
 <script type="text/script" id="test-template">
   <div class="test">
@@ -40,8 +43,9 @@ title: Node.js
 <div>
   <p class="note">Node.js has to be started with `<code>node server.js</code>` from root "fabricjs.com" dir.</p>
 </div>
+<p class="note">Don't forget to `<code>npm update fabric</code>` before testing.</p>
 
-<pre class="test-source">
+<!--<pre class="test-source">
 var rect = new fabric.Rect({
   left: 100,
   top: 100,
@@ -224,27 +228,29 @@ var rect = new fabric.Rect({
 });
 canvas.add(rect);
 </pre>
-
+-->
 <pre class="test-source">
-var text = new fabric.Text('Hello world', {
+var text = new fabric.Text('Hello gejhM\n123', {
   fontFamily: 'Arial',
   fontSize: 30,
   left: 100,
   top: 100,
   fill: 'red',
-  originY: 'center'
+  originY: 'center',
+  lineHeight: 2
 });
 canvas.add(text);
 </pre>
 
-<pre class="test-source">
-var text = new fabric.Text('Hello world', {
+<!--<pre class="test-source">
+var text = new fabric.Text('Mgh123', {
   fontFamily: 'Arial',
   fontStyle: 'italic',
   fontSize: 30,
   left: 100,
   top: 100,
-  fill: 'red'
+  fill: 'red',
+  lineHeight: 1
 });
 canvas.add(text);
 </pre>
@@ -580,10 +586,11 @@ var text = new fabric.Text('     New Text R', {
   backgroundColor: 'yellow'
 });
 canvas.add(text);
-</pre>
+</pre>-->
 
 <script>
-  (function(){
+  var __canvases = [ ];
+  window.onload = function() {
     function proceed(){ }
 
     for (var __all = document.getElementsByClassName('test-source'), __len = __all.length, __i = 0; __i < __len; __i++) {
@@ -605,9 +612,17 @@ canvas.add(text);
 
         eval(__code);
 
+        __canvases.push(canvas);
         __nodeEl.src = 'http://localhost:8124?code=' + encodeURIComponent(__code) + '&async=' + __isAsync;
 
       })(__all[__i]);
     }
-  })();
+  };
+
+  // setTimeout(function() {
+  //   __canvases.forEach(function(canvas) {
+  //     canvas.calcOffset();
+  //     canvas.renderAll();
+  //   });
+  // }, 5000);
 </script>

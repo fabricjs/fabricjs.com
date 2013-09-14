@@ -45,11 +45,11 @@
   <div class="row">
     <div class="span6">
       <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"></i></a></h2>
-      <p class="stat">62.58</p>
+      <p class="stat">62.81</p>
     </div>
     <div class="span6">
       <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC"></i></h2>
-      <p class="stat">1155</p>
+      <p class="stat">1146</p>
     </div>
   </div>
   <div class="row historical">
@@ -63,11 +63,11 @@
   <div class="row">
     <div class="span6">
       <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty"></i></a></h2>
-      <p class="stat">68.09</p>
+      <p class="stat">67.51</p>
     </div>
     <div class="span6">
       <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs"></i></a></h2>
-      <p class="stat">7.56</p>
+      <p class="stat">7.45</p>
     </div>
   </div>
 </div>
@@ -459,10 +459,9 @@
      * @type Array
      */
     stateProperties:  (
-      'top left width height scaleX scaleY flipX flipY ' +
-      'angle opacity cornerSize fill overlayFill originX originY ' +
-      'stroke strokeWidth strokeDashArray fillRule ' +
-      'borderScaleFactor transformMatrix selectable shadow visible'
+      'top left width height scaleX scaleY flipX flipY originX originY transformMatrix ' +
+      'stroke strokeWidth strokeDashArray strokeLineCap strokeLineJoin strokeMiterLimit ' +
+      'angle opacity fill fillRule overlayFill shadow clipTo visible'
     ).split(' '),
 
     /**
@@ -569,12 +568,6 @@
         flipX:              this.flipX,
         flipY:              this.flipY,
         opacity:            toFixed(this.opacity, NUM_FRACTION_DIGITS),
-        selectable:         this.selectable,
-        hasControls:        this.hasControls,
-        hasBorders:         this.hasBorders,
-        hasRotatingPoint:   this.hasRotatingPoint,
-        transparentCorners: this.transparentCorners,
-        perPixelTargetFind: this.perPixelTargetFind,
         shadow:             (this.shadow && this.shadow.toObject) ? this.shadow.toObject() : this.shadow,
         visible:            this.visible,
         clipTo:             this.clipTo && String(this.clipTo)
@@ -583,6 +576,7 @@
       if (!this.includeDefaultValues) {
         object = this._removeDefaultValues(object);
       }
+
       fabric.util.populateWithProperties(this, object, propertiesToInclude);
 
       return object;
@@ -692,14 +686,11 @@
      * @param {Object} object
      */
     _removeDefaultValues: function(object) {
-      var defaultOptions = fabric.Object.prototype.options;
-      if (defaultOptions) {
-        this.stateProperties.forEach(function(prop) {
-          if (object[prop] === defaultOptions[prop]) {
-            delete object[prop];
-          }
-        });
-      }
+      this.stateProperties.forEach(function(prop) {
+        if (object[prop] === this.constructor.prototype[prop]) {
+          delete object[prop];
+        }
+      }, this);
       return object;
     },
 

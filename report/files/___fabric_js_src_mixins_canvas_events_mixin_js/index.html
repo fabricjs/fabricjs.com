@@ -45,11 +45,11 @@
   <div class="row">
     <div class="span6">
       <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"></i></a></h2>
-      <p class="stat">51.34</p>
+      <p class="stat">50.88</p>
     </div>
     <div class="span6">
       <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC"></i></h2>
-      <p class="stat">433</p>
+      <p class="stat">454</p>
     </div>
   </div>
   <div class="row historical">
@@ -63,11 +63,11 @@
   <div class="row">
     <div class="span6">
       <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty"></i></a></h2>
-      <p class="stat">60.03</p>
+      <p class="stat">61.07</p>
     </div>
     <div class="span6">
       <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs"></i></a></h2>
-      <p class="stat">4.14</p>
+      <p class="stat">4.35</p>
     </div>
   </div>
 </div>
@@ -239,9 +239,21 @@
           target.fire('modified');
         }
 
-        if (this._previousOriginX) {
-          this._currentTransform.target.adjustPosition(this._previousOriginX);
+        if (this._previousOriginX && this._previousOriginY) {
+
+          var originPoint = target.translateToOriginPoint(
+            target.getCenterPoint(),
+            this._previousOriginX,
+            this._previousOriginY);
+
+          target.originX = this._previousOriginX;
+          target.originY = this._previousOriginY;
+
+          target.left = originPoint.x;
+          target.top = originPoint.y;
+
           this._previousOriginX = null;
+          this._previousOriginY = null;
         }
       }
 
@@ -342,12 +354,21 @@
       this.fire('mouse:down', { target: target, e: e });
       target && target.fire('mousedown', { e: e });
 
-      // center origin when rotating
-      if (corner === 'mtr') {
+      if (corner === 'mtr' && target.centerTransform) {
+
         this._previousOriginX = this._currentTransform.target.originX;
-        this._currentTransform.target.adjustPosition('center');
-        this._currentTransform.left = this._currentTransform.target.left;
-        this._currentTransform.top = this._currentTransform.target.top;
+        this._previousOriginY = this._currentTransform.target.originY;
+
+        var center = target.getCenterPoint();
+
+        target.originX = 'center';
+        target.originY = 'center';
+
+        target.left = center.x;
+        target.top = center.y;
+
+        this._currentTransform.left = target.left;
+        this._currentTransform.top = target.top;
       }
     },
 

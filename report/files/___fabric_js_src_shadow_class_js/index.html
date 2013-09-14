@@ -49,7 +49,7 @@
     </div>
     <div class="span6">
       <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC"></i></h2>
-      <p class="stat">145</p>
+      <p class="stat">146</p>
     </div>
   </div>
   <div class="row historical">
@@ -178,10 +178,11 @@
     },
 
     /**
-     * @return {String} Returns CSS3 text-shadow declaration
+     * Returns a string representation of an instance
      * @see http://www.w3.org/TR/css-text-decor-3/#text-shadow
+     * @return {String} Returns CSS3 text-shadow declaration
      */
-    getShadow: function() {
+    toString: function() {
       return [this.offsetX, this.offsetY, this.blur, this.color].join('px ');
     },
 

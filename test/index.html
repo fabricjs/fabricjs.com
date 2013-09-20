@@ -3,33 +3,50 @@ layout: default
 title: Tests
 ---
 <style>ul li { margin-bottom: 3px; }</style>
-<ul id="tests">
-  <li><a href="unit/">Unit Tests</a></li>
-  <li><a href="functional/">Functional Tests</a></li>
-  <li><a href="node/">Node.js Tests</a></li>
-  <li>
-    SVG Import Tests
-    <ul style="margin-top:5px">
-      <li><a href="svg_import">General</a></li>
-      <li><a href="svg_import/stroke.html">Stroke</a></li>
-      <li><a href="svg_import/gradients.html">Gradients</a></li>
-      <li><a href="svg_import/text.html">Text</a></li>
-    </ul>
-  </li>
-  <li>
-    SVG Export Tests
-    <ul style="margin-top:5px">
-      <li><a href="svg_export">Basic geometric shapes, images</a></li>
-      <li><a href="svg_export/text.html">Text</a></li>
-      <li><a href="svg_export/svg_shapes.html">Complex shapes</a></li>
-      <li><a href="svg_export/bg_patterns_gradients.html">Background, overlay, patterns, gradients</a></li>
-      <li><a href="svg_export/stroke.html">Stroke</a></li>
-    </ul>
-  </li>
-  <li>
-    Miscellaneous
-    <ul style="margin-top:5px">
-      <li><a href="misc/origin.html">Origin</a></li>
-    </ul>
-  </li>
-</ul>
+
+<div class="column benchmarks">
+  <h2>Benchmarks</h2>
+
+  <ul id="benchmarks">
+    {% for post in site.categories.benchmarks %}
+      <li><a href="../{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+    <li style="margin-top: 20px"><a style="color: red" href="/report">Comlpexity report</a></li>
+  </ul>
+</div>
+
+<div class="column">
+  <h2>Tests</h2>
+
+  <ul id="tests">
+    <li><a href="unit/">Unit Tests</a></li>
+    <li><a href="functional/">Functional Tests</a></li>
+    <li><a href="node/">Node.js Tests</a></li>
+    <li>
+      SVG Import Tests
+      <ul style="margin-top:5px">
+        <li><a href="svg_import">General</a></li>
+        <li><a href="svg_import/stroke.html">Stroke</a></li>
+        <li><a href="svg_import/gradients.html">Gradients</a></li>
+        <li><a href="svg_import/text.html">Text</a></li>
+      </ul>
+    </li>
+    <li>
+      SVG Export Tests
+      <ul style="margin-top:5px">
+        <li><a href="svg_export">Basic geometric shapes, images</a></li>
+        <li><a href="svg_export/text.html">Text</a></li>
+        <li><a href="svg_export/svg_shapes.html">Complex shapes</a></li>
+        <li><a href="svg_export/bg_patterns_gradients.html">Background, overlay, patterns, gradients</a></li>
+        <li><a href="svg_export/stroke.html">Stroke</a></li>
+      </ul>
+    </li>
+    <li>
+      Miscellaneous
+      <ul style="margin-top:5px">
+        <li><a href="misc/origin.html">Origin</a></li>
+      </ul>
+    </li>
+  </ul>
+
+</div>

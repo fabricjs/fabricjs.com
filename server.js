@@ -53,7 +53,7 @@ function serveImage(__response, __code, __async) {
   }
 
   function proceed() {
-    canvas.renderAll();
+    // canvas.renderAll();
     var __stream = canvas.createPNGStream();
     __stream.on('data', function(chunk) {
       __response.write(chunk);

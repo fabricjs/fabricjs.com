@@ -43,7 +43,7 @@ h3, h4 { margin-top: 1.5em !important; }
 #features img:hover { box-shadow: rgba(0,0,155,0.3) 0 0 5px; }
 
 #header { background: #333; margin: 0; padding: 0; color: #555; overflow: hidden; min-width: 1310px; }
-#header li { display: inline-block; float: left; }
+#header li { display: inline-block; float: left; margin-bottom: 0; }
 #header li a { display: inline-block; padding: 10px; color: pink; text-decoration: none; }
 #header li a:hover, #header li a:focus { text-decoration: underline; }
 #header li.secondary { float: right; }
@@ -96,3 +96,14 @@ b.bench { font-family: monospace; font-size: 18px; background: #ffc; padding: 0 
   transition: all 0.2s; }
 
 #printio-lab-project:hover { padding: 10px 15px; top: 85px; left: -5px; }
+
+.column { width: 400px; display: inline-block; background: #fafafa; vertical-align: top; padding-left: 20px; margin-right: 10px; margin-top: 10px; margin-left: 10px; }
+.column > ul { padding-left: 0; list-style-position: inside; }
+
+.benchmarks { width: 300px; }
+
+.team { list-style-type: none }
+.team > li { margin-bottom: 30px; }
+.team .bio { width: 600px; display: inline-block; vertical-align: top; margin-left: 20px; }
+.team .bio p:first-child { margin-top: 0; }
+.team img { padding: 3px; border: 1px solid #ccc; }

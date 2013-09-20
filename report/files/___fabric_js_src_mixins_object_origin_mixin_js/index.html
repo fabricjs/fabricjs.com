@@ -45,7 +45,7 @@
   <div class="row">
     <div class="span6">
       <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"></i></a></h2>
-      <p class="stat">57.48</p>
+      <p class="stat">58.45</p>
     </div>
     <div class="span6">
       <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC"></i></h2>
@@ -63,11 +63,11 @@
   <div class="row">
     <div class="span6">
       <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty"></i></a></h2>
-      <p class="stat">84.07</p>
+      <p class="stat">83.83</p>
     </div>
     <div class="span6">
       <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs"></i></a></h2>
-      <p class="stat">1.72</p>
+      <p class="stat">1.78</p>
     </div>
   </div>
 </div>
@@ -157,8 +157,8 @@
      * @return {fabric.Point}
      */
     getCenterPoint: function() {
-      return this.translateToCenterPoint(
-        new fabric.Point(this.left, this.top), this.originX, this.originY);
+      var leftTop = new fabric.Point(this.left, this.top);
+      return this.translateToCenterPoint(leftTop, this.originX, this.originY);
     },
 
     /**
@@ -176,11 +176,10 @@
      * @param {String} originY Vertical origin: 'top', 'center' or 'bottom'
      * @return {fabric.Point}
      */
-    // getPointByOrigin: function(originX, originY) {
-    //   var center = this.getCenterPoint();
-
-    //   return this.translateToOriginPoint(center, originX, originY);
-    // },
+    getPointByOrigin: function(originX, originY) {
+      var center = this.getCenterPoint();
+      return this.translateToOriginPoint(center, originX, originY);
+    },
 
     /**
      * Returns the point in local coordinates
@@ -217,7 +216,8 @@
         y = this.top;
       }
 
-      return fabric.util.rotatePoint(new fabric.Point(point.x, point.y), center, -degreesToRadians(this.angle)).subtractEquals(new fabric.Point(x, y));
+      return fabric.util.rotatePoint(new fabric.Point(point.x, point.y), center, -degreesToRadians(this.angle))
+        .subtractEquals(new fabric.Point(x, y));
     },
 
     /**

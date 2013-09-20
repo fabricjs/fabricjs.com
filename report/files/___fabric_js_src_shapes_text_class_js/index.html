@@ -45,11 +45,11 @@
   <div class="row">
     <div class="span6">
       <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"></i></a></h2>
-      <p class="stat">60.69</p>
+      <p class="stat">60.65</p>
     </div>
     <div class="span6">
       <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC"></i></h2>
-      <p class="stat">1060</p>
+      <p class="stat">1061</p>
     </div>
   </div>
   <div class="row historical">
@@ -63,11 +63,11 @@
   <div class="row">
     <div class="span6">
       <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty"></i></a></h2>
-      <p class="stat">83.51</p>
+      <p class="stat">86.35</p>
     </div>
     <div class="span6">
       <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs"></i></a></h2>
-      <p class="stat">7.47</p>
+      <p class="stat">7.49</p>
     </div>
   </div>
 </div>
@@ -592,6 +592,8 @@
      * @param {Number} lineIndex Index of a line in a text
      */
     _drawTextLine: function(method, ctx, line, left, top, lineIndex) {
+      // lift the line by quarter of fontSize
+      top -= this.fontSize / 4;
 
       // short-circuit
       if (this.textAlign !== 'justify') {
@@ -604,7 +606,6 @@
 
       if (totalWidth > lineWidth) {
         // stretch the line
-
         var words = line.split(/\s+/);
         var wordsWidth = ctx.measureText(line.replace(/\s+/g, '')).width;
         var widthDiff = totalWidth - wordsWidth;

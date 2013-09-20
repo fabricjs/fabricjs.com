@@ -49,7 +49,7 @@
     </div>
     <div class="span6">
       <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC"></i></h2>
-      <p class="stat">365</p>
+      <p class="stat">366</p>
     </div>
   </div>
   <div class="row historical">
@@ -273,7 +273,7 @@
 
     /**
      * Returns an instance of CanvasGradient
-     * @param ctx
+     * @param {CanvasRenderingContext2D} ctx Context to render on
      * @return {CanvasGradient}
      */
     toLive: function(ctx) {
@@ -313,7 +313,8 @@
      * @static
      * @memberof fabric.Gradient
      * @param {SVGGradientElement} el SVG gradient element
-     * @param {Object} instance
+     * @param {fabric.Object} instance
+     * @return {fabric.Gradient} Gradient instance
      * @see http://www.w3.org/TR/SVG/pservers.html#LinearGradientElement
      * @see http://www.w3.org/TR/SVG/pservers.html#RadialGradientElement
      */

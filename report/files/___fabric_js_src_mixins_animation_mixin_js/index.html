@@ -49,7 +49,7 @@
     </div>
     <div class="span6">
       <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC"></i></h2>
-      <p class="stat">215</p>
+      <p class="stat">221</p>
     </div>
   </div>
   <div class="row historical">
@@ -103,6 +103,8 @@
    * Centers object horizontally with animation.
    * @param {fabric.Object} object Object to center
    * @param {Object} [callbacks] Callbacks object with optional "onComplete" and/or "onChange" properties
+   * @param {Function} [callbacks.onComplete] Invoked on completion
+   * @param {Function} [callbacks.onChange] Invoked on every step of animation
    * @return {fabric.Canvas} thisArg
    * @chainable
    */
@@ -136,6 +138,8 @@
    * Centers object vertically with animation.
    * @param {fabric.Object} object Object to center
    * @param {Object} [callbacks] Callbacks object with optional "onComplete" and/or "onChange" properties
+   * @param {Function} [callbacks.onComplete] Invoked on completion
+   * @param {Function} [callbacks.onChange] Invoked on every step of animation
    * @return {fabric.Canvas} thisArg
    * @chainable
    */
@@ -168,7 +172,9 @@
   /**
    * Same as `fabric.Canvas#remove` but animated
    * @param {fabric.Object} object Object to remove
-   * @param {Function} callback Callback, invoked on effect completion
+   * @param {Object} [callbacks] Callbacks object with optional "onComplete" and/or "onChange" properties
+   * @param {Function} [callbacks.onComplete] Invoked on completion
+   * @param {Function} [callbacks.onChange] Invoked on every step of animation
    * @return {fabric.Canvas} thisArg
    * @chainable
    */

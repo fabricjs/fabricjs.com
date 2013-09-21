@@ -996,156 +996,156 @@
   //   return false;
   // };
 
-  var iText1 = new fabric.IText('zomg123\nbar\n0bAz\nand something else', {
-    left: 10,
-    top: 20,
-    originX: 'left',
-    originY: 'top',
-    fontFamily: 'Courier',
-    fill: '#333',
-    styles: {
-      0: {
-        0: { textBackgroundColor: 'green', fill: 'yellow', textDecoration: 'line-through' },
-        1: { textBackgroundColor: '#faa', fontSize: 80, textDecoration: 'line-through'},
-        2: { textBackgroundColor: '#55f', fill: '#fff', textDecoration: 'line-through' },
-        5: { fontWeight: 'bold', fontFamily: 'Arial', fontSize: 120, fill: '#ccf'  }
-      },
-      1: {
-        0: { fontFamily: 'Impact', fill: 'green', stroke: 'red' },
-        1: { fontFamily: 'Impact' },
-        2: { fontFamily: 'Impact' }
-      },
-      2: {
-        0: { stroke: 'lightblue', strokeWidth: 3, fontSize: 60 },
-        1: { textBackgroundColor: '#aff', fontSize: 30, fontStyle: 'italic' },
-        2: { textBackgroundColor: '#aff', textDecoration: 'overline' },
-        3: { fontWeight: 'bold', textDecoration: 'overline' }
-      },
-      3: {
-        0: { textDecoration: 'underline', fontFamily: 'Helvetica', fill: '#888' },
-        1: { textDecoration: 'underline', fontFamily: 'Helvetica', fill: '#888' },
-        2: { textDecoration: 'underline', fontFamily: 'Helvetica', fill: '#888' },
+  // var iText1 = new fabric.IText('zomg123\nbar\n0bAz\nand something else', {
+  //   left: 10,
+  //   top: 20,
+  //   originX: 'left',
+  //   originY: 'top',
+  //   fontFamily: 'Courier',
+  //   fill: '#333',
+  //   styles: {
+  //     0: {
+  //       0: { textBackgroundColor: 'green', fill: 'yellow', textDecoration: 'line-through' },
+  //       1: { textBackgroundColor: '#faa', fontSize: 80, textDecoration: 'line-through'},
+  //       2: { textBackgroundColor: '#55f', fill: '#fff', textDecoration: 'line-through' },
+  //       5: { fontWeight: 'bold', fontFamily: 'Arial', fontSize: 120, fill: '#ccf'  }
+  //     },
+  //     1: {
+  //       0: { fontFamily: 'Impact', fill: 'green', stroke: 'red' },
+  //       1: { fontFamily: 'Impact' },
+  //       2: { fontFamily: 'Impact' }
+  //     },
+  //     2: {
+  //       0: { stroke: 'lightblue', strokeWidth: 3, fontSize: 60 },
+  //       1: { textBackgroundColor: '#aff', fontSize: 30, fontStyle: 'italic' },
+  //       2: { textBackgroundColor: '#aff', textDecoration: 'overline' },
+  //       3: { fontWeight: 'bold', textDecoration: 'overline' }
+  //     },
+  //     3: {
+  //       0: { textDecoration: 'underline', fontFamily: 'Helvetica', fill: '#888' },
+  //       1: { textDecoration: 'underline', fontFamily: 'Helvetica', fill: '#888' },
+  //       2: { textDecoration: 'underline', fontFamily: 'Helvetica', fill: '#888' },
 
-        4: { textBackgroundColor: '#faa', fontStyle: 'italic', fontFamily: 'Monaco', fontSize: 20  },
-        5: { textBackgroundColor: '#faa', fontStyle: 'italic', fontFamily: 'Monaco', fontSize: 25  },
-        6: { textBackgroundColor: '#faa', fontStyle: 'italic', fontFamily: 'Monaco', fontSize: 30  },
-        7: { textBackgroundColor: '#faa', fontStyle: 'italic', fontFamily: 'Monaco', fontSize: 35  },
-        8: { textBackgroundColor: '#faa', fontStyle: 'italic', fontFamily: 'Monaco', fontSize: 40  },
-        9: { textBackgroundColor: '#faa', fontStyle: 'italic', fontFamily: 'Monaco', fontSize: 45  },
-        10: { textBackgroundColor: '#faa', fontStyle: 'italic', fontFamily: 'Monaco', fontSize: 50 },
-        11: { textBackgroundColor: '#faa', fontStyle: 'italic', fontFamily: 'Monaco', fontSize: 55 },
-        12: { textBackgroundColor: '#faa', fontStyle: 'italic', fontFamily: 'Monaco', fontSize: 60 }
+  //       4: { textBackgroundColor: '#faa', fontStyle: 'italic', fontFamily: 'Monaco', fontSize: 20  },
+  //       5: { textBackgroundColor: '#faa', fontStyle: 'italic', fontFamily: 'Monaco', fontSize: 25  },
+  //       6: { textBackgroundColor: '#faa', fontStyle: 'italic', fontFamily: 'Monaco', fontSize: 30  },
+  //       7: { textBackgroundColor: '#faa', fontStyle: 'italic', fontFamily: 'Monaco', fontSize: 35  },
+  //       8: { textBackgroundColor: '#faa', fontStyle: 'italic', fontFamily: 'Monaco', fontSize: 40  },
+  //       9: { textBackgroundColor: '#faa', fontStyle: 'italic', fontFamily: 'Monaco', fontSize: 45  },
+  //       10: { textBackgroundColor: '#faa', fontStyle: 'italic', fontFamily: 'Monaco', fontSize: 50 },
+  //       11: { textBackgroundColor: '#faa', fontStyle: 'italic', fontFamily: 'Monaco', fontSize: 55 },
+  //       12: { textBackgroundColor: '#faa', fontStyle: 'italic', fontFamily: 'Monaco', fontSize: 60 }
 
-        // 14: { textShadow: 'rgba(0,0,0,0.3) 5px 2px 2px' },
-        // 15: { textShadow: 'rgba(0,0,0,0.3) 5px 2px 2px' },
-        // 16: { textShadow: 'rgba(0,0,0,0.3) 5px 2px 2px' },
-        // 17: { textShadow: 'rgba(0,0,0,0.3) 5px 2px 2px' }
-      }
-    }
-  });
+  //       // 14: { textShadow: 'rgba(0,0,0,0.3) 5px 2px 2px' },
+  //       // 15: { textShadow: 'rgba(0,0,0,0.3) 5px 2px 2px' },
+  //       // 16: { textShadow: 'rgba(0,0,0,0.3) 5px 2px 2px' },
+  //       // 17: { textShadow: 'rgba(0,0,0,0.3) 5px 2px 2px' }
+  //     }
+  //   }
+  // });
 
-  var iText2 = new fabric.IText('hello\nworld', {
-    left: 500,
-    top: 400,
-    originX: 'left',
-    originY: 'top',
-    fontFamily: 'Helvetica',
-    fill: '#333',
-    lineHeight: 1.1,
-    styles: {
-      0: {
-        0: { textDecoration: 'underline', fontSize: 80 },
-        1: { textBackgroundColor: 'red' }
-      },
-      1: {
-        0: { textBackgroundColor: 'rgba(0,255,0,0.5)' },
-        4: { fontSize: 20 }
-      }
-    }
-  });
+  // var iText2 = new fabric.IText('hello\nworld', {
+  //   left: 500,
+  //   top: 400,
+  //   originX: 'left',
+  //   originY: 'top',
+  //   fontFamily: 'Helvetica',
+  //   fill: '#333',
+  //   lineHeight: 1.1,
+  //   styles: {
+  //     0: {
+  //       0: { textDecoration: 'underline', fontSize: 80 },
+  //       1: { textBackgroundColor: 'red' }
+  //     },
+  //     1: {
+  //       0: { textBackgroundColor: 'rgba(0,255,0,0.5)' },
+  //       4: { fontSize: 20 }
+  //     }
+  //   }
+  // });
 
-  var iText3 = new fabric.IText('hello\nKLM\nbarbaz', {
-    left: 580,
-    top: 10,
-    originX: 'left',
-    originY: 'top',
-    fontFamily: 'Arial',
-    fill: '#333',
-    lineHeight: 1,
-    fontSize: 28,
-    styles: {
-      0: {
-        0: { fill: '#f55' },
-        1: { fill: '#f55' },
-        4: { fontSize: 120 }
-      },
-      1: {
-        1: { textDecoration: 'underline' },
-        2: { textDecoration: 'underline', fontStyle: 'italic' }
-      },
-      2: {
-        1: { fontSize: 60 },
-        2: { fontSize: 60 },
-        4: { textBackgroundColor: 'orange', fontStyle: 'italic' },
-        5: { textBackgroundColor: 'orange', fontStyle: 'italic' }
-      }
-    }
-  });
+  // var iText3 = new fabric.IText('hello\nKLM\nbarbaz', {
+  //   left: 580,
+  //   top: 10,
+  //   originX: 'left',
+  //   originY: 'top',
+  //   fontFamily: 'Arial',
+  //   fill: '#333',
+  //   lineHeight: 1,
+  //   fontSize: 28,
+  //   styles: {
+  //     0: {
+  //       0: { fill: '#f55' },
+  //       1: { fill: '#f55' },
+  //       4: { fontSize: 120 }
+  //     },
+  //     1: {
+  //       1: { textDecoration: 'underline' },
+  //       2: { textDecoration: 'underline', fontStyle: 'italic' }
+  //     },
+  //     2: {
+  //       1: { fontSize: 60 },
+  //       2: { fontSize: 60 },
+  //       4: { textBackgroundColor: 'orange', fontStyle: 'italic' },
+  //       5: { textBackgroundColor: 'orange', fontStyle: 'italic' }
+  //     }
+  //   }
+  // });
 
-  fabric.IText.prototype.centerTransform = true;
+  // fabric.IText.prototype.centerTransform = true;
 
-  var iText4 = new fabric.IText('abc\ndefgh\nxyz', {
-    left: 100,
-    top: 500,
-    originX: 'left',
-    lineHeight: 1,
-    fontFamily: 'Helvetica',
-    styles: {
-      0: {
-        0: { textBackgroundColor: 'lightgreen' },
-        1: { textBackgroundColor: '#faa' },
-        2: { textBackgroundColor: 'lightblue' },
-      },
-      1: {
-        0: { fill: 'red' },
-        2: { fill: 'green' }
-      },
-      2: {
-        1: { textDecoration: 'underline', fontSize: 20 }
-      }
-    }
-  });
+  // var iText4 = new fabric.IText('abc\ndefgh\nxyz', {
+  //   left: 100,
+  //   top: 500,
+  //   originX: 'left',
+  //   lineHeight: 1,
+  //   fontFamily: 'Helvetica',
+  //   styles: {
+  //     0: {
+  //       0: { textBackgroundColor: 'lightgreen' },
+  //       1: { textBackgroundColor: '#faa' },
+  //       2: { textBackgroundColor: 'lightblue' },
+  //     },
+  //     1: {
+  //       0: { fill: 'red' },
+  //       2: { fill: 'green' }
+  //     },
+  //     2: {
+  //       1: { textDecoration: 'underline', fontSize: 20 }
+  //     }
+  //   }
+  // });
 
-  var iText5 = new fabric.IText('foo\n\nbar\nbaz', {
-    left: 450,
-    top: 100,
-    originX: 'left',
-    originY: 'top',
-    fontFamily: 'Monaco',
-    styles: {
-      0: {
-        0: { textBackgroundColor: 'red', fill: '#fff', fontStyle: 'italic' },
-        1: { textDecoration: 'overline', fontStyle: 'italic' },
-      },
-      2: {
-        1: { textBackgroundColor: '#55f', fontStyle: 'italic' },
-        2: { textDecoration: 'underline', fontStyle: 'italic' }
-      },
-      3: {
-        1: { fontStyle: 'italic' }
-      }
-    }
-  });
+  // var iText5 = new fabric.IText('foo\n\nbar\nbaz', {
+  //   left: 450,
+  //   top: 100,
+  //   originX: 'left',
+  //   originY: 'top',
+  //   fontFamily: 'Monaco',
+  //   styles: {
+  //     0: {
+  //       0: { textBackgroundColor: 'red', fill: '#fff', fontStyle: 'italic' },
+  //       1: { textDecoration: 'overline', fontStyle: 'italic' },
+  //     },
+  //     2: {
+  //       1: { textBackgroundColor: '#55f', fontStyle: 'italic' },
+  //       2: { textDecoration: 'underline', fontStyle: 'italic' }
+  //     },
+  //     3: {
+  //       1: { fontStyle: 'italic' }
+  //     }
+  //   }
+  // });
 
-  var iText6 = new fabric.IText('foobar\nbaz', {
-    left: 300,
-    top: 100,
-    originX: 'left',
-    originY: 'top',
-    fontFamily: 'Optima'
-  });
+  // var iText6 = new fabric.IText('foobar\nbaz', {
+  //   left: 300,
+  //   top: 100,
+  //   originX: 'left',
+  //   originY: 'top',
+  //   fontFamily: 'Optima'
+  // });
 
-  canvas.add(/*iText1, iText2, iText3, iText4, iText5, */iText6);
+  // canvas.add(iText1, iText2, iText3, iText4, iText5, iText6);
 
 
   // var child1 = new fabric.Rect({ width: 100, height: 50, fill: '#f55', top: 15, left: 50});

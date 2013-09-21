@@ -1,5 +1,6 @@
 var _gaq = _gaq || [];
 _gaq.push(['_setAccount', 'UA-1128111-28']);
+_gaq.push(['_setDomainName', 'fabricjs.com']);
 _gaq.push(['_trackPageview']);
 
 (function() {

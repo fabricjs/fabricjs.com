@@ -87,11 +87,10 @@
             <pre class="prettyprint source"><code>/* build: `node build.js modules=ALL exclude=gestures` */
 /*! Fabric.js Copyright 2008-2013, Printio (Juriy Zaytsev, Maxim Chernyak) */
 
-var exports = exports || {};
-var fabric = fabric || { version: "1.3.0" };
-
-// make sure exports.fabric is always defined when used as 'global' later scopes
-exports.fabric = fabric;
+var fabric = fabric || { version: "1.3.4" };
+if (typeof exports !== 'undefined') {
+  exports.fabric = fabric;
+}
 
 if (typeof document !== 'undefined' && typeof window !== 'undefined') {
   fabric.document = document;
@@ -2109,7 +2108,7 @@ fabric.Collection = {
 };
 
 
-(function() {
+(function(global) {
 
   var sqrt = Math.sqrt,
       atan2 = Math.atan2;
@@ -2223,7 +2222,9 @@ fabric.Collection = {
     * @return {Object} klass "Class"
     */
   function getKlass(type, namespace) {
-    return resolveNamespace(namespace)[fabric.util.string.camelize(fabric.util.string.capitalize(type))];
+    // capitalize first letter only
+    type = fabric.util.string.camelize(type.charAt(0).toUpperCase() + type.slice(1));
+    return resolveNamespace(namespace)[type];
   }
 
   /**
@@ -2237,7 +2238,7 @@ fabric.Collection = {
 
     var parts = namespace.split('.'),
         len = parts.length,
-        obj = fabric.window;
+        obj = global || fabric.window;
 
     for (var i = 0; i &lt; len; ++i) {
       obj = obj[parts[i]];
@@ -2291,7 +2292,9 @@ fabric.Collection = {
         numTotalObjects = objects.length;
 
     objects.forEach(function (o, index) {
-      if (!o.type) {
+      // if sparse array
+      if (!o || !o.type) {
+        onLoaded();
         return;
       }
       var klass = fabric.util.getKlass(o.type, namespace);
@@ -2644,7 +2647,7 @@ fabric.Collection = {
   fabric.util.getFunctionBody = getFunctionBody;
   fabric.util.drawArc = drawArc;
 
-})();
+})(typeof exports !== 'undefined' ? exports : this);
 
 
 (function() {
@@ -3312,7 +3315,7 @@ fabric.util.string = {
   /**
    * Cross-browser wrapper for getting event's coordinates
    * @memberOf fabric.util
-   * @param {Event} event
+   * @param {Event} event Event object
    * @param {HTMLCanvasElement} upperCanvasEl &lt;canvas> element on which object selection is drawn
    */
   function getPointer(event, upperCanvasEl) {
@@ -7766,7 +7769,7 @@ fabric.Pattern = fabric.util.createClass(/** @lends fabric.Pattern.prototype */ 
   /**
    * Returs JSON representation of canvas
    * @function
-   * @param {Array} propertiesToInclude Any properties that you might want to additionally include in the output
+   * @param {Array} [propertiesToInclude] Any properties that you might want to additionally include in the output
    * @return {String} json string
    */
   fabric.StaticCanvas.prototype.toJSON = fabric.StaticCanvas.prototype.toObject;
@@ -8776,7 +8779,7 @@ fabric.PatternBrush = fabric.util.createClass(fabric.PencilBrush, /** @lends fab
 
     /**
      * @private
-     * @param {Event} e
+     * @param {Event} e Event object
      * @param {fabric.Object} target
      */
     _shouldClearSelection: function (e, target) {
@@ -8790,13 +8793,13 @@ fabric.PatternBrush = fabric.util.createClass(fabric.PencilBrush, /** @lends fab
         activeGroup !== target &&
         !e.shiftKey) || (
         target &&
-        !target.selectable)
+        !target.evented)
       );
     },
 
     /**
      * @private
-     * @param {Event} e
+     * @param {Event} e Event object
      * @param {fabric.Object} target
      */
     _setupCurrentTransform: function (e, target) {
@@ -8872,7 +8875,7 @@ fabric.PatternBrush = fabric.util.createClass(fabric.PencilBrush, /** @lends fab
 
     /**
      * @private
-     * @param {Event} e
+     * @param {Event} e Event object
      * @param {fabric.Object} target
      * @return {Boolean}
      */
@@ -8885,7 +8888,7 @@ fabric.PatternBrush = fabric.util.createClass(fabric.PencilBrush, /** @lends fab
 
     /**
      * @private
-     * @param {Event} e
+     * @param {Event} e Event object
      * @param {fabric.Object} target
      */
     _handleGroupLogic: function (e, target) {
@@ -9246,7 +9249,7 @@ fabric.PatternBrush = fabric.util.createClass(fabric.PencilBrush, /** @lends fab
 
         if (this._objects[i] &&
             this._objects[i].visible &&
-            this._objects[i].selectable &&
+            this._objects[i].evented &&
             this.containsPoint(e, this._objects[i])) {
 
           if (this.perPixelTargetFind || this._objects[i].perPixelTargetFind) {
@@ -10054,10 +10057,10 @@ fabric.util.object.extend(fabric.StaticCanvas.prototype, /** @lends fabric.Stati
    * @param {String} [options.format=png] The format of the output image. Either "jpeg" or "png"
    * @param {Number} [options.quality=1] Quality level (0..1). Only used for jpeg.
    * @param {Number} [options.multiplier=1] Multiplier to scale by
-   * @param {Number} [options.left] Cropping left offset
-   * @param {Number} [options.top] Cropping top offset
-   * @param {Number} [options.width] Cropping width
-   * @param {Number} [options.height] Cropping height
+   * @param {Number} [options.left] Cropping left offset. Introduced in v1.2.14
+   * @param {Number} [options.top] Cropping top offset. Introduced in v1.2.14
+   * @param {Number} [options.width] Cropping width. Introduced in v1.2.14
+   * @param {Number} [options.height] Cropping height. Introduced in v1.2.14
    * @return {String} Returns a data: URL containing a representation of the object in the format specified by options.format
    */
   toDataURL: function (options) {
@@ -10706,11 +10709,18 @@ fabric.util.object.extend(fabric.StaticCanvas.prototype, /** @lends fabric.Stati
 
     /**
      * When set to `false`, an object can not be selected for modification (using either point-click-based or group-based selection).
-     * All events propagate through it.
+     * But events still fire on it.
      * @type Boolean
      * @default
      */
     selectable:               true,
+
+    /**
+     * When set to `false`, an object can not be a target of events. All events propagate through it. Introduced in v1.3.4
+     * @type Boolean
+     * @default
+     */
+    evented:                  true,
 
     /**
      * When set to `false`, an object is not rendered on canvas
@@ -11314,10 +11324,10 @@ fabric.util.object.extend(fabric.StaticCanvas.prototype, /** @lends fabric.Stati
      * @param {String} [options.format=png] The format of the output image. Either "jpeg" or "png"
      * @param {Number} [options.quality=1] Quality level (0..1). Only used for jpeg.
      * @param {Number} [options.multiplier=1] Multiplier to scale by
-     * @param {Number} [options.left] Cropping left offset
-     * @param {Number} [options.top] Cropping top offset
-     * @param {Number} [options.width] Cropping width
-     * @param {Number} [options.height] Cropping height
+     * @param {Number} [options.left] Cropping left offset. Introduced in v1.2.14
+     * @param {Number} [options.top] Cropping top offset. Introduced in v1.2.14
+     * @param {Number} [options.width] Cropping width. Introduced in v1.2.14
+     * @param {Number} [options.height] Cropping height. Introduced in v1.2.14
      * @return {String} Returns a data: URL containing a representation of the object in the format specified by options.format
      */
     toDataURL: function(options) {
@@ -13073,7 +13083,7 @@ fabric.util.object.extend(fabric.Object.prototype, /** @lends fabric.Object.prot
     /**
      * Returns object representation of an instance
      * @methd toObject
-     * @param {Array} propertiesToInclude
+     * @param {Array} [propertiesToInclude] Any properties that you might want to additionally include in the output
      * @return {Object} object representation of an instance
      */
     toObject: function(propertiesToInclude) {
@@ -13217,7 +13227,7 @@ fabric.util.object.extend(fabric.Object.prototype, /** @lends fabric.Object.prot
 
     /**
      * Returns object representation of an instance
-     * @param {Array} propertiesToInclude
+     * @param {Array} [propertiesToInclude] Any properties that you might want to additionally include in the output
      * @return {Object} object representation of an instance
      */
     toObject: function(propertiesToInclude) {
@@ -13541,7 +13551,7 @@ fabric.util.object.extend(fabric.Object.prototype, /** @lends fabric.Object.prot
 
     /**
      * Returns object representation of an instance
-     * @param {Array} propertiesToInclude
+     * @param {Array} [propertiesToInclude] Any properties that you might want to additionally include in the output
      * @return {Object} object representation of an instance
      */
     toObject: function(propertiesToInclude) {
@@ -13830,7 +13840,7 @@ fabric.util.object.extend(fabric.Object.prototype, /** @lends fabric.Object.prot
 
     /**
      * Returns object representation of an instance
-     * @param {Array} propertiesToInclude
+     * @param {Array} [propertiesToInclude] Any properties that you might want to additionally include in the output
      * @return {Object} object representation of an instance
      */
     toObject: function(propertiesToInclude) {
@@ -15490,7 +15500,7 @@ fabric.util.object.extend(fabric.Object.prototype, /** @lends fabric.Object.prot
 
     /**
      * Returns object representation of an instance
-     * @param {Array} propertiesToInclude
+     * @param {Array} [propertiesToInclude] Any properties that you might want to additionally include in the output
      * @return {Object} object representation of an instance
      */
     toObject: function(propertiesToInclude) {
@@ -15934,7 +15944,7 @@ fabric.util.object.extend(fabric.Object.prototype, /** @lends fabric.Object.prot
 
     /**
      * Returns object representation of an instance
-     * @param {Array} propertiesToInclude Any properties that you might want to additionally include in the output
+     * @param {Array} [propertiesToInclude] Any properties that you might want to additionally include in the output
      * @return {Object} Object representation of an instance
      */
     toObject: function(propertiesToInclude) {
@@ -16005,7 +16015,7 @@ fabric.util.object.extend(fabric.Object.prototype, /** @lends fabric.Object.prot
     /**
      * Returns a clone of an instance
      * @param {Function} callback Callback is invoked with a clone as a first argument
-     * @param {Array} propertiesToInclude Any properties that you might want to additionally include in the output
+     * @param {Array} [propertiesToInclude] Any properties that you might want to additionally include in the output
      */
     clone: function(callback, propertiesToInclude) {
       this.constructor.fromObject(this.toObject(propertiesToInclude), callback);
@@ -16405,6 +16415,7 @@ fabric.Image.filters.BaseFilter = fabric.util.createClass(/** @lends fabric.Imag
      * Constructor
      * @memberOf fabric.Image.filters.Brightness.prototype
      * @param {Object} [options] Options object
+     * @param {Number} [options.brightness=100] Value to brighten the image up (0..255)
      */
     initialize: function(options) {
       options = options || { };
@@ -16480,6 +16491,8 @@ fabric.Image.filters.BaseFilter = fabric.util.createClass(/** @lends fabric.Imag
      * Constructor
      * @memberOf fabric.Image.filters.Convolute.prototype
      * @param {Object} [options] Options object
+     * @param {Boolean} [options.opaque=false] Opaque value (true/false)
+     * @param {Array} [options.matrix] Filter matrix
      */
     initialize: function(options) {
       options = options || { };
@@ -16607,6 +16620,7 @@ fabric.Image.filters.BaseFilter = fabric.util.createClass(/** @lends fabric.Imag
      * Constructor
      * @memberOf fabric.Image.filters.GradientTransparency
      * @param {Object} [options] Options object
+     * @param {Number} [options.threshold=100] Threshold value
      */
     initialize: function(options) {
       options = options || { };
@@ -16793,6 +16807,8 @@ fabric.Image.filters.BaseFilter = fabric.util.createClass(/** @lends fabric.Imag
      * Constructor
      * @memberOf fabric.Image.filters.Mask.prototype
      * @param {Object} [options] Options object
+     * @param {fabric.Image} [options.mask] Mask image object
+     * @param {Number} [options.channel=0] Rgb channel (0, 1, 2 or 3)
      */
     initialize: function(options) {
       options = options || { };
@@ -16909,6 +16925,7 @@ fabric.Image.filters.BaseFilter = fabric.util.createClass(/** @lends fabric.Imag
      * Constructor
      * @memberOf fabric.Image.filters.Noise.prototype
      * @param {Object} [options] Options object
+     * @param {Number} [options.noise=100] Noise value
      */
     initialize: function(options) {
       options = options || { };
@@ -16987,6 +17004,7 @@ fabric.Image.filters.BaseFilter = fabric.util.createClass(/** @lends fabric.Imag
      * Constructor
      * @memberOf fabric.Image.filters.Pixelate.prototype
      * @param {Object} [options] Options object
+     * @param {Number} [options.blocksize=4] Blocksize for pixelate
      */
     initialize: function(options) {
       options = options || { };
@@ -17090,6 +17108,8 @@ fabric.Image.filters.BaseFilter = fabric.util.createClass(/** @lends fabric.Imag
      * Constructor
      * @memberOf fabric.Image.filters.RemoveWhite.prototype
      * @param {Object} [options] Options object
+     * @param {Number} [options.threshold=30] Threshold value
+     * @param {Number} [options.distance=20] Distance value
      */
     initialize: function(options) {
       options = options || { };
@@ -17277,6 +17297,7 @@ fabric.Image.filters.BaseFilter = fabric.util.createClass(/** @lends fabric.Imag
 
   /**
    * Tint filter class
+   * Adapted from &lt;a href="https://github.com/mezzoblue/PaintbrushJS">https://github.com/mezzoblue/PaintbrushJS&lt;/a>
    * @class fabric.Image.filters.Tint
    * @memberOf fabric.Image.filters
    * @extends fabric.Image.filters.BaseFilter
@@ -17294,10 +17315,16 @@ fabric.Image.filters.BaseFilter = fabric.util.createClass(/** @lends fabric.Imag
      * Constructor
      * @memberOf fabric.Image.filters.Tint.prototype
      * @param {Object} [options] Options object
+     * @param {String} [options.color=#000000] Color to tint the image with
+     * @param {Number} [options.opacity] Opacity value that controls the tint effect's transparency (0..1)
      */
     initialize: function(options) {
       options = options || { };
-      this.color = options.color || 0;
+
+      this.color = options.color || '#000000';
+      this.opacity = typeof options.opacity !== 'undefined'
+                      ? options.opacity
+                      : new fabric.Color(this.color).getAlpha();
     },
 
     /**
@@ -17308,25 +17335,28 @@ fabric.Image.filters.BaseFilter = fabric.util.createClass(/** @lends fabric.Imag
       var context = canvasEl.getContext('2d'),
           imageData = context.getImageData(0, 0, canvasEl.width, canvasEl.height),
           data = imageData.data,
-          iLen = data.length, i, a;
+          iLen = data.length, i,
+          tintR, tintG, tintB,
+          r, g, b, alpha1,
+          source;
 
-      var rgb = parseInt(this.color, 10).toString(16);
+      source = new fabric.Color(this.color).getSource();
 
-      // Pad with leading zeros that may have been stripped off in conversion.
-      while (rgb.length &lt; 6) rgb = '0' + rgb;
+      tintR = source[0] * this.opacity;
+      tintG = source[1] * this.opacity;
+      tintB = source[2] * this.opacity;
 
-      var cr = parseInt('0x' + rgb.substr(0, 2), 16);
-      var cg = parseInt('0x' + rgb.substr(2, 2), 16);
-      var cb = parseInt('0x' + rgb.substr(4, 2), 16);
+      alpha1 = 1 - this.opacity;
 
       for (i = 0; i &lt; iLen; i+=4) {
-        a = data[i+3];
+        r = data[i];
+        g = data[i + 1];
+        b = data[i + 2];
 
-        if (a > 0){
-          data[i] = cr;
-          data[i+1] = cg;
-          data[i+2] = cb;
-        }
+        // alpha compositing
+        data[i] = tintR + r * alpha1;
+        data[i + 1] = tintG + g * alpha1;
+        data[i + 2] = tintB + b * alpha1;
       }
 
       context.putImageData(imageData, 0, 0);
@@ -17338,7 +17368,8 @@ fabric.Image.filters.BaseFilter = fabric.util.createClass(/** @lends fabric.Imag
      */
     toObject: function() {
       return extend(this.callSuper('toObject'), {
-        color: this.color
+        color: this.color,
+        opacity: this.opacity
       });
     }
   });
@@ -18715,7 +18746,7 @@ fabric.util.object.extend(fabric.Text.prototype, {
 <br clear="both">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0</a> on Fri Sep 20 2013 13:05:53 GMT+0200 (CEST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0</a> on Thu Sep 26 2013 14:12:57 GMT+0200 (CEST)
 </footer>
 
 <script> /*prettyPrint();*/ </script>

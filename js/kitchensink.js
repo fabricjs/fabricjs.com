@@ -749,6 +749,23 @@
     };
   }
 
+  function getStyle(object, styleName) {
+    return (object.getSelectionStyles && object.isEditing)
+      ? object.getSelectionStyles()[styleName]
+      : object[styleName];
+  }
+
+  function setStyle(object, styleName, value) {
+    if (object.setSelectionStyles && object.isEditing) {
+      var style = { };
+      style[styleName] = value;
+      object.setSelectionStyles(style);
+    }
+    else {
+      object[styleName] = value;
+    }
+  }
+
   var cmdUnderlineBtn = document.getElementById('text-cmd-underline'),
       cmdLinethroughBtn = document.getElementById('text-cmd-linethrough'),
       cmdOverlineBtn = document.getElementById('text-cmd-overline');
@@ -759,14 +776,17 @@
     cmdUnderlineBtn.onclick = function() {
       var activeObject = canvas.getActiveObject();
       if (activeObject && /text/.test(activeObject.type)) {
-        activeObject.textDecoration = (activeObject.textDecoration == 'underline' ? '' : 'underline');
-        if (activeObject.textDecoration === 'underline') {
-          this.className += ' selected';
-          cmdLinethroughBtn.className = cmdOverlineBtn.className = 'btn';
-        }
-        else {
-          this.className = 'btn';
-        }
+
+        var isUnderline = (getStyle(activeObject, 'textDecoration') || '').indexOf('underline') > -1;
+        setStyle(activeObject, 'textDecoration', isUnderline ? '' : 'underline');
+
+        // if (activeObject.textDecoration === 'underline') {
+        //   this.className += ' selected';
+        //   cmdLinethroughBtn.className = cmdOverlineBtn.className = 'btn';
+        // }
+        // else {
+        //   this.className = 'btn';
+        // }
         canvas.renderAll();
       }
     };
@@ -778,14 +798,17 @@
     cmdLinethroughBtn.onclick = function() {
       var activeObject = canvas.getActiveObject();
       if (activeObject && /text/.test(activeObject.type)) {
-        activeObject.textDecoration = (activeObject.textDecoration == 'line-through' ? '' : 'line-through');
-        if (activeObject.textDecoration === 'line-through') {
-          this.className += ' selected';
-          cmdUnderlineBtn.className = cmdOverlineBtn.className = 'btn';
-        }
-        else {
-          this.className = 'btn';
-        }
+
+        var isLinethrough = (getStyle(activeObject, 'textDecoration') || '').indexOf('line-through') > -1;
+        setStyle(activeObject, 'textDecoration', isLinethrough ? '' : 'line-through');
+
+        // if (activeObject.textDecoration === 'line-through') {
+        //   this.className += ' selected';
+        //   cmdUnderlineBtn.className = cmdOverlineBtn.className = 'btn';
+        // }
+        // else {
+        //   this.className = 'btn';
+        // }
         canvas.renderAll();
       }
     };
@@ -797,14 +820,17 @@
     cmdOverlineBtn.onclick = function() {
       var activeObject = canvas.getActiveObject();
       if (activeObject && /text/.test(activeObject.type)) {
-        activeObject.textDecoration = (activeObject.textDecoration == 'overline' ? '' : 'overline');
-        if (activeObject.textDecoration === 'overline') {
-          this.className += ' selected';
-          cmdUnderlineBtn.className = cmdLinethroughBtn.className = 'btn';
-        }
-        else {
-          this.className = 'btn';
-        }
+
+        var isOverline = (getStyle(activeObject, 'textDecoration') || '').indexOf('overline') > -1;
+        setStyle(activeObject, 'textDecoration', isOverline ? '' : 'overline');
+
+        // if (activeObject.textDecoration === 'overline') {
+        //   this.className += ' selected';
+        //   cmdUnderlineBtn.className = cmdLinethroughBtn.className = 'btn';
+        // }
+        // else {
+        //   this.className = 'btn';
+        // }
         canvas.renderAll();
       }
     };
@@ -817,8 +843,11 @@
     cmdBoldBtn.onclick = function() {
       var activeObject = canvas.getActiveObject();
       if (activeObject && /text/.test(activeObject.type)) {
-        activeObject.fontWeight = (activeObject.fontWeight == 'bold' ? '' : 'bold');
-        this.className = activeObject.fontWeight ? this.className + ' selected' : this.className.replace(' selected', '');
+
+        var isBold = getStyle(activeObject, 'fontWeight') === 'bold';
+        setStyle(activeObject, 'fontWeight', isBold ? '' : 'bold');
+
+        this.className = isBold ? this.className + ' selected' : this.className.replace(' selected', '');
         canvas.renderAll();
       }
     };
@@ -831,8 +860,11 @@
     cmdItalicBtn.onclick = function() {
       var activeObject = canvas.getActiveObject();
       if (activeObject && /text/.test(activeObject.type)) {
-        activeObject.fontStyle = (activeObject.fontStyle == 'italic' ? '' : 'italic');
-        this.className = activeObject.fontStyle ? this.className + ' selected' : this.className.replace(' selected', '');
+
+        var isItalic = getStyle(activeObject, 'fontStyle') === 'italic';
+        setStyle(activeObject, 'fontStyle', isItalic ? '' : 'italic');
+
+        this.className = isItalic ? this.className + ' selected' : this.className.replace(' selected', '');
         canvas.renderAll();
       }
     };
@@ -845,8 +877,11 @@
     cmdShadowBtn.onclick = function() {
       var activeObject = canvas.getActiveObject();
       if (activeObject && /text/.test(activeObject.type)) {
-        activeObject.textShadow = !activeObject.textShadow ? 'rgba(0,0,0,0.2) 2px 2px 10px' : '';
-        this.className = activeObject.textShadow ? this.className + ' selected' : this.className.replace(' selected', '');
+
+        var hasShadow = getStyle(activeObject, 'shadow');
+        setStyle(activeObject, 'shadow', hasShadow ? '' : 'rgba(0,0,0,0.2) 2px 2px 10px');
+
+        this.className = hasShadow ? this.className + ' selected' : this.className.replace(' selected', '');
         canvas.renderAll();
       }
     };
@@ -874,7 +909,7 @@
     fontFamilySwitch.onchange = function() {
       var activeObject = canvas.getActiveObject();
       if (activeObject && /text/.test(activeObject.type)) {
-        activeObject.fontFamily = this.value.toLowerCase();
+        setStyle(activeObject, 'fontFamily', this.value.toLowerCase());
         canvas.renderAll();
       }
     };
@@ -896,7 +931,7 @@
     bgLineColorField.onchange = function() {
       var activeObject = canvas.getActiveObject();
       if (activeObject && /text/.test(activeObject.type)) {
-        activeObject.textBackgroundColor = this.value;
+        setStyle(activeObject, 'textBackgroundColor', this.value);
         canvas.renderAll();
       }
     };
@@ -907,7 +942,7 @@
     textFontSizeField.onchange = function() {
       var activeObject = canvas.getActiveObject();
       if (activeObject && /text/.test(activeObject.type)) {
-        activeObject.setFontSize(parseInt(this.value, 10));
+        setStyle(activeObject, 'fontSize', parseInt(this.value, 10));
         canvas.renderAll();
       }
     };
@@ -918,7 +953,7 @@
     strokeColorField.onchange = function() {
       var activeObject = canvas.getActiveObject();
       if (activeObject && /text/.test(activeObject.type)) {
-        activeObject.stroke = this.value;
+        setStyle(activeObject, 'stroke', this.value);
         canvas.renderAll();
       }
     };
@@ -929,7 +964,7 @@
     strokeWidthField.onchange = function() {
       var activeObject = canvas.getActiveObject();
       if (activeObject && /text/.test(activeObject.type)) {
-        activeObject.strokeWidth = parseInt(this.value, 10);
+        setStyle(activeObject, 'strokeWidth', parseInt(this.value, 10));
         canvas.renderAll();
       }
     };

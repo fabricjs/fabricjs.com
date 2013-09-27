@@ -144,7 +144,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17342">line 17342</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17664">line 17664</a>
     </li></ul></dd>
     
     
@@ -255,7 +255,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line18322">line 18322</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line18644">line 18644</a>
     </li></ul></dd>
     
     
@@ -330,7 +330,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10484">line 10484</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10751">line 10751</a>
     </li></ul></dd>
     
     
@@ -397,7 +397,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17572">line 17572</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17894">line 17894</a>
     </li></ul></dd>
     
     
@@ -472,7 +472,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10519">line 10519</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10786">line 10786</a>
     </li></ul></dd>
     
     
@@ -547,7 +547,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10609">line 10609</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10889">line 10889</a>
     </li></ul></dd>
     
     
@@ -622,7 +622,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10616">line 10616</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10896">line 10896</a>
     </li></ul></dd>
     
     
@@ -640,9 +640,9 @@
         
             
 <dt>
-    <h4 class="name" id="centerTransform">
-        <span class="type-signature"></span>centerTransform<span class="type-signature"> :Boolean</span>
-        <a href="#centerTransform" class="anchor">§</a>
+    <h4 class="name" id="centeredRotation">
+        <span class="type-signature"></span>centeredRotation<span class="type-signature"> :Boolean</span>
+        <a href="#centeredRotation" class="anchor">§</a>
     </h4>
 
     
@@ -651,7 +651,8 @@
     
     <div class="description">
         When true, this object will use center point as the origin of transformation
-when being resized via the controls
+when being rotated via the controls.
+<b>Backwards incompatibility note:</b> This property replaces "centerTransform" (Boolean).
     </div>
     
 
@@ -674,11 +675,14 @@ when being resized via the controls
     
     
     
+    <dt class="tag-since">Since:</dt>
+    <dd class="tag-since"><ul class="dummy"><li>1.3.4</dd>
+    
 
     
     <dt class="inherited-from">Inherited From:</dt>
     <dd class="inherited-from"><ul class="dummy"><li>
-        <a href="fabric.Object.html#centerTransform">fabric.Object#centerTransform</a>
+        <a href="fabric.Object.html#centeredRotation">fabric.Object#centeredRotation</a>
     </li></dd>
     
     
@@ -691,11 +695,94 @@ when being resized via the controls
     
     
     
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy"><li>false</li></ul></dd>
+    
     
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10533">line 10533</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10813">line 10813</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="centeredScaling">
+        <span class="type-signature"></span>centeredScaling<span class="type-signature"> :Boolean</span>
+        <a href="#centeredScaling" class="anchor">§</a>
+    </h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        When true, this object will use center point as the origin of transformation
+when being scaled via the controls.
+<b>Backwards incompatibility note:</b> This property replaces "centerTransform" (Boolean).
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">Boolean</span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    <dt class="tag-since">Since:</dt>
+    <dd class="tag-since"><ul class="dummy"><li>1.3.4</dd>
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#centeredScaling">fabric.Object#centeredScaling</a>
+    </li></dd>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy"><li>false</li></ul></dd>
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10803">line 10803</a>
     </li></ul></dd>
     
     
@@ -767,7 +854,7 @@ when being resized via the controls
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10699">line 10699</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10979">line 10979</a>
     </li></ul></dd>
     
     
@@ -842,7 +929,7 @@ when being resized via the controls
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10526">line 10526</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10793">line 10793</a>
     </li></ul></dd>
     
     
@@ -917,7 +1004,7 @@ when being resized via the controls
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10491">line 10491</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10758">line 10758</a>
     </li></ul></dd>
     
     
@@ -992,7 +1079,7 @@ when being resized via the controls
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10644">line 10644</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10924">line 10924</a>
     </li></ul></dd>
     
     
@@ -1067,7 +1154,7 @@ when being resized via the controls
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10540">line 10540</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10820">line 10820</a>
     </li></ul></dd>
     
     
@@ -1142,7 +1229,7 @@ when being resized via the controls
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10547">line 10547</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10827">line 10827</a>
     </li></ul></dd>
     
     
@@ -1217,7 +1304,7 @@ when being resized via the controls
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10463">line 10463</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10730">line 10730</a>
     </li></ul></dd>
     
     
@@ -1292,7 +1379,7 @@ when being resized via the controls
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10470">line 10470</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10737">line 10737</a>
     </li></ul></dd>
     
     
@@ -1362,7 +1449,7 @@ when being resized via the controls
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17537">line 17537</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17859">line 17859</a>
     </li></ul></dd>
     
     
@@ -1432,7 +1519,7 @@ when being resized via the controls
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17523">line 17523</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17845">line 17845</a>
     </li></ul></dd>
     
     
@@ -1499,7 +1586,7 @@ when being resized via the controls
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17558">line 17558</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17880">line 17880</a>
     </li></ul></dd>
     
     
@@ -1572,7 +1659,7 @@ when being resized via the controls
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17530">line 17530</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17852">line 17852</a>
     </li></ul></dd>
     
     
@@ -1647,7 +1734,7 @@ when being resized via the controls
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10665">line 10665</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10945">line 10945</a>
     </li></ul></dd>
     
     
@@ -1722,7 +1809,7 @@ when being resized via the controls
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10658">line 10658</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10938">line 10938</a>
     </li></ul></dd>
     
     
@@ -1797,7 +1884,7 @@ when being resized via the controls
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10672">line 10672</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10952">line 10952</a>
     </li></ul></dd>
     
     
@@ -1872,7 +1959,7 @@ when being resized via the controls
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10505">line 10505</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10772">line 10772</a>
     </li></ul></dd>
     
     
@@ -1947,7 +2034,7 @@ when being resized via the controls
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10693">line 10693</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10973">line 10973</a>
     </li></ul></dd>
     
     
@@ -2022,7 +2109,7 @@ when being resized via the controls
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10428">line 10428</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10695">line 10695</a>
     </li></ul></dd>
     
     
@@ -2092,7 +2179,7 @@ when being resized via the controls
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17565">line 17565</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17887">line 17887</a>
     </li></ul></dd>
     
     
@@ -2167,7 +2254,7 @@ when being resized via the controls
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10706">line 10706</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10986">line 10986</a>
     </li></ul></dd>
     
     
@@ -2242,7 +2329,7 @@ when being resized via the controls
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10713">line 10713</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10993">line 10993</a>
     </li></ul></dd>
     
     
@@ -2317,7 +2404,7 @@ when being resized via the controls
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10720">line 10720</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11000">line 11000</a>
     </li></ul></dd>
     
     
@@ -2392,7 +2479,7 @@ when being resized via the controls
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10727">line 10727</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11007">line 11007</a>
     </li></ul></dd>
     
     
@@ -2467,7 +2554,7 @@ when being resized via the controls
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10734">line 10734</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11014">line 11014</a>
     </li></ul></dd>
     
     
@@ -2542,7 +2629,7 @@ when being resized via the controls
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10741">line 10741</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11021">line 11021</a>
     </li></ul></dd>
     
     
@@ -2617,7 +2704,7 @@ when being resized via the controls
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10629">line 10629</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10909">line 10909</a>
     </li></ul></dd>
     
     
@@ -2692,7 +2779,7 @@ when being resized via the controls
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11795">line 11795</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line12077">line 12077</a>
     </li></ul></dd>
     
     
@@ -2767,7 +2854,7 @@ when being resized via the controls
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10477">line 10477</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10744">line 10744</a>
     </li></ul></dd>
     
     
@@ -2842,7 +2929,7 @@ when being resized via the controls
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10407">line 10407</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10674">line 10674</a>
     </li></ul></dd>
     
     
@@ -2917,7 +3004,7 @@ when being resized via the controls
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10414">line 10414</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10681">line 10681</a>
     </li></ul></dd>
     
     
@@ -2992,7 +3079,7 @@ when being resized via the controls
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10554">line 10554</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10834">line 10834</a>
     </li></ul></dd>
     
     
@@ -3067,7 +3154,7 @@ when being resized via the controls
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10512">line 10512</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10779">line 10779</a>
     </li></ul></dd>
     
     
@@ -3140,7 +3227,7 @@ when being resized via the controls
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17586">line 17586</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17908">line 17908</a>
     </li></ul></dd>
     
     
@@ -3215,7 +3302,7 @@ when being resized via the controls
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10686">line 10686</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10966">line 10966</a>
     </li></ul></dd>
     
     
@@ -3290,7 +3377,7 @@ when being resized via the controls
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10679">line 10679</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10959">line 10959</a>
     </li></ul></dd>
     
     
@@ -3365,7 +3452,7 @@ when being resized via the controls
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10449">line 10449</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10716">line 10716</a>
     </li></ul></dd>
     
     
@@ -3440,7 +3527,7 @@ when being resized via the controls
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10456">line 10456</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10723">line 10723</a>
     </li></ul></dd>
     
     
@@ -3516,7 +3603,7 @@ But events still fire on it.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10637">line 10637</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10917">line 10917</a>
     </li></ul></dd>
     
     
@@ -3587,7 +3674,7 @@ But events still fire on it.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17616">line 17616</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17938">line 17938</a>
     </li></ul></dd>
     
     
@@ -3655,7 +3742,7 @@ as well as for history (undo/redo) purposes
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17600">line 17600</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17922">line 17922</a>
     </li></ul></dd>
     
     
@@ -3726,7 +3813,7 @@ as well as for history (undo/redo) purposes
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17608">line 17608</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17930">line 17930</a>
     </li></ul></dd>
     
     
@@ -3798,7 +3885,7 @@ as well as for history (undo/redo) purposes
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10574">line 10574</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10854">line 10854</a>
     </li></ul></dd>
     
     
@@ -3873,7 +3960,7 @@ as well as for history (undo/redo) purposes
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10581">line 10581</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10861">line 10861</a>
     </li></ul></dd>
     
     
@@ -3948,7 +4035,7 @@ as well as for history (undo/redo) purposes
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10588">line 10588</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10868">line 10868</a>
     </li></ul></dd>
     
     
@@ -4023,7 +4110,7 @@ as well as for history (undo/redo) purposes
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10595">line 10595</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10875">line 10875</a>
     </li></ul></dd>
     
     
@@ -4098,7 +4185,7 @@ as well as for history (undo/redo) purposes
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10568">line 10568</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10848">line 10848</a>
     </li></ul></dd>
     
     
@@ -4168,7 +4255,7 @@ as well as for history (undo/redo) purposes
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17551">line 17551</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17873">line 17873</a>
     </li></ul></dd>
     
     
@@ -4235,7 +4322,7 @@ as well as for history (undo/redo) purposes
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17579">line 17579</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17901">line 17901</a>
     </li></ul></dd>
     
     
@@ -4302,7 +4389,7 @@ as well as for history (undo/redo) purposes
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17544">line 17544</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17866">line 17866</a>
     </li></ul></dd>
     
     
@@ -4377,7 +4464,7 @@ as well as for history (undo/redo) purposes
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10421">line 10421</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10688">line 10688</a>
     </li></ul></dd>
     
     
@@ -4449,7 +4536,7 @@ as well as for history (undo/redo) purposes
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10622">line 10622</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10902">line 10902</a>
     </li></ul></dd>
     
     
@@ -4524,7 +4611,7 @@ as well as for history (undo/redo) purposes
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10498">line 10498</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10765">line 10765</a>
     </li></ul></dd>
     
     
@@ -4594,7 +4681,7 @@ as well as for history (undo/redo) purposes
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17516">line 17516</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17838">line 17838</a>
     </li></ul></dd>
     
     
@@ -4664,7 +4751,7 @@ as well as for history (undo/redo) purposes
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17593">line 17593</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17915">line 17915</a>
     </li></ul></dd>
     
     
@@ -4739,7 +4826,7 @@ as well as for history (undo/redo) purposes
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10651">line 10651</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10931">line 10931</a>
     </li></ul></dd>
     
     
@@ -4898,7 +4985,7 @@ as well as for history (undo/redo) purposes
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line18333">line 18333</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line18655">line 18655</a>
     </li></ul></dd>
     
     
@@ -5040,7 +5127,7 @@ as well as for history (undo/redo) purposes
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line18365">line 18365</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line18687">line 18687</a>
     </li></ul></dd>
     
     
@@ -5205,7 +5292,7 @@ as well as for history (undo/redo) purposes
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line18294">line 18294</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line18616">line 18616</a>
     </li></ul></dd>
     
     
@@ -5348,7 +5435,7 @@ as well as for history (undo/redo) purposes
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11722">line 11722</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line12004">line 12004</a>
     </li></ul></dd>
     
     
@@ -5502,7 +5589,7 @@ as well as for history (undo/redo) purposes
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line12785">line 12785</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line13067">line 13067</a>
     </li></ul></dd>
     
     
@@ -5661,7 +5748,7 @@ as well as for history (undo/redo) purposes
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11508">line 11508</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11788">line 11788</a>
     </li></ul></dd>
     
     
@@ -5760,7 +5847,7 @@ as well as for history (undo/redo) purposes
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11476">line 11476</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11756">line 11756</a>
     </li></ul></dd>
     
     
@@ -5860,7 +5947,7 @@ You might need to call `setCoords` on an object after centering, to update contr
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11443">line 11443</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11723">line 11723</a>
     </li></ul></dd>
     
     
@@ -5960,7 +6047,7 @@ You might need to call `setCoords` on an object after centering, to update contr
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11421">line 11421</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11701">line 11701</a>
     </li></ul></dd>
     
     
@@ -6060,7 +6147,7 @@ You might need to call `setCoords` on an object after centering, to update contr
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11432">line 11432</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11712">line 11712</a>
     </li></ul></dd>
     
     
@@ -6250,7 +6337,7 @@ You might need to call `setCoords` on an object after centering, to update contr
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11220">line 11220</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11500">line 11500</a>
     </li></ul></dd>
     
     
@@ -6397,7 +6484,7 @@ You might need to call `setCoords` on an object after centering, to update contr
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11232">line 11232</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11512">line 11512</a>
     </li></ul></dd>
     
     
@@ -6491,7 +6578,7 @@ You might need to call `setCoords` on an object after centering, to update contr
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line18310">line 18310</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line18632">line 18632</a>
     </li></ul></dd>
     
     
@@ -6638,7 +6725,7 @@ You might need to call `setCoords` on an object after centering, to update contr
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11879">line 11879</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line12161">line 12161</a>
     </li></ul></dd>
     
     
@@ -6787,7 +6874,7 @@ Requires public options: padding, borderColor
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line12483">line 12483</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line12765">line 12765</a>
     </li></ul></dd>
     
     
@@ -6936,7 +7023,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line12539">line 12539</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line12821">line 12821</a>
     </li></ul></dd>
     
     
@@ -7176,7 +7263,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16215">line 16215</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16536">line 16536</a>
     </li></ul></dd>
     
     
@@ -7323,7 +7410,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10998">line 10998</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11278">line 11278</a>
     </li></ul></dd>
     
     
@@ -7422,7 +7509,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11984">line 11984</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line12266">line 12266</a>
     </li></ul></dd>
     
     
@@ -7523,7 +7610,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11976">line 11976</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line12258">line 12258</a>
     </li></ul></dd>
     
     
@@ -7624,7 +7711,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11967">line 11967</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line12249">line 12249</a>
     </li></ul></dd>
     
     
@@ -7723,7 +7810,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11631">line 11631</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11913">line 11913</a>
     </li></ul></dd>
     
     
@@ -7756,6 +7843,303 @@ Requires public options: cornerSize, padding
 	<dd>
 		
 <span class="param-type"><a href="fabric.Point.html">fabric.Point</a></span>
+
+
+	</dd>
+</dl>
+
+        
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="getFill">
+        <span class="type-signature"></span>getFill<span class="signature">()</span><span class="type-signature"> &rarr; {String}</span>
+        <a href="#getFill" class="anchor">§</a>
+    </h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Retrieves object's fill
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#getFill">fabric.Object#getFill</a>
+    </li></dd>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10481">line 10481</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    Fill value (0-1)
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">String</span>
+
+
+	</dd>
+</dl>
+
+        
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="getFlipX">
+        <span class="type-signature"></span>getFlipX<span class="signature">()</span><span class="type-signature"> &rarr; {Boolean}</span>
+        <a href="#getFlipX" class="anchor">§</a>
+    </h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Retrieves object's flipX value
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#getFlipX">fabric.Object#getFlipX</a>
+    </li></dd>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10505">line 10505</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    flipX value
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">Boolean</span>
+
+
+	</dd>
+</dl>
+
+        
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="getFlipY">
+        <span class="type-signature"></span>getFlipY<span class="signature">()</span><span class="type-signature"> &rarr; {Boolean}</span>
+        <a href="#getFlipY" class="anchor">§</a>
+    </h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Retrieves object's flipY value
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#getFlipY">fabric.Object#getFlipY</a>
+    </li></dd>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10509">line 10509</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    flipY value
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">Boolean</span>
 
 
 	</dd>
@@ -7813,7 +8197,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17375">line 17375</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17697">line 17697</a>
     </li></ul></dd>
     
     
@@ -7907,7 +8291,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17367">line 17367</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17689">line 17689</a>
     </li></ul></dd>
     
     
@@ -8001,7 +8385,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17387">line 17387</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17709">line 17709</a>
     </li></ul></dd>
     
     
@@ -8095,7 +8479,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17371">line 17371</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17693">line 17693</a>
     </li></ul></dd>
     
     
@@ -8197,7 +8581,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line12017">line 12017</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line12299">line 12299</a>
     </li></ul></dd>
     
     
@@ -8223,6 +8607,105 @@ Requires public options: cornerSize, padding
             
 <div class="param-desc">
     height value
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">Number</span>
+
+
+	</dd>
+</dl>
+
+        
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="getLeft">
+        <span class="type-signature"></span>getLeft<span class="signature">()</span><span class="type-signature"> &rarr; {Number}</span>
+        <a href="#getLeft" class="anchor">§</a>
+    </h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Retrieves object's left position
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#getLeft">fabric.Object#getLeft</a>
+    </li></dd>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10493">line 10493</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    Left value (in pixels)
 </div>
 
 
@@ -8291,7 +8774,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17391">line 17391</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17713">line 17713</a>
     </li></ul></dd>
     
     
@@ -8328,6 +8811,303 @@ Requires public options: cornerSize, padding
 	<dd>
 		
 <span class="param-type">Number</span>
+
+
+	</dd>
+</dl>
+
+        
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="getOpacity">
+        <span class="type-signature"></span>getOpacity<span class="signature">()</span><span class="type-signature"> &rarr; {Number}</span>
+        <a href="#getOpacity" class="anchor">§</a>
+    </h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Retrieves object's opacity
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#getOpacity">fabric.Object#getOpacity</a>
+    </li></dd>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10485">line 10485</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    Opacity value (0-1)
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">Number</span>
+
+
+	</dd>
+</dl>
+
+        
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="getOriginX">
+        <span class="type-signature"></span>getOriginX<span class="signature">()</span><span class="type-signature"> &rarr; {String}</span>
+        <a href="#getOriginX" class="anchor">§</a>
+    </h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Retrieves object's originX
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#getOriginX">fabric.Object#getOriginX</a>
+    </li></dd>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10473">line 10473</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    originX value
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">String</span>
+
+
+	</dd>
+</dl>
+
+        
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="getOriginY">
+        <span class="type-signature"></span>getOriginY<span class="signature">()</span><span class="type-signature"> &rarr; {String}</span>
+        <a href="#getOriginY" class="anchor">§</a>
+    </h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Retrieves object's originY
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#getOriginY">fabric.Object#getOriginY</a>
+    </li></dd>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10477">line 10477</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    originY value
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">String</span>
 
 
 	</dd>
@@ -8461,7 +9241,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11651">line 11651</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11933">line 11933</a>
     </li></ul></dd>
     
     
@@ -8494,6 +9274,501 @@ Requires public options: cornerSize, padding
 	<dd>
 		
 <span class="param-type"><a href="fabric.Point.html">fabric.Point</a></span>
+
+
+	</dd>
+</dl>
+
+        
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="getScaleX">
+        <span class="type-signature"></span>getScaleX<span class="signature">()</span><span class="type-signature"> &rarr; {Number}</span>
+        <a href="#getScaleX" class="anchor">§</a>
+    </h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Retrieves object's scaleX value
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#getScaleX">fabric.Object#getScaleX</a>
+    </li></dd>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10497">line 10497</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    scaleX value
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">Number</span>
+
+
+	</dd>
+</dl>
+
+        
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="getScaleY">
+        <span class="type-signature"></span>getScaleY<span class="signature">()</span><span class="type-signature"> &rarr; {Number}</span>
+        <a href="#getScaleY" class="anchor">§</a>
+    </h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Retrieves object's scaleY value
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#getScaleY">fabric.Object#getScaleY</a>
+    </li></dd>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10501">line 10501</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    scaleY value
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">Number</span>
+
+
+	</dd>
+</dl>
+
+        
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="getShadow">
+        <span class="type-signature"></span>getShadow<span class="signature">()</span><span class="type-signature"> &rarr; {Object}</span>
+        <a href="#getShadow" class="anchor">§</a>
+    </h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Retrieves object's shadow
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#getShadow">fabric.Object#getShadow</a>
+    </li></dd>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10463">line 10463</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    Shadow instance
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">Object</span>
+
+
+	</dd>
+</dl>
+
+        
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="getStroke">
+        <span class="type-signature"></span>getStroke<span class="signature">()</span><span class="type-signature"> &rarr; {String}</span>
+        <a href="#getStroke" class="anchor">§</a>
+    </h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Retrieves object's stroke
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#getStroke">fabric.Object#getStroke</a>
+    </li></dd>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10465">line 10465</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    stroke value
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">String</span>
+
+
+	</dd>
+</dl>
+
+        
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="getStrokeWidth">
+        <span class="type-signature"></span>getStrokeWidth<span class="signature">()</span><span class="type-signature"> &rarr; {Number}</span>
+        <a href="#getStrokeWidth" class="anchor">§</a>
+    </h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Retrieves object's strokeWidth
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#getStrokeWidth">fabric.Object#getStrokeWidth</a>
+    </li></dd>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10469">line 10469</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    strokeWidth value
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">Number</span>
 
 
 	</dd>
@@ -8556,7 +9831,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10888">line 10888</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11168">line 11168</a>
     </li></ul></dd>
     
     
@@ -8651,7 +9926,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10926">line 10926</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11206">line 11206</a>
     </li></ul></dd>
     
     
@@ -8741,7 +10016,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17379">line 17379</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17701">line 17701</a>
     </li></ul></dd>
     
     
@@ -8835,7 +10110,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17395">line 17395</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17717">line 17717</a>
     </li></ul></dd>
     
     
@@ -8929,7 +10204,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17399">line 17399</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17721">line 17721</a>
     </li></ul></dd>
     
     
@@ -9023,7 +10298,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17383">line 17383</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17705">line 17705</a>
     </li></ul></dd>
     
     
@@ -9060,6 +10335,105 @@ Requires public options: cornerSize, padding
 	<dd>
 		
 <span class="param-type">String</span>
+
+
+	</dd>
+</dl>
+
+        
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="getTop">
+        <span class="type-signature"></span>getTop<span class="signature">()</span><span class="type-signature"> &rarr; {Number}</span>
+        <a href="#getTop" class="anchor">§</a>
+    </h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Retrieves object's top position
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#getTop">fabric.Object#getTop</a>
+    </li></dd>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10489">line 10489</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    Top value (in pixels)
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">Number</span>
 
 
 	</dd>
@@ -9122,7 +10496,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line12009">line 12009</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line12291">line 12291</a>
     </li></ul></dd>
     
     
@@ -9221,7 +10595,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line12193">line 12193</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line12475">line 12475</a>
     </li></ul></dd>
     
     
@@ -9406,7 +10780,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17624">line 17624</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17946">line 17946</a>
     </li></ul></dd>
     
     
@@ -9553,7 +10927,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11823">line 11823</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line12105">line 12105</a>
     </li></ul></dd>
     
     
@@ -9723,7 +11097,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11803">line 11803</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line12085">line 12085</a>
     </li></ul></dd>
     
     
@@ -9870,7 +11244,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11849">line 11849</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line12131">line 12131</a>
     </li></ul></dd>
     
     
@@ -10040,7 +11414,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11863">line 11863</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line12145">line 12145</a>
     </li></ul></dd>
     
     
@@ -10187,7 +11561,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11300">line 11300</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11580">line 11580</a>
     </li></ul></dd>
     
     
@@ -10330,7 +11704,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11524">line 11524</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11804">line 11804</a>
     </li></ul></dd>
     
     
@@ -10429,7 +11803,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11452">line 11452</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11732">line 11732</a>
     </li></ul></dd>
     
     
@@ -10614,7 +11988,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line18084">line 18084</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line18406">line 18406</a>
     </li></ul></dd>
     
     
@@ -10751,7 +12125,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line12204">line 12204</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line12486">line 12486</a>
     </li></ul></dd>
     
     
@@ -10898,7 +12272,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line12044">line 12044</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line12326">line 12326</a>
     </li></ul></dd>
     
     
@@ -11045,7 +12419,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line12077">line 12077</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line12359">line 12359</a>
     </li></ul></dd>
     
     
@@ -11192,7 +12566,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line12065">line 12065</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line12347">line 12347</a>
     </li></ul></dd>
     
     
@@ -11351,7 +12725,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11492">line 11492</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11772">line 11772</a>
     </li></ul></dd>
     
     
@@ -11450,7 +12824,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11461">line 11461</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11741">line 11741</a>
     </li></ul></dd>
     
     
@@ -11626,7 +13000,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11009">line 11009</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11289">line 11289</a>
     </li></ul></dd>
     
     
@@ -11773,7 +13147,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11410">line 11410</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11690">line 11690</a>
     </li></ul></dd>
     
     
@@ -11872,7 +13246,448 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line12088">line 12088</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line12370">line 12370</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    thisArg
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type"><a href="fabric.Object.html">fabric.Object</a></span>
+
+
+	</dd>
+</dl>
+
+        
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="setFill">
+        <span class="type-signature"></span>setFill<span class="signature">(value)</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span>
+        <a href="#setFill" class="anchor">§</a>
+    </h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Sets object's fill
+    </div>
+    
+
+    
+
+    
+
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Fill value</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#setFill">fabric.Object#setFill</a>
+    </li></dd>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10483">line 10483</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    thisArg
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type"><a href="fabric.Object.html">fabric.Object</a></span>
+
+
+	</dd>
+</dl>
+
+        
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="setFlipX">
+        <span class="type-signature"></span>setFlipX<span class="signature">(value)</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span>
+        <a href="#setFlipX" class="anchor">§</a>
+    </h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Sets object's flipX value
+    </div>
+    
+
+    
+
+    
+
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">flipX value</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#setFlipX">fabric.Object#setFlipX</a>
+    </li></dd>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10507">line 10507</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    thisArg
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type"><a href="fabric.Object.html">fabric.Object</a></span>
+
+
+	</dd>
+</dl>
+
+        
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="setFlipY">
+        <span class="type-signature"></span>setFlipY<span class="signature">(value)</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span>
+        <a href="#setFlipY" class="anchor">§</a>
+    </h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Sets object's flipY value
+    </div>
+    
+
+    
+
+    
+
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">flipY value</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#setFlipY">fabric.Object#setFlipY</a>
+    </li></dd>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10511">line 10511</a>
     </li></ul></dd>
     
     
@@ -12014,7 +13829,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17377">line 17377</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17699">line 17699</a>
     </li></ul></dd>
     
     
@@ -12152,7 +13967,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17369">line 17369</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17691">line 17691</a>
     </li></ul></dd>
     
     
@@ -12290,7 +14105,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17389">line 17389</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17711">line 17711</a>
     </li></ul></dd>
     
     
@@ -12431,7 +14246,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17373">line 17373</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17695">line 17695</a>
     </li></ul></dd>
     
     
@@ -12955,7 +14770,154 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11350">line 11350</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11630">line 11630</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    thisArg
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type"><a href="fabric.Object.html">fabric.Object</a></span>
+
+
+	</dd>
+</dl>
+
+        
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="setLeft">
+        <span class="type-signature"></span>setLeft<span class="signature">(value)</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span>
+        <a href="#setLeft" class="anchor">§</a>
+    </h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Sets object's left position
+    </div>
+    
+
+    
+
+    
+
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Left value (in pixels)</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#setLeft">fabric.Object#setLeft</a>
+    </li></dd>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10495">line 10495</a>
     </li></ul></dd>
     
     
@@ -13097,7 +15059,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17393">line 17393</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17715">line 17715</a>
     </li></ul></dd>
     
     
@@ -13130,6 +15092,153 @@ Requires public options: cornerSize, padding
 	<dd>
 		
 <span class="param-type"><a href="fabric.Text.html">fabric.Text</a></span>
+
+
+	</dd>
+</dl>
+
+        
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="setOpacity">
+        <span class="type-signature"></span>setOpacity<span class="signature">(value)</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span>
+        <a href="#setOpacity" class="anchor">§</a>
+    </h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Sets object's opacity
+    </div>
+    
+
+    
+
+    
+
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Opacity value (0-1)</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#setOpacity">fabric.Object#setOpacity</a>
+    </li></dd>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10487">line 10487</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    thisArg
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type"><a href="fabric.Object.html">fabric.Object</a></span>
 
 
 	</dd>
@@ -13252,7 +15361,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10802">line 10802</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11082">line 11082</a>
     </li></ul></dd>
     
     
@@ -13273,6 +15382,300 @@ Requires public options: cornerSize, padding
     
 
     
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="setOriginX">
+        <span class="type-signature"></span>setOriginX<span class="signature">(value)</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span>
+        <a href="#setOriginX" class="anchor">§</a>
+    </h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Sets object's originX
+    </div>
+    
+
+    
+
+    
+
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">originX value</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#setOriginX">fabric.Object#setOriginX</a>
+    </li></dd>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10475">line 10475</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    thisArg
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type"><a href="fabric.Object.html">fabric.Object</a></span>
+
+
+	</dd>
+</dl>
+
+        
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="setOriginY">
+        <span class="type-signature"></span>setOriginY<span class="signature">(value)</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span>
+        <a href="#setOriginY" class="anchor">§</a>
+    </h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Sets object's originY
+    </div>
+    
+
+    
+
+    
+
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">originY value</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#setOriginY">fabric.Object#setOriginY</a>
+    </li></dd>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10479">line 10479</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    thisArg
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type"><a href="fabric.Object.html">fabric.Object</a></span>
+
+
+	</dd>
+</dl>
+
+        
 
     
 </dd>
@@ -13561,7 +15964,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11386">line 11386</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11666">line 11666</a>
     </li></ul></dd>
     
     
@@ -13754,7 +16157,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11711">line 11711</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11993">line 11993</a>
     </li></ul></dd>
     
     
@@ -13787,6 +16190,300 @@ Requires public options: cornerSize, padding
 	<dd>
 		
 <span class="param-type">void</span>
+
+
+	</dd>
+</dl>
+
+        
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="setScaleX">
+        <span class="type-signature"></span>setScaleX<span class="signature">(value)</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span>
+        <a href="#setScaleX" class="anchor">§</a>
+    </h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Sets object's scaleX value
+    </div>
+    
+
+    
+
+    
+
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">scaleX value</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#setScaleX">fabric.Object#setScaleX</a>
+    </li></dd>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10499">line 10499</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    thisArg
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type"><a href="fabric.Object.html">fabric.Object</a></span>
+
+
+	</dd>
+</dl>
+
+        
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="setScaleY">
+        <span class="type-signature"></span>setScaleY<span class="signature">(value)</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span>
+        <a href="#setScaleY" class="anchor">§</a>
+    </h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Sets object's scaleY value
+    </div>
+    
+
+    
+
+    
+
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">scaleY value</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#setScaleY">fabric.Object#setScaleY</a>
+    </li></dd>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10503">line 10503</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    thisArg
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type"><a href="fabric.Object.html">fabric.Object</a></span>
 
 
 	</dd>
@@ -14097,7 +16794,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11400">line 11400</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11680">line 11680</a>
     </li></ul></dd>
     
     
@@ -14244,7 +16941,301 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11078">line 11078</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11358">line 11358</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    thisArg
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type"><a href="fabric.Object.html">fabric.Object</a></span>
+
+
+	</dd>
+</dl>
+
+        
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="setStroke">
+        <span class="type-signature"></span>setStroke<span class="signature">(value)</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span>
+        <a href="#setStroke" class="anchor">§</a>
+    </h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Sets object's stroke
+    </div>
+    
+
+    
+
+    
+
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">stroke value</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#setStroke">fabric.Object#setStroke</a>
+    </li></dd>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10467">line 10467</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    thisArg
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type"><a href="fabric.Object.html">fabric.Object</a></span>
+
+
+	</dd>
+</dl>
+
+        
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="setStrokeWidth">
+        <span class="type-signature"></span>setStrokeWidth<span class="signature">(value)</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span>
+        <a href="#setStrokeWidth" class="anchor">§</a>
+    </h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Sets object's strokeWidth
+    </div>
+    
+
+    
+
+    
+
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">strokeWidth value</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#setStrokeWidth">fabric.Object#setStrokeWidth</a>
+    </li></dd>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10471">line 10471</a>
     </li></ul></dd>
     
     
@@ -14386,7 +17377,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17381">line 17381</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17703">line 17703</a>
     </li></ul></dd>
     
     
@@ -14524,7 +17515,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17397">line 17397</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17719">line 17719</a>
     </li></ul></dd>
     
     
@@ -14662,7 +17653,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17401">line 17401</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17723">line 17723</a>
     </li></ul></dd>
     
     
@@ -14800,7 +17791,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17385">line 17385</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17707">line 17707</a>
     </li></ul></dd>
     
     
@@ -14833,6 +17824,153 @@ Requires public options: cornerSize, padding
 	<dd>
 		
 <span class="param-type"><a href="fabric.Text.html">fabric.Text</a></span>
+
+
+	</dd>
+</dl>
+
+        
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="setTop">
+        <span class="type-signature"></span>setTop<span class="signature">(value)</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span>
+        <a href="#setTop" class="anchor">§</a>
+    </h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Sets object's top position
+    </div>
+    
+
+    
+
+    
+
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Top value (in pixels)</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Object.html#setTop">fabric.Object#setTop</a>
+    </li></dd>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10491">line 10491</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    thisArg
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type"><a href="fabric.Object.html">fabric.Object</a></span>
 
 
 	</dd>
@@ -14895,7 +18033,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line12222">line 12222</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line12504">line 12504</a>
     </li></ul></dd>
     
     
@@ -14994,7 +18132,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16202">line 16202</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16523">line 16523</a>
     </li></ul></dd>
     
     
@@ -15153,7 +18291,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10878">line 10878</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11158">line 11158</a>
     </li></ul></dd>
     
     
@@ -15594,7 +18732,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11254">line 11254</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11534">line 11534</a>
     </li></ul></dd>
     
     
@@ -15741,7 +18879,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11064">line 11064</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11344">line 11344</a>
     </li></ul></dd>
     
     
@@ -15840,7 +18978,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11308">line 11308</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11588">line 11588</a>
     </li></ul></dd>
     
     
@@ -15999,7 +19137,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11329">line 11329</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11609">line 11609</a>
     </li></ul></dd>
     
     
@@ -16146,7 +19284,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11661">line 11661</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11943">line 11943</a>
     </li></ul></dd>
     
     
@@ -16296,7 +19434,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line18102">line 18102</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line18424">line 18424</a>
     </li></ul></dd>
     
     
@@ -16390,7 +19528,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17649">line 17649</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17971">line 17971</a>
     </li></ul></dd>
     
     
@@ -16484,7 +19622,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line18124">line 18124</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line18446">line 18446</a>
     </li></ul></dd>
     
     
@@ -16654,7 +19792,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10816">line 10816</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11096">line 11096</a>
     </li></ul></dd>
     
     
@@ -16825,7 +19963,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11578">line 11578</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11860">line 11860</a>
     </li></ul></dd>
     
     
@@ -17014,7 +20152,7 @@ Requires public options: cornerSize, padding
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11606">line 11606</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11888">line 11888</a>
     </li></ul></dd>
     
     
@@ -17092,7 +20230,7 @@ Requires public options: cornerSize, padding
 <br clear="both">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0</a> on Thu Sep 26 2013 17:34:38 GMT+0200 (CEST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0</a> on Fri Sep 27 2013 19:23:53 GMT+0200 (CEST)
 </footer>
 
 <script> /*prettyPrint();*/ </script>

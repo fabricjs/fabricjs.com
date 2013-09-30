@@ -444,6 +444,32 @@ canvas.add(text);
 </pre>
 
 <pre class="test-source">
+var text = new fabric.Text('foo\nbar\nbaz', {
+  fontFamily: 'Arial',
+  fontSize: 30,
+  left: 50,
+  top: 75,
+  fill: 'red',
+  lineHeight: 2,
+  textDecoration: 'line-through'
+});
+canvas.add(text);
+</pre>
+
+<pre class="test-source">
+var text = new fabric.Text('foo\nbar\nbaz', {
+  fontFamily: 'Arial',
+  fontSize: 30,
+  left: 50,
+  top: 75,
+  fill: 'red',
+  lineHeight: 2,
+  textDecoration: 'overline'
+});
+canvas.add(text);
+</pre>
+
+<pre class="test-source">
 var text = new fabric.Text('XY', {
   fontFamily: 'Impact',
   fontSize: 100,
@@ -584,6 +610,21 @@ var text = new fabric.Text('     New Text R', {
   fill: 'purple',
   textAlign: 'right',
   backgroundColor: 'yellow'
+});
+canvas.add(text);
+</pre>
+
+<pre class="test-source">
+var text = new fabric.Text('New Text', {
+  angle: 270,
+  fill: '#ff3216',
+  fontFamily: 'Arial',
+  fontSize: 26,
+  height: 33.8,
+  width: 109,
+  left: 66,
+  top: 41,
+  originY: 'top'
 });
 canvas.add(text);
 </pre>

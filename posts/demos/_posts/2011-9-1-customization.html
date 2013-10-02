@@ -299,30 +299,6 @@ fabric.instances.push(canvas)})();
 </div>
 
 <div class="block">
-  <h3>Making objects grayscale</h3>
-  <canvas id="c14" width="200" height="200"></canvas>
-<script>
-(function(){
-  var canvas = new fabric.Canvas('c14');
-  fabric.Image.fromURL('../assets/pug.jpg', function(obj) {
-
-    canvas.add(obj.scale(0.1).rotate(-15).set({ left: 80, top: 95 }));
-    canvas.add(new fabric.Rect({ width: 50, height: 40, fill: '#77f', top: 75, left: 160 }))
-    canvas.add(new fabric.Circle({ radius: 20, fill: '#f55', top: 170, left: 150 }));
-
-    canvas.item(0).toGrayscale();
-    canvas.item(1).toGrayscale();
-    canvas.item(2).toGrayscale();
-
-    canvas.renderAll();
-
-    console.log(canvas.item(2).toGrayscale);
-  });
-fabric.instances.push(canvas)})();
-</script>
-</div>
-
-<div class="block">
   <h3>Rotating point</h3>
   <canvas id="c18" width="200" height="200"></canvas>
 <script>

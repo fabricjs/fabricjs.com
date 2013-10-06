@@ -113,6 +113,10 @@
 
       this.initCursorSelectionHandlers();
       this.initDblClickSimulation();
+
+      this.dummyTextarea = document.createElement('textarea');
+      this.dummyTextarea.style.cssText = 'position: absolute; top: -9999px; left: -9999px;';
+      document.body.appendChild(this.dummyTextarea);
     },
 
     /**
@@ -123,8 +127,13 @@
       var newClickTime;
       this.on('mousedown', function(options) {
         newClickTime = +new Date;
-        if (newClickTime - lastClickTime < 200) {
+        if (newClickTime - lastClickTime < 500) {
           this.fire('dblclick', options);
+
+          var event = options.e;
+
+          event.preventDefault && event.preventDefault()
+          event.stopPropagation && event.stopPropagation();
         }
         lastClickTime = newClickTime;
       });
@@ -218,6 +227,16 @@
       });
     },
 
+    setSelectionStart: function(index) {
+      this.selectionStart = index;
+      this.dummyTextarea.selectionStart = index;
+    },
+
+    setSelectionEnd: function(index) {
+      this.selectionEnd = index;
+      this.dummyTextarea.selectionEnd = index;
+    },
+
     /**
      * Selects a word based on the index
      * @param {Number} selectionStart Index of a character
@@ -242,8 +261,8 @@
       var newSelectionStart = searchWordBoundary.call(this, -1) /* search backwards */;
       var newSelectionEnd = searchWordBoundary.call(this, 1) /* search forward */;
 
-      this.selectionStart = newSelectionStart;
-      this.selectionEnd = newSelectionEnd;
+      this.setSelectionStart(newSelectionStart);
+      this.setSelectionEnd(newSelectionEnd);
     },
 
     /**
@@ -265,7 +284,8 @@
      */
     setCursorByClick: function(e) {
       var newSelectionStart = this.getSelectionStartFromPointer(e);
-      this.selectionStart = this.selectionEnd = newSelectionStart;
+      this.setSelectionStart(newSelectionStart);
+      this.setSelectionEnd(newSelectionStart);
     },
 
     /**
@@ -287,7 +307,11 @@
 
       for (var i = 0, len = textLines.length; i < len; i++) {
         height += this._getHeightOfLine(this.ctx, i);
-        width = 0;
+
+        var widthOfLine = this._getWidthOfLine(this.ctx, i, textLines);
+        var lineLeftOffset = this._getLineLeftOffset(widthOfLine);
+
+        width = lineLeftOffset;
 
         for (var j = 0, jlen = textLines[i].length; j < jlen; j++) {
           var _char = textLines[i][j];
@@ -344,6 +368,10 @@
 
       this.isEditing = true;
 
+      this.dummyTextarea.value = this.text;
+      this.dummyTextarea.selectionStart = this.selectionStart;
+      this.dummyTextarea.focus();
+
       this._savedProps = {
 
         hasControls: this.hasControls,
@@ -382,6 +410,8 @@
       this.selected = false;
       this.isEditing = false;
       this.selectable = true;
+
+      this.dummyTextarea.blur();
 
       this.abortCursorAnimation();
 
@@ -1147,8 +1177,6 @@
 
         var widthOfLine = this._getWidthOfLine(ctx, lineIndex, textLines);
         var lineLeftOffset = this._getLineLeftOffset(widthOfLine);
-
-        // ctx.strokeRect(left + leftOffset, top + topOffset, 5, 5);
       }
 
       return {
@@ -1166,32 +1194,28 @@
     renderCursor: function(ctx, boundaries) {
       ctx.save();
 
-      var angle = 10;
-
       var cursorLocation = this.get2DCursorLocation();
       var lineIndex = cursorLocation.lineIndex;
       var charIndex = cursorLocation.charIndex;
-      var degreesInRadians = fabric.util.degreesToRadians(angle);
 
       ctx.fillStyle = this.getCurrentCharColor(lineIndex, charIndex);
       ctx.globalAlpha = this._currentCursorOpacity;
 
       var charHeight = this.getCurrentCharFontSize(lineIndex, charIndex);
-      var angleWidth = 0;
 
-      ctx.translate(
-        -this.width / 2 + boundaries.leftOffset,
-        -this.height / 2 + boundaries.topOffset
-      );
-
-      if (this.getCurrentCharStyle(lineIndex, charIndex) === 'italic') {
-        angleWidth = Math.tan(degreesInRadians) * charHeight;
-        ctx.rotate(Math.tan(fabric.util.degreesToRadians(angle)));
-      }
+      // if (this.getCurrentCharStyle(lineIndex, charIndex) === 'italic') {
+      //   ctx.transform(
+      //     1,
+      //     0,
+      //     Math.tan(fabric.util.degreesToRadians(-10)),
+      //     1,
+      //     Math.sin(fabric.util.degreesToRadians(10)) * charHeight,
+      //     0);
+      // }
 
       ctx.fillRect(
-        0 + angleWidth / 2,
-        0,
+        boundaries.left + boundaries.leftOffset,
+        boundaries.top + boundaries.topOffset,
         this.cursorWidth,
         charHeight);
 
@@ -1248,16 +1272,21 @@
     /**
      * @private
      * @param {CanvasRenderingContext2D} ctx Context to render on
+     * @param {String} _char
+     * @param {Number} lineIndex
+     * @param {Number} charIndex
+     * @param {Object} [decl]
      */
-    _applyCharStyles: function(ctx, _char, lineIndex, charIndex) {
-      var styleDeclaration = this.styles[lineIndex] && this.styles[lineIndex][charIndex];
+    _applyCharStylesGetWidth: function(ctx, _char, lineIndex, charIndex, decl) {
+      var styleDeclaration = decl || (this.styles[lineIndex] && this.styles[lineIndex][charIndex]);
 
-      if (!styleDeclaration) {
+      if (styleDeclaration) {
+        // cloning so that original style object is not polluted with following font declarations
+        styleDeclaration = clone(styleDeclaration);
+      }
+      else {
         styleDeclaration = { };
       }
-
-      // cloning so that original style object is not polluted with following font declarations
-      styleDeclaration = clone(styleDeclaration);
 
       var fill = styleDeclaration.fill || this.fill;
       ctx.fillStyle = fill.toLive
@@ -1283,6 +1312,9 @@
       if (!styleDeclaration.fontStyle) {
         styleDeclaration.fontStyle = this.fontStyle;
       }
+      if (typeof styleDeclaration.shadow == 'string') {
+        styleDeclaration.shadow = new fabric.Shadow(styleDeclaration.shadow);
+      }
 
       this._setShadow.call(styleDeclaration, ctx);
 
@@ -1295,11 +1327,11 @@
      * @private
      * @param {CanvasRenderingContext2D} ctx Context to render on
      */
-    _restoreTextShadow: function(ctx, lineIndex, charIndex) {
+    _restoreShadow: function(ctx, lineIndex, charIndex) {
       // if there's shadow, context needs to be restored back after it was saved by shadow logic
       if (this.styles[lineIndex] &&
           this.styles[lineIndex][charIndex] &&
-          this.styles[lineIndex][charIndex].textShadow) {
+          this.styles[lineIndex][charIndex].shadow) {
         ctx.restore();
       }
     },
@@ -1310,9 +1342,22 @@
      * @param {CanvasRenderingContext2D} ctx Context to render on
      */
     _drawTextLine: function(method, ctx, line, left, top, lineIndex) {
+      // console.log('_drawTextLine', method, line);
+
       // to "cancel" this.fontSize subtraction in fabric.Text#_drawTextLine
       top += this.fontSize / 4;
       this.callSuper('_drawTextLine', method, ctx, line, left, top, lineIndex);
+    },
+
+    _drawCharsFast: function(method, ctx, line, left, top) {
+      this.skipTextAlign = false;
+
+      if (method === 'fillText' && this.fill) {
+        this.callSuper('_drawChars', method, ctx, line, left, top);
+      }
+      if (method === 'strokeText' && this.stroke) {
+        this.callSuper('_drawChars', method, ctx, line, left, top);
+      }
     },
 
     /**
@@ -1322,10 +1367,10 @@
      */
     _drawChars: function(method, ctx, line, left, top, lineIndex) {
 
+      // console.log('_drawChars', method);
+
       if (this.styles && Object.keys(this.styles).length === 0) {
-        this.skipTextAlign = false;
-        this.callSuper('_drawChars', method, ctx, line, left, top);
-        return;
+        return this._drawCharsFast(method, ctx, line, left, top);
       }
 
       this.skipTextAlign = true;
@@ -1337,48 +1382,38 @@
           ? this.width
           : 0;
 
-      // ctx.strokeRect(left, top, this.width, 10);
-
       // set proper line offset
       var textLines = this.text.split(this._reNewline);
       var lineWidth = this._getWidthOfLine(ctx, lineIndex, textLines);
       var lineLeftOffset = this._getLineLeftOffset(lineWidth);
+      var decl;
 
       left += lineLeftOffset || 0;
-
-      // var offset = this.width - this._getWidthOfLine(ctx, lineIndex, textLines);
-      // ctx.fillRect(left, top, 10, 10);
-      // ctx.fillRect(left + lineLeftOffset, top, 10, 10);
-      // console.log('offset', offset);
 
       var chars = line.split('');
 
       ctx.save();
       for (var i = 0, len = chars.length; i < len; i++) {
 
-        if (this.styles && this.styles[lineIndex] && this.styles[lineIndex][i]) {
+        if (this.styles && this.styles[lineIndex] && (decl = this.styles[lineIndex][i])) {
+
+          var shouldStroke = decl.stroke || this.stroke;
+          var shouldFill = decl.fill || this.fill;
 
           ctx.save();
+          var charWidth = this._applyCharStylesGetWidth(ctx, chars[i], lineIndex, i, decl);
 
-          var charWidth = this._applyCharStyles(ctx, chars[i], lineIndex, i);
-
-          var shouldStroke = method === 'strokeText' &&
-                            (this.styles[lineIndex][i].stroke || this.stroke);
-
-          var shouldFill = method === 'fillText' &&
-                            (this.styles[lineIndex][i].fill || this.fill);
-
-          if (shouldStroke) {
-            ctx[method](chars[i], left, top);
-            this._renderCharDecoration(ctx, this.styles[lineIndex][i], left, top, charWidth);
-          }
           if (shouldFill) {
-            ctx[method](chars[i], left, top);
-            this._renderCharDecoration(ctx, this.styles[lineIndex][i], left, top, charWidth);
+            ctx.fillText(chars[i], left, top);
+          }
+          if (shouldStroke) {
+            ctx.strokeText(chars[i], left, top);
           }
 
-          this._restoreTextShadow(ctx, lineIndex, i);
+          this._renderCharDecoration(ctx, decl, left, top, charWidth);
           ctx.restore();
+
+          //this._restoreShadow(ctx, lineIndex, i);
 
           ctx.translate(charWidth, 0);
         }
@@ -1523,8 +1558,8 @@
      */
     _getWidthOfChar: function(ctx, _char, lineIndex, charIndex) {
       ctx.save();
-      var width = this._applyCharStyles(ctx, _char, lineIndex, charIndex);
-      this._restoreTextShadow(ctx, lineIndex, charIndex);
+      var width = this._applyCharStylesGetWidth(ctx, _char, lineIndex, charIndex);
+      //this._restoreShadow(ctx, lineIndex, charIndex);
       ctx.restore();
       return width;
     },

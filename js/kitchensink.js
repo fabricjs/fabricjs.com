@@ -1031,7 +1031,7 @@
   //   return false;
   // };
 
-  /*var iText1 = new fabric.IText('zomg123\nbar\n0bAz\nand something else', {
+  var iText1 = new fabric.IText('zomg123\nbar\n0bAz\nand something else', {
     left: 10,
     top: 20,
     originX: 'left',
@@ -1069,15 +1069,15 @@
         9: { textBackgroundColor: '#faa', fontStyle: 'italic', fontFamily: 'Monaco', fontSize: 45  },
         10: { textBackgroundColor: '#faa', fontStyle: 'italic', fontFamily: 'Monaco', fontSize: 50 },
         11: { textBackgroundColor: '#faa', fontStyle: 'italic', fontFamily: 'Monaco', fontSize: 55 },
-        12: { textBackgroundColor: '#faa', fontStyle: 'italic', fontFamily: 'Monaco', fontSize: 60 }
+        12: { textBackgroundColor: '#faa', fontStyle: 'italic', fontFamily: 'Monaco', fontSize: 60 },
 
-        // 14: { textShadow: 'rgba(0,0,0,0.3) 5px 2px 2px' },
-        // 15: { textShadow: 'rgba(0,0,0,0.3) 5px 2px 2px' },
-        // 16: { textShadow: 'rgba(0,0,0,0.3) 5px 2px 2px' },
-        // 17: { textShadow: 'rgba(0,0,0,0.3) 5px 2px 2px' }
+        14: { shadow: '2px 2px 10px rgba(0,0,0,0.2)' },
+        15: { shadow: '2px 2px 10px rgba(0,0,0,0.2)' },
+        16: { shadow: '2px 2px 10px rgba(0,0,0,0.2)' },
+        17: { shadow: '2px 2px 10px rgba(0,0,0,0.2)' }
       }
     }
-  });
+  });/*
 
   var iText2 = new fabric.IText('hello\nworld', {
     left: 500,
@@ -1299,7 +1299,19 @@
     }
   });
 
-  canvas.add(iText13);
+  var iText14 = new fabric.IText('foo', {
+    left: 100,
+    top: 100,
+    fontSize: 80,
+    styles: {
+      0: {
+        0: { fill: 'red', shadow: '0px 0px 10px rgba(0,0,0,0.3)' },
+        2: { fill: 'red', shadow: '0px 0px 10px rgba(0,0,0,0.3)' }
+      }
+    }
+  });
+
+  // canvas.add(iText14);
 
 
   // var child1 = new fabric.Rect({ width: 100, height: 50, fill: '#f55', top: 15, left: 50});

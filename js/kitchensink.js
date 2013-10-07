@@ -1077,7 +1077,7 @@
         17: { shadow: '2px 2px 10px rgba(0,0,0,0.2)' }
       }
     }
-  });/*
+  });
 
   var iText2 = new fabric.IText('hello\nworld', {
     left: 500,
@@ -1185,17 +1185,20 @@
     top: 100,
     originX: 'left',
     originY: 'top',
-    padding: 7
+    padding: 7,
+    centeredRotation: true
   });
 
   var iText8 = new fabric.IText('Однажды, в студеную зимнюю пору,\nЯ из лесу вышел; был сильный мороз.\nГляжу, поднимается медленно в гору\n\Лошадка, везущая хворосту воз.', {
-    left: 100,
+    left: 150,
     top: 100,
     originX: 'left',
     originY: 'top',
     fontFamily: 'Hoefler Text',
     fontSize: 30,
     padding: 7,
+    angle: 20,
+    centeredRotation: true
     //textAlign: 'right'
   });
 
@@ -1255,27 +1258,27 @@
         1: { textBackgroundColor: 'rgb(96,142,93)', fill: 'rgb(240,255,236)', fontFamily: fontFamily, fontSize: fontSize }
       }
     }
-  });*/
+  });
 
   // canvas.add(iText7).setActiveObject(iText7);
   // iText7.enterEditing();
 
-  // var iText12 = new fabric.IText('xxx\nyz', {
-  //   left: 100,
-  //   top: 100,
-  //   originX: 'left',
-  //   originY: 'top',
-  //   fontFamily: 'Hoefler Text',
-  //   fontSize: 40,
-  //   padding: 7,
-  //   textAlign: 'center',
-  //   styles: {
-  //     0: {
-  //       1: { fontSize: 80 },
-  //       2: { fontSize: 120 }
-  //     }
-  //   }
-  // });
+  var iText12 = new fabric.IText('xxx\nyz', {
+    left: 100,
+    top: 100,
+    originX: 'left',
+    originY: 'top',
+    fontFamily: 'Hoefler Text',
+    fontSize: 40,
+    padding: 7,
+    textAlign: 'center',
+    styles: {
+      0: {
+        1: { fontSize: 80 },
+        2: { fontSize: 120 }
+      }
+    }
+  });
 
   var iText13 = new fabric.IText('hello\nworld\nfoobar', {
     left: 100,
@@ -1311,7 +1314,7 @@
     }
   });
 
-  // canvas.add(iText14);
+  canvas.add(iText8);
 
 
   // var child1 = new fabric.Rect({ width: 100, height: 50, fill: '#f55', top: 15, left: 50});

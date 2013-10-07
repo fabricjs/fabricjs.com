@@ -6,8 +6,10 @@
     * IText class
     * @class fabric.IText
     * @extends fabric.Text
+    * @mixes fabric.Observable
     * @fires #text:changed
     * @return {fabric.IText} thisArg
+    * @see {@link fabric.IText#initialize} for constructor definition
     */
   fabric.IText = fabric.util.createClass(fabric.Text, fabric.Observable, {
 
@@ -91,10 +93,29 @@
 
     skipFillStrokeCheck: true,
 
+    /**
+     * @private
+     */
     _reNewline: /\r?\n/,
+
+    /**
+     * @private
+     */
     _fontSizeFraction: 4,
+
+    /**
+     * @private
+     */
     _currentCursorOpacity: 0,
+
+    /**
+     * @private
+     */
     _selectionDirection: null,
+
+    /**
+     * @private
+     */
     _abortCursorAnimation: false,
 
     /**
@@ -113,10 +134,19 @@
 
       this.initCursorSelectionHandlers();
       this.initDblClickSimulation();
+      this.initHiddenTextarea();
+    },
 
-      this.dummyTextarea = document.createElement('textarea');
-      this.dummyTextarea.style.cssText = 'position: absolute; top: -9999px; left: -9999px;';
-      document.body.appendChild(this.dummyTextarea);
+    /**
+     * Initializes hidden textarea (needed to bring up keyboard in iOS)
+     */
+    initHiddenTextarea: function() {
+      this.hiddenTextarea = fabric.document.createElement('textarea');
+
+      this.hiddenTextarea.setAttribute('autocapitalize', 'off');
+      this.hiddenTextarea.style.cssText = 'position: absolute; top: -9999px; left: -9999px;';
+
+      fabric.document.body.appendChild(this.hiddenTextarea);
     },
 
     /**
@@ -227,14 +257,22 @@
       });
     },
 
+    /**
+     * Sets selection start (left boundary of a selection)
+     * @param {Number} index Index to set selection start to
+     */
     setSelectionStart: function(index) {
       this.selectionStart = index;
-      this.dummyTextarea.selectionStart = index;
+      this.hiddenTextarea.selectionStart = index;
     },
 
+    /**
+     * Sets selection end (right boundary of a selection)
+     * @param {Number} index Index to set selection end to
+     */
     setSelectionEnd: function(index) {
       this.selectionEnd = index;
-      this.dummyTextarea.selectionEnd = index;
+      this.hiddenTextarea.selectionEnd = index;
     },
 
     /**
@@ -284,6 +322,7 @@
      */
     setCursorByClick: function(e) {
       var newSelectionStart = this.getSelectionStartFromPointer(e);
+
       this.setSelectionStart(newSelectionStart);
       this.setSelectionEnd(newSelectionStart);
     },
@@ -331,9 +370,6 @@
             var distanceBtwLastCharAndCursor = mouseOffsetX - prevWidth;
             var distanceBtwNextCharAndCursor = width - mouseOffsetX;
 
-            // console.log(prevWidth, mouseOffsetX, width);
-            // console.log(distanceBtwLastCharAndCursor, distanceBtwNextCharAndCursor);
-
             if (distanceBtwNextCharAndCursor > distanceBtwLastCharAndCursor) {
               newSelectionStart = charIndex + i;
               // console.log('leaning left');
@@ -342,8 +378,6 @@
               // console.log('leaning right');
               newSelectionStart = charIndex + i + 1;
             }
-
-            // console.log('newSelectionStart', newSelectionStart);
 
             if (newSelectionStart > this.text.length) {
               newSelectionStart = this.text.length;
@@ -368,9 +402,9 @@
 
       this.isEditing = true;
 
-      this.dummyTextarea.value = this.text;
-      this.dummyTextarea.selectionStart = this.selectionStart;
-      this.dummyTextarea.focus();
+      this.hiddenTextarea.value = this.text;
+      this.hiddenTextarea.selectionStart = this.selectionStart;
+      this.hiddenTextarea.focus();
 
       this._savedProps = {
 
@@ -411,7 +445,7 @@
       this.isEditing = false;
       this.selectable = true;
 
-      this.dummyTextarea.blur();
+      this.hiddenTextarea.blur();
 
       this.abortCursorAnimation();
 
@@ -476,6 +510,9 @@
       return this;
     },
 
+    /**
+     * @private
+     */
     _tick: function() {
       var _this = this;
 
@@ -500,6 +537,9 @@
       });
     },
 
+    /**
+     * @private
+     */
     _onTickComplete: function() {
       if (this._abortCursorAnimation) return;
 
@@ -543,7 +583,7 @@
      * @param {Event} e Event object
      */
     onKeyUp: function(e) {
-      if (!this.isEditing || e.metaKey || e.ctrlKey) return;
+      if (!this.isEditing || e.ctrlKey) return;
 
       if (e.keyCode === 39) {
         this.moveCursorRight(e);
@@ -636,6 +676,10 @@
       this.initDelayedCursor();
     },
 
+    /**
+     * Moves cursor down without keeping selection
+     * @param {Number} offset
+     */
     moveCursorDownWithoutShift: function(offset) {
       this.selectionStart += offset;
 
@@ -645,6 +689,10 @@
       this.selectionEnd = this.selectionStart;
     },
 
+    /**
+     * Moves cursor down while keeping selection
+     * @param {Number} offset
+     */
     moveCursorDownWithShift: function(offset) {
       this._selectionDirection = 'right';
       this.selectionEnd += offset;
@@ -698,33 +746,139 @@
       this._currentCursorOpacity = 1;
 
       if (e.shiftKey) {
-        this.moveCursorLeftWithShift();
+        this.moveCursorLeftWithShift(e);
       }
       else {
-        this.moveCursorLeftWithoutShift();
+        this.moveCursorLeftWithoutShift(e);
       }
 
       this.initDelayedCursor();
     },
 
-    moveCursorLeftWithoutShift: function() {
+    /**
+     * Find new selection index representing start of current word according to current selection index
+     * @param {Number} current selection index
+     */
+    findLeftWordBoundary: function(startFrom) {
+      var offset = 0, index = startFrom - 1;
+
+      // remove space before cursor first
+      if ((/\s|\n/).test(this.text.charAt(index))) {
+        while (/\s|\n/.test(this.text.charAt(index))) {
+          offset++;
+          index--;
+        }
+      }
+      while (/\S/.test(this.text.charAt(index)) && index > -1) {
+        offset++;
+        index--;
+      }
+
+      return startFrom - offset;
+    },
+
+    /**
+     * Find new selection index representing end of current word according to current selection index
+     * @param {Number} current selection index
+     */
+    findRightWordBoundary: function(startFrom) {
+      var offset = 0, index = startFrom;
+
+      // remove space after cursor first
+      if ((/\s|\n/).test(this.text.charAt(index))) {
+        while (/\s|\n/.test(this.text.charAt(index))) {
+          offset++;
+          index++;
+        }
+      }
+      while (/\S/.test(this.text.charAt(index)) && index < this.text.length) {
+        offset++;
+        index++;
+      }
+
+      return startFrom + offset;
+    },
+
+    /**
+     * Find new selection index representing start of current line according to current selection index
+     * @param {Number} current selection index
+     */
+    findLeftLineBoundary: function(startFrom) {
+      var offset = 0, index = startFrom - 1;
+
+      while (!/\n/.test(this.text.charAt(index)) && index > -1) {
+        offset++;
+        index--;
+      }
+
+      return startFrom - offset;
+    },
+
+    /**
+     * Find new selection index representing end of current line according to current selection index
+     * @param {Number} current selection index
+     */
+    findRightLineBoundary: function(startFrom) {
+      var offset = 0, index = startFrom;
+
+      while (!/\n/.test(this.text.charAt(index)) && index < this.text.length) {
+        offset++;
+        index++;
+      }
+
+      return startFrom + offset;
+    },
+
+    /**
+     * Moves cursor left without keeping selection
+     * @param {Event} e
+     */
+    moveCursorLeftWithoutShift: function(e) {
       this._selectionDirection = 'left';
 
       // only move cursor when there is no selection,
       // otherwise we discard it, and leave cursor on same place
       if (this.selectionEnd === this.selectionStart) {
-        this.selectionStart--;
+        if (e.altKey) {
+          this.selectionStart = this.findLeftWordBoundary(this.selectionStart);
+        }
+        else if (e.metaKey) {
+          this.selectionStart = this.findLeftLineBoundary(this.selectionStart);
+        }
+        else {
+          this.selectionStart--;
+        }
       }
       this.selectionEnd = this.selectionStart;
     },
 
-    moveCursorLeftWithShift: function() {
+    /**
+     * Moves cursor left while keeping selection
+     * @param {Event} e
+     */
+    moveCursorLeftWithShift: function(e) {
       if (this._selectionDirection === 'right' && this.selectionStart !== this.selectionEnd) {
-        this.selectionEnd--;
+        if (e.altKey) {
+          this.selectionEnd = this.findLeftWordBoundary(this.selectionEnd);
+        }
+        else if (e.metaKey) {
+          this.selectionEnd = this.findLeftLineBoundary(this.selectionEnd);
+        }
+        else {
+          this.selectionEnd--;
+        }
       }
       else {
         this._selectionDirection = 'left';
-        this.selectionStart--;
+        if (e.altKey) {
+          this.selectionStart = this.findLeftWordBoundary(this.selectionStart);
+        }
+        else if (e.metaKey) {
+          this.selectionStart = this.findLeftLineBoundary(this.selectionStart);
+        }
+        else {
+          this.selectionStart--;
+        }
 
         // increase selection by one if it's a newline
         if (this.text.charAt(this.selectionStart) === '\n') {
@@ -747,22 +901,42 @@
       this._currentCursorOpacity = 1;
 
       if (e.shiftKey) {
-        this.moveCursorRightWithShift();
+        this.moveCursorRightWithShift(e);
       }
       else {
-        this.moveCursorRightWithoutShift();
+        this.moveCursorRightWithoutShift(e);
       }
 
       this.initDelayedCursor();
     },
 
-    moveCursorRightWithShift: function() {
+    /**
+     * Moves cursor right while keeping selection
+     * @param {Event} e
+     */
+    moveCursorRightWithShift: function(e) {
       if (this._selectionDirection === 'left' && this.selectionStart !== this.selectionEnd) {
-        this.selectionStart++;
+        if (e.altKey) {
+          this.selectionStart = this.findRightWordBoundary(this.selectionStart);
+        }
+        else if (e.metaKey) {
+          this.selectionStart = this.findRightLineBoundary(this.selectionStart);
+        }
+        else {
+          this.selectionStart++;
+        }
       }
       else {
         this._selectionDirection = 'right';
-        this.selectionEnd++;
+        if (e.altKey) {
+          this.selectionEnd = this.findRightWordBoundary(this.selectionEnd);
+        }
+        else if (e.metaKey) {
+          this.selectionEnd = this.findRightLineBoundary(this.selectionEnd);
+        }
+        else {
+          this.selectionEnd++;
+        }
 
         // increase selection by one if it's a newline
         if (this.text.charAt(this.selectionEnd - 1) === '\n') {
@@ -774,11 +948,23 @@
       }
     },
 
-    moveCursorRightWithoutShift: function() {
+    /**
+     * Moves cursor right without keeping selection
+     * @param {Event} e
+     */
+    moveCursorRightWithoutShift: function(e) {
       this._selectionDirection = 'right';
 
       if (this.selectionStart === this.selectionEnd) {
-        this.selectionStart++;
+        if (e.altKey) {
+          this.selectionStart = this.findRightWordBoundary(this.selectionStart);
+        }
+        else if (e.metaKey) {
+          this.selectionStart = this.findRightLineBoundary(this.selectionStart);
+        }
+        else {
+          this.selectionStart++;
+        }
         this.selectionEnd = this.selectionStart;
       }
       else {
@@ -1203,16 +1389,6 @@
 
       var charHeight = this.getCurrentCharFontSize(lineIndex, charIndex);
 
-      // if (this.getCurrentCharStyle(lineIndex, charIndex) === 'italic') {
-      //   ctx.transform(
-      //     1,
-      //     0,
-      //     Math.tan(fabric.util.degreesToRadians(-10)),
-      //     1,
-      //     Math.sin(fabric.util.degreesToRadians(10)) * charHeight,
-      //     0);
-      // }
-
       ctx.fillRect(
         boundaries.left + boundaries.leftOffset,
         boundaries.top + boundaries.topOffset,
@@ -1230,6 +1406,7 @@
      */
     renderSelection: function(ctx, chars, boundaries) {
       ctx.save();
+
       ctx.fillStyle = this.selectionColor;
 
       var cursorLocation = this.get2DCursorLocation();
@@ -1325,30 +1502,22 @@
 
     /**
      * @private
+     * @param {String} method
      * @param {CanvasRenderingContext2D} ctx Context to render on
+     * @param {String} line
      */
-    _restoreShadow: function(ctx, lineIndex, charIndex) {
-      // if there's shadow, context needs to be restored back after it was saved by shadow logic
-      if (this.styles[lineIndex] &&
-          this.styles[lineIndex][charIndex] &&
-          this.styles[lineIndex][charIndex].shadow) {
-        ctx.restore();
-      }
+    _drawTextLine: function(method, ctx, line, left, top, lineIndex) {
+      // to "cancel" this.fontSize subtraction in fabric.Text#_drawTextLine
+      top += this.fontSize / 4;
+      this.callSuper('_drawTextLine', method, ctx, line, left, top, lineIndex);
     },
 
     /**
      * @private
      * @param {String} method
      * @param {CanvasRenderingContext2D} ctx Context to render on
+     * @param {String} line
      */
-    _drawTextLine: function(method, ctx, line, left, top, lineIndex) {
-      // console.log('_drawTextLine', method, line);
-
-      // to "cancel" this.fontSize subtraction in fabric.Text#_drawTextLine
-      top += this.fontSize / 4;
-      this.callSuper('_drawTextLine', method, ctx, line, left, top, lineIndex);
-    },
-
     _drawCharsFast: function(method, ctx, line, left, top) {
       this.skipTextAlign = false;
 
@@ -1412,8 +1581,6 @@
 
           this._renderCharDecoration(ctx, decl, left, top, charWidth);
           ctx.restore();
-
-          //this._restoreShadow(ctx, lineIndex, i);
 
           ctx.translate(charWidth, 0);
         }
@@ -1559,7 +1726,6 @@
     _getWidthOfChar: function(ctx, _char, lineIndex, charIndex) {
       ctx.save();
       var width = this._applyCharStylesGetWidth(ctx, _char, lineIndex, charIndex);
-      //this._restoreShadow(ctx, lineIndex, charIndex);
       ctx.restore();
       return width;
     },

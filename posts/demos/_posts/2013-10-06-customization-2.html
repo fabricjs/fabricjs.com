@@ -1,0 +1,127 @@
+---
+layout: demo
+title: Customization 2
+---
+
+<canvas id="c" width="600" height="500"></canvas>
+
+<div style="display: inline-block; background: #f5f2f0; padding: 0 10px; margin-top: .5em">
+  <p>
+    <label>
+      <input type="checkbox" id="hasControls" checked>
+      <code>hasControls</code>
+    </label>
+  </p>
+  <p>
+    <label>
+      <input type="checkbox" id="hasBorders" checked>
+      <code>hasBorders</code>
+    </label>
+  </p>
+  <p>
+    <label>
+      <input type="checkbox" id="hasRotatingPoint" checked>
+      <code>hasRotatingPoint</code>
+    </label>
+  </p>
+  <p>
+    <label>
+      <input type="checkbox" id="visible" checked>
+      <code>visible</code>
+    </label>
+  </p>
+  <p>
+    <label>
+      <input type="checkbox" id="selectable" checked>
+      <code>selectable</code>
+    </label>
+  </p>
+  <p>
+    <label>
+      <input type="checkbox" id="evented" checked>
+      <code>evented</code>
+    </label>
+  </p>
+  <p>
+    <label>
+      <input type="checkbox" id="transparentCorners">
+      <code>transparentCorners</code>
+    </label>
+  </p>
+  <p>
+    <label>
+      <input type="checkbox" id="centeredScaling">
+      <code>centeredScaling</code>
+    </label>
+  </p>
+  <p>
+    <label>
+      <input type="checkbox" id="centeredRotation">
+      <code>centeredRotation</code>
+    </label>
+  </p>
+  <p>
+    <label>
+      <code>padding</code>
+      <input type="range" id="padding" value="0" min="0" max="50" style="display: block">
+    </label>
+  </p>
+  <p>
+    <label>
+      <code>cornerSize</code>
+      <input type="range" id="cornerSize" value="12" min="1" max="50" style="display: block">
+    </label>
+  </p>
+  <p>
+    <label>
+      <code>rotatingPointOffset</code>
+      <input type="range" id="rotatingPointOffset" value="40" min="5" max="150" style="display: block">
+    </label>
+  </p>
+</div>
+
+<script id="main">var canvas = new fabric.Canvas('c');
+
+  var rect = new fabric.Rect({
+    left: 150,
+    top: 200,
+    originX: 'left',
+    originY: 'top',
+    width: 150,
+    height: 120,
+    angle: -10,
+    fill: 'rgba(255,0,0,0.5)',
+    transparentCorners: false
+  });
+
+  canvas.add(rect).setActiveObject(rect);
+
+  function observeBoolean(property) {
+    document.getElementById(property).onclick = function() {
+      canvas.item(0)[property] = this.checked;
+      canvas.renderAll();
+    };
+  }
+
+  function observeNumeric(property) {
+    document.getElementById(property).onchange = function() {
+      canvas.item(0)[property] = this.value;
+      canvas.renderAll();
+    };
+  }
+
+  observeBoolean('hasControls');
+  observeBoolean('hasBorders');
+  observeBoolean('hasRotatingPoint');
+  observeBoolean('visible');
+  observeBoolean('selectable');
+  observeBoolean('evented');
+  observeBoolean('transparentCorners');
+  observeBoolean('centeredScaling');
+  observeBoolean('centeredRotation');
+
+  observeNumeric('padding');
+  observeNumeric('cornerSize');
+  observeNumeric('rotatingPointOffset');
+
+</script>

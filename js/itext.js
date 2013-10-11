@@ -1,6 +1,18 @@
-(function(){
+(function() {
 
   var clone = fabric.util.object.clone;
+
+  function isEmptyStyles(obj) {
+    for (var p1 in obj) {
+      for (var p2 in obj[p1]) {
+        /*jshint unused:false */
+        for (var p3 in obj[p1][p2]) {
+          return false;
+        }
+      }
+    }
+    return true;
+  }
 
    /**
     * IText class
@@ -47,6 +59,13 @@
      * @default
      */
     isEditing: false,
+
+    /**
+     * Indicates whether a text can be edited
+     * @type Boolean
+     * @default
+     */
+    editable: true,
 
     /**
      * Border color of text object while it's in editing mode
@@ -141,6 +160,8 @@
      * Initializes hidden textarea (needed to bring up keyboard in iOS)
      */
     initHiddenTextarea: function() {
+      if (!/(iPad|iPhone|iPod)/g.test(navigator.userAgent)) return;
+
       this.hiddenTextarea = fabric.document.createElement('textarea');
 
       this.hiddenTextarea.setAttribute('autocapitalize', 'off');
@@ -153,16 +174,16 @@
      * Initializes "dbclick" event handler
      */
     initDblClickSimulation: function() {
-      var lastClickTime = +new Date;
+      var lastClickTime = +new Date();
       var newClickTime;
       this.on('mousedown', function(options) {
-        newClickTime = +new Date;
+        newClickTime = +new Date();
         if (newClickTime - lastClickTime < 500) {
           this.fire('dblclick', options);
 
           var event = options.e;
 
-          event.preventDefault && event.preventDefault()
+          event.preventDefault && event.preventDefault();
           event.stopPropagation && event.stopPropagation();
         }
         lastClickTime = newClickTime;
@@ -173,10 +194,7 @@
      * Initializes event handlers related to cursor or selection
      */
     initCursorSelectionHandlers: function() {
-      var _this = this;
-
       this.initSelectedHandler();
-
       this.initMousedownHandler();
       this.initMousemoveHandler();
       this.initMouseupHandler();
@@ -248,7 +266,7 @@
         if (!this._hasClearSelectionListener) {
           this.canvas.on('selection:cleared', function(options) {
             // do not exit editing if event fired when clicking on an object again (in editing mode)
-            if (_this.canvas.findTarget(options.e)) return;
+            if (options.e && _this.canvas.findTarget(options.e)) return;
             _this.exitEditing();
           });
 
@@ -263,7 +281,7 @@
      */
     setSelectionStart: function(index) {
       this.selectionStart = index;
-      this.hiddenTextarea.selectionStart = index;
+      this.hiddenTextarea && (this.hiddenTextarea.selectionStart = index);
     },
 
     /**
@@ -272,7 +290,7 @@
      */
     setSelectionEnd: function(index) {
       this.selectionEnd = index;
-      this.hiddenTextarea.selectionEnd = index;
+      this.hiddenTextarea && (this.hiddenTextarea.selectionEnd = index);
     },
 
     /**
@@ -359,13 +377,16 @@
 
           // debugging
           // var objectLeftTop = this.translateToOriginPoint(this.getCenterPoint(), 'left', 'top');
-          // var _this = this;
-          // setTimeout(function() {
-          //   _this.canvas.upperCanvasEl.getContext('2d')
-          //     .strokeRect(objectLeftTop.x, objectLeftTop.y, width, height);
-          // }, 100)
+          // var ctx = this.canvas.upperCanvasEl.getContext('2d');
 
           if (height > mouseOffsetY && width > mouseOffsetX) {
+
+            // ctx.save();
+            // ctx.strokeRect(objectLeftTop.x, objectLeftTop.y, width, height);
+
+            // ctx.translate(objectLeftTop.x, objectLeftTop.y);
+            // ctx.fillRect(mouseOffsetX, mouseOffsetY, 10, 10);
+            // ctx.restore();
 
             var distanceBtwLastCharAndCursor = mouseOffsetX - prevWidth;
             var distanceBtwNextCharAndCursor = width - mouseOffsetX;
@@ -383,11 +404,11 @@
               newSelectionStart = this.text.length;
             }
 
-            this.canvas.renderAll();
+            //this.canvas.renderAll();
             return newSelectionStart;
           }
 
-          charIndex++
+          charIndex++;
         }
       }
     },
@@ -398,13 +419,15 @@
      * @chainable
      */
     enterEditing: function() {
-      if (this.isEditing) return;
+      if (this.isEditing || !this.editable) return;
 
       this.isEditing = true;
 
-      this.hiddenTextarea.value = this.text;
-      this.hiddenTextarea.selectionStart = this.selectionStart;
-      this.hiddenTextarea.focus();
+      if (this.hiddenTextarea) {
+        this.hiddenTextarea.value = this.text;
+        this.hiddenTextarea.selectionStart = this.selectionStart;
+        this.hiddenTextarea.focus();
+      }
 
       this._savedProps = {
 
@@ -445,7 +468,7 @@
       this.isEditing = false;
       this.selectable = true;
 
-      this.hiddenTextarea.blur();
+      this.hiddenTextarea && this.hiddenTextarea.blur();
 
       this.abortCursorAnimation();
 
@@ -527,7 +550,6 @@
         },
 
         onChange: function() {
-          // console.log('change', this._abortCursorAnimation);
           _this.canvas && _this.canvas.renderAll();
         },
 
@@ -554,7 +576,6 @@
             _this._tick();
           },
           onChange: function() {
-            // console.log('change', this._abortCursorAnimation);
             _this.canvas && _this.canvas.renderAll();
           },
           abort: function() {
@@ -618,7 +639,15 @@
      * @param {Event} e Event object
      */
     onKeyPress: function(e) {
-      if (!this.isEditing || e.metaKey || e.ctrlKey) return;
+      if (!this.isEditing || e.metaKey || e.ctrlKey ||
+          e.keyCode === 8 ||
+          e.keyCode === 13 ||
+          e.keyCode === 37 ||
+          e.keyCode === 38 ||
+          e.keyCode === 39 ||
+          e.keyCode === 40) {
+        return;
+      }
 
       this.insertChar(String.fromCharCode(e.which));
 
@@ -725,6 +754,7 @@
       else {
         this.selectionStart -= textOnPreviousLine.length + 1;
       }
+
       if (e.shiftKey) {
         this._selectionDirection = 'left';
       }
@@ -1149,7 +1179,7 @@
     insertStyleObject: function(_char, isEndOfLine) {
 
       // short-circuit
-      if (this.styles && Object.keys(this.styles).length === 0) return;
+      if (this.styles && isEmptyStyles(this.styles)) return;
 
       var cursorLocation = this.get2DCursorLocation();
       var lineIndex = cursorLocation.lineIndex;
@@ -1177,8 +1207,6 @@
       var cursorLocation = this.get2DCursorLocation(index);
       var lineIndex = cursorLocation.lineIndex;
       var charIndex = cursorLocation.charIndex;
-
-      // console.log('removeStyleObject', isBeginningOfLine, lineIndex, charIndex);
 
       if (isBeginningOfLine) {
 
@@ -1215,8 +1243,8 @@
         var currentLineStylesCloned = clone(currentLineStyles);
 
         // shift all styles by 1 backwards
-        for (var index in currentLineStylesCloned) {
-          var numericIndex = parseInt(index, 10);
+        for (var i in currentLineStylesCloned) {
+          var numericIndex = parseInt(i, 10);
           if (numericIndex >= charIndex && numericIndex !== 0) {
             currentLineStyles[numericIndex - 1] = currentLineStylesCloned[numericIndex];
             delete currentLineStyles[numericIndex];
@@ -1254,9 +1282,6 @@
 
       if (this.selectionStart === this.selectionEnd) {
         boundaries = this.getCursorBoundaries(ctx, chars, 'cursor');
-
-        // console.log(boundaries.left, boundaries.top);
-
         this.renderCursor(ctx, boundaries);
       }
       else {
@@ -1332,6 +1357,11 @@
       var lineIndex = cursorLocation.lineIndex;
       var charIndex = cursorLocation.charIndex;
 
+      var textLines = this.text.split(this._reNewline);
+
+      var widthOfLine;
+      var lineLeftOffset;
+
       // left/top are left/top of entire text box
       // leftOffset/topOffset are offset from that left/top point of a text box
       var left = Math.round(this._getLeftOffset());
@@ -1344,9 +1374,8 @@
         ? (this._getHeightOfLine(ctx, 0) - this.getCurrentCharFontSize(lineIndex, charIndex))
         : 0;
 
-      var lineIndex = 0;
-      var charIndex = 0;
-      var textLines = this.text.split(this._reNewline);
+      lineIndex = 0;
+      charIndex = 0;
 
       for (var i = 0; i < this.selectionStart; i++) {
         if (chars[i] === '\n') {
@@ -1361,8 +1390,8 @@
           charIndex++;
         }
 
-        var widthOfLine = this._getWidthOfLine(ctx, lineIndex, textLines);
-        var lineLeftOffset = this._getLineLeftOffset(widthOfLine);
+        widthOfLine = this._getWidthOfLine(ctx, lineIndex, textLines);
+        lineLeftOffset = this._getLineLeftOffset(widthOfLine);
       }
 
       return {
@@ -1489,7 +1518,7 @@
       if (!styleDeclaration.fontStyle) {
         styleDeclaration.fontStyle = this.fontStyle;
       }
-      if (typeof styleDeclaration.shadow == 'string') {
+      if (typeof styleDeclaration.shadow === 'string') {
         styleDeclaration.shadow = new fabric.Shadow(styleDeclaration.shadow);
       }
 
@@ -1536,9 +1565,7 @@
      */
     _drawChars: function(method, ctx, line, left, top, lineIndex) {
 
-      // console.log('_drawChars', method);
-
-      if (this.styles && Object.keys(this.styles).length === 0) {
+      if (this.styles && isEmptyStyles(this.styles)) {
         return this._drawCharsFast(method, ctx, line, left, top);
       }
 
@@ -1714,8 +1741,11 @@
      * Returns SVG representation of an instance
      * @return {String} svg representation of an instance
      */
-    toSVG: function() {
-      // TODO:
+    toSVG: function(reviver) {
+      if (!this.styles || isEmptyStyles(this.styles)) {
+        return this.callSuper('toSVG', reviver);
+      }
+      // TODO: add support for styled text SVG output
     },
     /* _TO_SVG_END_ */
 

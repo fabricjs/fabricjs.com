@@ -353,19 +353,21 @@ var overlineText = new fabric.Text("I'm an overline text", {
 
 <p><img src="/article_assets/2_8.png" style="border:1px solid #eee"></p>
 
-<h4>textShadow</h4>
+<h4>shadow</h4>
+
+<p>До версии 1.3.0, этот атрибут назывался "textShadow"</p>
 
 <p>Тень для текста. Состоит из 4-х компонент: цвет, горизонтальный отступ, вертикальный отступ, и размер размытия. Это всё должно быть знакомо если вы до этого работали с тенями в CSS. Меняя эти 4 опции, можно добиться многих интересных эффектов.</p>
 
 <pre>
 var shadowText1 = new fabric.Text("I'm a text with shadow", {
-  textShadow: 'rgba(0,0,0,0.3) 5px 5px 5px'
+  shadow: 'rgba(0,0,0,0.3) 5px 5px 5px'
 });
 var shadowText2 = new fabric.Text("And another shadow", {
-  textShadow: 'rgba(0,0,0,0.2) 0 0 5px'
+  shadow: 'rgba(0,0,0,0.2) 0 0 5px'
 });
 var shadowText3 = new fabric.Text("Lorem ipsum dolor sit", {
-  textShadow: 'green -5px -5px 3px'
+  shadow: 'green -5px -5px 3px'
 });
 </pre>
 

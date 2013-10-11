@@ -351,19 +351,21 @@ var overlineText = new fabric.Text("I'm an overline text", {
 
 <p><img src="/article_assets/2_8.png" style="border:1px solid #eee"></p>
 
-<h4>textShadow</h4>
+<h4>shadow</h4>
+
+<p>This property was called "textShadow" before version 1.3.0</p>
 
 <p>Text shadow consists of 4 components: color, horizontal offset, vertical offset, and blur size. This might look very familiar if you've worked with shadows in CSS. Lots of combinations possible by changing these values.</p>
 
 <pre>
 var shadowText1 = new fabric.Text("I'm a text with shadow", {
-  textShadow: 'rgba(0,0,0,0.3) 5px 5px 5px'
+  shadow: 'rgba(0,0,0,0.3) 5px 5px 5px'
 });
 var shadowText2 = new fabric.Text("And another shadow", {
-  textShadow: 'rgba(0,0,0,0.2) 0 0 5px'
+  shadow: 'rgba(0,0,0,0.2) 0 0 5px'
 });
 var shadowText3 = new fabric.Text("Lorem ipsum dolor sit", {
-  textShadow: 'green -5px -5px 3px'
+  shadow: 'green -5px -5px 3px'
 });
 </pre>
 

@@ -62,10 +62,9 @@ title: Image Filters
     <label><span>Emboss:</span> <input type="checkbox" id="emboss" disabled></label>
   </p>
   <p>
-    <label><span>Waterize:</span> <input type="checkbox" id="waterize" disabled></label><br>
-    <label>Amplitude: <input type="range" id="waterize-amplitude" value="14"></label><br>
-    <label>Frequency: <input type="range" id="waterize-frequency" min="0" max="10" value="1"></label><br>
-    <label>Offset: <input type="range" id="waterize-offset" min="0" max="100" value="0"></label>
+    <label><span>Tint:</span> <input type="checkbox" id="tint" disabled></label><br>
+    <label>Color: <input type="color" id="tint-color" value=""></label><br>
+    <label>Opacity: <input type="range" id="tint-opacity" min="0" max="1" value="1" step="0.1"></label><br>
   </p>
 </div>
 
@@ -85,6 +84,9 @@ function applyFilterValue(index, prop, value) {
   }
 }
 
+fabric.Object.prototype.padding = 5;
+fabric.Object.prototype.transparentCorners = false;
+
 var canvas = new fabric.Canvas('c', { backgroundImage: '../lib/bg.png' }),
     f = fabric.Image.filters;
 
@@ -95,7 +97,7 @@ canvas.on({
 
     var filters = ['grayscale', 'invert', 'remove-white', 'sepia', 'sepia2',
                     'brightness', 'noise', 'gradient-transparency', 'pixelate',
-                    'blur', 'sharpen'];
+                    'blur', 'sharpen', 'emboss', 'tint'];
 
     for (var i = 0; i < filters.length; i++) {
       $(filters[i]).checked = !!canvas.getActiveObject().filters[i];
@@ -190,16 +192,16 @@ $('emboss').onclick = function() {
              -1,  -1, -1 ]
   }));
 };
-$('waterize').onclick = function() {
-  applyFilter(12, this.checked && new f.Waterize());
+$('tint').onclick = function() {
+  applyFilter(12, this.checked && new f.Tint({
+    color: document.getElementById('tint-color').value,
+    opacity: parseFloat(document.getElementById('tint-opacity').value)
+  }));
 };
-$('waterize-amplitude').onchange = function() {
-  applyFilterValue(12, 'amplitude', parseInt(this.value, 10));
+$('tint-color').onchange = function() {
+  applyFilterValue(12, 'color', this.value);
 };
-$('waterize-frequency').onchange = function() {
-  applyFilterValue(12, 'frequency', parseInt(this.value) / 10);
-};
-$('waterize-offset').onchange = function() {
-  applyFilterValue(12, 'frames', parseInt(this.value));
+$('tint-opacity').onchange = function() {
+  applyFilterValue(12, 'opacity', parseFloat(this.value));
 };
 </script>

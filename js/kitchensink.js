@@ -437,14 +437,13 @@
       $('#text-wrapper').show();
       $('#text-wrapper textarea').val(selectedObject.getText());
 
-      cmdBoldBtn.className = cmdUnderlineBtn.className = cmdLinethroughBtn.className = cmdOverlineBtn.className = cmdItalicBtn.className = cmdShadowBtn.className = 'btn';
+      cmdBoldBtn.className = cmdUnderlineBtn.className = cmdLinethroughBtn.className = cmdOverlineBtn.className = cmdItalicBtn.className = 'btn';
 
       cmdBoldBtn.className = selectedObject.fontWeight === 'bold' ? cmdBoldBtn.className + ' selected' : cmdBoldBtn.className;
       cmdUnderlineBtn.className = selectedObject.textDecoration === 'underline' ? cmdUnderlineBtn.className + ' selected' : cmdUnderlineBtn.className;
       cmdLinethroughBtn.className = selectedObject.textDecoration === 'line-through' ? cmdLinethroughBtn.className + ' selected' : cmdLinethroughBtn.className;
       cmdOverlineBtn.className = selectedObject.textDecoration === 'overline' ? cmdOverlineBtn.className + ' selected' : cmdOverlineBtn.className;
       cmdItalicBtn.className = selectedObject.fontStyle === 'italic' ? cmdItalicBtn.className + ' selected' : cmdItalicBtn.className;
-      cmdShadowBtn.className = selectedObject.textShadow ? cmdShadowBtn.className + ' selected' : cmdShadowBtn.className;
 
       fontFamilySwitch.value = selectedObject.get('fontFamily').toLowerCase();
       textAlignSwitch.value = fabric.util.string.capitalize(selectedObject.get('textAlign'));
@@ -865,23 +864,6 @@
         setStyle(activeObject, 'fontStyle', isItalic ? '' : 'italic');
 
         this.className = isItalic ? this.className + ' selected' : this.className.replace(' selected', '');
-        canvas.renderAll();
-      }
-    };
-  }
-
-  var cmdShadowBtn = document.getElementById('text-cmd-shadow');
-  if (cmdShadowBtn) {
-    activeObjectButtons.push(cmdShadowBtn);
-    cmdShadowBtn.disabled = true;
-    cmdShadowBtn.onclick = function() {
-      var activeObject = canvas.getActiveObject();
-      if (activeObject && /text/.test(activeObject.type)) {
-
-        var hasShadow = getStyle(activeObject, 'shadow');
-        setStyle(activeObject, 'shadow', hasShadow ? '' : 'rgba(0,0,0,0.2) 2px 2px 10px');
-
-        this.className = hasShadow ? this.className + ' selected' : this.className.replace(' selected', '');
         canvas.renderAll();
       }
     };
@@ -1314,7 +1296,29 @@
     }
   });
 
-  canvas.add(iText8);
+  var iText15 = new fabric.IText('xxxxx', {
+    left: 100,
+    top: 30,
+    originX: 'left',
+    originY: 'top',
+    fontSize: 80,
+    fontFamily: 'Courier',
+    padding: 0,
+    angle: 20,
+    centeredRotation: true,
+    lineHeight: 1,
+    styles: {
+      0: {
+        0: { textBackgroundColor: '#555' },
+        1: { textBackgroundColor: '#777' },
+        2: { textBackgroundColor: '#999' },
+        3: { textBackgroundColor: '#bbb' },
+        4: { textBackgroundColor: '#ddd' }
+      }
+    }
+  });
+
+  canvas.add(iText15);
 
 
   // var child1 = new fabric.Rect({ width: 100, height: 50, fill: '#f55', top: 15, left: 50});

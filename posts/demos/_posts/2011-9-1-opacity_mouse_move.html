@@ -24,10 +24,18 @@ fabric.loadSVGFromURL('../assets/135.svg', function(objects) {
   canvas.centerObject(obj);
   canvas.add(obj);
 
-  canvas.add(obj.clone().set({ left: 100, top: 100, angle: -15 }));
-  canvas.add(obj.clone().set({ left: 480, top: 100, angle: 15 }));
-  canvas.add(obj.clone().set({ left: 100, top: 400, angle: -15 }));
-  canvas.add(obj.clone().set({ left: 480, top: 400, angle: 15 }));
+  obj.clone(function(c) {
+    canvas.add(c.set({ left: 100, top: 100, angle: -15 }));
+  });
+  obj.clone(function(c) {
+    canvas.add(c.set({ left: 480, top: 100, angle: 15 }));
+  });
+  obj.clone(function(c) {
+    canvas.add(c.set({ left: 100, top: 400, angle: -15 }));
+  });
+  obj.clone(function(c) {
+    canvas.add(c.set({ left: 480, top: 400, angle: 15 }));
+  });
 
   canvas.on('mouse:move', function(options) {
 

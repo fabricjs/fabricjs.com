@@ -30,6 +30,7 @@ Here's a hierarchy of Fabric's **object model**, to make it easier:
   - [fabric.Polygon](/docs/fabric.Polygon.html)
   - [fabric.Group](/docs/fabric.Group.html)
   - [fabric.Text](/docs/fabric.Text.html)
+      - [fabric.IText](/docs/fabric.IText.html)
   - [fabric.Image](/docs/fabric.Image.html)
       - [fabric.Image.filters](/docs/fabric.Image.filters.html)
         - [BaseFilter](/docs/fabric.Image.filters.BaseFilter.html)
@@ -62,10 +63,10 @@ Here's a hierarchy of Fabric's **object model**, to make it easier:
 #### Fabric utilities and helpers
 
 - [fabric.util](/docs/fabric.util.html)
-    - [fabric.util.array](/docs/fabric.util.object.html)
+    - [fabric.util.object](/docs/fabric.util.object.html)
     - [fabric.util.array](/docs/fabric.util.array.html)
     - [fabric.util.string](/docs/fabric.util.string.html)
-    - [fabric.util.string](/docs/fabric.util.ease.html)
+    - [fabric.util.ease](/docs/fabric.util.ease.html)
 
 #### Fabric freedrawing brushes
 

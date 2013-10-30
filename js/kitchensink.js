@@ -759,10 +759,12 @@
       var style = { };
       style[styleName] = value;
       object.setSelectionStyles(style);
+      object.setCoords();
     }
     else {
       object[styleName] = value;
     }
+    canvas.renderAll();
   }
 
   var cmdUnderlineBtn = document.getElementById('text-cmd-underline'),
@@ -1013,6 +1015,7 @@
   //   return false;
   // };
 
+
   var iText1 = new fabric.IText('zomg123\nbar\n0bAz\nand something else', {
     left: 10,
     top: 20,
@@ -1254,10 +1257,13 @@
     fontSize: 40,
     padding: 7,
     textAlign: 'center',
+    textDecoration: 'underline',
+    textBackgroundColor: '#fcc',
+    lineHeight: 1,
     styles: {
       0: {
-        1: { fontSize: 80 },
-        2: { fontSize: 120 }
+        1: { fontSize: 80, textDecoration: 'overline' },
+        2: { fontSize: 100, textDecoration: 'overline line-through' }
       }
     }
   });
@@ -1318,7 +1324,23 @@
     }
   });
 
-  canvas.add(iText15);
+  var iText16 = new fabric.IText('abcdefg', {
+    left: 100,
+    top: 150,
+    originX: 'left',
+    originY: 'top',
+    fontSize: 60,
+    fontFamily: 'Monaco',
+    padding: 0,
+    centeredRotation: true,
+    lineHeight: 1
+  })
+  .scale(1.5);
+
+  canvas.add(iText16);
+
+  // var emptyText = new fabric.IText('', { left: 100, top: 100, originX: 'left', originY: 'top' });
+  // canvas.add(emptyText).setActiveObject(emptyText);
 
 
   // var child1 = new fabric.Rect({ width: 100, height: 50, fill: '#f55', top: 15, left: 50});

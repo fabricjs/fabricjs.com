@@ -45,11 +45,11 @@
   <div class="row">
     <div class="span6">
       <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"></i></a></h2>
-      <p class="stat">61.89</p>
+      <p class="stat">61.92</p>
     </div>
     <div class="span6">
       <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC"></i></h2>
-      <p class="stat">536</p>
+      <p class="stat">561</p>
     </div>
   </div>
   <div class="row historical">
@@ -63,11 +63,11 @@
   <div class="row">
     <div class="span6">
       <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty"></i></a></h2>
-      <p class="stat">75.44</p>
+      <p class="stat">77.94</p>
     </div>
     <div class="span6">
       <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs"></i></a></h2>
-      <p class="stat">4.97</p>
+      <p class="stat">5.43</p>
     </div>
   </div>
 </div>
@@ -90,7 +90,7 @@
 
 <div class="container">
   <div class="row">
-    <textarea id="file-source" class="span12">(function() {
+    <textarea id="file-source" class="span12">(function(global) {
 
   var sqrt = Math.sqrt,
       atan2 = Math.atan2;
@@ -204,7 +204,9 @@
     * @return {Object} klass "Class"
     */
   function getKlass(type, namespace) {
-    return resolveNamespace(namespace)[fabric.util.string.camelize(fabric.util.string.capitalize(type))];
+    // capitalize first letter only
+    type = fabric.util.string.camelize(type.charAt(0).toUpperCase() + type.slice(1));
+    return resolveNamespace(namespace)[type];
   }
 
   /**
@@ -218,7 +220,7 @@
 
     var parts = namespace.split('.'),
         len = parts.length,
-        obj = fabric.window;
+        obj = global || fabric.window;
 
     for (var i = 0; i < len; ++i) {
       obj = obj[parts[i]];
@@ -240,7 +242,13 @@
       /** @ignore */
       img.onload = function () {
         callback && callback.call(context, img);
-        img = img.onload = null;
+        img = img.onload = img.onerror = null;
+      };
+      /** @ignore */
+      img.onerror = function() {
+        fabric.log('Error loading ' + img.src);
+        callback && callback(null, true);
+        img = img.onload = img.onerror = null;
       };
       img.src = url;
     }
@@ -272,7 +280,9 @@
         numTotalObjects = objects.length;
 
     objects.forEach(function (o, index) {
-      if (!o.type) {
+      // if sparse array
+      if (!o || !o.type) {
+        onLoaded();
         return;
       }
       var klass = fabric.util.getKlass(o.type, namespace);
@@ -603,6 +613,20 @@
     return segmentToBezierCache[argsString];
   }
 
+  function normalizePoints(points, options) {
+    var minX = fabric.util.array.min(points, 'x'),
+        minY = fabric.util.array.min(points, 'y');
+
+    minX = minX < 0 ? minX : 0;
+    minY = minX < 0 ? minY : 0;
+
+    for (var i = 0, len = points.length; i < len; i++) {
+      // normalize coordinates, according to containing box (dimensions of which are passed via `options`)
+      points[i].x -= (options.width / 2 + minX) || 0;
+      points[i].y -= (options.height / 2 + minY) || 0;
+    }
+  }
+
   fabric.util.removeFromArray = removeFromArray;
   fabric.util.degreesToRadians = degreesToRadians;
   fabric.util.radiansToDegrees = radiansToDegrees;
@@ -624,8 +648,9 @@
   fabric.util.multiplyTransformMatrices = multiplyTransformMatrices;
   fabric.util.getFunctionBody = getFunctionBody;
   fabric.util.drawArc = drawArc;
+  fabric.util.normalizePoints = normalizePoints;
 
-})();</textarea>
+})(typeof exports !== 'undefined' ? exports : this);</textarea>
   </div>
 </div>
 

@@ -176,17 +176,6 @@ var iText7 = new fabric.IText('', {
   padding: 7
 });
 
-var iText8 = new fabric.IText('Однажды, в студеную зимнюю пору,\nЯ из лесу вышел; был сильный мороз.\nГляжу, поднимается медленно в гору\n\Лошадка, везущая хворосту воз.', {
-  left: 50,
-  top: 50,
-  originX: 'left',
-  originY: 'top',
-  fontFamily: 'Hoefler Text',
-  fontWeight: 'normal',
-  fontSize: 30,
-  padding: 7
-});
-
 var iText9 = new fabric.IText('FOOBAR\nbaz\n12345', {
   left: 50,
   top: 50,
@@ -234,7 +223,7 @@ setTimeout(function() {
 canvases[6].add(iText7).setActiveObject(iText7);
 iText7.enterEditing();
 
-canvases[7].add(iText8).calcOffset();
+//canvases[7].add(iText8).calcOffset();
 
 canvases[8].add(iText9);
 

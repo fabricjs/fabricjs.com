@@ -3,9 +3,10 @@ layout: demo
 title: Animated sprite
 ---
 
-<p style="background: #ffc; display: inline-block; padding: 10px">
-  Spritesheet courtesy of <a href="http://simurai.com">simurai.com</a>
+<p style="background: #ffc; display: inline-block; padding: 10px; vertical-align: top">
+  Animating the following spritesheet (courtesy of <a href="http://simurai.com">simurai.com</a>)
 </p>
+<img src="/assets/sprite.png" style="box-shadow: rgba(0,0,0,0.3) 2px 2px 2px">
 <br>
 
 <canvas id="c" width="500" height="500"></canvas>
@@ -108,7 +109,7 @@ function createSprite(i, j) {
     sprite.set({
       left: i * 100 + 50,
       top: j * 100 + 50,
-      angle: fabric.util.getRandomInt(-20, 20)
+      angle: fabric.util.getRandomInt(-30, 30)
     });
     canvas.add(sprite);
     setTimeout(function() {

@@ -1007,13 +1007,4 @@
     Cufon.fonts.delicious.offsetTop = 25;
   }
 
-
-  var iText = new fabric.IText('lorem ipsum', {
-    styles: { },
-    left: 100,
-    top: 100
-  });
-
-  canvas.add(iText);;
-
 })(this);

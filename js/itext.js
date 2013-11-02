@@ -17,7 +17,8 @@ var canvases = [
   new fabric.Canvas('c13'),
   new fabric.Canvas('c14'),
   new fabric.Canvas('c15'),
-  new fabric.Canvas('c16')
+  new fabric.Canvas('c16'),
+  new fabric.Canvas('c17')
 ];
 
 
@@ -397,6 +398,39 @@ var iText17 = new fabric.IText('abcdefg', {
 
 canvases[15].add(iText17);
 
+var iText18 = new fabric.IText(
+'Bacon ipsum dolor sit amet beef\n\
+ribs flank pancetta kevin biltong,\n\
+pork doner andouille ball tip \n\
+ribeye pork loin short loin boudin.\n\
+Fatback leberkas ball tip andouille\n\
+shank ribeye spare ribs,\n\
+venison pastrami ground round bacon\n\
+short loin beef ribs tri-tip biltong.\n\
+Fatback spare ribs flank chuck \n\
+short ribs salami,\n\
+ground round biltong leberkas bresaola \n\
+ribeye filet mignon.\n\
+Swine kevin meatloaf turducken, \n\
+drumstick boudin pancetta tongue \n\
+ham filet mignon ham hock salami. \n\
+Beef ribs sausage ribeye spare \n\
+ribs kevin frankfurter. \n\
+Meatball corned beef biltong \n\
+sirloin turducken jerky. \n\
+Flank filet mignon prosciutto, \n\
+ham hock pork fatback \n\
+spare ribs capicola jerky.', {
+    styles: { },
+    fontFamily: 'Courier',
+    fontSize: 18,
+    left: 50,
+    top: 50,
+    originX: 'left',
+    originY: 'top'
+  });
+
+canvases[16].add(iText18);
 
 
 canvases.forEach(function(c) {

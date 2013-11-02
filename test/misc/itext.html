@@ -3,6 +3,32 @@ layout: test
 title: IText tests
 ---
 
+<style>
+  @font-face {
+    font-family: 'Lobster';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Lobster'), url(http://themes.googleusercontent.com/static/fonts/lobster/v5/NIaFDq6p6eLpSvtV2DTNDQLUuEpTyoUstqEm5AMlJo4.woff) format('woff');
+  }
+  .example {
+    margin-bottom: 10px;
+    margin-right: 10px;
+    display: inline-block;
+    vertical-align: top;
+  }
+  h3 {
+    font-family: Helvetica, sans-serif;
+    font-weight: normal;
+    text-align: center;
+    background-color: #444;
+    color: #fff;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 3px 0;
+  }
+  select { font-size: 16px; }
+</style>
+
 <p>
   <button id="bold">Bold</button>
   <button id="italic">Italic</button>
@@ -55,11 +81,23 @@ title: IText tests
 </div>
 <div class="example">
   <h3>Center-align w. different size</h3>
-  <canvas id="c12" width="600" height="400" style="border: 1px solid #ccc"></canvas>
+  <canvas id="c12" width="500" height="400" style="border: 1px solid #ccc"></canvas>
 </div>
 <div class="example">
   <h3>textBackgroundColor, decoration, font sizes</h3>
   <canvas id="c13" width="400" height="400" style="border: 1px solid #ccc"></canvas>
+</div>
+<div class="example">
+  <h3>Shadows</h3>
+  <canvas id="c14" width="200" height="200" style="border: 1px solid #ccc"></canvas>
+</div>
+<div class="example">
+  <h3>Cursor detection in rotated</h3>
+  <canvas id="c15" width="400" height="300" style="border: 1px solid #ccc"></canvas>
+</div>
+<div class="example">
+  <h3>Cursor detection in scaled</h3>
+  <canvas id="c16" width="500" height="300" style="border: 1px solid #ccc"></canvas>
 </div>
 <div class="example">
   <h3>All kinds of styling</h3>

@@ -14,7 +14,10 @@ var canvases = [
   new fabric.Canvas('c10'),
   new fabric.Canvas('c11'),
   new fabric.Canvas('c12'),
-  new fabric.Canvas('c13')
+  new fabric.Canvas('c13'),
+  new fabric.Canvas('c14'),
+  new fabric.Canvas('c15'),
+  new fabric.Canvas('c16')
 ];
 
 
@@ -176,6 +179,17 @@ var iText7 = new fabric.IText('', {
   padding: 7
 });
 
+var iText8 = new fabric.IText('Однажды, в студеную зимнюю пору,\nЯ из лесу вышел; был сильный мороз.\nГляжу, поднимается медленно в гору\n\Лошадка, везущая хворосту воз.', {
+  left: 50,
+  top: 50,
+  originX: 'left',
+  originY: 'top',
+  fontFamily: 'Hoefler Text',
+  fontWeight: 'normal',
+  fontSize: 30,
+  padding: 7
+});
+
 var iText9 = new fabric.IText('FOOBAR\nbaz\n12345', {
   left: 50,
   top: 50,
@@ -223,7 +237,7 @@ setTimeout(function() {
 canvases[6].add(iText7).setActiveObject(iText7);
 iText7.enterEditing();
 
-//canvases[7].add(iText8).calcOffset();
+canvases[7].add(iText8).calcOffset();
 
 canvases[8].add(iText9);
 
@@ -329,6 +343,61 @@ var iText14 = new fabric.IText('xxx\nyz', {
 });
 
 canvases[12].add(iText14);
+
+var iText15 = new fabric.IText('foo', {
+  left: 100,
+  top: 100,
+  fontSize: 80,
+  styles: {
+    0: {
+      0: { fill: 'red', shadow: '0px 0px 10px rgba(0,0,0,0.3)' },
+      2: { fill: 'red', shadow: '0px 0px 10px rgba(0,0,0,0.3)' }
+    }
+  }
+});
+
+canvases[13].add(iText15);
+
+var iText16 = new fabric.IText('xxxxx', {
+  left: 100,
+  top: 30,
+  originX: 'left',
+  originY: 'top',
+  fontSize: 80,
+  fontFamily: 'Courier',
+  padding: 0,
+  angle: 20,
+  centeredRotation: true,
+  lineHeight: 1,
+  styles: {
+    0: {
+      0: { textBackgroundColor: '#555' },
+      1: { textBackgroundColor: '#777' },
+      2: { textBackgroundColor: '#999' },
+      3: { textBackgroundColor: '#bbb' },
+      4: { textBackgroundColor: '#ddd' }
+    }
+  }
+});
+
+canvases[14].add(iText16);
+
+var iText17 = new fabric.IText('abcdefg', {
+  left: 50,
+  top: 150,
+  originX: 'left',
+  originY: 'top',
+  fontSize: 60,
+  fontFamily: 'Monaco',
+  padding: 0,
+  centeredRotation: true,
+  lineHeight: 1
+})
+.scale(1.5);
+
+canvases[15].add(iText17);
+
+
 
 canvases.forEach(function(c) {
   c.item(0) && c.item(0).setCoords();

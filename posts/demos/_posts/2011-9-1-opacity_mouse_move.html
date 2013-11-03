@@ -16,7 +16,10 @@ function getRandomColor() {
     pad(getRandomInt(0, 255).toString(16));
 }
 </script>
-<script id="main">var canvas = new fabric.Canvas('c');
+<script id="main">
+fabric.Object.prototype.originX = fabric.Object.prototype.originY = 'center';
+
+var canvas = new fabric.Canvas('c');
 
 fabric.loadSVGFromURL('../assets/135.svg', function(objects) {
 

@@ -11,7 +11,8 @@ title: Group performance
 <canvas id="c" width="1000" height="750" style="border:1px solid #ccc"></canvas>
 
 <script>
-var canvas  = new fabric.Canvas('c');
+fabric.Object.prototype.originX = fabric.Object.prototype.originY = 'center';
+var canvas = new fabric.Canvas('c');
 var status = document.getElementById('status');
 var mouseShape;
 

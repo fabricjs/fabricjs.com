@@ -32,6 +32,8 @@ server.listen(PORT);
 
 console.log('Server listening on http://localhost:' + PORT);
 
+__fabric.Object.prototype.originX = __fabric.Object.prototype.originY = 'center';
+
 function serveImage(__response, __code, __async) {
   var canvas = __fabric.createCanvasForNode(200, 200);
 

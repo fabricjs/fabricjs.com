@@ -13,6 +13,8 @@ title: Polaroid (custom class)
 var PolaroidPhoto = fabric.util.createClass(fabric.Object, fabric.Observable, {
   H_PADDING: 20,
   V_PADDING: 50,
+  originX: 'center',
+  originY: 'center',
   initialize: function(src, options) {
     this.callSuper('initialize', options);
     this.image = new Image();

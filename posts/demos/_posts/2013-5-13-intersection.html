@@ -10,27 +10,27 @@ title: Intersection
 <script id="main">var canvas = new fabric.Canvas('c');
 
 var rect1 = new fabric.Rect({
-  width: 200, height: 100, left: 100, top: 100, angle: 30,
+  width: 200, height: 100, left: 0, top: 50, angle: 30,
   fill: 'rgba(255,0,0,0.5)'
 });
 
 var rect2 = new fabric.Rect({
-  width: 100, height: 100, left: 400, top: 300, angle: -10,
+  width: 100, height: 100, left: 350, top: 250, angle: -10,
   fill: 'rgba(0,200,0,0.5)'
 });
 
 var rect3 = new fabric.Rect({
-  width: 50, height: 100, left: 300, top: 400, angle: 45,
+  width: 50, height: 100, left: 275, top: 350, angle: 45,
   stroke: '#eee', strokeWidth: 10,
   fill: 'rgba(0,0,200,0.5)'
 });
 
 var circle = new fabric.Circle({
-  radius: 50, left: 300, top: 100, fill: '#aac'
+  radius: 50, left: 275, top: 75, fill: '#aac'
 });
 
 var triangle = new fabric.Triangle({
-  width: 100, height: 100, left: 100, top: 350, fill: '#cca'
+  width: 100, height: 100, left: 50, top: 300, fill: '#cca'
 });
 
 canvas.add(rect1, rect2, rect3, circle, triangle);

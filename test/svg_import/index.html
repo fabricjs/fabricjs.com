@@ -6,6 +6,8 @@ title: SVG Rendering
 <link rel="stylesheet" type="text/css" href="svg_import.css">
 
 <script>
+  fabric.Object.prototype.originX = fabric.Object.prototype.originY = 'center';
+
   function initCanvas(id) {
     var canvas;
     fabric.loadSVGFromURL('../../assets/' + id + '.svg', function(objects, options) {

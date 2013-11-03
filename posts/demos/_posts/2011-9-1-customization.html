@@ -11,6 +11,7 @@ title: Customization
 
 <script>
   fabric.instances = [ ];
+  fabric.Object.prototype.originX = fabric.Object.prototype.originY = 'center';
 </script>
 
 <div class="block">
@@ -342,7 +343,7 @@ fabric.instances.push(canvas)})();
     else {
       for (var i = fabric.instances.length; i--; ) {
         fabric.instances[i].calcOffset();
-      }    
+      }
     }
   })();
 </script>

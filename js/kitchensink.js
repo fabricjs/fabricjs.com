@@ -1007,4 +1007,25 @@
     Cufon.fonts.delicious.offsetTop = 25;
   }
 
+  var iText2 = new fabric.IText('hello\nworld', {
+    left: 50,
+    top: 50,
+    originX: 'left',
+    originY: 'top',
+    fontFamily: 'Helvetica',
+    fill: '#333',
+    lineHeight: 1.1,
+    styles: {
+      0: {
+        0: { textDecoration: 'underline', fontSize: 80 },
+        1: { textBackgroundColor: 'red' }
+      },
+      1: {
+        0: { textBackgroundColor: 'rgba(0,255,0,0.5)' },
+        4: { fontSize: 20 }
+      }
+    }
+  });
+  canvas.add(iText2);
+
 })(this);

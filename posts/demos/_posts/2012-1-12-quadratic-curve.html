@@ -8,6 +8,7 @@ title: Quadratic Curve
 <canvas id="c" width="500" height="500" style="border:1px solid #ccc"></canvas>
 
 <script id="main">var canvas = new fabric.Canvas('c');
+fabric.Object.prototype.originX = fabric.Object.prototype.originY = 'center';
 
 canvas.on({
   'object:selected': onObjectSelected,

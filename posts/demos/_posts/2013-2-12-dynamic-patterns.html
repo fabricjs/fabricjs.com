@@ -42,10 +42,7 @@ var padding = 0;
 
 fabric.Image.fromURL('../assets/pug.jpg', function(img) {
 
-  img.scaleToWidth(100).set({
-    originX: 'left',
-    originY: 'top'
-  });
+  img.scaleToWidth(100);
 
   var patternSourceCanvas = new fabric.StaticCanvas();
   patternSourceCanvas.add(img);
@@ -66,7 +63,7 @@ fabric.Image.fromURL('../assets/pug.jpg', function(img) {
     {x: 250, y: 100},
     {x: 385, y: 170},
     {x: 0, y: 245} ], {
-      left: 220,
+      left: 0,
       top: 200,
       angle: -30,
       fill: pattern

@@ -8,7 +8,7 @@ title: Objects Bounding Rectangles
 
 var rect = new fabric.Rect({
   left: 100,
-  top: 100,
+  top: 50,
   width: 100,
   height: 100,
   fill: 'green',
@@ -21,7 +21,7 @@ fabric.loadSVGFromURL('../assets/15.svg', function(objects, options) {
 
   var shape = fabric.util.groupSVGElements(objects, options);
   canvas.add(shape.scale(0.6));
-  shape.set({ left: 300, top: 300 }).setCoords();
+  shape.set({ left: 200, top: 100 }).setCoords();
   canvas.renderAll();
 
   canvas.forEachObject(function(obj) {

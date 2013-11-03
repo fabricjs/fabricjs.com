@@ -15,8 +15,8 @@ title: Animated sprite
 <script src="/js/sprite.class.js"></script>
 
 <script id="main">var canvas = new fabric.Canvas('c');
-
 fabric.Object.prototype.transparentCorners = false;
+fabric.Object.prototype.originX = fabric.Object.prototype.originY = 'center';
 
 for (var i = 0, len = 5; i < len; i++) {
   for (var j = 0, jlen = 5; j < jlen; j++) {

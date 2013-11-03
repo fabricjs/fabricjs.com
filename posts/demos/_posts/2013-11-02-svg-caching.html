@@ -8,6 +8,7 @@ title: SVG caching
 
 <canvas id="c" width="650" height="650" style="border:1px solid #ccc"></canvas>
 <script id="main">var canvas = new fabric.Canvas('c');
+fabric.Object.prototype.originX = fabric.Object.prototype.originY = 'center';
 
 fabric.loadSVGFromURL('../lib/tiger2.svg', function(objects, options) {
   var obj = fabric.util.groupSVGElements(objects, options);

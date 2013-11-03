@@ -5,7 +5,10 @@ title: Sliding Ladybugs
 
 <canvas id="c" width="800" height="400"></canvas>
 
-<script id="main">var canvas = new fabric.Canvas('c', { selection: false });
+<script id="main">
+fabric.Object.prototype.originX = fabric.Object.prototype.originY = 'center';
+
+var canvas = new fabric.Canvas('c', { selection: false });
 
 setInterval(function() {
   fabric.Image.fromURL('../assets/ladybug.png', function(img) {

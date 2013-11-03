@@ -87,8 +87,15 @@ function applyFilterValue(index, prop, value) {
 fabric.Object.prototype.padding = 5;
 fabric.Object.prototype.transparentCorners = false;
 
-var canvas = new fabric.Canvas('c', { backgroundImage: '../lib/bg.png' }),
+var canvas = new fabric.Canvas('c'),
     f = fabric.Image.filters;
+
+fabric.Image.fromURL('../lib/bg.png', function(img) {
+  canvas.backgroundImage = img;
+  canvas.backgroundImage.width = 600;
+  canvas.backgroundImage.height = 600;
+});
+
 
 canvas.on({
   'object:selected': function() {
@@ -110,7 +117,7 @@ canvas.on({
 });
 
 fabric.Image.fromURL('../assets/printio.png', function(img) {
-  var oImg = img.set({ left: 300, top: 300, angle: -15 }).scale(0.9);
+  var oImg = img.set({ left: 50, top: 100, angle: -15 }).scale(0.9);
   canvas.add(oImg).renderAll();
   canvas.setActiveObject(oImg);
 });

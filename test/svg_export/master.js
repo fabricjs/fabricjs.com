@@ -1,5 +1,7 @@
 (function() {
 
+  fabric.Object.prototype.originX = fabric.Object.prototype.originY = 'center';
+
   for (var __all = document.getElementsByClassName('test-source'), __len = __all.length, __i = 0; __i < __len; __i++) {
     (function(__testSourceEl) {
 

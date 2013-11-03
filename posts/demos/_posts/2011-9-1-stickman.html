@@ -4,7 +4,10 @@ title: Stickman
 ---
 
 <canvas id="c" width="500" height="500" style="border:1px solid #ccc"></canvas>
-<script id="main">function makeCircle(left, top, line1, line2, line3, line4) {
+<script id="main">
+fabric.Object.prototype.originX = fabric.Object.prototype.originY = 'center';
+
+function makeCircle(left, top, line1, line2, line3, line4) {
   var c = new fabric.Circle({
     left: left,
     top: top,

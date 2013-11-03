@@ -18,6 +18,8 @@ title: SVG Export (text)
 <script src="../../lib/font_definitions.js"></script>
 
 <script>
+  fabric.Object.prototype.originX = fabric.Object.prototype.originY = 'center';
+
   function addText(text, options) {
     var text = new fabric.Text(text, options);
     text.useNative = document.location.hash === '#native';

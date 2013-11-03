@@ -62,6 +62,8 @@ title: Features
 
   <script>
     (function(){
+      fabric.Object.prototype.originX = 'center';
+      fabric.Object.prototype.originY = 'center';
       var canvas = window.__canvas = new fabric.Canvas('intro-canvas');
 
       // simple shapes

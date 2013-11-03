@@ -630,6 +630,8 @@ canvas.add(text);
 </pre>
 
 <script>
+  fabric.Object.prototype.originX = fabric.Object.prototype.originY = 'center';
+
   var __canvases = [ ];
   window.onload = function() {
     function proceed(){ }

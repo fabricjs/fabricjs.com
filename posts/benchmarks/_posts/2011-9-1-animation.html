@@ -36,6 +36,8 @@ title: Animation
 <script>
   (function() {
 
+    fabric.Object.prototype.originX = fabric.Object.prototype.originY = 'center';
+
     var canvas = new fabric.Canvas('test'),
         fpsEl = document.getElementById('fps'),
         complexityEl = document.getElementById('complexity'),

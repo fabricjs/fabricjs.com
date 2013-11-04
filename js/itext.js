@@ -25,8 +25,6 @@ var canvases = [
 var iText1 = new fabric.IText('zomg123\nbar\n0bAz\nand something else', {
   left: 10,
   top: 20,
-  originX: 'left',
-  originY: 'top',
   fontFamily: 'Courier',
   fill: '#333',
   styles: {
@@ -73,8 +71,6 @@ var iText1 = new fabric.IText('zomg123\nbar\n0bAz\nand something else', {
 var iText2 = new fabric.IText('hello\nworld', {
   left: 50,
   top: 50,
-  originX: 'left',
-  originY: 'top',
   fontFamily: 'Helvetica',
   fill: '#333',
   lineHeight: 1.1,
@@ -93,8 +89,6 @@ var iText2 = new fabric.IText('hello\nworld', {
 var iText3 = new fabric.IText('hello\nKLM\nbarbaz', {
   left: 50,
   top: 50,
-  originX: 'left',
-  originY: 'top',
   fontFamily: 'Arial',
   fill: '#333',
   lineHeight: 1,
@@ -118,12 +112,9 @@ var iText3 = new fabric.IText('hello\nKLM\nbarbaz', {
   }
 });
 
-fabric.IText.prototype.centerTransform = true;
-
 var iText4 = new fabric.IText('abc\ndefgh\nxyz', {
   left: 50,
   top: 100,
-  originX: 'left',
   lineHeight: 1,
   fontFamily: 'Helvetica',
   styles: {
@@ -145,8 +136,6 @@ var iText4 = new fabric.IText('abc\ndefgh\nxyz', {
 var iText5 = new fabric.IText('foo\n\nbar\nbaz', {
   left: 50,
   top: 50,
-  originX: 'left',
-  originY: 'top',
   fontFamily: 'Monaco',
   styles: {
     0: {
@@ -166,8 +155,6 @@ var iText5 = new fabric.IText('foo\n\nbar\nbaz', {
 var iText6 = new fabric.IText('abcdefg\nhijklmnop', {
   left: 50,
   top: 50,
-  originX: 'left',
-  originY: 'top',
   fontFamily: 'Lobster',
   angle: -10
 });
@@ -175,16 +162,12 @@ var iText6 = new fabric.IText('abcdefg\nhijklmnop', {
 var iText7 = new fabric.IText('', {
   left: 100,
   top: 100,
-  originX: 'left',
-  originY: 'top',
   padding: 7
 });
 
 var iText8 = new fabric.IText('Однажды, в студеную зимнюю пору,\nЯ из лесу вышел; был сильный мороз.\nГляжу, поднимается медленно в гору\n\Лошадка, везущая хворосту воз.', {
   left: 50,
   top: 50,
-  originX: 'left',
-  originY: 'top',
   fontFamily: 'Hoefler Text',
   fontWeight: 'normal',
   fontSize: 30,
@@ -194,8 +177,6 @@ var iText8 = new fabric.IText('Однажды, в студеную зимнюю 
 var iText9 = new fabric.IText('FOOBAR\nbaz\n12345', {
   left: 50,
   top: 50,
-  originX: 'left',
-  originY: 'top',
   fontFamily: 'Hoefler Text',
   fontSize: 60,
   padding: 7,
@@ -205,8 +186,6 @@ var iText9 = new fabric.IText('FOOBAR\nbaz\n12345', {
 var iText10 = new fabric.IText('foobar\nbaz', {
   left: 50,
   top: 50,
-  originX: 'left',
-  originY: 'top',
   fontFamily: 'Hoefler Text',
   fontSize: 50,
   padding: 7,
@@ -251,8 +230,6 @@ var fontFamily = 'Hoefler Text',
 var iText11 = new fabric.IText('Breaking\nBad', {
   left: 50,
   top: 50,
-  originX: 'left',
-  originY: 'top',
   fontFamily: 'Hoefler Text',
   fontSize: 50,
   padding: 7,
@@ -276,8 +253,6 @@ canvases[10].add(iText11);
 var iText12 = new fabric.IText('xxx\nyz', {
   left: 50,
   top: 50,
-  originX: 'left',
-  originY: 'top',
   fontFamily: 'Hoefler Text',
   fontSize: 40,
   padding: 7,
@@ -293,8 +268,6 @@ var iText12 = new fabric.IText('xxx\nyz', {
 var iText13 = new fabric.IText('How do you\nlike it like\nthat?', {
   left: 50,
   top: 50,
-  originX: 'left',
-  originY: 'top',
   fontFamily: 'Hoefler Text',
   fontSize: 60,
   padding: 7,
@@ -326,8 +299,6 @@ canvases[11].add(iText13);
 var iText14 = new fabric.IText('xxx\nyz', {
   left: 100,
   top: 100,
-  originX: 'left',
-  originY: 'top',
   fontFamily: 'Hoefler Text',
   fontSize: 40,
   padding: 7,
@@ -346,8 +317,8 @@ var iText14 = new fabric.IText('xxx\nyz', {
 canvases[12].add(iText14);
 
 var iText15 = new fabric.IText('foo', {
-  left: 100,
-  top: 100,
+  left: 50,
+  top: 50,
   fontSize: 80,
   styles: {
     0: {
@@ -362,8 +333,6 @@ canvases[13].add(iText15);
 var iText16 = new fabric.IText('xxxxx', {
   left: 100,
   top: 30,
-  originX: 'left',
-  originY: 'top',
   fontSize: 80,
   fontFamily: 'Courier',
   padding: 0,
@@ -386,8 +355,6 @@ canvases[14].add(iText16);
 var iText17 = new fabric.IText('abcdefg', {
   left: 50,
   top: 150,
-  originX: 'left',
-  originY: 'top',
   fontSize: 60,
   fontFamily: 'Monaco',
   padding: 0,
@@ -425,9 +392,7 @@ spare ribs capicola jerky.', {
     fontFamily: 'Courier',
     fontSize: 18,
     left: 50,
-    top: 50,
-    originX: 'left',
-    originY: 'top'
+    top: 50
   });
 
 canvases[16].add(iText18);
@@ -436,6 +401,8 @@ canvases[16].add(iText18);
 canvases.forEach(function(c) {
   c.item(0) && c.item(0).setCoords();
   c.calcOffset();
+  // back reference
+  c.upperCanvasEl.canvas = c;
 });
 
 // function disableTap(canvas) {

@@ -109,3 +109,15 @@ title: IText tests
 </div>
 
 <script src="/js/itext.js" charset="utf-8"></script>
+<script>
+  (function(){
+    var canvases = document.getElementsByTagName('canvas');
+    for (var i = 0, len = canvases.length; i < len; i++) {
+      if (canvases[i].className.indexOf('lower-canvas') > -1) continue;
+      canvases[i].ondblclick = function() {
+        window.open('data:image/svg+xml;windows-1251,' +
+          encodeURIComponent(this.canvas.toSVG({ encoding: 'windows-1251' })));
+      };
+    }
+  })();
+</script>

@@ -1010,8 +1010,6 @@
   var iText2 = new fabric.IText('hello\nworld', {
     left: 50,
     top: 50,
-    originX: 'left',
-    originY: 'top',
     fontFamily: 'Helvetica',
     fill: '#333',
     lineHeight: 1.1,

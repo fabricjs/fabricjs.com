@@ -12,7 +12,9 @@ title: Solar system
 
 <canvas id="c" width="840" height="840" style="border:1px solid #aaa"></canvas>
 
-<script id="main">var canvas = new fabric.Canvas('c', {
+<script id="main">fabric.Object.prototype.originX = fabric.Object.prototype.originY = 'center';
+
+var canvas = new fabric.Canvas('c', {
   hoverCursor: 'pointer',
   selection: false,
   perPixelTargetFind: true,

@@ -3,6 +3,9 @@ layout: demo
 title: SVG caching
 ---
 <p>
+  When rendering complex shapes onto canvas — those consisting of thousands of paths — it's usually faster to "serialize" them into an image and render via <code>ctx.drawImage</code>. This essentially replaces thousands of low-level commands (<code>lineTo</code>, <code>moveTo</code>, <code>bezierCurveTo</code>, <code>arcTo</code>, etc.) with a single <code>drawImage</code>. The downside is loss of quality when scaling the shape up (since it's no longer vector-based). But this is a viable technique if the shape dimensions are constant. In Fabric, you can use <code>fabric.Object#cloneAsImage</code> to create an instance of <code>fabric.Image</code> out of any other Fabric shape.
+</p>
+<p>
   <button id="cache">Cache shapes</button>
 </p>
 

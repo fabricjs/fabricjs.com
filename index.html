@@ -11,7 +11,7 @@ title: Features
   <h4 style="margin: 5px !important">Fabric provides <strong>interactive object model</strong> on top of canvas element</h4>
   <h4 style="margin: 5px !important">Fabric also has <strong>SVG-to-canvas</strong> (and <strong>canvas-to-SVG</strong>) parser</h4>
 
-  <a href="http://fabricjs.challengepost.com/?utm_source=partner&utm_medium=banner&utm_campaign=fabricjs" style="display: block">
+  <a href="http://fabricjs.challengepost.com/?utm_source=partner&utm_medium=banner&utm_campaign=fabricjs" style="display: block; height: 206px; margin-bottom: 20px">
     <img src="https://dl.dropboxusercontent.com/u/822184/fabric-js-promo-widget-github.gif" style="width: auto">
   </a>
 
@@ -405,7 +405,7 @@ title: Features
     }
 
     window.onscroll = function() {
-      if (!__image) return
+      if (typeof __image === 'undefined') return;
       animate();
       window.onscroll = null;
     };

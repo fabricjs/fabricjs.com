@@ -18,7 +18,9 @@ var canvases = [
   new fabric.Canvas('c14'),
   new fabric.Canvas('c15'),
   new fabric.Canvas('c16'),
-  new fabric.Canvas('c17')
+  new fabric.Canvas('c17'),
+  new fabric.Canvas('c18'),
+  new fabric.Canvas('c19'),
 ];
 
 
@@ -235,7 +237,6 @@ var iText11 = new fabric.IText('Breaking\nBad', {
   padding: 7,
   textAlign: 'center',
   fill: 'rgb(212,252,215)',
-  centeredRotation: true,
   styles: {
     0: {
       0: { textBackgroundColor: 'rgb(96,142,93)', fill: 'rgb(240,255,236)', fontFamily: fontFamily, fontSize: fontSize },
@@ -272,7 +273,6 @@ var iText13 = new fabric.IText('How do you\nlike it like\nthat?', {
   fontSize: 60,
   padding: 7,
   textAlign: 'left',
-  centeredRotation: true,
   styles: {
     0: {
       1: { fill: 'red' },
@@ -337,7 +337,6 @@ var iText16 = new fabric.IText('xxxxx', {
   fontFamily: 'Courier',
   padding: 0,
   angle: 20,
-  centeredRotation: true,
   lineHeight: 1,
   styles: {
     0: {
@@ -358,8 +357,17 @@ var iText17 = new fabric.IText('abcdefg', {
   fontSize: 60,
   fontFamily: 'Monaco',
   padding: 0,
-  centeredRotation: true,
-  lineHeight: 1
+  lineHeight: 1,
+  styles: {
+    0: {
+      0: { fontSize: 25 },
+      1: { fontSize: 30 },
+      2: { fontSize: 35 },
+      3: { fontSize: 40 },
+      4: { fontSize: 45 },
+      5: { fontSize: 50 }
+    }
+  }
 })
 .scale(1.5);
 
@@ -397,6 +405,68 @@ spare ribs capicola jerky.', {
 
 canvases[16].add(iText18);
 
+var iText19 = new fabric.IText('abcdefg', {
+  left: 50,
+  top: 150,
+  fontSize: 60,
+  fontFamily: 'Monaco',
+  padding: 0,
+  lineHeight: 1,
+  flipX: true,
+  styles: {
+    0: {
+      0: { fontSize: 25 },
+      1: { fontSize: 30 },
+      2: { fontSize: 35 },
+      3: { fontSize: 40 },
+      4: { fontSize: 45 },
+      5: { fontSize: 50 }
+    }
+  }
+});
+
+canvases[17].add(iText19);
+
+
+var iText20 = new fabric.IText('Archer\nSterling\nISIS', {
+  left: 50,
+  top: 20,
+  fontSize: 50,
+  fontFamily: 'Optima',
+  padding: 0,
+  textAlign: 'right',
+  styles: {
+    0: {
+      0: { fill: 'red' },
+      1: { fill: 'red' },
+      2: { fill: 'red' },
+      3: { fill: 'red' },
+      4: { fill: 'red' },
+      5: { fill: 'red' }
+    },
+    1: {
+      0: { fontSize: 35, fill: 'green' },
+      1: { fontSize: 35, fill: 'green' },
+      2: { fontSize: 35, fill: 'green' },
+      3: { fontSize: 35, fill: 'green' },
+      4: { fontSize: 35, fill: 'green' },
+      5: { fontSize: 35, fill: 'green' },
+      6: { fontSize: 35, fill: 'green' },
+      7: { fontSize: 35, fill: 'green' }
+    },
+    2: {
+      0: { fontSize: 94, fill: 'blue' },
+      1: { fontSize: 94, fill: 'blue' },
+      2: { fontSize: 94, fill: 'blue' },
+      3: { fontSize: 94, fill: 'blue' }
+    }
+  }
+});
+canvases[18].add(iText20);
+
+
+
+
 
 canvases.forEach(function(c) {
   c.item(0) && c.item(0).setCoords();
@@ -404,6 +474,15 @@ canvases.forEach(function(c) {
   // back reference
   c.upperCanvasEl.canvas = c;
 });
+
+
+
+
+
+
+
+
+
 
 // function disableTap(canvas) {
 

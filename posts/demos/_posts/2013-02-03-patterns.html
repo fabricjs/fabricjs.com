@@ -31,36 +31,39 @@ title: Patterns
   </p>
 </div>
 
-<script id="main">var canvas = new fabric.Canvas('c');
+<script id="main">(function() {
+  var canvas = this.__canvas = new fabric.Canvas('c');
+  fabric.Object.prototype.transparentCorners = false;
 
-function loadPattern(url) {
-  fabric.util.loadImage(url, function(img) {
-    text.fill = new fabric.Pattern({
-      source: img,
-      repeat: document.getElementById('repeat').value
+  function loadPattern(url) {
+    fabric.util.loadImage(url, function(img) {
+      text.fill = new fabric.Pattern({
+        source: img,
+        repeat: document.getElementById('repeat').value
+      });
+      canvas.renderAll();
     });
-    canvas.renderAll();
+  }
+
+  var text = new fabric.Text('Honey,\nI\'m subtle', {
+    fontSize: 250,
+    left: 50,
+    top: 0,
+    lineHeight: 1,
+    originX: 'left',
+    fontFamily: 'Helvetica',
+    fontWeight: 'bold'
   });
-}
+  canvas.add(text);
 
-var text = new fabric.Text('Honey,\nI\'m subtle', {
-  fontSize: 250,
-  left: 50,
-  top: 0,
-  lineHeight: 1,
-  originX: 'left',
-  fontFamily: 'Helvetica',
-  fontWeight: 'bold'
-});
-canvas.add(text);
+  loadPattern('../assets/honey_im_subtle.png');
 
-loadPattern('../assets/honey_im_subtle.png');
-
-document.getElementById('patterns').onchange = function() {
-  loadPattern('../assets/' + this.value);
-};
-document.getElementById('repeat').onchange = function() {
-  text.fill.repeat = this.value;
-  canvas.renderAll();
-};
+  document.getElementById('patterns').onchange = function() {
+    loadPattern('../assets/' + this.value);
+  };
+  document.getElementById('repeat').onchange = function() {
+    text.fill.repeat = this.value;
+    canvas.renderAll();
+  };
+})();
 </script>

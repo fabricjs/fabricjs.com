@@ -28,18 +28,24 @@ title: Origin
     <p>originY: top</p>
   </div>
   <script>
-    var canvas = new fabric.Canvas('c1');
-    var rect = new fabric.Rect({
-      fill: 'rgba(255,0,0,0.9)',
-      width: 50,
-      height: 50,
-      left: 100,
-      top: 100,
-      originX: 'left',
-      originY: 'top',
-    });
-    canvas.add(rect);
-    rect.setCoords();
+    (function() {
+      this.__canvases = [];
+      fabric.Object.prototype.transparentCorners = false;
+
+      var canvas = new fabric.Canvas('c1');
+      var rect = new fabric.Rect({
+        fill: 'rgba(255,0,0,0.9)',
+        width: 50,
+        height: 50,
+        left: 100,
+        top: 100,
+        originX: 'left',
+        originY: 'top',
+      });
+      canvas.add(rect);
+      rect.setCoords();
+      this.__canvases.push(canvas);
+    })();
   </script>
 </div>
 
@@ -52,18 +58,21 @@ title: Origin
     <p>originY: top</p>
   </div>
   <script>
-    var canvas = new fabric.Canvas('c2');
-    var rect = new fabric.Rect({
-      fill: 'rgba(255,0,0,0.9)',
-      width: 50,
-      height: 50,
-      left: 100,
-      top: 100,
-      originX: 'center',
-      originY: 'top',
-    });
-    canvas.add(rect);
-    rect.setCoords();
+    (function() {
+      var canvas = new fabric.Canvas('c2');
+      var rect = new fabric.Rect({
+        fill: 'rgba(255,0,0,0.9)',
+        width: 50,
+        height: 50,
+        left: 100,
+        top: 100,
+        originX: 'center',
+        originY: 'top',
+      });
+      canvas.add(rect);
+      rect.setCoords();
+      this.__canvases.push(canvas);
+    })();
   </script>
 </div>
 
@@ -76,18 +85,21 @@ title: Origin
     <p>originY: top</p>
   </div>
   <script>
-    var canvas = new fabric.Canvas('c3');
-    var rect = new fabric.Rect({
-      fill: 'rgba(255,0,0,0.9)',
-      width: 50,
-      height: 50,
-      left: 100,
-      top: 100,
-      originX: 'right',
-      originY: 'top',
-    });
-    canvas.add(rect);
-    rect.setCoords();
+    (function() {
+      var canvas = new fabric.Canvas('c3');
+      var rect = new fabric.Rect({
+        fill: 'rgba(255,0,0,0.9)',
+        width: 50,
+        height: 50,
+        left: 100,
+        top: 100,
+        originX: 'right',
+        originY: 'top',
+      });
+      canvas.add(rect);
+      rect.setCoords();
+      this.__canvases.push(canvas);
+    })();
   </script>
 </div>
 
@@ -102,18 +114,21 @@ title: Origin
     <p>originY: center</p>
   </div>
   <script>
-    var canvas = new fabric.Canvas('c4');
-    var rect = new fabric.Rect({
-      fill: 'rgba(255,0,0,0.9)',
-      width: 50,
-      height: 50,
-      left: 100,
-      top: 100,
-      originX: 'left',
-      originY: 'center',
-    });
-    canvas.add(rect);
-    rect.setCoords();
+    (function() {
+      var canvas = new fabric.Canvas('c4');
+      var rect = new fabric.Rect({
+        fill: 'rgba(255,0,0,0.9)',
+        width: 50,
+        height: 50,
+        left: 100,
+        top: 100,
+        originX: 'left',
+        originY: 'center',
+      });
+      canvas.add(rect);
+      rect.setCoords();
+      this.__canvases.push(canvas);
+    })();
   </script>
 </div>
 
@@ -126,18 +141,21 @@ title: Origin
     <p>originY: center</p>
   </div>
   <script>
-    var canvas = new fabric.Canvas('c5');
-    var rect = new fabric.Rect({
-      fill: 'rgba(255,0,0,0.9)',
-      width: 50,
-      height: 50,
-      left: 100,
-      top: 100,
-      originX: 'center',
-      originY: 'center',
-    });
-    canvas.add(rect);
-    rect.setCoords();
+    (function() {
+      var canvas = new fabric.Canvas('c5');
+      var rect = new fabric.Rect({
+        fill: 'rgba(255,0,0,0.9)',
+        width: 50,
+        height: 50,
+        left: 100,
+        top: 100,
+        originX: 'center',
+        originY: 'center',
+      });
+      canvas.add(rect);
+      rect.setCoords();
+      this.__canvases.push(canvas);
+    })();
   </script>
 </div>
 
@@ -150,18 +168,21 @@ title: Origin
     <p>originY: center</p>
   </div>
   <script>
-    var canvas = new fabric.Canvas('c6');
-    var rect = new fabric.Rect({
-      fill: 'rgba(255,0,0,0.9)',
-      width: 50,
-      height: 50,
-      left: 100,
-      top: 100,
-      originX: 'right',
-      originY: 'center',
-    });
-    canvas.add(rect);
-    rect.setCoords();
+    (function() {
+      var canvas = new fabric.Canvas('c6');
+      var rect = new fabric.Rect({
+        fill: 'rgba(255,0,0,0.9)',
+        width: 50,
+        height: 50,
+        left: 100,
+        top: 100,
+        originX: 'right',
+        originY: 'center',
+      });
+      canvas.add(rect);
+      rect.setCoords();
+      this.__canvases.push(canvas);
+    })();
   </script>
 </div>
 
@@ -176,18 +197,21 @@ title: Origin
     <p>originY: bottom</p>
   </div>
   <script>
-    var canvas = new fabric.Canvas('c7');
-    var rect = new fabric.Rect({
-      fill: 'rgba(255,0,0,0.9)',
-      width: 50,
-      height: 50,
-      left: 100,
-      top: 100,
-      originX: 'left',
-      originY: 'bottom',
-    });
-    canvas.add(rect);
-    rect.setCoords();
+    (function() {
+      var canvas = new fabric.Canvas('c7');
+      var rect = new fabric.Rect({
+        fill: 'rgba(255,0,0,0.9)',
+        width: 50,
+        height: 50,
+        left: 100,
+        top: 100,
+        originX: 'left',
+        originY: 'bottom',
+      });
+      canvas.add(rect);
+      rect.setCoords();
+      this.__canvases.push(canvas);
+    })();
   </script>
 </div>
 
@@ -200,18 +224,21 @@ title: Origin
     <p>originY: bottom</p>
   </div>
   <script>
-    var canvas = new fabric.Canvas('c8');
-    var rect = new fabric.Rect({
-      fill: 'rgba(255,0,0,0.9)',
-      width: 50,
-      height: 50,
-      left: 100,
-      top: 100,
-      originX: 'center',
-      originY: 'bottom',
-    });
-    canvas.add(rect);
-    rect.setCoords();
+    (function() {
+      var canvas = new fabric.Canvas('c8');
+      var rect = new fabric.Rect({
+        fill: 'rgba(255,0,0,0.9)',
+        width: 50,
+        height: 50,
+        left: 100,
+        top: 100,
+        originX: 'center',
+        originY: 'bottom',
+      });
+      canvas.add(rect);
+      rect.setCoords();
+      this.__canvases.push(canvas);
+    })();
   </script>
 </div>
 
@@ -224,17 +251,20 @@ title: Origin
     <p>originY: bottom</p>
   </div>
   <script>
-    var canvas = new fabric.Canvas('c9');
-    var rect = new fabric.Rect({
-      fill: 'rgba(255,0,0,0.9)',
-      width: 50,
-      height: 50,
-      left: 100,
-      top: 100,
-      originX: 'right',
-      originY: 'bottom',
-    });
-    canvas.add(rect);
-    rect.setCoords();
+    (function() {
+      var canvas = new fabric.Canvas('c9');
+      var rect = new fabric.Rect({
+        fill: 'rgba(255,0,0,0.9)',
+        width: 50,
+        height: 50,
+        left: 100,
+        top: 100,
+        originX: 'right',
+        originY: 'bottom',
+      });
+      canvas.add(rect);
+      rect.setCoords();
+      this.__canvases.push(canvas);
+    })();
   </script>
 </div>

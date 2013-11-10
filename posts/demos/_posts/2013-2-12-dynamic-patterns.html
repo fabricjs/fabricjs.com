@@ -37,61 +37,65 @@ title: Dynamic patterns
 
 <canvas id="c" width="500" height="500" style="border:1px solid #ccc"></canvas>
 
-<script id="main">var canvas = new fabric.Canvas('c');
-var padding = 0;
+<script id="main">(function() {
+  var canvas = this.__canvas = new fabric.Canvas('c');
+  fabric.Object.prototype.transparentCorners = false;
 
-fabric.Image.fromURL('../assets/pug.jpg', function(img) {
+  var padding = 0;
 
-  img.scaleToWidth(100);
+  fabric.Image.fromURL('../assets/pug.jpg', function(img) {
 
-  var patternSourceCanvas = new fabric.StaticCanvas();
-  patternSourceCanvas.add(img);
+    img.scaleToWidth(100);
 
-  var pattern = new fabric.Pattern({
-    source: function() {
-      patternSourceCanvas.setDimensions({
-        width: img.getWidth() + padding,
-        height: img.getHeight() + padding
-      });
-      return patternSourceCanvas.getElement();
-    },
-    repeat: 'repeat'
+    var patternSourceCanvas = new fabric.StaticCanvas();
+    patternSourceCanvas.add(img);
+
+    var pattern = new fabric.Pattern({
+      source: function() {
+        patternSourceCanvas.setDimensions({
+          width: img.getWidth() + padding,
+          height: img.getHeight() + padding
+        });
+        return patternSourceCanvas.getElement();
+      },
+      repeat: 'repeat'
+    });
+
+    canvas.add(new fabric.Polygon([
+      {x: 185, y: 0},
+      {x: 250, y: 100},
+      {x: 385, y: 170},
+      {x: 0, y: 245} ], {
+        left: 0,
+        top: 200,
+        angle: -30,
+        fill: pattern
+      }));
+
+    document.getElementById('img-width').onchange = function() {
+      img.scaleToWidth(parseInt(this.value, 10));
+      canvas.renderAll();
+    };
+    document.getElementById('img-angle').onchange = function() {
+      img.setAngle(this.value);
+      canvas.renderAll();
+    };
+    document.getElementById('img-padding').onchange = function() {
+      padding = parseInt(this.value, 10);
+      canvas.renderAll();
+    };
+    document.getElementById('img-offset-x').onchange = function() {
+      pattern.offsetX = parseInt(this.value, 10);
+      canvas.renderAll();
+    };
+    document.getElementById('img-offset-y').onchange = function() {
+      pattern.offsetY = parseInt(this.value, 10);
+      canvas.renderAll();
+    };
+    document.getElementById('img-repeat').onclick = function() {
+      pattern.repeat = this.checked ? 'repeat' : 'no-repeat';
+      canvas.renderAll();
+    };
   });
-
-  canvas.add(new fabric.Polygon([
-    {x: 185, y: 0},
-    {x: 250, y: 100},
-    {x: 385, y: 170},
-    {x: 0, y: 245} ], {
-      left: 0,
-      top: 200,
-      angle: -30,
-      fill: pattern
-    }));
-
-  document.getElementById('img-width').onchange = function() {
-    img.scaleToWidth(parseInt(this.value, 10));
-    canvas.renderAll();
-  };
-  document.getElementById('img-angle').onchange = function() {
-    img.setAngle(this.value);
-    canvas.renderAll();
-  };
-  document.getElementById('img-padding').onchange = function() {
-    padding = parseInt(this.value, 10);
-    canvas.renderAll();
-  };
-  document.getElementById('img-offset-x').onchange = function() {
-    pattern.offsetX = parseInt(this.value, 10);
-    canvas.renderAll();
-  };
-  document.getElementById('img-offset-y').onchange = function() {
-    pattern.offsetY = parseInt(this.value, 10);
-    canvas.renderAll();
-  };
-  document.getElementById('img-repeat').onclick = function() {
-    pattern.repeat = this.checked ? 'repeat' : 'no-repeat';
-    canvas.renderAll();
-  };
-});
+})();
 </script>

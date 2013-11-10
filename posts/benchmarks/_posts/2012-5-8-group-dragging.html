@@ -11,11 +11,11 @@ title: Group dragging
 <canvas id="c" width="1200" height="600" style="border:1px solid #ccc"></canvas>
 
 <script>
-  fabric.Object.prototype.originX = fabric.Object.prototype.originY = 'center';
-
   (function() {
+    fabric.Object.prototype.originX = fabric.Object.prototype.originY = 'center';
+    fabric.Object.prototype.transparentCorners = false;
 
-    var canvas = new fabric.Canvas('c');
+    var canvas = this.canvas = new fabric.Canvas('c');
 
     var rects = [ ];
     for (var i = 1; i <= 47; i++) {
@@ -32,6 +32,7 @@ title: Group dragging
     }
 
     canvas.add(new fabric.Group(rects));
-
   })();
 </script>
+
+{% include onload.html %}

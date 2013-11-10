@@ -66,9 +66,10 @@ title: Features
 
   <script>
     (function(){
-      fabric.Object.prototype.originX = 'center';
-      fabric.Object.prototype.originY = 'center';
-      var canvas = window.__canvas = new fabric.Canvas('intro-canvas');
+      fabric.Object.prototype.originX = fabric.Object.prototype.originY = 'center';
+      fabric.Object.prototype.transparentCorners = false;
+
+      var canvas = this.__canvas = new fabric.Canvas('intro-canvas');
 
       // simple shapes
       var rect = new fabric.Rect({ width: 80, height: 60, left: 100, top: 100, fill: '#f55' })
@@ -386,7 +387,7 @@ title: Features
 
       __canvas.add(image);
 
-      window.__image = image;
+      this.__image = image;
     });
 
     function animate() {

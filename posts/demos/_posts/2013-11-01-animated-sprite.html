@@ -14,32 +14,34 @@ title: Animated sprite
 
 <script src="/js/sprite.class.js"></script>
 
-<script id="main">var canvas = new fabric.Canvas('c');
-fabric.Object.prototype.transparentCorners = false;
-fabric.Object.prototype.originX = fabric.Object.prototype.originY = 'center';
+<script id="main">(function() {
+  var canvas = this.__canvas = new fabric.Canvas('c');
+  fabric.Object.prototype.originX = fabric.Object.prototype.originY = 'center';
+  fabric.Object.prototype.transparentCorners = false;
 
-for (var i = 0, len = 5; i < len; i++) {
-  for (var j = 0, jlen = 5; j < jlen; j++) {
-    fabric.Sprite.fromURL('/assets/sprite.png', createSprite(i, j));
+  for (var i = 0, len = 5; i < len; i++) {
+    for (var j = 0, jlen = 5; j < jlen; j++) {
+      fabric.Sprite.fromURL('/assets/sprite.png', createSprite(i, j));
+    }
   }
-}
 
-function createSprite(i, j) {
-  return function(sprite) {
-    sprite.set({
-      left: i * 100 + 50,
-      top: j * 100 + 50,
-      angle: fabric.util.getRandomInt(-30, 30)
-    });
-    canvas.add(sprite);
-    setTimeout(function() {
-      sprite.play();
-    }, fabric.util.getRandomInt(1, 10) * 100);
-  };
-}
+  function createSprite(i, j) {
+    return function(sprite) {
+      sprite.set({
+        left: i * 100 + 50,
+        top: j * 100 + 50,
+        angle: fabric.util.getRandomInt(-30, 30)
+      });
+      canvas.add(sprite);
+      setTimeout(function() {
+        sprite.play();
+      }, fabric.util.getRandomInt(1, 10) * 100);
+    };
+  }
 
-(function render() {
-  canvas.renderAll();
-  fabric.util.requestAnimFrame(render);
+  (function render() {
+    canvas.renderAll();
+    fabric.util.requestAnimFrame(render);
+  })();
 })();
 </script>

@@ -11,46 +11,49 @@ title: Group performance
 <canvas id="c" width="1000" height="750" style="border:1px solid #ccc"></canvas>
 
 <script>
-fabric.Object.prototype.originX = fabric.Object.prototype.originY = 'center';
-var canvas = new fabric.Canvas('c');
-var status = document.getElementById('status');
-var mouseShape;
+(function() {
+  fabric.Object.prototype.originX = fabric.Object.prototype.originY = 'center';
 
-// add shapes
-var shapes = [];
-for (var i=1; i < 30; i++) {
-  for (var j=1; j < 40; j++) {
-    var circle = new fabric.Circle({
-      radius: 10
-    });
-    var text = new fabric.Text(i+','+j, {
-      fill: '#fff',
-      fontSize: 8,
-      fontFamily: 'sans-serif'
-    });
-    shapes.push(new fabric.Group([circle, text], {
-      left: j * 25,
-      top: i * 25,
-      hasControls: false
-    }));
+  var canvas = this.__canvas = new fabric.Canvas('c');
+  var status = document.getElementById('status');
+  var mouseShape;
+
+  // add shapes
+  var shapes = [];
+  for (var i=1; i < 30; i++) {
+    for (var j=1; j < 40; j++) {
+      var circle = new fabric.Circle({
+        radius: 10
+      });
+      var text = new fabric.Text(i+','+j, {
+        fill: '#fff',
+        fontSize: 8,
+        fontFamily: 'sans-serif'
+      });
+      shapes.push(new fabric.Group([circle, text], {
+        left: j * 25,
+        top: i * 25,
+        hasControls: false
+      }));
+    }
   }
-}
-canvas.add.apply(canvas, shapes);
+  canvas.add.apply(canvas, shapes);
+})();
 
 function start() {
     // cache the shapes
     // ??
 
     // disable editing
-    canvas.selection = false;
-    canvas.skipTargetFind = true;
+    __canvas.selection = false;
+    __canvas.skipTargetFind = true;
 
     // do some intensive animation
-    canvas.on('mouse:move', function(o) {
-        var pos = canvas.getPointer(o.e);
+    __canvas.on('mouse:move', function(o) {
+        var pos = __canvas.getPointer(o.e);
         if (mouseShape) {
           mouseShape.set({ left: pos.x, top: pos.y });
-          canvas.renderAll();
+          __canvas.renderAll();
         }
         else {
           mouseShape = new fabric.Circle({
@@ -60,7 +63,7 @@ function start() {
             left: pos.x,
             top: pos.y
           });
-          canvas.add(mouseShape);
+          __canvas.add(mouseShape);
         }
     });
 
@@ -72,11 +75,11 @@ function stop() {
   // ??
 
   // enable editing
-  canvas.selection = true;
+  __canvas.selection = true;
 
   // remove animation
-  canvas.off('mouse:move');
-  canvas.remove(mouseShape);
+  __canvas.off('mouse:move');
+  __canvas.remove(mouseShape);
   mouseShape = null;
 
   status.innerHTML = 'stopped';
@@ -84,3 +87,5 @@ function stop() {
 
 start();
 </script>
+
+{% include onload.html %}

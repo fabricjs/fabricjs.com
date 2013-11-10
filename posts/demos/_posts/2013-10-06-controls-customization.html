@@ -92,50 +92,51 @@ title: Controls customization
   </p>
 </div>
 
-<script id="main">var canvas = new fabric.Canvas('c');
+<script id="main">(function() {
+  var canvas = this.__canvas = new fabric.Canvas('c');
 
-var rect = new fabric.Rect({
-  left: 150,
-  top: 200,
-  originX: 'left',
-  originY: 'top',
-  width: 150,
-  height: 120,
-  angle: -10,
-  fill: 'rgba(255,0,0,0.5)',
-  transparentCorners: false
-});
+  var rect = new fabric.Rect({
+    left: 150,
+    top: 200,
+    originX: 'left',
+    originY: 'top',
+    width: 150,
+    height: 120,
+    angle: -10,
+    fill: 'rgba(255,0,0,0.5)',
+    transparentCorners: false
+  });
 
-canvas.add(rect).setActiveObject(rect);
+  canvas.add(rect).setActiveObject(rect);
 
-function observeBoolean(property) {
-  document.getElementById(property).onclick = function() {
-    canvas.item(0)[property] = this.checked;
-    canvas.renderAll();
-  };
-}
+  function observeBoolean(property) {
+    document.getElementById(property).onclick = function() {
+      canvas.item(0)[property] = this.checked;
+      canvas.renderAll();
+    };
+  }
 
-function observeNumeric(property) {
-  document.getElementById(property).onchange = function() {
-    canvas.item(0)[property] = this.value;
-    canvas.renderAll();
-  };
-}
+  function observeNumeric(property) {
+    document.getElementById(property).onchange = function() {
+      canvas.item(0)[property] = this.value;
+      canvas.renderAll();
+    };
+  }
 
-observeBoolean('hasControls');
-observeBoolean('hasBorders');
-observeBoolean('hasRotatingPoint');
-observeBoolean('visible');
-observeBoolean('selectable');
-observeBoolean('evented');
-observeBoolean('transparentCorners');
-observeBoolean('centeredScaling');
-observeBoolean('centeredRotation');
+  observeBoolean('hasControls');
+  observeBoolean('hasBorders');
+  observeBoolean('hasRotatingPoint');
+  observeBoolean('visible');
+  observeBoolean('selectable');
+  observeBoolean('evented');
+  observeBoolean('transparentCorners');
+  observeBoolean('centeredScaling');
+  observeBoolean('centeredRotation');
 
-observeNumeric('padding');
-observeNumeric('cornerSize');
-observeNumeric('rotatingPointOffset');
-observeNumeric('borderColor');
-observeNumeric('cornerColor');
-
+  observeNumeric('padding');
+  observeNumeric('cornerSize');
+  observeNumeric('rotatingPointOffset');
+  observeNumeric('borderColor');
+  observeNumeric('cornerColor');
+})();
 </script>

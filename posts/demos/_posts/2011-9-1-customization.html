@@ -10,7 +10,7 @@ title: Customization
 </style>
 
 <script>
-  fabric.instances = [ ];
+  this.__canvases = [ ];
   fabric.Object.prototype.originX = fabric.Object.prototype.originY = 'center';
 </script>
 
@@ -25,7 +25,8 @@ title: Customization
   canvas.selectionColor = 'rgba(0,255,0,0.3)';
   canvas.selectionBorderColor = 'red';
   canvas.selectionLineWidth = 5;
-fabric.instances.push(canvas)})();
+  this.__canvases.push(canvas);
+})();
 </script>
 </div>
 
@@ -44,7 +45,8 @@ fabric.instances.push(canvas)})();
     transparentCorners: false
   });
   canvas.setActiveObject(canvas.item(0));
-fabric.instances.push(canvas)})();
+  this.__canvases.push(canvas);
+})();
 </script>
 </div>
 
@@ -63,7 +65,8 @@ fabric.instances.push(canvas)})();
     transparentCorners: true
   });
   canvas.setActiveObject(canvas.item(0));
-fabric.instances.push(canvas)})();
+  this.__canvases.push(canvas);
+})();
 </script>
 </div>
 
@@ -76,7 +79,8 @@ fabric.instances.push(canvas)})();
   canvas.add(new fabric.Circle({ radius: 30, fill: '#f55', top: 100, left: 100 }));
   canvas.item(0).hasBorders = false;
   canvas.setActiveObject(canvas.item(0));
-fabric.instances.push(canvas)})();
+  this.__canvases.push(canvas);
+})();
 </script>
 </div>
 
@@ -89,7 +93,8 @@ fabric.instances.push(canvas)})();
   canvas.add(new fabric.Circle({ radius: 30, fill: '#f55', top: 100, left: 100 }));
   canvas.item(0).hasControls = false;
   canvas.setActiveObject(canvas.item(0));
-fabric.instances.push(canvas)})();
+  this.__canvases.push(canvas);
+})();
 </script>
 </div>
 
@@ -122,7 +127,8 @@ fabric.instances.push(canvas)})();
       e.target.opacity = 1;
     }
   });
-fabric.instances.push(canvas)})();
+  this.__canvases.push(canvas);
+})();
 </script>
 </div>
 
@@ -134,7 +140,8 @@ fabric.instances.push(canvas)})();
   var canvas = new fabric.Canvas('c11');
   canvas.add(new fabric.Circle({ radius: 30, fill: '#f55', top: 100, left: 100 }));
   canvas.hoverCursor = 'pointer';
-fabric.instances.push(canvas)})();
+  this.__canvases.push(canvas);
+})();
 </script>
 </div>
 
@@ -181,7 +188,8 @@ fabric.instances.push(canvas)})();
   }
   canvas.on('mouse:down', function(e) { animate(e, 1); });
   canvas.on('mouse:up', function(e) { animate(e, 0); });
-fabric.instances.push(canvas)})();
+  this.__canvases.push(canvas);
+})();
 </script>
 </div>
 
@@ -193,7 +201,8 @@ fabric.instances.push(canvas)})();
   var canvas = new fabric.Canvas('c2');
   canvas.add(new fabric.Circle({ radius: 30, fill: '#f55', top: 100, left: 100 }));
   canvas.selection = false;
-fabric.instances.push(canvas)})();
+  this.__canvases.push(canvas);
+})();
 </script>
 </div>
 
@@ -210,7 +219,8 @@ fabric.instances.push(canvas)})();
   canvas.add(new fabric.Rect({ left: 50, top: 150, fill: 'green', width: 30, height: 30 }));
 
   canvas.item(0).selectable = false;
-fabric.instances.push(canvas)})();
+  this.__canvases.push(canvas);
+})();
 </script>
 </div>
 
@@ -223,7 +233,8 @@ fabric.instances.push(canvas)})();
   canvas.add(new fabric.Circle({ radius: 30, fill: '#f55', top: 100, left: 100 }));
   canvas.backgroundColor = 'rgba(0,0,255,0.3)';
   canvas.renderAll();
-fabric.instances.push(canvas)})();
+  this.__canvases.push(canvas);
+})();
 </script>
 </div>
 
@@ -235,7 +246,8 @@ fabric.instances.push(canvas)})();
   var canvas = new fabric.Canvas('c17');
   canvas.add(new fabric.Circle({ radius: 30, fill: '#f55', top: 100, left: 100 }));
   canvas.setBackgroundImage('../assets/pug.jpg', canvas.renderAll.bind(canvas));
-fabric.instances.push(canvas)})();
+  this.__canvases.push(canvas);
+})();
 </script>
 </div>
 
@@ -247,7 +259,8 @@ fabric.instances.push(canvas)})();
   var canvas = new fabric.Canvas('c13');
   canvas.add(new fabric.Circle({ radius: 30, fill: '#f55', top: 100, left: 100 }));
   canvas.setOverlayImage('../assets/jail_cell_bars.png', canvas.renderAll.bind(canvas));
-fabric.instances.push(canvas)})();
+  this.__canvases.push(canvas);
+})();
 </script>
 </div>
 
@@ -259,7 +272,8 @@ fabric.instances.push(canvas)})();
   var canvas = new fabric.Canvas('c6');
   canvas.add(new fabric.Rect({ width: 50, height: 50, fill: '#77f', top: 100, left: 100 }));
   canvas.item(0).lockRotation = true;
-fabric.instances.push(canvas)})();
+  this.__canvases.push(canvas);
+})();
 </script>
 </div>
 
@@ -271,7 +285,8 @@ fabric.instances.push(canvas)})();
   var canvas = new fabric.Canvas('c7');
   canvas.add(new fabric.Rect({ width: 50, height: 50, fill: '#77f', top: 100, left: 100 }));
   canvas.item(0).lockScalingX = canvas.item(0).lockScalingY = true;
-fabric.instances.push(canvas)})();
+  this.__canvases.push(canvas);
+})();
 </script>
 </div>
 
@@ -283,7 +298,8 @@ fabric.instances.push(canvas)})();
   var canvas = new fabric.Canvas('c8');
   canvas.add(new fabric.Rect({ width: 50, height: 50, fill: '#77f', top: 100, left: 100 }));
   canvas.item(0).lockMovementX = true;
-fabric.instances.push(canvas)})();
+  this.__canvases.push(canvas);
+})();
 </script>
 </div>
 
@@ -295,7 +311,8 @@ fabric.instances.push(canvas)})();
   var canvas = new fabric.Canvas('c9');
   canvas.add(new fabric.Rect({ width: 50, height: 50, fill: '#77f', top: 100, left: 100 }));
   canvas.item(0).lockMovementY = true;
-fabric.instances.push(canvas)})();
+  this.__canvases.push(canvas);
+})();
 </script>
 </div>
 
@@ -312,7 +329,8 @@ fabric.instances.push(canvas)})();
   canvas.add(new fabric.Circle({ radius: 40, fill: '#f55', top: 125, left: 125, scaleY: 0.5, flipY: true }));
   canvas.item(1).hasRotatingPoint = true;
 
-fabric.instances.push(canvas)})();
+  this.__canvases.push(canvas);
+})();
 </script>
 </div>
 
@@ -326,23 +344,10 @@ fabric.instances.push(canvas)})();
         codeEl.className = 'language-javascript';
         codeEl.innerHTML = scriptEls[i].innerHTML
           .replace(/^\n*\(function\(\){\n/g, '')
-          .replace(/(fabric\.instances\.push\(canvas\))?\}\)\(\);\n*$/g, '');
+          .replace(/(this\.__canvases\.push\(canvas\))?\}\)\(\);\n*$/g, '');
 
         preEl.appendChild(codeEl);
         scriptEls[i].parentNode.appendChild(preEl);
-      }
-    }
-
-    if (document.addEventListener) {
-      document.addEventListener('DOMContentLoaded', function () {
-        for (var i = fabric.instances.length; i--; ) {
-          fabric.instances[i].calcOffset();
-        }
-      });
-    }
-    else {
-      for (var i = fabric.instances.length; i--; ) {
-        fabric.instances[i].calcOffset();
       }
     }
   })();

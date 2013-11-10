@@ -5,31 +5,31 @@ title: Sliding Ladybugs
 
 <canvas id="c" width="800" height="400"></canvas>
 
-<script id="main">
-fabric.Object.prototype.originX = fabric.Object.prototype.originY = 'center';
+<script id="main">(function() {
+  var canvas = this.__canvas = new fabric.Canvas('c', { selection: false });
+  fabric.Object.prototype.originX = fabric.Object.prototype.originY = 'center';
 
-var canvas = new fabric.Canvas('c', { selection: false });
+  setInterval(function() {
+    fabric.Image.fromURL('../assets/ladybug.png', function(img) {
+      img.set('left', fabric.util.getRandomInt(200, 600)).set('top', -50);
+      img.movingLeft = !!Math.round(Math.random());
+      canvas.add(img);
+    });
+  }, 1000);
 
-setInterval(function() {
-  fabric.Image.fromURL('../assets/ladybug.png', function(img) {
-    img.set('left', fabric.util.getRandomInt(200, 600)).set('top', -50);
-    img.movingLeft = !!Math.round(Math.random());
-    canvas.add(img);
-  });
-}, 1000);
-
-(function animate() {
-  canvas.forEachObject(function(obj) {
-    obj.left += (obj.movingLeft ? -1 : 1);
-    obj.top += 1;
-    if (obj.left > 900 || obj.top > 500) {
-      canvas.remove(obj);
-    }
-    else {
-      obj.setAngle(obj.getAngle() + 2);
-    }
-  });
-  canvas.renderAll();
-  fabric.util.requestAnimFrame(animate);
+  (function animate() {
+    canvas.forEachObject(function(obj) {
+      obj.left += (obj.movingLeft ? -1 : 1);
+      obj.top += 1;
+      if (obj.left > 900 || obj.top > 500) {
+        canvas.remove(obj);
+      }
+      else {
+        obj.setAngle(obj.getAngle() + 2);
+      }
+    });
+    canvas.renderAll();
+    fabric.util.requestAnimFrame(animate);
+  })();
 })();
 </script>

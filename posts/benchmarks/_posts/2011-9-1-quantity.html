@@ -15,11 +15,12 @@ title: Quantity
 <canvas id="test" width="600" height="600"></canvas>
 <script>
   (function() {
+    fabric.Object.prototype.transparentCorners = false;
 
     var getRandomInt = fabric.util.getRandomInt;
     function getRandomColor() {
-      return getRandomInt(0, 255).toString(16) 
-        + getRandomInt(0, 255).toString(16) 
+      return getRandomInt(0, 255).toString(16)
+        + getRandomInt(0, 255).toString(16)
         + getRandomInt(0, 255).toString(16);
     }
     function getRandomNum(min, max) {
@@ -31,17 +32,17 @@ title: Quantity
       el.innerHTML += ('<h3 style="display:inline-block;">' + title + '</h3><p style="margin-left:1em;margin-right:1em;display:inline-block">' + result + '</p>');
     }
 
-    this.c = new fabric.Canvas('test');
+    var canvas = this.__canvas = new fabric.Canvas('test');
 
-    var t1, t2, 
-        lim = 50, 
-        offset = 50, 
-        width = c.getWidth(), 
-        height = c.getHeight();
+    var t1, t2,
+        lim = 50,
+        offset = 50,
+        width = canvas.getWidth(),
+        height = canvas.getHeight();
 
     var t = new Date();
     for (var i = lim; i--; ) {
-      c.add(new fabric.Rect({
+      canvas.add(new fabric.Rect({
         width: getRandomInt(10, 50),
         height: getRandomInt(10, 50),
         fill: '#' + getRandomColor(),
@@ -51,7 +52,7 @@ title: Quantity
         left: getRandomInt(0 + offset, width - offset)
       }));
 
-      c.add(new fabric.Circle({
+      canvas.add(new fabric.Circle({
         radius: getRandomInt(10, 50),
         fill: '#' + getRandomColor(),
         opacity: getRandomNum(0.5, 1),
@@ -59,7 +60,7 @@ title: Quantity
         left: getRandomInt(0 + offset, width - offset)
       }));
 
-      c.add(new fabric.Triangle({
+      canvas.add(new fabric.Triangle({
         width: getRandomInt(10, 50),
         height: getRandomInt(10, 50),
         fill: '#' + getRandomColor(),
@@ -74,14 +75,13 @@ title: Quantity
 
     t = new Date();
     for (var i = 50; i--; ) {
-      c.renderAll();
+      canvas.renderAll();
     }
 
     addResult('Rendering: ', (t2 = new Date() - t) + 'ms');
 
     addResult('Total time: ', (t1 + t2) + 'ms');
-
-    c.calcOffset();
-
   })();
 </script>
+
+{% include onload.html %}

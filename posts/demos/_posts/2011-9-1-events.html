@@ -29,8 +29,10 @@ title: Event inspector
   <div id="log1">&nbsp;</div>
   <div id="log2">&nbsp;</div>
 </div>
+<script>(function() {
+  this.__canvases = [];
+  fabric.Object.prototype.transparentCorners = false;
 
-<script>
   var canvas1 = new fabric.Canvas('c1');
   canvas1.add(new fabric.Rect({ width: 50, height: 50, fill: 'red', top: 100, left: 100 }));
   canvas1.add(new fabric.Rect({ width: 30, height: 30, fill: 'green', top: 50, left: 50 }));
@@ -87,4 +89,7 @@ title: Event inspector
   observe('after:render');
   addSeparator();
 
+  this.__canvases.push(canvas1);
+  this.__canvases.push(canvas2);
+})();
 </script>

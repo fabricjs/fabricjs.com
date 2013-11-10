@@ -35,11 +35,12 @@ title: Animation
 <canvas id="test" width="600" height="600"></canvas>
 <script>
   (function() {
-
     fabric.Object.prototype.originX = fabric.Object.prototype.originY = 'center';
+    fabric.Object.prototype.transparentCorners = false;
 
-    var canvas = new fabric.Canvas('test'),
-        fpsEl = document.getElementById('fps'),
+    var canvas = this.__canvas = new fabric.Canvas('test'),
+
+    var fpsEl = document.getElementById('fps'),
         complexityEl = document.getElementById('complexity'),
         changeShapeEl = document.forms[0],
         shapePathEl = document.getElementById('shape-path'),
@@ -140,3 +141,5 @@ title: Animation
 
   })();
 </script>
+
+{% include onload.html %}

@@ -1,7 +1,7 @@
 fabric.Object.prototype.padding = 5;
 fabric.Object.prototype.transparentCorners = false;
 
-var canvases = [
+var canvases = this.__canvases = [
   new fabric.Canvas('c1'),
   new fabric.Canvas('c2'),
   new fabric.Canvas('c3'),

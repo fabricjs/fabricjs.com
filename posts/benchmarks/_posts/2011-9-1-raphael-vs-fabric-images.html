@@ -15,70 +15,79 @@ title: vs. Raphael (Images)
 <img src="../lib/pug.jpg" style="position:absolute;left:-999px;top:-999px">
 <script src="../lib/raphael-min.js"></script>
 <script>
-  function getRandomNum(min, max) {
-    return Math.random() * (max - min) + min;
-  }
-  
-  var numObjects = 20,
-      width = 500,
-      height = 500,
-      opacity = 0.75;
-      
-  window.onload = function() {
-    
-    var logEl = document.getElementById('log');
-    
-    (function testRaphael() {
-      
-      var paper = Raphael(550, 140, width, height),
-          startTime = new Date(),
-          circle;
+  (function() {
+    fabric.Object.prototype.transparentCorners = false;
 
-      for (var i = numObjects; i--; ) {
-        img = paper.image("../lib/pug.jpg", getRandomNum(-25, width), getRandomNum(-25, height), 100, 100);
-        img.rotate(getRandomNum(0, 90));
-        img.attr('opacity', opacity);
-      }
-      
-      logEl.innerHTML = 'Raphael: <b class="bench">' + (new Date() - startTime) + '</b> ms<br>';
-      
-    })();
-    
-    (function testFabric() {
-      
-      var canvas = window.__canvas = new fabric.Element('canvas', { 
-            renderOnAddRemove: false, 
-            stateful: false 
-          }),
-          Image = fabric.Image,
-          totalTime = 0,
-          circle;
+    function getRandomNum(min, max) {
+      return Math.random() * (max - min) + min;
+    }
 
-      for (var i = numObjects; i--; ) {
-        fabric.Image.fromURL('../lib/pug.jpg', (function(i){
-          return function(o) {
-            var startTime = new Date();
+    var numObjects = 20,
+        loadedObjects = 0,
+        width = 500,
+        height = 500,
+        opacity = 0.75;
 
-            o.set('left', getRandomNum(-25, width))
-              .set('top', getRandomNum(-25, height))
-              .scale(0.2)
-              .setCoords();
-            o.rotate(getRandomNum(0, 90));
-            o.set('opacity', opacity);
-            canvas.add(o);
+    window.onload = function() {
 
-            if (i === 0) {
-              canvas.renderAll();
-              logEl.innerHTML += 'fabric: <b class="bench">' + totalTime + '</b> ms';
-            }
+      var logEl = document.getElementById('log');
 
-            totalTime += (new Date() - startTime);
-          };
-        })(i));
-      }
-      
-    })();
-  };
+      (function testRaphael() {
+
+        var paper = Raphael(550, 140, width, height),
+            startTime = new Date(),
+            circle;
+
+        for (var i = numObjects; i--; ) {
+          img = paper.image("../lib/pug.jpg", getRandomNum(-25, width), getRandomNum(-25, height), 100, 100);
+          img.rotate(getRandomNum(0, 90));
+          img.attr('opacity', opacity);
+        }
+
+        logEl.innerHTML = 'Raphael: <b class="bench">' + (new Date() - startTime) + '</b> ms<br>';
+
+      })();
+
+      (function testFabric() {
+
+        var canvas = this.__canvas = new fabric.Element('canvas', {
+              renderOnAddRemove: false,
+              stateful: false
+            }),
+            Image = fabric.Image,
+            totalTime = 0,
+            circle;
+
+        function loaded() {
+          if (++loadedObjects === numObjects) {
+            canvas.renderAll();
+            logEl.innerHTML += 'fabric: <b class="bench">' + totalTime + '</b> ms';
+          }
+        }
+
+        for (var i = numObjects; i--; ) {
+          fabric.Image.fromURL('../lib/pug.jpg', (function(i){
+            return function(o) {
+              var startTime = new Date();
+
+              o.set('left', getRandomNum(-25, width))
+                .set('top', getRandomNum(-25, height))
+                .scale(0.2)
+                .setCoords();
+              o.rotate(getRandomNum(0, 90));
+              o.set('opacity', opacity);
+              canvas.add(o);
+              totalTime += (new Date() - startTime);
+
+              loaded();
+            };
+          })(i));
+        }
+
+        canvas.calcOffset();
+      })();
+    };
+  })();
 </script>
 
 <!DOCTYPE html>
@@ -86,7 +95,7 @@ title: vs. Raphael (Images)
   <head>
     <meta charset="utf-8">
     <title>Images</title>
-    
+
   </head>
   <body>
     <p>Rendering an image</p>

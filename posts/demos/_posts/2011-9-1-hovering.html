@@ -5,59 +5,62 @@ title: Hovering
 
 <canvas id="c" width="600" height="500"></canvas>
 
-<script id="main">var canvas = new fabric.Canvas('c');
+<script id="main">(function() {
+  var canvas = this.__canvas = new fabric.Canvas('c');
+  fabric.Object.prototype.transparentCorners = false;
 
-// piggyback on `canvas.findTarget`, to fire "object:over" and "object:out" events
+  // piggyback on `canvas.findTarget`, to fire "object:over" and "object:out" events
 
-canvas.findTarget = (function(originalFn) {
-  return function() {
-    var target = originalFn.apply(this, arguments);
-    if (target) {
-      if (this._hoveredTarget !== target) {
-        canvas.fire('object:over', { target: target });
-        if (this._hoveredTarget) {
-          canvas.fire('object:out', { target: this._hoveredTarget });
+  canvas.findTarget = (function(originalFn) {
+    return function() {
+      var target = originalFn.apply(this, arguments);
+      if (target) {
+        if (this._hoveredTarget !== target) {
+          canvas.fire('object:over', { target: target });
+          if (this._hoveredTarget) {
+            canvas.fire('object:out', { target: this._hoveredTarget });
+          }
+          this._hoveredTarget = target;
         }
-        this._hoveredTarget = target;
       }
+      else if (this._hoveredTarget) {
+        canvas.fire('object:out', { target: this._hoveredTarget });
+        this._hoveredTarget = null;
+      }
+      return target;
+    };
+  })(canvas.findTarget);
+
+  // now we can observe "object:over" and "object:out" events
+  // in this example, object is set to red color on hover over and green color on hover out
+
+  canvas.on('object:over', function(e) {
+    e.target.setFill('red');
+    canvas.renderAll();
+  });
+
+  canvas.on('object:out', function(e) {
+    e.target.setFill('green');
+    canvas.renderAll();
+  });
+
+  // add random objects
+  for (var i = 15; i--; ) {
+    var dim = fabric.util.getRandomInt(30, 60);
+    var klass = ['Rect', 'Triangle', 'Circle'][fabric.util.getRandomInt(0,2)];
+    var options = {
+      top: fabric.util.getRandomInt(0, 600),
+      left: fabric.util.getRandomInt(0, 600),
+      fill: 'green'
+    };
+    if (klass === 'Circle') {
+      options.radius = dim;
     }
-    else if (this._hoveredTarget) {
-      canvas.fire('object:out', { target: this._hoveredTarget });
-      this._hoveredTarget = null;
+    else {
+      options.width = dim;
+      options.height = dim;
     }
-    return target;
-  };
-})(canvas.findTarget);
-
-// now we can observe "object:over" and "object:out" events
-// in this example, object is set to red color on hover over and green color on hover out
-
-canvas.on('object:over', function(e) {
-  e.target.setFill('red');
-  canvas.renderAll();
-});
-
-canvas.on('object:out', function(e) {
-  e.target.setFill('green');
-  canvas.renderAll();
-});
-
-// add random objects
-for (var i = 15; i--; ) {
-  var dim = fabric.util.getRandomInt(30, 60);
-  var klass = ['Rect', 'Triangle', 'Circle'][fabric.util.getRandomInt(0,2)];
-  var options = {
-    top: fabric.util.getRandomInt(0, 600),
-    left: fabric.util.getRandomInt(0, 600),
-    fill: 'green'
-  };
-  if (klass === 'Circle') {
-    options.radius = dim;
+    canvas.add(new fabric[klass](options));
   }
-  else {
-    options.width = dim;
-    options.height = dim;
-  }
-  canvas.add(new fabric[klass](options));
-}
+})();
 </script>

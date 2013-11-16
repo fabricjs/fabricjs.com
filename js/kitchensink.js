@@ -18,7 +18,7 @@
     );
   }
 
-  fabric.Object.prototype.padding = 5;
+  //fabric.Object.prototype.padding = 5;
   fabric.Object.prototype.transparentCorners = false;
 
   function getRandomNum(min, max) {
@@ -1007,22 +1007,13 @@
     Cufon.fonts.delicious.offsetTop = 25;
   }
 
-  var iText2 = new fabric.IText('hello\nworld', {
-    left: 50,
-    top: 50,
+  var iText2 = new fabric.IText('lorem ipsum\ndolor\nsit amet', {
+    left: 100,
+    top: 150,
     fontFamily: 'Helvetica',
     fill: '#333',
-    lineHeight: 1.1,
-    styles: {
-      0: {
-        0: { textDecoration: 'underline', fontSize: 80 },
-        1: { textBackgroundColor: 'red' }
-      },
-      1: {
-        0: { textBackgroundColor: 'rgba(0,255,0,0.5)' },
-        4: { fontSize: 20 }
-      }
-    }
+    lineHeight: 1,
+    angle: -20
   });
   canvas.add(iText2);
 

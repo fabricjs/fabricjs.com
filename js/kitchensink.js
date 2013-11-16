@@ -250,7 +250,7 @@
             activeGroup = canvas.getActiveGroup();
 
         if (activeObject || activeGroup) {
-          (activeObject || activeGroup).setOpacity(parseInt(this.value, 10) / 100);
+          setStyle(activeObject || activeGroup, opacity, parseInt(this.value, 10) / 100);
           canvas.renderAll();
         }
       };
@@ -281,7 +281,7 @@
             activeGroup = canvas.getActiveGroup();
 
         if (activeObject || activeGroup) {
-          (activeObject || activeGroup).setFill(this.value);
+          setStyle(activeObject || activeGroup, 'fill', this.value);
           canvas.renderAll();
         }
       };

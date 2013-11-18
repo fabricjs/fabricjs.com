@@ -5,6 +5,11 @@ console.log('Running:', command);
 
 var start = new Date();
 exec(command, function (error, output) {
-  console.log(output);
-  console.log('Completed in ', (new Date() - start) / 1000 + 's');
+  if (error) {
+    console.log(error);
+  }
+  else {
+    console.log(output);
+    console.log('Completed in ', (new Date() - start) / 1000 + 's');
+  }
 });

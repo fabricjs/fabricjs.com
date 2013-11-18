@@ -22,9 +22,8 @@
       <li><a href="http://fabricjs.com/articles">Tutorial</a></li>
       <li><a href="http://fabricjs.com/docs">Docs</a></li>
       <li><a href="http://fabricjs.com/build">Custom Build</a></li>
-      <li><a href="http://fabricjs.com/help">Discuss / Help</a></li>
-
-      <li><a href="http://fabricjs.com/test">Benchmarks / Tests</a></li>
+      <li><a href="http://fabricjs.com/help">Support</a></li>
+      <li><a href="http://fabricjs.com/test">Tests/Benchmarks</a></li>
       <li><a href="http://fabricjs.com/team">Team</a></li>
 
       <li class="secondary">
@@ -144,7 +143,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6645">line 6645</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6828">line 6828</a>
     </li></ul></dd>
     
     
@@ -266,7 +265,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7761">line 7761</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line8063">line 8063</a>
     </li></ul></dd>
     
     
@@ -336,7 +335,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6768">line 6768</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6938">line 6938</a>
     </li></ul></dd>
     
     
@@ -355,7 +354,7 @@
             
 <dt>
     <h4 class="name" id="backgroundColor">
-        <span class="type-signature"></span>backgroundColor<span class="type-signature"> :String</span>
+        <span class="type-signature"></span>backgroundColor<span class="type-signature"> :String|<a href="fabric.Pattern.html">fabric.Pattern</a></span>
         <a href="#backgroundColor" class="anchor">§</a>
     </h4>
 
@@ -364,7 +363,8 @@
 <dd>
     
     <div class="description">
-        Background color of canvas instance
+        Background color of canvas instance.
+Should be set via <a href="fabric.StaticCanvas.html#setBackgroundColor">fabric.StaticCanvas#setBackgroundColor</a>.
     </div>
     
 
@@ -374,6 +374,9 @@
             <li>
                 
 <span class="param-type">String</span>
+|
+
+<span class="param-type"><a href="fabric.Pattern.html">fabric.Pattern</a></span>
 
 
             </li>
@@ -403,7 +406,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6678">line 6678</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6862">line 6862</a>
     </li></ul></dd>
     
     
@@ -422,7 +425,7 @@
             
 <dt>
     <h4 class="name" id="backgroundImage">
-        <span class="type-signature"></span>backgroundImage<span class="type-signature"> :String</span>
+        <span class="type-signature"></span>backgroundImage<span class="type-signature"> :<a href="fabric.Image.html">fabric.Image</a></span>
         <a href="#backgroundImage" class="anchor">§</a>
     </h4>
 
@@ -431,8 +434,11 @@
 <dd>
     
     <div class="description">
-        Background image of canvas instance
-Should be set via <a href="fabric.StaticCanvas.html#setBackgroundImage">fabric.StaticCanvas#setBackgroundImage</a>
+        Background image of canvas instance.
+Should be set via <a href="fabric.StaticCanvas.html#setBackgroundImage">fabric.StaticCanvas#setBackgroundImage</a>.
+<b>Backwards incompatibility note:</b> The "backgroundImageOpacity"
+and "backgroundImageStretch" properties are deprecated since 1.3.9.
+Use <a href="fabric.Image.html#opacity">fabric.Image#opacity</a>, fabric.Image#width and {@link fabric.Image#height}.
     </div>
     
 
@@ -441,74 +447,7 @@ Should be set via <a href="fabric.StaticCanvas.html#setBackgroundImage">fabric.S
         <ul>
             <li>
                 
-<span class="param-type">String</span>
-
-
-            </li>
-        </ul>
-    
-
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6686">line 6686</a>
-    </li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="backgroundImageOpacity">
-        <span class="type-signature"></span>backgroundImageOpacity<span class="type-signature"> :Float</span>
-        <a href="#backgroundImageOpacity" class="anchor">§</a>
-    </h4>
-
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        Opacity of the background image of the canvas instance
-    </div>
-    
-
-    
-        <h5>Type:</h5>
-        <ul>
-            <li>
-                
-<span class="param-type">Float</span>
+<span class="param-type"><a href="fabric.Image.html">fabric.Image</a></span>
 
 
             </li>
@@ -535,84 +474,13 @@ Should be set via <a href="fabric.StaticCanvas.html#setBackgroundImage">fabric.S
     
     
     <dt class="tag-default">Default Value:</dt>
-    <dd class="tag-default"><ul class="dummy"><li>1</li></ul></dd>
+    <dd class="tag-default"><ul class="dummy"><li>null</li></ul></dd>
     
     
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6693">line 6693</a>
-    </li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="backgroundImageStretch">
-        <span class="type-signature"></span>backgroundImageStretch<span class="type-signature"> :Boolean</span>
-        <a href="#backgroundImageStretch" class="anchor">§</a>
-    </h4>
-
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        Indicates whether the background image should be stretched to fit the
-dimensions of the canvas instance.
-    </div>
-    
-
-    
-        <h5>Type:</h5>
-        <ul>
-            <li>
-                
-<span class="param-type">Boolean</span>
-
-
-            </li>
-        </ul>
-    
-
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <dt class="tag-default">Default Value:</dt>
-    <dd class="tag-default"><ul class="dummy"><li>true</li></ul></dd>
-    
-    
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6701">line 6701</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6873">line 6873</a>
     </li></ul></dd>
     
     
@@ -683,7 +551,7 @@ Being passed context as first argument. See clipping canvas area in <a href="htt
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6754">line 6754</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6924">line 6924</a>
     </li></ul></dd>
     
     
@@ -753,7 +621,7 @@ Being passed context as first argument. See clipping canvas area in <a href="htt
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6761">line 6761</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6931">line 6931</a>
     </li></ul></dd>
     
     
@@ -823,7 +691,7 @@ Being passed context as first argument. See clipping canvas area in <a href="htt
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line13387">line 13387</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line13978">line 13978</a>
     </li></ul></dd>
     
     
@@ -893,7 +761,81 @@ Being passed context as first argument. See clipping canvas area in <a href="htt
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6730">line 6730</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6900">line 6900</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="overlayColor">
+        <span class="type-signature"></span>overlayColor<span class="type-signature"> :String|<a href="fabric.Pattern.html">fabric.Pattern</a></span>
+        <a href="#overlayColor" class="anchor">§</a>
+    </h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Overlay color of canvas instance.
+Should be set via <a href="fabric.StaticCanvas.html#setOverlayColor">fabric.StaticCanvas#setOverlayColor</a>
+    </div>
+    
+
+    
+        <h5>Type:</h5>
+        <ul>
+            <li>
+                
+<span class="param-type">String</span>
+|
+
+<span class="param-type"><a href="fabric.Pattern.html">fabric.Pattern</a></span>
+
+
+            </li>
+        </ul>
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+    <dt class="tag-since">Since:</dt>
+    <dd class="tag-since"><ul class="dummy"><li>1.3.9</dd>
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6882">line 6882</a>
     </li></ul></dd>
     
     
@@ -912,7 +854,7 @@ Being passed context as first argument. See clipping canvas area in <a href="htt
             
 <dt>
     <h4 class="name" id="overlayImage">
-        <span class="type-signature"></span>overlayImage<span class="type-signature"> :String</span>
+        <span class="type-signature"></span>overlayImage<span class="type-signature"> :<a href="fabric.Image.html">fabric.Image</a></span>
         <a href="#overlayImage" class="anchor">§</a>
     </h4>
 
@@ -921,8 +863,11 @@ Being passed context as first argument. See clipping canvas area in <a href="htt
 <dd>
     
     <div class="description">
-        Overlay image of canvas instance
-Should be set via <a href="fabric.StaticCanvas.html#setOverlayImage">fabric.StaticCanvas#setOverlayImage</a>
+        Overlay image of canvas instance.
+Should be set via <a href="fabric.StaticCanvas.html#setOverlayImage">fabric.StaticCanvas#setOverlayImage</a>.
+<b>Backwards incompatibility note:</b> The "overlayImageLeft"
+and "overlayImageTop" properties are deprecated since 1.3.9.
+Use <a href="fabric.Image.html#left">fabric.Image#left</a> and <a href="fabric.Image.html#top">fabric.Image#top</a>.
     </div>
     
 
@@ -931,74 +876,7 @@ Should be set via <a href="fabric.StaticCanvas.html#setOverlayImage">fabric.Stat
         <ul>
             <li>
                 
-<span class="param-type">String</span>
-
-
-            </li>
-        </ul>
-    
-
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6709">line 6709</a>
-    </li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="overlayImageLeft">
-        <span class="type-signature"></span>overlayImageLeft<span class="type-signature"> :Number</span>
-        <a href="#overlayImageLeft" class="anchor">§</a>
-    </h4>
-
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        Left offset of overlay image (if present)
-    </div>
-    
-
-    
-        <h5>Type:</h5>
-        <ul>
-            <li>
-                
-<span class="param-type">Number</span>
+<span class="param-type"><a href="fabric.Image.html">fabric.Image</a></span>
 
 
             </li>
@@ -1025,83 +903,13 @@ Should be set via <a href="fabric.StaticCanvas.html#setOverlayImage">fabric.Stat
     
     
     <dt class="tag-default">Default Value:</dt>
-    <dd class="tag-default"><ul class="dummy"><li>0</li></ul></dd>
+    <dd class="tag-default"><ul class="dummy"><li>null</li></ul></dd>
     
     
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6716">line 6716</a>
-    </li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="overlayImageTop">
-        <span class="type-signature"></span>overlayImageTop<span class="type-signature"> :Number</span>
-        <a href="#overlayImageTop" class="anchor">§</a>
-    </h4>
-
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        Top offset of overlay image (if present)
-    </div>
-    
-
-    
-        <h5>Type:</h5>
-        <ul>
-            <li>
-                
-<span class="param-type">Number</span>
-
-
-            </li>
-        </ul>
-    
-
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <dt class="tag-default">Default Value:</dt>
-    <dd class="tag-default"><ul class="dummy"><li>0</li></ul></dd>
-    
-    
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6723">line 6723</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6893">line 6893</a>
     </li></ul></dd>
     
     
@@ -1173,7 +981,7 @@ Disabling this option could give a great performance boost when adding/removing 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6746">line 6746</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6916">line 6916</a>
     </li></ul></dd>
     
     
@@ -1243,7 +1051,7 @@ Disabling this option could give a great performance boost when adding/removing 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6737">line 6737</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6907">line 6907</a>
     </li></ul></dd>
     
     
@@ -1361,7 +1169,7 @@ Disabling this option could give a great performance boost when adding/removing 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7772">line 7772</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line8074">line 8074</a>
     </li></ul></dd>
     
     
@@ -1550,7 +1358,7 @@ Disabling this option could give a great performance boost when adding/removing 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7663">line 7663</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7975">line 7975</a>
     </li></ul></dd>
     
     
@@ -1692,7 +1500,7 @@ Disabling this option could give a great performance boost when adding/removing 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7609">line 7609</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7912">line 7912</a>
     </li></ul></dd>
     
     
@@ -1787,7 +1595,7 @@ This method is also attached as "resize" event handler of window
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6807">line 6807</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6980">line 6980</a>
     </li></ul></dd>
     
     
@@ -1930,7 +1738,7 @@ You might need to call `setCoords` on an object after centering, to update contr
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7354">line 7354</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7626">line 7626</a>
     </li></ul></dd>
     
     
@@ -2073,7 +1881,7 @@ You might need to call `setCoords` on an object after centering, to update contr
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7328">line 7328</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7600">line 7600</a>
     </li></ul></dd>
     
     
@@ -2216,7 +2024,7 @@ You might need to call `setCoords` on an object after centering, to update contr
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7341">line 7341</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7613">line 7613</a>
     </li></ul></dd>
     
     
@@ -2310,7 +2118,7 @@ You might need to call `setCoords` on an object after centering, to update contr
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7156">line 7156</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7412">line 7412</a>
     </li></ul></dd>
     
     
@@ -2452,7 +2260,7 @@ You might need to call `setCoords` on an object after centering, to update contr
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7138">line 7138</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7394">line 7394</a>
     </li></ul></dd>
     
     
@@ -2639,7 +2447,7 @@ You might need to call `setCoords` on an object after centering, to update contr
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10740">line 10740</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11247">line 11247</a>
     </li></ul></dd>
     
     
@@ -2773,7 +2581,7 @@ but leaves data empty (so that you can populate it with your own)
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10755">line 10755</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11262">line 11262</a>
     </li></ul></dd>
     
     
@@ -2812,7 +2620,7 @@ but leaves data empty (so that you can populate it with your own)
 
     
     <div class="description">
-        Clears a canvas element and removes all event handlers.
+        Clears a canvas element and removes all event listeners
     </div>
     
 
@@ -2845,7 +2653,7 @@ but leaves data empty (so that you can populate it with your own)
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7715">line 7715</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line8036">line 8036</a>
     </li></ul></dd>
     
     
@@ -3123,7 +2931,7 @@ but leaves data empty (so that you can populate it with your own)
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line13398">line 13398</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line13989">line 13989</a>
     </li></ul></dd>
     
     
@@ -3401,7 +3209,7 @@ but leaves data empty (so that you can populate it with your own)
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line13433">line 13433</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14024">line 14024</a>
     </li></ul></dd>
     
     
@@ -3679,7 +3487,7 @@ but leaves data empty (so that you can populate it with your own)
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line13468">line 13468</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14059">line 14059</a>
     </li></ul></dd>
     
     
@@ -3821,7 +3629,7 @@ but leaves data empty (so that you can populate it with your own)
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17026">line 17026</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17684">line 17684</a>
     </li></ul></dd>
     
     
@@ -3915,7 +3723,7 @@ but leaves data empty (so that you can populate it with your own)
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7078">line 7078</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7335">line 7335</a>
     </li></ul></dd>
     
     
@@ -4005,7 +3813,7 @@ but leaves data empty (so that you can populate it with your own)
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7070">line 7070</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7327">line 7327</a>
     </li></ul></dd>
     
     
@@ -4096,7 +3904,7 @@ Returned value is an object with top and left properties
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7315">line 7315</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7587">line 7587</a>
     </li></ul></dd>
     
     
@@ -4190,7 +3998,7 @@ Returned value is an object with top and left properties
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7147">line 7147</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7403">line 7403</a>
     </li></ul></dd>
     
     
@@ -4280,7 +4088,7 @@ Returned value is an object with top and left properties
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7062">line 7062</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7319">line 7319</a>
     </li></ul></dd>
     
     
@@ -4370,7 +4178,7 @@ Returned value is an object with top and left properties
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6986">line 6986</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7243">line 7243</a>
     </li></ul></dd>
     
     
@@ -4403,96 +4211,6 @@ Returned value is an object with top and left properties
 	<dd>
 		
 <span class="param-type">Number</span>
-
-
-	</dd>
-</dl>
-
-        
-
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="getObjects">
-        <span class="type-signature"></span>getObjects<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="Array.html">Array</a>}</span>
-        <a href="#getObjects" class="anchor">§</a>
-    </h4>
-
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        Returns an array of objects this instance has
-    </div>
-    
-
-    
-
-    
-
-    
-
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7128">line 7128</a>
-    </li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-
-
-<dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
-<span class="param-type"><a href="Array.html">Array</a></span>
 
 
 	</dd>
@@ -4550,7 +4268,7 @@ Returned value is an object with top and left properties
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6978">line 6978</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7235">line 7235</a>
     </li></ul></dd>
     
     
@@ -4734,7 +4452,7 @@ Returned value is an object with top and left properties
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6666">line 6666</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6849">line 6849</a>
     </li></ul></dd>
     
     
@@ -4958,7 +4676,7 @@ JSON format must conform to the one of <a href="fabric.Canvas.html#toDatalessJSO
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10581">line 10581</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11086">line 11086</a>
     </li></ul></dd>
     
     
@@ -5187,7 +4905,7 @@ JSON format must conform to the one of <a href="fabric.Canvas.html#toJSON">fabri
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10606">line 10606</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11111">line 11111</a>
     </li></ul></dd>
     
     
@@ -5381,7 +5099,7 @@ JSON format must conform to the one of <a href="fabric.Canvas.html#toJSON">fabri
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7704">line 7704</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line8025">line 8025</a>
     </li></ul></dd>
     
     
@@ -5523,7 +5241,7 @@ JSON format must conform to the one of <a href="fabric.Canvas.html#toJSON">fabri
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6774">line 6774</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6944">line 6944</a>
     </li></ul></dd>
     
     
@@ -5544,148 +5262,6 @@ JSON format must conform to the one of <a href="fabric.Canvas.html#toJSON">fabri
     
 
     
-
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="remove">
-        <span class="type-signature"></span>remove<span class="signature">(object)</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span>
-        <a href="#remove" class="anchor">§</a>
-    </h4>
-
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        Removes an object from canvas and returns it
-    </div>
-    
-
-    
-
-    
-
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>object</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type"><a href="fabric.Object.html">fabric.Object</a></span>
-
-
-            
-            </td>
-            
-            
-            
-            
-            
-            <td class="description last">Object to remove</td>
-        </tr>
-	
-	
-	</tbody>
-</table>
-    
-
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7580">line 7580</a>
-    </li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    removed object
-</div>
-
-
-
-<dl>
-	<dt>
-		Type
-	</dt>
-	<dd>
-		
-<span class="param-type"><a href="fabric.Object.html">fabric.Object</a></span>
-
-
-	</dd>
-</dl>
-
-        
 
     
 </dd>
@@ -5797,7 +5373,7 @@ JSON format must conform to the one of <a href="fabric.Canvas.html#toJSON">fabri
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7179">line 7179</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7435">line 7435</a>
     </li></ul></dd>
     
     
@@ -5892,7 +5468,7 @@ Also used to render the group selection box.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7285">line 7285</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7557">line 7557</a>
     </li></ul></dd>
     
     
@@ -6077,7 +5653,7 @@ Also used to render the group selection box.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7622">line 7622</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7925">line 7925</a>
     </li></ul></dd>
     
     
@@ -6219,7 +5795,7 @@ Also used to render the group selection box.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7597">line 7597</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7900">line 7900</a>
     </li></ul></dd>
     
     
@@ -6356,7 +5932,7 @@ Also used to render the group selection box.
             
             
             
-            <td class="description last">callback to invoke when background color is set</td>
+            <td class="description last">Callback to invoke when background color is set</td>
         </tr>
 	
 	
@@ -6387,7 +5963,7 @@ Also used to render the group selection box.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6892">line 6892</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7113">line 7113</a>
     </li></ul></dd>
     
     
@@ -6451,6 +6027,15 @@ Also used to render the group selection box.
   source: 'http://fabricjs.com/assets/escheresque_ste.png'
 }, canvas.renderAll.bind(canvas));</code></pre>
 
+        <p class="code-caption">fabric.Pattern used as backgroundColor with repeat and offset</p>
+    
+    <pre class="prettyprint"><code>canvas.setBackgroundColor({
+  source: 'http://fabricjs.com/assets/escheresque_ste.png',
+  repeat: 'repeat',
+  offsetX: 200,
+  offsetY: 100
+}, canvas.renderAll.bind(canvas));</code></pre>
+
     
 </dd>
 
@@ -6458,7 +6043,7 @@ Also used to render the group selection box.
             
 <dt>
     <h4 class="name" id="setBackgroundImage">
-        <span class="type-signature"></span>setBackgroundImage<span class="signature">(url, callback, <span class="optional">options</span>)</span><span class="type-signature"> &rarr; {<a href="fabric.Canvas.html">fabric.Canvas</a>}</span>
+        <span class="type-signature"></span>setBackgroundImage<span class="signature">(image, callback, <span class="optional">options</span>)</span><span class="type-signature"> &rarr; {<a href="fabric.Canvas.html">fabric.Canvas</a>}</span>
         <a href="#setBackgroundImage" class="anchor">§</a>
     </h4>
 
@@ -6504,12 +6089,15 @@ Also used to render the group selection box.
 	
         <tr>
             
-                <td class="name"><code>url</code></td>
+                <td class="name"><code>image</code></td>
             
             
             <td class="type">
             
                 
+<span class="param-type"><a href="fabric.Image.html">fabric.Image</a></span>
+|
+
 <span class="param-type">String</span>
 
 
@@ -6528,7 +6116,7 @@ Also used to render the group selection box.
             
             
             
-            <td class="description last">URL of an image to set background to</td>
+            <td class="description last">fabric.Image instance or URL of an image to set background to</td>
         </tr>
 	
 	
@@ -6559,7 +6147,7 @@ Also used to render the group selection box.
             
             
             
-            <td class="description last">callback to invoke when image is loaded and set as background</td>
+            <td class="description last">Callback to invoke when image is loaded and set as background</td>
         </tr>
 	
 	
@@ -6592,100 +6180,7 @@ Also used to render the group selection box.
             
             
             
-            <td class="description last">Optional options to set for the background image
-                <h6>Properties</h6>
-                
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		<th>Argument</th>
-		
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>backgroundImageOpacity</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">Float</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                    
-                
-                </td>
-            
-            
-            
-            
-            <td class="description last"><a href="fabric.StaticCanvas.html#backgroundImageOpacity">Opacity</a> of the background image of the canvas instance</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>backgroundImageStretch</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">Boolean</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                    
-                
-                </td>
-            
-            
-            
-            
-            <td class="description last">Indicates whether the background image should be <a href="fabric.StaticCanvas.html#backgroundImageStretch">strechted</a> to fit the canvas</td>
-        </tr>
-	
-	
-	</tbody>
-</table>
-            </td>
+            <td class="description last">Optional options to set for the <a href="fabric.Image.html">background image</a>.</td>
         </tr>
 	
 	
@@ -6716,7 +6211,7 @@ Also used to render the group selection box.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6863">line 6863</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7063">line 7063</a>
     </li></ul></dd>
     
     
@@ -6770,15 +6265,40 @@ Also used to render the group selection box.
     
         <h5>Examples</h5>
         
-        <p class="code-caption">Normal backgroundImage</p>
+        <p class="code-caption">Normal backgroundImage with left/top = 0</p>
     
-    <pre class="prettyprint"><code>canvas.setBackgroundImage('http://fabricjs.com/assets/jail_cell_bars.png', canvas.renderAll.bind(canvas));</code></pre>
+    <pre class="prettyprint"><code>canvas.setBackgroundImage('http://fabricjs.com/assets/honey_im_subtle.png', canvas.renderAll.bind(canvas), {
+  // Needed to position backgroundImage at 0/0
+  originX: 'left',
+  originY: 'top'
+});</code></pre>
 
-        <p class="code-caption">Stretched backgroundImage with opacity</p>
+        <p class="code-caption">backgroundImage with different properties</p>
     
-    <pre class="prettyprint"><code>canvas.setBackgroundImage('http://fabricjs.com/assets/jail_cell_bars.png', canvas.renderAll.bind(canvas), {
-  backgroundImageOpacity: 0.5,
-  backgroundImageStretch: true
+    <pre class="prettyprint"><code>canvas.setBackgroundImage('http://fabricjs.com/assets/honey_im_subtle.png', canvas.renderAll.bind(canvas), {
+  opacity: 0.5,
+  angle: 45,
+  left: 400,
+  top: 400,
+  originX: 'left',
+  originY: 'top'
+});</code></pre>
+
+        <p class="code-caption">Stretched backgroundImage #1 - width/height correspond to canvas width/height</p>
+    
+    <pre class="prettyprint"><code>fabric.Image.fromURL('http://fabricjs.com/assets/honey_im_subtle.png', function(img) {
+   img.set({width: canvas.width, height: canvas.height, originX: 'left', originY: 'top'});
+   canvas.setBackgroundImage(img, canvas.renderAll.bind(canvas));
+});</code></pre>
+
+        <p class="code-caption">Stretched backgroundImage #2 - width/height correspond to canvas width/height</p>
+    
+    <pre class="prettyprint"><code>canvas.setBackgroundImage('http://fabricjs.com/assets/honey_im_subtle.png', canvas.renderAll.bind(canvas), {
+  width: canvas.width,
+  height: canvas.height,
+  // Needed to position backgroundImage at 0/0
+  originX: 'left',
+  originY: 'top'
 });</code></pre>
 
     
@@ -6972,7 +6492,7 @@ Also used to render the group selection box.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7018">line 7018</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7275">line 7275</a>
     </li></ul></dd>
     
     
@@ -7114,7 +6634,7 @@ Also used to render the group selection box.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7006">line 7006</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7263">line 7263</a>
     </li></ul></dd>
     
     
@@ -7164,8 +6684,205 @@ Also used to render the group selection box.
         
             
 <dt>
+    <h4 class="name" id="setOverlayColor">
+        <span class="type-signature"></span>setOverlayColor<span class="signature">(overlayColor, callback)</span><span class="type-signature"> &rarr; {<a href="fabric.Canvas.html">fabric.Canvas</a>}</span>
+        <a href="#setOverlayColor" class="anchor">§</a>
+    </h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Sets <a href="fabric.StaticCanvas.html#overlayColor">background color</a> for this canvas
+    </div>
+    
+
+    
+
+    
+
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>overlayColor</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+|
+
+<span class="param-type"><a href="fabric.Pattern.html">fabric.Pattern</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Color or pattern to set background color to</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Function.html">Function</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">Callback to invoke when background color is set</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7088">line 7088</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="http://jsfiddle.net/fabricjs/pB55h/">jsFiddle demo</a></li>
+        </ul>
+    </dd>
+    
+    
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    thisArg
+</div>
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type"><a href="fabric.Canvas.html">fabric.Canvas</a></span>
+
+
+	</dd>
+</dl>
+
+        
+
+    
+        <h5>Examples</h5>
+        
+        <p class="code-caption">Normal overlayColor - color value</p>
+    
+    <pre class="prettyprint"><code>canvas.setOverlayColor('rgba(255, 73, 64, 0.6)', canvas.renderAll.bind(canvas));</code></pre>
+
+        <p class="code-caption">fabric.Pattern used as overlayColor</p>
+    
+    <pre class="prettyprint"><code>canvas.setOverlayColor({
+  source: 'http://fabricjs.com/assets/escheresque_ste.png'
+}, canvas.renderAll.bind(canvas));</code></pre>
+
+        <p class="code-caption">fabric.Pattern used as overlayColor with repeat and offset</p>
+    
+    <pre class="prettyprint"><code>canvas.setOverlayColor({
+  source: 'http://fabricjs.com/assets/escheresque_ste.png',
+  repeat: 'repeat',
+  offsetX: 200,
+  offsetY: 100
+}, canvas.renderAll.bind(canvas));</code></pre>
+
+    
+</dd>
+
+        
+            
+<dt>
     <h4 class="name" id="setOverlayImage">
-        <span class="type-signature"></span>setOverlayImage<span class="signature">(url, callback, <span class="optional">options</span>)</span><span class="type-signature"> &rarr; {<a href="fabric.Canvas.html">fabric.Canvas</a>}</span>
+        <span class="type-signature"></span>setOverlayImage<span class="signature">(image, callback, <span class="optional">options</span>)</span><span class="type-signature"> &rarr; {<a href="fabric.Canvas.html">fabric.Canvas</a>}</span>
         <a href="#setOverlayImage" class="anchor">§</a>
     </h4>
 
@@ -7211,12 +6928,15 @@ Also used to render the group selection box.
 	
         <tr>
             
-                <td class="name"><code>url</code></td>
+                <td class="name"><code>image</code></td>
             
             
             <td class="type">
             
                 
+<span class="param-type"><a href="fabric.Image.html">fabric.Image</a></span>
+|
+
 <span class="param-type">String</span>
 
 
@@ -7235,7 +6955,7 @@ Also used to render the group selection box.
             
             
             
-            <td class="description last">url of an image to set overlay to</td>
+            <td class="description last">fabric.Image instance or URL of an image to set overlay to</td>
         </tr>
 	
 	
@@ -7299,100 +7019,7 @@ Also used to render the group selection box.
             
             
             
-            <td class="description last">Optional options to set for the overlay image
-                <h6>Properties</h6>
-                
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		<th>Argument</th>
-		
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>overlayImageLeft</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">Number</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                    
-                
-                </td>
-            
-            
-            
-            
-            <td class="description last"><a href="fabric.StaticCanvas.html#overlayImageLeft">Left offset</a> of overlay image</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>overlayImageTop</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">Number</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                    
-                
-                </td>
-            
-            
-            
-            
-            <td class="description last"><a href="fabric.StaticCanvas.html#overlayImageTop">Top offset</a> of overlay image</td>
-        </tr>
-	
-	
-	</tbody>
-</table>
-            </td>
+            <td class="description last">Optional options to set for the <a href="fabric.Image.html">overlay image</a>.</td>
         </tr>
 	
 	
@@ -7423,7 +7050,7 @@ Also used to render the group selection box.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6830">line 6830</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7022">line 7022</a>
     </li></ul></dd>
     
     
@@ -7477,15 +7104,40 @@ Also used to render the group selection box.
     
         <h5>Examples</h5>
         
-        <p class="code-caption">Normal overlayImage</p>
-    
-    <pre class="prettyprint"><code>canvas.setOverlayImage('http://fabricjs.com/assets/jail_cell_bars.png', canvas.renderAll.bind(canvas));</code></pre>
-
-        <p class="code-caption">Displaced overlayImage (left and top != 0)</p>
+        <p class="code-caption">Normal overlayImage with left/top = 0</p>
     
     <pre class="prettyprint"><code>canvas.setOverlayImage('http://fabricjs.com/assets/jail_cell_bars.png', canvas.renderAll.bind(canvas), {
-  overlayImageLeft: 100,
-  overlayImageTop: 100
+  // Needed to position overlayImage at 0/0
+  originX: 'left',
+  originY: 'top'
+});</code></pre>
+
+        <p class="code-caption">overlayImage with different properties</p>
+    
+    <pre class="prettyprint"><code>canvas.setOverlayImage('http://fabricjs.com/assets/jail_cell_bars.png', canvas.renderAll.bind(canvas), {
+  opacity: 0.5,
+  angle: 45,
+  left: 400,
+  top: 400,
+  originX: 'left',
+  originY: 'top'
+});</code></pre>
+
+        <p class="code-caption">Stretched overlayImage #1 - width/height correspond to canvas width/height</p>
+    
+    <pre class="prettyprint"><code>fabric.Image.fromURL('http://fabricjs.com/assets/jail_cell_bars.png', function(img) {
+   img.set({width: canvas.width, height: canvas.height, originX: 'left', originY: 'top'});
+   canvas.setOverlayImage(img, canvas.renderAll.bind(canvas));
+});</code></pre>
+
+        <p class="code-caption">Stretched overlayImage #2 - width/height correspond to canvas width/height</p>
+    
+    <pre class="prettyprint"><code>canvas.setOverlayImage('http://fabricjs.com/assets/jail_cell_bars.png', canvas.renderAll.bind(canvas), {
+  width: canvas.width,
+  height: canvas.height,
+  // Needed to position overlayImage at 0/0
+  originX: 'left',
+  originY: 'top'
 });</code></pre>
 
     
@@ -7586,7 +7238,7 @@ Also used to render the group selection box.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6996">line 6996</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7253">line 7253</a>
     </li></ul></dd>
     
     
@@ -7728,7 +7380,7 @@ Also used to render the group selection box.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17014">line 17014</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17672">line 17672</a>
     </li></ul></dd>
     
     
@@ -7882,7 +7534,7 @@ Also used to render the group selection box.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7363">line 7363</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7635">line 7635</a>
     </li></ul></dd>
     
     
@@ -8036,7 +7688,7 @@ Also used to render the group selection box.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7381">line 7381</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7653">line 7653</a>
     </li></ul></dd>
     
     
@@ -8484,7 +8136,7 @@ Also used to render the group selection box.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10379">line 10379</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10884">line 10884</a>
     </li></ul></dd>
     
     
@@ -8708,7 +8360,7 @@ Also used to render the group selection box.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line10527">line 10527</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line11032">line 11032</a>
     </li></ul></dd>
     
     
@@ -8858,7 +8510,7 @@ Also used to render the group selection box.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7824">line 7824</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line8126">line 8126</a>
     </li></ul></dd>
     
     
@@ -9042,7 +8694,7 @@ var json = canvas.toJSON();</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7372">line 7372</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7644">line 7644</a>
     </li></ul></dd>
     
     
@@ -9136,7 +8788,7 @@ var json = canvas.toJSON();</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7744">line 7744</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line8046">line 8046</a>
     </li></ul></dd>
     
     
@@ -9626,7 +9278,7 @@ var json = canvas.toJSON();</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7466">line 7466</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line7771">line 7771</a>
     </li></ul></dd>
     
     
@@ -9754,7 +9406,7 @@ var json = canvas.toJSON();</code></pre>
 <br clear="both">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0</a> on Wed Oct 30 2013 14:55:53 GMT+0100 (CET)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0</a> on Mon Nov 18 2013 20:19:21 GMT+0100 (CET)
 </footer>
 
 <script> /*prettyPrint();*/ </script>

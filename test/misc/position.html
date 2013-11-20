@@ -1,0 +1,55 @@
+---
+layout: test
+title: Canvas position tests
+---
+
+<style>
+  .canvas-container { border: none; }
+  .upper-canvas { border: 1px solid #ccc; }
+  .test { display: inline-block; vertical-align: top; width: 300px; height: 300px; }
+</style>
+
+<script>
+  function init(canvas) {
+    canvas.add(new fabric.Rect({
+      left: 100,
+      top: 100,
+      width: 50,
+      height: 50,
+      angle: 45,
+      fill: 'rgba(255,0,0,0.5)',
+      originX: 'center',
+      originY: 'center' }));
+  }
+</script>
+
+<div class="test">
+  <h3>Static</h3>
+  <canvas id="c1" width="200" height="200"></canvas>
+  <script>
+    var c1 = new fabric.Canvas('c1');
+    init(c1);
+  </script>
+</div>
+
+<div class="test">
+  <h3>In scrollable container<br> (requires <code>calcOffset</code>)</h3>
+  <div style="overflow: scroll; width: 200px; height: 200px" id="c2-wrapper">
+    <canvas id="c2" width="300" height="300"></canvas>
+  </div>
+  <script>
+    var c2 = new fabric.Canvas('c2');
+    init(c2);
+    document.getElementById('c2-wrapper').onscroll = function() {
+      c2.calcOffset();
+    };
+  </script>
+</div>
+
+<div class="test">
+  <h3>Border on canvas</h3>
+  <canvas id="c3" width="200" height="200" style="border: 10px dotted red"></canvas>
+  <script>
+    init(new fabric.Canvas('c3'));
+  </script>
+</div>

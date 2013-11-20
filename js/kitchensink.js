@@ -1007,7 +1007,7 @@
     Cufon.fonts.delicious.offsetTop = 25;
   }
 
-  var iText2 = new fabric.IText('lorem ipsum\ndolor\nsit amet\nconsectetur', {
+  /*var iText = new fabric.IText('lorem ipsum\ndolor\nsit amet\nconsectetur', {
     left: 100,
     top: 150,
     fontFamily: 'Helvetica',
@@ -1049,6 +1049,28 @@
         2: { fontFamily: 'Impact', fill: '#666' },
         3: { fontFamily: 'Impact', fill: '#666' },
         4: { fontFamily: 'Impact', fill: '#666' }
+      }
+    }
+  });
+  */
+
+  var iText2 = new fabric.IText('foo bar\nbaz\nquux', {
+    left: 100,
+    top: 150,
+    fontFamily: 'Helvetica',
+    fill: '#333',
+    angle: -10,
+    styles: {
+      0: {
+        0: { fill: 'red' },
+        1: { fill: 'red' },
+        2: { fill: 'red' }
+      },
+      2: {
+        0: { fill: 'blue' },
+        1: { fill: 'blue' },
+        2: { fill: 'blue' },
+        3: { fill: 'blue' }
       }
     }
   });

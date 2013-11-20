@@ -472,7 +472,7 @@ canvases.forEach(function(c) {
   c.item(0) && c.item(0).setCoords();
   c.calcOffset();
   // back reference
-  c.upperCanvasEl.canvas = c;
+  c.wrapperEl.canvas = c;
 });
 
 

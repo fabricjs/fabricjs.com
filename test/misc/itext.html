@@ -118,14 +118,23 @@ title: IText tests
 
 <script src="/js/itext.js" charset="utf-8"></script>
 <script>
-  (function(){
-    var canvases = document.getElementsByTagName('canvas');
+  (function() {
+    var canvases = document.getElementsByClassName('canvas-container');
     for (var i = 0, len = canvases.length; i < len; i++) {
-      if (canvases[i].className.indexOf('lower-canvas') > -1) continue;
-      // canvases[i].ondblclick = function() {
-      //   window.open('data:image/svg+xml;windows-1251,' +
-      //     encodeURIComponent(this.canvas.toSVG({ encoding: 'windows-1251' })));
-      // };
+
+      var linkEl = document.createElement('a');
+      linkEl.href = '#';
+      linkEl.innerHTML = '<code style="display: block">toSVG()</code>';
+      canvases[i].parentNode.appendChild(linkEl);
+
+      linkEl.onclick = (function(container) {
+        return function() {
+          window.open('data:image/svg+xml;utf-8,' +
+            encodeURIComponent(container.canvas.toSVG()));
+
+          return false;
+        };
+      })(canvases[i]);
     }
   })();
 </script>

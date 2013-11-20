@@ -1,3 +1,5 @@
 Gemfile.lock
 _site/
 .DS_Store
+.ruby-version
+_config.yml

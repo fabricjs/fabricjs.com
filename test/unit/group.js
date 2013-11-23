@@ -134,14 +134,13 @@
 
     var expectedObject = {
       'type':               'group',
-      'originX':            'center',
-      'originY':            'center',
-      'left':               80,
-      'top':                117.5,
-      'width':              70,
-      'height':             45,
+      'originX':            'left',
+      'originY':            'top',
+      'left':               90,
+      'top':                130,
+      'width':              80,
+      'height':             60,
       'fill':               'rgb(0,0,0)',
-      'overlayFill':        null,
       'stroke':             null,
       'strokeWidth':        1,
       'strokeDashArray':    null,
@@ -152,6 +151,7 @@
       'scaleY':             1,
       'shadow':             null,
       'visible':            true,
+      'backgroundColor':    '',
       'clipTo':             null,
       'angle':              0,
       'flipX':              false,
@@ -166,6 +166,23 @@
     ok(group.getObjects() !== clone.objects, 'should produce different object array');
     ok(group.getObjects()[0] !== clone.objects[0], 'should produce different objects in array');
   });
+
+test('toObject without default values', function() {
+  var group = makeGroupWith2Objects();
+  group.includeDefaultValues = false;
+  var clone = group.toObject();
+
+  var expectedObject = {
+    'type':               'group',
+    'left':               90,
+    'top':                130,
+    'width':              80,
+    'height':             60,
+    'objects':            clone.objects
+  };
+
+  deepEqual(clone, expectedObject);
+});
 
   test('render', function() {
     var group = makeGroupWith2Objects();
@@ -282,20 +299,19 @@
   test('containsPoint', function() {
 
     var group = makeGroupWith2Objects();
+    group.set({ originX: 'center', originY: 'center' }).setCoords();
+
     //  Rect #1     top: 100, left: 100, width: 30, height: 10
     //  Rect #2     top: 120, left: 50, width: 10, height: 40
 
     ok(typeof group.containsPoint == 'function');
 
-    ok(group.containsPoint({ x: 50, y: 120 }));
-    ok(group.containsPoint({ x: 100, y: 100 }));
     ok(!group.containsPoint({ x: 0, y: 0 }));
 
     group.scale(2);
     ok(group.containsPoint({ x: 50, y: 120 }));
     ok(group.containsPoint({ x: 100, y: 160 }));
     ok(!group.containsPoint({ x: 0, y: 0 }));
-    ok(!group.containsPoint({ x: 100, y: 170 }));
 
     group.scale(1);
     group.padding = 30;
@@ -303,7 +319,6 @@
     ok(group.containsPoint({ x: 50, y: 120 }));
     ok(group.containsPoint({ x: 100, y: 170 }));
     ok(!group.containsPoint({ x: 0, y: 0 }));
-    ok(!group.containsPoint({ x: 100, y: 172 }));
   });
 
   test('forEachObject', function() {
@@ -348,7 +363,7 @@
     var group = makeGroupWith2Objects();
     ok(typeof group.toSVG == 'function');
 
-    var expectedSVG = '<g transform="translate(80 117.5)"><rect x="-15" y="-5" rx="0" ry="0" width="30" height="10" style="stroke: none; stroke-width: 1; stroke-dasharray: ; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); opacity: 1;" transform="translate(20 -17.5)"/><rect x="-5" y="-20" rx="0" ry="0" width="10" height="40" style="stroke: none; stroke-width: 1; stroke-dasharray: ; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); opacity: 1;" transform="translate(-30 2.5)"/></g>';
+    var expectedSVG = '<g transform="translate(130 160)"><rect x="-15" y="-5" rx="0" ry="0" width="30" height="10" style="stroke: none; stroke-width: 1; stroke-dasharray: ; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); opacity: 1;" transform="translate(25 -25)"/><rect x="-5" y="-20" rx="0" ry="0" width="10" height="40" style="stroke: none; stroke-width: 1; stroke-dasharray: ; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); opacity: 1;" transform="translate(-35 10)"/></g>';
     equal(group.toSVG(), expectedSVG);
   });
 

@@ -23,14 +23,13 @@
     var ellipse = new fabric.Ellipse();
     var defaultProperties = {
       'type':               'ellipse',
-      'originX':            'center',
-      'originY':            'center',
+      'originX':            'left',
+      'originY':            'top',
       'left':               0,
       'top':                0,
       'width':              0,
       'height':             0,
       'fill':               'rgb(0,0,0)',
-      'overlayFill':        null,
       'stroke':             null,
       'strokeWidth':        1,
       'strokeDashArray':    null,
@@ -47,6 +46,7 @@
       'ry':                 0,
       'shadow':             null,
       'visible':            true,
+      'backgroundColor':    '',
       'clipTo':             null
     };
     ok(typeof ellipse.toObject == 'function');

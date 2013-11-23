@@ -2,14 +2,13 @@
 
   var LINE_OBJECT = {
     'type':               'line',
-    'originX':            'center',
-    'originY':            'center',
+    'originX':            'left',
+    'originY':            'top',
     'left':               12,
     'top':                13,
     'width':              2,
     'height':             2,
     'fill':               'rgb(0,0,0)',
-    'overlayFill':        null,
     'stroke':             null,
     'strokeWidth':        1,
     'strokeDashArray':    null,
@@ -28,7 +27,8 @@
     'y2':                 14,
     'shadow':             null,
     'visible':            true,
-    'clipTo':             null
+    'clipTo':             null,
+    'backgroundColor':    ''
   };
 
   QUnit.module('fabric.Line');

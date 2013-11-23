@@ -9,14 +9,13 @@
 
   var REFERENCE_OBJECT = {
     'type':               'polyline',
-    'originX':            'center',
-    'originY':            'center',
+    'originX':            'left',
+    'originY':            'top',
     'left':               0,
     'top':                0,
     'width':              10,
     'height':             10,
     'fill':               'rgb(0,0,0)',
-    'overlayFill':        null,
     'stroke':             null,
     'strokeWidth':        1,
     'strokeDashArray':    null,
@@ -32,6 +31,7 @@
     'points':             getPoints(),
     'shadow':             null,
     'visible':            true,
+    'backgroundColor':    '',
     'clipTo':             null
   };
 

@@ -8,14 +8,13 @@
 
   var REFERENCE_TEXT_OBJECT = {
     'type':                'text',
-    'originX':             'center',
-    'originY':             'center',
+    'originX':             'left',
+    'originY':             'top',
     'left':                0,
     'top':                 0,
     'width':               20,
     'height':              52,
     'fill':                'rgb(0,0,0)',
-    'overlayFill':         null,
     'stroke':              null,
     'strokeWidth':         1,
     'strokeDashArray':     null,
@@ -45,7 +44,7 @@
     'useNative':           true
   };
 
-  var TEXT_SVG = '<g transform="translate(0 0)"><text font-family="Times New Roman" font-size="40" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: ; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); opacity: 1;" transform="translate(-10 39)"><tspan x="0" y="-26" fill="rgb(0,0,0)">x</tspan></text></g>';
+  var TEXT_SVG = '<g transform="translate(10 26)"><text font-family="Times New Roman" font-size="40" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: ; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); opacity: 1;" transform="translate(-10 39)"><tspan x="0" y="-26" fill="rgb(0,0,0)">x</tspan></text></g>';
 
   test('constructor', function() {
     ok(fabric.Text);

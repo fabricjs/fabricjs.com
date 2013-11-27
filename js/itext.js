@@ -158,7 +158,8 @@ var iText6 = new fabric.IText('abcdefg\nhijklmnop', {
   left: 50,
   top: 50,
   fontFamily: 'Lobster',
-  angle: -10
+  angle: -10,
+  caching: false
 });
 
 var iText7 = new fabric.IText('', {

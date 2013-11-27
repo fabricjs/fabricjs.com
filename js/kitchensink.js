@@ -1007,7 +1007,7 @@
     Cufon.fonts.delicious.offsetTop = 25;
   }
 
-  var iText = new fabric.IText('lorem ipsum\ndolor\nsit amet\nconsectetur', {
+  var iText = new fabric.IText('lorem ipsum\ndolor\nsit Amet\nconsectetur', {
     left: 100,
     top: 150,
     fontFamily: 'Helvetica',
@@ -1043,11 +1043,11 @@
         7: { fontFamily: 'Courier', textDecoration: 'line-through' }
       },
       3: {
-        0: { fontFamily: 'Impact', fill: '#666' },
-        1: { fontFamily: 'Impact', fill: '#666' },
-        2: { fontFamily: 'Impact', fill: '#666' },
-        3: { fontFamily: 'Impact', fill: '#666' },
-        4: { fontFamily: 'Impact', fill: '#666' }
+        0: { fontFamily: 'Impact', fill: '#666', textDecoration: 'line-through' },
+        1: { fontFamily: 'Impact', fill: '#666', textDecoration: 'line-through' },
+        2: { fontFamily: 'Impact', fill: '#666', textDecoration: 'line-through' },
+        3: { fontFamily: 'Impact', fill: '#666', textDecoration: 'line-through' },
+        4: { fontFamily: 'Impact', fill: '#666', textDecoration: 'line-through' }
       }
     }
   });

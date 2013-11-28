@@ -1073,4 +1073,8 @@
   });
   canvas.add(iText, iText2);
 
+  Paster.init(function(str) {
+    console.log(str);
+  });
+
 })(this);

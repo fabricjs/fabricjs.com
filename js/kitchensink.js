@@ -47,7 +47,7 @@
         width = fabric.util.getRandomInt(30, 50),
         opacity = (function(min, max){ return Math.random() * (max - min) + min; })(0.5, 1);
 
-    if ($(element).hasClass('rect')) {
+    if (className.indexOf('rect') > -1) {
       canvas.add(new fabric.Rect({
         left: left,
         top: top,
@@ -57,7 +57,7 @@
         opacity: 0.8
       }));
     }
-    if ($(element).hasClass('circle')) {
+    if (className.indexOf('circle') > -1) {
       canvas.add(new fabric.Circle({
         left: left,
         top: top,
@@ -66,7 +66,7 @@
         opacity: 0.8
       }));
     }
-    if ($(element).hasClass('triangle')) {
+    if (className.indexOf('triangle') > -1) {
       canvas.add(new fabric.Triangle({
         left: left,
         top: top,
@@ -76,14 +76,14 @@
         opacity: 0.8
       }));
     }
-    if ($(element).hasClass('line')) {
+    if (className.indexOf('line') > -1) {
       canvas.add(new fabric.Line([ 50, 100, 200, 200], {
         left: left,
         top: top,
         stroke: '#' + getRandomColor()
       }));
     }
-    if ($(element).hasClass('polygon')) {
+    if (className.indexOf('polygon') > -1) {
       canvas.add(new fabric.Polygon([
         {x: 185, y: 0},
         {x: 250, y: 100},
@@ -94,7 +94,7 @@
           fill: '#' + getRandomColor()
         }));
     }
-    if ($(element).hasClass('image1')) {
+    if (className.indexOf('image1') > -1) {
       fabric.Image.fromURL('../assets/pug.jpg', function(image) {
         image.set({
           left: left,
@@ -106,7 +106,7 @@
         canvas.add(image);
       });
     }
-    if ($(element).hasClass('image2')) {
+    if (className.indexOf('image2') > -1) {
       fabric.Image.fromURL('../assets/logo.png', function(image) {
         image.set({
           left: left,
@@ -119,7 +119,7 @@
         updateComplexity();
       });
     }
-    if ($(element).hasClass('image3')) {
+    if (className.indexOf('image3') > -1) {
       fabric.Image.fromURL('../assets/printio.png', function(image) {
         image.set({
           left: left,
@@ -132,7 +132,7 @@
         updateComplexity();
       });
     }
-    if ($(element).hasClass('shape')) {
+    if (className.indexOf('shape') > -1) {
       var id = element.id, match;
       if (match = /\d+$/.exec(id)) {
         fabric.loadSVGFromURL('../assets/' + match[0] + '.svg', function(objects, options) {
@@ -145,9 +145,7 @@
             angle: angle,
             cornersize: 10
           });
-          loadedObject/*.scaleToWidth(300)*/.setCoords();
-
-          // loadedObject.hasRotatingPoint = true;
+          loadedObject.setCoords();
 
           canvas.add(loadedObject);
           updateComplexity();
@@ -156,14 +154,13 @@
       }
     }
 
-    if ($(element).hasClass('clear')) {
+    if (className.indexOf('clear') > -1) {
       if (confirm('Are you sure?')) {
         canvas.clear();
       }
     }
 
     canvas.calcOffset();
-
     updateComplexity();
   };
 
@@ -434,8 +431,8 @@
 
     if (/text/.test(selectedObject.type)) {
 
-      $('#text-wrapper').show();
-      $('#text-wrapper textarea').val(selectedObject.getText());
+      document.getElementById('text-wrapper').style.display = '';
+      document.getElementById('text-wrapper').getElementsByTagName('textarea')[0].value = selectedObject.getText();
 
       cmdBoldBtn.className = cmdUnderlineBtn.className = cmdLinethroughBtn.className = cmdOverlineBtn.className = cmdItalicBtn.className = 'btn';
 
@@ -455,18 +452,18 @@
       textLineHeightField.value = selectedObject.get('lineHeight');
     }
     else {
-      $('#text-wrapper').hide();
+      document.getElementById('text-wrapper').style.display = 'none';
     }
 
-    $('#controls').show();
+    document.getElementById('controls').style.display = '';
   }
 
   canvas.on('selection:cleared', function(e) {
     for (var i = activeObjectButtons.length; i--; ) {
       activeObjectButtons[i].disabled = true;
     }
-    $('#controls').hide();
-    $('#text-wrapper').hide();
+    document.getElementById('controls').style.display = 'none';
+    document.getElementById('text-wrapper').style.display = 'none';
   });
 
   var drawingModeEl = document.getElementById('drawing-mode'),
@@ -573,7 +570,7 @@
     texturePatternBrush.source = img;
   }
 
-  $('#drawing-mode-selector').on('change', function() {
+  document.getElementById('drawing-mode-selector').onchange = function() {
 
     if (this.value === 'hline') {
       canvas.freeDrawingBrush = vLinePatternBrush;
@@ -599,7 +596,7 @@
       canvas.freeDrawingBrush.width = parseInt(drawingLineWidthEl.value, 10) || 1;
       canvas.freeDrawingBrush.shadowBlur = parseInt(drawingShadowWidth.value, 10) || 0;
     }
-  });
+  };
 
   drawingColorEl.onchange = function() {
     canvas.freeDrawingBrush.color = drawingColorEl.value;
@@ -781,13 +778,6 @@
         var isUnderline = (getStyle(activeObject, 'textDecoration') || '').indexOf('underline') > -1;
         setStyle(activeObject, 'textDecoration', isUnderline ? '' : 'underline');
 
-        // if (activeObject.textDecoration === 'underline') {
-        //   this.className += ' selected';
-        //   cmdLinethroughBtn.className = cmdOverlineBtn.className = 'btn';
-        // }
-        // else {
-        //   this.className = 'btn';
-        // }
         canvas.renderAll();
       }
     };
@@ -803,13 +793,6 @@
         var isLinethrough = (getStyle(activeObject, 'textDecoration') || '').indexOf('line-through') > -1;
         setStyle(activeObject, 'textDecoration', isLinethrough ? '' : 'line-through');
 
-        // if (activeObject.textDecoration === 'line-through') {
-        //   this.className += ' selected';
-        //   cmdUnderlineBtn.className = cmdOverlineBtn.className = 'btn';
-        // }
-        // else {
-        //   this.className = 'btn';
-        // }
         canvas.renderAll();
       }
     };
@@ -825,13 +808,6 @@
         var isOverline = (getStyle(activeObject, 'textDecoration') || '').indexOf('overline') > -1;
         setStyle(activeObject, 'textDecoration', isOverline ? '' : 'overline');
 
-        // if (activeObject.textDecoration === 'overline') {
-        //   this.className += ' selected';
-        //   cmdUnderlineBtn.className = cmdLinethroughBtn.className = 'btn';
-        // }
-        // else {
-        //   this.className = 'btn';
-        // }
         canvas.renderAll();
       }
     };

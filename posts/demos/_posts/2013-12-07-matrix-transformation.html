@@ -1,0 +1,127 @@
+---
+layout: demo
+title: Matrix transformation
+---
+
+<style>
+  td { color: green; font-size: 24px; }
+
+  td:first-child:before {
+    content: '[';
+    color: red;
+    margin-right: 5px;
+    font-weight: bold;
+    font-size: 24px;
+  }
+  td:first-child:after {
+    content: ',';
+    color: red;
+    font-weight: bold;
+    font-size: 24px;
+    margin-left: 5px;
+  }
+  td:last-child:after {
+    content: ']';
+    color: red;
+    margin-right: 5px;
+    font-weight: bold;
+    font-size: 24px;
+    margin-left: 5px;
+  }
+  .controls {
+    display: inline-block;
+    vertical-align: top;
+  }
+  .controls code {
+    display: block;
+    margin-top: 10px;
+    margin-left: 5px;
+  }
+  td span {
+    display: inline-block;
+    width: 30px;
+  }
+  input {
+    width: 100px;
+    font-size: 24px;
+    font-family: monospace;
+    color: #888;
+  }
+</style>
+
+<div><p style="background: #ffc; padding: 5px; display: inline-block; margin-top: 0">The demo shows the result of applying <a href="/docs/fabric.Object.html#transformMatrix"><code>transformMatrix</code></a> to a Fabric object. For more on <code>transformMatrix</code>, see this <a href="http://www.senocular.com/flash/tutorials/transformmatrix/">excellent tutorial</a>.</p></div>
+
+<canvas id="canvas" width="600" height="600" style="border:1px solid #aaa"></canvas>
+
+<div class="controls">
+  <table>
+    <tr>
+      <td><span>a:</span><input type="number" value="1" step="0.1" id="a"></td>
+      <td><span>b:</span><input type="number" value="0" step="0.1" id="b"></td>
+    </tr>
+    <tr>
+      <td><span>c:</span><input type="number" value="0" step="0.1" id="c"></td>
+      <td><span>d:</span><input type="number" value="1" step="0.1" id="d"></td>
+    </tr>
+    <tr>
+      <td><span>tx:</span><input type="number" value="0" step="0.1" id="tx"></td>
+      <td><span>ty:</span><input type="number" value="0" step="0.1" id="ty"></td>
+    </tr>
+  </table>
+
+  <code>
+    transformMatrix == [
+    <span id="a-val">1</span>,
+    <span id="b-val">0</span>,
+    <span id="c-val">0</span>,
+    <span id="d-val">1</span>,
+    <span id="tx-val">0</span>,
+    <span id="ty-val">0</span>
+    ]
+  </code>
+</div>
+
+<script>(function() {
+  var canvas = this.__canvas = new fabric.StaticCanvas('canvas');
+  fabric.Image.fromURL('../assets/printio.png', function(image) {
+    canvas.add(image);
+    image.transformMatrix = [1, 0, 0, 1, 0, 0];
+  });
+
+  function update() {
+    canvas.renderAll();
+    var matrix = canvas.item(0).transformMatrix;
+    document.getElementById('a-val').innerHTML = matrix[0];
+    document.getElementById('b-val').innerHTML = matrix[1];
+    document.getElementById('c-val').innerHTML = matrix[2];
+    document.getElementById('d-val').innerHTML = matrix[3];
+    document.getElementById('tx-val').innerHTML = matrix[4];
+    document.getElementById('ty-val').innerHTML = matrix[5];
+  }
+
+  document.getElementById('a').onchange = function() {
+    canvas.item(0).transformMatrix[0] = parseFloat(this.value, 10);
+    update();
+  };
+  document.getElementById('b').onchange = function() {
+    canvas.item(0).transformMatrix[1] = parseFloat(this.value, 10);
+    update();
+  };
+  document.getElementById('c').onchange = function() {
+    canvas.item(0).transformMatrix[2] = parseFloat(this.value, 10);
+    update();
+  };
+  document.getElementById('d').onchange = function() {
+    canvas.item(0).transformMatrix[3] = parseFloat(this.value, 10);
+    update();
+  };
+  document.getElementById('tx').onchange = function() {
+    canvas.item(0).transformMatrix[4] = parseFloat(this.value, 10);
+    update();
+  };
+  document.getElementById('ty').onchange = function() {
+    canvas.item(0).transformMatrix[5] = parseFloat(this.value, 10);
+    update();
+  };
+})();
+</script>

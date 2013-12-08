@@ -376,16 +376,14 @@
     $sendBackwardsEl,
     $sendToBackEl,
     $bringForwardEl,
-    $bringToFrontEl
+    $bringToFrontEl,
+    $('#opacity'),
+    $('#color')
   ];
 
-  activeObjectButtons.push($('#opacity'));
-  activeObjectButtons.push($('#color'));
-
-  for (var i = activeObjectButtons.length; i--; ) {
-    if (!activeObjectButtons[i]) continue;
-    activeObjectButtons[i].prop('disabled', true);
-  }
+  $.each(activeObjectButtons, function(b) {
+    btn && btn.prop('disabled', true);
+  });
 
   canvas.on('object:selected', onObjectSelected);
   canvas.on('group:selected', onObjectSelected);
@@ -393,10 +391,9 @@
   function onObjectSelected(e) {
     var selectedObject = e.target;
 
-    for (var i = activeObjectButtons.length; i--; ) {
-      if (!activeObjectButtons[i]) continue;
-      activeObjectButtons[i].prop('disabled', false);
-    }
+    $.each(activeObjectButtons, function(b) {
+      btn && btn.prop('disabled', false);
+    });
 
     $lockHorizontallyEl.html(
       selectedObject.lockMovementX ? 'Unlock horizontal movement' : 'Lock horizontal movement');
@@ -458,10 +455,9 @@
   }
 
   canvas.on('selection:cleared', function(e) {
-    for (var i = activeObjectButtons.length; i--; ) {
-      if (!activeObjectButtons[i]) continue;
-      activeObjectButtons[i].prop('disabled', true);
-    }
+    $.each(activeObjectButtons, function(b) {
+      btn && btn.prop('disabled', true);
+    });
     $('#controls, #text-wrapper').hide();
   });
 

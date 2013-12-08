@@ -18,7 +18,6 @@
     );
   }
 
-  //fabric.Object.prototype.padding = 5;
   fabric.Object.prototype.transparentCorners = false;
 
   function getRandomNum(min, max) {
@@ -31,15 +30,9 @@
 
   var canvas = global.canvas = new fabric.Canvas('canvas');
 
-  document.getElementById('commands').onclick = function(ev) {
-    ev = ev || window.event;
+  $('#commands').on('click', 'button', function(e) {
 
-    var element = ev.target || ev.srcElement;
-    if (element.nodeName.toLowerCase() === 'strong') {
-      element = element.parentNode;
-    }
-
-    var className = element.className,
+    var $target = $(e.target),
         offset = 50,
         left = fabric.util.getRandomInt(0 + offset, 700 - offset),
         top = fabric.util.getRandomInt(0 + offset, 500 - offset),
@@ -47,7 +40,7 @@
         width = fabric.util.getRandomInt(30, 50),
         opacity = (function(min, max){ return Math.random() * (max - min) + min; })(0.5, 1);
 
-    if (className.indexOf('rect') > -1) {
+    if ($target.hasClass('rect')) {
       canvas.add(new fabric.Rect({
         left: left,
         top: top,
@@ -57,7 +50,7 @@
         opacity: 0.8
       }));
     }
-    if (className.indexOf('circle') > -1) {
+    if ($target.hasClass('circle')) {
       canvas.add(new fabric.Circle({
         left: left,
         top: top,
@@ -66,7 +59,7 @@
         opacity: 0.8
       }));
     }
-    if (className.indexOf('triangle') > -1) {
+    if ($target.hasClass('triangle')) {
       canvas.add(new fabric.Triangle({
         left: left,
         top: top,
@@ -76,14 +69,14 @@
         opacity: 0.8
       }));
     }
-    if (className.indexOf('line') > -1) {
+    if ($target.hasClass('line')) {
       canvas.add(new fabric.Line([ 50, 100, 200, 200], {
         left: left,
         top: top,
         stroke: '#' + getRandomColor()
       }));
     }
-    if (className.indexOf('polygon') > -1) {
+    if ($target.hasClass('polygon')) {
       canvas.add(new fabric.Polygon([
         {x: 185, y: 0},
         {x: 250, y: 100},
@@ -94,7 +87,7 @@
           fill: '#' + getRandomColor()
         }));
     }
-    if (className.indexOf('image1') > -1) {
+    if ($target.hasClass('image1')) {
       fabric.Image.fromURL('../assets/pug.jpg', function(image) {
         image.set({
           left: left,
@@ -106,7 +99,7 @@
         canvas.add(image);
       });
     }
-    if (className.indexOf('image2') > -1) {
+    if ($target.hasClass('image2')) {
       fabric.Image.fromURL('../assets/logo.png', function(image) {
         image.set({
           left: left,
@@ -119,7 +112,7 @@
         updateComplexity();
       });
     }
-    if (className.indexOf('image3') > -1) {
+    if ($target.hasClass('image3')) {
       fabric.Image.fromURL('../assets/printio.png', function(image) {
         image.set({
           left: left,
@@ -132,7 +125,7 @@
         updateComplexity();
       });
     }
-    if (className.indexOf('shape') > -1) {
+    if ($target.hasClass('shape')) {
       var id = element.id, match;
       if (match = /\d+$/.exec(id)) {
         fabric.loadSVGFromURL('../assets/' + match[0] + '.svg', function(objects, options) {
@@ -154,48 +147,52 @@
       }
     }
 
-    if (className.indexOf('clear') > -1) {
+    if ($target.hasClass('clear')) {
       if (confirm('Are you sure?')) {
         canvas.clear();
       }
     }
 
     canvas.calcOffset();
+
     updateComplexity();
-  };
+  });
 
   function updateComplexity() {
     setTimeout(function(){
-      document.getElementById('complexity').childNodes[1].innerHTML = ' ' + canvas.complexity();
+      $('#complexity strong').html(' ' + canvas.complexity());
     }, 100);
   }
 
-  document.getElementById('execute').onclick = function() {
-    var code = document.getElementById('canvas-console').value;
+  $('#execute').onclick = function() {
+    var code = $('#canvas-console').val();
     if (!(/^\s+$/).test(code)) {
       eval(code);
     }
   };
 
-  document.getElementById('rasterize').onclick = function() {
+  $('#rasterize').on('click', function() {
     if (!fabric.Canvas.supports('toDataURL')) {
       alert('This browser doesn\'t provide means to serialize canvas to an image');
     }
     else {
       window.open(canvas.toDataURL('png'));
     }
-  };
-  document.getElementById('rasterize-svg').onclick = function() {
-    window.open('data:image/svg+xml;utf8,' + encodeURIComponent(canvas.toSVG()));
-  };
-  document.getElementById('rasterize-json').onclick = function() {
-    alert(JSON.stringify(canvas));
-  };
+  });
 
-  var removeSelectedEl = document.getElementById('remove-selected');
-  removeSelectedEl.onclick = function() {
+  $('#rasterize-svg').on('click', function() {
+    window.open('data:image/svg+xml;utf8,' + encodeURIComponent(canvas.toSVG()));
+  });
+
+  $('#rasterize-json').on('click', function() {
+    alert(JSON.stringify(canvas));
+  });
+
+  var $removeSelectedEl = $('#remove-selected');
+  $removeSelectedEl.on('click', function() {
     var activeObject = canvas.getActiveObject(),
         activeGroup = canvas.getActiveGroup();
+
     if (activeGroup) {
       var objectsInGroup = activeGroup.getObjects();
       canvas.discardActiveGroup();
@@ -206,7 +203,7 @@
     else if (activeObject) {
       canvas.remove(activeObject);
     }
-  };
+  });
 
   var supportsInputOfType = function(type) {
     return function() {
@@ -223,57 +220,42 @@
       supportsColorpicker = supportsInputOfType('color');
 
   if (supportsSlider()) {
-    (function(){
-      var controls = document.getElementById('controls');
 
-      var sliderLabel = document.createElement('label');
-      sliderLabel.htmlFor = 'opacity';
-      sliderLabel.innerHTML = 'Opacity: ';
+    (function() {
 
-      var slider = document.createElement('input');
+      var $controls = $('#controls');
+      var $sliderLabel = $('<label for="opacity">Opacity: </label>');
+      var $slider = $('<input id="opacity" value="100" type="range">');
 
-      try { slider.type = 'range'; } catch(err) { }
-
-      slider.id = 'opacity';
-      slider.value = 100;
-
-      controls.appendChild(sliderLabel);
-      controls.appendChild(slider);
+      $controls.append($sliderLabel, $slider);
 
       canvas.calcOffset();
 
-      slider.onchange = function() {
+      $('#opacity').on('change', function() {
+
         var activeObject = canvas.getActiveObject(),
             activeGroup = canvas.getActiveGroup();
 
         if (activeObject || activeGroup) {
-          setStyle(activeObject || activeGroup, opacity, parseInt(this.value, 10) / 100);
-          canvas.renderAll();
+          setStyle(activeObject || activeGroup, 'opacity', parseInt(this.value, 10) / 100);
         }
-      };
+      });
+
     })();
   }
 
   if (supportsColorpicker()) {
-    (function(){
-      var controls = document.getElementById('controls');
+    (function() {
+      var $controls = $('#controls');
 
-      var label = document.createElement('label');
-      label.htmlFor = 'color';
-      label.innerHTML = 'Color: ';
-      label.style.marginLeft = '10px';
+      var $label = $('<label for="color" style="margin-left:10px">Color: </label>');
+      var $colorpicker = $('<input type="color" id="color" style="width:40px">');
 
-      var colorpicker = document.createElement('input');
-      colorpicker.type = 'color';
-      colorpicker.id = 'color';
-      colorpicker.style.width = '40px';
-
-      controls.appendChild(label);
-      controls.appendChild(colorpicker);
+      $controls.append($label, $colorpicker);
 
       canvas.calcOffset();
 
-      colorpicker.onchange = function() {
+      $colorpicker.on('change', function() {
         var activeObject = canvas.getActiveObject(),
             activeGroup = canvas.getActiveGroup();
 
@@ -281,34 +263,37 @@
           setStyle(activeObject || activeGroup, 'fill', this.value);
           canvas.renderAll();
         }
-      };
+      });
+
     })();
   }
 
-  var lockHorizontallyEl = document.getElementById('lock-horizontally');
-  lockHorizontallyEl.onclick = function() {
+  var $lockHorizontallyEl = $('#lock-horizontally');
+  $lockHorizontallyEl.on('click', function() {
     var activeObject = canvas.getActiveObject();
     if (activeObject) {
       activeObject.lockMovementX = !activeObject.lockMovementX;
-      lockHorizontallyEl.innerHTML = activeObject.lockMovementX
-        ? 'Unlock horizontal movement'
-        : 'Lock horizontal movement';
+      $lockHorizontallyEl.html(
+        activeObject.lockMovementX
+          ? 'Unlock horizontal movement'
+          : 'Lock horizontal movement');
     }
-  };
+  });
 
-  var lockVerticallyEl = document.getElementById('lock-vertically');
-  lockVerticallyEl.onclick = function() {
+  var $lockVerticallyEl = $('#lock-vertically');
+  $lockVerticallyEl.on('click', function() {
     var activeObject = canvas.getActiveObject();
     if (activeObject) {
       activeObject.lockMovementY = !activeObject.lockMovementY;
-      lockVerticallyEl.innerHTML = activeObject.lockMovementY
-        ? 'Unlock vertical movement'
-        : 'Lock vertical movement';
+      $lockVerticallyEl.html(
+        activeObject.lockMovementY
+          ? 'Unlock vertical movement'
+          : 'Lock vertical movement');
     }
-  };
+  });
 
-  var lockScalingXEl = document.getElementById('lock-scaling-x');
-  lockScalingXEl.onclick = function() {
+  var $lockScalingXEl = $('#lock-scaling-x');
+  $lockScalingXEl.on('click', function() {
     var activeObject = canvas.getActiveObject();
     if (activeObject) {
       activeObject.lockScalingX = !activeObject.lockScalingX;
@@ -316,10 +301,10 @@
         ? 'Unlock horizontal scaling'
         : 'Lock horizontal scaling';
     }
-  };
+  });
 
-  var lockScalingYEl = document.getElementById('lock-scaling-y');
-  lockScalingYEl.onclick = function() {
+  var $lockScalingYEl = $('#lock-scaling-y');
+  $lockScalingYEl.on('click', function() {
     var activeObject = canvas.getActiveObject();
     if (activeObject) {
       activeObject.lockScalingY = !activeObject.lockScalingY;
@@ -327,10 +312,10 @@
         ? 'Unlock vertical scaling'
         : 'Lock vertical scaling';
     }
-  };
+  });
 
-  var lockRotationEl = document.getElementById('lock-rotation');
-  lockRotationEl.onclick = function() {
+  var $lockRotationEl = $('#lock-rotation');
+  $lockRotationEl.on('click', function() {
     var activeObject = canvas.getActiveObject();
     if (activeObject) {
       activeObject.lockRotation = !activeObject.lockRotation;
@@ -338,73 +323,68 @@
         ? 'Unlock rotation'
         : 'Lock rotation';
     }
-  };
+  });
 
-  var sendBackwardsEl = document.getElementById('send-backwards');
-  sendBackwardsEl.onclick = function() {
+  var $sendBackwardsEl = $('#send-backwards');
+  $sendBackwardsEl.on('click', function() {
     var activeObject = canvas.getActiveObject();
     if (activeObject) {
       canvas.sendBackwards(activeObject);
     }
-  };
+  });
 
-  var sendToBackEl = document.getElementById('send-to-back');
-  sendToBackEl.onclick = function() {
+  var $sendToBackEl = $('#send-to-back');
+  $sendToBackEl.on('click', function() {
     var activeObject = canvas.getActiveObject();
     if (activeObject) {
       canvas.sendToBack(activeObject);
     }
-  };
+  });
 
-  var bringForwardEl = document.getElementById('bring-forward');
-  bringForwardEl.onclick = function() {
+  var $bringForwardEl = $('#bring-forward');
+  $bringForwardEl.on('click', function() {
     var activeObject = canvas.getActiveObject();
     if (activeObject) {
       canvas.bringForward(activeObject);
     }
-  };
+  });
 
-  var bringToFrontEl = document.getElementById('bring-to-front');
-  bringToFrontEl.onclick = function() {
+  var $bringToFrontEl = $('#bring-to-front');
+  $bringToFrontEl.on('click', function() {
     var activeObject = canvas.getActiveObject();
     if (activeObject) {
       canvas.bringToFront(activeObject);
     }
-  };
+  });
 
-  var gradientifyBtn = document.getElementById('gradientify'),
-      shadowifyBtn = document.getElementById('shadowify'),
-      patternifyBtn = document.getElementById('patternify'),
-      clipBtn = document.getElementById('clip');
+  var $gradientifyBtn = $('#gradientify'),
+      $shadowifyBtn = $('#shadowify'),
+      $patternifyBtn = $('#patternify'),
+      $clipBtn = $('#clip');
 
   var activeObjectButtons = [
-    lockHorizontallyEl,
-    lockVerticallyEl,
-    lockScalingXEl,
-    lockScalingYEl,
-    lockRotationEl,
-    removeSelectedEl,
-    gradientifyBtn,
-    shadowifyBtn,
-    patternifyBtn,
-    clipBtn,
-    sendBackwardsEl,
-    sendToBackEl,
-    bringForwardEl,
-    bringToFrontEl
+    $lockHorizontallyEl,
+    $lockVerticallyEl,
+    $lockScalingXEl,
+    $lockScalingYEl,
+    $lockRotationEl,
+    $removeSelectedEl,
+    $gradientifyBtn,
+    $shadowifyBtn,
+    $patternifyBtn,
+    $clipBtn,
+    $sendBackwardsEl,
+    $sendToBackEl,
+    $bringForwardEl,
+    $bringToFrontEl
   ];
 
-  var opacityEl = document.getElementById('opacity');
-  if (opacityEl) {
-    activeObjectButtons.push(opacityEl);
-  }
-  var colorEl = document.getElementById('color');
-  if (colorEl) {
-    activeObjectButtons.push(colorEl);
-  }
+  activeObjectButtons.push($('#opacity'));
+  activeObjectButtons.push($('#color'));
 
   for (var i = activeObjectButtons.length; i--; ) {
-    activeObjectButtons[i].disabled = true;
+    if (!activeObjectButtons[i]) continue;
+    activeObjectButtons[i].prop('disabled', true);
   }
 
   canvas.on('object:selected', onObjectSelected);
@@ -414,75 +394,94 @@
     var selectedObject = e.target;
 
     for (var i = activeObjectButtons.length; i--; ) {
-      activeObjectButtons[i].disabled = false;
+      if (!activeObjectButtons[i]) continue;
+      activeObjectButtons[i].prop('disabled', false);
     }
 
-    lockHorizontallyEl.innerHTML = (selectedObject.lockMovementX ? 'Unlock horizontal movement' : 'Lock horizontal movement');
-    lockVerticallyEl.innerHTML = (selectedObject.lockMovementY ? 'Unlock vertical movement' : 'Lock vertical movement');
-    lockScalingXEl.innerHTML = (selectedObject.lockScalingX ? 'Unlock horizontal scaling' : 'Lock horizontal scaling');
-    lockScalingYEl.innerHTML = (selectedObject.lockScalingY ? 'Unlock vertical scaling' : 'Lock vertical scaling');
-    lockRotationEl.innerHTML = (selectedObject.lockRotation ? 'Unlock rotation' : 'Lock rotation');
+    $lockHorizontallyEl.html(
+      selectedObject.lockMovementX ? 'Unlock horizontal movement' : 'Lock horizontal movement');
 
-    var colorEl = document.getElementById('color');
-    colorEl && (colorEl.value = selectedObject.getFill());
+    $lockVerticallyEl.html(
+      selectedObject.lockMovementY ? 'Unlock vertical movement' : 'Lock vertical movement');
 
-    var opacityEl = document.getElementById('opacity');
-    opacityEl && (opacityEl.value = parseInt(selectedObject.getOpacity() * 100, 10));
+    $lockScalingXEl.html(
+      selectedObject.lockScalingX ? 'Unlock horizontal scaling' : 'Lock horizontal scaling');
+
+    $lockScalingYEl.html(
+      selectedObject.lockScalingY ? 'Unlock vertical scaling' : 'Lock vertical scaling');
+
+    $lockRotationEl.html(
+      selectedObject.lockRotation ? 'Unlock rotation' : 'Lock rotation');
+
+    $('#color').val(selectedObject.getFill())
+    $('#opacity').val(parseInt(selectedObject.getOpacity() * 100, 10));
 
     if (/text/.test(selectedObject.type)) {
 
-      document.getElementById('text-wrapper').style.display = '';
-      document.getElementById('text-wrapper').getElementsByTagName('textarea')[0].value = selectedObject.getText();
+      $('#text-wrapper').show().find('textarea').val(selectedObject.getText());
 
-      cmdBoldBtn.className = cmdUnderlineBtn.className = cmdLinethroughBtn.className = cmdOverlineBtn.className = cmdItalicBtn.className = 'btn';
+      $cmdBoldBtn[0].className = $cmdUnderlineBtn[0].className = $cmdLinethroughBtn[0].className =
+      $cmdOverlineBtn[0].className = $cmdItalicBtn[0].className = 'btn';
 
-      cmdBoldBtn.className = selectedObject.fontWeight === 'bold' ? cmdBoldBtn.className + ' selected' : cmdBoldBtn.className;
-      cmdUnderlineBtn.className = selectedObject.textDecoration === 'underline' ? cmdUnderlineBtn.className + ' selected' : cmdUnderlineBtn.className;
-      cmdLinethroughBtn.className = selectedObject.textDecoration === 'line-through' ? cmdLinethroughBtn.className + ' selected' : cmdLinethroughBtn.className;
-      cmdOverlineBtn.className = selectedObject.textDecoration === 'overline' ? cmdOverlineBtn.className + ' selected' : cmdOverlineBtn.className;
-      cmdItalicBtn.className = selectedObject.fontStyle === 'italic' ? cmdItalicBtn.className + ' selected' : cmdItalicBtn.className;
+      if (selectedObject.fontWeight === 'bold') {
+        $cmdBoldBtn.addClass('selected');
+      }
+      if (selectedObject.textDecoration === 'underline') {
+        $cmdUnderlineBtn.addClass('selected');
+      }
+      if (selectedObject.textDecoration === 'line-through') {
+        $cmdLinethroughBtn.addClass('selected');
+      }
+      if (selectedObject.textDecoration === 'overline') {
+        $cmdOverlineBtn.addClass('selected');
+      }
+      if (selectedObject.fontStyle === 'italic') {
+        $cmdItalicBtn.addClass('selected');
+      }
 
-      fontFamilySwitch.value = selectedObject.get('fontFamily').toLowerCase();
-      textAlignSwitch.value = fabric.util.string.capitalize(selectedObject.get('textAlign'));
-      bgColorField.value = selectedObject.get('backgroundColor');
-      bgLineColorField.value = selectedObject.get('textBackgroundColor');
-      textFontSizeField.value = selectedObject.get('fontSize');
-      strokeColorField.value = selectedObject.get('stroke');
-      strokeWidthField.value = selectedObject.get('strokeWidth');
-      textLineHeightField.value = selectedObject.get('lineHeight');
+      $fontFamilySwitch.val(selectedObject.get('fontFamily').toLowerCase());
+      $textAlignSwitch.val(fabric.util.string.capitalize(selectedObject.get('textAlign')));
+
+      $bgColorField.val(selectedObject.get('backgroundColor'));
+      $bgLineColorField.val(selectedObject.get('textBackgroundColor'));
+      $textFontSizeField.val(selectedObject.get('fontSize'));
+
+      $strokeColorField.val(selectedObject.get('stroke'));
+      $strokeWidthField.val(selectedObject.get('strokeWidth'));
+      $textLineHeightField.val(selectedObject.get('lineHeight'));
     }
     else {
-      document.getElementById('text-wrapper').style.display = 'none';
+      $('#text-wrapper').hide();
     }
 
-    document.getElementById('controls').style.display = '';
+    $('#controls').show();
   }
 
   canvas.on('selection:cleared', function(e) {
     for (var i = activeObjectButtons.length; i--; ) {
-      activeObjectButtons[i].disabled = true;
+      if (!activeObjectButtons[i]) continue;
+      activeObjectButtons[i].prop('disabled', true);
     }
-    document.getElementById('controls').style.display = 'none';
-    document.getElementById('text-wrapper').style.display = 'none';
+    $('#controls, #text-wrapper').hide();
   });
 
-  var drawingModeEl = document.getElementById('drawing-mode'),
-      drawingOptionsEl = document.getElementById('drawing-mode-options'),
-      drawingColorEl = document.getElementById('drawing-color'),
-      drawingLineWidthEl = document.getElementById('drawing-line-width'),
-      drawingShadowWidth = document.getElementById('drawing-shadow-width');
+  var $drawingModeEl = $('#drawing-mode'),
+      $drawingOptionsEl = $('#drawing-mode-options'),
+      $drawingColorEl = $('#drawing-color'),
+      $drawingLineWidthEl = $('#drawing-line-width'),
+      $drawingShadowWidth = $('#drawing-shadow-width');
 
-  drawingModeEl.onclick = function() {
+  $drawingModeEl.on('click', function() {
     canvas.isDrawingMode = !canvas.isDrawingMode;
     if (canvas.isDrawingMode) {
-      drawingModeEl.innerHTML = 'Cancel drawing mode';
-      drawingOptionsEl.style.display = '';
+      $drawingModeEl.html('Cancel drawing mode');
+      $drawingOptionsEl.show();
     }
     else {
-      drawingModeEl.innerHTML = 'Enter drawing mode';
-      drawingOptionsEl.style.display = 'none';
+      $drawingModeEl.html('Enter drawing mode');
+      $drawingOptionsEl.hide();
     }
-  };
+  });
 
   canvas.on('path:created', function() {
     updateComplexity();
@@ -570,7 +569,7 @@
     texturePatternBrush.source = img;
   }
 
-  document.getElementById('drawing-mode-selector').onchange = function() {
+  $('#drawing-mode-selector').on('change', function() {
 
     if (this.value === 'hline') {
       canvas.freeDrawingBrush = vLinePatternBrush;
@@ -592,37 +591,37 @@
     }
 
     if (canvas.freeDrawingBrush) {
-      canvas.freeDrawingBrush.color = drawingColorEl.value;
-      canvas.freeDrawingBrush.width = parseInt(drawingLineWidthEl.value, 10) || 1;
-      canvas.freeDrawingBrush.shadowBlur = parseInt(drawingShadowWidth.value, 10) || 0;
+      canvas.freeDrawingBrush.color = $drawingColorEl.val();
+      canvas.freeDrawingBrush.width = parseInt($drawingLineWidthEl.val(), 10) || 1;
+      canvas.freeDrawingBrush.shadowBlur = parseInt($drawingShadowWidth.val(), 10) || 0;
     }
-  };
+  });
 
-  drawingColorEl.onchange = function() {
-    canvas.freeDrawingBrush.color = drawingColorEl.value;
-  };
-  drawingLineWidthEl.onchange = function() {
-    canvas.freeDrawingBrush.width = parseInt(drawingLineWidthEl.value, 10) || 1;
-  };
-  drawingShadowWidth.onchange = function() {
-    canvas.freeDrawingBrush.shadowBlur = parseInt(drawingShadowWidth.value, 10) || 0;
-  };
+  $drawingColorEl.on('change', function() {
+    canvas.freeDrawingBrush.color = this.value;
+  });
+  $drawingLineWidthEl.on('change', function() {
+    canvas.freeDrawingBrush.width = parseInt(this.value, 10) || 1;
+  });
+  $drawingShadowWidth.on('change', function() {
+    canvas.freeDrawingBrush.shadowBlur = parseInt(this.value, 10) || 0;
+  });
 
   if (canvas.freeDrawingBrush) {
-    canvas.freeDrawingBrush.color = drawingColorEl.value;
-    canvas.freeDrawingBrush.width = parseInt(drawingLineWidthEl.value, 10) || 1;
+    canvas.freeDrawingBrush.color = $drawingColorEl.val();
+    canvas.freeDrawingBrush.width = parseInt($drawingLineWidthEl.val(), 10) || 1;
     canvas.freeDrawingBrush.shadowBlur = 0;
   }
 
-  document.getElementById('canvas-background-picker').onchange = function() {
+  $('#canvas-background-picker').on('change', function() {
     canvas.backgroundColor = this.value;
     canvas.renderAll();
-  };
+  });
 
   var text = 'Lorem ipsum dolor sit amet,\nconsectetur adipisicing elit,\nsed do eiusmod tempor incididunt\nut labore et dolore magna aliqua.\n' +
     'Ut enim ad minim veniam,\nquis nostrud exercitation ullamco\nlaboris nisi ut aliquip ex ea commodo consequat.';
 
-  document.getElementById('add-text').onclick = function() {
+  $('#add-text').on('click', function() {
     var textSample = new fabric.Text(text.slice(0, getRandomInt(0, text.length)), {
       left: getRandomInt(350, 400),
       top: getRandomInt(350, 400),
@@ -638,7 +637,7 @@
     });
     canvas.add(textSample);
     updateComplexity();
-  };
+  });
 
   setTimeout(function() {
     canvas.calcOffset();
@@ -649,7 +648,7 @@
     initAligningGuidelines(canvas);
   }
 
-  gradientifyBtn.onclick = function() {
+  $gradientifyBtn.on('click', function() {
     var obj = canvas.getActiveObject();
     if (obj) {
       obj.setGradient('fill', {
@@ -664,9 +663,9 @@
       });
       canvas.renderAll();
     }
-  };
+  });
 
-  shadowifyBtn.onclick = function() {
+  $shadowifyBtn.on('click', function() {
     var obj = canvas.getActiveObject();
     if (!obj) return;
 
@@ -682,13 +681,14 @@
       });
     }
     canvas.renderAll();
-  };
+  });
 
   var pattern = window.__pattern = new fabric.Pattern({
     source: '/assets/escheresque.png',
     repeat: 'repeat'
   });
-  patternifyBtn.onclick = function() {
+
+  $patternifyBtn.on('click', function() {
     var obj = canvas.getActiveObject();
     if (!obj) return;
 
@@ -704,9 +704,9 @@
       }
     }
     canvas.renderAll();
-  };
+  });
 
-  clipBtn.onclick = function() {
+  $clipBtn.on('click', function() {
     var obj = canvas.getActiveObject();
     if (!obj) return;
 
@@ -720,30 +720,27 @@
       };
     }
     canvas.renderAll();
-  };
+  });
 
-  var textEl = document.getElementById('text');
-  if (textEl) {
-    textEl.onfocus = function() {
-      var activeObject = canvas.getActiveObject();
+  $('#text').on('focus', function() {
+    var activeObject = canvas.getActiveObject();
 
-      if (activeObject && /text/.test(activeObject.type)) {
-        this.value = activeObject.text;
+    if (activeObject && /text/.test(activeObject.type)) {
+      this.value = activeObject.text;
+    }
+  })
+  .on('keyup', function(e) {
+    var activeObject = canvas.getActiveObject();
+    if (activeObject) {
+      if (!this.value) {
+        canvas.discardActiveObject();
       }
-    };
-    textEl.onkeyup = function(e) {
-      var activeObject = canvas.getActiveObject();
-      if (activeObject) {
-        if (!this.value) {
-          canvas.discardActiveObject();
-        }
-        else {
-          activeObject.setText(this.value);
-        }
-        canvas.renderAll();
+      else {
+        activeObject.setText(this.value);
       }
-    };
-  }
+      canvas.renderAll();
+    }
+  });
 
   function getStyle(object, styleName) {
     return (object.getSelectionStyles && object.isEditing)
@@ -764,218 +761,181 @@
     canvas.renderAll();
   }
 
-  var cmdUnderlineBtn = document.getElementById('text-cmd-underline'),
-      cmdLinethroughBtn = document.getElementById('text-cmd-linethrough'),
-      cmdOverlineBtn = document.getElementById('text-cmd-overline');
+  var $cmdUnderlineBtn = $('#text-cmd-underline'),
+      $cmdLinethroughBtn = $('#text-cmd-linethrough'),
+      $cmdOverlineBtn = $('#text-cmd-overline'),
+      $cmdBoldBtn = $('#text-cmd-bold'),
+      $cmdItalicBtn = $('#text-cmd-italic');
 
-  if (cmdUnderlineBtn) {
-    activeObjectButtons.push(cmdUnderlineBtn);
-    cmdUnderlineBtn.disabled = true;
-    cmdUnderlineBtn.onclick = function() {
-      var activeObject = canvas.getActiveObject();
-      if (activeObject && /text/.test(activeObject.type)) {
+  activeObjectButtons.push($cmdUnderlineBtn);
+  $cmdUnderlineBtn.prop('disabled', true).on('click', function() {
+    var activeObject = canvas.getActiveObject();
+    if (activeObject && /text/.test(activeObject.type)) {
 
-        var isUnderline = (getStyle(activeObject, 'textDecoration') || '').indexOf('underline') > -1;
-        setStyle(activeObject, 'textDecoration', isUnderline ? '' : 'underline');
+      var isUnderline = (getStyle(activeObject, 'textDecoration') || '').indexOf('underline') > -1;
+      setStyle(activeObject, 'textDecoration', isUnderline ? '' : 'underline');
 
-        canvas.renderAll();
-      }
-    };
-  }
+      canvas.renderAll();
+    }
+  });
 
-  if (cmdLinethroughBtn) {
-    activeObjectButtons.push(cmdLinethroughBtn);
-    cmdLinethroughBtn.disabled = true;
-    cmdLinethroughBtn.onclick = function() {
-      var activeObject = canvas.getActiveObject();
-      if (activeObject && /text/.test(activeObject.type)) {
+  activeObjectButtons.push($cmdLinethroughBtn);
+  $cmdLinethroughBtn.prop('disabled', true).on('click', function() {
+    var activeObject = canvas.getActiveObject();
+    if (activeObject && /text/.test(activeObject.type)) {
 
-        var isLinethrough = (getStyle(activeObject, 'textDecoration') || '').indexOf('line-through') > -1;
-        setStyle(activeObject, 'textDecoration', isLinethrough ? '' : 'line-through');
+      var isLinethrough = (getStyle(activeObject, 'textDecoration') || '').indexOf('line-through') > -1;
+      setStyle(activeObject, 'textDecoration', isLinethrough ? '' : 'line-through');
 
-        canvas.renderAll();
-      }
-    };
-  }
+      canvas.renderAll();
+    }
+  });
 
-  if (cmdOverlineBtn) {
-    activeObjectButtons.push(cmdOverlineBtn);
-    cmdOverlineBtn.disabled = true;
-    cmdOverlineBtn.onclick = function() {
-      var activeObject = canvas.getActiveObject();
-      if (activeObject && /text/.test(activeObject.type)) {
+  activeObjectButtons.push($cmdOverlineBtn);
+  $cmdOverlineBtn.prop('disabled', true).on('click', function() {
+    var activeObject = canvas.getActiveObject();
+    if (activeObject && /text/.test(activeObject.type)) {
 
-        var isOverline = (getStyle(activeObject, 'textDecoration') || '').indexOf('overline') > -1;
-        setStyle(activeObject, 'textDecoration', isOverline ? '' : 'overline');
+      var isOverline = (getStyle(activeObject, 'textDecoration') || '').indexOf('overline') > -1;
+      setStyle(activeObject, 'textDecoration', isOverline ? '' : 'overline');
 
-        canvas.renderAll();
-      }
-    };
-  }
+      canvas.renderAll();
+    }
+  });
 
-  var cmdBoldBtn = document.getElementById('text-cmd-bold');
-  if (cmdBoldBtn) {
-    activeObjectButtons.push(cmdBoldBtn);
-    cmdBoldBtn.disabled = true;
-    cmdBoldBtn.onclick = function() {
-      var activeObject = canvas.getActiveObject();
-      if (activeObject && /text/.test(activeObject.type)) {
+  activeObjectButtons.push($cmdBoldBtn);
+  $cmdBoldBtn.prop('disabled', true).on('click', function() {
+    var activeObject = canvas.getActiveObject();
+    if (activeObject && /text/.test(activeObject.type)) {
 
-        var isBold = getStyle(activeObject, 'fontWeight') === 'bold';
-        setStyle(activeObject, 'fontWeight', isBold ? '' : 'bold');
+      var isBold = getStyle(activeObject, 'fontWeight') === 'bold';
+      setStyle(activeObject, 'fontWeight', isBold ? '' : 'bold');
 
-        this.className = isBold ? this.className + ' selected' : this.className.replace(' selected', '');
-        canvas.renderAll();
-      }
-    };
-  }
+      $(this)[isBold ? 'addClass' : 'removeClass']('selected');
+      canvas.renderAll();
+    }
+  });
 
-  var cmdItalicBtn = document.getElementById('text-cmd-italic');
-  if (cmdItalicBtn) {
-    activeObjectButtons.push(cmdItalicBtn);
-    cmdItalicBtn.disabled = true;
-    cmdItalicBtn.onclick = function() {
-      var activeObject = canvas.getActiveObject();
-      if (activeObject && /text/.test(activeObject.type)) {
+  activeObjectButtons.push($cmdItalicBtn);
+  $cmdItalicBtn.prop('disabled', true).on('click', function() {
+    var activeObject = canvas.getActiveObject();
+    if (activeObject && /text/.test(activeObject.type)) {
 
-        var isItalic = getStyle(activeObject, 'fontStyle') === 'italic';
-        setStyle(activeObject, 'fontStyle', isItalic ? '' : 'italic');
+      var isItalic = getStyle(activeObject, 'fontStyle') === 'italic';
+      setStyle(activeObject, 'fontStyle', isItalic ? '' : 'italic');
 
-        this.className = isItalic ? this.className + ' selected' : this.className.replace(' selected', '');
-        canvas.renderAll();
-      }
-    };
-  }
+      $(this)[isItalic ? 'addClass' : 'removeClass']('selected');
+      canvas.renderAll();
+    }
+  });
 
-  var textAlignSwitch = document.getElementById('text-align');
-  if (textAlignSwitch) {
-    activeObjectButtons.push(textAlignSwitch);
-    textAlignSwitch.disabled = true;
-    textAlignSwitch.onchange = function() {
-      var activeObject = canvas.getActiveObject();
-      if (activeObject && /text/.test(activeObject.type)) {
-        var value = this.value.toLowerCase();
-        activeObject.textAlign = value;
-        canvas._adjustPosition && canvas._adjustPosition(activeObject, value === 'justify' ? 'left' : value);
-        canvas.renderAll();
-      }
-    };
-  }
+  var $textAlignSwitch = $('#text-align');
+  activeObjectButtons.push($textAlignSwitch);
+  $textAlignSwitch.prop('disabled', true).on('change', function() {
+    var activeObject = canvas.getActiveObject();
+    if (activeObject && /text/.test(activeObject.type)) {
+      var value = this.value.toLowerCase();
+      activeObject.textAlign = value;
+      canvas._adjustPosition && canvas._adjustPosition(activeObject, value === 'justify' ? 'left' : value);
+      canvas.renderAll();
+    }
+  });
 
-  var fontFamilySwitch = document.getElementById('font-family');
-  if (fontFamilySwitch) {
-    activeObjectButtons.push(fontFamilySwitch);
-    fontFamilySwitch.disabled = true;
-    fontFamilySwitch.onchange = function() {
-      var activeObject = canvas.getActiveObject();
-      if (activeObject && /text/.test(activeObject.type)) {
-        setStyle(activeObject, 'fontFamily', this.value.toLowerCase());
-        canvas.renderAll();
-      }
-    };
-  }
+  var $fontFamilySwitch = $('#font-family');
+  activeObjectButtons.push($fontFamilySwitch);
+  $fontFamilySwitch.prop('disabled', true).on('change', function() {
+    var activeObject = canvas.getActiveObject();
+    if (activeObject && /text/.test(activeObject.type)) {
+      setStyle(activeObject, 'fontFamily', this.value.toLowerCase());
+      canvas.renderAll();
+    }
+  });
 
-  var bgColorField = document.getElementById('text-bg-color');
-  if (bgColorField) {
-    bgColorField.onchange = function() {
-      var activeObject = canvas.getActiveObject();
-      if (activeObject && /text/.test(activeObject.type)) {
-        activeObject.backgroundColor = this.value;
-        canvas.renderAll();
-      }
-    };
-  }
+  var $bgColorField = $('#text-bg-color');
+  $bgColorField.on('change', function() {
+    var activeObject = canvas.getActiveObject();
+    if (activeObject && /text/.test(activeObject.type)) {
+      activeObject.backgroundColor = this.value;
+      canvas.renderAll();
+    }
+  });
 
-  var bgLineColorField = document.getElementById('text-lines-bg-color');
-  if (bgLineColorField) {
-    bgLineColorField.onchange = function() {
-      var activeObject = canvas.getActiveObject();
-      if (activeObject && /text/.test(activeObject.type)) {
-        setStyle(activeObject, 'textBackgroundColor', this.value);
-        canvas.renderAll();
-      }
-    };
-  }
+  var $bgLineColorField = $('#text-lines-bg-color');
+  $bgLineColorField.on('change', function() {
+    var activeObject = canvas.getActiveObject();
+    if (activeObject && /text/.test(activeObject.type)) {
+      setStyle(activeObject, 'textBackgroundColor', this.value);
+      canvas.renderAll();
+    }
+  });
 
-  var textFontSizeField = document.getElementById('text-font-size');
-  if (textFontSizeField) {
-    textFontSizeField.onchange = function() {
-      var activeObject = canvas.getActiveObject();
-      if (activeObject && /text/.test(activeObject.type)) {
-        setStyle(activeObject, 'fontSize', parseInt(this.value, 10));
-        canvas.renderAll();
-      }
-    };
-  }
+  var $textFontSizeField = $('#text-font-size');
+  $textFontSizeField.on('change', function() {
+    var activeObject = canvas.getActiveObject();
+    if (activeObject && /text/.test(activeObject.type)) {
+      setStyle(activeObject, 'fontSize', parseInt(this.value, 10));
+      canvas.renderAll();
+    }
+  });
 
-  var strokeColorField = document.getElementById('text-stroke-color');
-  if (strokeColorField) {
-    strokeColorField.onchange = function() {
-      var activeObject = canvas.getActiveObject();
-      if (activeObject && /text/.test(activeObject.type)) {
-        setStyle(activeObject, 'stroke', this.value);
-        canvas.renderAll();
-      }
-    };
-  }
+  var $strokeColorField = $('#text-stroke-color');
+  $strokeColorField.on('change', function() {
+    var activeObject = canvas.getActiveObject();
+    if (activeObject && /text/.test(activeObject.type)) {
+      setStyle(activeObject, 'stroke', this.value);
+      canvas.renderAll();
+    }
+  });
 
-  var strokeWidthField = document.getElementById('text-stroke-width');
-  if (strokeWidthField) {
-    strokeWidthField.onchange = function() {
-      var activeObject = canvas.getActiveObject();
-      if (activeObject && /text/.test(activeObject.type)) {
-        setStyle(activeObject, 'strokeWidth', parseInt(this.value, 10));
-        canvas.renderAll();
-      }
-    };
-  }
+  var $strokeWidthField = $('#text-stroke-width');
+  $strokeWidthField.on('change', function() {
+    var activeObject = canvas.getActiveObject();
+    if (activeObject && /text/.test(activeObject.type)) {
+      setStyle(activeObject, 'strokeWidth', parseInt(this.value, 10));
+      canvas.renderAll();
+    }
+  });
 
-  var textLineHeightField = document.getElementById('text-line-height');
-  if (textLineHeightField) {
-    textLineHeightField.onchange = function() {
-      var activeObject = canvas.getActiveObject();
-      if (activeObject && /text/.test(activeObject.type)) {
-        activeObject.setLineHeight(parseInt(this.value, 10));
-        canvas.renderAll();
-      }
-    };
-  }
+  var $textLineHeightField = $('#text-line-height');
+  $textLineHeightField.on('change', function() {
+    var activeObject = canvas.getActiveObject();
+    if (activeObject && /text/.test(activeObject.type)) {
+      activeObject.setLineHeight(parseInt(this.value, 10));
+      canvas.renderAll();
+    }
+  });
 
-  document.getElementById('load-svg').onclick = function() {
-    var svg = document.getElementById('svg-console').value;
+  $('#load-svg').on('click', function() {
+    var svg = $('#svg-console').val();
     fabric.loadSVGFromString(svg, function(objects, options) {
       var obj = fabric.util.groupSVGElements(objects, options);
       canvas.add(obj).centerObject(obj).renderAll();
       obj.setCoords();
     });
-  };
+  });
 
-  document.getElementById('load-svg-without-grouping').onclick = function() {
-    var svg = document.getElementById('svg-console').value;
+  $('#load-svg-without-grouping').on('click', function() {
+    var svg = $('#svg-console').val();
     fabric.loadSVGFromString(svg, function(objects) {
       canvas.add.apply(canvas, objects);
       canvas.renderAll();
     });
-  };
-
-  [].forEach.call(document.getElementsByClassName('origin-x'), function(el) {
-    el.onclick = function() {
-      var activeObject = canvas.getActiveObject();
-      if (activeObject) {
-        activeObject.set('originX', this.value).setCoords();
-        canvas.renderAll();
-      }
-    };
   });
 
-  [].forEach.call(document.getElementsByClassName('origin-y'), function(el) {
-    el.onclick = function() {
-      var activeObject = canvas.getActiveObject();
-      if (activeObject) {
-        activeObject.set('originY', this.value).setCoords();
-        canvas.renderAll();
-      }
-    };
+  $(document).on('click', '.origin-x', function() {
+    var activeObject = canvas.getActiveObject();
+    if (activeObject) {
+      activeObject.set('originX', this.value).setCoords();
+      canvas.renderAll();
+    }
+  });
+
+  $(document).on('click', '.origin-y', function() {
+    var activeObject = canvas.getActiveObject();
+    if (activeObject) {
+      activeObject.set('originY', this.value).setCoords();
+      canvas.renderAll();
+    }
   });
 
   if (typeof Cufon !== 'undefined' && Cufon.fonts.delicious) {

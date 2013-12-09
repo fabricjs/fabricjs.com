@@ -667,7 +667,7 @@ $.extend(kitchensink, {
   },
 
   complexity: function() {
-    return canvas.complexity()
+    return canvas.complexity();
   },
 
   clear: function() {

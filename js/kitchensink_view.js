@@ -16,8 +16,7 @@
       this.initCanvasControls();
       this.initExecuteControls();
 
-      this.initButtons();
-      this.disableButtons();
+      this.toggleButtons(false);
     },
 
     updateComplexity: function() {
@@ -31,11 +30,11 @@
 
       var $controls = $('#controls');
       var $sliderLabel = $('<label for="opacity">Opacity: </label>');
-      var $slider = $('<input id="opacity" value="100" type="range">');
+      this.$opacityEl = $('<input id="opacity" value="100" type="range">');
 
-      $controls.append($sliderLabel, $slider);
+      $controls.append($sliderLabel, this.$opacityEl);
 
-      $slider.on('change', function() {
+      this.$opacityEl.on('change', function() {
         kitchensink.setOpacity(parseInt(this.value, 10) / 100);
       });
     },
@@ -46,11 +45,11 @@
       var $controls = $('#controls');
 
       var $label = $('<label for="color" style="margin-left:10px">Color: </label>');
-      var $colorpicker = $('<input type="color" id="color" style="width:40px">');
+      this.$colorEl = $('<input type="color" id="color" style="width:40px">');
 
-      $controls.append($label, $colorpicker);
+      $controls.append($label, this.$colorEl);
 
-      $colorpicker.on('change', function() {
+      this.$colorEl.on('change', function() {
         kitchensink.setFill(this.value);
       });
     },
@@ -96,8 +95,7 @@
     },
 
     initObjectControls: function() {
-      view.$removeSelectedEl = $('#remove-selected');
-      view.$removeSelectedEl.on('click', function() {
+      $('#remove-selected').on('click', function() {
         kitchensink.removeSelected();
       });
 
@@ -135,43 +133,35 @@
         view.$lockRotationEl.html(isOn ? 'Unlock rotation' : 'Lock rotation');
       });
 
-      view.$sendBackwardsEl = $('#send-backwards');
-      view.$sendBackwardsEl.on('click', function() {
+      $('#send-backwards').on('click', function() {
         kitchensink.sendBackwards();
       });
 
-      view.$sendToBackEl = $('#send-to-back');
-      view.$sendToBackEl.on('click', function() {
+      $('#send-to-back').on('click', function() {
         kitchensink.sendToBack();
       });
 
-      view.$bringForwardEl = $('#bring-forward');
-      view.$bringForwardEl.on('click', function() {
+      $('#bring-forward').on('click', function() {
         kitchensink.bringForward();
       });
 
-      view.$bringToFrontEl = $('#bring-to-front');
-      view.$bringToFrontEl.on('click', function() {
+      $('#bring-to-front').on('click', function() {
         kitchensink.bringToFront();
       });
 
-      view.$gradientifyBtn = $('#gradientify');
-      view.$gradientifyBtn.on('click', function() {
+      $('#gradientify').on('click', function() {
         kitchensink.gradientify();
       });
 
-      view.$shadowifyBtn = $('#shadowify');
-      view.$shadowifyBtn.on('click', function() {
+      $('#shadowify').on('click', function() {
         kitchensink.shadowify();
       });
 
-      view.$patternifyBtn = $('#patternify');
-      view.$patternifyBtn.on('click', function() {
+      $('#patternify').on('click', function() {
         kitchensink.patternify();
       });
 
-      view.$clipBtn = $('#clip');
-      view.$clipBtn.on('click', function() {
+      $('#clip').on('click', function() {
         kitchensink.clip();
       });
 
@@ -182,9 +172,6 @@
       $(document).on('click', '.origin-y', function() {
         kitchensink.setOriginY(this.value);
       });
-
-      view.$opacityEl = $('#opacity');
-      view.$colorEl = $('#color');
     },
 
     initTextControls: function() {
@@ -218,13 +205,13 @@
       view.$cmdBoldBtn = $('#text-cmd-bold');
       view.$cmdBoldBtn.prop('disabled', true).on('click', function() {
         var isBold = kitchensink.toggleBold();
-        $(this)[isBold ? 'addClass' : 'removeClass']('selected');
+        $(this)[isBold ? 'addClass' : 'removeClass']('btn-inverse');
       });
 
       view.$cmdItalicBtn = $('#text-cmd-italic');
       view.$cmdItalicBtn.prop('disabled', true).on('click', function() {
         var isItalic = kitchensink.toggleItalic();
-        $(this)[isItalic ? 'addClass' : 'removeClass']('selected');
+        $(this)[isItalic ? 'addClass' : 'removeClass']('btn-inverse');
       });
 
       view.$textAlignSwitch = $('#text-align');
@@ -310,55 +297,19 @@
       canvas.on('object:added', view.updateComplexity);
 
       canvas.on('selection:cleared', function(e) {
-        view.disableButtons();
+        view.toggleButtons(false);
         $('#controls, #text-wrapper').hide();
       });
     },
 
-    initButtons: function() {
-      view.activeObjectButtons = [
-        view.$lockHorizontallyEl,
-        view.$lockVerticallyEl,
-        view.$lockScalingXEl,
-        view.$lockScalingYEl,
-        view.$lockRotationEl,
-        view.$removeSelectedEl,
-        view.$gradientifyBtn,
-        view.$shadowifyBtn,
-        view.$patternifyBtn,
-        view.$clipBtn,
-        view.$sendBackwardsEl,
-        view.$sendToBackEl,
-        view.$bringForwardEl,
-        view.$bringToFrontEl,
-        view.$cmdUnderlineBtn,
-        view.$cmdLinethroughBtn,
-        view.$cmdOverlineBtn,
-        view.$cmdBoldBtn,
-        view.$cmdItalicBtn,
-        view.$textAlignSwitch,
-        view.$fontFamilySwitch,
-        view.$opacityEl,
-        view.$colorEl
-      ];
-    },
-
-    disableButtons: function() {
-      $.each(view.activeObjectButtons, function(i, btn) {
-        btn && btn.prop('disabled', true);
-      });
-    },
-
-    enableButtons: function() {
-      $.each(view.activeObjectButtons, function(i, btn) {
-        btn && btn.prop('disabled', false);
-      });
+    toggleButtons: function(value) {
+      $('.btn-object-action').prop('disabled', !value);
     },
 
     onObjectSelected: function(e) {
       var selectedObject = e.target;
 
-      view.enableButtons();
+      view.toggleButtons(true);
 
       view.$lockHorizontallyEl.html(
         selectedObject.lockMovementX ? 'Unlock horizontal movement' : 'Lock horizontal movement');
@@ -391,27 +342,11 @@
     onTextObjectSelected: function(selectedObject) {
       $('#text-wrapper').show().find('textarea').val(selectedObject.getText());
 
-      view.$cmdBoldBtn[0].className =
-      view.$cmdUnderlineBtn[0].className =
-      view.$cmdLinethroughBtn[0].className =
-      view.$cmdOverlineBtn[0].className =
-      view.$cmdItalicBtn[0].className = 'btn';
-
-      if (selectedObject.fontWeight === 'bold') {
-        view.$cmdBoldBtn.addClass('selected');
-      }
-      if (selectedObject.textDecoration === 'underline') {
-        view.$cmdUnderlineBtn.addClass('selected');
-      }
-      if (selectedObject.textDecoration === 'line-through') {
-        view.$cmdLinethroughBtn.addClass('selected');
-      }
-      if (selectedObject.textDecoration === 'overline') {
-        view.$cmdOverlineBtn.addClass('selected');
-      }
-      if (selectedObject.fontStyle === 'italic') {
-        view.$cmdItalicBtn.addClass('selected');
-      }
+      view.$cmdBoldBtn.toggleClass('btn-inverse', selectedObject.fontWeight === 'bold');
+      view.$cmdUnderlineBtn.toggleClass('btn-inverse', selectedObject.textDecoration === 'underline');
+      view.$cmdLinethroughBtn.toggleClass('btn-inverse', selectedObject.textDecoration === 'line-through');
+      view.$cmdOverlineBtn.toggleClass('btn-inverse', selectedObject.textDecoration === 'overline');
+      view.$cmdItalicBtn.toggleClass('btn-inverse', selectedObject.fontStyle === 'italic');
 
       view.$fontFamilySwitch.val(selectedObject.get('fontFamily').toLowerCase());
       view.$textAlignSwitch.val(fabric.util.string.capitalize(selectedObject.get('textAlign')));

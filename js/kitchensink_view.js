@@ -226,7 +226,7 @@
 
       view.$bgColorField = $('#text-bg-color');
       view.$bgColorField.on('change', function() {
-        kitchensink.setBackgroundColor(this.value);
+        kitchensink.setObjectBackgroundColor(this.value);
       });
 
       view.$bgLineColorField = $('#text-lines-bg-color');

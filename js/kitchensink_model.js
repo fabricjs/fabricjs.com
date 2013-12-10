@@ -41,7 +41,7 @@ $.extend(kitchensink, {
   },
 
   initBrushes: function() {
-    if (!fabric.PatternBrush) returnl
+    if (!fabric.PatternBrush) return;
 
     this.initVLinePatternBrush();
     this.initHLinePatternBrush();
@@ -567,7 +567,7 @@ $.extend(kitchensink, {
     }
   },
 
-  setBackgroundColor: function(value) {
+  setObjectBackgroundColor: function(value) {
     var activeObject = canvas.getActiveObject();
     if (activeObject && /text/.test(activeObject.type)) {
       activeObject.backgroundColor = value;

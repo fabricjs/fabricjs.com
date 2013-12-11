@@ -9,6 +9,7 @@ title: Kitchensink
 <script src="../lib/bootstrap.js"></script>
 <script src="../lib/underscore.js"></script>
 <script src="../lib/backbone.js"></script>
+<script src="../lib/backbone.unclassified.js"></script>
 
 <script src="../js/paster.js"></script>
 
@@ -224,6 +225,10 @@ title: Kitchensink
         <button type="button" class="btn polygon">Polygon</button>
       </p>
 
+      <p>
+        <button class="btn" id="add-text">Add text</button>
+      </p>
+
       <p>Add <strong>images</strong> to canvas:</p>
       <p>
         <button type="button" class="btn image1">Image 1 (pug)</button>
@@ -266,10 +271,6 @@ title: Kitchensink
         </li>
         <li>
           <button class="btn btn-danger clear">Clear canvas</button>
-        </li>
-
-        <li style="margin-top:10px;">
-          <button class="btn" id="add-text">Add text</button>
         </li>
 
         <li style="margin-top:10px;">
@@ -400,6 +401,11 @@ canvas.add(new fabric.Circle({
 <script src="../lib/font_definitions.js"></script>
 
 <script>var kitchensink = { }</script>
-<script src="../js/kitchensink_utils.js"></script>
-<script src="../js/kitchensink_model.js"></script>
-<script src="../js/kitchensink_view.js"></script>
+<script src="../js/kitchensink/utils.js"></script>
+<script src="../js/kitchensink/model.js"></script>
+
+<script src="../js/kitchensink/object_controls_view.js"></script>
+<script src="../js/kitchensink/add_commands_view.js"></script>
+<script src="../js/kitchensink/freedrawing_view.js"></script>
+<script src="../js/kitchensink/global_view.js"></script>
+<script src="../js/kitchensink/text_view.js"></script>

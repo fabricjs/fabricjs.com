@@ -314,6 +314,7 @@ var Kitchensink = Backbone.Model.extend({
 
   addImage: function(imageName, minScale, maxScale) {
     var coord = getRandomLeftTop();
+    var _this = this;
 
     fabric.Image.fromURL('../assets/' + imageName, function(image) {
 
@@ -325,7 +326,7 @@ var Kitchensink = Backbone.Model.extend({
       .scale(getRandomNum(minScale, maxScale))
       .setCoords();
 
-      this.canvas.add(image);
+      _this.canvas.add(image);
     });
   },
 
@@ -562,7 +563,7 @@ var Kitchensink = Backbone.Model.extend({
   },
 
   changeLineHeight: function(value) {
-    var activeObject = canvas.getActiveObject();
+    var activeObject = this.canvas.getActiveObject();
     if (activeObject && /text/.test(activeObject.type)) {
       activeObject.setLineHeight(value);
       this.canvas.renderAll();
@@ -735,6 +736,7 @@ var Kitchensink = Backbone.Model.extend({
 
   toggleFreeDrawingMode: function() {
     this.canvas.isDrawingMode = !this.canvas.isDrawingMode;
+    this.triggerChange();
   },
 
   isDrawingMode: function() {
@@ -743,19 +745,19 @@ var Kitchensink = Backbone.Model.extend({
 
   setFreeDrawingBrush: function(type, color, width, shadowBlur) {
     if (type === 'hline') {
-      this.canvas.freeDrawingBrush = vLinePatternBrush;
+      this.canvas.freeDrawingBrush = this.vLinePatternBrush;
     }
     else if (type === 'vline') {
-      this.canvas.freeDrawingBrush = hLinePatternBrush;
+      this.canvas.freeDrawingBrush = this.hLinePatternBrush;
     }
     else if (type === 'square') {
-      this.canvas.freeDrawingBrush = squarePatternBrush;
+      this.canvas.freeDrawingBrush = this.squarePatternBrush;
     }
     else if (type === 'diamond') {
-      this.canvas.freeDrawingBrush = diamondPatternBrush;
+      this.canvas.freeDrawingBrush = this.diamondPatternBrush;
     }
     else if (type === 'texture') {
-      this.canvas.freeDrawingBrush = texturePatternBrush;
+      this.canvas.freeDrawingBrush = this.texturePatternBrush;
     }
     else {
       this.canvas.freeDrawingBrush = new fabric[type + 'Brush'](this.canvas);

@@ -10,6 +10,7 @@ title: Kitchensink
 <script src="../lib/underscore.js"></script>
 <script src="../lib/backbone.js"></script>
 <script src="../lib/backbone.unclassified.js"></script>
+<script src="../lib/rivets.js"></script>
 
 <script src="../js/paster.js"></script>
 
@@ -21,22 +22,34 @@ title: Kitchensink
 
 <div style="position:relative;width:704px;float:left;" id="canvas-wrapper">
 
-  <div id="complexity">Canvas complexity (number of paths):<strong></strong></div>
+  <div id="canvas-controls">
+    <div id="complexity">
+      Canvas complexity (number of paths):
+      <strong>{app^complexity}</strong>
+    </div>
 
-  <div id="canvas-background">
-    <label for="canvas-background-picker">Canvas background:</label>
-    <input type="color" id="canvas-background-picker">
+    <div id="canvas-background">
+      <label for="canvas-background-picker">Canvas background:</label>
+      <input type="color" id="canvas-background-picker" rv-value="app^canvasBgColor">
+    </div>
   </div>
 
   <canvas id="canvas" width="700" height="600"></canvas>
 
-  <div id="controls" style="display: none"></div>
+  <div id="color-opacity-controls" rv-show="app^selected">
 
-  <div id="text-wrapper" style="margin-top: 10px; display: none">
-    <textarea id="text"></textarea>
+    <label for="opacity">Opacity: </label>
+    <input id="opacity" value="100" type="range" rv-value="app^opacity">
+
+    <label for="color" style="margin-left:10px">Color: </label>
+    <input type="color" id="color" style="width:40px" rv-value="app^fill">
+  </div>
+
+  <div id="text-wrapper" style="margin-top: 10px" rv-show="app^text">
+    <textarea id="text" rv-val="app^text"></textarea>
     <div id="text-controls">
       <label for="font-family" style="display:inline-block">Font family:</label>
-      <select id="font-family" class="btn-object-action">
+      <select id="font-family" class="btn-object-action" rv-value="app^fontFamily">
         <option value="arial">Arial</option>
         <option value="helvetica" selected>Helvetica</option>
         <option value="myriad pro">Myriad Pro</option>
@@ -54,30 +67,64 @@ title: Kitchensink
       </select>
       <br>
       <label for="text-align" style="display:inline-block">Text align:</label>
-      <select id="text-align" class="btn-object-action">
+      <select id="text-align" class="btn-object-action" rv-value="app^textAlign">
         <option>Left</option>
         <option>Center</option>
         <option>Right</option>
         <option>Justify</option>
       </select>
-      <div><label for="text-bg-color">Background color:</label><input type="color" value="" id="text-bg-color" size="10" class="btn-object-action" class="btn-object-action"></div>
-      <div><label for="text-lines-bg-color">Background text color:</label><input type="color" value="" id="text-lines-bg-color" size="10" class="btn-object-action"></div>
-      <div><label for="text-stroke-color">Stroke color:</label><input type="color" value="" id="text-stroke-color" class="btn-object-action"></div>
-      <div><label for="text-stroke-width">Stroke width:</label><input type="range" value="1" min="1" max="5" id="text-stroke-width" class="btn-object-action"></div>
-      <div><label for="text-font-size">Font size:</label><input type="range" value="" min="1" max="120" step="1" id="text-font-size" class="btn-object-action"></div>
-      <div><label for="text-line-height">Line height:</label><input type="range" value="" min="0" max="10" step="0.1" id="text-line-height" class="btn-object-action"></div>
+      <div>
+        <label for="text-bg-color">Background color:</label>
+        <input type="color" value="" id="text-bg-color" size="10" class="btn-object-action" class="btn-object-action"
+          rv-value="app^bgColor">
+      </div>
+      <div>
+        <label for="text-lines-bg-color">Background text color:</label>
+        <input type="color" value="" id="text-lines-bg-color" size="10" class="btn-object-action"
+          rv-value="app^textBgColor">
+      </div>
+      <div>
+        <label for="text-stroke-color">Stroke color:</label>
+        <input type="color" value="" id="text-stroke-color" class="btn-object-action"
+          rv-value="app^strokeColor">
+      </div>
+      <div>
+        <label for="text-stroke-width">Stroke width:</label>
+        <input type="range" value="1" min="1" max="5" id="text-stroke-width" class="btn-object-action"
+          rv-value="app^strokeWidth">
+      </div>
+      <div>
+        <label for="text-font-size">Font size:</label>
+        <input type="range" value="" min="1" max="120" step="1" id="text-font-size" class="btn-object-action"
+          rv-value="app^fontSize">
+      </div>
+      <div>
+        <label for="text-line-height">Line height:</label>
+        <input type="range" value="" min="0" max="10" step="0.1" id="text-line-height" class="btn-object-action"
+          rv-value="app^lineHeight">
+      </div>
     </div>
     <div id="text-controls-additional">
-      <button type="button" class="btn btn-object-action" id="text-cmd-bold">Bold</button>
-      <button type="button" class="btn btn-object-action" id="text-cmd-italic">Italic</button>
-      <button type="button" class="btn btn-object-action" id="text-cmd-underline">Underline</button>
-      <button type="button" class="btn btn-object-action" id="text-cmd-linethrough">Linethrough</button>
-      <button type="button" class="btn btn-object-action" id="text-cmd-overline">Overline</button>
+      <button type="button" class="btn btn-object-action" id="text-cmd-bold" rv-toggle="app^bold">
+        Bold
+      </button>
+      <button type="button" class="btn btn-object-action" id="text-cmd-italic" rv-toggle="app^italic">
+        Italic
+      </button>
+      <button type="button" class="btn btn-object-action" id="text-cmd-underline" rv-toggle="app^underline">
+        Underline
+      </button>
+      <button type="button" class="btn btn-object-action" id="text-cmd-linethrough" rv-toggle="app^lineThrough">
+        Linethrough
+      </button>
+      <button type="button" class="btn btn-object-action" id="text-cmd-overline" rv-toggle="app^overline">
+        Overline
+      </button>
     </div>
   </div>
 </div>
 
-<div id="commands">
+<div id="commands" rv-on-click="app.maybeLoadShape">
 
   <ul class="nav nav-tabs">
     <li><a href="#simple-shapes" data-toggle="tab">Simple</a></li>
@@ -218,22 +265,22 @@ title: Kitchensink
     <div class="tab-pane" id="simple-shapes">
       <p>Add <strong>simple shapes</strong> to canvas:</p>
       <p>
-        <button type="button" class="btn rect">Rectangle</button>
-        <button type="button" class="btn circle">Circle</button>
-        <button type="button" class="btn triangle">Triangle</button>
-        <button type="button" class="btn line">Line</button>
-        <button type="button" class="btn polygon">Polygon</button>
+        <button type="button" class="btn rect" rv-on-click="app.addRect">Rectangle</button>
+        <button type="button" class="btn circle" rv-on-click="app.addCircle">Circle</button>
+        <button type="button" class="btn triangle" rv-on-click="app.addTriangle">Triangle</button>
+        <button type="button" class="btn line" rv-on-click="app.addLine">Line</button>
+        <button type="button" class="btn polygon" rv-on-click="app.addPolygon">Polygon</button>
       </p>
 
       <p>
-        <button class="btn" id="add-text">Add text</button>
+        <button class="btn" id="add-text" rv-on-click="app.addText">Add text</button>
       </p>
 
       <p>Add <strong>images</strong> to canvas:</p>
       <p>
-        <button type="button" class="btn image1">Image 1 (pug)</button>
-        <button type="button" class="btn image2">Image 2 (google)</button>
-        <button type="button" class="btn image3">Image 3 (printio)</button>
+        <button type="button" class="btn image1" rv-on-click="app.addImage1">Image 1 (pug)</button>
+        <button type="button" class="btn image2" rv-on-click="app.addImage2">Image 2 (google)</button>
+        <button type="button" class="btn image3" rv-on-click="app.addImage3">Image 3 (printio)</button>
       </p>
 
       <p>Add <strong>gradient-based shapes</strong> to canvas:</p>
@@ -262,134 +309,171 @@ title: Kitchensink
     </div>
 
     <div class="tab-pane active" id="object-controls">
-      <ul class="object-controls">
+      <ul class="object-controls" rv-enable="app^selected">
         <li>
           Rasterize canvas to
-          <button class="btn btn-success" id="rasterize">Image</button>
-          <button class="btn btn-success" id="rasterize-svg">SVG</button>
-          <button class="btn btn-success" id="rasterize-json">JSON</button>
+          <button class="btn btn-success" id="rasterize" rv-on-click="app.rasterize">
+            Image
+          </button>
+          <button class="btn btn-success" id="rasterize-svg" rv-on-click="app.rasterizeSVG">
+            SVG
+          </button>
+          <button class="btn btn-success" id="rasterize-json" rv-on-click="app.rasterizeJSON">
+            JSON
+          </button>
         </li>
         <li>
-          <button class="btn btn-danger clear">Clear canvas</button>
+          <button class="btn btn-danger clear" rv-on-click="app.confirmClear">Clear canvas</button>
         </li>
 
         <li style="margin-top:10px;">
-          <button class="btn btn-object-action" id="remove-selected">
+          <button class="btn btn-object-action" id="remove-selected"
+            rv-on-click="app.removeSelected">
             Remove selected object/group
           </button>
         </li>
 
         <li style="margin-top:10px;">
-          <button class="btn btn-lock btn-object-action" id="lock-horizontally">Lock horizontal movement</button><br>
-          <button class="btn btn-lock btn-object-action" id="lock-vertically">Lock vertical movement</button><br>
-          <button class="btn btn-lock btn-object-action" id="lock-scaling-x">Lock horizontal scaling</button><br>
-          <button class="btn btn-lock btn-object-action" id="lock-scaling-y">Lock vertical scaling</button><br>
-          <button class="btn btn-lock btn-object-action" id="lock-rotation">Lock rotation</button>
+          <button class="btn btn-lock btn-object-action" id="lock-horizontally"
+            rv-toggle="app^horizontalLock"
+            rv-text="app^horizontalLock | toggle unlock_horizontal_movement lock_horizontal_movement">
+          </button>
+          <br>
+          <button class="btn btn-lock btn-object-action" id="lock-vertically"
+            rv-toggle="app^verticalLock"
+            rv-text="app^verticalLock | toggle unlock_vertical_movement lock_vertical_movement">
+          </button>
+          <br>
+          <button class="btn btn-lock btn-object-action" id="lock-scaling-x"
+            rv-toggle="app^scaleLockX"
+            rv-text="app^scaleLockX | toggle unlock_horizontal_scaling lock_horizontal_scaling">
+          </button>
+          <br>
+          <button class="btn btn-lock btn-object-action" id="lock-scaling-y"
+            rv-toggle="app^scaleLockY"
+            rv-text="app^scaleLockY | toggle unlock_vertical_scaling lock_vertical_scaling">
+          </button>
+          <br>
+          <button class="btn btn-lock btn-object-action" id="lock-rotation"
+            rv-toggle="app^rotationLock"
+            rv-text="app^rotationLock | toggle unlock_rotation lock_rotation">
+            Lock rotation
+          </button>
         </li>
 
         <li style="margin-top:10px">
           <p>
             <span style="margin-right: 10px">Origin X: </span>
-            <label>Left <input type="radio" name="origin-x" class="origin-x" value="left" checked></label>
-            <label>Center <input type="radio" name="origin-x" class="origin-x" value="center"></label>
-            <label>Right <input type="radio" name="origin-x" class="origin-x" value="right"></label>
+            <label>
+              Left
+              <input type="radio" name="origin-x" class="origin-x btn-object-action" value="left" rv-checked="app^originX">
+            </label>
+            <label>
+              Center
+              <input type="radio" name="origin-x" class="origin-x btn-object-action" value="center" rv-checked="app^originX">
+            </label>
+            <label>
+              Right
+              <input type="radio" name="origin-x" class="origin-x btn-object-action" value="right" rv-checked="app^originX">
+            </label>
           </p>
           <p>
             <span style="margin-right: 10px">Origin Y: </span>
-            <label>Top <input type="radio" name="origin-y" class="origin-y" value="top" checked></label>
-            <label>Center <input type="radio" name="origin-y" class="origin-y" value="center"></label>
-            <label>Bottom <input type="radio" name="origin-y" class="origin-y" value="bottom"></label>
+            <label>
+              Top
+              <input type="radio" name="origin-y" class="origin-y btn-object-action" value="top" rv-checked="app^originY">
+            </label>
+            <label>
+              Center
+              <input type="radio" name="origin-y" class="origin-y btn-object-action" value="center" rv-checked="app^originY">
+            </label>
+            <label>
+              Bottom
+              <input type="radio" name="origin-y" class="origin-y btn-object-action" value="bottom" rv-checked="app^originY">
+            </label>
           </p>
         </li>
 
         <li style="margin-top:10px;">
-          <button id="send-backwards" class="btn btn-object-action">Send backwards</button>
-          <button id="send-to-back" class="btn btn-object-action">Send to back</button>
+          <button id="send-backwards" class="btn btn-object-action"
+            rv-on-click="app.sendBackwards">Send backwards</button>
+          <button id="send-to-back" class="btn btn-object-action"
+            rv-on-click="app.sendBackwards">Send to back</button>
         </li>
 
         <li style="margin-top:4px;">
-          <button id="bring-forward" class="btn btn-object-action">Bring forwards</button>
-          <button id="bring-to-front" class="btn btn-object-action">Bring to front</button>
+          <button id="bring-forward" class="btn btn-object-action"
+            rv-on-click="app.bringForward">Bring forwards</button>
+          <button id="bring-to-front" class="btn btn-object-action"
+            rv-on-click="app.bringToFront">Bring to front</button>
         </li>
 
         <li style="margin-top:10px;">
-          <button id="gradientify" class="btn btn-object-action">Gradientify</button>
-          <button id="shadowify" class="btn btn-object-action">Shadowify</button>
-          <button id="patternify" class="btn btn-object-action">Patternify</button>
-          <button id="clip" class="btn btn-object-action">Clip</button>
-        </li>
-
-        <li style="margin-top:10px;">
-          <button id="drawing-mode" class="btn btn-info">Enter drawing mode</button>
-          <div style="display:none;" id="drawing-mode-options">
-            <label for="drawing-mode-selector">Mode:</label>
-            <select id="drawing-mode-selector">
-              <option>Pencil</option>
-              <option>Circle</option>
-              <option>Spray</option>
-              <option>Pattern</option>
-
-              <option>hline</option>
-              <option>vline</option>
-              <option>square</option>
-              <option>diamond</option>
-              <option>texture</option>
-            </select><br>
-            <label for="drawing-line-width">Line width:</label>
-            <input type="range" value="30" min="0" max="150" id="drawing-line-width"><br>
-            <label for="drawing-color">Line color:</label>
-            <input type="color" value="#005E7A" id="drawing-color"><br>
-            <label for="drawing-shadow-width">Line shadow width:</label>
-            <input type="range" value="0" min="0" max="50" id="drawing-shadow-width"><br>
-          </div>
+          <button id="gradientify" class="btn btn-object-action" rv-on-click="app.gradientify">
+            Gradientify
+          </button>
+          <button id="shadowify" class="btn btn-object-action" rv-on-click="app.shadowify">
+            Shadowify
+          </button>
+          <button id="patternify" class="btn btn-object-action" rv-on-click="app.patternify">
+            Patternify
+          </button>
+          <button id="clip" class="btn btn-object-action" rv-on-click="app.clip">
+            Clip
+          </button>
         </li>
       </ul>
+      <div style="margin-top:10px;" id="drawing-mode-wrapper">
+
+        <button id="drawing-mode" class="btn btn-info"
+          rv-toggle="app^freeDrawingMode"
+          rv-text="app^freeDrawingMode | toggle exit_free_drawing enter_free_drawing"></button>
+
+        <div style="display:none;" id="drawing-mode-options" rv-show="app^freeDrawingMode">
+          <label for="drawing-mode-selector">Mode:</label>
+          <select id="drawing-mode-selector" rv-value="app^drawingMode">
+            <option>Pencil</option>
+            <option>Circle</option>
+            <option>Spray</option>
+            <option>Pattern</option>
+
+            <option>hline</option>
+            <option>vline</option>
+            <option>square</option>
+            <option>diamond</option>
+            <option>texture</option>
+          </select>
+          <br>
+          <label for="drawing-line-width">Line width:</label>
+          <input type="range" value="30" min="0" max="150" id="drawing-line-width"
+            rv-value="app^drawingLineWidth">
+          <br>
+          <label for="drawing-color">Line color:</label>
+          <input type="color" value="#005E7A" id="drawing-color"
+            rv-value="app^drawingLineColor">
+          <br>
+          <label for="drawing-shadow-width">Line shadow width:</label>
+          <input type="range" value="0" min="0" max="50" id="drawing-shadow-width"
+            rv-value="app^drawingLineShadowWidth">
+        </div>
+      </div>
     </div>
 
     <div class="tab-pane" id="load-svg-pane">
-<textarea id="svg-console">
-&lt;?xml version="1.0" standalone="no"?>
-&lt;!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
-"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-
-&lt;svg width="100%" height="100%" version="1.1"
-xmlns="http://www.w3.org/2000/svg">
-
-&lt;rect width="300" height="100"
-style="fill:rgb(0,0,255);stroke-width:1;stroke:rgb(0,0,0)"/>
-&lt;/svg>
-</textarea>
-      <button type="button" class="btn btn-info" id="load-svg">Load</button>
-      <button type="button" class="btn" id="load-svg-without-grouping">Load without grouping</button>
+      <textarea id="svg-console" rv-val="app^consoleSVG">
+      </textarea>
+      <button type="button" class="btn btn-info" id="load-svg" rv-on-click="app._loadSVG">
+        Load
+      </button>
+      <button type="button" class="btn" id="load-svg-without-grouping" rv-on-click="app._loadSVGWithoutGrouping">
+        Load without grouping
+      </button>
     </div>
 
       <div class="tab-pane" id="execute-code">
-<textarea id="canvas-console">
-// clear canvas
-canvas.clear();
-
-// remove currently selected object
-canvas.remove(canvas.getActiveObject());
-
-// add red rectangl
-canvas.add(new fabric.Rect({
-  width: 50,
-  height: 50,
-  left: 50,
-  top: 50,
-  fill: 'rgb(255,0,0)'
-}));
-
-// add green, half-transparent circle
-canvas.add(new fabric.Circle({
-  radius: 40,
-  left: 50,
-  top: 50,
-  fill: 'rgb(0,255,0)',
-  opacity: 0.5
-}));
-</textarea>
-        <button type="button" class="btn btn-info" id="execute">Execute</button>
+        <textarea id="canvas-console" rv-val="app^console">
+        </textarea>
+        <button type="button" class="btn btn-info" id="execute" rv-on-click="app.execute">Execute</button>
       </div>
   </div>
 
@@ -401,11 +485,10 @@ canvas.add(new fabric.Circle({
 <script src="../lib/font_definitions.js"></script>
 
 <script>var kitchensink = { }</script>
+
+<script src="../js/kitchensink/data_binding_adapter.js"></script>
+
 <script src="../js/kitchensink/utils.js"></script>
 <script src="../js/kitchensink/model.js"></script>
+<script src="../js/kitchensink/view.js"></script>
 
-<script src="../js/kitchensink/object_controls_view.js"></script>
-<script src="../js/kitchensink/add_commands_view.js"></script>
-<script src="../js/kitchensink/freedrawing_view.js"></script>
-<script src="../js/kitchensink/global_view.js"></script>
-<script src="../js/kitchensink/text_view.js"></script>

@@ -9,17 +9,17 @@ input[type=radio] { margin-top: -3px; }
 
 .svg-shapes { overflow: hidden; width: 450px; margin-left: 0; }
 .svg-shapes li { display: inline-block; margin-bottom: 5px; }
-.object-controls { width: 450px }
 
 .tabs li, .tabs li a { display: inline-block; }
 .btn-lock { margin-bottom: 3px; }
 
+#object-controls { width: 450px }
 #bd-wrapper { overflow: hidden; position: relative; }
 #fps { position: absolute; left: 1px; top: 0; background: rgb(200,200,200); width: 70px; z-index: 1000; }
 #commands { float: left; font-size: 14px; margin-left: 15px; }
 #commands ul { list-style: none; padding-left: 0; }
 #complexity { clear: both; padding-top: 10px; }
-#controls { margin-bottom: 5px; }
+#color-opacity-controls { margin-bottom: 5px; }
 
 #text-controls { display: inline-block; vertical-align: top; margin-left: 10px; border: 1px dotted #ccc; padding: 10px; width: 220px; }
 #text-controls textarea { float: left; margin-right: 10px; }

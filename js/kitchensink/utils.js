@@ -1,5 +1,9 @@
 (function(global) {
 
+  function capitalize(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
   function pad(str, length) {
     while (str.length < length) {
       str = '0' + str;
@@ -48,5 +52,6 @@
   global.getRandomLeftTop = getRandomLeftTop;
   global.supportsSlider = supportsSlider;
   global.supportsColorpicker = supportsColorpicker;
+  global.capitalize = capitalize;
 
 })(this);

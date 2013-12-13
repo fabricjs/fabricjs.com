@@ -1,8 +1,45 @@
 var Kitchensink = Backbone.Model.extend({
 
+  consoleSVGValue: (
+    '<?xml version="1.0" standalone="no"?>' +
+      '<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">' +
+    '<svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg">' +
+      '<rect width="300" height="100" style="fill:rgb(0,0,255);stroke-width:1;stroke:rgb(0,0,0)"/>' +
+    '</svg>'
+  ),
+
+  consoleValue: (
+    '// clear canvas\n' +
+    'canvas.clear();\n\n' +
+    '// remove currently selected object\n' +
+    'canvas.remove(canvas.getActiveObject());\n\n' +
+    '// add red rectangle\n' +
+    'canvas.add(new fabric.Rect({\n' +
+    '  width: 50,\n' +
+    '  height: 50,\n' +
+    '  left: 50,\n' +
+    '  top: 50,\n' +
+    "  fill: 'rgb(255,0,0)'\n" +
+    '}));\n\n' +
+    '// add green, half-transparent circle\n' +
+    'canvas.add(new fabric.Circle({\n' +
+    '  radius: 40,\n' +
+    '  left: 50,\n' +
+    '  top: 50,\n' +
+    "  fill: 'rgb(0,255,0)',\n" +
+    '  opacity: 0.5\n' +
+    '}));\n'
+  ),
+
   initialize: function() {
 
-    _.bindAll(this, 'triggerChange');
+    _.bindAll(this,
+      'triggerChange', 'removeSelected',
+      'clip', 'gradientify', 'shadowify', 'patternify',
+      'sendBackwards', 'sendToBack', 'bringForward', 'bringToFront',
+      'addRect', 'addCircle', 'addLine', 'addTriangle', 'addPolygon', 'addText',
+      'addImage1', 'addImage2', 'addImage3', 'confirmClear',
+      '_loadSVGWithoutGrouping', '_loadSVG', 'execute', 'maybeLoadShape');
 
     this.canvas = new fabric.Canvas('canvas');
 
@@ -17,6 +54,8 @@ var Kitchensink = Backbone.Model.extend({
 
     this.initCustomization();
     this.initChangeEvents();
+
+    this.freeDrawingMode = 'Pencil';
   },
 
   initCustomization: function() {
@@ -48,14 +87,21 @@ var Kitchensink = Backbone.Model.extend({
   getSelected: function() {
     return this.canvas.getActiveObject();
   },
+  setSelected: function() { },
 
-  getStyle: function(object, styleName) {
+  getStyle: function(styleName, object) {
+    object = object || this.canvas.getActiveObject();
+    if (!object) return '';
+
     return (object.getSelectionStyles && object.isEditing)
-      ? object.getSelectionStyles()[styleName]
-      : object[styleName];
+      ? (object.getSelectionStyles()[styleName] || '')
+      : (object[styleName] || '');
   },
 
-  setStyle: function(object, styleName, value) {
+  setStyle: function(styleName, value, object) {
+    object = object || this.canvas.getActiveObject();
+    if (!object) return;
+
     if (object.setSelectionStyles && object.isEditing) {
       var style = { };
       style[styleName] = value;
@@ -65,6 +111,7 @@ var Kitchensink = Backbone.Model.extend({
     else {
       object[styleName] = value;
     }
+
     this.triggerChange();
     this.canvas.renderAll();
   },
@@ -245,9 +292,13 @@ var Kitchensink = Backbone.Model.extend({
     };
   },
 
-  setBackgroundColor: function(value) {
+  getCanvasBgColor: function() {
+    return this.canvas.backgroundColor;
+  },
+  setCanvasBgColor: function(value) {
     this.canvas.backgroundColor = value;
     this.canvas.renderAll();
+    this.triggerChange();
   },
 
   addRect: function() {
@@ -330,6 +381,16 @@ var Kitchensink = Backbone.Model.extend({
     });
   },
 
+  addImage1: function() {
+    this.addImage('pug.jpg', 0.1, 0.25);
+  },
+  addImage2: function() {
+    this.addImage('logo.png', 0.1, 1);
+  },
+  addImage3: function() {
+    this.addImage('printio.png', 0.5, 0.75);
+  },
+
   addShape: function(shapeName) {
     var coord = getRandomLeftTop();
     var _this = this;
@@ -387,74 +448,87 @@ var Kitchensink = Backbone.Model.extend({
     }
   },
 
+  getOpacity: function() {
+    return this.getStyle('opacity') * 100;
+  },
   setOpacity: function(value) {
-    var activeObject = this.canvas.getActiveObject(),
-        activeGroup = this.canvas.getActiveGroup();
-
-    if (activeObject || activeGroup) {
-      this.setStyle(activeObject || activeGroup, 'opacity', value);
-    }
-
-    this.canvas.calcOffset();
+    this.setStyle('opacity', parseInt(value, 10) / 100);
   },
 
+  getFill: function() {
+    return this.getStyle('fill');
+  },
   setFill: function(value) {
-    var activeObject = this.canvas.getActiveObject(),
-        activeGroup = this.canvas.getActiveGroup();
-
-    if (activeObject || activeGroup) {
-      this.setStyle(activeObject || activeGroup, 'fill', value);
-      this.canvas.renderAll();
-    }
-
-    this.canvas.calcOffset();
+    this.setStyle('fill', value);
   },
 
-  toSVG: function() {
-    return 'data:image/svg+xml;utf8,' +
-           encodeURIComponent(this.canvas.toSVG());
-  },
-
-  toJSON: function() {
-    return JSON.stringify(this.canvas);
-  },
-
-  toDataURL: function() {
-    return this.canvas.toDataURL('png');
-  },
-
-  toggleHorizontalLock: function() {
+  getHorizontalLock: function() {
     var activeObject = this.canvas.getActiveObject();
     if (activeObject) {
-      activeObject.lockMovementX = !activeObject.lockMovementX;
+      return activeObject.lockMovementX;
+    }
+  },
+  setHorizontalLock: function(value) {
+    var activeObject = this.canvas.getActiveObject();
+    if (activeObject) {
+      activeObject.lockMovementX = value;
+      this.triggerChange();
     }
   },
 
-  toggleVerticalLock: function() {
+  getVerticalLock: function() {
     var activeObject = this.canvas.getActiveObject();
     if (activeObject) {
-      activeObject.lockMovementY = !activeObject.lockMovementY;
+      return activeObject.lockMovementY;
+    }
+  },
+  setVerticalLock: function(value) {
+    var activeObject = this.canvas.getActiveObject();
+    if (activeObject) {
+      activeObject.lockMovementY = value;
+      this.triggerChange();
     }
   },
 
-  toggleScaleLockX: function() {
+  getScaleLockX: function() {
     var activeObject = this.canvas.getActiveObject();
     if (activeObject) {
-      activeObject.lockScalingX = !activeObject.lockScalingX;
+      return activeObject.lockScalingX;
+    }
+  },
+  setScaleLockX: function(value) {
+    var activeObject = this.canvas.getActiveObject();
+    if (activeObject) {
+      activeObject.lockScalingX = value;
+      this.triggerChange();
     }
   },
 
-  toggleScaleLockY: function() {
+  getScaleLockY: function() {
     var activeObject = this.canvas.getActiveObject();
     if (activeObject) {
-      activeObject.lockScalingY = !activeObject.lockScalingY;
+      return activeObject.lockScalingY;
+    }
+  },
+  setScaleLockY: function(value) {
+    var activeObject = this.canvas.getActiveObject();
+    if (activeObject) {
+      activeObject.lockScalingY = value;
+      this.triggerChange();
     }
   },
 
-  toggleRotationLock: function() {
+  getRotationLock: function() {
     var activeObject = this.canvas.getActiveObject();
     if (activeObject) {
-      activeObject.lockRotation = !activeObject.lockRotation;
+      return activeObject.lockRotation;
+    }
+  },
+  setRotationLock: function(value) {
+    var activeObject = this.canvas.getActiveObject();
+    if (activeObject) {
+      activeObject.lockRotation = value;
+      this.triggerChange();
     }
   },
 
@@ -529,19 +603,33 @@ var Kitchensink = Backbone.Model.extend({
     this.canvas.renderAll();
   },
 
+  getOriginX: function() {
+    var activeObject = this.canvas.getActiveObject();
+    if (activeObject) {
+      return activeObject.get('originX');
+    }
+  },
   setOriginX: function(value) {
     var activeObject = this.canvas.getActiveObject();
     if (activeObject) {
       activeObject.set('originX', value).setCoords();
       this.canvas.renderAll();
+      this.triggerChange();
     }
   },
 
+  getOriginY: function() {
+    var activeObject = this.canvas.getActiveObject();
+    if (activeObject) {
+      return activeObject.get('originY');
+    }
+  },
   setOriginY: function(value) {
     var activeObject = this.canvas.getActiveObject();
     if (activeObject) {
       activeObject.set('originY', value).setCoords();
       this.canvas.renderAll();
+      this.triggerChange();
     }
   },
 
@@ -562,90 +650,76 @@ var Kitchensink = Backbone.Model.extend({
     });
   },
 
-  changeLineHeight: function(value) {
-    var activeObject = this.canvas.getActiveObject();
-    if (activeObject && /text/.test(activeObject.type)) {
-      activeObject.setLineHeight(value);
-      this.canvas.renderAll();
-    }
+  getLineHeight: function() {
+    return this.getStyle('lineHeight');
+  },
+  setLineHeight: function(value) {
+    this.setStyle('lineHeight', value);
   },
 
-  toggleUnderline: function() {
-    var activeObject = this.canvas.getActiveObject();
-    if (activeObject && /text/.test(activeObject.type)) {
-
-      var isUnderline = (this.getStyle(activeObject, 'textDecoration') || '').indexOf('underline') > -1;
-      this.setStyle(activeObject, 'textDecoration', isUnderline ? '' : 'underline');
-
-      this.canvas.renderAll();
-    }
+  getUnderline: function() {
+    return this.getStyle('textDecoration');
+  },
+  setUnderline: function(value) {
+    this.setStyle('textDecoration', value ? 'underline' : '');
   },
 
-  toggleLineThrough: function() {
-    var activeObject = this.canvas.getActiveObject();
-    if (activeObject && /text/.test(activeObject.type)) {
-
-      var isLinethrough = (this.getStyle(activeObject, 'textDecoration') || '').indexOf('line-through') > -1;
-      this.setStyle(activeObject, 'textDecoration', isLinethrough ? '' : 'line-through');
-
-      this.canvas.renderAll();
-    }
+  getLineThrough: function() {
+    return this.getStyle('textDecoration');
+  },
+  setLineThrough: function(value) {
+    this.setStyle('textDecoration', value ? 'line-through' : '');
   },
 
-  toggleOverline: function() {
-    var activeObject = this.canvas.getActiveObject();
-    if (activeObject && /text/.test(activeObject.type)) {
-
-      var isOverline = (this.getStyle(activeObject, 'textDecoration') || '').indexOf('overline') > -1;
-      this.setStyle(activeObject, 'textDecoration', isOverline ? '' : 'overline');
-
-      this.canvas.renderAll();
-    }
+  getOverline: function() {
+    return this.getStyle('textDecoration');
+  },
+  setOverline: function(value) {
+    this.setStyle('textDecoration', value ? 'overline' : '');
   },
 
-  toggleBold: function() {
-    var activeObject = this.canvas.getActiveObject();
-    if (activeObject && /text/.test(activeObject.type)) {
-
-      var isBold = this.getStyle(activeObject, 'fontWeight') === 'bold';
-      this.setStyle(activeObject, 'fontWeight', isBold ? '' : 'bold');
-
-      this.canvas.renderAll();
-    }
+  getBold: function() {
+    return this.getStyle('fontWeight');
+  },
+  setBold: function(value) {
+    this.setStyle('fontWeight', value ? 'bold' : '');
   },
 
-  toggleItalic: function() {
-    var activeObject = this.canvas.getActiveObject();
-    if (activeObject && /text/.test(activeObject.type)) {
-
-      var isItalic = this.getStyle(activeObject, 'fontStyle') === 'italic';
-      this.setStyle(activeObject, 'fontStyle', isItalic ? '' : 'italic');
-
-      this.canvas.renderAll();
-    }
+  getItalic: function() {
+    return this.getStyle('fontStyle');
+  },
+  setItalic: function(value) {
+    this.setStyle('fontStyle', value ? 'italic' : '');
   },
 
-  switchTextAlign: function(value) {
-    var activeObject = this.canvas.getActiveObject();
-    if (activeObject && /text/.test(activeObject.type)) {
-      value = value.toLowerCase();
-      activeObject.textAlign = value;
+  getTextAlign: function() {
+    return capitalize(this.getStyle('textAlign'));
+  },
+  setTextAlign: function(value) {
+    this.setStyle('textAlign', value.toLowerCase());
+  },
 
-      this.canvas._adjustPosition &&
-      this.canvas._adjustPosition(activeObject, value === 'justify' ? 'left' : value);
+  getFontFamily: function() {
+    return this.getStyle('fontFamily').toLowerCase();
+  },
+  setFontFamily: function(value) {
+    this.setStyle('fontFamily', value.toLowerCase());
+  },
 
-      this.canvas.renderAll();
-    }
+  getFontSize: function() {
+    return this.getStyle('fontSize');
+  },
+  setFontSize: function(value) {
+    this.setStyle('fontSize', value);
   },
 
   getText: function() {
     var activeObject = this.canvas.getActiveObject();
-    if (activeObject && /text/.test(activeObject.type)) {
+    if (activeObject) {
       return activeObject.text;
     }
   },
-
-  updateText: function(value) {
+  setText: function(value) {
     var activeObject = this.canvas.getActiveObject();
     if (!activeObject) return;
 
@@ -658,52 +732,32 @@ var Kitchensink = Backbone.Model.extend({
     this.canvas.renderAll();
   },
 
-  setFontFamily: function(value) {
-    var activeObject = this.canvas.getActiveObject();
-    if (activeObject && /text/.test(activeObject.type)) {
-      this.setStyle(activeObject, 'fontFamily', value.toLowerCase());
-      this.canvas.renderAll();
-    }
+  getBgColor: function() {
+    return this.getStyle('backgroundColor');
+  },
+  setBgColor: function(value) {
+    this.setStyle('backgroundColor', value);
   },
 
-  setObjectBackgroundColor: function(value) {
-    var activeObject = this.canvas.getActiveObject();
-    if (activeObject && /text/.test(activeObject.type)) {
-      activeObject.backgroundColor = value;
-      this.canvas.renderAll();
-    }
+  getTextBgColor: function() {
+    return this.getStyle('textBackgroundColor');
+  },
+  setTextBgColor: function(value) {
+    this.setStyle('textBackgroundColor', value);
   },
 
-  setTextBackgroundColor: function(value) {
-    var activeObject = this.canvas.getActiveObject();
-    if (activeObject && /text/.test(activeObject.type)) {
-      this.setStyle(activeObject, 'textBackgroundColor', value);
-      this.canvas.renderAll();
-    }
+  getStrokeColor: function() {
+    return this.getStyle('stroke');
   },
-
-  setFontSize: function(value) {
-    var activeObject = this.canvas.getActiveObject();
-    if (activeObject && /text/.test(activeObject.type)) {
-      this.setStyle(activeObject, 'fontSize', value);
-      this.canvas.renderAll();
-    }
-  },
-
   setStrokeColor: function(value) {
-    var activeObject = this.canvas.getActiveObject();
-    if (activeObject && /text/.test(activeObject.type)) {
-      this.setStyle(activeObject, 'stroke', value);
-      this.canvas.renderAll();
-    }
+    this.setStyle('stroke', value);
   },
 
+  getStrokeWidth: function() {
+    return this.getStyle('strokeWidth');
+  },
   setStrokeWidth: function(value) {
-    var activeObject = this.canvas.getActiveObject();
-    if (activeObject && /text/.test(activeObject.type)) {
-      this.setStyle(activeObject, 'strokeWidth', value);
-      this.canvas.renderAll();
-    }
+    this.setStyle('strokeWidth', parseInt(value, 10));
   },
 
   sendBackwards: function() {
@@ -734,16 +788,20 @@ var Kitchensink = Backbone.Model.extend({
     }
   },
 
-  toggleFreeDrawingMode: function() {
-    this.canvas.isDrawingMode = !this.canvas.isDrawingMode;
+  getFreeDrawingMode: function() {
+    return this.canvas.isDrawingMode;
+  },
+  setFreeDrawingMode: function(value) {
+    this.canvas.isDrawingMode = !!value;
     this.triggerChange();
   },
 
-  isDrawingMode: function() {
-    return this.canvas.isDrawingMode;
+  getDrawingMode: function() {
+    return this.freeDrawingMode;
   },
+  setDrawingMode: function(type) {
+    this.freeDrawingMode = type;
 
-  setFreeDrawingBrush: function(type, color, width, shadowBlur) {
     if (type === 'hline') {
       this.canvas.freeDrawingBrush = this.vLinePatternBrush;
     }
@@ -763,19 +821,119 @@ var Kitchensink = Backbone.Model.extend({
       this.canvas.freeDrawingBrush = new fabric[type + 'Brush'](this.canvas);
     }
 
+    this.triggerChange();
+  },
+
+  getDrawingLineWidth: function() {
     if (this.canvas.freeDrawingBrush) {
-      this.canvas.freeDrawingBrush.color = color;
-      this.canvas.freeDrawingBrush.width = width || 1;
-      this.canvas.freeDrawingBrush.shadowBlur = shadowBlur || 0;
+      return this.canvas.freeDrawingBrush.width
+    }
+  },
+  setDrawingLineWidth: function(value) {
+    if (this.canvas.freeDrawingBrush) {
+      this.canvas.freeDrawingBrush.width = value || 1;
     }
   },
 
-  complexity: function() {
+  getDrawingLineColor: function() {
+    if (this.canvas.freeDrawingBrush) {
+      return this.canvas.freeDrawingBrush.color;
+    }
+  },
+  setDrawingLineColor: function(value) {
+    if (this.canvas.freeDrawingBrush) {
+      this.canvas.freeDrawingBrush.color = value;
+    }
+  },
+
+  getDrawingLineShadowWidth: function() {
+    if (this.canvas.freeDrawingBrush) {
+      this.canvas.freeDrawingBrush.shadowBlur;
+    }
+  },
+  setDrawingLineShadowWidth: function(value) {
+    if (this.canvas.freeDrawingBrush) {
+      this.canvas.freeDrawingBrush.shadowBlur = value || 1;
+    }
+  },
+
+  getComplexity: function() {
     return this.canvas.complexity();
   },
 
   clear: function() {
     this.canvas.clear();
+  },
+  confirmClear: function() {
+    if (confirm('Are you sure?')) {
+      this.clear();
+    }
+  },
+
+  toDataURL: function() {
+    return this.canvas.toDataURL('png');
+  },
+
+  rasterize: function() {
+    if (!fabric.Canvas.supports('toDataURL')) {
+      alert('This browser doesn\'t provide means to serialize canvas to an image');
+    }
+    else {
+      window.open(this.toDataURL());
+    }
+  },
+  rasterizeSVG: function() {
+    window.open(this.toSVG());
+  },
+  rasterizeJSON: function() {
+    alert(this.toJSON());
+  },
+
+  toSVG: function() {
+    return 'data:image/svg+xml;utf8,' +
+           encodeURIComponent(this.canvas.toSVG());
+  },
+
+  toJSON: function() {
+    return JSON.stringify(this.canvas);
+  },
+
+  getConsoleSVG: function() {
+    return this.consoleSVGValue;
+  },
+  setConsoleSVG: function(value) {
+    this.consoleSVGValue = value;
+  },
+
+  getConsole: function() {
+    return this.consoleValue;
+  },
+  setConsole: function(value) {
+    this.consoleValue = value;
+  },
+
+  _loadSVGWithoutGrouping: function() {
+    this.loadSVGWithoutGrouping(this.consoleSVGValue);
+  },
+  _loadSVG: function() {
+    this.loadSVG(this.consoleSVGValue);
+  },
+
+  execute: function() {
+    if (!(/^\s+$/).test(this.consoleValue)) {
+      var canvas = this.canvas;
+      eval(this.consoleValue);
+    }
+  },
+
+  maybeLoadShape: function(e) {
+    var $el = $(e.target).closest('button.shape');
+    if (!$el[0]) return;
+
+    var id = $el.prop('id'), match;
+    if (match = /\d+$/.exec(id)) {
+      this.addShape(match[0]);
+    }
   }
 });
 

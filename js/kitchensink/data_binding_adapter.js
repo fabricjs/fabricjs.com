@@ -36,7 +36,7 @@ rivets.binders.toggle = {
 
 rivets.binders.enable = function(el, value) {
   $(el).find('.btn-object-action')
-    .prop('disabled', value ? false : true);
+    .prop('disabled', !value);
 };
 
 rivets.binders.val = {

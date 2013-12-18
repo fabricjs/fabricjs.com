@@ -129,7 +129,7 @@ title: Kitchensink
   <ul class="nav nav-tabs">
     <li><a href="#simple-shapes" data-toggle="tab">Simple</a></li>
     <li><a href="#svg-shapes" data-toggle="tab">SVG</a></li>
-    <li class="active"><a href="#object-controls" data-toggle="tab">Controls</a></li>
+    <li class="active"><a href="#object-controls-pane" data-toggle="tab">Controls</a></li>
     <li><a href="#load-svg-pane" data-toggle="tab">Load SVG</a></li>
     <li><a href="#execute-code" data-toggle="tab">Execute</a></li>
   </ul>
@@ -308,9 +308,9 @@ title: Kitchensink
       </p>
     </div>
 
-    <div class="tab-pane active" id="object-controls">
-      <ul class="object-controls" rv-enable="app^selected">
-        <li>
+    <div class="tab-pane active" id="object-controls-pane">
+      <div id="global-controls">
+        <p>
           Rasterize canvas to
           <button class="btn btn-success" id="rasterize" rv-on-click="app.rasterize">
             Image
@@ -321,19 +321,22 @@ title: Kitchensink
           <button class="btn btn-success" id="rasterize-json" rv-on-click="app.rasterizeJSON">
             JSON
           </button>
-        </li>
-        <li>
+        </p>
+        <p>
           <button class="btn btn-danger clear" rv-on-click="app.confirmClear">Clear canvas</button>
-        </li>
+        </p>
+      </div>
 
-        <li style="margin-top:10px;">
-          <button class="btn btn-object-action" id="remove-selected"
-            rv-on-click="app.removeSelected">
-            Remove selected object/group
-          </button>
-        </li>
+      <div class="object-controls" rv-enable="app^selected">
 
-        <li style="margin-top:10px;">
+        <div style="margin-top:10px;">
+          <p>
+            <button class="btn btn-object-action" id="remove-selected"
+              rv-on-click="app.removeSelected">
+              Remove selected object/group
+            </button>
+          </p>
+
           <button class="btn btn-lock btn-object-action" id="lock-horizontally"
             rv-toggle="app^horizontalLock"
             rv-text="app^horizontalLock | toggle unlock_horizontal_movement lock_horizontal_movement">
@@ -359,9 +362,9 @@ title: Kitchensink
             rv-text="app^rotationLock | toggle unlock_rotation lock_rotation">
             Lock rotation
           </button>
-        </li>
+        </div>
 
-        <li style="margin-top:10px">
+        <div style="margin-top:10px">
           <p>
             <span style="margin-right: 10px">Origin X: </span>
             <label>
@@ -392,23 +395,23 @@ title: Kitchensink
               <input type="radio" name="origin-y" class="origin-y btn-object-action" value="bottom" rv-checked="app^originY">
             </label>
           </p>
-        </li>
+        </div>
 
-        <li style="margin-top:10px;">
+        <div style="margin-top:10px;">
           <button id="send-backwards" class="btn btn-object-action"
             rv-on-click="app.sendBackwards">Send backwards</button>
           <button id="send-to-back" class="btn btn-object-action"
             rv-on-click="app.sendBackwards">Send to back</button>
-        </li>
+        </div>
 
-        <li style="margin-top:4px;">
+        <div style="margin-top:4px;">
           <button id="bring-forward" class="btn btn-object-action"
             rv-on-click="app.bringForward">Bring forwards</button>
           <button id="bring-to-front" class="btn btn-object-action"
             rv-on-click="app.bringToFront">Bring to front</button>
-        </li>
+        </div>
 
-        <li style="margin-top:10px;">
+        <div style="margin-top:10px;">
           <button id="gradientify" class="btn btn-object-action" rv-on-click="app.gradientify">
             Gradientify
           </button>
@@ -421,8 +424,8 @@ title: Kitchensink
           <button id="clip" class="btn btn-object-action" rv-on-click="app.clip">
             Clip
           </button>
-        </li>
-      </ul>
+        </div>
+      </div>
       <div style="margin-top:10px;" id="drawing-mode-wrapper">
 
         <button id="drawing-mode" class="btn btn-info"
@@ -462,10 +465,10 @@ title: Kitchensink
     <div class="tab-pane" id="load-svg-pane">
       <textarea id="svg-console" rv-val="app^consoleSVG">
       </textarea>
-      <button type="button" class="btn btn-info" id="load-svg" rv-on-click="app._loadSVG">
+      <button type="button" class="btn btn-info" id="load-svg" rv-on-click="app.loadSVG">
         Load
       </button>
-      <button type="button" class="btn" id="load-svg-without-grouping" rv-on-click="app._loadSVGWithoutGrouping">
+      <button type="button" class="btn" id="load-svg-without-grouping" rv-on-click="app.loadSVGWithoutGrouping">
         Load without grouping
       </button>
     </div>
@@ -486,9 +489,16 @@ title: Kitchensink
 
 <script>var kitchensink = { }</script>
 
-<script src="../js/kitchensink/data_binding_adapter.js"></script>
-
 <script src="../js/kitchensink/utils.js"></script>
-<script src="../js/kitchensink/model.js"></script>
-<script src="../js/kitchensink/view.js"></script>
+<script src="../js/kitchensink/data_binding_adapter.js"></script>
+<script src="../js/kitchensink/canvas_controller.js"></script>
 
+<script>
+  var canvas = new fabric.Canvas('canvas');
+</script>
+
+<script src="../js/kitchensink/global_controls.js"></script>
+<script src="../js/kitchensink/object_controls.js"></script>
+<script src="../js/kitchensink/freedrawing_controls.js"></script>
+<script src="../js/kitchensink/add_controls.js"></script>
+<script src="../js/kitchensink/text_controls.js"></script>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="kitchensink">
   <head>
     <meta charset="utf-8">
 
@@ -18,11 +18,13 @@
     <script src="../lib/prism.js"></script>
     <script src="../lib/fabric.js"></script>
     <script src="../js/master.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js"></script>
   </head>
   <body>
     {% include header.html %}
 
-    <div id="bd-wrapper">
+    <div id="bd-wrapper" ng-controller="CanvasControls">
       <h2><span>Fabric.js demos</span> &middot; {{ page.title }}</h2>
 
       {{ content }}

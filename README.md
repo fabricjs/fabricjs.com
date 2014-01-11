@@ -75,3 +75,5 @@ Here's a hierarchy of Fabric's **object model**, to make it easier:
     - [fabric.CircleBrush](/docs/fabric.CircleBrush.html)
     - [fabric.SprayBrush](/docs/fabric.SprayBrush.html)
     - [fabric.PatternBrush](/docs/fabric.PatternBrush.html)
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/kangax/fabricjs.com/trend.png)](https://bitdeli.com/free "Bitdeli Badge")

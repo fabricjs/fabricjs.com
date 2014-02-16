@@ -47,25 +47,25 @@ title: Standalone Controls
 
   var angleControl = $('angle-control');
   angleControl.onchange = function() {
-    rect.setAngle(this.value).setCoords();
+    rect.setAngle(parseInt(this.value, 10)).setCoords();
     canvas.renderAll();
   };
 
   var scaleControl = $('scale-control');
   scaleControl.onchange = function() {
-    rect.scale(this.value).setCoords();
+    rect.scale(parseFloat(this.value)).setCoords();
     canvas.renderAll();
   };
 
   var topControl = $('top-control');
   topControl.onchange = function() {
-    rect.setTop(this.value).setCoords();
+    rect.setTop(parseInt(this.value, 10)).setCoords();
     canvas.renderAll();
   };
 
   var leftControl = $('left-control');
   leftControl.onchange = function() {
-    rect.setLeft(this.value).setCoords();
+    rect.setLeft(parseInt(this.value, 10)).setCoords();
     canvas.renderAll();
   };
 

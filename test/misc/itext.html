@@ -129,7 +129,7 @@ title: IText tests
 
       linkEl.onclick = (function(container) {
         return function() {
-          window.open('data:image/svg+xml;utf-8,' +
+          window.open('data:image/svg+xml;charset=utf-8,' +
             encodeURIComponent(container.canvas.toSVG()));
 
           return false;

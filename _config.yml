@@ -1,5 +1,4 @@
-markdown: rdiscount
-pygments: true
-permalink: ./:title
-exclude: [build/files]
-url: http://fabricjs.com
+markdown:   rdiscount
+pygments:   true
+permalink:  ./:title
+url:        http://fabricjs.com

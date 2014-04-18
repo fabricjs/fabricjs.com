@@ -15,8 +15,8 @@ title: SVG Rendering
 
       var canvasEl = document.getElementById('c' + (id + '').replace('/', '_'));
 
-      canvasEl.width = shape.width || 600;
-      canvasEl.height = shape.height || 600;
+      canvasEl.width = shape.getWidth() || 600;
+      canvasEl.height = shape.getHeight() || 600;
 
       var iframeEl = canvasEl.parentNode.nextSibling.childNodes[1];
       if (iframeEl) {
@@ -45,7 +45,7 @@ title: SVG Rendering
     149 /* too big? */,
     150 /* svg parse error */
   ];
-  for (var i = 1; i <= 155; i++) {
+  for (var i = 1; i <= 161; i++) {
     if (blacklist.indexOf(i) === -1) {
       document.write(
         '<div class="test"><div class="block left"><p>Canvas #' + i + '</p>' +

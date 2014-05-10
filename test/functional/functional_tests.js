@@ -140,7 +140,7 @@ window.onload = function() {
           imgElement.parentNode.insertBefore(canvasElement, imgElement.nextSibling);
 
           var oCanvas = window.__canvas = new fabric.Canvas(canvasElement);
-          oCanvas.add.apply(oCanvas, objects)
+          oCanvas.add.apply(oCanvas, objects);
         });
 
         benchmarks.push(new Date() - startTime);

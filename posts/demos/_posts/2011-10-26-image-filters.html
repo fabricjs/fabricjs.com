@@ -66,6 +66,10 @@ title: Image Filters
     <label>Color: <input type="color" id="tint-color" value=""></label><br>
     <label>Opacity: <input type="range" id="tint-opacity" min="0" max="1" value="1" step="0.1"></label><br>
   </p>
+  <p>
+    <label><span>Multiply:</span> <input type="checkbox" id="multiply" disabled></label><br>
+    <label>Color: <input type="color" id="multiply-color" value=""></label><br>
+  </p>
 </div>
 
 <script id="main">(function() {
@@ -106,7 +110,7 @@ title: Image Filters
 
       var filters = ['grayscale', 'invert', 'remove-white', 'sepia', 'sepia2',
                       'brightness', 'noise', 'gradient-transparency', 'pixelate',
-                      'blur', 'sharpen', 'emboss', 'tint'];
+                      'blur', 'sharpen', 'emboss', 'tint', 'multiply'];
 
       for (var i = 0; i < filters.length; i++) {
         $(filters[i]).checked = !!canvas.getActiveObject().filters[i];
@@ -212,6 +216,14 @@ title: Image Filters
   };
   $('tint-opacity').onchange = function() {
     applyFilterValue(12, 'opacity', parseFloat(this.value));
+  };
+  $('multiply').onclick = function() {
+    applyFilter(13, this.checked && new f.Multiply({
+      color: document.getElementById('multiply-color').value
+    }));
+  };
+  $('multiply-color').onchange = function() {
+    applyFilterValue(13, 'color', this.value);
   };
 })();
 </script>

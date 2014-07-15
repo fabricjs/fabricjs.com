@@ -25,7 +25,9 @@ title: Introduction to Fabric.js. Part 3.
 
 <pre>
 var text = new fabric.Text('hello world', {
-  fontSize: 30
+  fontSize: 30,
+  originX: 'center',
+  originY: 'center'
 });
 
 var circle = new fabric.Circle({
@@ -43,7 +45,7 @@ var group = new fabric.Group([ text, circle ], {
 canvas.add(group);
 </pre>
 
-<p>First, we created a "hello world" text object. Then, circle with 100px radius, filled with "#eef" color and squeezed vertically (scaleY=0.5). We then created a <code>fabric.Group</code> instance, passing it array with these two objects, and giving it position of 150/100 and a -10 angle. Finally, the group was added to canvas as any other object would be (with <code>canvas.add()</code>).</p>
+<p>First, we created a "hello world" text object. Setting <code>originX</code> and <code>originY</code> to <code>'center'</code> will cause it to be centered within the group; by default group members are oriented relative to the top-left corner of the group. Then, circle with 100px radius, filled with "#eef" color and squeezed vertically (scaleY=0.5). We then created a <code>fabric.Group</code> instance, passing it array with these two objects, and giving it position of 150/100 and a -10 angle. Finally, the group was added to canvas as any other object would be (with <code>canvas.add()</code>).</p>
 
 <p>And voila! You see an object on canvas, that looks like a labeled ellipse. Notice how in order to modify that object, we simply changed properties of a group, giving it custom left, top and angle values. You can now work with this object as a single entity.</p>
 

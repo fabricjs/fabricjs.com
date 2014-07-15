@@ -25,13 +25,17 @@ title: Introduction to Fabric.js. Part 3.
 
 <pre>
 var text = new fabric.Text('hello world', {
-  fontSize: 30
+  fontSize: 30,
+  originX: 'center',
+  originY: 'center'
 });
 
 var circle = new fabric.Circle({
   radius: 100,
   fill: '#eef',
-  scaleY: 0.5
+  scaleY: 0.5,
+  originX: 'center',
+  originY: 'center'
 });
 
 var group = new fabric.Group([ text, circle ], {
@@ -43,7 +47,7 @@ var group = new fabric.Group([ text, circle ], {
 canvas.add(group);
 </pre>
 
-<p>First, we created a "hello world" text object. Then, circle with 100px radius, filled with "#eef" color and squeezed vertically (scaleY=0.5). We then created a <code>fabric.Group</code> instance, passing it array with these two objects, and giving it position of 150/100 and a -10 angle. Finally, the group was added to canvas as any other object would be (with <code>canvas.add()</code>).</p>
+<p>First, we created a "hello world" text object. Setting <code>originX</code> and <code>originY</code> to <code>'center'</code> will cause it to be centered within the group; by default group members are oriented relative to the top-left corner of the group. Then, circle with 100px radius, filled with "#eef" color and squeezed vertically (scaleY=0.5). We then created a <code>fabric.Group</code> instance, passing it array with these two objects, and giving it position of 150/100 and a -10 angle. Finally, the group was added to canvas as any other object would be (with <code>canvas.add()</code>).</p>
 
 <p>And voila! You see an object on canvas, that looks like a labeled ellipse. Notice how in order to modify that object, we simply changed properties of a group, giving it custom left, top and angle values. You can now work with this object as a single entity.</p>
 
@@ -118,11 +122,13 @@ fabric.Image.fromURL('/assets/pug.jpg', function(img) {
 
 <p>You can add/remove objects from group in 2 ways — with update of group dimensions/position and without.</p>
 
-<p>To add rectangle at the center of a group (left=0, top=0):</p>
+<p>To add rectangle at the center of a group:</p>
 
 <pre>
 group.add(new fabric.Rect({
   ...
+  originX: 'center',
+  originY: 'center'
 }));
 </pre>
 
@@ -132,7 +138,9 @@ group.add(new fabric.Rect({
 group.add(new fabric.Rect({
   ...
   left: 100,
-  top: 100
+  top: 100,
+  originX: 'center',
+  originY: 'center'
 }));
 </pre>
 
@@ -142,7 +150,9 @@ group.add(new fabric.Rect({
 group.addWithUpdate(new fabric.Rect({
   ...
   left: group.getLeft(),
-  top: group.getTop()
+  top: group.getTop(),
+  originX: 'center',
+  originY: 'center'
 }));
 </pre>
 
@@ -152,7 +162,9 @@ group.addWithUpdate(new fabric.Rect({
 group.addWithUpdate(new fabric.Rect({
   ...
   left: group.getLeft() + 100,
-  top: group.getTop() + 100
+  top: group.getTop() + 100,
+  originX: 'center',
+  originY: 'center'
 }));
 </pre>
 

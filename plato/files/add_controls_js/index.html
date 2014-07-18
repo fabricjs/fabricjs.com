@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/bootstrap-3.0.0-wip.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/font-awesome-ie7.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet">
+  <link href="../../assets/css/plato.css" rel="stylesheet">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="brand" href="http://github.com/jsoverson/plato">Plato on Github</a>
+    <ul class="nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>add_controls.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="span6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"></i></a></h2>
+      <p class="stat">69.66</p>
+    </div>
+    <div class="span6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC"></i></h2>
+      <p class="stat">157</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="span6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="span6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="span6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty"></i></a></h2>
+      <p class="stat">18.49</p>
+    </div>
+    <div class="span6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs"></i></a></h2>
+      <p class="stat">1.46</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="span6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="span6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="span12">new (CanvasController.extend({
+
+  initialize: function() {
+    CanvasController.prototype.initialize.call(this, canvas);
+
+    _.bindAll(this,
+      'addRect', 'addCircle', 'addLine', 'addTriangle', 'addPolygon', 'addText',
+      'addImage1', 'addImage2', 'addImage3', 'maybeLoadShape');
+
+    rivets.bind($('#simple-shapes'), {
+      app: this
+    });
+    rivets.bind($('#svg-shapes'), {
+      app: this
+    });
+  },
+
+  addRect: function() {
+    var coord = getRandomLeftTop();
+
+    this.canvas.add(new fabric.Rect({
+      left: coord.left,
+      top: coord.top,
+      fill: '#' + getRandomColor(),
+      width: 50,
+      height: 50,
+      opacity: 0.8
+    }));
+  },
+
+  addCircle: function() {
+    var coord = getRandomLeftTop();
+
+    this.canvas.add(new fabric.Circle({
+      left: coord.left,
+      top: coord.top,
+      fill: '#' + getRandomColor(),
+      radius: 50,
+      opacity: 0.8
+    }));
+  },
+
+  addTriangle: function() {
+    var coord = getRandomLeftTop();
+
+    this.canvas.add(new fabric.Triangle({
+      left: coord.left,
+      top: coord.top,
+      fill: '#' + getRandomColor(),
+      width: 50,
+      height: 50,
+      opacity: 0.8
+    }));
+  },
+
+  addLine: function() {
+    var coord = getRandomLeftTop();
+
+    this.canvas.add(new fabric.Line([ 50, 100, 200, 200], {
+      left: coord.left,
+      top: coord.top,
+      stroke: '#' + getRandomColor()
+    }));
+  },
+
+  addPolygon: function() {
+    var coord = getRandomLeftTop();
+
+    this.canvas.add(new fabric.Polygon([
+      {x: 185, y: 0},
+      {x: 250, y: 100},
+      {x: 385, y: 170},
+      {x: 0, y: 245} ], {
+        left: coord.left,
+        top: coord.top,
+        fill: '#' + getRandomColor()
+      }));
+  },
+
+  addImage: function(imageName, minScale, maxScale) {
+    var coord = getRandomLeftTop();
+    var _this = this;
+
+    fabric.Image.fromURL('../assets/' + imageName, function(image) {
+
+      image.set({
+        left: coord.left,
+        top: coord.top,
+        angle: getRandomInt(-10, 10)
+      })
+      .scale(getRandomNum(minScale, maxScale))
+      .setCoords();
+
+      _this.canvas.add(image);
+    });
+  },
+
+  addImage1: function() {
+    this.addImage('pug.jpg', 0.1, 0.25);
+  },
+  addImage2: function() {
+    this.addImage('logo.png', 0.1, 1);
+  },
+  addImage3: function() {
+    this.addImage('printio.png', 0.5, 0.75);
+  },
+
+  addShape: function(shapeName) {
+    var coord = getRandomLeftTop();
+    var _this = this;
+
+    fabric.loadSVGFromURL('../assets/' + shapeName + '.svg', function(objects, options) {
+
+      var loadedObject = fabric.util.groupSVGElements(objects, options);
+
+      loadedObject.set({
+        left: coord.left,
+        top: coord.top,
+        angle: getRandomInt(-10, 10)
+      })
+      .setCoords();
+
+      _this.canvas.add(loadedObject);
+    });
+  },
+
+  addText: function() {
+    var text = 'Lorem ipsum dolor sit amet,\nconsectetur adipisicing elit,\nsed do eiusmod tempor incididunt\nut labore et dolore magna aliqua.\n' +
+      'Ut enim ad minim veniam,\nquis nostrud exercitation ullamco\nlaboris nisi ut aliquip ex ea commodo consequat.';
+
+    var textSample = new fabric.Text(text.slice(0, getRandomInt(0, text.length)), {
+      left: getRandomInt(350, 400),
+      top: getRandomInt(350, 400),
+      fontFamily: 'helvetica',
+      angle: getRandomInt(-10, 10),
+      fill: '#' + getRandomColor(),
+      scaleX: 0.5,
+      scaleY: 0.5,
+      fontWeight: '',
+      originX: 'left',
+      hasRotatingPoint: true,
+      centerTransform: true
+    });
+
+    this.canvas.add(textSample);
+  },
+
+  maybeLoadShape: function(e) {
+    var $el = $(e.target).closest('button.shape');
+    if (!$el[0]) return;
+
+    var id = $el.prop('id'), match;
+    if (match = /\d+$/.exec(id)) {
+      this.addShape(match[0]);
+    }
+  }
+}))();</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>

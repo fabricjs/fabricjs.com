@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: Pixelate</title>
+    <title>JSDoc: Class: Multiply</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -75,7 +75,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Class: Pixelate</h1>
+    <h1 class="page-title">Class: Multiply</h1>
 
     
 
@@ -87,7 +87,7 @@
     <h2>
         <span class="ancestors"><a href="fabric.html">fabric</a><a href="fabric.Image.html">.Image</a><a href="fabric.Image.filters.html">.filters</a>.</span>
     
-    Pixelate
+    Multiply
     </h2>
     
 </header>  
@@ -99,9 +99,9 @@
     
         
 <dt>
-    <h4 class="name" id="Pixelate">
-        <span class="type-signature"></span>new Pixelate<span class="signature">()</span><span class="type-signature"></span>
-        <a href="#Pixelate" class="anchor">§</a>
+    <h4 class="name" id="Multiply">
+        <span class="type-signature"></span>new Multiply<span class="signature">()</span><span class="type-signature"></span>
+        <a href="#Multiply" class="anchor">§</a>
     </h4>
 
     
@@ -110,7 +110,8 @@
 
     
     <div class="description">
-        Pixelate filter class
+        Multiply filter class
+Adapted from <a href="http://www.laurenscorijn.com/articles/colormath-basics">http://www.laurenscorijn.com/articles/colormath-basics</a>
     </div>
     
 
@@ -143,21 +144,12 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17556">line 17556</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line18007">line 18007</a>
     </li></ul></dd>
     
     
     
     
-    
-    <dt class="tag-see">See:</dt>
-    <dd class="tag-see">
-        <ul>
-            <li><a href="fabric.Image.filters.Pixelate.html#initialize">fabric.Image.filters.Pixelate#initialize</a> for constructor definition</li>
-        
-            <li><a href="http://fabricjs.com/image-filters/">ImageFilters demo</a></li>
-        </ul>
-    </dd>
     
     
     
@@ -175,10 +167,20 @@
     
 
     
-        <h5>Example</h5>
+        <h5>Examples</h5>
         
-    <pre class="prettyprint"><code>var filter = new fabric.Image.filters.Pixelate({
-  blocksize: 8
+        <p class="code-caption">Multiply filter with hex color</p>
+    
+    <pre class="prettyprint"><code>var filter = new fabric.Image.filters.Multiply({
+  color: '#F0F'
+});
+object.filters.push(filter);
+object.applyFilters(canvas.renderAll.bind(canvas));</code></pre>
+
+        <p class="code-caption">Multiply filter with rgb color</p>
+    
+    <pre class="prettyprint"><code>var filter = new fabric.Image.filters.Multiply({
+  color: 'rgb(53, 21, 176)'
 });
 object.filters.push(filter);
 object.applyFilters(canvas.renderAll.bind(canvas));</code></pre>
@@ -247,13 +249,13 @@ object.applyFilters(canvas.renderAll.bind(canvas));</code></pre>
     
     
     <dt class="tag-default">Default Value:</dt>
-    <dd class="tag-default"><ul class="dummy"><li>"Pixelate"</li></ul></dd>
+    <dd class="tag-default"><ul class="dummy"><li>"Multiply"</li></ul></dd>
     
     
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17577">line 17577</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line18033">line 18033</a>
     </li></ul></dd>
     
     
@@ -369,7 +371,7 @@ object.applyFilters(canvas.renderAll.bind(canvas));</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17594">line 17594</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line18051">line 18051</a>
     </li></ul></dd>
     
     
@@ -500,13 +502,13 @@ object.applyFilters(canvas.renderAll.bind(canvas));</code></pre>
 	
         <tr>
             
-                <td class="name"><code>blocksize</code></td>
+                <td class="name"><code>color</code></td>
             
             
             <td class="type">
             
                 
-<span class="param-type">Number</span>
+<span class="param-type">String</span>
 
 
             
@@ -527,12 +529,12 @@ object.applyFilters(canvas.renderAll.bind(canvas));</code></pre>
             
                 <td class="default">
                 
-                    4
+                    #000000
                 
                 </td>
             
             
-            <td class="description last">Blocksize for pixelate</td>
+            <td class="description last">Color to multiply the image pixels with</td>
         </tr>
 	
 	
@@ -569,7 +571,7 @@ object.applyFilters(canvas.renderAll.bind(canvas));</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17585">line 17585</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line18041">line 18041</a>
     </li></ul></dd>
     
     
@@ -740,7 +742,7 @@ object.applyFilters(canvas.renderAll.bind(canvas));</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17641">line 17641</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line18073">line 18073</a>
     </li></ul></dd>
     
     
@@ -822,7 +824,7 @@ object.applyFilters(canvas.renderAll.bind(canvas));</code></pre>
 <br clear="both">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0</a> on Fri Jul 18 2014 14:52:13 GMT+0200 (CEST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0</a> on Fri Jul 18 2014 14:52:12 GMT+0200 (CEST)
 </footer>
 
 <script> /*prettyPrint();*/ </script>

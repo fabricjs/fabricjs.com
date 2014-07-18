@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: Pixelate</title>
+    <title>JSDoc: Global</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -75,7 +75,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Class: Pixelate</h1>
+    <h1 class="page-title">Global</h1>
 
     
 
@@ -85,9 +85,7 @@
     
 <header>
     <h2>
-        <span class="ancestors"><a href="fabric.html">fabric</a><a href="fabric.Image.html">.Image</a><a href="fabric.Image.filters.html">.filters</a>.</span>
     
-    Pixelate
     </h2>
     
 </header>  
@@ -98,29 +96,8 @@
     
     
         
-<dt>
-    <h4 class="name" id="Pixelate">
-        <span class="type-signature"></span>new Pixelate<span class="signature">()</span><span class="type-signature"></span>
-        <a href="#Pixelate" class="anchor">§</a>
-    </h4>
-
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        Pixelate filter class
-    </div>
-    
-
-    
-
-    
-
-    
-
-    
+        
+        
 <dl class="details">
     
         
@@ -141,121 +118,6 @@
     
     
     
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17556">line 17556</a>
-    </li></ul></dd>
-    
-    
-    
-    
-    
-    <dt class="tag-see">See:</dt>
-    <dd class="tag-see">
-        <ul>
-            <li><a href="fabric.Image.filters.Pixelate.html#initialize">fabric.Image.filters.Pixelate#initialize</a> for constructor definition</li>
-        
-            <li><a href="http://fabricjs.com/image-filters/">ImageFilters demo</a></li>
-        </ul>
-    </dd>
-    
-    
-    
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <h5>Example</h5>
-        
-    <pre class="prettyprint"><code>var filter = new fabric.Image.filters.Pixelate({
-  blocksize: 8
-});
-object.filters.push(filter);
-object.applyFilters(canvas.renderAll.bind(canvas));</code></pre>
-
-    
-</dd>
-
-    
-    </div>
-    
-    
-        <h3 class="subsection-title">Extends</h3>
-        
-        <ul>
-            <li><a href="fabric.Image.filters.BaseFilter.html">fabric.Image.filters.BaseFilter</a></li>
-        </ul>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-        <h3 class="subsection-title">Members</h3>
-        
-        <dl>
-            
-<dt>
-    <h4 class="name" id="type">
-        <span class="type-signature"></span>type<span class="type-signature"></span>
-        <a href="#type" class="anchor">§</a>
-    </h4>
-
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        Filter type
-    </div>
-    
-
-    
-
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <dt class="tag-default">Default Value:</dt>
-    <dd class="tag-default"><ul class="dummy"><li>"Pixelate"</li></ul></dd>
-    
-    
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17577">line 17577</a>
-    </li></ul></dd>
-    
     
     
     
@@ -264,11 +126,21 @@ object.applyFilters(canvas.renderAll.bind(canvas));</code></pre>
     
 </dl>
 
-
+        
+        
     
-</dd>
-
-        </dl>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -277,9 +149,9 @@ object.applyFilters(canvas.renderAll.bind(canvas));</code></pre>
         <dl>
             
 <dt>
-    <h4 class="name" id="applyTo">
-        <span class="type-signature"></span>applyTo<span class="signature">(canvasEl)</span><span class="type-signature"></span>
-        <a href="#applyTo" class="anchor">§</a>
+    <h4 class="name" id="createSVGFontFacesMarkup">
+        <span class="type-signature"></span>createSVGFontFacesMarkup<span class="signature">(objects)</span><span class="type-signature"> &rarr; {String}</span>
+        <a href="#createSVGFontFacesMarkup" class="anchor">§</a>
     </h4>
 
     
@@ -288,7 +160,7 @@ object.applyFilters(canvas.renderAll.bind(canvas));</code></pre>
 
     
     <div class="description">
-        Applies filter to canvas element
+        Creates markup containing SVG font faces
     </div>
     
 
@@ -322,13 +194,13 @@ object.applyFilters(canvas.renderAll.bind(canvas));</code></pre>
 	
         <tr>
             
-                <td class="name"><code>canvasEl</code></td>
+                <td class="name"><code>objects</code></td>
             
             
             <td class="type">
             
                 
-<span class="param-type">Object</span>
+<span class="param-type"><a href="Array.html">Array</a></span>
 
 
             
@@ -338,7 +210,7 @@ object.applyFilters(canvas.renderAll.bind(canvas));</code></pre>
             
             
             
-            <td class="description last">Canvas element to apply filter to</td>
+            <td class="description last">Array of fabric objects</td>
         </tr>
 	
 	
@@ -369,284 +241,7 @@ object.applyFilters(canvas.renderAll.bind(canvas));</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17594">line 17594</a>
-    </li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="initialize">
-        <span class="type-signature"></span>initialize<span class="signature">(<span class="optional">options</span>)</span><span class="type-signature"></span>
-        <a href="#initialize" class="anchor">§</a>
-    </h4>
-
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        Constructor
-    </div>
-    
-
-    
-
-    
-
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		<th>Argument</th>
-		
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>options</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                    
-                
-                </td>
-            
-            
-            
-            
-            <td class="description last">Options object
-                <h6>Properties</h6>
-                
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		<th>Argument</th>
-		
-		
-		
-		<th>Default</th>
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>blocksize</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">Number</span>
-
-
-            
-            </td>
-            
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-                    
-                
-                    
-                
-                </td>
-            
-            
-            
-                <td class="default">
-                
-                    4
-                
-                </td>
-            
-            
-            <td class="description last">Blocksize for pixelate</td>
-        </tr>
-	
-	
-	</tbody>
-</table>
-            </td>
-        </tr>
-	
-	
-	</tbody>
-</table>
-    
-
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17585">line 17585</a>
-    </li></ul></dd>
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dd>
-
-        
-            
-<dt>
-    <h4 class="name" id="toJSON">
-        <span class="type-signature"></span>toJSON<span class="signature">()</span><span class="type-signature"> &rarr; {Object}</span>
-        <a href="#toJSON" class="anchor">§</a>
-    </h4>
-
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        Returns a JSON representation of an instance
-    </div>
-    
-
-    
-
-    
-
-    
-
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    <dt class="inherited-from">Inherited From:</dt>
-    <dd class="inherited-from"><ul class="dummy"><li>
-        <a href="fabric.Image.filters.BaseFilter.html#toJSON">fabric.Image.filters.BaseFilter#toJSON</a>
-    </li></dd>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16888">line 16888</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3574">line 3574</a>
     </li></ul></dd>
     
     
@@ -670,10 +265,6 @@ object.applyFilters(canvas.renderAll.bind(canvas));</code></pre>
     <h5>Returns:</h5>
     
             
-<div class="param-desc">
-    JSON
-</div>
-
 
 
 <dl>
@@ -682,7 +273,7 @@ object.applyFilters(canvas.renderAll.bind(canvas));</code></pre>
 	</dt>
 	<dd>
 		
-<span class="param-type">Object</span>
+<span class="param-type">String</span>
 
 
 	</dd>
@@ -696,8 +287,266 @@ object.applyFilters(canvas.renderAll.bind(canvas));</code></pre>
         
             
 <dt>
+    <h4 class="name" id="createSVGRefElementsMarkup">
+        <span class="type-signature"></span>createSVGRefElementsMarkup<span class="signature">(canvas)</span><span class="type-signature"> &rarr; {String}</span>
+        <a href="#createSVGRefElementsMarkup" class="anchor">§</a>
+    </h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Creates markup containing SVG referenced elements like patterns, gradients etc.
+    </div>
+    
+
+    
+
+    
+
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>canvas</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="fabric.Canvas.html">fabric.Canvas</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">instance of fabric.Canvas</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3606">line 3606</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+<span class="param-type">String</span>
+
+
+	</dd>
+</dl>
+
+        
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="resolveGradients">
+        <span class="type-signature"></span>resolveGradients<span class="signature">(instances)</span><span class="type-signature"></span>
+        <a href="#resolveGradients" class="anchor">§</a>
+    </h4>
+
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Initializes gradients on instances, according to gradients parsed from a document
+    </div>
+    
+
+    
+
+    
+
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>instances</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Array.html">Array</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last"></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3290">line 3290</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<dt>
     <h4 class="name" id="toObject">
-        <span class="type-signature"></span>toObject<span class="signature">()</span><span class="type-signature"> &rarr; {Object}</span>
+        <span class="type-signature"></span>toObject<span class="signature">(<span class="optional">propertiesToInclude</span>)</span><span class="type-signature"> &rarr; {Object}</span>
         <a href="#toObject" class="anchor">§</a>
     </h4>
 
@@ -716,6 +565,66 @@ object.applyFilters(canvas.renderAll.bind(canvas));</code></pre>
     
 
     
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		<th>Argument</th>
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>propertiesToInclude</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Array.html">Array</a></span>
+
+
+            
+            </td>
+            
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+                    
+                
+                    
+                
+                </td>
+            
+            
+            
+            
+            <td class="description last">Any properties that you might want to additionally include in the output</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
 
     
 <dl class="details">
@@ -740,7 +649,7 @@ object.applyFilters(canvas.renderAll.bind(canvas));</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17641">line 17641</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line20332">line 20332</a>
     </li></ul></dd>
     
     
@@ -765,7 +674,7 @@ object.applyFilters(canvas.renderAll.bind(canvas));</code></pre>
     
             
 <div class="param-desc">
-    Object representation of an instance
+    object representation of an instance
 </div>
 
 
@@ -822,7 +731,7 @@ object.applyFilters(canvas.renderAll.bind(canvas));</code></pre>
 <br clear="both">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0</a> on Fri Jul 18 2014 14:52:13 GMT+0200 (CEST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.0</a> on Fri Jul 18 2014 14:52:04 GMT+0200 (CEST)
 </footer>
 
 <script> /*prettyPrint();*/ </script>

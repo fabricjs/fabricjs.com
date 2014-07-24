@@ -9,37 +9,12 @@ title: Hovering
   var canvas = this.__canvas = new fabric.Canvas('c');
   fabric.Object.prototype.transparentCorners = false;
 
-  // piggyback on `canvas.findTarget`, to fire "object:over" and "object:out" events
-
-  canvas.findTarget = (function(originalFn) {
-    return function() {
-      var target = originalFn.apply(this, arguments);
-      if (target) {
-        if (this._hoveredTarget !== target) {
-          canvas.fire('object:over', { target: target });
-          if (this._hoveredTarget) {
-            canvas.fire('object:out', { target: this._hoveredTarget });
-          }
-          this._hoveredTarget = target;
-        }
-      }
-      else if (this._hoveredTarget) {
-        canvas.fire('object:out', { target: this._hoveredTarget });
-        this._hoveredTarget = null;
-      }
-      return target;
-    };
-  })(canvas.findTarget);
-
-  // now we can observe "object:over" and "object:out" events
-  // in this example, object is set to red color on hover over and green color on hover out
-
-  canvas.on('object:over', function(e) {
+  canvas.on('mouse:over', function(e) {
     e.target.setFill('red');
     canvas.renderAll();
   });
 
-  canvas.on('object:out', function(e) {
+  canvas.on('mouse:out', function(e) {
     e.target.setFill('green');
     canvas.renderAll();
   });

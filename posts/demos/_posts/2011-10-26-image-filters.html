@@ -70,6 +70,15 @@ title: Image Filters
     <label><span>Multiply:</span> <input type="checkbox" id="multiply" disabled></label><br>
     <label>Color: <input type="color" id="multiply-color" value=""></label><br>
   </p>
+  <p>
+    <label><span>Blend (add):</span> <input type="checkbox" id="add" disabled></label><br>
+    <label>Color: <input type="color" id="add-color" value=""></label><br>
+  </p>
+  <p>
+    <label><span>Blend (diff):</span> <input type="checkbox" id="diff" disabled></label><br>
+    <label>Color: <input type="color" id="diff-color" value=""></label><br>
+  </p>
+
 </div>
 
 <script id="main">(function() {
@@ -110,7 +119,7 @@ title: Image Filters
 
       var filters = ['grayscale', 'invert', 'remove-white', 'sepia', 'sepia2',
                       'brightness', 'noise', 'gradient-transparency', 'pixelate',
-                      'blur', 'sharpen', 'emboss', 'tint', 'multiply'];
+                      'blur', 'sharpen', 'emboss', 'tint', 'multiply', 'add', 'diff'];
 
       for (var i = 0; i < filters.length; i++) {
         $(filters[i]).checked = !!canvas.getActiveObject().filters[i];
@@ -224,6 +233,24 @@ title: Image Filters
   };
   $('multiply-color').onchange = function() {
     applyFilterValue(13, 'color', this.value);
+  };
+  $('add').onclick = function() {
+    applyFilter(14, this.checked && new f.Blend({
+      color: document.getElementById('add-color').value,
+      mode: 'add'
+    }));
+  };
+  $('add-color').onchange = function() {
+    applyFilterValue(14, 'color', this.value);
+  };
+  $('diff').onclick = function() {
+    applyFilter(15, this.checked && new f.Blend({
+      color: document.getElementById('diff-color').value,
+      mode: 'diff'
+    }));
+  };
+  $('diff-color').onchange = function() {
+    applyFilterValue(15, 'color', this.value);
   };
 })();
 </script>

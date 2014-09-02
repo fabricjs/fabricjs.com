@@ -71,14 +71,21 @@ title: Image Filters
     <label>Color: <input type="color" id="multiply-color" value=""></label><br>
   </p>
   <p>
-    <label><span>Blend (add):</span> <input type="checkbox" id="add" disabled></label><br>
-    <label>Color: <input type="color" id="add-color" value=""></label><br>
+  <label><span>Blend:</span> <input type="checkbox" id="blend" disabled></label>
+  <br>
+  <label>Mode:</label>
+    <select id="blend-mode" name="blend-mode">
+      <option selected value="add">Add</option>
+      <option value="diff">Diff</option>
+      <option value="subtract">Subtract</option>
+      <option value="multiply">Multiply</option>
+      <option value="screen">Screen</option>
+      <option value="lighten">Lighten</option>
+      <option value="darken">Darken</option>
+    </select>
+    <br>
+    <label>Color: <input type="color" id="blend-color" value="#00f900"></label><br>
   </p>
-  <p>
-    <label><span>Blend (diff):</span> <input type="checkbox" id="diff" disabled></label><br>
-    <label>Color: <input type="color" id="diff-color" value=""></label><br>
-  </p>
-
 </div>
 
 <script id="main">(function() {
@@ -119,7 +126,7 @@ title: Image Filters
 
       var filters = ['grayscale', 'invert', 'remove-white', 'sepia', 'sepia2',
                       'brightness', 'noise', 'gradient-transparency', 'pixelate',
-                      'blur', 'sharpen', 'emboss', 'tint', 'multiply', 'add', 'diff'];
+                      'blur', 'sharpen', 'emboss', 'tint', 'multiply', 'blend'];
 
       for (var i = 0; i < filters.length; i++) {
         $(filters[i]).checked = !!canvas.getActiveObject().filters[i];
@@ -234,23 +241,20 @@ title: Image Filters
   $('multiply-color').onchange = function() {
     applyFilterValue(13, 'color', this.value);
   };
-  $('add').onclick = function() {
+  
+  $('blend').onclick= function() { 
     applyFilter(14, this.checked && new f.Blend({
-      color: document.getElementById('add-color').value,
-      mode: 'add'
+      color: document.getElementById('blend-color').value,
+      mode: document.getElementById('blend-mode').value
     }));
   };
-  $('add-color').onchange = function() {
+ 
+  $('blend-mode').onchange = function() {
+    applyFilterValue(14, 'mode', this.value);
+  };
+ 
+  $('blend-color').onchange = function() {
     applyFilterValue(14, 'color', this.value);
-  };
-  $('diff').onclick = function() {
-    applyFilter(15, this.checked && new f.Blend({
-      color: document.getElementById('diff-color').value,
-      mode: 'diff'
-    }));
-  };
-  $('diff-color').onchange = function() {
-    applyFilterValue(15, 'color', this.value);
   };
 })();
 </script>

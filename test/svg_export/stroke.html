@@ -159,14 +159,14 @@ canvas.add(shape);
 var shape = new fabric.Line([10,10,100,30], {
   stroke: '#00f',
   strokeWidth: 3,
-  width: 150
 });
+shape.set('width', 150);
 canvas.add(shape);
 var shape2 = new fabric.Line([10,40,100,50], {
   stroke: '#0f0',
   strokeWidth: 3,
-  height: 50
 });
+shape2.set('height', 50);
 canvas.add(shape2);
 </pre>
 

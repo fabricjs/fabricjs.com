@@ -6,45 +6,49 @@
     return new fabric.Text('x');
   }
 
+  var CHAR_WIDTH = 20;
+
   var REFERENCE_TEXT_OBJECT = {
-    'type':                'text',
-    'originX':             'left',
-    'originY':             'top',
-    'left':                0,
-    'top':                 0,
-    'width':               20,
-    'height':              52,
-    'fill':                'rgb(0,0,0)',
-    'stroke':              null,
-    'strokeWidth':         1,
-    'strokeDashArray':     null,
-    'strokeLineCap':       'butt',
-    'strokeLineJoin':      'miter',
-    'strokeMiterLimit':    10,
-    'scaleX':              1,
-    'scaleY':              1,
-    'angle':               0,
-    'flipX':               false,
-    'flipY':               false,
-    'opacity':             1,
-    'shadow':              null,
-    'visible':             true,
-    'clipTo':              null,
-    'text':                'x',
-    'fontSize':            40,
-    'fontWeight':          'normal',
-    'fontFamily':          'Times New Roman',
-    'fontStyle':           '',
-    'lineHeight':          1.3,
-    'textDecoration':      '',
-    'textAlign':           'left',
-    'path':                null,
-    'backgroundColor':     '',
-    'textBackgroundColor': '',
-    'useNative':           true
+    'type':                      'text',
+    'originX':                   'left',
+    'originY':                   'top',
+    'left':                      0,
+    'top':                       0,
+    'width':                     CHAR_WIDTH,
+    'height':                    52,
+    'fill':                      'rgb(0,0,0)',
+    'stroke':                    null,
+    'strokeWidth':               1,
+    'strokeDashArray':           null,
+    'strokeLineCap':             'butt',
+    'strokeLineJoin':            'miter',
+    'strokeMiterLimit':          10,
+    'scaleX':                    1,
+    'scaleY':                    1,
+    'angle':                     0,
+    'flipX':                     false,
+    'flipY':                     false,
+    'opacity':                   1,
+    'shadow':                    null,
+    'visible':                   true,
+    'clipTo':                    null,
+    'backgroundColor':           '',
+    'text':                      'x',
+    'fontSize':                  40,
+    'fontWeight':                'normal',
+    'fontFamily':                'Times New Roman',
+    'fontStyle':                 '',
+    'lineHeight':                1.3,
+    'textDecoration':            '',
+    'textAlign':                 'left',
+    'path':                      null,
+    'textBackgroundColor':       '',
+    'useNative':                 true,
+    'fillRule':                 'nonzero',
+    'globalCompositeOperation': 'source-over'
   };
 
-  var TEXT_SVG = '<g transform="translate(10 26)"><text font-family="Times New Roman" font-size="40" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: ; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); opacity: 1;" transform="translate(-10 39)"><tspan x="0" y="-26" fill="rgb(0,0,0)">x</tspan></text></g>';
+  var TEXT_SVG = '<g transform="translate(10 26)">\n<text font-family="Times New Roman" font-size="40" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: ; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform="translate(-10 39)"><tspan x="0" y="-26" fill="rgb(0,0,0)">x</tspan></text>\n</g>\n';
 
   test('constructor', function() {
     ok(fabric.Text);
@@ -148,11 +152,15 @@
     ok(text instanceof fabric.Text);
 
     // temp workaround for text objects not obtaining width under node
-    // text.width = 20;
+    // text.width = CHAR_WIDTH;
 
     var expectedObject = fabric.util.object.extend(fabric.util.object.clone(REFERENCE_TEXT_OBJECT), {
-      left: 10,
-      top: -26
+      left: 4,
+      top: -10.4,
+      width: 8,
+      height: 20.8,
+      fontSize: 16,
+      originX: 'left'
     });
 
     deepEqual(text.toObject(), expectedObject);
@@ -178,10 +186,11 @@
     elTextWithAttrs.setAttribute('font-weight', 'bold');
     elTextWithAttrs.setAttribute('font-size', '123');
     elTextWithAttrs.setAttribute('text-decoration', 'underline');
+    elTextWithAttrs.setAttribute('text-anchor', 'middle');
 
     var textWithAttrs = fabric.Text.fromElement(elTextWithAttrs);
     // temp workaround for text objects not obtaining width under node
-    textWithAttrs.width = 20;
+    textWithAttrs.width = CHAR_WIDTH;
 
     ok(textWithAttrs instanceof fabric.Text);
 
@@ -189,7 +198,7 @@
       /* left varies slightly due to node-canvas rendering */
       left:             fabric.util.toFixed(textWithAttrs.left + '', 2),
       top:              -59.95,
-      width:            20,
+      width:            CHAR_WIDTH,
       height:           159.9,
       fill:             'rgb(255,255,255)',
       opacity:          0.45,
@@ -203,7 +212,8 @@
       fontStyle:        'italic',
       fontWeight:       'bold',
       fontSize:         123,
-      textDecoration:   'underline'
+      textDecoration:   'underline',
+      originX:          'center'
     });
 
     deepEqual(textWithAttrs.toObject(), expectedObject);
@@ -215,10 +225,10 @@
 
   test('dimensions after text change', function() {
     var text = new fabric.Text('x');
-    equal(text.width, 20);
+    equal(text.width, CHAR_WIDTH);
 
     text.setText('xx');
-    equal(text.width, 40);
+    equal(text.width, CHAR_WIDTH * 2);
   });
 
   test('setting fontFamily', function() {
@@ -236,13 +246,13 @@
     var text = new fabric.Text('x');
 
     // temp workaround for text objects not obtaining width under node
-    text.width = 20;
+    text.width = CHAR_WIDTH;
 
     equal(text.toSVG(), TEXT_SVG);
 
     text.setFontFamily('"Arial Black", Arial');
     // temp workaround for text objects not obtaining width under node
-    text.width = 20;
+    text.width = CHAR_WIDTH;
 
     equal(text.toSVG(), TEXT_SVG.replace('font-family="Times New Roman"', 'font-family="\'Arial Black\', Arial"'));
   });

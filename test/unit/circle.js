@@ -79,31 +79,35 @@
   test('toObject', function() {
     var circle = new fabric.Circle();
     var defaultProperties = {
-      'type':               'circle',
-      'originX':            'left',
-      'originY':            'top',
-      'left':               0,
-      'top':                0,
-      'width':              0,
-      'height':             0,
-      'fill':               'rgb(0,0,0)',
-      'stroke':             null,
-      'strokeWidth':        1,
-      'strokeDashArray':    null,
-      'strokeLineCap':      'butt',
-      'strokeLineJoin':     'miter',
-      'strokeMiterLimit':   10,
-      'scaleX':             1,
-      'scaleY':             1,
-      'angle':              0,
-      'flipX':              false,
-      'flipY':              false,
-      'opacity':            1,
-      'shadow':             null,
-      'visible':            true,
-      'backgroundColor':    '',
-      'clipTo':             null,
-      'radius':             0
+      'type':                     'circle',
+      'originX':                  'left',
+      'originY':                  'top',
+      'left':                     0,
+      'top':                      0,
+      'width':                    0,
+      'height':                   0,
+      'fill':                     'rgb(0,0,0)',
+      'stroke':                   null,
+      'strokeWidth':              1,
+      'strokeDashArray':          null,
+      'strokeLineCap':            'butt',
+      'strokeLineJoin':           'miter',
+      'strokeMiterLimit':         10,
+      'scaleX':                   1,
+      'scaleY':                   1,
+      'angle':                    0,
+      'flipX':                    false,
+      'flipY':                    false,
+      'opacity':                  1,
+      'shadow':                   null,
+      'visible':                  true,
+      'backgroundColor':          '',
+      'clipTo':                   null,
+      'fillRule':                 'nonzero',
+      'globalCompositeOperation': 'source-over',
+      'radius':                   0,
+      'startAngle':               0,
+      'endAngle':                 2 * Math.PI
     };
     ok(typeof circle.toObject == 'function');
     deepEqual(circle.toObject(), defaultProperties);
@@ -152,8 +156,8 @@
     ok(oCircle instanceof fabric.Circle);
 
     equal(oCircle.get('radius'), radius);
-    equal(oCircle.get('left'), left);
-    equal(oCircle.get('top'), top);
+    equal(oCircle.get('left'), left - radius);
+    equal(oCircle.get('top'), top - radius);
     equal(oCircle.get('fill'), fill);
     equal(oCircle.get('opacity'), opacity);
     equal(oCircle.get('strokeWidth'), strokeWidth);

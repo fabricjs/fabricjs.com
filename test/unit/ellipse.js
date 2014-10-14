@@ -22,32 +22,34 @@
   test('toObject', function() {
     var ellipse = new fabric.Ellipse();
     var defaultProperties = {
-      'type':               'ellipse',
-      'originX':            'left',
-      'originY':            'top',
-      'left':               0,
-      'top':                0,
-      'width':              0,
-      'height':             0,
-      'fill':               'rgb(0,0,0)',
-      'stroke':             null,
-      'strokeWidth':        1,
-      'strokeDashArray':    null,
-      'strokeLineCap':      'butt',
-      'strokeLineJoin':     'miter',
-      'strokeMiterLimit':   10,
-      'scaleX':             1,
-      'scaleY':             1,
-      'angle':              0,
-      'flipX':              false,
-      'flipY':              false,
-      'opacity':            1,
-      'rx':                 0,
-      'ry':                 0,
-      'shadow':             null,
-      'visible':            true,
-      'backgroundColor':    '',
-      'clipTo':             null
+      'type':                     'ellipse',
+      'originX':                  'left',
+      'originY':                  'top',
+      'left':                     0,
+      'top':                      0,
+      'width':                    0,
+      'height':                   0,
+      'fill':                     'rgb(0,0,0)',
+      'stroke':                   null,
+      'strokeWidth':              1,
+      'strokeDashArray':          null,
+      'strokeLineCap':            'butt',
+      'strokeLineJoin':           'miter',
+      'strokeMiterLimit':         10,
+      'scaleX':                   1,
+      'scaleY':                   1,
+      'angle':                    0,
+      'flipX':                    false,
+      'flipY':                    false,
+      'opacity':                  1,
+      'rx':                       0,
+      'ry':                       0,
+      'shadow':                   null,
+      'visible':                  true,
+      'backgroundColor':          '',
+      'fillRule':                 'nonzero',
+      'globalCompositeOperation': 'source-over',
+      'clipTo':                   null
     };
     ok(typeof ellipse.toObject == 'function');
     deepEqual(ellipse.toObject(), defaultProperties);
@@ -58,10 +60,18 @@
       left: 100,
       top: 200,
       rx: 15,
-      ry: 25
+      ry: 25,
+      width: 30,
+      height: 50
     });
 
     deepEqual(ellipse.toObject(), augmentedProperties);
+
+    ellipse.set('rx', 30);
+    deepEqual(ellipse.width, ellipse.rx * 2);
+
+    ellipse.set('scaleX', 2);
+    deepEqual(ellipse.getRx(), ellipse.rx * ellipse.scaleX);
   });
 
   test('render', function() {
@@ -111,8 +121,8 @@
 
     equal(oEllipse.get('rx'), rx);
     equal(oEllipse.get('ry'), ry);
-    equal(oEllipse.get('left'), left);
-    equal(oEllipse.get('top'), top);
+    equal(oEllipse.get('left'), left - rx);
+    equal(oEllipse.get('top'), top - ry);
     equal(oEllipse.get('fill'), fill);
     equal(oEllipse.get('opacity'), opacity);
     equal(oEllipse.get('strokeWidth'), strokeWidth);

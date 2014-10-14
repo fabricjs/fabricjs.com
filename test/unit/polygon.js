@@ -8,31 +8,33 @@
   }
 
   var REFERENCE_OBJECT = {
-    'type':               'polygon',
-    'originX':            'left',
-    'originY':            'top',
-    'left':               0,
-    'top':                0,
-    'width':              10,
-    'height':             10,
-    'fill':               'rgb(0,0,0)',
-    'stroke':             null,
-    'strokeWidth':        1,
-    'strokeDashArray':    null,
-    'strokeLineCap':      'butt',
-    'strokeLineJoin':     'miter',
-    'strokeMiterLimit':   10,
-    'scaleX':             1,
-    'scaleY':             1,
-    'angle':              0,
-    'flipX':              false,
-    'flipY':              false,
-    'opacity':            1,
-    'points':             getPoints(),
-    'shadow':             null,
-    'visible':            true,
-    'backgroundColor':    '',
-    'clipTo':             null
+    'type':                     'polygon',
+    'originX':                  'left',
+    'originY':                  'top',
+    'left':                     10,
+    'top':                      12,
+    'width':                    10,
+    'height':                   10,
+    'fill':                     'rgb(0,0,0)',
+    'stroke':                   null,
+    'strokeWidth':              1,
+    'strokeDashArray':          null,
+    'strokeLineCap':            'butt',
+    'strokeLineJoin':           'miter',
+    'strokeMiterLimit':         10,
+    'scaleX':                   1,
+    'scaleY':                   1,
+    'angle':                    0,
+    'flipX':                    false,
+    'flipY':                    false,
+    'opacity':                  1,
+    'points':                   getPoints(),
+    'shadow':                   null,
+    'visible':                  true,
+    'backgroundColor':          '',
+    'clipTo':                   null,
+    'fillRule':                 'nonzero',
+    'globalCompositeOperation': 'source-over'
   };
 
   QUnit.module('fabric.Polygon');
@@ -46,7 +48,7 @@
     ok(polygon instanceof fabric.Object);
 
     equal(polygon.type, 'polygon');
-    deepEqual(polygon.get('points'), [ { x: -5, y: -5 }, { x: 5, y: 5 } ]);
+    deepEqual(polygon.get('points'), [ { x: 10, y: 12 }, { x: 20, y: 22 } ]);
   });
 
   test('complexity', function() {
@@ -121,21 +123,21 @@
       'strokeLineJoin':   'bevil',
       'strokeMiterLimit': 5,
       'opacity':          0.34,
-      'points':           expectedPoints
+      'points':           expectedPoints,
+      'top':              10,
+      'left':             10
     }));
 
     deepEqual(polygonWithAttrs.get('transformMatrix'), [ 2, 0, 0, 2, -10, -20 ]);
 
     var elPolygonWithoutPoints = fabric.document.createElement('polygon');
 
-    var error;
-    try {
-      fabric.Polygon.fromElement(elPolygonWithoutPoints);
-    }
-    catch(err) {
-      error = err;
-    }
-    ok(error, 'missing points attribute should result in error');
+    equal(fabric.Polygon.fromElement(elPolygonWithoutPoints), null);
+
+    var elPolygonWithEmptyPoints = fabric.document.createElement('polygon');
+    elPolygonWithEmptyPoints.setAttribute('points', '');
+
+    equal(fabric.Polygon.fromElement(elPolygonWithEmptyPoints), null);
 
     equal(fabric.Polygon.fromElement(), null);
   });

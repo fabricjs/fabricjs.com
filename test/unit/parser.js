@@ -51,7 +51,7 @@
     var element = fabric.document.createElement('path');
     element.setAttribute('fill-rule', 'evenodd');
 
-    deepEqual(fabric.parseAttributes(element, ['fill-rule']), { fillRule: 'destination-over' });
+    deepEqual(fabric.parseAttributes(element, ['fill-rule']), { fillRule: 'evenodd' });
   });
 
   test('parseAttributesFillRuleWithoutTransformation', function() {
@@ -126,10 +126,11 @@
     var element = fabric.document.createElement('path');
     element.setAttribute('style', 'left:10px;top:22.3em;width:103.45pt;height:20%;');
 
+    // TODO: looks like this still fails with % and em values
     var expectedObject = {
       'left':   10,
       'top':    22.3,
-      'width':  103.45,
+      'width':  137.93333333333334,
       'height': 20
     };
     deepEqual(fabric.parseStyleAttribute(element), expectedObject);
@@ -147,10 +148,11 @@
 
   test('parseStyleAttribute with value normalization', function() {
     var element = fabric.document.createElement('path');
-    element.setAttribute('style', 'fill:none');
+    element.setAttribute('style', 'fill:none;  stroke-dasharray: 2 0.4;');
 
     var expectedObject = {
-      'fill': ''
+      'fill': '',
+      'strokeDashArray': [2, 0.4]
     };
     deepEqual(fabric.parseStyleAttribute(element), expectedObject);
   });
@@ -187,7 +189,9 @@
 
     var expectedObject = {
       'fill': 'rgba(100,200,50,0.2)',
-      'stroke': 'rgba(0,128,0,0.5)'
+      'stroke': 'rgba(0,128,0,0.5)',
+      'fillOpacity': 0.2,
+      'strokeOpacity': 0.5
     };
     deepEqual(fabric.parseAttributes(element, fabric.Path.ATTRIBUTE_NAMES), expectedObject);
   });
@@ -196,7 +200,7 @@
     ok(fabric.parsePointsAttribute);
 
     var element = fabric.document.createElement('polygon');
-    element.setAttribute('points', '10,12           20,22,  -0.52,0.001 2.3e2,2.3e-2, 10,-1     ');
+    element.setAttribute('points', '10,  12           20 ,22,  -0.52,0.001 2.3e2,2.3e-2, 10,-1     ');
 
     var actualPoints = fabric.parsePointsAttribute(element.getAttribute('points'));
 
@@ -230,8 +234,9 @@
     var parsedValue = fabric.parseTransformAttribute(element.getAttribute('transform'));
     deepEqual(parsedValue, [1,0,0,1,-10,-20]);
 
-    var ANGLE = 90;
-    element.setAttribute('transform', 'rotate(' + ANGLE + ')');
+    var ANGLE_DEG = 90;
+    var ANGLE = ANGLE_DEG * Math.PI / 180;
+    element.setAttribute('transform', 'rotate(' + ANGLE_DEG + ')');
     var parsedValue = fabric.parseTransformAttribute(element.getAttribute('transform'));
     deepEqual(parsedValue, [Math.cos(ANGLE), Math.sin(ANGLE), -Math.sin(ANGLE), Math.cos(ANGLE), 0, 0]);
 
@@ -245,11 +250,11 @@
 
     element.setAttribute('transform', 'skewX(2)');
     var parsedValue = fabric.parseTransformAttribute(element.getAttribute('transform'));
-    deepEqual(parsedValue, [1,0,2,1,0,0]);
+    deepEqual(parsedValue, [1,0,0.03492076949174773,1,0,0]);
 
     element.setAttribute('transform', 'skewY(234.111)');
     var parsedValue = fabric.parseTransformAttribute(element.getAttribute('transform'));
-    deepEqual(parsedValue, [1,234.111,0,1,0,0]);
+    deepEqual(parsedValue, [1,1.3820043381762832,0,1,0,0]);
 
     element.setAttribute('transform', 'matrix(1,2,3,4,5,6)');
     var parsedValue = fabric.parseTransformAttribute(element.getAttribute('transform'));
@@ -261,7 +266,7 @@
 
     element.setAttribute('transform', 'scale(2 13) translate(5,15) skewX(11.22)');
     var parsedValue = fabric.parseTransformAttribute(element.getAttribute('transform'));
-    deepEqual(parsedValue, [2,0,22.44,13,10,195]);
+    deepEqual(parsedValue, [2,0,0.3967362169237356,13,10,195]);
 
   });
 
@@ -350,6 +355,57 @@
       equal(obj.opacity, parseFloat(opacityValue),
         'opacity should be parsed correctly from "opacity" attribute of ' + tagNames[i] + ' element');
     }
+  });
+  
+  test('getCssRule', function() {
+
+    ok(fabric.getCSSRules);
+
+    var doc = fabric.document,
+        styleElement = doc.createElement('style');
+        styleElement.textContent = 'g polygon.cls, rect {fill:#FF0000; stroke:#000000;stroke-width:0.25px;}\
+        polygon.cls {fill:none;stroke:#0000FF;}',
+        doc.body.appendChild(styleElement),
+        svgUid =  'uniqueId';
+
+    var expectedObject = {
+      'g polygon.cls': {
+        'fill': '#FF0000',
+        'stroke': '#000000',
+        'strokeWidth': 0.25
+      },
+      'rect': {
+        'fill': '#FF0000',
+        'stroke': '#000000',
+        'strokeWidth': 0.25
+      },
+      'polygon.cls': {
+        'fill' : '',
+        'stroke': '#0000FF'
+      }
+    };
+
+    fabric.cssRules[svgUid] = fabric.getCSSRules(doc);
+    deepEqual(fabric.cssRules[svgUid], expectedObject);
+    
+    var elPolygon = fabric.document.createElement('polygon'),
+        expectedStyle = {
+          'fill' : '',
+          'stroke': '#0000FF'
+        };
+
+    elPolygon.setAttribute('points', '10,12 20,22');
+    elPolygon.setAttribute('class', 'cls');
+    elPolygon.setAttribute('svgUid', svgUid);
+
+    var style = fabric.parseAttributes(elPolygon, [ ]);
+    deepEqual(style, expectedStyle);
+    
+    styleElement.textContent = '\t\n';
+    expectedStyle = { }
+    svgUid =  'uniqueId2';
+    fabric.cssRules[svgUid] = fabric.getCSSRules(doc);
+    deepEqual(fabric.cssRules[svgUid], expectedStyle);
   });
 
 })();

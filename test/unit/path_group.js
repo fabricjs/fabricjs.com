@@ -1,31 +1,33 @@
 (function(){
 
   var REFERENCE_PATH_GROUP_OBJECT = {
-    'type':               'path-group',
-    'originX':            'left',
-    'originY':            'top',
-    'left':               0,
-    'top':                0,
-    'width':              0,
-    'height':             0,
-    'fill':               '',
-    'stroke':             null,
-    'strokeWidth':        1,
-    'strokeDashArray':    null,
-    'strokeLineCap':      'butt',
-    'strokeLineJoin':     'miter',
-    'strokeMiterLimit':   10,
-    'scaleX':             1,
-    'scaleY':             1,
-    'angle':              0,
-    'flipX':              false,
-    'flipY':              false,
-    'opacity':            1,
-    'shadow':             null,
-    'visible':            true,
-    'clipTo':             null,
-    'backgroundColor':    '',
-    'paths':              getPathObjects()
+    'type':                     'path-group',
+    'originX':                  'left',
+    'originY':                  'top',
+    'left':                     0,
+    'top':                      0,
+    'width':                    0,
+    'height':                   0,
+    'fill':                     '',
+    'stroke':                   null,
+    'strokeWidth':              1,
+    'strokeDashArray':          null,
+    'strokeLineCap':            'butt',
+    'strokeLineJoin':           'miter',
+    'strokeMiterLimit':         10,
+    'scaleX':                   1,
+    'scaleY':                   1,
+    'angle':                    0,
+    'flipX':                    false,
+    'flipY':                    false,
+    'opacity':                  1,
+    'shadow':                   null,
+    'visible':                  true,
+    'clipTo':                   null,
+    'backgroundColor':          '',
+    'fillRule':                 'nonzero',
+    'globalCompositeOperation': 'source-over',    
+    'paths':                    getPathObjects()
   };
 
   function getPathElement(path) {
@@ -66,7 +68,7 @@
   function getPathGroupObject(callback) {
     getPathObjects(function(objects) {
       callback(new fabric.PathGroup(objects));
-    })
+    });
   }
 
   QUnit.module('fabric.PathGroup');
@@ -178,6 +180,12 @@
 
       pathGroup.getObjects()[0].set('fill', 'black');
       equal(pathGroup.isSameColor(), false);
+
+      // case
+      pathGroup.getObjects()[0].set('fill', '#ff5555');
+      pathGroup.getObjects()[1].set('fill', '#FF5555');
+      equal(pathGroup.isSameColor(), true);
+
       start();
     });
   });

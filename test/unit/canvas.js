@@ -38,15 +38,15 @@
                       '["c", 0.877, -9.979, 2.893, -12.905, 4.942, -15.621], ["C", 17.878, 21.775, 18.713, 17.397, 18.511, '+
                       '13.99], ["z", null]]}';
 
-  var PATH_DATALESS_JSON = '{"objects":[{"type":"path","originX":"left","originY":"top","left":200,"top":200,"width":200,"height":200,"fill":"rgb(0,0,0)",'+
+  var PATH_DATALESS_JSON = '{"objects":[{"type":"path","originX":"left","originY":"top","left":100,"top":100,"width":200,"height":200,"fill":"rgb(0,0,0)",'+
                            '"stroke":null,"strokeWidth":1,"strokeDashArray":null,"strokeLineCap":"butt","strokeLineJoin":"miter","strokeMiterLimit":10,'+
                            '"scaleX":1,"scaleY":1,"angle":0,"flipX":false,"flipY":false,"opacity":1,'+
-                           '"shadow":null,"visible":true,"clipTo":null,"backgroundColor":"","path":"http://example.com/","pathOffset":{"x":100,"y":100}}],"background":""}';
+                           '"shadow":null,"visible":true,"clipTo":null,"backgroundColor":"","fillRule":"nonzero","globalCompositeOperation":"source-over","path":"http://example.com/","pathOffset":{"x":200,"y":200}}],"background":""}';
 
   var RECT_JSON = '{"objects":[{"type":"rect","originX":"left","originY":"top","left":0,"top":0,"width":10,"height":10,"fill":"rgb(0,0,0)",'+
                   '"stroke":null,"strokeWidth":1,"strokeDashArray":null,"strokeLineCap":"butt","strokeLineJoin":"miter","strokeMiterLimit":10,"scaleX":1,"scaleY":1,"angle":0,"flipX":false,"flipY":false,"opacity":1,'+
                   '"shadow":null,'+
-                  '"visible":true,"clipTo":null,"backgroundColor":"","rx":0,"ry":0,"x":0,"y":0}],"background":"#ff5555","overlay":"rgba(0,0,0,0.2)"}';
+                  '"visible":true,"clipTo":null,"backgroundColor":"","fillRule":"nonzero","globalCompositeOperation":"source-over","rx":0,"ry":0}],"background":"#ff5555","overlay":"rgba(0,0,0,0.2)"}';
 
   var el = fabric.document.createElement('canvas');
   el.width = 600; el.height = 600;
@@ -381,8 +381,8 @@
 
       equal(obj.get('left'), 268);
       equal(obj.get('top'), 266);
-      equal(obj.get('width'), 51);
-      equal(obj.get('height'), 49);
+      equal(obj.get('width'), 49.803999999999995);
+      equal(obj.get('height'), 48.027);
       equal(obj.get('fill'), 'rgb(0,0,0)');
       equal(obj.get('stroke'), null);
       equal(obj.get('strokeWidth'), 1);
@@ -409,8 +409,8 @@
 
       equal(obj.get('left'), 268);
       equal(obj.get('top'), 266);
-      equal(obj.get('width'), 51);
-      equal(obj.get('height'), 49);
+      equal(obj.get('width'), 49.803999999999995);
+      equal(obj.get('height'), 48.027);
       equal(obj.get('fill'), 'rgb(0,0,0)');
       equal(obj.get('stroke'), null);
       equal(obj.get('strokeWidth'), 1);
@@ -445,8 +445,8 @@
 
       equal(obj.get('left'), 268);
       equal(obj.get('top'), 266);
-      equal(obj.get('width'), 51);
-      equal(obj.get('height'), 49);
+      equal(obj.get('width'), 49.803999999999995);
+      equal(obj.get('height'), 48.027);
       equal(obj.get('fill'), 'rgb(0,0,0)');
       equal(obj.get('stroke'), null);
       equal(obj.get('strokeWidth'), 1);
@@ -471,6 +471,25 @@
       fired = true;
 
       ok(fired, 'Callback should be fired even if no objects');
+      equal(c2.backgroundColor, 'green', 'Color should be set properly');
+      equal(c2.overlayColor, 'yellow', 'Color should be set properly');
+      start();
+    });
+  });
+
+  asyncTest('loadFromJSON without "objects" property', function() {
+    var c1 = new fabric.Canvas('c1', { backgroundColor: 'green', overlayColor: 'yellow' }),
+        c2 = new fabric.Canvas('c2', { backgroundColor: 'red', overlayColor: 'orange' });
+
+    var json = c1.toJSON();
+    var fired = false;
+
+    delete json.objects;
+
+    c2.loadFromJSON(json, function() {
+      fired = true;
+
+      ok(fired, 'Callback should be fired even if no "objects" property exists');
       equal(c2.backgroundColor, 'green', 'Color should be set properly');
       equal(c2.overlayColor, 'yellow', 'Color should be set properly');
       start();
@@ -913,12 +932,12 @@
     });
   });
 
-  test('getSetWidth', function() {
+ test('getSetWidth', function() {
     ok(typeof canvas.getWidth == 'function');
-
     equal(canvas.getWidth(), 600);
     equal(canvas.setWidth(444), canvas, 'should be chainable');
     equal(canvas.getWidth(), 444);
+    equal(canvas.lowerCanvasEl.style.width, 444 + 'px');
   });
 
   test('getSetHeight', function() {
@@ -926,6 +945,47 @@
     equal(canvas.getHeight(), 600);
     equal(canvas.setHeight(765), canvas, 'should be chainable');
     equal(canvas.getHeight(), 765);
+    equal(canvas.lowerCanvasEl.style.height, 765 + 'px');
+  });
+
+  test('setWidth css only', function() {
+    canvas.setWidth(123);
+    canvas.setWidth('100%', { cssOnly: true });
+
+    equal(canvas.lowerCanvasEl.style.width, '100%', 'Should be as the css only value');
+    equal(canvas.upperCanvasEl.style.width, '100%', 'Should be as the css only value');
+    equal(canvas.wrapperEl.style.width, '100%', 'Should be as the css only value');
+    equal(canvas.getWidth(), 123, 'Should be as the none css only value');
+  });
+
+  test('setHeight css only', function() {
+    canvas.setHeight(123);
+    canvas.setHeight('100%', { cssOnly: true });
+
+    equal(canvas.lowerCanvasEl.style.height, '100%', 'Should be as the css only value');
+    equal(canvas.upperCanvasEl.style.height, '100%', 'Should be as the css only value');
+    equal(canvas.wrapperEl.style.height, '100%', 'Should be as the css only value');
+    equal(canvas.getWidth(), 123, 'Should be as the none css only value');
+  });
+
+  test('setWidth backstore only', function() {
+    canvas.setWidth(123);
+    canvas.setWidth(500, { backstoreOnly: true });
+
+    equal(canvas.lowerCanvasEl.style.width, 123 + 'px', 'Should be as none backstore only value + "px"');
+    equal(canvas.upperCanvasEl.style.width, 123 + 'px', 'Should be as none backstore only value + "px"');
+    equal(canvas.wrapperEl.style.width, 123 + 'px', 'Should be as none backstore only value + "px"');
+    equal(canvas.getWidth(), 500, 'Should be as the backstore only value');
+  });
+
+  test('setHeight backstore only', function() {
+    canvas.setHeight(123);
+    canvas.setHeight(500, { backstoreOnly: true });
+
+    equal(canvas.lowerCanvasEl.style.height, 123 + 'px', 'Should be as none backstore only value + "px"');
+    equal(canvas.upperCanvasEl.style.height, 123 + 'px', 'Should be as none backstore only value + "px"');
+    equal(canvas.wrapperEl.style.height, 123 + 'px', 'Should be as none backstore only value + "px"');
+    equal(canvas.getHeight(), 500, 'Should be as the backstore only value');
   });
 
   test('containsPoint', function() {

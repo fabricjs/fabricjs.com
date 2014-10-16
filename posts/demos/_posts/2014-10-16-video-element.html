@@ -1,0 +1,48 @@
+---
+layout: demo
+title: HTML5 &lt;video> element
+---
+
+<video height="360" width="480" id="video1" style="display: none">
+  <source src="http://html5demos.com/assets/dizzy.mp4">
+  <source src="http://html5demos.com/assets/dizzy.ogv">
+</video>
+
+<video height="360" width="640" id="video2" style="display: none">
+  <source src="http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4">
+  <source src="http://www.quirksmode.org/html5/videos/big_buck_bunny.ogv">
+</video>
+
+<canvas id="c" width="1200" height="700" style="border:1px solid #ccc"></canvas>
+
+<script id="main">var canvas = new fabric.Canvas('c');
+var video1El = document.getElementById('video1');
+var video2El = document.getElementById('video2');
+
+var video1 = new fabric.Image(video1El, {
+  left: 350,
+  top: 300,
+  angle: -15,
+  originX: 'center',
+  originY: 'center'
+});
+
+var video2 = new fabric.Image(video2El, {
+  left: 800,
+  top: 350,
+  angle: 15,
+  originX: 'center',
+  originY: 'center'
+});
+
+canvas.add(video1);
+video1.getElement().play();
+
+canvas.add(video2);
+video2.getElement().play();
+
+fabric.util.requestAnimFrame(function render() {
+  canvas.renderAll();
+  fabric.util.requestAnimFrame(render);
+});
+</script>

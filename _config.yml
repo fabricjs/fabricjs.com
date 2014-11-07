@@ -2,4 +2,3 @@ markdown:   rdiscount
 pygments:   true
 permalink:  ./:title
 url:        http://fabricjs.com
-exclude:    [build]

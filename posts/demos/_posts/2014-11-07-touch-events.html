@@ -1,0 +1,31 @@
+---
+layout: touch_demo
+title: Touch events
+---
+
+<p id="info" style="background: #eef; width: 583px; padding: 10px; overflow: scroll; height: 40px">
+  Try dragging an image, shaking, longpressing it or changing orientation<br>
+</p>
+
+<canvas id="c" width="600" height="500" style="border:1px solid #ccc"></canvas>
+
+<script id="main">var canvas = new fabric.Canvas('c');
+fabric.Image.fromURL('../assets/pug_small.jpg', function(img) {
+  img.scale(0.5).set({
+    left: 150,
+    top: 150,
+    angle: -15
+  });
+  canvas.add(img).setActiveObject(img);
+});
+
+var info = document.getElementById('info');
+
+canvas.on({
+  'touch:gesture': function() { info.innerHTML += 'Gesture ' },
+  'touch:drag': function() { info.innerHTML += 'Dragging ' },
+  'touch:orientation': function() { info.innerHTML += 'Orientation ' },
+  'touch:shake': function() { info.innerHTML += 'Shaking ' },
+  'touch:longpress': function() { info.innerHTML += 'Longpress ' }
+});
+</script>

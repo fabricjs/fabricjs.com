@@ -3,9 +3,9 @@ layout: touch_demo
 title: Touch events
 ---
 
-<p id="info" style="background: #eef; width: 583px; padding: 10px; overflow: scroll; height: 40px">
-  Try dragging an image, shaking, longpressing it or changing orientation<br>
-</p>
+<p>Try dragging an image, shaking, longpressing it or changing orientation</p>
+
+<p id="info" style="background: #eef; width: 583px; padding: 10px; overflow: scroll; height: 40px"> </p>
 
 <canvas id="c" width="600" height="500" style="border:1px solid #ccc"></canvas>
 
@@ -22,10 +22,25 @@ fabric.Image.fromURL('../assets/pug_small.jpg', function(img) {
 var info = document.getElementById('info');
 
 canvas.on({
-  'touch:gesture': function() { info.innerHTML += 'Gesture ' },
-  'touch:drag': function() { info.innerHTML += 'Dragging ' },
-  'touch:orientation': function() { info.innerHTML += 'Orientation ' },
-  'touch:shake': function() { info.innerHTML += 'Shaking ' },
-  'touch:longpress': function() { info.innerHTML += 'Longpress ' }
+  'touch:gesture': function() {
+    var text = document.createTextNode(' Gesture ');
+    info.insertBefore(text, info.firstChild);
+  },
+  'touch:drag': function() {
+    var text = document.createTextNode(' Dragging ');
+    info.insertBefore(text, info.firstChild);
+  },
+  'touch:orientation': function() {
+    var text = document.createTextNode(' Orientation ');
+    info.insertBefore(text, info.firstChild);
+  },
+  'touch:shake': function() {
+    var text = document.createTextNode(' Shaking ');
+    info.insertBefore(text, info.firstChild);
+  },
+  'touch:longpress': function() {
+    var text = document.createTextNode(' Longpress ');
+    info.insertBefore(text, info.firstChild);
+  }
 });
 </script>

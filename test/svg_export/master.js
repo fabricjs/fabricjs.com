@@ -1,5 +1,17 @@
 (function() {
 
+  // http://snook.ca/archives/javascript/your_favourite_1
+  if( typeof document.getElementsByClassName !== "function"){
+      document.getElementsByClassName= function( className, nodeName ){
+          var a = [];
+          var re = new RegExp('(^| )'+className+'( |$)');
+          var els = nodeName.getElementsByTagName("*");
+          for(var i=0,j=els.length; i<j; i++)
+              if(re.test(els[i].className))a.push(els[i]);
+          return a;
+      };
+  }
+
   fabric.Object.prototype.originX = fabric.Object.prototype.originY = 'center';
 
   for (var __all = document.getElementsByClassName('test-source'), __len = __all.length, __i = 0; __i < __len; __i++) {

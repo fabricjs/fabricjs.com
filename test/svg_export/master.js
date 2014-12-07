@@ -5,7 +5,7 @@
       document.getElementsByClassName= function( className, nodeName ){
           var a = [];
           var re = new RegExp('(^| )'+className+'( |$)');
-          var els = nodeName.getElementsByTagName("*");
+          var els = (nodeName || document).getElementsByTagName("*");
           for(var i=0,j=els.length; i<j; i++)
               if(re.test(els[i].className))a.push(els[i]);
           return a;

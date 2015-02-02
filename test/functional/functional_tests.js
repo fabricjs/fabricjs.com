@@ -116,35 +116,24 @@ window.onload = function() {
   fabric.util.toArray(imgEls).forEach(function(imgElement, i) {
 
     if (!imgElement.alt) return;
-
-    fabric.util.request('../W3C_SVG_12_TinyTestSuite_beta/svg/' + imgElement.alt + '.svg', {
-      method: 'GET',
-      onComplete: function(r) {
-        if (!r) return;
-        if (!r.responseXML) return;
-        var doc = r.responseXML.documentElement;
-        if (!doc) return;
-
+    fabric.loadSVGFromURL('../W3C_SVG_12_TinyTestSuite_beta/svg/' + imgElement.alt + '.svg', function(objects, options) {
         var startTime = new Date();
-
-        fabric.parseSVGDocument(doc, function(objects) {
-          var dimensions = {
-            width: imgElement.width,
-            height: imgElement.height
-          };
-          var canvasElement = fabric.util.makeElement('canvas', dimensions);
-          fabric.util.setStyle(canvasElement, {
-            width: dimensions.width + 'px',
-            height: dimensions.height + 'px'
-          });
-          imgElement.parentNode.insertBefore(canvasElement, imgElement.nextSibling);
-
-          var oCanvas = window.__canvas = new fabric.Canvas(canvasElement);
-          oCanvas.add.apply(oCanvas, objects);
+        var SVG = fabric.util.groupSVGElements(objects, options);
+        var dimensions = {
+          width: imgElement.width,
+          height: imgElement.height
+        };
+        var canvasElement = fabric.util.makeElement('canvas', dimensions);
+        fabric.util.setStyle(canvasElement, {
+          width: dimensions.width + 'px',
+          height: dimensions.height + 'px'
         });
+        imgElement.parentNode.insertBefore(canvasElement, imgElement.nextSibling);
+        var oCanvas = window.__canvas = new fabric.Canvas(canvasElement);
+        SVG.scaleX = SVG.scaleY = dimensions.width / SVG.width;
+        oCanvas.add(SVG);
 
         benchmarks.push(new Date() - startTime);
-      }
-    });
+    }); 
   });
 };

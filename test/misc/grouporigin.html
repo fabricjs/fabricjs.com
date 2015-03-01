@@ -1,0 +1,214 @@
+---
+layout: test
+title: Origin in Group
+---
+
+<style>
+.canvas-container {
+  background-color: #FFF;
+  background-image: -webkit-linear-gradient(white 2px, transparent 2px),
+                    -webkit-linear-gradient(0, white 2px, transparent 2px),
+                    -webkit-linear-gradient(rgba(255,255,255,.7) 1px, transparent 1px),
+                    -webkit-linear-gradient(0, rgba(255,255,255,.7) 1px, transparent 1px);
+
+  background-size: 500px 500px, 500px 500px, 100px 100px, 100px 100px;
+  background-position: -3px -3px, -3px -3px, -1px -1px, -1px -1px;
+  margin-bottom: 20px;
+}
+.info { display: inline-block; margin-left: 10px; }
+.test { display: inline-block; margin-right: 40px; margin-bottom: 40px; }
+</style>
+
+<div class="test">
+<h3>originX/originY = left/top (default)</h3>
+<div style="display:inline-block">
+    <p>left/top not set</p>
+    <canvas id="c1" width="200" height="200"></canvas>
+</div>
+<div style="display:inline-block">
+    <p>text at 100/100</p>
+    <canvas id="c2" width="200" height="200"></canvas>
+</div>
+<div style="display:inline-block">
+    <p>cirlce at 100/100</p>
+    <canvas id="c3" width="200" height="200"></canvas>
+</div>
+<div style="display:inline-block">
+    <p>text at 100/100, circle 100/100</p>
+    <canvas id="c4" width="200" height="200"></canvas>
+</div>
+  <script>
+    (function() {
+      var canvas1 = window._canvas = new fabric.Canvas('c1');
+      var text = new fabric.Text('test', { fill: 'red' });
+      var circle = new fabric.Circle({ radius: 50, fill: '#eef' });
+      var group = new fabric.Group([ circle, text ]);
+      canvas1.add(group);
+
+      var canvas2 = window._canvas = new fabric.Canvas('c2');
+      var text = new fabric.Text('test', { fill: 'red', left: 100, top: 100 });
+      var circle = new fabric.Circle({ radius: 50, fill: '#eef' });
+      var group = new fabric.Group([ circle, text ]);
+      canvas2.add(group);
+
+      var canvas3 = window._canvas = new fabric.Canvas('c3');
+      var text = new fabric.Text('test', { fill: 'red' });
+      var circle = new fabric.Circle({ radius: 50, fill: '#eef', left: 100, top: 100 });
+      var group = new fabric.Group([ circle, text ]);
+      canvas3.add(group);
+
+      var canvas4 = window._canvas = new fabric.Canvas('c4');
+      var text = new fabric.Text('test', { fill: 'red', left: 100, top: 100 });
+      var circle = new fabric.Circle({ radius: 50, fill: '#eef', left: 100, top: 100 });
+      var group = new fabric.Group([ circle, text ]);
+      canvas4.add(group);
+    })();
+  </script>
+</div>
+
+<div class="test">
+<h3>text's originX/originY = center/center</h3>
+
+<div style="display:inline-block">
+    <p>left/top not set</p>
+    <canvas id="c5" width="200" height="200"></canvas>
+</div>
+<div style="display:inline-block">
+    <p>text at 100/100</p>
+    <canvas id="c6" width="200" height="200"></canvas>
+</div>
+<div style="display:inline-block">
+    <p>cirlce at 100/100</p>
+    <canvas id="c7" width="200" height="200"></canvas>
+</div>
+<div style="display:inline-block">
+    <p>text at 100/100, circle 100/100</p>
+    <canvas id="c8" width="200" height="200"></canvas>
+</div>
+  <script>
+    (function() {
+        var canvas5 = window._canvas = new fabric.Canvas('c5');
+        var text = new fabric.Text('test', { fill: 'red', originX: 'center', originY: 'center' });
+        var circle = new fabric.Circle({ radius: 50, fill: '#eef' });
+        var group = new fabric.Group([ circle, text ]);
+        canvas5.add(group);
+
+        var canvas6 = window._canvas = new fabric.Canvas('c6');
+        var text = new fabric.Text('test', { fill: 'red', left: 100, top: 100, originX: 'center', originY: 'center' });
+        var circle = new fabric.Circle({ radius: 50, fill: '#eef' });
+        var group = new fabric.Group([ circle, text ]);
+        canvas6.add(group);
+
+        var canvas7 = window._canvas = new fabric.Canvas('c7');
+        var text = new fabric.Text('test', { fill: 'red', originX: 'center', originY: 'center' });
+        var circle = new fabric.Circle({ radius: 50, fill: '#eef', left: 100, top: 100 });
+        var group = new fabric.Group([ circle, text ]);
+        canvas7.add(group);
+
+        var canvas8 = window._canvas = new fabric.Canvas('c8');
+        var text = new fabric.Text('test', { fill: 'red', left: 100, top: 100, originX: 'center', originY: 'center' });
+        var circle = new fabric.Circle({ radius: 50, fill: '#eef', left: 100, top: 100 });
+        var group = new fabric.Group([ circle, text ]);
+        canvas8.add(group);
+    })();
+  </script>
+</div>
+
+<div class="test">
+<h3>cirle's originX/originY = center/center</h3>
+
+<div style="display:inline-block">
+    <p>left/top not set</p>
+    <canvas id="c9" width="200" height="200"></canvas>
+</div>
+<div style="display:inline-block">
+    <p>text at 100/100</p>
+    <canvas id="c10" width="200" height="200"></canvas>
+</div>
+<div style="display:inline-block">
+    <p>cirlce at 100/100</p>
+    <canvas id="c11" width="200" height="200"></canvas>
+</div>
+<div style="display:inline-block">
+    <p>text at 100/100, circle 100/100</p>
+    <canvas id="c12" width="200" height="200"></canvas>
+</div>
+  <script>
+    (function() {
+        var canvas9 = window._canvas = new fabric.Canvas('c9');
+        var text = new fabric.Text('test', { fill: 'red' });
+        var circle = new fabric.Circle({ radius: 50, fill: '#eef', originX: 'center', originY: 'center' });
+        var group = new fabric.Group([ circle, text ]);
+        canvas9.add(group);
+
+        var canvas10 = window._canvas = new fabric.Canvas('c10');
+        var text = new fabric.Text('test', { fill: 'red', left: 100, top: 100 });
+        var circle = new fabric.Circle({ radius: 50, fill: '#eef', originX: 'center', originY: 'center' });
+        var group = new fabric.Group([ circle, text ]);
+        canvas10.add(group);
+
+        var canvas11 = window._canvas = new fabric.Canvas('c11');
+        var text = new fabric.Text('test', { fill: 'red' });
+        var circle = new fabric.Circle({ radius: 50, fill: '#eef', left: 100, top: 100, originX: 'center', originY: 'center' });
+        var group = new fabric.Group([ circle, text ]);
+        canvas11.add(group);
+
+        var canvas12 = window._canvas = new fabric.Canvas('c12');
+        var text = new fabric.Text('test', { fill: 'red', left: 100, top: 100 });
+        var circle = new fabric.Circle({ radius: 50, fill: '#eef', left: 100, top: 100, originX: 'center', originY: 'center' });
+        var group = new fabric.Group([ circle, text ]);
+        canvas12.add(group);
+    })();
+  </script>
+</div>
+
+<br>
+
+<div class="test">
+<h3>cirle's AND text's originX/originY = center/center</h3>
+
+<div style="display:inline-block">
+    <p>left/top not set</p>
+    <canvas id="c13" width="200" height="200"></canvas>
+</div>
+<div style="display:inline-block">
+    <p>text at 100/100</p>
+    <canvas id="c14" width="200" height="200"></canvas>
+</div>
+<div style="display:inline-block">
+    <p>cirlce at 100/100</p>
+    <canvas id="c15" width="200" height="200"></canvas>
+</div>
+<div style="display:inline-block">
+    <p>text at 100/100, circle 100/100</p>
+    <canvas id="c16" width="200" height="200"></canvas>
+</div>
+
+  <script>
+    (function() {
+        var canvas13 = window._canvas = new fabric.Canvas('c13');
+        var text = new fabric.Text('test', { fill: 'red', originX: 'center', originY: 'center' });
+        var circle = new fabric.Circle({ radius: 50, fill: '#eef', originX: 'center', originY: 'center' });
+        var group = new fabric.Group([ circle, text ]);
+        canvas13.add(group);
+
+        var canvas14 = window._canvas = new fabric.Canvas('c14');
+        var text = new fabric.Text('test', { fill: 'red', left: 100, top: 100, originX: 'center', originY: 'center' });
+        var circle = new fabric.Circle({ radius: 50, fill: '#eef', originX: 'center', originY: 'center' });
+        var group = new fabric.Group([ circle, text ]);
+        canvas14.add(group);
+
+        var canvas15 = window._canvas = new fabric.Canvas('c15');
+        var text = new fabric.Text('test', { fill: 'red', originX: 'center', originY: 'center' });
+        var circle = new fabric.Circle({ radius: 50, fill: '#eef', left: 100, top: 100, originX: 'center', originY: 'center' });
+        var group = new fabric.Group([ circle, text ]);
+        canvas15.add(group);
+
+        var canvas16 = window._canvas = new fabric.Canvas('c16');
+        var text = new fabric.Text('test', { fill: 'red', left: 100, top: 100, originX: 'center', originY: 'center' });
+        var circle = new fabric.Circle({ radius: 50, fill: '#eef', left: 100, top: 100, originX: 'center', originY: 'center' });
+        var group = new fabric.Group([ circle, text ]);
+        canvas16.add(group)
+    })();
+  </script>
+</div>

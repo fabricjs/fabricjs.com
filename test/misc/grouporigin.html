@@ -16,7 +16,7 @@ title: Origin in Group
   margin-bottom: 20px;
 }
 .info { display: inline-block; margin-left: 10px; }
-.test { display: inline-block; margin-right: 40px; margin-bottom: 40px; }
+.test { display: block; margin-right: 40px; margin-bottom: 40px; }
 </style>
 
 <div class="test">
@@ -115,7 +115,7 @@ title: Origin in Group
 </div>
 
 <div class="test">
-<h3>cirle's originX/originY = center/center</h3>
+<h3>circle's originX/originY = center/center</h3>
 
 <div style="display:inline-block">
     <p>left/top not set</p>
@@ -165,7 +165,7 @@ title: Origin in Group
 <br>
 
 <div class="test">
-<h3>cirle's AND text's originX/originY = center/center</h3>
+<h3>circle's AND text's originX/originY = center/center</h3>
 
 <div style="display:inline-block">
     <p>left/top not set</p>
@@ -183,7 +183,6 @@ title: Origin in Group
     <p>text at 100/100, circle 100/100</p>
     <canvas id="c16" width="200" height="200"></canvas>
 </div>
-
   <script>
     (function() {
         var canvas13 = window._canvas = new fabric.Canvas('c13');

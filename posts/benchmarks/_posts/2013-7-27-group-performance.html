@@ -3,8 +3,8 @@ layout: benchmark
 title: Group performance
 ---
 
-<button onclick="start()">start</button>
-<button onclick="stop()">stop</button>
+<button id="start">start</button>
+<button id="stop">stop</button>
 <p id="status">started</p>
 <p>Below is a set of 1200 groups, consisting of text and circle objects. Press "start" and try hovering over with a mouse to see how responsive mouse circle is.</p>
 
@@ -38,9 +38,8 @@ title: Group performance
     }
   }
   canvas.add.apply(canvas, shapes);
-})();
-
-function start() {
+  
+  function start() {
     // cache the shapes
     // ??
 
@@ -68,24 +67,26 @@ function start() {
     });
 
     status.innerHTML = 'started';
-}
+  }
 
-function stop() {
-  // remove shapes from cache
-  // ??
+  document.getElementById("start").addEventListener("click", start);
+  document.getElementById("stop").addEventListener("click", function() {
+    // remove shapes from cache
 
-  // enable editing
-  __canvas.selection = true;
+    // ??
+    // enable editing
+    __canvas.selection = true;
+    
+    // remove animation
+    __canvas.off('mouse:move');
+    __canvas.remove(mouseShape);
+    mouseShape = null;
 
-  // remove animation
-  __canvas.off('mouse:move');
-  __canvas.remove(mouseShape);
-  mouseShape = null;
+    status.innerHTML = 'stopped';
+  });
 
-  status.innerHTML = 'stopped';
-}
-
-start();
+  start();
+})();
 </script>
 
 {% include onload.html %}

@@ -13,9 +13,11 @@ title: Group performance
 <script>
 (function() {
   fabric.Object.prototype.originX = fabric.Object.prototype.originY = 'center';
+
   var canvas = this.__canvas = new fabric.Canvas('c');
   var status = document.getElementById('status');
   var mouseShape;
+
   // add shapes
   var shapes = [];
   for (var i=1; i < 30; i++) {
@@ -40,9 +42,11 @@ title: Group performance
   function start() {
     // cache the shapes
     // ??
+
     // disable editing
     __canvas.selection = false;
     __canvas.skipTargetFind = true;
+
     // do some intensive animation
     __canvas.on('mouse:move', function(o) {
         var pos = __canvas.getPointer(o.e);
@@ -61,21 +65,26 @@ title: Group performance
           __canvas.add(mouseShape);
         }
     });
+
     status.innerHTML = 'started';
   }
 
   document.getElementById("start").addEventListener("click", start);
   document.getElementById("stop").addEventListener("click", function() {
     // remove shapes from cache
+
     // ??
     // enable editing
     __canvas.selection = true;
+    
     // remove animation
     __canvas.off('mouse:move');
     __canvas.remove(mouseShape);
     mouseShape = null;
+
     status.innerHTML = 'stopped';
   });
+
   start();
 })();
 </script>

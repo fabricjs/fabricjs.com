@@ -52,6 +52,9 @@ title: Animation
         shapePath = '1.svg',
         coords = [{ x: 150, y: 150 }, { x: 450, y: 150 }, { x: 150, y: 450 }, { x: 450, y: 450 }],
         interval,
+        prevTime,
+        fps,
+        lastUpdate = new Date(),
         shouldAbort = false;
 
     canvas.onFpsUpdate = function(value) {
@@ -93,6 +96,16 @@ title: Animation
 
     var angle = 0;
     function animate() {
+      var time = new Date(),
+          currentFps = (Math.round(1000 / (time - prevTime))),
+          fpsUpdateInterval = time - lastUpdate;
+        
+      if (currentFps !== fps && fpsUpdateInterval > 500) {
+        canvas.onFpsUpdate(currentFps);
+        lastUpdate = new Date(); 
+      }
+      fps = currentFps;
+
       angle += 2;
       if (angle === 360) {
         angle = 0;
@@ -103,6 +116,8 @@ title: Animation
       canvas.item(3) && canvas.item(3).setAngle(angle);
 
       canvas.renderAll();
+
+      prevTime = time;
 
       if (!shouldAbort) {
         fabric.util.requestAnimFrame(animate, canvas.upperCanvasEl);

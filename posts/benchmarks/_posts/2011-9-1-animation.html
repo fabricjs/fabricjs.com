@@ -97,7 +97,7 @@ title: Animation
     var angle = 0;
     function animate() {
       var time = new Date(),
-          currentFps = (Math.round(1000 / (time - prevTime))),
+          currentFps = Math.round(1000 / (time - prevTime)),
           fpsUpdateInterval = time - lastUpdate;
         
       if (currentFps !== fps && fpsUpdateInterval > 500) {

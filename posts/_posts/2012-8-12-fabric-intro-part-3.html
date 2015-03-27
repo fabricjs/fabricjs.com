@@ -24,12 +24,6 @@ title: Introduction to Fabric.js. Part 3.
 <p>Let's create a group of 2 objects, circle and text:</p>
 
 <pre>
-var text = new fabric.Text('hello world', {
-  fontSize: 30,
-  originX: 'center',
-  originY: 'center'
-});
-
 var circle = new fabric.Circle({
   radius: 100,
   fill: '#eef',
@@ -38,7 +32,13 @@ var circle = new fabric.Circle({
   originY: 'center'
 });
 
-var group = new fabric.Group([ text, circle ], {
+var text = new fabric.Text('hello world', {
+  fontSize: 30,
+  originX: 'center',
+  originY: 'center'
+});
+
+var group = new fabric.Group([ circle, text ], {
   left: 150,
   top: 100,
   angle: -10
@@ -56,14 +56,14 @@ canvas.add(group);
 <p>Now that we have a group on canvas, let's change it up a little:</p>
 
 <pre>
-group.item(0).set({
+group.item(0).setFill('red');
+group.item(1).set({
   text: 'trololo',
   fill: 'white'
 });
-group.item(1).setFill('red');
 </pre>
 
-<p>What's going on here? We're accessing individual objects in a group via <code>item()</code> method, and modifying their properties. First object is the text, second one is the squeezed circle. Let's see what happens:</p>
+<p>What's going on here? We're accessing individual objects in a group via <code>item()</code> method, and modifying their properties. First object is the squeezed circle, second one is the text. Let's see what happens:</p>
 
 <p><img src="/article_assets/3_2.png" style="border:1px solid #eee"></p>
 

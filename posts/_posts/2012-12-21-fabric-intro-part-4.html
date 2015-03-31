@@ -127,7 +127,7 @@ canvas.add(rect);
 
 <p>Then there's "centerTransform". <code>false</code> by default, it specifies if a center of an object should be used as an origin of transformation. When set to <code>true</code>, it replicates pre-1.0 behavior when objects were always scaled/rotated from the center. Since 1.0 origin of transformation is dynamic, which allows for finer control when scaling objects.</p>
 
-<p>The last pair of new properties is "originX" and "originY". Set to "center" by default, they allow to change object's origin of transformation programatically. When you drag object's corners, it is these properties that change dynamically under the hood.</p>
+<p>The last pair of new properties is "originX" and "originY". Set accordingly to "left" and "top" by default, they allow to change object's origin of transformation programatically. When you drag object's corners, it is these properties that change dynamically under the hood.</p>
 
 <p>So when would we change them manually? For example, when working with text objects. When you change text dynamically, and the text box dimensions increase, "originX" and "originY" dictate where the box grows. So if you need to "stick" text object by the left edge, you would set originX to "left". To stick it to the right, you would set originX to "right". And so on. This behavior resembles "position: absolute" in CSS.</p>
 

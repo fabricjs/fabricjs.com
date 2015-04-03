@@ -4,10 +4,10 @@ title: Controls customization
 ---
 
 <style> 
-#setControlVisible {
+.setControlVisible {
   margin-top: -10px;
 }
-#setControlVisible input {
+.setControlVisible input {
   margin: 0;
 }
 </style>
@@ -89,7 +89,7 @@ title: Controls customization
   </p>
   <p>
     <code>setControlVisible</code>
-    <p id="setControlVisible">
+    <p id="setControlVisible" class="setControlVisible">
       <label>
         <input type="checkbox" title="top-left control" name="tl" checked>
       </label>
@@ -166,7 +166,7 @@ title: Controls customization
 
   function observeOptionsList(property) {
     var list = document.querySelectorAll('#' + property + 
-    ' [type="checkbox"]');
+      ' [type="checkbox"]');
     for (var i = 0, len = list.length; i < len; i++) {
       list[i].onchange = function() {
         canvas.item(0)[property](this.name, this.checked);

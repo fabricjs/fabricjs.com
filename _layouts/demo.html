@@ -16,21 +16,21 @@
     <![endif]-->
 
     <script src="../lib/prism.js"></script>
-    <script src="../lib/fabric.js"></script>
+    <script>
+      (function() {
+        var fabricUrl = '../lib/fabric.js';
+        if (document.location.search.indexOf('load_fabric_from=') > -1) {
+          var match = document.location.search.match(/load_fabric_from=([^&]*)/);
+          if (match && match[1]) {
+            fabricUrl = match[1];
+          }
+        }
+        document.write('<script src="' + fabricUrl + '"><\/script>');
+      })();
+    </script>
     <script src="../js/master.js"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
-
-    <script>
-      (function() {
-        if (document.location.search.indexOf('load_fabric_from=') > -1) {
-          var fabricUrl = document.location.search.match(/load_fabric_from=([^&]*)/)[1] || '';
-          if (!fabricUrl) return;
-
-          document.write('<script src="' + fabricUrl + '"><\/script>');
-        }
-      })();
-    </script>
   </head>
   <body>
     {% include header.html %}

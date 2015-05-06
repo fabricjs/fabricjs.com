@@ -8,31 +8,41 @@
   }
 
   var REFERENCE_OBJECT = {
-    'type':               'polyline',
-    'originX':            'left',
-    'originY':            'top',
-    'left':               0,
-    'top':                0,
-    'width':              10,
-    'height':             10,
-    'fill':               'rgb(0,0,0)',
-    'stroke':             null,
-    'strokeWidth':        1,
-    'strokeDashArray':    null,
-    'strokeLineCap':      'butt',
-    'strokeLineJoin':     'miter',
-    'strokeMiterLimit':   10,
-    'scaleX':             1,
-    'scaleY':             1,
-    'angle':              0,
-    'flipX':              false,
-    'flipY':              false,
-    'opacity':            1,
-    'points':             getPoints(),
-    'shadow':             null,
-    'visible':            true,
-    'backgroundColor':    '',
-    'clipTo':             null
+    'type':                     'polyline',
+    'originX':                  'left',
+    'originY':                  'top',
+    'left':                     10,
+    'top':                      12,
+    'width':                    10,
+    'height':                   10,
+    'fill':                     'rgb(0,0,0)',
+    'stroke':                   null,
+    'strokeWidth':              1,
+    'strokeDashArray':          null,
+    'strokeLineCap':            'butt',
+    'strokeLineJoin':           'miter',
+    'strokeMiterLimit':         10,
+    'scaleX':                   1,
+    'scaleY':                   1,
+    'angle':                    0,
+    'flipX':                    false,
+    'flipY':                    false,
+    'opacity':                  1,
+    'points':                   getPoints(),
+    'shadow':                   null,
+    'visible':                  true,
+    'backgroundColor':          '',
+    'clipTo':                   null,
+    'fillRule':                 'nonzero',
+    'globalCompositeOperation': 'source-over'
+  };
+
+  var REFERENCE_EMPTY_OBJECT = {
+    'points': [],
+    'width': 0,
+    'height': 0,
+    'top': 0,
+    'left': 0
   };
 
   QUnit.module('fabric.Polyline');
@@ -46,7 +56,7 @@
     ok(polyline instanceof fabric.Object);
 
     equal(polyline.type, 'polyline');
-    deepEqual(polyline.get('points'), [ { x: -5, y: -5 }, { x: 5, y: 5 } ]);
+    deepEqual(polyline.get('points'), [ { x: 10, y: 12 }, { x: 20, y: 22 } ]);
   });
 
   test('complexity', function() {
@@ -73,6 +83,17 @@
 
   test('fromElement', function() {
     ok(typeof fabric.Polyline.fromElement == 'function');
+
+    var elPolylineWithoutPoints = fabric.document.createElement('polyline');
+    var empty_object = fabric.util.object.extend({}, REFERENCE_OBJECT);
+    empty_object = fabric.util.object.extend(empty_object, REFERENCE_EMPTY_OBJECT);
+
+    deepEqual(fabric.Polyline.fromElement(elPolylineWithoutPoints).toObject(), empty_object);
+
+    var elPolylineWithEmptyPoints = fabric.document.createElement('polyline');
+    elPolylineWithEmptyPoints.setAttribute('points', '');
+
+    deepEqual(fabric.Polyline.fromElement(elPolylineWithEmptyPoints).toObject(), empty_object);
 
     var elPolyline = fabric.document.createElement('polyline');
 
@@ -110,22 +131,13 @@
       'strokeLineJoin': 'bevil',
       'strokeMiterLimit': 5,
       'opacity': 0.34,
-      'points': expectedPoints
+      'points': expectedPoints,
+      'left': 10,
+      'top': 10
     }));
 
     deepEqual(polylineWithAttrs.get('transformMatrix'), [ 2, 0, 0, 2, -10, -20 ]);
 
-    var elPolylineWithoutPoints = fabric.document.createElement('polyline');
-
-    var error;
-    try {
-      fabric.Polyline.fromElement(elPolylineWithoutPoints);
-    }
-    catch(err) {
-      error = err;
-    }
-
-    ok(typeof error !== 'undefined', 'missing points attribute should result in error');
-    equal(fabric.Polyline.fromElement(), null);
+    equal(fabric.Polyline.fromElement(), null);    
   });
 })();

@@ -209,9 +209,9 @@ var circle = new fabric.Circle({
 
 circle.setGradient('fill', {
   x1: 0,
-  y1: 0,
+  y1: -circle.height / 2,
   x2: 0,
-  y2: circle.height,
+  y2: circle.height / 2,
   colorStops: {
     0: '#000',
     1: '#fff'
@@ -225,14 +225,20 @@ circle.setGradient('fill', {
 
 <p>The argument passed to a method is an options object, which expects 2 coordinate pairs (x1, y1 and x2, y2), as well as "colorStops" object. Coordinates specify where gradient starts and where it ends. colorStops specify which colors a gradient is made of. You can define as many color stops as you want, as long as they range from 0 to 1 (e.g. 0, 0.1, 0.3, 0.5, 0.75, 1). 0 represents beginning of a gradient, 1 &mdash; its end.</p>
 
+<p>To understand how we calculated the coordinates, take a look at the picture below.</p>
+
+<p><img src="/article_assets/2_18.png" style="border:1px solid #eee"></p>
+
+<p>Coordinates are relative to object center, so the highest point of the circle is <code>-circle.height / 2</code>, and the lowest point is <code>circle.height / 2</code>. <code>setGradient</code> calculates width coordinates (x1, x2) in the same way.
+
 <p>Here's an example of left-to-right red-blue gradient:</p>
 
 <pre>
 circle.setGradient('fill', {
-  x1: 0,
-  y1: circle.height / 2,
-  x2: circle.width,
-  y2: circle.height / 2,
+  x1: -circle.width / 2,
+  y1: 0,
+  x2: circle.width / 2,
+  y2: 0,
   colorStops: {
     0: "red",
     1: "blue"
@@ -246,10 +252,10 @@ circle.setGradient('fill', {
 
 <pre>
 circle.setGradient('fill', {
-  x1: 0,
-  y1: circle.height / 2,
-  x2: circle.width,
-  y2: circle.height / 2,
+  x1: -circle.width / 2,
+  y1: 0,
+  x2: circle.width / 2,
+  y2: 0,
   colorStops: {
     0: "red",
     0.2: "orange",
@@ -269,7 +275,7 @@ circle.setGradient('fill', {
 
 <p>What if you wanted to display not only images and vector shapes on canvas, but also text? Fabric has you covered! Meet <code>fabric.Text</code> objects.</p>
 
-<p>There are 2 reasons we're providing text absraction in Fabric. First, is to allow working with text in an object oriented fashion. Native canvas methods &mdash; as usual &mdash; only allow to fill or stroke text on a very low level. By instantiating <code>fabric.Text</code> instances, we can work with text just like we would work with any other Fabric object &mdash; move it, scale it, change its properties, and so on.</p>
+<p>There are 2 reasons we're providing text abstraction in Fabric. First, is to allow working with text in an object oriented fashion. Native canvas methods &mdash; as usual &mdash; only allow to fill or stroke text on a very low level. By instantiating <code>fabric.Text</code> instances, we can work with text just like we would work with any other Fabric object &mdash; move it, scale it, change its properties, and so on.</p>
 
 <p>Second reason is to provide a much richer functionality than what canvas gives us. Some of the Fabric additions include:</p>
 

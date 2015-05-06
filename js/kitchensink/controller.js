@@ -746,13 +746,22 @@ function addAccessors($scope) {
   };
 
   $scope.getDrawingLineShadowWidth = function() {
-    if (canvas.freeDrawingBrush) {
-      canvas.freeDrawingBrush.shadowBlur;
+    if (canvas.freeDrawingBrush && canvas.freeDrawingBrush.shadow) {
+      return canvas.freeDrawingBrush.shadow.blur || 1;
+    }
+    else {
+      return 0
     }
   };
   $scope.setDrawingLineShadowWidth = function(value) {
     if (canvas.freeDrawingBrush) {
-      canvas.freeDrawingBrush.shadowBlur = parseInt(value, 10) || 1;
+      var blur = parseInt(value, 10) || 1;
+      if (blur > 0) {
+        canvas.freeDrawingBrush.shadow = new fabric.Shadow({blur: blur, offsetX: 10, offsetY: 10}) ;
+      }
+      else {
+        canvas.freeDrawingBrush.shadow = null;
+      }
     }
   };
 

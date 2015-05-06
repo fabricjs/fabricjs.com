@@ -1,44 +1,49 @@
 (function() {
+  var canvas = this.canvas = new fabric.Canvas();
 
-  QUnit.module('fabric.IText');
+  QUnit.module('fabric.IText', {
+    teardown: function() {
+      canvas.clear();
+    }
+  });
 
   var ITEXT_OBJECT = {
-    'type':                 'text',
-    'originX':              'left',
-    'originY':              'top',
-    'left':                 0,
-    'top':                  0,
-    'width':                20,
-    'height':               52,
-    'fill':                 'rgb(0,0,0)',
-    'stroke':               null,
-    'strokeWidth':          1,
-    'strokeDashArray':      null,
-    'strokeLineCap':        'butt',
-    'strokeLineJoin':       'miter',
-    'strokeMiterLimit':     10,
-    'scaleX':               1,
-    'scaleY':               1,
-    'angle':                0,
-    'flipX':                false,
-    'flipY':                false,
-    'opacity':              1,
-    'shadow':               null,
-    'visible':              true,
-    'clipTo':               null,
-    'text':                 'x',
-    'fontSize':             40,
-    'fontWeight':           'normal',
-    'fontFamily':           'Times New Roman',
-    'fontStyle':            '',
-    'lineHeight':           1.3,
-    'textDecoration':       '',
-    'textAlign':            'left',
-    'path':                 null,
-    'backgroundColor':      '',
-    'textBackgroundColor':  '',
-    'useNative':            true,
-    styles:                 { }
+    'type':                     'text',
+    'originX':                  'left',
+    'originY':                  'top',
+    'left':                     0,
+    'top':                      0,
+    'width':                    20,
+    'height':                   58.76,
+    'fill':                     'rgb(0,0,0)',
+    'stroke':                   null,
+    'strokeWidth':              1,
+    'strokeDashArray':          null,
+    'strokeLineCap':            'butt',
+    'strokeLineJoin':           'miter',
+    'strokeMiterLimit':         10,
+    'scaleX':                   1,
+    'scaleY':                   1,
+    'angle':                    0,
+    'flipX':                    false,
+    'flipY':                    false,
+    'opacity':                  1,
+    'shadow':                   null,
+    'visible':                  true,
+    'clipTo':                   null,
+    'text':                     'x',
+    'fontSize':                 40,
+    'fontWeight':               'normal',
+    'fontFamily':               'Times New Roman',
+    'fontStyle':                '',
+    'lineHeight':               1.3,
+    'textDecoration':           '',
+    'textAlign':                'left',
+    'backgroundColor':          '',
+    'textBackgroundColor':      '',
+    'fillRule':                 'nonzero',
+    'globalCompositeOperation': 'source-over',    
+    styles:                     { }
   };
 
   test('constructor', function() {
@@ -59,7 +64,25 @@
 
   test('instances', function() {
     var iText = new fabric.IText('test');
-    var lastInstance = fabric.IText.instances[fabric.IText.instances.length - 1];
+
+    // Not on a sketchpad; storing it in instances array already would leak it forever.
+    var instances = canvas._iTextInstances && canvas._iTextInstances;
+    var lastInstance = instances && instances[instances.length - 1];
+    equal(lastInstance, undefined);
+
+    canvas.add(iText);
+    instances = canvas._iTextInstances && canvas._iTextInstances;
+    lastInstance = instances && instances[instances.length - 1];
+    equal(lastInstance, iText);
+
+    canvas.remove(iText);
+    instances = canvas._iTextInstances && canvas._iTextInstances;
+    lastInstance = instances && instances[instances.length - 1];
+    equal(lastInstance, undefined);
+
+    // Should survive being added again after removal.
+    canvas.add(iText);
+    lastInstance = canvas._iTextInstances && canvas._iTextInstances[canvas._iTextInstances.length - 1];
     equal(lastInstance, iText);
   });
 

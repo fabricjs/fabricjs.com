@@ -121,15 +121,15 @@ canvas.add(rect);
 
 <h4>Object transformation</h4>
 
-<p>There's a number of other transformation-related properties available in Fabric <b>since version 1.0</b>. One of them is "uniScaleTransform". It's <code>false</code> by default, and can be used to enable non-uniform scaling of object; in other words, it allows to change object's proportions when dragging by the corners.</p>
+<p>There's a number of other transformation-related properties available in Fabric <b>since version 1.0</b>. One of them is "uniScaleTransform" on canvas instance. It's <code>false</code> by default, and can be used to enable non-uniform scaling of object; in other words, it allows to change object's proportions when dragging by the corners.</p>
 
 <p><img src="/article_assets/4_15.png" style="border:1px solid #eee"></p>
 
-<p>Then there's "centerTransform". <code>false</code> by default, it specifies if a center of an object should be used as an origin of transformation. When set to <code>true</code>, it replicates pre-1.0 behavior when objects were always scaled/rotated from the center. Since 1.0 origin of transformation is dynamic, which allows for finer control when scaling objects.</p>
+<p>Then there are "centeredScaling" and "centeredRotation" properties (before v1.3.4 was one property - "centerTransform"). They specify if a center of an object should be used as an origin of transformation. When both of them are set to<code>true</code>, it replicates pre-1.0 behavior when objects were always scaled/rotated from the center. Since 1.0 origin of transformation is dynamic, which allows for finer control when scaling objects.</p>
 
-<p>The last pair of new properties is "originX" and "originY". Set to "center" by default, they allow to change object's origin of transformation programatically. When you drag object's corners, it is these properties that change dynamically under the hood.</p>
+<p>The last pair of new properties is "originX" and "originY". Set accordingly to "left" and "top" by default, they allow to change object's origin of transformation programatically. When you drag object's corners, it is these properties that change dynamically under the hood.</p>
 
-<p>So when would we change them manually? For example, when working with text objects. When you change text dynamically, and the text box dimensions increase, "originX" and "originY" dictate where the box grows. So if you need to "stick" text object by the left edge, you would set originX to "left". To stick it to the right, you would set originX to "right". And so on. This behavior resembles "position: absolute" in CSS.</p>
+<p>So when would we change them manually? For example, when working with text objects. When you change text dynamically, and the text box dimensions increase, "originX" and "originY" dictate where the box grows. So if you need to center text object, you would set originX to "center". To stick it to the right, you would set originX to "right". And so on. This behavior resembles "position: absolute" in CSS.</p>
 
   <h4>Canvas background and overlay</h4>
 

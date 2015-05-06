@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>{{ page.title }} | Fabric.js Demos</title>
+
+    <link rel="stylesheet" href="../css/master.css">
+    <link rel="stylesheet" href="../css/prism.css">
+
+    <!--[if lt IE 9]>
+      <script src="../lib/excanvas.js"></script>
+    <![endif]-->
+
+    <script src="../lib/prism.js"></script>
+    <script src="../lib/fabric_with_gestures.js"></script>
+    <script src="../js/master.js"></script>
+  </head>
+  <body>
+    {% include header.html %}
+    <p style="background: #ffc; padding: 5px; display: inline-block; margin-left: 10px; margin-bottom: -30px">
+      This demo uses custom version of Fabric with touch events enabled. Try dragging an image, shaking, longpressing it or changing orientation.
+    </p>
+
+    <div id="bd-wrapper">
+      <h2><span>Fabric.js demos</span> &middot; {{ page.title }}</h2>
+
+      {{ content }}
+    </div>
+
+    <script>
+      (function(){
+        var mainScriptEl = document.getElementById('main');
+        if (!mainScriptEl) return;
+        var preEl = document.createElement('pre');
+        var codeEl = document.createElement('code');
+        codeEl.innerHTML = mainScriptEl.innerHTML;
+        codeEl.className = 'language-javascript';
+        preEl.appendChild(codeEl);
+        document.getElementById('bd-wrapper').appendChild(preEl);
+      })();
+    </script>
+  </body>
+</html>

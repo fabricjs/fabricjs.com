@@ -17,7 +17,7 @@ title: Custom Fabric build
   .version { background: #ffc; padding: 5px; display: inline-block; }
 </style>
 
-<div class="version">Fabric version: <b>1.4.0</b></div>
+<div class="version">Fabric version: <b>1.5.0</b></div>
 
 <div style="margin-top: 10px">
   <button id="select-all">Select all</button>
@@ -29,11 +29,6 @@ title: Custom Fabric build
     <input type="checkbox" id="text">
     <label for="text">Text</label><br>
     <p>Adds support for text rendering via `fabric.Text`</p>
-  </li>
-  <li>
-    <input type="checkbox" id="cufon">
-    <label for="cufon">Cufon</label><br>
-    <p>Adds support for non-native text rendering via (modified) <a href="http://cufon.shoqolate.com/generate/">Cufon</a> library. Depends on "Text" module.</p>
   </li>
   <li>
     <input type="checkbox" id="gestures">
@@ -129,11 +124,6 @@ title: Custom Fabric build
       }
     };
 
-    document.getElementById('cufon').onclick = function() {
-      if (this.checked) {
-        document.getElementById('text').checked = true;
-      }
-    };
     document.getElementById('text').onclick = function() {
       if (!this.checked) {
         document.getElementById('cufon').checked = false;

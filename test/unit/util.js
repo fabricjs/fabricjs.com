@@ -5,7 +5,9 @@
   function K (x) { return x }
 
   function _createImageElement() {
-    return fabric.isLikelyNode ? new (require('canvas').Image) : fabric.document.createElement('img');
+    return fabric.isLikelyNode
+            ? new (require('canvas').Image)()
+            : fabric.document.createElement('img');
   }
 
   function getAbsolutePath(path) {
@@ -21,6 +23,8 @@
   var IMG_URL = fabric.isLikelyNode
     ? require("path").join(__dirname, '../fixtures/', 'very_large_image.jpg')
     : getAbsolutePath('../fixtures/very_large_image.jpg');
+
+  var IMG_URL_NON_EXISTING = 'http://www.google.com/non-existing';
 
   test('fabric.util.toFixed', function(){
     ok(typeof fabric.util.toFixed == 'function');
@@ -191,11 +195,11 @@
     ok(typeof clone == 'function');
 
     var obj = { x: 1, y: [1, 2, 3] },
-        clone = clone(obj);
+        _clone = clone(obj);
 
-    equal(clone.x, 1);
-    notEqual(obj, clone);
-    equal(clone.y, obj.y);
+    equal(_clone.x, 1);
+    notEqual(obj, _clone);
+    equal(_clone.y, obj.y);
   });
 
   test('Function.prototype.bind', function() {
@@ -208,7 +212,7 @@
 
     var bound = fn.bind(obj);
     deepEqual([obj, undefined, undefined], bound());
-    deepEqual([obj, 1, undefined], bound(1))
+    deepEqual([obj, 1, undefined], bound(1));
     deepEqual([obj, 1, null], bound(1, null));
 
     bound = fn.bind(obj, 1);
@@ -220,7 +224,7 @@
       this.y = y;
     }
 
-    var obj = { }
+    obj = { };
     var YAxisPoint = Point.bind(obj, 0);
     var axisPoint = new YAxisPoint(5);
 
@@ -247,7 +251,7 @@
     ok(typeof fabric.util.toArray == 'function');
 
     deepEqual(['x', 'y'], fabric.util.toArray({ 0: 'x', 1: 'y', length: 2 }));
-    deepEqual([1, 3], fabric.util.toArray(function(){ return arguments }(1, 3)));
+    deepEqual([1, 3], fabric.util.toArray((function(){ return arguments })(1, 3)));
 
     var nodelist = fabric.document.getElementsByTagName('div'),
         converted = fabric.util.toArray(nodelist);
@@ -457,6 +461,23 @@
     }, 1000);
   });
 
+
+  asyncTest('fabric.util.loadImage with url for a non exsiting image', function() {
+    var callbackInvoked = false;
+    var hadError = false;
+
+    fabric.util.loadImage(IMG_URL_NON_EXISTING, function(img, error) {
+      callbackInvoked = true;
+      hadError = error;
+    });
+
+    setTimeout(function() {
+      ok(callbackInvoked, 'callback should be invoked');
+      equal(hadError, true, 'callback should be invoked with error set to true');
+      start();
+    }, 1000);
+  });
+
   var SVG_WITH_1_ELEMENT = '<?xml version="1.0"?>\
     <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">\
     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">\
@@ -517,7 +538,7 @@
 
     equal(2, array.indexOf(3, -47), "large negative value for fromIndex");
     equal(10, array.indexOf(3, 4));
-    equal(10, array.indexOf(3, -5))
+    equal(10, array.indexOf(3, -5));
     equal(2, array.indexOf(3, {}), "nonsensical value for fromIndex");
     equal(2, array.indexOf(3, ""), "nonsensical value for fromIndex");
     equal(-1, array.indexOf(3, 41), "fromIndex value larger than the length of the array");
@@ -628,7 +649,7 @@
     deepEqual(['1!', '2!', '3!', '4!', '5!'],
       arr.reduce(function(memo, val) { memo.push(val + '!'); return memo }, [ ]));
 
-    var arr = 'foobar'.split('');
+    arr = 'foobar'.split('');
     equal('f0o1o2b3a4r5',
       arr.reduce(function(memo, val, index) { return memo + val + index }, ''));
   });
@@ -768,7 +789,7 @@
   });
 
   test('fabric.util.populateWithProperties', function() {
-    ok(typeof fabric.util.populateWithProperties == 'function')
+    ok(typeof fabric.util.populateWithProperties == 'function');
 
     var source = {
       foo: 'bar',

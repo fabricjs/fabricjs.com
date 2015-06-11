@@ -14,42 +14,42 @@
       IMG_WIDTH   = 276,
       IMG_HEIGHT  = 110;
 
-  var REFERENCE_IMG_OBJECT = {
-    'type':               'image',
-    'originX':            'left',
-    'originY':            'top',
-    'left':               0,
-    'top':                0,
-    'width':              IMG_WIDTH, // node-canvas doesn't seem to allow setting width/height on image objects
-    'height':             IMG_HEIGHT, // or does it now?
-    'fill':               'rgb(0,0,0)',
-    'stroke':             null,
-    'strokeWidth':        1,
-    'strokeDashArray':    null,
-    'strokeLineCap':      'butt',
-    'strokeLineJoin':     'miter',
-    'strokeMiterLimit':   10,
-    'scaleX':             1,
-    'scaleY':             1,
-    'angle':              0,
-    'flipX':              false,
-    'flipY':              false,
-    'opacity':            1,
-    'src':                fabric.isLikelyNode ? undefined : IMG_SRC,
-    'selectable':         true,
-    'hasControls':        true,
-    'hasBorders':         true,
-    'hasRotatingPoint':   true,
-    'transparentCorners': true,
-    'perPixelTargetFind': false,
-    'shadow':             null,
-    'visible':            true,
-    'clipTo':             null,
-    'filters':            []
-  };
+  // var REFERENCE_IMG_OBJECT = {
+  //   'type':               'image',
+  //   'originX':            'left',
+  //   'originY':            'top',
+  //   'left':               0,
+  //   'top':                0,
+  //   'width':              IMG_WIDTH, // node-canvas doesn't seem to allow setting width/height on image objects
+  //   'height':             IMG_HEIGHT, // or does it now?
+  //   'fill':               'rgb(0,0,0)',
+  //   'stroke':             null,
+  //   'strokeWidth':        1,
+  //   'strokeDashArray':    null,
+  //   'strokeLineCap':      'butt',
+  //   'strokeLineJoin':     'miter',
+  //   'strokeMiterLimit':   10,
+  //   'scaleX':             1,
+  //   'scaleY':             1,
+  //   'angle':              0,
+  //   'flipX':              false,
+  //   'flipY':              false,
+  //   'opacity':            1,
+  //   'src':                fabric.isLikelyNode ? undefined : IMG_SRC,
+  //   'selectable':         true,
+  //   'hasControls':        true,
+  //   'hasBorders':         true,
+  //   'hasRotatingPoint':   true,
+  //   'transparentCorners': true,
+  //   'perPixelTargetFind': false,
+  //   'shadow':             null,
+  //   'visible':            true,
+  //   'clipTo':             null,
+  //   'filters':            []
+  // };
 
   function _createImageElement() {
-    return fabric.isLikelyNode ? new (require('canvas').Image) : fabric.document.createElement('img');
+    return fabric.isLikelyNode ? new (require('canvas').Image)() : fabric.document.createElement('img');
   }
 
   function _createImageObject(width, height, callback) {
@@ -62,7 +62,7 @@
   }
 
   function createImageObject(callback) {
-    return _createImageObject(IMG_WIDTH, IMG_HEIGHT, callback)
+    return _createImageObject(IMG_WIDTH, IMG_HEIGHT, callback);
   }
 
   function setSrc(img, src, callback) {
@@ -714,6 +714,61 @@
     });
   });
 
+  QUnit.module('fabric.Image.filters.Resize');
+
+  test('constructor', function() {
+    ok(fabric.Image.filters.Resize);
+
+    var filter = new fabric.Image.filters.Resize();
+    ok(filter instanceof fabric.Image.filters.Resize, 'should inherit from fabric.Image.filters.Resize');
+  });
+
+  test('properties', function() {
+    var filter = new fabric.Image.filters.Resize();
+
+    equal(filter.type, 'Resize');
+
+    equal(filter.resizeType, 'hermite');
+    equal(filter.lanczosLobes, 3);
+    equal(filter.scaleX, 0);
+    equal(filter.scaleY, 0);
+
+    var filter2 = new fabric.Image.filters.Resize({resizeType: 'bilinear', scaleX: 0.3, scaleY: 0.3});
+    equal(filter2.resizeType, 'bilinear');
+    equal(filter2.scaleX, 0.3);
+    equal(filter2.scaleY, 0.3);
+
+  });
+
+  test('applyTo', function() {
+    var filter = new fabric.Image.filters.Resize();
+    ok(typeof filter.applyTo == 'function');
+  });
+
+  test('toObject', function() {
+    var filter = new fabric.Image.filters.Resize();
+    ok(typeof filter.toObject == 'function');
+
+    var object = filter.toObject();
+    equal(JSON.stringify(object), '{"type":"Resize","scaleX":0,"scaleY":0,"resizeType":"hermite","lanczosLobes":3}');
+
+    filter.resizeType = 'bilinear';
+    object = filter.toObject();
+    equal(JSON.stringify(object), '{"type":"Resize","scaleX":0,"scaleY":0,"resizeType":"bilinear","lanczosLobes":3}');
+  });
+
+  test('fromObject', function() {
+    var filter = new fabric.Image.filters.Resize();
+
+    var object = filter.toObject();
+    var fromObject = fabric.Image.filters.Resize.fromObject(object);
+    deepEqual(fromObject, filter);
+    ok(fromObject instanceof fabric.Image.filters.Resize, 'should inherit from fabric.Image.filters.Resize');
+    filter.resizeType = 'bilinear';
+    filter.scaleX = 0.8;
+    filter.scaleY = 0.8;
+    deepEqual(fabric.Image.filters.Resize.fromObject(filter.toObject()), filter);
+  });
   // asyncTest('fromObject', function() {
   //   createImageObject(function(image) {
   //     var filter = new fabric.Image.filters.Mask({mask: image});

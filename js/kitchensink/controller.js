@@ -117,7 +117,7 @@ function addAccessors($scope) {
     setActiveProp('textAlign', value.toLowerCase());
   };
 
-  $scope.getFontFamilygetStrokeColor = function() {
+  $scope.getFontFamily = function() {
     return getActiveProp('fontFamily').toLowerCase();
   };
   $scope.setFontFamily = function(value) {

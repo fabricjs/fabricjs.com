@@ -59,7 +59,7 @@ h3, h4 { margin-top: 1.5em !important; }
 #demos li a:hover .caption { font-weight: bold; }
 
 .github iframe { margin-top: 8px; }
-.twitter iframe { margin-top: 8px; margin-right: -5px; margin-left: 10px; }
+.twitter iframe { margin-top: 8px; margin-right: 10px; margin-left: 10px; }
 .github span, .twitter span { color: pink }
 
 #bd-wrapper { padding: 10px; min-width: 1200px; }

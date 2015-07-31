@@ -1,0 +1,109 @@
+---
+layout: test
+title: Automated visual tests (stroke)
+---
+
+<link rel="stylesheet" href="/lib/jasmine.css">
+
+<script src="/lib/jasmine.js"></script>
+<script src="/lib/jasmine-html.js"></script>
+<script src="/lib/imagediff.js"></script>
+
+<script src="/lib/fabric.js"></script>
+
+<script>
+
+  fabric.Object.prototype.originX = fabric.Object.prototype.originY = 'center';
+
+  function initCanvasForSVG(id, callback) {
+    fabric.loadSVGFromURL('../../assets/' + id + '.svg', function(objects, options) {
+      var shape = fabric.util.groupSVGElements(objects, options);
+
+      var canvasEl = document.createElement('canvas');
+
+      canvasEl.width = shape.width || 600;
+      canvasEl.height = shape.height || 600;
+
+      var canvas = window['__canvas' + id] = new fabric.StaticCanvas(canvasEl, {
+        enableRetinaScaling: false,
+        backgroundColor: '#fff'
+      });
+      canvas.add(shape);
+      shape.center();
+      canvas.renderAll();
+
+      callback(canvas)
+    });
+  }
+
+  describe('ImageTest', function() {
+
+    // Add matcher
+    beforeEach(function () {
+      this.addMatchers(imagediff.jasmine);
+    });
+
+    var ids = [
+      'svg_stroke_1',
+      'svg_stroke_2',
+      'svg_stroke_3',
+      'svg_stroke_4',
+      'svg_stroke_5',
+      'svg_stroke_6',
+      'svg_stroke_7',
+      'svg_stroke_8'
+    ];
+
+    ids.forEach(function(id) {
+      it(id + ' should render correctly', function () {
+
+        var expected = new Image(),
+            actual = new Image();
+
+        expected.src = 'assets/' + id + '.png';
+
+        initCanvasForSVG('stroke/' + id, function(canvas) {
+          actual.src = canvas.toDataURL('png');
+        });
+
+        waitsFor(function () {
+          return expected.width & actual.width;
+        }, 'image not loaded.', 3000);
+
+        runs(function() {
+          expect(expected).toImageDiffEqual(actual, 75);
+        });
+      });
+    });
+  });
+</script>
+
+<script>
+(function() {
+
+  var jasmineEnv = jasmine.getEnv();
+  jasmineEnv.updateInterval = 1000;
+
+  var reporter = new jasmine.HtmlReporter();
+
+  jasmineEnv.addReporter(reporter);
+
+  jasmineEnv.specFilter = function(spec) {
+    return reporter.specFilter(spec);
+  };
+
+  var currentWindowOnload = window.onload;
+
+  window.onload = function() {
+    if (currentWindowOnload) {
+      currentWindowOnload();
+    }
+    execJasmine();
+  };
+
+  function execJasmine() {
+    jasmineEnv.execute();
+  }
+
+})();
+</script>

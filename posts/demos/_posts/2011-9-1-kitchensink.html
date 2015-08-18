@@ -140,6 +140,7 @@ title: Kitchensink
     <li class="active"><a href="#object-controls-pane" data-toggle="tab">Controls</a></li>
     <li><a href="#load-svg-pane" data-toggle="tab">Load SVG</a></li>
     <li><a href="#execute-code" data-toggle="tab">Execute</a></li>
+    <li><a href="#json-inout" data-toggle="tab">JSON</a></li>
   </ul>
 
   <div class="tab-content">
@@ -490,11 +491,23 @@ title: Kitchensink
       </button>
     </div>
 
-      <div class="tab-pane" id="execute-code">
+    <div class="tab-pane" id="execute-code">
         <textarea id="canvas-console" bind-value-to="console">
         </textarea>
         <button type="button" class="btn btn-info" ng-click="execute()">Execute</button>
-      </div>
+    </div>
+
+    <div class="tab-pane" id="json-inout">
+      <textarea id="json-console" bind-value-to="consoleJSON">
+      </textarea>
+      <button type="button" class="btn btn-info" ng-click="loadJSON()">
+        Load
+      </button>
+      <button type="button" class="btn btn-info" ng-click="saveJSON()">
+        Save
+      </button>
+    </div>    
+
   </div>
 
 </div>

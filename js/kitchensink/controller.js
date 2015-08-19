@@ -97,7 +97,7 @@ function addAccessors($scope) {
   };
   $scope.toggleOverline = function() {
     var value = $scope.isOverline()
-      ? getActiveStyle('textDecoration').replace('overlin', '')
+      ? getActiveStyle('textDecoration').replace('overline', '')
       : (getActiveStyle('textDecoration') + ' overline');
 
     setActiveStyle('textDecoration', value);

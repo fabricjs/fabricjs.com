@@ -84,4 +84,16 @@
   <path id="p28" d="M 200,150 0,250 200,350 z"
     transform="scale(-0.5, 1) rotate(90) translate(50, 50)"
     stroke="none" fill="red" />
+  <path id="p29" d="M -250,100 -50,150 -250,200 z"
+    transform="rotate(-90, 0, 0)"
+    stroke="none" fill="red" />
+  <path id="p30" d="M -100,-50 100,0 -100,50 z"
+    transform="rotate(-90, 150, 0)"
+    stroke="none" fill="red" />
+  <path id="p31" d="M -100,250 100,300 -100,350 z"
+    transform="rotate(-90, 0, 150)"
+    stroke="none" fill="red" />
+  <path id="p32" d="M 50,100 250,150 50,200 z"
+    transform="rotate(-90, 150, 150)"
+    stroke="none" fill="red" />
 </svg>

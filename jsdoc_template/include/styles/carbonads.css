@@ -1,0 +1,89 @@
+/* Homepage */
+
+#carbonads {
+  display: block;
+  overflow: hidden;
+  margin: 2em auto 1em;
+  padding: 1em 1.5em;
+  max-width: 26em;
+  background: #333333;
+  font-size: .8em;
+  font-family: Verdana, "Helvetica Neue", Helvetica, sans-serif;
+  line-height: 1.5;
+}
+
+  #carbonads a {
+    color: #ffc0c1;
+    text-decoration: none;
+  }
+
+  #carbonads span {
+    display: block;
+    overflow: hidden;
+  }
+
+  .carbon-text {
+    display: block;
+    float: left;
+    max-width: 50%;
+    text-align: left;
+  }
+
+  .carbon-img {
+    float: left;
+    margin-right: 1em;
+  }
+
+  .carbon-img img { margin: 0 !important;}
+
+  .carbon-poweredby {
+    display: block;
+    float: right;
+    margin-top: -1.9em;
+    font-size: .9em;
+  }
+
+/* Docs Page*/
+
+#carbonads {
+  display: block;
+  overflow: hidden;
+  margin: .5em;
+  padding: 1em;
+  background: #333333;
+  font-size: .9em;
+  font-family: Verdana, "Helvetica Neue", Helvetica, sans-serif;
+  line-height: 1.5;
+}
+
+  #carbonads a {
+    color: #ffbfcb;
+    text-decoration: none;
+  }
+
+  #carbonads span {
+    display: block;
+    overflow: hidden;
+  }
+
+  .carbon-img {
+    display: block;
+    margin-bottom: 1em;
+  }
+
+  .carbon-img img {
+    display: block;
+    margin: 0 auto;
+  }
+
+  .carbon-text {
+    display: block;
+    margin-bottom: 1em;
+    text-align: left;
+  }
+
+  .carbon-poweredby {
+    display: block;
+    text-align: right;
+    font-size: .8em;
+  }

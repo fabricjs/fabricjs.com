@@ -1,0 +1,12 @@
+{
+  "templates": {
+    "default": {
+      "staticFiles": {
+        "include": [
+            "./jsdoc_template/include"
+        ]
+      },
+      "layoutFile": "./jsdoc_template/layout.tmpl"
+    }
+  }
+}

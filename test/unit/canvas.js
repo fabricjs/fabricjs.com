@@ -41,12 +41,12 @@
   var PATH_DATALESS_JSON = '{"objects":[{"type":"path","originX":"left","originY":"top","left":100,"top":100,"width":200,"height":200,"fill":"rgb(0,0,0)",'+
                            '"stroke":null,"strokeWidth":1,"strokeDashArray":null,"strokeLineCap":"butt","strokeLineJoin":"miter","strokeMiterLimit":10,'+
                            '"scaleX":1,"scaleY":1,"angle":0,"flipX":false,"flipY":false,"opacity":1,'+
-                           '"shadow":null,"visible":true,"clipTo":null,"backgroundColor":"","fillRule":"nonzero","globalCompositeOperation":"source-over","transformMatrix":null,"path":"http://example.com/","pathOffset":{"x":200,"y":200}}],"background":""}';
+                           '"shadow":null,"visible":true,"clipTo":null,"backgroundColor":"","fillRule":"nonzero","globalCompositeOperation":"source-over","transformMatrix":null,"skewX":0,"skewY":0,"path":"http://example.com/","pathOffset":{"x":200,"y":200}}],"background":""}';
 
   var RECT_JSON = '{"objects":[{"type":"rect","originX":"left","originY":"top","left":0,"top":0,"width":10,"height":10,"fill":"rgb(0,0,0)",'+
                   '"stroke":null,"strokeWidth":1,"strokeDashArray":null,"strokeLineCap":"butt","strokeLineJoin":"miter","strokeMiterLimit":10,"scaleX":1,"scaleY":1,"angle":0,"flipX":false,"flipY":false,"opacity":1,'+
                   '"shadow":null,'+
-                  '"visible":true,"clipTo":null,"backgroundColor":"","fillRule":"nonzero","globalCompositeOperation":"source-over","transformMatrix":null,"rx":0,"ry":0}],"background":"#ff5555","overlay":"rgba(0,0,0,0.2)"}';
+                  '"visible":true,"clipTo":null,"backgroundColor":"","fillRule":"nonzero","globalCompositeOperation":"source-over","transformMatrix":null,"skewX":0,"skewY":0,"rx":0,"ry":0}],"background":"#ff5555","overlay":"rgba(0,0,0,0.2)"}';
 
   var el = fabric.document.createElement('canvas');
   el.width = 600; el.height = 600;
@@ -873,6 +873,49 @@
     equal(aGroup._objects[1], rect2);
     equal(aGroup._objects[2], circle1);
     equal(aGroup._objects[3], circle2);
+  });
+  
+  test('dispose', function() {
+    //made local vars to do not dispose the external canvas
+    var el = fabric.document.createElement('canvas'),
+        parentEl = fabric.document.createElement('div'),
+        wrapperEl, lowerCanvasEl, upperCanvasEl;
+    el.width = 200; el.height = 200;
+    parentEl.className = 'rootNode';
+    parentEl.appendChild(el);
+
+    equal(parentEl.firstChild, el, 'canvas should be appended at partentEl');
+    equal(parentEl.childNodes.length, 1, 'parentEl has 1 child only');
+
+    var canvas = fabric.isLikelyNode ? fabric.createCanvasForNode() : new fabric.Canvas(el);
+    wrapperEl = canvas.wrapperEl;
+    lowerCanvasEl = canvas.lowerCanvasEl;
+    upperCanvasEl = canvas.upperCanvasEl;
+    equal(parentEl.childNodes.length, 1, 'parentEl has still 1 child only');
+    equal(wrapperEl.childNodes.length, 2, 'wrapper should have 2 children');
+    equal(wrapperEl.tagName, 'DIV', 'We wrapped canvas with DIV');
+    equal(wrapperEl.className, canvas.containerClass, 'DIV class should be set');
+    equal(wrapperEl.childNodes[0], lowerCanvasEl, 'First child should be lowerCanvas');
+    equal(wrapperEl.childNodes[1], upperCanvasEl, 'Second child should be upperCanvas');
+    if (!fabric.isLikelyNode) {
+      equal(parentEl.childNodes[0], wrapperEl, 'wrapperEl is appendend to rootNode');
+    }
+    //looks like i cannot use parentNode
+    //equal(wrapperEl, lowerCanvasEl.parentNode, 'lowerCanvas is appended to wrapperEl');
+    //equal(wrapperEl, upperCanvasEl.parentNode, 'upperCanvas is appended to wrapperEl');
+    //equal(parentEl, wrapperEl.parentNode, 'wrapperEl is appendend to rootNode');
+    equal(parentEl.childNodes.length, 1, 'parent div should have 1 child');
+    notEqual(parentEl.firstChild, canvas.getElement(), 'canvas should not be parent div firstChild');
+    ok(typeof canvas.dispose == 'function');
+    canvas.add(makeRect(), makeRect(), makeRect());
+    canvas.dispose();
+    equal(canvas.getObjects().length, 0, 'dispose should clear canvas');
+    equal(parentEl.childNodes.length, 1, 'parent has always 1 child');
+    if (!fabric.isLikelyNode) {
+      equal(parentEl.childNodes[0], lowerCanvasEl, 'canvas should be back to its firstChild place');
+    }
+    equal(canvas.wrapperEl, null, 'wrapperEl should be deleted');
+    equal(canvas.upperCanvasEl, null, 'upperCanvas should be deleted');
   });
   
   // test('dispose', function() {

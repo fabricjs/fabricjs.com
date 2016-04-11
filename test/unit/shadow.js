@@ -132,7 +132,17 @@
     ok(typeof shadow.toObject == 'function');
 
     var object = shadow.toObject();
-    equal(JSON.stringify(object), '{"color":"rgb(0,0,0)","blur":0,"offsetX":0,"offsetY":0}');
+    equal(JSON.stringify(object), '{"color":"rgb(0,0,0)","blur":0,"offsetX":0,"offsetY":0,"affectStroke":false}');
+  });
+
+  test('clone with affectStroke', function() {
+    var shadow = new fabric.Shadow({affectStroke: true, blur: 5});
+    ok(typeof shadow.toObject == 'function');
+    var object = shadow.toObject(),
+        shadow2 = new fabric.Shadow(object),
+        object2 = shadow2.toObject();
+    equal(shadow.affectStroke, shadow2.affectStroke);
+    deepEqual(object, object2);
   });
 
   test('toObject without default value', function() {
@@ -159,6 +169,37 @@
 
     shadow.color = '#000000';
     equal(shadow.toSVG(object), '<filter id="SVGID_0" y="-40%" height="180%" x="-40%" width="180%" >\n\t<feGaussianBlur in="SourceAlpha" stdDeviation="1"></feGaussianBlur>\n\t<feOffset dx="10" dy="-10" result="oBlur" ></feOffset>\n\t<feFlood flood-color="#000000"/>\n\t<feComposite in2="oBlur" operator="in" />\n\t<feMerge>\n\t\t<feMergeNode></feMergeNode>\n\t\t<feMergeNode in="SourceGraphic"></feMergeNode>\n\t</feMerge>\n</filter>\n');
+  });
+
+  test('toSVG with flipped object', function() {
+    // reset uid
+    fabric.Object.__uid = 0;
+
+    var shadow = new fabric.Shadow({color: '#FF0000', offsetX: 10, offsetY: -10, blur: 2});
+    var object = new fabric.Object({fill: '#FF0000', flipX: true, flipY: true});
+
+    equal(shadow.toSVG(object), '<filter id="SVGID_0" y="-40%" height="180%" x="-40%" width="180%" >\n\t<feGaussianBlur in="SourceAlpha" stdDeviation="1"></feGaussianBlur>\n\t<feOffset dx="-10" dy="10" result="oBlur" ></feOffset>\n\t<feFlood flood-color="#FF0000"/>\n\t<feComposite in2="oBlur" operator="in" />\n\t<feMerge>\n\t\t<feMergeNode></feMergeNode>\n\t\t<feMergeNode in="SourceGraphic"></feMergeNode>\n\t</feMerge>\n</filter>\n');
+
+  });
+  
+  test('toSVG with rotated object', function() {
+    // reset uid
+    fabric.Object.__uid = 0;
+
+    var shadow = new fabric.Shadow({color: '#FF0000', offsetX: 10, offsetY: 10, blur: 2});
+    var object = new fabric.Object({fill: '#FF0000', angle: 45});
+
+    equal(shadow.toSVG(object), '<filter id="SVGID_0" y="-40%" height="180%" x="-40%" width="180%" >\n\t<feGaussianBlur in="SourceAlpha" stdDeviation="1"></feGaussianBlur>\n\t<feOffset dx="14.14" dy="0" result="oBlur" ></feOffset>\n\t<feFlood flood-color="#FF0000"/>\n\t<feComposite in2="oBlur" operator="in" />\n\t<feMerge>\n\t\t<feMergeNode></feMergeNode>\n\t\t<feMergeNode in="SourceGraphic"></feMergeNode>\n\t</feMerge>\n</filter>\n');
+  });
+  
+  test('toSVG with rotated flipped object', function() {
+    // reset uid
+    fabric.Object.__uid = 0;
+
+    var shadow = new fabric.Shadow({color: '#FF0000', offsetX: 10, offsetY: 10, blur: 2});
+    var object = new fabric.Object({fill: '#FF0000', angle: 45, flipX: true});
+
+    equal(shadow.toSVG(object), '<filter id="SVGID_0" y="-40%" height="180%" x="-40%" width="180%" >\n\t<feGaussianBlur in="SourceAlpha" stdDeviation="1"></feGaussianBlur>\n\t<feOffset dx="-14.14" dy="0" result="oBlur" ></feOffset>\n\t<feFlood flood-color="#FF0000"/>\n\t<feComposite in2="oBlur" operator="in" />\n\t<feMerge>\n\t\t<feMergeNode></feMergeNode>\n\t\t<feMergeNode in="SourceGraphic"></feMergeNode>\n\t</feMerge>\n</filter>\n');
   });
 
 })();

@@ -24,7 +24,7 @@
     'height':                   IMG_HEIGHT, // or does it now?
     'fill':                     'rgb(0,0,0)',
     'stroke':                   null,
-    'strokeWidth':              1,
+    'strokeWidth':              0,
     'strokeDashArray':          null,
     'strokeLineCap':            'butt',
     'strokeLineJoin':           'miter',
@@ -43,6 +43,8 @@
     'filters':                  [],
     'fillRule':                 'nonzero',
     'globalCompositeOperation': 'source-over',
+    'skewX':                    0,
+    'skewY':                    0,
     'transformMatrix':          null,
     'crossOrigin':              '',
     'alignX':                   'none',

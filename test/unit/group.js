@@ -3,7 +3,7 @@
   var el = fabric.document.createElement('canvas');
   el.width = 600; el.height = 600;
 
-  var canvas = this.canvas = fabric.isLikelyNode ? fabric.createCanvasForNode() : new fabric.Canvas(el);
+  var canvas = this.canvas = fabric.isLikelyNode ? fabric.createCanvasForNode(600, 600, {enableRetinaScaling: false}) : new fabric.Canvas(el);
 
   // function _createImageElement() {
   //   return fabric.isLikelyNode ? new (require('canvas').Image)() : fabric.document.createElement('img');
@@ -127,7 +127,7 @@
 
     equal(group.set('opacity', 0.12345), group, 'should be chainable');
     equal(group.get('opacity'), 0.12345, 'group\'s "own" property should be set properly');
-    equal(firstObject.get('opacity'), 0.12345, 'objects\' value should be set properly');
+    equal(firstObject.get('opacity'), 1, 'objects\' value of non delegated property should stay same');
 
     group.set('left', 1234);
     equal(group.get('left'), 1234, 'group\'s own "left" property should be set properly');
@@ -191,6 +191,8 @@
       'fillRule':                 'nonzero',
       'globalCompositeOperation': 'source-over',
       'transformMatrix':          null,
+      'skewX':                    0,
+      'skewY':                    0,
       'objects':                  clone.objects
     };
 
@@ -400,7 +402,7 @@ test('toObject without default values', function() {
     var group = makeGroupWith2Objects();
     ok(typeof group.toSVG == 'function');
 
-    var expectedSVG = '<g transform="translate(90 130)">\n<rect x="-15" y="-5" rx="0" ry="0" width="30" height="10" style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform="translate(25 -25)"/>\n<rect x="-5" y="-20" rx="0" ry="0" width="10" height="40" style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform="translate(-35 10)"/>\n</g>\n';
+    var expectedSVG = '<g transform="translate(90 130)" style="">\n\t<rect x="-15" y="-5" rx="0" ry="0" width="30" height="10" style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform="translate(25 -25)"/>\n\t<rect x="-5" y="-20" rx="0" ry="0" width="10" height="40" style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform="translate(-35 10)"/>\n</g>\n';
     equal(group.toSVG(), expectedSVG);
   });
 
@@ -513,17 +515,25 @@ test('toObject without default values', function() {
   });
 
   test('test group transformMatrix', function() {
-    var rect1 = new fabric.Rect({ top: 100, left: 100, width: 10, height: 10, strokeWidth: 0 }),
-        rect2 = new fabric.Rect({ top: 120, left: 120, width: 10, height: 10, strokeWidth: 0 }),
-        group = new fabric.Group([ rect1, rect2 ]),
-        ctx = canvas.contextContainer, isTransparent = fabric.util.isTransparent;
+    var rect1 = new fabric.Rect({ top: 1, left: 1, width: 2, height: 2, strokeWidth: 0, fill: 'red', opacity: 1}),
+        rect2 = new fabric.Rect({ top: 4, left: 4, width: 2, height: 2, strokeWidth: 0, fill: 'red', opacity: 1}),
+        group = new fabric.Group([ rect1, rect2 ], {opacity: 1, fill: 'blue', strokeWidth: 0}),
+        isTransparent = fabric.util.isTransparent,
+        ctx = canvas.contextContainer;
     canvas.add(group);
-    equal(isTransparent(ctx, 80, 80, 0), true);
-    equal(isTransparent(ctx, 101, 101, 0), false);
-    group.transformMatrix = [1.2, 0, 0, 1.2, 1, 1];
+    equal(canvas.enableRetinaScaling, false);
+    equal(isTransparent(ctx, 0, 0, 0), true);
+    equal(isTransparent(ctx, 1, 1, 0), false);
+    equal(isTransparent(ctx, 2, 2, 0), false);
+    equal(isTransparent(ctx, 3, 3, 0), true);
+    equal(isTransparent(ctx, 4, 4, 0), false);
+    group.transformMatrix = [2, 0, 0, 2, 1, 1];
     canvas.renderAll();
-    equal(isTransparent(ctx, 101, 101, 0), true);
-    equal(isTransparent(ctx, 131, 131, 0), false);
+    equal(isTransparent(ctx, 0, 0, 0), true);
+    equal(isTransparent(ctx, 1, 1, 0), true);
+    equal(isTransparent(ctx, 2, 2, 0), true);    
+    equal(isTransparent(ctx, 3, 3, 0), false);
+    equal(isTransparent(ctx, 4, 4, 0), false);
   });
   // asyncTest('cloning group with image', function() {
   //   var rect = new fabric.Rect({ top: 100, left: 100, width: 30, height: 10 }),

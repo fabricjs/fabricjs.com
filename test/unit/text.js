@@ -44,10 +44,13 @@
     'textBackgroundColor':       '',
     'fillRule':                  'nonzero',
     'globalCompositeOperation':  'source-over',
+    'skewX':                      0,
+    'skewY':                      0,
     'transformMatrix':           null  
   };
 
-  var TEXT_SVG = '\t<g transform="translate(10.5 26.72)">\n\t\t<text font-family="Times New Roman" font-size="40" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" ><tspan x="-10" y="8.98" fill="rgb(0,0,0)">x</tspan></text>\n\t</g>\n';
+  var TEXT_SVG = '\t<g transform="translate(10.5 26.72)">\n\t\t<text font-family="Times New Roman" font-size="40" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" >\n\t\t\t<tspan x="-10" y="8.98" fill="rgb(0,0,0)">x</tspan>\n\t\t</text>\n\t</g>\n';
+  var TEXT_SVG_JUSTIFIED = '\t<g transform="translate(50.5 26.72)">\n\t\t<text font-family="Times New Roman" font-size="40" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" >\n\t\t\t<tspan x="-50" y="8.98" fill="rgb(0,0,0)">x</tspan>\n\t\t\t<tspan x="30" y="8.98" fill="rgb(0,0,0)">y</tspan>\n\t\t</text>\n\t</g>\n';
 
   test('constructor', function() {
     ok(fabric.Text);
@@ -154,8 +157,8 @@
     // text.width = CHAR_WIDTH;
 
     var expectedObject = fabric.util.object.extend(fabric.util.object.clone(REFERENCE_TEXT_OBJECT), {
-      left: 4,
-      top: -3.61,
+      left: 4.5,
+      top: -4.11,
       width: 8,
       height: 20.97,
       fontSize: 16,
@@ -196,7 +199,7 @@
     var expectedObject = fabric.util.object.extend(fabric.util.object.clone(REFERENCE_TEXT_OBJECT), {
       /* left varies slightly due to node-canvas rendering */
       left:             fabric.util.toFixed(textWithAttrs.left + '', 2),
-      top:              -7.72,
+      top:              -9.22,
       width:            CHAR_WIDTH,
       height:           161.23,
       fill:             'rgb(255,255,255)',
@@ -258,6 +261,18 @@
     text.width = CHAR_WIDTH;
 
     equal(removeTranslate(text.toSVG()), removeTranslate(TEXT_SVG.replace('font-family="Times New Roman"', 'font-family="\'Arial Black\', Arial"')));
+  });
+  test('toSVG justified', function() {
+    var text = new fabric.Text('x y');
+
+    function removeTranslate(str) {
+      return str.replace(/translate\(.*?\)/, '');
+    }
+
+    // temp workaround for text objects not obtaining width under node
+    text.width = 100;
+    text.textAlign = 'justify';
+    equal(removeTranslate(text.toSVG()), removeTranslate(TEXT_SVG_JUSTIFIED));
   });
 
 })();

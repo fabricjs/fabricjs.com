@@ -92,7 +92,7 @@
 
   test('toObject linearGradient', function() {
     var gradient = createLinearGradient();
-
+    gradient.gradientTransform = [1, 0, 0, 1, 50, 50];
     ok(typeof gradient.toObject == 'function');
 
     var object = gradient.toObject();
@@ -103,7 +103,7 @@
     equal(object.coords.y2, gradient.coords.y2);
 
     equal(object.type, gradient.type);
-
+    deepEqual(object.gradientTransform, gradient.gradientTransform);
     equal(object.colorStops, gradient.colorStops);
   });
 
@@ -175,6 +175,31 @@
     equal(gradient.colorStops[1].color, 'rgb(255,255,255)');
 
     equal(gradient.colorStops[0].opacity, 0);
+  });
+
+  test('fromElement without stop', function() {
+    ok(typeof fabric.Gradient.fromElement == 'function');
+
+    var element = fabric.document.createElement('linearGradient');
+    var stop1 = fabric.document.createElement('stop');
+    var stop2 = fabric.document.createElement('stop');
+
+    stop1.setAttribute('stop-color', 'white');
+
+    stop2.setAttribute('offset', '100%');
+    stop2.setAttribute('stop-color', 'black');
+    stop2.setAttribute('stop-opacity', '0');
+
+    element.appendChild(stop1);
+    element.appendChild(stop2);
+
+    var object = new fabric.Object({ width: 100, height: 100 });
+    var gradient = fabric.Gradient.fromElement(element, object);
+
+    ok(gradient instanceof fabric.Gradient);
+
+    equal(gradient.colorStops[0].offset, 1);
+    equal(gradient.colorStops[1].offset, 0);
   });
 
   test('fromElement radialGradient', function() {

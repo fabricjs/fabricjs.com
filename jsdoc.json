@@ -5,8 +5,12 @@
         "include": [
             "./jsdoc_template/include"
         ]
-      },
-      "layoutFile": "./jsdoc_template/layout.tmpl"
+      }
     }
+  },
+  "opts": {
+    "template": "./jsdoc_template/",
+    "destination": "./docs/"
   }
 }
+

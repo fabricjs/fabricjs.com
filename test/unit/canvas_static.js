@@ -81,6 +81,7 @@
     'backgroundColor':          '',
     'clipTo':                   null,
     'filters':                  [],
+    'resizeFilters':            [],    
     'fillRule':                 'nonzero',
     'globalCompositeOperation': 'source-over',
     'transformMatrix':          null,
@@ -764,6 +765,19 @@
 
       ok(obj.get('path').length > 0);
     });
+  });
+
+  test('loadFromJSON with custom properties on Canvas', function() {
+    var serialized = JSON.parse(PATH_JSON);
+    serialized.controlsAboveOverlay = true;
+    serialized.preserveObjectStacking = true;
+    canvas.loadFromJSON(serialized, function() {
+      ok(!canvas.isEmpty(), 'canvas is not empty');
+      equal(fabric.Canvas.prototype.controlsAboveOverlay, false);
+      equal(fabric.Canvas.prototype.preserveObjectStacking, false);
+    });
+    equal(canvas.controlsAboveOverlay, true);
+    equal(canvas.preserveObjectStacking, true);
   });
 
   test('loadFromJSON custom properties', function() {

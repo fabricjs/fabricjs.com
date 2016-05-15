@@ -82,7 +82,7 @@
             <pre class="prettyprint source linenums"><code>/* build: `node build.js modules=ALL exclude=json,gestures minifier=uglifyjs` */
 /*! Fabric.js Copyright 2008-2015, Printio (Juriy Zaytsev, Maxim Chernyak) */
 
-var fabric = fabric || { version: "1.6.1" };
+var fabric = fabric || { version: "1.6.2" };
 if (typeof exports !== 'undefined') {
   exports.fabric = fabric;
 }
@@ -4684,7 +4684,7 @@ fabric.ElementsParser.prototype.checkIfDone = function() {
    * {@link fabric.Color} is a constructor and creates instances of {@link fabric.Color} objects.
    *
    * @class fabric.Color
-   * @param {String} color optional in hex or rgb(a) format
+   * @param {String} color optional in hex or rgb(a) or hsl format or from known color list
    * @return {fabric.Color} thisArg
    * @tutorial {@link http://fabricjs.com/fabric-intro-part-2/#colors}
    */
@@ -4713,17 +4713,21 @@ fabric.ElementsParser.prototype.checkIfDone = function() {
       }
 
       if (color === 'transparent') {
-        this.setSource([255, 255, 255, 0]);
-        return;
+        source = [255, 255, 255, 0];
       }
 
-      source = Color.sourceFromHex(color);
-
+      if (!source) {
+        source = Color.sourceFromHex(color);
+      }
       if (!source) {
         source = Color.sourceFromRgb(color);
       }
       if (!source) {
         source = Color.sourceFromHsl(color);
+      }
+      if (!source) {
+        //if color is not recognize let's make black as canvas does
+        source = [0, 0, 0, 1];
       }
       if (source) {
         this.setSource(source);
@@ -4961,6 +4965,7 @@ fabric.ElementsParser.prototype.checkIfDone = function() {
     blue:    '#0000FF',
     fuchsia: '#FF00FF',
     gray:    '#808080',
+    grey:    '#808080',
     green:   '#008000',
     lime:    '#00FF00',
     maroon:  '#800000',
@@ -12084,14 +12089,15 @@ fabric.util.object.extend(fabric.StaticCanvas.prototype, /** @lends fabric.Stati
         this.flipY = !this.flipY;
         value *= -1;
       }
-      else if (key === 'width' || key === 'height') {
-        this.minScaleLimit = toFixed(Math.min(0.1, 1/Math.max(this.width, this.height)), 2);
-      }
       else if (key === 'shadow' &amp;&amp; value &amp;&amp; !(value instanceof fabric.Shadow)) {
         value = new fabric.Shadow(value);
       }
 
       this[key] = value;
+
+      if (key === 'width' || key === 'height') {
+        this.minScaleLimit = Math.min(0.1, 1/Math.max(this.width, this.height));
+      }
 
       return this;
     },
@@ -12424,7 +12430,7 @@ fabric.util.object.extend(fabric.StaticCanvas.prototype, /** @lends fabric.Stati
       };
 
       this.set('active', false);
-      this.setPositionByOrigin(new fabric.Point(el.width / 2, el.height / 2), 'center', 'center');
+      this.setPositionByOrigin(new fabric.Point(canvas.getWidth() / 2, canvas.getHeight() / 2), 'center', 'center');
 
       var originalCanvas = this.canvas;
       canvas.add(this);
@@ -20481,11 +20487,7 @@ fabric.Image.filters.BaseFilter = fabric.util.createClass(/** @lends fabric.Imag
       }
       this._textLines = this._splitTextIntoLines();
       this._clearCache();
-      //if textAlign is 'justify' i have to disable caching
-      //when calculating width of text and widths of line.
-      this._cacheLinesWidth = (this.textAlign !== 'justify');
       this.width = this._getTextWidth(ctx);
-      this._cacheLinesWidth = true;
       this.height = this._getTextHeight(ctx);
     },
 
@@ -20793,8 +20795,8 @@ fabric.Image.filters.BaseFilter = fabric.util.createClass(/** @lends fabric.Imag
       ctx.fillStyle = this.textBackgroundColor;
       for (var i = 0, len = this._textLines.length; i &lt; len; i++) {
         heightOfLine = this._getHeightOfLine(ctx, i);
-        if (this._textLines[i] !== '') {
-          lineWidth = this.textAlign === 'justify' ? this.width : this._getLineWidth(ctx, i);
+        lineWidth = this._getLineWidth(ctx, i);
+        if (lineWidth > 0) {
           lineLeftOffset = this._getLineLeftOffset(lineWidth);
           ctx.fillRect(
             this._getLeftOffset() + lineLeftOffset,
@@ -20859,27 +20861,36 @@ fabric.Image.filters.BaseFilter = fabric.util.createClass(/** @lends fabric.Imag
      */
     _getLineWidth: function(ctx, lineIndex) {
       if (this.__lineWidths[lineIndex]) {
-        return this.__lineWidths[lineIndex];
+        return this.__lineWidths[lineIndex] === -1 ? this.width : this.__lineWidths[lineIndex];
       }
+
       var width, wordCount, line = this._textLines[lineIndex];
+
       if (line === '') {
         width = 0;
       }
-      else if (this.textAlign === 'justify' &amp;&amp; this._cacheLinesWidth) {
-        wordCount = line.split(/\s+/);
-        //consider not justify last line, not for now.
-        if (wordCount.length > 1) {
-          width = this.width;
-        }
-        else {
-          width = ctx.measureText(line).width;
-        }
-      }
       else {
-        width = ctx.measureText(line).width;
+        width = this._measureLine(ctx, lineIndex);
       }
-      this._cacheLinesWidth &amp;&amp; (this.__lineWidths[lineIndex] = width);
+      this.__lineWidths[lineIndex] = width;
+
+      if (width &amp;&amp; this.textAlign === 'justify') {
+        wordCount = line.split(/\s+/);
+        if (wordCount.length > 1) {
+          this.__lineWidths[lineIndex] = -1;
+        }
+      }
       return width;
+    },
+
+    /**
+     * @private
+     * @param {CanvasRenderingContext2D} ctx Context to render on
+     * @param {Number} lineIndex line number
+     * @return {Number} Line width
+     */
+    _measureLine: function(ctx, lineIndex) {
+      return ctx.measureText(this._textLines[lineIndex]).width;
     },
 
     /**
@@ -22258,7 +22269,7 @@ fabric.Image.filters.BaseFilter = fabric.util.createClass(/** @lends fabric.Imag
      * @param {CanvasRenderingContext2D} ctx Context to render on
      */
     _getWidthOfChar: function(ctx, _char, lineIndex, charIndex) {
-      if (this.textAlign === 'justify' &amp;&amp; this._reSpacesAndTabs.test(_char)) {
+      if (!this._isMeasuring &amp;&amp; this.textAlign === 'justify' &amp;&amp; this._reSpacesAndTabs.test(_char)) {
         return this._getWidthOfSpace(ctx, lineIndex);
       }
 
@@ -22289,6 +22300,8 @@ fabric.Image.filters.BaseFilter = fabric.util.createClass(/** @lends fabric.Imag
     /**
      * @private
      * @param {CanvasRenderingContext2D} ctx Context to render on
+     * @param {Number} lineIndex
+     * @param {Number} charIndex
      */
     _getWidthOfCharsAt: function(ctx, lineIndex, charIndex) {
       var width = 0, i, _char;
@@ -22302,13 +22315,14 @@ fabric.Image.filters.BaseFilter = fabric.util.createClass(/** @lends fabric.Imag
     /**
      * @private
      * @param {CanvasRenderingContext2D} ctx Context to render on
+     * @param {Number} lineIndex line number
+     * @return {Number} Line width
      */
-    _getLineWidth: function(ctx, lineIndex) {
-      if (this.__lineWidths[lineIndex]) {
-        return this.__lineWidths[lineIndex];
-      }
-      this.__lineWidths[lineIndex] = this._getWidthOfCharsAt(ctx, lineIndex, this._textLines[lineIndex].length);
-      return this.__lineWidths[lineIndex];
+    _measureLine: function(ctx, lineIndex) {
+      this._isMeasuring = true;
+      var width = this._getWidthOfCharsAt(ctx, lineIndex, this._textLines[lineIndex].length);
+      this._isMeasuring = false;
+      return width;
     },
 
     /**
@@ -22324,7 +22338,7 @@ fabric.Image.filters.BaseFilter = fabric.util.createClass(/** @lends fabric.Imag
           wordsWidth = this._getWidthOfWords(ctx, line, lineIndex, 0),
           widthDiff = this.width - wordsWidth,
           numSpaces = line.length - line.replace(this._reSpacesAndTabs, '').length,
-          width = widthDiff / numSpaces;
+          width = Math.max(widthDiff / numSpaces, ctx.measureText(' ').width);
       this.__widthOfSpace[lineIndex] = width;
       return width;
     },
@@ -25174,7 +25188,7 @@ fabric.util.object.extend(fabric.IText.prototype, /** @lends fabric.IText.protot
         <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="fabric.BaseBrush.html">BaseBrush</a></li><li><a href="fabric.Canvas.html">Canvas</a></li><li><a href="fabric.Circle.html">Circle</a></li><li><a href="fabric.CircleBrush.html">CircleBrush</a></li><li><a href="fabric.Color.html">Color</a></li><li><a href="fabric.Ellipse.html">Ellipse</a></li><li><a href="fabric.Gradient.html">Gradient</a></li><li><a href="fabric.Group.html">Group</a></li><li><a href="fabric.Image.html">Image</a></li><li><a href="fabric.Image.filters.BaseFilter.html">BaseFilter</a></li><li><a href="fabric.Image.filters.Brightness.html">Brightness</a></li><li><a href="fabric.Image.filters.Convolute.html">Convolute</a></li><li><a href="fabric.Image.filters.fabric.Image.filter.Blend.html">Blend</a></li><li><a href="fabric.Image.filters.GradientTransparency.html">GradientTransparency</a></li><li><a href="fabric.Image.filters.Grayscale.html">Grayscale</a></li><li><a href="fabric.Image.filters.Invert.html">Invert</a></li><li><a href="fabric.Image.filters.Mask.html">Mask</a></li><li><a href="fabric.Image.filters.Multiply.html">Multiply</a></li><li><a href="fabric.Image.filters.Noise.html">Noise</a></li><li><a href="fabric.Image.filters.Pixelate.html">Pixelate</a></li><li><a href="fabric.Image.filters.RemoveWhite.html">RemoveWhite</a></li><li><a href="fabric.Image.filters.Resize.html">Resize</a></li><li><a href="fabric.Image.filters.Sepia.html">Sepia</a></li><li><a href="fabric.Image.filters.Sepia2.html">Sepia2</a></li><li><a href="fabric.Image.filters.Tint.html">Tint</a></li><li><a href="fabric.Intersection.html">Intersection</a></li><li><a href="fabric.IText.html">IText</a></li><li><a href="fabric.Line.html">Line</a></li><li><a href="fabric.Object.html">Object</a></li><li><a href="fabric.Path.html">Path</a></li><li><a href="fabric.PathGroup.html">PathGroup</a></li><li><a href="fabric.Pattern.html">Pattern</a></li><li><a href="fabric.PatternBrush.html">PatternBrush</a></li><li><a href="fabric.PencilBrush.html">PencilBrush</a></li><li><a href="fabric.Point.html">Point</a></li><li><a href="fabric.Polygon.html">Polygon</a></li><li><a href="fabric.Polyline.html">Polyline</a></li><li><a href="fabric.Rect.html">Rect</a></li><li><a href="fabric.Shadow.html">Shadow</a></li><li><a href="fabric.SprayBrush.html">SprayBrush</a></li><li><a href="fabric.StaticCanvas.html">StaticCanvas</a></li><li><a href="fabric.Text.html">Text</a></li><li><a href="fabric.Textbox.html">Textbox</a></li><li><a href="fabric.Triangle.html">Triangle</a></li></ul><h3>Namespaces</h3><ul><li><a href="fabric.html">fabric</a></li><li><a href="fabric.Collection.html">Collection</a></li><li><a href="fabric.Image.filters.html">filters</a></li><li><a href="fabric.Observable.html">Observable</a></li><li><a href="fabric.util.html">util</a></li><li><a href="fabric.util.array.html">array</a></li><li><a href="fabric.util.ease.html">ease</a></li><li><a href="fabric.util.object.html">object</a></li><li><a href="fabric.util.string.html">string</a></li></ul><h3>Global</h3><ul><li><a href="global.html#__cachedLines">__cachedLines</a></li><li><a href="global.html#_getCursorBoundariesOffsets">_getCursorBoundariesOffsets</a></li><li><a href="global.html#_splitTextIntoLines">_splitTextIntoLines</a></li><li><a href="global.html#_wrapLine">_wrapLine</a></li><li><a href="global.html#_wrapText">_wrapText</a></li><li><a href="global.html#applyFilters">applyFilters</a></li><li><a href="global.html#createSVGFontFacesMarkup">createSVGFontFacesMarkup</a></li><li><a href="global.html#createSVGRefElementsMarkup">createSVGRefElementsMarkup</a></li><li><a href="global.html#dynamicMinWidth">dynamicMinWidth</a></li><li><a href="global.html#get2DCursorLocation">get2DCursorLocation</a></li><li><a href="global.html#initialize">initialize</a></li><li><a href="global.html#lockScalingFlip">lockScalingFlip</a></li><li><a href="global.html#lockScalingY">lockScalingY</a></li><li><a href="global.html#minWidth">minWidth</a></li><li><a href="global.html#setOnGroup">setOnGroup</a></li><li><a href="global.html#toObject">toObject</a></li><li><a href="global.html#type">type</a></li></ul>
     </div>
 </nav>
-<footer><input id="toggle" type="checkbox" onclick="toggle(this.checked);"  /><label for="toggle" >Hide inherited properties and method from the page</label><br />Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Tue May 10 2016 08:47:04 GMT+0200 (CEST)
+<footer><input id="toggle" type="checkbox" onclick="toggle(this.checked);"  /><label for="toggle" >Hide inherited properties and method from the page</label><br />Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Mon May 16 2016 00:52:32 GMT+0200 (CEST)
 </footer>
 <script> prettyPrint(); </script>
 <script src="scripts/linenumber.js"> </script>

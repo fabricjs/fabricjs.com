@@ -99,6 +99,23 @@
     equal(cObj.set('opacity', 0.5), cObj, 'chainable');
   });
 
+  test('set and minScaleLimit', function() {
+    var cObj = new fabric.Object({ left: 11, top: 22, width: 50, height: 60, opacity: 0.7 });
+    
+    //the min scale limit is given by height.
+    equal(cObj.minScaleLimit.toFixed(3), 0.017);
+
+    cObj.set('width', 1000);
+    equal(cObj.width, 1000);
+    //the min scale limit is given by width.
+    equal(cObj.minScaleLimit, 0.001);
+
+    cObj.set('width', 1);
+    equal(cObj.width, 1);    
+    //the min scale limit is given by height.
+    equal(cObj.minScaleLimit.toFixed(3), 0.017);
+  });
+
   test('set with object of prop/values', function() {
     var cObj = new fabric.Object({  });
 
@@ -753,6 +770,17 @@ test('toDataURL & reference to canvas', function() {
     object.set('left', 112.45);
     object.toggle('left');
     equal(object.get('left'), 112.45, 'non boolean properties should not be affected');
+  });
+
+  test('_setLineDash', function() {
+    var object = new fabric.Rect({ left: 100, top: 124, width: 210, height: 66, stroke: 'black', strokeWidth: 2});
+    ok(typeof object._setLineDash === 'function');
+
+    canvas.add(object);
+    object.strokeDashArray = [3, 2, 1];
+    equal(object.strokeDashArray.length, 3, 'strokeDash array is odd');
+    canvas.renderAll();
+    equal(object.strokeDashArray.length, 6, 'strokeDash array now is even');
   });
 
   test('straighten', function() {

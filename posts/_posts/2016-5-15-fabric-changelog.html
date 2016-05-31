@@ -1,0 +1,56 @@
+---
+layout: article
+title: Fabric.js. release highlights.
+---
+
+<style>h2 { margin-bottom: 15px } h3 { margin-bottom: 10px; } h4 { margin-bottom: 7px; } </style>
+
+<div class="container" style="margin:30px auto">
+  <h2 id="introduction_to_fabricjs">Fabric.js release highlights</h2>
+  <h3>Version 1.6.2</h3>
+  <img src="/article_assets/1.6.2.png" style="margin-bottom:20px">
+
+  <p>With 1.6.2 we introduce some new customization options for controls and user interaction. It is now possible to customize the keys used for control interaction.<br />Before those where the predefined keys:</p>
+<pre>
+Alt Key: Switching from normal transform to centered transform during scaling objects.
+Shift Key: on br,bl,tr,lt was switching from proportional to free resize, on mt, ml, mr, bw was switching between resize and skew.
+</pre>
+<p>As of 1.6.2 is possible to use those configuration option to define which keys are used:</p>
+<pre>
+* values: altKey, shiftKey, ctrlKey, 
+fabric.Object.uniScaleKey: key used to switch between proportional and not proportional scaling
+fabric.Object.altActionKey: key used to switch between different action on same corner (skew/scale)
+fabric.Object.centeredKey: key used to switch on/off the centered transform
+</pre>
+<p><code>hoverCursor</code> now appears also on non selectable objects but <code>moveCursor</code> does not appear if the object can't be moved. In addition <code>moveCursor</code> is now customizable with the property <code>moveCursor</code>.
+<br/>The biggest change is the possibility of cusomizing the look of controls. Both border and controls can be filled and stroked and can also have a dash-array instead of a continue line. Corners can be both square or round.<br />To control those feature you can use those new properties:
+<pre>
+borderDashArray: Dash stroke of borders
+cornerDashArray: Dash stroke of corners
+cornerStrokeColor: If corners are filled, this property controls the color of the stroke
+cornerStyle: standrd 'rect' or 'circle'
+selectionBackgroundColor: add an opaque or transparent layer to the selected object.
+</pre>
+</p>
+
+<p>Small bugfixes includes: Itext firing <code>object:modified</code> on text change, possibility to restore custom canvas properties other than objects during canvas loadFromJSON, some SVG color output fix and some dataURL improvements.<br />This is the raw changelog:</p>
+<pre>
+Fix: restore canvas properties on loadFromJSON with includeProperties. #2921
+Fix: Allow hoverCursor on non selectable objects, moveCursor does not appear if the object is not moveable. Added object.moveCursor to specify a cursor for moving per object. #2924
+Fix: Add missing stroke.live translation, allow gradientTransform for dashed line. #2926
+Improvement: Allow customization of keys that iteract with mouse action ( multiselect key, free tranform key, alternative action key, centered transform key ) #2925
+Added: Make iText fires object:modified on text change on exit editing #2927
+Added: [control customization part 1] cornerDashArray, borderDashArray. Now borderScaleFactor influences both border and controls, changed default corner size to 13 #2932
+Fix: createSVGFontFacesMarkup was failing to retrieve fonts in style #2935
+Fix: shadow not scaled with dataUrl to multiplier #2940
+Added: [control customization part 2] cornerStrokeColor. Now is possible to specify separate stroke and fill color for the controls #2933
+Fix: Itext width calculation with caching false was returning nan. #2943
+Added: [control customization part 3] Rounded corners. It is possible to specify cornerStyle for the object. 'rect' or 'circle' #2942
+Added: [control customization part 4] Selection background. It is possible to specify selectionBackgroundColor for the object. #2950
+Fix: Behaviour of image with filters with resize effects and Object to/from json #2954
+Fix: Svg export should not output color notation in rgba format #2955
+Fix: minScaleLimit rounding bug #2964
+Fix: Itext spacing in justify mode bug #2971
+Fix: Object.toDataUrl export when some window.devicepixelRatio is present (retina or browser zoom) #2972
+</pre>
+</div>

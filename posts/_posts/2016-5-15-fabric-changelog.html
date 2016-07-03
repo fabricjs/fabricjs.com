@@ -7,50 +7,83 @@ title: Fabric.js. release highlights.
 
 <div class="container" style="margin:30px auto">
   <h2 id="introduction_to_fabricjs">Fabric.js release highlights</h2>
+  <h3>Version 1.6.3</h3>
+
+  <p>Biggest new in 1.6.3 is support of sub-targets in group. Group has a new property <code>subTargetCheck</code> default to false that allows the findTarget
+    functions to go deep in the group nested objects.<br />Events will fire for both the group and all the list of sub targets found in case of nested groups</p>
+  <p>Other changes inclued better handling of pan and zooming. Transparency checking is now aware of current viewportTransform and 3 new functions have been
+     added to center objects in the current viewport instead of canvas: <code>viewportCenterObject</code>, <code>viewportCenterObjectH</code>, <code>viewportCenterObjectV</code>.
+     Viewport fixes include cursor width in text editiong mode and the 1.6.2 newly itroduced <code>selectionBackgroundColor</code>
+  </p>
+  <p>This is the raw changelog:</p>
+  <pre>
+    Improvement: Use reviver callback for background and overlay image when doing svg export. #2975
+    Improvement: Added object property excludeFromExport to avoid exporting the object to JSON or to SVG. #2976
+    Improvement: Correct the calculation of text boundingbox. Improves svg import #2992
+    Added: Export id property to SVG #2993
+    Improvement: Call the callback on loadSvgFromURL on failed xml load with null agument #2994
+    Improvement: Clear only the Itext area on contextTop during cursor animation #2996
+    Added: Char widths cache has been moved to fabric level and not iText level. Added fabric.util.clearFabricCharWidthsCache(fontName) #2995
+    Fix: do not set background or overlay image if the url load fails. #3003
+    Fix: iText mousemove event removal, clear the correct area for Itext, stopped redrawing selection if not necessary #3016
+    Fix: background image and overlay image scale and move with canvas viewportTransform, parameter available #3019
+    Added: support sub targeting in groups in events #2997
+    Fix: Select transparent object on mouse up because of _maybeGroupObject #2997
+    Fix: Remove reference to lastRenderedObject on canvas.remove #3023
+    Fix: Wait for all objects to be loaded before deleting the properties and setting options. #3029
+    Fix: Object Padding is unaffected by object transform. #3057
+    Fix: Restore lastRenderedObject usage. Introduced Canvas.lastRenderedKey to retrieve the lastRendered object from down the stack #3057
+    Fix: _calcTextareaPosition correctly calculate the position considering the viewportTransform. #3057
+    Fix: Fixed selectionBacgroundColor with viewport transform. #3057
+    Improvement: Correctly render the cursor with viewport scaling, improved the cursor centering. #3057
+    Fix: Use canvas zoom and pan when using is target transparent. #2980
+    Improvement: Added additional methods to center object on canvas. #3044
+  </pre>
+
   <h3>Version 1.6.2</h3>
   <img src="/article_assets/1.6.2.png" style="margin-bottom:20px">
 
   <p>With 1.6.2 we introduce some new customization options for controls and user interaction. It is now possible to customize the keys used for control interaction.<br />Before those where the predefined keys:</p>
-<pre>
-Alt Key: Switching from normal transform to centered transform during scaling objects.
-Shift Key: on br,bl,tr,lt was switching from proportional to free resize, on mt, ml, mr, bw was switching between resize and skew.
-</pre>
-<p>As of 1.6.2 is possible to use those configuration option to define which keys are used:</p>
-<pre>
-* values: altKey, shiftKey, ctrlKey, 
-fabric.Object.uniScaleKey: key used to switch between proportional and not proportional scaling
-fabric.Object.altActionKey: key used to switch between different action on same corner (skew/scale)
-fabric.Object.centeredKey: key used to switch on/off the centered transform
-</pre>
-<p><code>hoverCursor</code> now appears also on non selectable objects but <code>moveCursor</code> does not appear if the object can't be moved. In addition <code>moveCursor</code> is now customizable with the property <code>moveCursor</code>.
-<br/>The biggest change is the possibility of cusomizing the look of controls. Both border and controls can be filled and stroked and can also have a dash-array instead of a continue line. Corners can be both square or round.<br />To control those feature you can use those new properties:
-<pre>
-borderDashArray: Dash stroke of borders
-cornerDashArray: Dash stroke of corners
-cornerStrokeColor: If corners are filled, this property controls the color of the stroke
-cornerStyle: standrd 'rect' or 'circle'
-selectionBackgroundColor: add an opaque or transparent layer to the selected object.
-</pre>
-</p>
+  <pre>
+  Alt Key: Switching from normal transform to centered transform during scaling objects.
+  Shift Key: on br,bl,tr,lt was switching from proportional to free resize, on mt, ml, mr, bw was switching between resize and skew.
+  </pre>
+  <p>As of 1.6.2 is possible to use those configuration option to define which keys are used:</p>
+  <pre>
+  * values: altKey, shiftKey, ctrlKey,
+  fabric.Object.uniScaleKey: key used to switch between proportional and not proportional scaling
+  fabric.Object.altActionKey: key used to switch between different action on same corner (skew/scale)
+  fabric.Object.centeredKey: key used to switch on/off the centered transform
+  </pre>
+  <p><code>hoverCursor</code> now appears also on non selectable objects but <code>moveCursor</code> does not appear if the object can't be moved. In addition <code>moveCursor</code> is now customizable with the property <code>moveCursor</code>.
+  <br/>The biggest change is the possibility of cusomizing the look of controls. Both border and controls can be filled and stroked and can also have a dash-array instead of a continue line. Corners can be both square or round.<br />To control those feature you can use those new properties:
+  <pre>
+  borderDashArray: Dash stroke of borders
+  cornerDashArray: Dash stroke of corners
+  cornerStrokeColor: If corners are filled, this property controls the color of the stroke
+  cornerStyle: standrd 'rect' or 'circle'
+  selectionBackgroundColor: add an opaque or transparent layer to the selected object.
+  </pre>
+  </p>
 
-<p>Small bugfixes includes: Itext firing <code>object:modified</code> on text change, possibility to restore custom canvas properties other than objects during canvas loadFromJSON, some SVG color output fix and some dataURL improvements.<br />This is the raw changelog:</p>
-<pre>
-Fix: restore canvas properties on loadFromJSON with includeProperties. #2921
-Fix: Allow hoverCursor on non selectable objects, moveCursor does not appear if the object is not moveable. Added object.moveCursor to specify a cursor for moving per object. #2924
-Fix: Add missing stroke.live translation, allow gradientTransform for dashed line. #2926
-Improvement: Allow customization of keys that iteract with mouse action ( multiselect key, free tranform key, alternative action key, centered transform key ) #2925
-Added: Make iText fires object:modified on text change on exit editing #2927
-Added: [control customization part 1] cornerDashArray, borderDashArray. Now borderScaleFactor influences both border and controls, changed default corner size to 13 #2932
-Fix: createSVGFontFacesMarkup was failing to retrieve fonts in style #2935
-Fix: shadow not scaled with dataUrl to multiplier #2940
-Added: [control customization part 2] cornerStrokeColor. Now is possible to specify separate stroke and fill color for the controls #2933
-Fix: Itext width calculation with caching false was returning nan. #2943
-Added: [control customization part 3] Rounded corners. It is possible to specify cornerStyle for the object. 'rect' or 'circle' #2942
-Added: [control customization part 4] Selection background. It is possible to specify selectionBackgroundColor for the object. #2950
-Fix: Behaviour of image with filters with resize effects and Object to/from json #2954
-Fix: Svg export should not output color notation in rgba format #2955
-Fix: minScaleLimit rounding bug #2964
-Fix: Itext spacing in justify mode bug #2971
-Fix: Object.toDataUrl export when some window.devicepixelRatio is present (retina or browser zoom) #2972
-</pre>
+  <p>Small bugfixes includes: Itext firing <code>object:modified</code> on text change, possibility to restore custom canvas properties other than objects during canvas loadFromJSON, some SVG color output fix and some dataURL improvements.<br />This is the raw changelog:</p>
+  <pre>
+  Fix: restore canvas properties on loadFromJSON with includeProperties. #2921
+  Fix: Allow hoverCursor on non selectable objects, moveCursor does not appear if the object is not moveable. Added object.moveCursor to specify a cursor for moving per object. #2924
+  Fix: Add missing stroke.live translation, allow gradientTransform for dashed line. #2926
+  Improvement: Allow customization of keys that iteract with mouse action ( multiselect key, free tranform key, alternative action key, centered transform key ) #2925
+  Added: Make iText fires object:modified on text change on exit editing #2927
+  Added: [control customization part 1] cornerDashArray, borderDashArray. Now borderScaleFactor influences both border and controls, changed default corner size to 13 #2932
+  Fix: createSVGFontFacesMarkup was failing to retrieve fonts in style #2935
+  Fix: shadow not scaled with dataUrl to multiplier #2940
+  Added: [control customization part 2] cornerStrokeColor. Now is possible to specify separate stroke and fill color for the controls #2933
+  Fix: Itext width calculation with caching false was returning nan. #2943
+  Added: [control customization part 3] Rounded corners. It is possible to specify cornerStyle for the object. 'rect' or 'circle' #2942
+  Added: [control customization part 4] Selection background. It is possible to specify selectionBackgroundColor for the object. #2950
+  Fix: Behaviour of image with filters with resize effects and Object to/from json #2954
+  Fix: Svg export should not output color notation in rgba format #2955
+  Fix: minScaleLimit rounding bug #2964
+  Fix: Itext spacing in justify mode bug #2971
+  Fix: Object.toDataUrl export when some window.devicepixelRatio is present (retina or browser zoom) #2972
+  </pre>
 </div>

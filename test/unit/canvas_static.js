@@ -153,10 +153,14 @@
   }
 
   QUnit.module('fabric.StaticCanvas', {
-    teardown: function() {
+    setup: function() {
       canvas.clear();
       canvas.backgroundColor = fabric.StaticCanvas.prototype.backgroundColor;
+      canvas.backgroundImage = fabric.StaticCanvas.prototype.backgroundImage;
       canvas.overlayColor = fabric.StaticCanvas.prototype.overlayColor;
+      canvas.controlsAboveOverlay = fabric.StaticCanvas.prototype.controlsAboveOverlay;
+      canvas.preserveObjectStacking = fabric.StaticCanvas.prototype.preserveObjectStacking;
+      canvas.viewportTransform = fabric.StaticCanvas.prototype.viewportTransform;
       canvas.calcOffset();
     }
   });
@@ -479,7 +483,10 @@
     var rect = makeRect({ left: 102, top: 202 });
     canvas.add(rect);
     equal(canvas.centerObjectH(rect), canvas, 'should be chainable');
-    equal(rect.getCenterPoint().x, canvas.width / 2, 'object\'s "left" property should correspond to canvas element\'s center');
+    equal(rect.getCenterPoint().x, canvas.width / 2, 'object\'s "center.y" property should correspond to canvas element\'s center');
+    canvas.setZoom(4);
+    equal(rect.getCenterPoint().x, canvas.height / 2, 'object\'s "center.x" property should correspond to canvas element\'s center when canvas is transformed');
+
   });
 
   test('centerObjectV', function() {
@@ -487,7 +494,10 @@
     var rect = makeRect({ left: 102, top: 202 });
     canvas.add(rect);
     equal(canvas.centerObjectV(rect), canvas, 'should be chainable');
-    equal(rect.getCenterPoint().y, canvas.height / 2, 'object\'s "top" property should correspond to canvas element\'s center');
+    equal(rect.getCenterPoint().y, canvas.height / 2, 'object\'s "center.y" property should correspond to canvas element\'s center');
+    canvas.setZoom(2);
+    equal(rect.getCenterPoint().y, canvas.height / 2, 'object\'s "center.y" property should correspond to canvas element\'s center when canvas is transformed');
+
   });
 
   test('centerObject', function() {
@@ -496,8 +506,70 @@
     canvas.add(rect);
     equal(canvas.centerObject(rect), canvas, 'should be chainable');
 
-    equal(rect.getCenterPoint().y, canvas.height / 2, 'object\'s "top" property should correspond to canvas element\'s center');
-    equal(rect.getCenterPoint().x, canvas.height / 2, 'object\'s "left" property should correspond to canvas element\'s center');
+    equal(rect.getCenterPoint().y, canvas.height / 2, 'object\'s "center.y" property should correspond to canvas element\'s center');
+    equal(rect.getCenterPoint().x, canvas.height / 2, 'object\'s "center.x" property should correspond to canvas element\'s center');
+    canvas.setZoom(4);
+    equal(rect.getCenterPoint().y, canvas.height / 2, 'object\'s "center.y" property should correspond to canvas element\'s center when canvas is transformed');
+    equal(rect.getCenterPoint().x, canvas.height / 2, 'object\'s "center.x" property should correspond to canvas element\'s center when canvas is transformed');
+  });
+
+  test('viewportCenterObjectH', function() {
+    ok(typeof canvas.viewportCenterObjectH == 'function');
+    var rect = makeRect({ left: 102, top: 202 }), pan = 10;
+    canvas.viewportTransform = [1, 0, 0, 1, 0, 0];
+    canvas.add(rect);
+    var oldY = rect.top;
+    equal(canvas.viewportCenterObjectH(rect), canvas, 'should be chainable');
+    equal(rect.getCenterPoint().x, canvas.width / 2, 'object\'s "center.x" property should correspond to canvas element\'s center when canvas is not transformed');
+    equal(rect.top, oldY, 'object\'s "top" should not change');
+    canvas.setZoom(2);
+    canvas.viewportCenterObjectH(rect);
+    equal(rect.getCenterPoint().x, canvas.width / (2 * canvas.getZoom()), 'object\'s "center.x" property should correspond to viewport center');
+    equal(rect.top, oldY, 'object\'s "top" should not change');
+    canvas.absolutePan({x: pan, y: pan});
+    canvas.viewportCenterObjectH(rect);
+    equal(rect.getCenterPoint().x, (canvas.width / 2 + pan) / canvas.getZoom(), 'object\'s "center.x" property should correspond to viewport center');
+    equal(rect.top, oldY, 'object\'s "top" should not change');
+  });
+
+  test('viewportCenterObjectV', function() {
+    ok(typeof canvas.viewportCenterObjectV == 'function');
+    var rect = makeRect({ left: 102, top: 202 }), pan = 10;
+    canvas.viewportTransform = [1, 0, 0, 1, 0, 0];
+    canvas.add(rect);
+    var oldX = rect.left;
+    equal(canvas.viewportCenterObjectV(rect), canvas, 'should be chainable');
+    equal(rect.getCenterPoint().y, canvas.height / 2, 'object\'s "center.y" property should correspond to canvas element\'s center when canvas is not transformed');
+    equal(rect.left, oldX, 'x position did not change');
+    canvas.setZoom(2);
+    canvas.viewportCenterObjectV(rect);
+    equal(rect.getCenterPoint().y, canvas.height / (2 * canvas.getZoom()), 'object\'s "center.y" property should correspond to viewport center');
+    equal(rect.left, oldX, 'x position did not change');
+    canvas.absolutePan({x: pan, y: pan});
+    canvas.viewportCenterObjectV(rect);
+    equal(rect.getCenterPoint().y, (canvas.height / 2 + pan) / canvas.getZoom(), 'object\'s "top" property should correspond to viewport center');
+    equal(rect.left, oldX, 'x position did not change');
+  });
+
+  test('viewportCenterObject', function() {
+    ok(typeof canvas.viewportCenterObject == 'function');
+    var rect = makeRect({ left: 102, top: 202 }), pan = 10;
+    canvas.viewportTransform = [1, 0, 0, 1, 0, 0];
+    canvas.add(rect);
+    equal(canvas.viewportCenterObject(rect), canvas, 'should be chainable');
+    equal(rect.getCenterPoint().y, canvas.height / 2, 'object\'s "center.y" property should correspond to canvas element\'s center when canvas is not transformed');
+    equal(rect.getCenterPoint().x, canvas.width / 2, 'object\'s "center.x" property should correspond to canvas element\'s center when canvas is not transformed');
+
+    canvas.setZoom(2);
+    canvas.viewportCenterObject(rect);
+    equal(rect.getCenterPoint().y, canvas.height / (2 * canvas.getZoom()), 'object\'s "center.y" property should correspond to viewport center');
+    equal(rect.getCenterPoint().x, canvas.width / (2 * canvas.getZoom()), 'object\'s "center.x" property should correspond to viewport center');
+
+    canvas.absolutePan({x: pan, y: pan});
+    canvas.viewportCenterObject(rect);
+    equal(rect.getCenterPoint().y, (canvas.height / 2 + pan) / canvas.getZoom(), 'object\'s "center.y" property should correspond to viewport center');
+    equal(rect.getCenterPoint().x, (canvas.width / 2 + pan) / canvas.getZoom(), 'object\'s "center.x" property should correspond to viewport center');
+    canvas.viewportTransform = [1, 0, 0, 1, 0, 0];
   });
 
   test('straightenObject', function() {
@@ -519,7 +591,7 @@
   test('toSVG', function() {
     ok(typeof canvas.toSVG == 'function');
     canvas.clear();
-
+    canvas.viewportTransform = [1, 0, 0, 1, 0, 0];
     var svg = canvas.toSVG();
     equal(svg, CANVAS_SVG);
   });
@@ -527,7 +599,7 @@
   test('toSVG with different encoding (ISO-8859-1)', function() {
     ok(typeof canvas.toSVG == 'function');
     canvas.clear();
-
+    canvas.viewportTransform = [1, 0, 0, 1, 0, 0];
     var svg = canvas.toSVG({encoding: 'ISO-8859-1'});
     var svgDefaultEncoding = canvas.toSVG();
     ok(svg != svgDefaultEncoding);
@@ -583,6 +655,80 @@
     canvas.toSVG(null, reviver);
     equal(reviverCount, len);
 
+    canvas.renderOnAddRemove = true;
+  });
+
+  test('toSVG with reviver', function() {
+    ok(typeof canvas.toSVG == 'function');
+    canvas.clear();
+
+    var circle = new fabric.Circle(),
+        rect = new fabric.Rect(),
+        path1 = new fabric.Path('M 100 100 L 300 100 L 200 300 z'),
+        tria = new fabric.Triangle(),
+        polygon = new fabric.Polygon([{x: 10, y: 12},{x: 20, y: 22}]),
+        polyline = new fabric.Polyline([{x: 10, y: 12},{x: 20, y: 22}]),
+        line = new fabric.Line(),
+        text = new fabric.Text('Text'),
+        group = new fabric.Group([text, line]),
+        ellipse = new fabric.Ellipse(),
+        image = new fabric.Image({width: 0, height: 0}),
+        imageBG = new fabric.Image({width: 0, height: 0}),
+        imageOL = new fabric.Image({width: 0, height: 0}),
+        path2 = new fabric.Path('M 0 0 L 200 100 L 200 300 z'),
+        path3 = new fabric.Path('M 50 50 L 100 300 L 400 400 z'),
+        pathGroup = new fabric.PathGroup([path2, path3]);
+
+    canvas.renderOnAddRemove = false;
+    canvas.add(circle, rect, path1, tria, polygon, polyline, group, ellipse, image, pathGroup);
+    canvas.setBackgroundImage(imageBG);
+    canvas.setOverlayImage(imageOL);
+    var reviverCount = 0,
+        len = canvas.size() + group.size() + pathGroup.paths.length;
+
+    function reviver(svg) {
+      reviverCount++;
+      return svg;
+    }
+
+    canvas.toSVG(null, reviver);
+    equal(reviverCount, len + 2, 'reviver should include background and overlay image');
+    canvas.setBackgroundImage(null);
+    canvas.setOverlayImage(null);
+    canvas.renderOnAddRemove = true;
+  });
+
+  test('toSVG with exclude from export', function() {
+    ok(typeof canvas.toSVG == 'function');
+    canvas.clear();
+
+    var circle = new fabric.Circle({excludeFromExport: true}),
+        rect = new fabric.Rect({excludeFromExport: true}),
+        path1 = new fabric.Path('M 100 100 L 300 100 L 200 300 z'),
+        tria = new fabric.Triangle(),
+        polygon = new fabric.Polygon([{x: 10, y: 12},{x: 20, y: 22}]),
+        polyline = new fabric.Polyline([{x: 10, y: 12},{x: 20, y: 22}]),
+        line = new fabric.Line(),
+        text = new fabric.Text('Text'),
+        group = new fabric.Group([text, line]),
+        ellipse = new fabric.Ellipse(),
+        image = new fabric.Image({width: 0, height: 0}),
+        path2 = new fabric.Path('M 0 0 L 200 100 L 200 300 z'),
+        path3 = new fabric.Path('M 50 50 L 100 300 L 400 400 z'),
+        pathGroup = new fabric.PathGroup([path2, path3]);
+
+    canvas.renderOnAddRemove = false;
+    canvas.add(circle, rect, path1, tria, polygon, polyline, group, ellipse, image, pathGroup);
+    var reviverCount = 0,
+        len = canvas.size() + group.size() + pathGroup.paths.length;
+
+    function reviver(svg) {
+      reviverCount++;
+      return svg;
+    }
+
+    canvas.toSVG(null, reviver);
+    equal(reviverCount, len - 2, 'reviver should not include objects with excludeFromExport');
     canvas.renderOnAddRemove = true;
   });
 
@@ -667,6 +813,17 @@
 
     equal(canvas.toObject().objects[0].type, rect.type);
   });
+
+  test('toObject excludeFromExport', function() {
+    var rect = makeRect(), rect2 = makeRect(), rect3 = makeRect();
+    canvas.clear();
+    canvas.add(rect, rect2, rect3);
+    equal(canvas.toObject().objects.length, 3, 'all objects get exported');
+    rect.excludeFromExport = true;
+    rect2.excludeFromExport = true;
+    equal(canvas.toObject().objects.length, 1, 'only one object gets exported');
+  });
+
 
   test('toDatalessObject', function() {
     ok(typeof canvas.toDatalessObject == 'function');
@@ -767,17 +924,52 @@
     });
   });
 
-  test('loadFromJSON with custom properties on Canvas', function() {
+  test('loadFromJSON with custom properties on Canvas with no async object', function() {
     var serialized = JSON.parse(PATH_JSON);
     serialized.controlsAboveOverlay = true;
     serialized.preserveObjectStacking = true;
+    equal(canvas.controlsAboveOverlay, fabric.Canvas.prototype.controlsAboveOverlay);
+    equal(canvas.preserveObjectStacking, fabric.Canvas.prototype.preserveObjectStacking);
     canvas.loadFromJSON(serialized, function() {
       ok(!canvas.isEmpty(), 'canvas is not empty');
-      equal(fabric.Canvas.prototype.controlsAboveOverlay, false);
-      equal(fabric.Canvas.prototype.preserveObjectStacking, false);
+      equal(canvas.controlsAboveOverlay, true);
+      equal(canvas.preserveObjectStacking, true);
     });
+    // if no async object the callback is called syncronously
     equal(canvas.controlsAboveOverlay, true);
     equal(canvas.preserveObjectStacking, true);
+  });
+
+  asyncTest('loadFromJSON with custom properties on Canvas with image', function() {
+    var JSON_STRING = '{"objects":[{"type":"image","originX":"left","originY":"top","left":13.6,"top":-1.4,"width":3000,"height":3351,"fill":"rgb(0,0,0)","stroke":null,"strokeWidth":0,"strokeDashArray":null,"strokeLineCap":"butt","strokeLineJoin":"miter","strokeMiterLimit":10,"scaleX":0.05,"scaleY":0.05,"angle":0,"flipX":false,"flipY":false,"opacity":1,"shadow":null,"visible":true,"clipTo":null,"backgroundColor":"","fillRule":"nonzero","globalCompositeOperation":"source-over","transformMatrix":null,"skewX":0,"skewY":0,"src":"' + IMG_SRC + '","filters":[],"crossOrigin":"","alignX":"none","alignY":"none","meetOrSlice":"meet"}],'
++ '"background":"green"}';
+    var serialized = JSON.parse(JSON_STRING);
+    serialized.controlsAboveOverlay = true;
+    serialized.preserveObjectStacking = true;
+    equal(canvas.controlsAboveOverlay, fabric.Canvas.prototype.controlsAboveOverlay);
+    equal(canvas.preserveObjectStacking, fabric.Canvas.prototype.preserveObjectStacking);
+    canvas.loadFromJSON(serialized, function() {
+      ok(!canvas.isEmpty(), 'canvas is not empty');
+      equal(canvas.controlsAboveOverlay, true);
+      equal(canvas.preserveObjectStacking, true);
+      start();
+    });
+    // before callback the properties are still false.
+    equal(canvas.controlsAboveOverlay, false);
+    equal(canvas.preserveObjectStacking, false);
+  });
+
+
+  asyncTest('loadFromJSON with image background and color', function() {
+    var serialized = JSON.parse(PATH_JSON);
+    serialized.background = 'green';
+    serialized.backgroundImage = JSON.parse('{"type":"image","originX":"left","originY":"top","left":13.6,"top":-1.4,"width":3000,"height":3351,"fill":"rgb(0,0,0)","stroke":null,"strokeWidth":0,"strokeDashArray":null,"strokeLineCap":"butt","strokeLineJoin":"miter","strokeMiterLimit":10,"scaleX":0.05,"scaleY":0.05,"angle":0,"flipX":false,"flipY":false,"opacity":1,"shadow":null,"visible":true,"clipTo":null,"backgroundColor":"","fillRule":"nonzero","globalCompositeOperation":"source-over","transformMatrix":null,"skewX":0,"skewY":0,"src":"' + IMG_SRC + '","filters":[],"crossOrigin":"","alignX":"none","alignY":"none","meetOrSlice":"meet"}');
+    canvas.loadFromJSON(serialized, function() {
+      ok(!canvas.isEmpty(), 'canvas is not empty');
+      equal(canvas.backgroundColor, 'green');
+      ok(canvas.backgroundImage instanceof fabric.Image);
+      start();
+    });
   });
 
   test('loadFromJSON custom properties', function() {
@@ -1131,6 +1323,18 @@
       originX: 'right'
     });
   });
+
+  //how to test with an exception?
+  /*asyncTest('options in setBackgroundImage from invalid URL', function() {
+    canvas.backgroundImage = null;
+    canvas.setBackgroundImage(IMG_SRC + '_not_exist', function() {
+      equal(canvas.backgroundImage, null);
+      start();
+    }, {
+      left: 50,
+      originX: 'right'
+    });
+  });*/
 
   asyncTest('options in setBackgroundImage from image instance', function() {
     createImageObject(function(imageInstance) {

@@ -165,6 +165,12 @@ function addAccessors($scope) {
   $scope.setLineHeight = function(value) {
     setActiveStyle('lineHeight', parseFloat(value, 10));
   };
+  $scope.getCharSpacing = function() {
+    return getActiveStyle('charSpacing');
+  };
+  $scope.setCharSpacing = function(value) {
+    setActiveStyle('charSpacing', value);
+  };
 
   $scope.getBold = function() {
     return getActiveStyle('fontWeight');

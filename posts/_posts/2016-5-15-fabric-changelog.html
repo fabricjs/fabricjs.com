@@ -7,6 +7,45 @@ title: Fabric.js. release highlights.
 
 <div class="container" style="margin:30px auto">
   <h2 id="introduction_to_fabricjs">Fabric.js release highlights</h2>
+  <h3>Version 1.6.4</h3>
+
+  <p>In fabric 1.6.4 we added some new features and refinement to text objects:
+    <br />New feature <code>charspacing</code> has been added, charspacing is expressed in thousands of em unit, meaning that with a value of 1000 and a fontsize of 40, you will have an additional space of 40px between chars.
+    <br />Lineheight managment has been improved, now the lineheight does not have an extra padding below the line if there are no other lines of text.
+    <br />Now that HiddenTextarea of iText object can follow the typing cursor better, it has been attached again to body of document and thanks to this IE browsers copy paste has been fixed.
+    <br /><code>selection:changed</code> event firing has been reduced so that it fires just when necessary
+    <br />Fonts with particular names, like 'Slabo 27px' or 'Exo 2' should be handled correctly now.
+  </p>
+  <p>We have one new filter, a generic <code>ColorMatrix</code> filter from one of our contributors.</p>
+  <p>An old missing feature has been finally added, when restoring object from JSON, the apply filter function is executed before firing the callback, so that we can re render the canvas when everything is properly set up</p>
+  <p>Other small fixes to svg import and zoomed canvas. Finally shift click to select and unselect should work on every canvas zoom/pan.</p>
+  <p>New event: <code>object:deselected</code> is fired when an object loose its active state. Other than that, to the <code>before:selection:cleared</code> and <code>selection:cleared</code> the target is passed as an argument to the event fired.</p>
+  <p>This is the raw changelog:</p>
+  <pre>
+    Improvement: Ignore svg: namespace during svg import. #3081
+    Improvement: Better fix for lineHeight of iText/Text #3094
+    Improvement: Support for gradient with 'Infinity' coordinates #3082
+    Improvement: Generally "improved" logic of targeting #3111
+    Fix: Selection of active group with transparency and preserveObjectStacking true or false #3109
+    Fix: pattern brush now create the same pattern seen while drawing #3112
+    Fix: Allow css merge during svg import #3114
+    Improvement: added numeric origins handling fomr 0 to 1. #3121
+    Fix: Fix a defect with shadow of objects in a scaled group. #3134
+    Improvement: Do not fire unecessary selection:changed events. #3119
+    Fix: Attached hiddenTextarea to body fixes IE, thanks to @plainview. #3137
+    Fix: Shift unselect activegroup on transformed canvas. #3144
+    Added: ColorMatrix filter #3139
+    Fix: Fix condition in wich restoring from Object could cause object overwriting #3146
+    Change: cloneAsImage for Object and toDataUrl for object are not retina enabled by default. Added option to enable. #3147
+    Improvement: Added textSpacing support for text/itext/textbox #3097
+    Fix: Quote font family when setting the context fontstyle #3191
+    Fix: use getSrc during image export, make subclassing easier, return eventually the .src property if nothing else is available #3189
+    Fix: Inverted the meaning of border scale factor #3154
+    Improvement: Added support for RGBA in HEX notation. #3202
+    Improvement: Added object deselected event. #3195
+    Fix: loadFromJson callback now gets fired after filter are applied #3210
+  </pre>
+
   <h3>Version 1.6.3</h3>
 
   <p>Biggest new in 1.6.3 is support of sub-targets in group. Group has a new property <code>subTargetCheck</code> default to false that allows the findTarget

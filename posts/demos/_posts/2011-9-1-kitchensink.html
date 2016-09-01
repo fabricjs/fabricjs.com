@@ -8,7 +8,6 @@ title: Kitchensink
 <script src="../lib/jquery.js"></script>
 <script src="../lib/bootstrap.js"></script>
 <script src="../js/paster.js"></script>
-<script src="../js/jquery.mousewheel.min.js"></script>
 
 <link rel="stylesheet" href="../css/bootstrap.css">
 <link rel="stylesheet" href="../css/kitchensink.css">
@@ -533,9 +532,6 @@ title: Kitchensink
 <script>
 
   (function() {
-
-    if (document.location.hash !== '#zoom') return;
-
     function renderVieportBorders() {
       var ctx = canvas.getContext();
 
@@ -560,13 +556,13 @@ title: Kitchensink
       ctx.restore();
     }
 
-    $(canvas.getElement().parentNode).on('mousewheel', function(e) {
-
+    canvas.on('mouse:wheel', function(opt) {
+      var e = opt.e;
       var newZoom = canvas.getZoom() + e.deltaY / 300;
       canvas.zoomToPoint({ x: e.offsetX, y: e.offsetY }, newZoom);
 
       renderVieportBorders();
-
+      e.preventDefault();
       return false;
     });
 

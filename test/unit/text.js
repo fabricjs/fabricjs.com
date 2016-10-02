@@ -80,7 +80,7 @@
       equal(fontDecl, 'normal  40px "Times New Roman"');
     }
     else {
-      equal(fontDecl, ' normal 40px "Times New Roman"');
+      equal(fontDecl, ' normal 40px Times New Roman');
     }
 
   });
@@ -268,6 +268,11 @@
 
     text.setText('xx');
     equal(text.width, CHAR_WIDTH * 2);
+  });
+
+  test('dimensions without text', function() {
+    var text = new fabric.Text('');
+    equal(text.width, 2);
   });
 
   test('setting fontFamily', function() {

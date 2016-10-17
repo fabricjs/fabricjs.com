@@ -45,7 +45,7 @@ title: Image Filters
   <p>
     <label><span>Saturate:</span> <input type="checkbox" id="saturate" disabled></label>
     <br>
-    <label>Value: <input type="range" id="saturate-value" value="100" min="-255" max="255" disabled></label>
+    <label>Value: <input type="range" id="saturate-value" value="100" min="-100" max="100" disabled></label>
   </p>
   <p>
     <label><span>Noise:</span> <input type="checkbox" id="noise" disabled></label>
@@ -135,7 +135,7 @@ title: Image Filters
                           .forEach(function(el){ el.disabled = false; })
 
       var filters = ['grayscale', 'invert', 'remove-white', 'sepia', 'sepia2',
-                      'brightness', 'noise', 'gradient-transparency', 'pixelate',
+                      'brightness', 'contrast', 'saturate', 'noise', 'gradient-transparency', 'pixelate',
                       'blur', 'sharpen', 'emboss', 'tint', 'multiply', 'blend'];
 
       for (var i = 0; i < filters.length; i++) {

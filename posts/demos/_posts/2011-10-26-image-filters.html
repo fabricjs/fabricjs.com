@@ -35,7 +35,17 @@ title: Image Filters
   <p>
     <label><span>Brightness:</span> <input type="checkbox" id="brightness" disabled></label>
     <br>
-    <label>Value: <input type="range" id="brightness-value" value="100" min="0" max="255" disabled></label>
+    <label>Value: <input type="range" id="brightness-value" value="100" min="-255" max="255" disabled></label>
+  </p>
+  <p>
+    <label><span>Contrast:</span> <input type="checkbox" id="contrast" disabled></label>
+    <br>
+    <label>Value: <input type="range" id="contrast-value" value="0" min="-255" max="255" disabled></label>
+  </p>
+  <p>
+    <label><span>Saturate:</span> <input type="checkbox" id="saturate" disabled></label>
+    <br>
+    <label>Value: <input type="range" id="saturate-value" value="100" min="-255" max="255" disabled></label>
   </p>
   <p>
     <label><span>Noise:</span> <input type="checkbox" id="noise" disabled></label>
@@ -143,7 +153,7 @@ title: Image Filters
     canvas.add(oImg).renderAll();
     canvas.setActiveObject(oImg);
   });
-
+  var indexF;
   $('grayscale').onclick = function() {
     applyFilter(0, this.checked && new f.Grayscale());
   };
@@ -176,85 +186,101 @@ title: Image Filters
   $('brightness-value').onchange = function() {
     applyFilterValue(5, 'brightness', parseInt(this.value, 10));
   };
+  $('contrast').onclick = function () {
+    applyFilter(6, this.checked && new f.Contrast({
+      contrast: parseInt($('contrast-value').value, 10)
+    }));
+  };
+  $('contrast-value').onchange = function() {
+    applyFilterValue(6, 'contrast', parseInt(this.value, 10));
+  };
+  $('saturate').onclick = function () {
+    applyFilter(7, this.checked && new f.Saturate({
+      saturate: parseInt($('saturate-value').value, 10)
+    }));
+  };
+  $('saturate-value').onchange = function() {
+    applyFilterValue(7, 'saturate', parseInt(this.value, 10));
+  };
   $('noise').onclick = function () {
-    applyFilter(6, this.checked && new f.Noise({
+    applyFilter(8, this.checked && new f.Noise({
       noise: parseInt($('noise-value').value, 10)
     }));
   };
   $('noise-value').onchange = function() {
-    applyFilterValue(6, 'noise', parseInt(this.value, 10));
+    applyFilterValue(8, 'noise', parseInt(this.value, 10));
   };
   $('gradient-transparency').onclick = function () {
-    applyFilter(7, this.checked && new f.GradientTransparency({
+    applyFilter(9, this.checked && new f.GradientTransparency({
       threshold: parseInt($('gradient-transparency-value').value, 10)
     }));
   };
   $('gradient-transparency-value').onchange = function() {
-    applyFilterValue(7, 'threshold', parseInt(this.value, 10));
+    applyFilterValue(9, 'threshold', parseInt(this.value, 10));
   };
   $('pixelate').onclick = function() {
-    applyFilter(8, this.checked && new f.Pixelate({
+    applyFilter(10, this.checked && new f.Pixelate({
       blocksize: parseInt($('pixelate-value').value, 10)
     }));
   };
   $('pixelate-value').onchange = function() {
-    applyFilterValue(8, 'blocksize', parseInt(this.value, 10));
+    applyFilterValue(10, 'blocksize', parseInt(this.value, 10));
   };
   $('blur').onclick = function() {
-    applyFilter(9, this.checked && new f.Convolute({
+    applyFilter(11, this.checked && new f.Convolute({
       matrix: [ 1/9, 1/9, 1/9,
                 1/9, 1/9, 1/9,
                 1/9, 1/9, 1/9 ]
     }));
   };
   $('sharpen').onclick = function() {
-    applyFilter(10, this.checked && new f.Convolute({
+    applyFilter(12, this.checked && new f.Convolute({
       matrix: [  0, -1,  0,
                 -1,  5, -1,
                  0, -1,  0 ]
     }));
   };
   $('emboss').onclick = function() {
-    applyFilter(11, this.checked && new f.Convolute({
+    applyFilter(13, this.checked && new f.Convolute({
       matrix: [ 1,   1,  1,
                 1, 0.7, -1,
                -1,  -1, -1 ]
     }));
   };
   $('tint').onclick = function() {
-    applyFilter(12, this.checked && new f.Tint({
+    applyFilter(14, this.checked && new f.Tint({
       color: document.getElementById('tint-color').value,
       opacity: parseFloat(document.getElementById('tint-opacity').value)
     }));
   };
   $('tint-color').onchange = function() {
-    applyFilterValue(12, 'color', this.value);
+    applyFilterValue(14, 'color', this.value);
   };
   $('tint-opacity').onchange = function() {
-    applyFilterValue(12, 'opacity', parseFloat(this.value));
+    applyFilterValue(14, 'opacity', parseFloat(this.value));
   };
   $('multiply').onclick = function() {
-    applyFilter(13, this.checked && new f.Multiply({
+    applyFilter(15, this.checked && new f.Multiply({
       color: document.getElementById('multiply-color').value
     }));
   };
   $('multiply-color').onchange = function() {
-    applyFilterValue(13, 'color', this.value);
+    applyFilterValue(15, 'color', this.value);
   };
-  
-  $('blend').onclick= function() { 
-    applyFilter(14, this.checked && new f.Blend({
+
+  $('blend').onclick= function() {
+    applyFilter(16, this.checked && new f.Blend({
       color: document.getElementById('blend-color').value,
       mode: document.getElementById('blend-mode').value
     }));
   };
- 
+
   $('blend-mode').onchange = function() {
-    applyFilterValue(14, 'mode', this.value);
+    applyFilterValue(16, 'mode', this.value);
   };
- 
+
   $('blend-color').onchange = function() {
-    applyFilterValue(14, 'color', this.value);
+    applyFilterValue(16, 'color', this.value);
   };
 })();
 </script>

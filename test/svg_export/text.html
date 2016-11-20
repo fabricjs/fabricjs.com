@@ -22,7 +22,6 @@ title: SVG Export (text)
 
   function addText(text, options) {
     var text = new fabric.Text(text, options);
-    text.useNative = document.location.hash === '#native';
     __canvas.add(text);
   }
 </script>

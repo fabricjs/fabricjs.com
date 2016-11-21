@@ -299,26 +299,44 @@ title: Features
       (function(){
         var rect = new fabric.Rect({ width: 200, height: 50, fill: '#faa', rx: 10, ry: 10 });
         var text = new fabric.Text('Do stuff with me!', { fontSize: 20, fontFamily: 'Georgia' });
-        var group = new fabric.Group([ rect, text ], { left: 250, top: 1320, objectCaching: false });
+        var group = new fabric.Group([ rect, text ], { left: 250, top: 1320 });
         canvas.add(group).calcOffset();
-
+window.ooo = text;
         group.on('mousedown', function() {
           text.text = 'Mouse down';
+          group.dirty = true;
         });
         group.on('mouseup', function() {
           text.text = 'Mouse up';
+          group.dirty = true;
         });
         group.on('scaling', function() {
           text.text = 'Scaling';
+          group.dirty = true;
         });
         group.on('moving', function() {
           text.text = 'Moving';
+          group.dirty = true;
         });
         group.on('rotating', function() {
           text.text = 'Rotating';
+          group.dirty = true;
         });
         group.on('mousemove', function() {
           text.text = 'Mouse move';
+          group.dirty = true;
+        });
+        group.on('mouseover', function() {
+          text.text = 'Mouse over';
+          group.dirty = true;
+        });
+        group.on('mouseout', function() {
+          text.text = 'Mouse out';
+          group.dirty = true;
+        });
+        group.on('skewing', function() {
+          text.text = 'skewing';
+          group.dirty = true;
         });
       })();
 

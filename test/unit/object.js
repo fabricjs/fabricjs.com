@@ -14,7 +14,7 @@
     return src;
   }
 
-  var IMG_SRC = fabric.isLikelyNode ? (__dirname + '/../fixtures/test_image.gif') : getAbsolutePath('test/fixtures/test_image.gif'),
+  var IMG_SRC = fabric.isLikelyNode ? (__dirname + '/../fixtures/test_image.gif') : getAbsolutePath('../fixtures/test_image.gif'),
       IMG_WIDTH = 276,
       IMG_HEIGHT  = 110;
 
@@ -755,7 +755,7 @@
   test('_setLineDash', function() {
     var object = new fabric.Rect({ left: 100, top: 124, width: 210, height: 66, stroke: 'black', strokeWidth: 2});
     ok(typeof object._setLineDash === 'function');
-
+    object.statefullCache = true;
     canvas.add(object);
     object.strokeDashArray = [3, 2, 1];
     equal(object.strokeDashArray.length, 3, 'strokeDash array is odd');

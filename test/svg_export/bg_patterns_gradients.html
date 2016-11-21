@@ -212,99 +212,94 @@ canvas.renderAll();
 </pre>
 
 <pre class="test-source async">
-var rect = new fabric.Rect({
-  left: 100,
-  top: 100,
-  width: 100,
-  height: 100
-});
-canvas.add(rect);
-
 fabric.util.loadImage('/assets/retina_wood.png', function(img) {
-  rect.fill = new fabric.Pattern({
+  var pattern = new fabric.Pattern({
     source: img,
     repeat: 'repeat'
   });
-  canvas.renderAll();
+  var rect = new fabric.Rect({
+    left: 100,
+    top: 100,
+    width: 100,
+    height: 100,
+    fill: pattern
+  });
+  canvas.add(rect);
   proceed();
 });
 </pre>
 
 <pre class="test-source async">
-var rect = new fabric.Rect({
-  left: 100,
-  top: 100,
-  width: 100,
-  height: 100
-});
-canvas.add(rect);
-
 fabric.util.loadImage('/assets/escheresque.png', function(img) {
-  rect.fill = new fabric.Pattern({
+  var pattern = new fabric.Pattern({
     source: img,
     repeat: 'repeat-x'
   });
-  canvas.renderAll();
+  var rect = new fabric.Rect({
+    left: 100,
+    top: 100,
+    width: 100,
+    height: 100,
+    fill: pattern
+  });
+  canvas.add(rect);
   proceed();
 });
 </pre>
 
 <pre class="test-source async">
-var rect = new fabric.Rect({
-  left: 100,
-  top: 100,
-  width: 100,
-  height: 100
-});
-canvas.add(rect);
-
 fabric.util.loadImage('/assets/escheresque.png', function(img) {
-  rect.fill = new fabric.Pattern({
+  var pattern = new fabric.Pattern({
     source: img,
     repeat: 'repeat-y'
   });
-  canvas.renderAll();
+  var rect = new fabric.Rect({
+    left: 100,
+    top: 100,
+    width: 100,
+    height: 100,
+    fill: pattern
+  });
+  canvas.add(rect);
   proceed();
 });
 </pre>
 
 <pre class="test-source async">
-var rect = new fabric.Rect({
-  left: 100,
-  top: 100,
-  width: 100,
-  height: 100
-});
-canvas.add(rect);
-
 fabric.util.loadImage('/assets/escheresque.png', function(img) {
-  rect.fill = new fabric.Pattern({
+  var pattern = new fabric.Pattern({
     source: img,
     repeat: 'no-repeat'
   });
-  canvas.renderAll();
+  var rect = new fabric.Rect({
+    left: 100,
+    top: 100,
+    width: 100,
+    height: 100,
+    fill: pattern
+  });
+  canvas.add(rect);
   proceed();
 });
 </pre>
 
 <pre class="test-source async">
-var rect = new fabric.Rect({
-  left: 100,
-  top: 100,
-  width: 100,
-  height: 100,
-  stroke: 'red'
-});
-canvas.add(rect);
-
 fabric.util.loadImage('/assets/escheresque.png', function(img) {
-  rect.fill = new fabric.Pattern({
+  var pattern = new fabric.Pattern({
     source: img,
     repeat: 'no-repeat',
     offsetX: 20,
     offsetY: 20
   });
-  canvas.renderAll();
+  var rect = new fabric.Rect({
+    left: 100,
+    top: 100,
+    width: 100,
+    height: 100,
+    stroke: 'red',
+    fill: pattern
+  });
+  canvas.add(rect);
   proceed();
 });
 </pre>

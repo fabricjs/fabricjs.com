@@ -1,0 +1,138 @@
+---
+layout: articlead
+title: Fabric.js. release highlights.
+---
+
+<style>h2 { margin-bottom: 15px } h3 { margin-bottom: 10px; } h4 { margin-bottom: 7px; } </style>
+
+<div class="container" style="margin:30px auto">
+  <h2 id="introduction_object_caching">Fabric.js Object caching</h2>
+  <h3>How does it works?</h3>
+  <p>When fabric object caching is active, the objects you paint on canvas are actually pre painted on another smaller offscren canvas,
+  as big as the object pixel dimension itself. During the `render` method this pre painted canvas gets copied on the main canvas with a `drawImage` operation.</p>
+  <p>That means that during <code>drag</code> <code>rotate</code> <code>skew</code> <code>scale</code> operations the object is not redrawn on canvas, but just its copied
+  cached image gets drawn over the canvas.</p>
+  <h3>How can i tweak/customize it?</h3>
+  <p>This feature comes with 3 properties to use it in different ways:</p>
+  <pre>
+/**
+ * When `true`, object is cached on an additional canvas.
+ * default to true
+ * since 1.7.0
+ * @type Boolean
+ * @default
+ */
+objectCaching:            objectCaching,
+
+/**
+ * When `true`, object properties are checked for cache invalidation. In some particular
+ * situation you may want this to be disabled ( spray brush, very big pathgroups, groups)
+ * or if your application does not allow you to modify properties for groups child you want
+ * to disable it for groups.
+ * default to false
+ * since 1.7.0
+ * @type Boolean
+ * @default
+ */
+statefullCache:            false,
+
+/**
+ * When `true`, cache does not get updated during scaling. The picture will get blocky if scaled
+ * too much and will be redrawn with correct details at the end of scaling.
+ * this setting is performance and application dependant.
+ * default to false
+ * since 1.7.0
+ * @type Boolean
+ * @default
+ */
+noScaleCache:              true,
+
+/**
+ * List of properties to consider when checking if cache needs refresh
+ * @type Array
+ */
+cacheProperties: (
+  'fill stroke strokeWidth strokeDashArray width height stroke strokeWidth strokeDashArray' +
+  ' strokeLineCap strokeLineJoin strokeMiterLimit fillRule backgroundColor'
+).split(' '),
+
+/**
+ * When set to `true`, object's cache will be rerendered next render call.
+ * @type Boolean
+ * @default false
+ */
+dirty:                false,</pre>
+<p>
+  <code>objectCaching</code> is the main properties, default to true for browsers, false for node, it enables objectCaching at object level.<br />
+  <code>statefullCache</code> This property rule if fabric should autocheck if is time to redraw the cached copy or if the dev shoud manually invalidate it.
+  this property is default to false. More on this later.<br />
+  <code>noScaleCache</code> default to true, disable cache regeneration for scale operation. It can be enabled to avoid blurry effects for big scaling.<br />
+  <code>cacheProperties</code> Is an array of properties to be checked when statefullCache is on to detect a state change and trigger a cache re rendering.<br />
+  <code>dirty</code> is a simple flag that force a cache rerender at next render method, and is set to false automatically after cache regeneration.
+</p>
+<h3>How much performance gain i get, are there any problems?</h3>
+<p>It depends on what your project looks like. Are you drawing just a bunch of circles, rects and simple plygons? Maybe you will not gain that much performance.<br />
+  Are you importing and displaying large and complex svgs? well you will move from possibly shuttering to smooth.
+  Is there any glich i should be aware of? Well you may not like the <code>noScaleCache</code> feature and that is why there is a flag to disable it.
+</p>
+<h3>What about compatibility problem with my current project? should i update? Can i disable caching?</h3>
+<p>I would say yes, switch to 1.7.0, check if everything is fine. If not report any visual problem to issue tracker, you can still completly disable the feature everywhere doing:</p>
+<pre>fabric.Object.prototype.objectCaching = false;</pre> to ovveride the standard value and cache will be disabled for your project.
+<h3>Live sampes</h3>
+<p>Down you can see 2 fabric canvases. The left one is the default chaced one, while the right one is drawn with cache disabled as it was on previous versions.<br />
+The canvases are loaded with heavy pathgroups, the snowwhite, the heaviest i could find is in 3 copies and makes the render speed cripple down.
+Try to drag around one of the shapes on the left or right canvas and notice the speed difference.
+</p>
+<canvas id="normal1" width="450" height="400" ></canvas><canvas id="nocache1" width="450" height="400" ></canvas>
+<script type="text/javascript">
+var canvas1 = new fabric.Canvas('normal1');
+var canvas2 = new fabric.Canvas('nocache1');
+fabric.loadSVGFromURL('../assets/176.svg', function(objects, options) {
+  var svg1 = fabric.util.groupSVGElements(objects, options);
+  canvas1.add(svg1);
+});
+fabric.loadSVGFromURL('../assets/48.svg', function(objects, options) {
+  var svg1 = fabric.util.groupSVGElements(objects, options);
+  canvas1.add(svg1);
+});
+fabric.loadSVGFromURL('../assets/48.svg', function(objects, options) {
+  var svg1 = fabric.util.groupSVGElements(objects, options);
+  canvas1.add(svg1);
+});
+fabric.loadSVGFromURL('../assets/48.svg', function(objects, options) {
+  var svg1 = fabric.util.groupSVGElements(objects, options);
+  canvas1.add(svg1);
+});
+fabric.loadSVGFromURL('../assets/171.svg', function(objects, options) {
+  var svg1 = fabric.util.groupSVGElements(objects, options);
+  svg1.scale(0.4);
+  canvas1.add(svg1);
+});
+fabric.loadSVGFromURL('../assets/176.svg', function(objects, options) {
+  var svg1 = fabric.util.groupSVGElements(objects, options);
+  svg1.objectCaching = false;
+  canvas2.add(svg1);
+});
+fabric.loadSVGFromURL('../assets/48.svg', function(objects, options) {
+  var svg1 = fabric.util.groupSVGElements(objects, options);
+  svg1.objectCaching = false;
+  canvas2.add(svg1);
+});
+fabric.loadSVGFromURL('../assets/48.svg', function(objects, options) {
+  var svg1 = fabric.util.groupSVGElements(objects, options);
+  svg1.objectCaching = false;
+  canvas2.add(svg1);
+});
+fabric.loadSVGFromURL('../assets/48.svg', function(objects, options) {
+  var svg1 = fabric.util.groupSVGElements(objects, options);
+  svg1.objectCaching = false;
+  canvas2.add(svg1);
+});
+fabric.loadSVGFromURL('../assets/171.svg', function(objects, options) {
+  var svg1 = fabric.util.groupSVGElements(objects, options);
+  svg1.objectCaching = false;
+  svg1.scale(0.4);
+  canvas2.add(svg1);
+});
+</script>
+</div>

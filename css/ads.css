@@ -1,0 +1,61 @@
+#carbonads-container {
+  position: fixed;
+  right: 1px;
+  top: 45px;
+  width: 140px;
+}
+
+#carbonads {
+  display: block;
+  overflow: hidden;
+  margin: 1px;
+  padding: 3px;
+  background: #333333;
+  font-size: .9em;
+  font-family: Verdana, "Helvetica Neue", Helvetica, sans-serif;
+  line-height: 1.5;
+}
+
+  #carbonads a {
+    color: #ffbfcb !important;
+    text-decoration: none !important;
+    padding: 0 !important;
+    margin: 0;
+  }
+
+  #carbonads span {
+    display: block;
+    overflow: hidden;
+    padding: 0 !important;
+    margin: 0;
+  }
+
+  .carbon-img {
+    display: block;
+    padding: 0 !important;
+    margin: 0;
+    margin-bottom: 1em;
+  }
+
+  .carbon-img img {
+    padding: 0;
+    margin: 0;
+    display: block;
+    margin: 1px;
+  }
+
+  .carbon-text {
+    padding: 0;
+    margin: 0;
+    display: block;
+    margin-bottom: 1em;
+    text-align: left;
+  }
+
+  .carbon-poweredby {
+    padding: 0;
+    margin: 0;
+    display: block;
+    text-align: right;
+    font-size: .8em;
+  }

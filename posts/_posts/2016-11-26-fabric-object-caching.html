@@ -79,7 +79,7 @@ dirty:                false,</pre>
 <p>I would say yes, switch to 1.7.0, check if everything is fine. If not report any visual problem to issue tracker, you can still completly disable the feature everywhere doing:</p>
 <pre>fabric.Object.prototype.objectCaching = false;</pre> to ovveride the standard value and cache will be disabled for your project.
 <h3>Live sampes</h3>
-<p>Down you can see 2 fabric canvases. The left one is the default chaced one, while the right one is drawn with cache disabled as it was on previous versions.<br />
+<p>Below you can see 2 fabric canvases. The left one is the default chaced one, while the right one is drawn with cache disabled as it was on previous versions.<br />
 The canvases are loaded with heavy pathgroups, the snowwhite, the heaviest i could find is in 3 copies and makes the render speed cripple down.
 Try to drag around one of the shapes on the left or right canvas and notice the speed difference.
 </p>
@@ -156,8 +156,8 @@ Using the object method <code>set</code> will do this for you. So calling <code>
 you are not using the set method ( for example in situation of text objects in wich setting some properties trigger expensive functions ) you will use the flag.<br />
 There is also a way to ask fabric to check at render time a change for properties. This is not expensive most of the time but i decided to leave it off because in crowded
 situations ( like spray brush or 1000+ svg paths ) it was expensive.</p>
-<h3>How does fabric checks for changes in custom subclasses with custom properties?</h3>
-<p>Custom subclassing is one of the fabric stronges features in mmy opinion and i did not want to let it out. So there is an array defined called <code>cacheProperties</code>
+<h3>How does fabric check for changes in custom subclasses with custom properties?</h3>
+<p>Custom subclassing is one of the fabric strongest features in my opinion and object caching has been built with that in mind.. So there is an array defined called <code>cacheProperties</code>
 that contains a list of properties that get checked at every render when the property <code>statefullCache</code> is set true. (defaults to false).</br>
 The array looks like this:
 <pre>

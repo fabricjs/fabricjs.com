@@ -82,7 +82,7 @@
             <pre class="prettyprint source linenums"><code>/* build: `node build.js modules=ALL exclude=json,gestures minifier=uglifyjs` */
  /*! Fabric.js Copyright 2008-2015, Printio (Juriy Zaytsev, Maxim Chernyak) */
 
-var fabric = fabric || { version: "1.7.0" };
+var fabric = fabric || { version: "1.7.1" };
 if (typeof exports !== 'undefined') {
   exports.fabric = fabric;
 }
@@ -5443,10 +5443,11 @@ fabric.ElementsParser.prototype.checkIfDone = function() {
 
     /**
      * Returns object representation of a gradient
+     * @param {Array} [propertiesToInclude] Any properties that you might want to additionally include in the output
      * @return {Object}
      */
-    toObject: function() {
-      return {
+    toObject: function(propertiesToInclude) {
+      var object = {
         type: this.type,
         coords: this.coords,
         colorStops: this.colorStops,
@@ -5454,6 +5455,9 @@ fabric.ElementsParser.prototype.checkIfDone = function() {
         offsetY: this.offsetY,
         gradientTransform: this.gradientTransform ? this.gradientTransform.concat() : this.gradientTransform
       };
+      fabric.util.populateWithProperties(this, object, propertiesToInclude);
+
+      return object;
     },
 
     /* _TO_SVG_START_ */
@@ -5800,11 +5804,12 @@ fabric.Pattern = fabric.util.createClass(/** @lends fabric.Pattern.prototype */ 
 
   /**
    * Returns object representation of a pattern
+   * @param {Array} [propertiesToInclude] Any properties that you might want to additionally include in the output
    * @return {Object} Object representation of a pattern instance
    */
-  toObject: function() {
+  toObject: function(propertiesToInclude) {
 
-    var source;
+    var source, object;
 
     // callback
     if (typeof this.source === 'function') {
@@ -5819,12 +5824,15 @@ fabric.Pattern = fabric.util.createClass(/** @lends fabric.Pattern.prototype */ 
       source = this.source.toDataURL();
     }
 
-    return {
+    object = {
       source: source,
       repeat: this.repeat,
       offsetX: this.offsetX,
       offsetY: this.offsetY
     };
+    fabric.util.populateWithProperties(this, object, propertiesToInclude);
+
+    return object;
   },
 
   /* _TO_SVG_START_ */
@@ -7768,12 +7776,13 @@ fabric.BaseBrush = fabric.util.createClass(/** @lends fabric.BaseBrush.prototype
       return;
     }
 
-    var ctx = this.canvas.contextTop;
+    var ctx = this.canvas.contextTop,
+        zoom = this.canvas.getZoom();
 
     ctx.shadowColor = this.shadow.color;
-    ctx.shadowBlur = this.shadow.blur;
-    ctx.shadowOffsetX = this.shadow.offsetX;
-    ctx.shadowOffsetY = this.shadow.offsetY;
+    ctx.shadowBlur = this.shadow.blur * zoom;
+    ctx.shadowOffsetX = this.shadow.offsetX * zoom;
+    ctx.shadowOffsetY = this.shadow.offsetY * zoom;
   },
 
   /**
@@ -12189,7 +12198,7 @@ fabric.util.object.extend(fabric.StaticCanvas.prototype, /** @lends fabric.Stati
      * default to false
      * since 1.7.0
      * @type Boolean
-     * @default
+     * @default false
      */
     statefullCache:            false,
 
@@ -12200,9 +12209,16 @@ fabric.util.object.extend(fabric.StaticCanvas.prototype, /** @lends fabric.Stati
      * default to false
      * since 1.7.0
      * @type Boolean
-     * @default
+     * @default true
      */
     noScaleCache:              true,
+
+    /**
+     * When set to `true`, object's cache will be rerendered next render call.
+     * @type Boolean
+     * @default false
+     */
+    dirty:                false,
 
     /**
      * List of properties to consider when checking if state
@@ -18169,13 +18185,13 @@ fabric.util.object.extend(fabric.Object.prototype, /** @lends fabric.Object.prot
       var matrix = object.calcTransformMatrix(),
           options = fabric.util.qrDecompose(matrix),
           center = new fabric.Point(options.translateX, options.translateY);
-      object.scaleX = options.scaleX;
-      object.scaleY = options.scaleY;
+      object.flipX = false;
+      object.flipY = false;
+      object.set('scaleX', options.scaleX);
+      object.set('scaleY', options.scaleY);
       object.skewX = options.skewX;
       object.skewY = options.skewY;
       object.angle = options.angle;
-      object.flipX = false;
-      object.flipY = false;
       object.setPositionByOrigin(center, 'center', 'center');
       return object;
     },
@@ -24191,6 +24207,7 @@ fabric.Image.filters.BaseFilter = fabric.util.createClass(/** @lends fabric.Imag
       this.selectable = true;
 
       this.selectionEnd = this.selectionStart;
+      this.hiddenTextarea.blur &amp;&amp; this.hiddenTextarea.blur();
       this.hiddenTextarea &amp;&amp; this.canvas &amp;&amp; this.hiddenTextarea.parentNode.removeChild(this.hiddenTextarea);
       this.hiddenTextarea = null;
 
@@ -25590,6 +25607,12 @@ fabric.util.object.extend(fabric.IText.prototype, /** @lends fabric.IText.protot
     lockScalingFlip: true,
 
     /**
+     * Override standard Object class values
+     * Textbox needs this on false
+     */
+    noScaleCache: false,
+
+    /**
      * Constructor. Some scaling related property values are forced. Visibility
      * of controls is also fixed; only the rotation and width controls are
      * made available.
@@ -25628,7 +25651,7 @@ fabric.util.object.extend(fabric.IText.prototype, /** @lends fabric.IText.protot
       this.dynamicMinWidth = 0;
 
       // wrap lines
-      this._textLines = this._splitTextIntoLines();
+      this._textLines = this._splitTextIntoLines(ctx);
       // if after wrapping, the width is smaller than dynamicMinWidth, change the width and re-wrap
       if (this.dynamicMinWidth > this.width) {
         this._set('width', this.dynamicMinWidth);
@@ -25852,14 +25875,15 @@ fabric.util.object.extend(fabric.IText.prototype, /** @lends fabric.IText.protot
      * @returns {Array} Array of lines in the Textbox.
      * @override
      */
-    _splitTextIntoLines: function() {
+    _splitTextIntoLines: function(ctx) {
+      ctx = ctx || this.ctx;
       var originalAlign = this.textAlign;
-      this.ctx.save();
-      this._setTextStyles(this.ctx);
+      ctx.save();
+      this._setTextStyles(ctx);
       this.textAlign = 'left';
-      var lines = this._wrapText(this.ctx, this.text);
+      var lines = this._wrapText(ctx, this.text);
       this.textAlign = originalAlign;
-      this.ctx.restore();
+      ctx.restore();
       this._textLines = lines;
       this._styleMap = this._generateStyleMap();
       return lines;
@@ -26435,10 +26459,10 @@ fabric.util.object.extend(fabric.IText.prototype, /** @lends fabric.IText.protot
     <gcse:search></gcse:search>
     </div>
     <div class="lowerNav" >
-        <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="fabric.BaseBrush.html">BaseBrush</a></li><li><a href="fabric.Canvas.html">Canvas</a></li><li><a href="fabric.Circle.html">Circle</a></li><li><a href="fabric.CircleBrush.html">CircleBrush</a></li><li><a href="fabric.Color.html">Color</a></li><li><a href="fabric.Ellipse.html">Ellipse</a></li><li><a href="fabric.Gradient.html">Gradient</a></li><li><a href="fabric.Group.html">Group</a></li><li><a href="fabric.Image.html">Image</a></li><li><a href="fabric.Image.filters.BaseFilter.html">BaseFilter</a></li><li><a href="fabric.Image.filters.Brightness.html">Brightness</a></li><li><a href="fabric.Image.filters.ColorMatrix.html">ColorMatrix</a></li><li><a href="fabric.Image.filters.Contrast.html">Contrast</a></li><li><a href="fabric.Image.filters.Convolute.html">Convolute</a></li><li><a href="fabric.Image.filters.fabric.Image.filter.Blend.html">Blend</a></li><li><a href="fabric.Image.filters.GradientTransparency.html">GradientTransparency</a></li><li><a href="fabric.Image.filters.Grayscale.html">Grayscale</a></li><li><a href="fabric.Image.filters.Invert.html">Invert</a></li><li><a href="fabric.Image.filters.Mask.html">Mask</a></li><li><a href="fabric.Image.filters.Multiply.html">Multiply</a></li><li><a href="fabric.Image.filters.Noise.html">Noise</a></li><li><a href="fabric.Image.filters.Pixelate.html">Pixelate</a></li><li><a href="fabric.Image.filters.RemoveWhite.html">RemoveWhite</a></li><li><a href="fabric.Image.filters.Resize.html">Resize</a></li><li><a href="fabric.Image.filters.Saturate.html">Saturate</a></li><li><a href="fabric.Image.filters.Sepia.html">Sepia</a></li><li><a href="fabric.Image.filters.Sepia2.html">Sepia2</a></li><li><a href="fabric.Image.filters.Tint.html">Tint</a></li><li><a href="fabric.Intersection.html">Intersection</a></li><li><a href="fabric.IText.html">IText</a></li><li><a href="fabric.Line.html">Line</a></li><li><a href="fabric.Object.html">Object</a></li><li><a href="fabric.Path.html">Path</a></li><li><a href="fabric.PathGroup.html">PathGroup</a></li><li><a href="fabric.Pattern.html">Pattern</a></li><li><a href="fabric.PatternBrush.html">PatternBrush</a></li><li><a href="fabric.PencilBrush.html">PencilBrush</a></li><li><a href="fabric.Point.html">Point</a></li><li><a href="fabric.Polygon.html">Polygon</a></li><li><a href="fabric.Polyline.html">Polyline</a></li><li><a href="fabric.Rect.html">Rect</a></li><li><a href="fabric.Shadow.html">Shadow</a></li><li><a href="fabric.SprayBrush.html">SprayBrush</a></li><li><a href="fabric.StaticCanvas.html">StaticCanvas</a></li><li><a href="fabric.Text.html">Text</a></li><li><a href="fabric.Textbox.html">Textbox</a></li><li><a href="fabric.Triangle.html">Triangle</a></li></ul><h3>Namespaces</h3><ul><li><a href="fabric.html">fabric</a></li><li><a href="fabric.Collection.html">Collection</a></li><li><a href="fabric.Image.filters.html">filters</a></li><li><a href="fabric.Observable.html">Observable</a></li><li><a href="fabric.util.html">util</a></li><li><a href="fabric.util.array.html">array</a></li><li><a href="fabric.util.ease.html">ease</a></li><li><a href="fabric.util.object.html">object</a></li><li><a href="fabric.util.string.html">string</a></li></ul><h3>Global</h3><ul><li><a href="global.html#__cachedLines">__cachedLines</a></li><li><a href="global.html#_getCursorBoundariesOffsets">_getCursorBoundariesOffsets</a></li><li><a href="global.html#_splitTextIntoLines">_splitTextIntoLines</a></li><li><a href="global.html#_wrapLine">_wrapLine</a></li><li><a href="global.html#_wrapText">_wrapText</a></li><li><a href="global.html#applyFilters">applyFilters</a></li><li><a href="global.html#createSVGFontFacesMarkup">createSVGFontFacesMarkup</a></li><li><a href="global.html#createSVGRefElementsMarkup">createSVGRefElementsMarkup</a></li><li><a href="global.html#dynamicMinWidth">dynamicMinWidth</a></li><li><a href="global.html#get2DCursorLocation">get2DCursorLocation</a></li><li><a href="global.html#initialize">initialize</a></li><li><a href="global.html#lockScalingFlip">lockScalingFlip</a></li><li><a href="global.html#lockScalingY">lockScalingY</a></li><li><a href="global.html#minWidth">minWidth</a></li><li><a href="global.html#setOnGroup">setOnGroup</a></li><li><a href="global.html#toObject">toObject</a></li><li><a href="global.html#type">type</a></li></ul>
+        <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="fabric.BaseBrush.html">BaseBrush</a></li><li><a href="fabric.Canvas.html">Canvas</a></li><li><a href="fabric.Circle.html">Circle</a></li><li><a href="fabric.CircleBrush.html">CircleBrush</a></li><li><a href="fabric.Color.html">Color</a></li><li><a href="fabric.Ellipse.html">Ellipse</a></li><li><a href="fabric.Gradient.html">Gradient</a></li><li><a href="fabric.Group.html">Group</a></li><li><a href="fabric.Image.html">Image</a></li><li><a href="fabric.Image.filters.BaseFilter.html">BaseFilter</a></li><li><a href="fabric.Image.filters.Brightness.html">Brightness</a></li><li><a href="fabric.Image.filters.ColorMatrix.html">ColorMatrix</a></li><li><a href="fabric.Image.filters.Contrast.html">Contrast</a></li><li><a href="fabric.Image.filters.Convolute.html">Convolute</a></li><li><a href="fabric.Image.filters.fabric.Image.filter.Blend.html">Blend</a></li><li><a href="fabric.Image.filters.GradientTransparency.html">GradientTransparency</a></li><li><a href="fabric.Image.filters.Grayscale.html">Grayscale</a></li><li><a href="fabric.Image.filters.Invert.html">Invert</a></li><li><a href="fabric.Image.filters.Mask.html">Mask</a></li><li><a href="fabric.Image.filters.Multiply.html">Multiply</a></li><li><a href="fabric.Image.filters.Noise.html">Noise</a></li><li><a href="fabric.Image.filters.Pixelate.html">Pixelate</a></li><li><a href="fabric.Image.filters.RemoveWhite.html">RemoveWhite</a></li><li><a href="fabric.Image.filters.Resize.html">Resize</a></li><li><a href="fabric.Image.filters.Saturate.html">Saturate</a></li><li><a href="fabric.Image.filters.Sepia.html">Sepia</a></li><li><a href="fabric.Image.filters.Sepia2.html">Sepia2</a></li><li><a href="fabric.Image.filters.Tint.html">Tint</a></li><li><a href="fabric.Intersection.html">Intersection</a></li><li><a href="fabric.IText.html">IText</a></li><li><a href="fabric.Line.html">Line</a></li><li><a href="fabric.Object.html">Object</a></li><li><a href="fabric.Path.html">Path</a></li><li><a href="fabric.PathGroup.html">PathGroup</a></li><li><a href="fabric.Pattern.html">Pattern</a></li><li><a href="fabric.PatternBrush.html">PatternBrush</a></li><li><a href="fabric.PencilBrush.html">PencilBrush</a></li><li><a href="fabric.Point.html">Point</a></li><li><a href="fabric.Polygon.html">Polygon</a></li><li><a href="fabric.Polyline.html">Polyline</a></li><li><a href="fabric.Rect.html">Rect</a></li><li><a href="fabric.Shadow.html">Shadow</a></li><li><a href="fabric.SprayBrush.html">SprayBrush</a></li><li><a href="fabric.StaticCanvas.html">StaticCanvas</a></li><li><a href="fabric.Text.html">Text</a></li><li><a href="fabric.Textbox.html">Textbox</a></li><li><a href="fabric.Triangle.html">Triangle</a></li></ul><h3>Namespaces</h3><ul><li><a href="fabric.html">fabric</a></li><li><a href="fabric.Collection.html">Collection</a></li><li><a href="fabric.Image.filters.html">filters</a></li><li><a href="fabric.Observable.html">Observable</a></li><li><a href="fabric.util.html">util</a></li><li><a href="fabric.util.array.html">array</a></li><li><a href="fabric.util.ease.html">ease</a></li><li><a href="fabric.util.object.html">object</a></li><li><a href="fabric.util.string.html">string</a></li></ul><h3>Global</h3><ul><li><a href="global.html#__cachedLines">__cachedLines</a></li><li><a href="global.html#_getCursorBoundariesOffsets">_getCursorBoundariesOffsets</a></li><li><a href="global.html#_splitTextIntoLines">_splitTextIntoLines</a></li><li><a href="global.html#_wrapLine">_wrapLine</a></li><li><a href="global.html#_wrapText">_wrapText</a></li><li><a href="global.html#applyFilters">applyFilters</a></li><li><a href="global.html#createSVGFontFacesMarkup">createSVGFontFacesMarkup</a></li><li><a href="global.html#createSVGRefElementsMarkup">createSVGRefElementsMarkup</a></li><li><a href="global.html#dynamicMinWidth">dynamicMinWidth</a></li><li><a href="global.html#get2DCursorLocation">get2DCursorLocation</a></li><li><a href="global.html#initialize">initialize</a></li><li><a href="global.html#lockScalingFlip">lockScalingFlip</a></li><li><a href="global.html#lockScalingY">lockScalingY</a></li><li><a href="global.html#minWidth">minWidth</a></li><li><a href="global.html#noScaleCache">noScaleCache</a></li><li><a href="global.html#setOnGroup">setOnGroup</a></li><li><a href="global.html#toObject">toObject</a></li><li><a href="global.html#type">type</a></li></ul>
     </div>
 </nav>
-<footer><input id="toggle" type="checkbox" onclick="toggle(this.checked);"  /><label for="toggle" >Hide inherited properties and method from the page</label><br />Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Mon Nov 21 2016 12:01:20 GMT+0100 (CET)
+<footer><input id="toggle" type="checkbox" onclick="toggle(this.checked);"  /><label for="toggle" >Hide inherited properties and method from the page</label><br />Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Fri Dec 02 2016 00:19:09 GMT+0100 (CET)
 </footer>
 <script> prettyPrint(); </script>
 <script src="scripts/linenumber.js"> </script>

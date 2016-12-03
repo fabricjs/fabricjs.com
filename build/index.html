@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: article
 title: Custom Fabric build
 ---
 
@@ -17,8 +17,8 @@ title: Custom Fabric build
   .version { background: #ffc; padding: 5px; display: inline-block; }
 </style>
 
-<div class="version">Fabric version: <b>1.5.0</b></div>
-
+<div class="version">Fabric version: <b>1.7.1</b></div>
+<h1>FabricJS builder</h1>
 <div style="margin-top: 10px">
   <button id="select-all">Select all</button>
   <button id="select-none">Select none</button>
@@ -29,6 +29,11 @@ title: Custom Fabric build
     <input type="checkbox" id="text">
     <label for="text">Text</label><br>
     <p>Adds support for text rendering via `fabric.Text`</p>
+  </li>
+  <li>
+    <input type="checkbox" id="itext">
+    <label for="itext">Interactive text</label><br>
+    <p>Adds support for text rendering via `fabric.IText` or `fabric.Textbox`</p>
   </li>
   <li>
     <input type="checkbox" id="gestures">
@@ -86,31 +91,236 @@ title: Custom Fabric build
     <p>Adds support for running fabric under <a href="http://nodejs.org">Node.js</a>, with help of <a href="https://github.com/tmpvar/jsdom">jsdom</a> and <a href="https://github.com/learnboost/node-canvas">node-canvas</a> libraries.</p>
   </li>
 </ul>
+<h1>From built file remove code:</h1>
+<ul id="options">
+  <li>
+    <input type="checkbox" class="option" id="noSVGImport">
+    <label for="noSVGImport">Remove SVG import</label><br>
+    <p>Remove .fromElement() functions from shapes</p>
+  </li>
+  <li>
+    <input type="checkbox" class="option" id="noES5Compat">
+    <label for="noES5Compat">Remove ES5 polyfills</label><br>
+    <p>Remove ES5 Polyfills to support older browsers.</p>
+  </li>
+  <li>
+    <input type="checkbox" class="option" id="noSVGExport">
+    <label for="noSVGExport">Remove SVG export</label><br>
+    <p>Remove .toSVG() methods from shapes.</p>
+  </li>
+  <li>
+    <input type="checkbox" class="option" id="noStrict">
+    <label for="noStrict">remove "use strict"</label><br>
+    <p>Remove "use strict" from files.</p>
+  </li>
+</ul>
 
 <button id="build" class="build-btn">Dev build</button>
 <button id="build-min" class="build-btn build-min-btn">Minified build</button>
-
+<script src="uglify.js"></script>
 <script>
   (function(){
-    function getModulesStr() {
+  var finalFile = '';
+  var filesRequested = 0;
+  var filesDownloaded = 0;
+  var baseFiles = [
+      'HEADER.js',
+      'src/log.js',
+      'src/point.class.js',
+      'src/intersection.class.js',
+      'src/color.class.js',
+      'src/static_canvas.class.js',
+      'src/mixins/observable.mixin.js',
+      'src/mixins/collection.mixin.js',
+      'src/mixins/canvas_dataurl_exporter.mixin.js',
+      'src/mixins/object_origin.mixin.js',
+      'src/mixins/object_geometry.mixin.js',
+      'src/mixins/object_stacking.mixin.js',
+      'src/mixins/object.svg_export.js',
+      'src/mixins/stateful.mixin.js',
+      'src/shapes/object.class.js',
+      'src/shapes/line.class.js',
+      'src/shapes/circle.class.js',
+      'src/shapes/triangle.class.js',
+      'src/shapes/ellipse.class.js',
+      'src/shapes/rect.class.js',
+      'src/shapes/polyline.class.js',
+      'src/shapes/polygon.class.js',
+      'src/shapes/path.class.js',
+      'src/shapes/path_group.class.js',
+      'src/shapes/group.class.js',
+      'src/shapes/image.class.js',
+      'src/util/misc.js',
+      'src/util/arc.js',
+      'src/util/lang_array.js',
+      'src/util/lang_object.js',
+      'src/util/lang_string.js',
+      'src/util/lang_function.js',
+      'src/util/lang_class.js',
+      'src/util/dom_event.js',
+      'src/util/dom_style.js',
+      'src/util/dom_misc.js',
+      'src/util/dom_request.js',
+    ];
+
+    var idToFiles = {
+      text: [
+        'src/shapes/text.class.js',
+      ],
+      itext: [
+        'src/shapes/itext.class.js',
+        'src/mixins/itext_behavior.mixin.js',
+        'src/mixins/itext_click_behavior.mixin.js',
+        'src/mixins/itext_key_behavior.mixin.js',
+        'src/mixins/itext.svg_export.js',
+        'src/shapes/textbox.class.js',
+        'src/mixins/textbox_behavior.mixin.js',
+        'src/mixins/textbox_click_behavior.mixin.js',
+      ],
+      gestures: [
+        'lib/event.js',
+        'src/mixins/canvas_gestures.mixin.js',
+      ],
+      easing: [
+        'src/util/anim_ease.js',
+      ],
+      parser: [
+        'src/parser.js',
+        'src/elements_parser.js',
+      ],
+      freedrawing: [
+        'src/brushes/base_brush.class.js',
+        'src/brushes/pencil_brush.class.js',
+        'src/brushes/circle_brush.class.js',
+        'src/brushes/spray_brush.class.js',
+        'src/brushes/pattern_brush.class.js',
+      ],
+      interaction: [
+        'src/canvas.class.js',
+        'src/mixins/canvas_events.mixin.js',
+        'src/mixins/canvas_grouping.mixin.js',
+        'src/mixins/object_interactivity.mixin.js',
+      ],
+      serialization: [
+        'lib/json2.js',
+        'src/mixins/canvas_serialization.mixin.js',
+      ],
+      image_filters: [
+        'src/filters/base_filter.class.js',
+        'src/filters/brightness_filter.class.js',
+        'src/filters/convolute_filter.class.js',
+        'src/filters/gradienttransparency_filter.class.js',
+        'src/filters/grayscale_filter.class.js',
+        'src/filters/invert_filter.class.js',
+        'src/filters/mask_filter.class.js',
+        'src/filters/noise_filter.class.js',
+        'src/filters/pixelate_filter.class.js',
+        'src/filters/removewhite_filter.class.js',
+        'src/filters/sepia_filter.class.js',
+        'src/filters/sepia2_filter.class.js',
+        'src/filters/tint_filter.class.js',
+        'src/filters/multiply_filter.class.js',
+        'src/filters/blend_filter.class.js',
+        'src/filters/resize_filter.class.js',
+        'src/filters/colormatrix_filter.class.js',
+        'src/filters/contrast_filter.class.js',
+        'src/filters/saturate_filter.class.js',
+      ],
+      gradient: [
+        'src/gradient.class.js',
+      ],
+      pattern: [
+        'src/pattern.class.js',
+      ],
+      shadow: [
+        'src/shadow.class.js',
+      ],
+      node: [
+        'src/node.js',
+      ],
+      animation: [
+        'src/util/animate.js',
+        'src/util/animate_color.js',
+        'src/mixins/animation.mixin.js',
+      ],
+      object_straightening: [
+        'src/mixins/object_straightening.mixin.js',
+      ],
+      amd: [
+        'amdLib'
+      ]
+    };
+
+    function makeHttpObject() {
+      try {return new XMLHttpRequest();}
+      catch (error) {}
+      try {return new ActiveXObject("Msxml2.XMLHTTP");}
+      catch (error) {}
+      try {return new ActiveXObject("Microsoft.XMLHTTP");}
+      catch (error) {}
+
+      throw new Error("Could not create HTTP request object.");
+    }
+
+    function collectFilesName() {
       var inputs = document.getElementsByTagName('input');
-      var result = '';
+      var result = baseFiles.slice(0);
+      var input;
       for (var i = 0, len = inputs.length; i < len; i++) {
-        if (inputs[i].checked) {
-          result += (inputs[i].id + ',');
+        input = inputs[i];
+        if (inputs[i].checked && inputs[i].className !== 'option') {
+           result = result.concat(idToFiles[inputs[i].id]);
         }
       }
-      if (!result) {
-        // basic build
-        return 'fabric';
-      }
-      return result.replace(/^,/, '').replace(/,$/, '');
+      return result;
     }
-    document.getElementById('build').onclick = function() {
-      window.location = '/build/files/' + getModulesStr() + '.js';
-    };
+
+    function finishAndDownload(filesArray) {
+      var blob = new Blob(filesArray, {type: 'text/javascript'}); // pass a useful mime type here
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.href = url;
+      a.download = 'fabric.js';
+      a.click();
+    }
+
+    function minify(code) {
+      var ast = UglifyJS.parse(code);
+      ast.figure_out_scope();
+      var compressor = UglifyJS.Compressor();
+      ast = ast.transform(compressor);
+      ast.figure_out_scope();
+      ast.compute_char_frequency();
+      ast.mangle_names();
+      return ast.print_to_string(); // get compressed code
+    }
+
+    function build(_minify) {
+      var filesArray = collectFilesName();
+      filesRequested = filesArray.length;
+      filesDownloaded = 0;
+      filesArray.forEach(function(fileName, index) {
+        var req = makeHttpObject();
+        req.open("GET", "files/"  + fileName, true);
+        req.onreadystatechange = function () {
+          if (req.readyState === 4) {
+            filesArray[index] = _minify ? minify(req.responseText) : req.responseText;
+            filesDownloaded++;
+            if (filesDownloaded === filesRequested) {
+              finishAndDownload(filesArray);
+            } else {
+
+            }
+          }
+        }
+        req.send(null);
+      });
+    }
+
+    document.getElementById('build').onclick = build;
+
     document.getElementById('build-min').onclick = function() {
-      window.location = '/build/files/' + getModulesStr() + '.min.js';
+      build(true);
     };
 
     document.getElementById('gestures').onclick = function() {
@@ -123,10 +333,19 @@ title: Custom Fabric build
         document.getElementById('gestures').checked = false;
       }
     };
-
+    document.getElementById('itext').onclick = function() {
+      if (this.checked) {
+        document.getElementById('text').checked = true;
+      }
+    };
     document.getElementById('text').onclick = function() {
       if (!this.checked) {
-        document.getElementById('cufon').checked = false;
+        document.getElementById('itext').checked = false;
+      }
+    };
+    document.getElementById('parser').onclick = function() {
+      if (this.checked) {
+        document.getElementById('text').checked = true;
       }
     };
     document.getElementById('select-all').onclick = function() {

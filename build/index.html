@@ -15,6 +15,10 @@ title: Custom Fabric build
   input[type=checkbox] { position: relative; top: -4px; }
   input:checked + label { background: green; color: #fff; }
   .version { background: #ffc; padding: 5px; display: inline-block; }
+  #progress {
+    display: inline-block;
+    width: 400px;
+  }
 </style>
 
 <div class="version">Fabric version: <b>1.7.1</b></div>
@@ -94,22 +98,22 @@ title: Custom Fabric build
 <h1>From built file remove code:</h1>
 <ul id="options">
   <li>
-    <input type="checkbox" class="option" id="noSVGImport">
+    <input type="checkbox" class="regexs" id="noSVGImport">
     <label for="noSVGImport">Remove SVG import</label><br>
     <p>Remove .fromElement() functions from shapes</p>
   </li>
   <li>
-    <input type="checkbox" class="option" id="noES5Compat">
+    <input type="checkbox" class="regexs" id="noES5Compat">
     <label for="noES5Compat">Remove ES5 polyfills</label><br>
     <p>Remove ES5 Polyfills to support older browsers.</p>
   </li>
   <li>
-    <input type="checkbox" class="option" id="noSVGExport">
+    <input type="checkbox" class="regexs" id="noSVGExport">
     <label for="noSVGExport">Remove SVG export</label><br>
     <p>Remove .toSVG() methods from shapes.</p>
   </li>
   <li>
-    <input type="checkbox" class="option" id="noStrict">
+    <input type="checkbox" class="regexs" id="noStrict">
     <label for="noStrict">remove "use strict"</label><br>
     <p>Remove "use strict" from files.</p>
   </li>
@@ -117,6 +121,7 @@ title: Custom Fabric build
 
 <button id="build" class="build-btn">Dev build</button>
 <button id="build-min" class="build-btn build-min-btn">Minified build</button>
+<div id="progress" ></div>
 <script src="uglify.js"></script>
 <script>
   (function(){
@@ -251,6 +256,13 @@ title: Custom Fabric build
       ]
     };
 
+    var regexs = {
+      noSVGExport: /\/\* _TO_SVG_START_ \*\/[\s\S]*?\/\* _TO_SVG_END_ \*\//g,
+      noES5Compat: /\/\* _ES5_COMPAT_START_ \*\/[\s\S]*?\/\* _ES5_COMPAT_END_ \*\//g,
+      noSVGImport: /\/\* _FROM_SVG_START_ \*\/[\s\S]*?\/\* _FROM_SVG_END_ \*\//g,
+      noStrict: /"use strict";?\n?/,
+    }
+
     function makeHttpObject() {
       try {return new XMLHttpRequest();}
       catch (error) {}
@@ -268,19 +280,36 @@ title: Custom Fabric build
       var input;
       for (var i = 0, len = inputs.length; i < len; i++) {
         input = inputs[i];
-        if (inputs[i].checked && inputs[i].className !== 'option') {
-           result = result.concat(idToFiles[inputs[i].id]);
+        if (inputs[i].checked) {
+          if (inputs[i].className !== 'regexs') {
+            result = result.concat(idToFiles[inputs[i].id]);
+          }
         }
       }
       return result;
     }
 
-    function finishAndDownload(filesArray) {
+    function collectRegex() {
+      var inputs = document.getElementsByTagName('input');
+      var result = [];
+      var input;
+      for (var i = 0, len = inputs.length; i < len; i++) {
+        input = inputs[i];
+        if (inputs[i].checked) {
+          if (inputs[i].className === 'regexs') {
+            result.push(regexs[input.id]);
+          }
+        }
+      }
+      return result;
+    }
+
+    function finishAndDownload(filesArray, minified) {
       var blob = new Blob(filesArray, {type: 'text/javascript'}); // pass a useful mime type here
       var url = URL.createObjectURL(blob);
       var a = document.createElement('a');
       a.href = url;
-      a.download = 'fabric.js';
+      a.download = minified ? 'fabric.min.js' : 'fabric.js';
       a.click();
     }
 
@@ -295,8 +324,14 @@ title: Custom Fabric build
       return ast.print_to_string(); // get compressed code
     }
 
+    function progressBar(filesDownloaded, filesRequested) {
+      document.getElementById('progress').innerHTML = 'Downloading and preparing files: ' + Math.round(100 * filesDownloaded / filesRequested ) + '% complete';
+    }
+
     function build(_minify) {
       var filesArray = collectFilesName();
+      var selectedRegex = collectRegex();
+      console.log(selectedRegex);
       filesRequested = filesArray.length;
       filesDownloaded = 0;
       filesArray.forEach(function(fileName, index) {
@@ -304,12 +339,15 @@ title: Custom Fabric build
         req.open("GET", "files/"  + fileName, true);
         req.onreadystatechange = function () {
           if (req.readyState === 4) {
-            filesArray[index] = _minify ? minify(req.responseText) : req.responseText;
             filesDownloaded++;
+            progressBar(filesDownloaded, filesRequested);
+            var codeString = req.responseText;
+            selectedRegex.forEach(function(_regex) {
+              codeString = codeString.replace(_regex, '');
+            });
+            filesArray[index] = _minify ? minify(codeString) : codeString;
             if (filesDownloaded === filesRequested) {
-              finishAndDownload(filesArray);
-            } else {
-
+              finishAndDownload(filesArray, _minify);
             }
           }
         }
@@ -317,7 +355,9 @@ title: Custom Fabric build
       });
     }
 
-    document.getElementById('build').onclick = build;
+    document.getElementById('build').onclick = function() {
+      build();
+    }
 
     document.getElementById('build-min').onclick = function() {
       build(true);

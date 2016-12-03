@@ -37,7 +37,7 @@ title: Custom Fabric build
   <li>
     <input type="checkbox" id="itext">
     <label for="itext">Interactive text</label><br>
-    <p>Adds support for text rendering via `fabric.IText` or `fabric.Textbox`</p>
+    <p>Adds support for text rendering via `fabric.IText` or `fabric.Textbox` See: <a href="/test/misc/itext.html" >iText demo</a>. Depends on "Animation" and "Text"</p>
   </li>
   <li>
     <input type="checkbox" id="gestures">
@@ -45,9 +45,19 @@ title: Custom Fabric build
     <p>Adds support for multitouch gestures with help of <a href="https://github.com/mudcube/Event.js">Event.js</a>. Depends on "Interaction" module.</p>
   </li>
   <li>
+    <input type="checkbox" id="animation">
+    <label for="animation">Animation</label><br>
+    <p>Adds support for animation and animate_color functions.</p>
+  </li>
+  <li>
     <input type="checkbox" id="easing">
     <label for="easing">Easing</label><br>
-    <p>Adds support for <a href="/animation-easing/">animation easing</a> functions</p>
+    <p>Adds support for <a href="/animation-easing/">animation easing</a> functions. Depends on "Animation".</p>
+  </li>
+  <li>
+    <input type="checkbox" id="object_straightening">
+    <label for="object_straightening">Object straightening</label><br>
+    <p>Adds support for object straightening.</p>
   </li>
   <li>
     <input type="checkbox" id="parser">
@@ -57,7 +67,7 @@ title: Custom Fabric build
   <li>
     <input type="checkbox" id="freedrawing">
     <label for="freedrawing">Free drawing</label><br>
-    <p>Adds support for free drawing</p>
+    <p>Adds support for free drawing. Depends on "Interaction"</p>
   </li>
   <li>
     <input type="checkbox" id="interaction">
@@ -331,7 +341,6 @@ title: Custom Fabric build
     function build(_minify) {
       var filesArray = collectFilesName();
       var selectedRegex = collectRegex();
-      console.log(selectedRegex);
       filesRequested = filesArray.length;
       filesDownloaded = 0;
       filesArray.forEach(function(fileName, index) {
@@ -371,11 +380,29 @@ title: Custom Fabric build
     document.getElementById('interaction').onclick = function() {
       if (!this.checked) {
         document.getElementById('gestures').checked = false;
+        document.getElementById('freedrawing').checked = false;
       }
     };
     document.getElementById('itext').onclick = function() {
       if (this.checked) {
         document.getElementById('text').checked = true;
+        document.getElementById('animation').checked = true;
+      }
+    };
+    document.getElementById('easing').onclick = function() {
+      if (this.checked) {
+        document.getElementById('animation').checked = true;
+      }
+    };
+    document.getElementById('freedrawing').onclick = function() {
+      if (this.checked) {
+        document.getElementById('interaction').checked = true;
+      }
+    }
+    document.getElementById('animation').onclick = function() {
+      if (!this.checked) {
+        document.getElementById('itext').checked = false;
+        document.getElementById('easing').checked = false;
       }
     };
     document.getElementById('text').onclick = function() {
@@ -385,7 +412,12 @@ title: Custom Fabric build
     };
     document.getElementById('parser').onclick = function() {
       if (this.checked) {
-        document.getElementById('text').checked = true;
+        document.getElementById('noSVGImport').checked = false;
+      }
+    };
+    document.getElementById('noSVGImport').onclick = function() {
+      if (this.checked) {
+        document.getElementById('parser').checked = false;
       }
     };
     document.getElementById('select-all').onclick = function() {

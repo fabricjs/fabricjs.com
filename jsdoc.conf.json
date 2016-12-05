@@ -1,0 +1,11 @@
+{
+  "docset" : {
+    "name": "Fabricjs Docset",
+    "icon": "icon.png",
+    "enableJavascript": true
+  },
+   "opts": {
+    "template": "./node_modules/jsdoc-dash-template/",
+    "destination": "./docs/"
+  }
+}

@@ -899,6 +899,42 @@ function addAccessors($scope) {
       return patternCanvas;
     };
   }
+  
+  function bindShortcuts(){
+        
+        $(document).keydown(function(event) {
+            // If Control for Windows and metaKey for Max
+            if((event.ctrlKey || event.metaKey) && event.which === 66 && $scope.getText()) { // 66 = B/b key                event.preventDefault();
+                $scope.toggleBold();
+                return false;
+            }else if((event.ctrlKey || event.metaKey) && event.which === 73 && $scope.getText()){ // 73=I/i
+                event.preventDefault();
+                $scope.toggleItalic();
+                return false;
+            }else if((event.ctrlKey || event.metaKey) && event.which === 85 && $scope.getText()){ // 73=I/i
+                event.preventDefault();
+                $scope.toggleUnderline();
+                return false;
+            }else if((event.ctrlKey || event.metaKey) && event.which === 107 && $scope.getText()){ // 107 = +(plus)
+                event.preventDefault();
+                $scope.setFontSize(parseInt($scope.getFontSize(),10)+1);
+                $scope.toggleUnderline();
+                return false;
+            }else if((event.ctrlKey || event.metaKey) && event.which === 109 && $scope.getText()){ // 109 = -(minus)
+                event.preventDefault();
+                $scope.setFontSize(parseInt($scope.getFontSize(),10)-1);
+                $scope.toggleUnderline();
+                return false;
+            }else if(event.which === 46 || ((event.ctrlKey || event.metaKey) && event.which === 68)){ // 46 = DELETE key, 68 = D/d
+                event.preventDefault();
+                $scope.removeSelected();
+                return false;
+            }
+        });
+  }
+  
+  bindShortcuts();
+  
 }
 
 function watchCanvas($scope) {

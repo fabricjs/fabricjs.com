@@ -35,7 +35,7 @@ function getActiveProp(name) {
 function setActiveProp(name, value) {
   var object = canvas.getActiveObject();
   if (!object) return;
-
+console.log(name, value)
   object.set(name, value).setCoords();
   canvas.renderAll();
 }
@@ -270,6 +270,49 @@ function addAccessors($scope) {
     canvas.add(textSample);
   };
 
+  $scope.addTextbox = function() {
+    var text = 'Lorem ipsum dolor sit amet,\nconsectetur adipisicing elit,\nsed do eiusmod tempor incididunt\nut labore et dolore magna aliqua.\n' +
+      'Ut enim ad minim veniam,\nquis nostrud exercitation ullamco\nlaboris nisi ut aliquip ex ea commodo consequat.';
+
+    var textSample = new fabric.Textbox(text.slice(0, getRandomInt(0, text.length)), {
+      left: getRandomInt(350, 400),
+      top: getRandomInt(350, 400),
+      fontFamily: 'helvetica',
+      angle: getRandomInt(-10, 10),
+      fill: '#' + getRandomColor(),
+      scaleX: 0.5,
+      scaleY: 0.5,
+      fontWeight: '',
+      originX: 'left',
+      width: 300,
+      hasRotatingPoint: true,
+      centerTransform: true
+    });
+
+    canvas.add(textSample);
+  };
+
+  $scope.addIText = function() {
+    var text = 'Lorem ipsum dolor sit amet,\nconsectetur adipisicing elit,\nsed do eiusmod tempor incididunt\nut labore et dolore magna aliqua.\n' +
+      'Ut enim ad minim veniam,\nquis nostrud exercitation ullamco\nlaboris nisi ut aliquip ex ea commodo consequat.';
+
+    var textSample = new fabric.IText(text.slice(0, getRandomInt(0, text.length)), {
+      left: getRandomInt(350, 400),
+      top: getRandomInt(350, 400),
+      fontFamily: 'helvetica',
+      angle: getRandomInt(-10, 10),
+      fill: '#' + getRandomColor(),
+      scaleX: 0.5,
+      scaleY: 0.5,
+      fontWeight: '',
+      originX: 'left',
+      hasRotatingPoint: true,
+      centerTransform: true
+    });
+
+    canvas.add(textSample);
+  };
+
   var addShape = function(shapeName) {
 
     console.log('adding shape', shapeName);
@@ -413,6 +456,7 @@ function addAccessors($scope) {
   $scope.getOriginX = function() {
     return getActiveProp('originX');
   };
+
   $scope.setOriginX = function(value) {
     setActiveProp('originX', value);
   };
@@ -422,6 +466,46 @@ function addAccessors($scope) {
   };
   $scope.setOriginY = function(value) {
     setActiveProp('originY', value);
+  };
+
+  $scope.getObjectCaching = function() {
+    return getActiveProp('objectCaching');
+  };
+
+  $scope.setObjectCaching = function(value) {
+    return setActiveProp('objectCaching', value);
+  };
+
+  $scope.getNoScaleCache = function() {
+    return getActiveProp('noScaleCache');
+  };
+
+  $scope.setNoScaleCache = function(value) {
+    return setActiveProp('noScaleCache', value);
+  };
+
+  $scope.getTransparentCorners = function() {
+    return getActiveProp('transparentCorners');
+  };
+
+  $scope.setTransparentCorners = function(value) {
+    return setActiveProp('transparentCorners', value);
+  };
+
+  $scope.getHasBorders = function() {
+    return getActiveProp('hasBorders');
+  };
+
+  $scope.setHasBorders = function(value) {
+    return setActiveProp('hasBorders', value);
+  };
+
+  $scope.getHasControls = function() {
+    return getActiveProp('hasControls');
+  };
+
+  $scope.setHasControls = function(value) {
+    return setActiveProp('hasControls', value);
   };
 
   $scope.sendBackwards = function() {

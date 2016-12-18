@@ -144,6 +144,7 @@ title: Kitchensink
     <li><a href="#load-svg-pane" data-toggle="tab">Load SVG</a></li>
     <li><a href="#execute-code" data-toggle="tab">Execute</a></li>
     <li><a href="#json-inout" data-toggle="tab">JSON</a></li>
+    <!-- <li><a href="#transparency" data-toggle="tab">perPixelFind</a></li> -->
   </ul>
 
   <div class="tab-content">
@@ -257,6 +258,7 @@ title: Kitchensink
         <li><button class="btn btn-small shape" id="shape44"><strong>22375</strong> paths</button></li>
         <li><button class="btn btn-small shape" id="shape72"><strong>29303</strong> paths</button></li>
         <li><button class="btn btn-small shape" id="shape48"><strong>41787</strong> paths</button></li>
+        <li><button class="btn btn-small shape" id="shape171">Yellow car</button></li>
 
         <!--
           some elements are positioned incorrectly
@@ -286,6 +288,8 @@ title: Kitchensink
 
       <p>
         <button class="btn" ng-click="addText()">Add text</button>
+        <button class="btn" ng-click="addIText()">Add Itext</button>
+        <button class="btn" ng-click="addTextbox()">Add textbox</button>
       </p>
 
       <p>Add <strong>images</strong> to canvas:</p>
@@ -333,14 +337,10 @@ title: Kitchensink
           <button class="btn btn-success" id="rasterize-json" ng-click="rasterizeJSON()">
             JSON
           </button>
-        </p>
-        <p>
           <button class="btn btn-danger clear" ng-click="confirmClear()">Clear canvas</button>
         </p>
       </div>
-
       <div class="object-controls" object-buttons-enabled="getSelected()">
-
         <div style="margin-top:10px;">
           <p>
             <button class="btn btn-object-action" id="remove-selected"
@@ -354,7 +354,6 @@ title: Kitchensink
             ng-class="{'btn-inverse': getHorizontalLock()}">
             {[ getHorizontalLock() ? 'Unlock horizontal movement' : 'Lock horizontal movement' ]}
           </button>
-          <br>
           <button class="btn btn-lock btn-object-action"
             ng-click="setVerticalLock(!getVerticalLock())"
             ng-class="{'btn-inverse': getVerticalLock()}">
@@ -366,13 +365,11 @@ title: Kitchensink
             ng-class="{'btn-inverse': getScaleLockX()}">
             {[ getScaleLockX() ? 'Unlock horizontal scaling' : 'Lock horizontal scaling' ]}
           </button>
-          <br>
           <button class="btn btn-lock btn-object-action"
             ng-click="setScaleLockY(!getScaleLockY())"
             ng-class="{'btn-inverse': getScaleLockY()}">
             {[ getScaleLockY() ? 'Unlock vertical scaling' : 'Lock vertical scaling' ]}
           </button>
-          <br>
           <button class="btn btn-lock btn-object-action"
             ng-click="setRotationLock(!getRotationLock())"
             ng-class="{'btn-inverse': getRotationLock()}">
@@ -415,6 +412,33 @@ title: Kitchensink
               Bottom
               <input type="radio" name="origin-y" class="origin-y btn-object-action" value="bottom"
                 bind-value-to="originY">
+            </label>
+          </p>
+          <p>
+            <label>
+              Cache:
+              <input type="checkbox" name="object-caching" class="btn-object-action"
+                bind-value-to="objectCaching">
+            </label>
+            <label>
+              No scaling cache:
+              <input type="checkbox" name="no-scale-cache" class="btn-object-action"
+                bind-value-to="noScaleCache">
+            </label>
+            <label>
+              Controls:
+              <input type="checkbox" name="has-controls" class="btn-object-action"
+                bind-value-to="hasControls">
+            </label>
+            <label>
+              Trasparent corners:
+              <input type="checkbox" name="transparent-corners" class="btn-object-action"
+                bind-value-to="transparentCorners">
+            </label>
+            <label>
+              Borders:
+              <input type="checkbox" name="has-borders" class="btn-object-action"
+                bind-value-to="hasBorders">
             </label>
           </p>
         </div>
@@ -558,6 +582,9 @@ title: Kitchensink
 
     canvas.on('mouse:wheel', function(opt) {
       var e = opt.e;
+      if (!e.ctrlKey) {
+        return;
+      }
       var newZoom = canvas.getZoom() + e.deltaY / 300;
       canvas.zoomToPoint({ x: e.offsetX, y: e.offsetY }, newZoom);
 
@@ -574,20 +601,18 @@ title: Kitchensink
         isDown = false;
 
     canvas.on('mouse:down', function(options) {
-      isDown = true;
-
-      viewportLeft = canvas.viewportTransform[4];
-      viewportTop = canvas.viewportTransform[5];
-
-      mouseLeft = options.e.x;
-      mouseTop = options.e.y;
-
       if (options.e.altKey) {
+        isDown = true;
+
+        viewportLeft = canvas.viewportTransform[4];
+        viewportTop = canvas.viewportTransform[5];
+
+        mouseLeft = options.e.x;
+        mouseTop = options.e.y;
         _drawSelection = canvas._drawSelection;
         canvas._drawSelection = function(){ };
+        renderVieportBorders();
       }
-
-      renderVieportBorders();
     });
 
     canvas.on('mouse:move', function(options) {

@@ -17,8 +17,21 @@ kitchensink.directive('bindValueTo', function() {
           setter = 'set' + prop;
 
       $element.on('change keyup select', function() {
-        $scope[setter] && $scope[setter](this.value);
+        if ($element[0].type !== 'checkbox') {
+          $scope[setter] && $scope[setter](this.value);
+        }
       });
+
+      $element.on('click', function() {
+        if ($element[0].type === 'checkbox') {
+          if ($element[0].checked) {
+            $scope[setter] && $scope[setter](true);
+          }
+          else {
+            $scope[setter] && $scope[setter](false);
+          }
+        }
+      })
 
       $scope.$watch($scope[getter], function(newVal) {
         if ($element[0].type === 'radio') {
@@ -26,6 +39,9 @@ kitchensink.directive('bindValueTo', function() {
           for (var i = 0, len = radioGroup.length; i < len; i++) {
             radioGroup[i].checked = radioGroup[i].value === newVal;
           }
+        }
+        else if ($element[0].type === 'checkbox') {
+          $element[0].checked = newVal;
         }
         else {
           $element.val(newVal);

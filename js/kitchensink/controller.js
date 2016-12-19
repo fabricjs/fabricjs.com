@@ -270,6 +270,24 @@ function addAccessors($scope) {
     canvas.add(textSample);
   };
 
+  $scope.addTextbox = function() {
+    var text = 'Lorem ipsum dolor sit amet,\nconsectetur adipisicing elit,\nsed do eiusmod tempor incididunt\nut labore et dolore magna aliqua.\n' +
+      'Ut enim ad minim veniam,\nquis nostrud exercitation ullamco\nlaboris nisi ut aliquip ex ea commodo consequat.';
+
+    var textBoxSample = new fabric.Textbox(text, {
+      left: getRandomInt(350, 400),
+      top: getRandomInt(350, 400),
+      width: 500,
+      fontFamily: 'helvetica',
+      angle: getRandomInt(-10, 10),
+      fill: '#' + getRandomColor(),
+      scaleX: 0.5,
+      scaleY: 0.5,
+    });
+
+    canvas.add(textBoxSample);
+  };
+
   var addShape = function(shapeName) {
 
     console.log('adding shape', shapeName);
@@ -713,7 +731,27 @@ function addAccessors($scope) {
       }
     });
 
-    canvas.add(iText, iText2);
+    var textBox = new fabric.Textbox('foo bar\nbaz', {
+      left: 50,
+      top: 10,
+      fontFamily: 'Helvetica',
+      fill: '#333',
+      styles: {
+        0: {
+          0: { fill: 'red' },
+          1: { fill: 'red' },
+          2: { fill: 'red' }
+        },
+        2: {
+          0: { fill: 'blue' },
+          1: { fill: 'blue' },
+          2: { fill: 'blue' },
+          3: { fill: 'blue' }
+        }
+      }
+    });
+
+    canvas.add(iText, iText2, textBox);
   }
 
   addTexts();
@@ -899,9 +937,9 @@ function addAccessors($scope) {
       return patternCanvas;
     };
   }
-  
+
   function bindShortcuts(){
-        
+
         $(document).keydown(function(event) {
             // If Control for Windows and metaKey for Max
             if((event.ctrlKey || event.metaKey) && event.which === 66 && $scope.getText()) { // 66 = B/b key                event.preventDefault();
@@ -932,9 +970,9 @@ function addAccessors($scope) {
             }
         });
   }
-  
+
   bindShortcuts();
-  
+
 }
 
 function watchCanvas($scope) {

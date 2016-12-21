@@ -35,7 +35,6 @@ function getActiveProp(name) {
 function setActiveProp(name, value) {
   var object = canvas.getActiveObject();
   if (!object) return;
-console.log(name, value)
   object.set(name, value).setCoords();
   canvas.renderAll();
 }

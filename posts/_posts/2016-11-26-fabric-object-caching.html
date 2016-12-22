@@ -155,7 +155,9 @@ that is changing some property of an object to detect trigger a change and so he
 Using the object method <code>set</code> will do this for you. So calling <code>object.set('fill', 'red')</code> require no other actions. If for some reason
 you are not using the set method ( for example in situation of text objects in wich setting some properties trigger expensive functions ) you will use the flag.<br />
 There is also a way to ask fabric to check at render time a change for properties. This is not expensive most of the time but i decided to leave it off because in crowded
-situations ( like spray brush or 1000+ svg paths ) it was expensive.</p>
+situations ( like spray brush or 1000+ svg paths ) it was expensive.<br /> A particular note about groups and pathgroups: calling <code>group.set('fill', 'red')</code>
+on a group is not working as expected. Group does not use its own fill property but send the fill property to the children objects. At render time children object are not checked for dirty flag.
+This will be addressed in a future version.</p>
 <h3>How does fabric check for changes in custom subclasses with custom properties?</h3>
 <p>Custom subclassing is one of the fabric strongest features in my opinion and object caching has been built with that in mind.. So there is an array defined called <code>cacheProperties</code>
 that contains a list of properties that get checked at every render when the property <code>statefullCache</code> is set true. (defaults to false).</br>

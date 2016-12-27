@@ -128,7 +128,6 @@ title: Custom Fabric build
     <p>Remove "use strict" from files.</p>
   </li>
 </ul>
-
 <button id="build" class="build-btn">Dev build</button>
 <button id="build-min" class="build-btn build-min-btn">Minified build</button>
 <div id="progress" ></div>
@@ -284,19 +283,139 @@ title: Custom Fabric build
       throw new Error("Could not create HTTP request object.");
     }
 
+    function ifSpecifiedInclude(moduleName, filename) {
+      return document.getElementById(moduleName).checked ? filename : '';
+    }
+
     function collectFilesName() {
-      var inputs = document.getElementsByTagName('input');
-      var result = baseFiles.slice(0);
-      var input;
-      for (var i = 0, len = inputs.length; i < len; i++) {
-        input = inputs[i];
-        if (inputs[i].checked) {
-          if (inputs[i].className !== 'regexs') {
-            result = result.concat(idToFiles[inputs[i].id]);
-          }
-        }
-      }
-      return result;
+      // var inputs = document.getElementsByTagName('input');
+      // var result = baseFiles.slice(0);
+      // var input;
+      // for (var i = 0, len = inputs.length; i < len; i++) {
+      //   input = inputs[i];
+      //   if (inputs[i].checked) {
+      //     if (inputs[i].className !== 'regexs') {
+      //       result = result.concat(idToFiles[inputs[i].id]);
+      //     }
+      //   }
+      // }
+      var filesToInclude = [
+        'HEADER.js',
+
+        ifSpecifiedInclude('serialization', 'lib/json2.js'),
+        ifSpecifiedInclude('gestures', 'lib/event.js'),
+
+        'src/mixins/observable.mixin.js',
+        'src/mixins/collection.mixin.js',
+
+        'src/util/misc.js',
+        'src/util/arc.js',
+        'src/util/lang_array.js',
+        'src/util/lang_object.js',
+        'src/util/lang_string.js',
+        'src/util/lang_function.js',
+        'src/util/lang_class.js',
+        'src/util/dom_event.js',
+        'src/util/dom_style.js',
+        'src/util/dom_misc.js',
+        'src/util/dom_request.js',
+
+        'src/log.js',
+
+        ifSpecifiedInclude('animation', 'src/util/animate.js'),
+        ifSpecifiedInclude('animation', 'src/util/animate_color.js'),
+
+        ifSpecifiedInclude('easing', 'src/util/anim_ease.js'),
+
+        ifSpecifiedInclude('parser', 'src/parser.js'),
+        ifSpecifiedInclude('parser', 'src/elements_parser.js'),
+
+        'src/point.class.js',
+        'src/intersection.class.js',
+        'src/color.class.js',
+
+        ifSpecifiedInclude('gradient', 'src/gradient.class.js'),
+        ifSpecifiedInclude('pattern', 'src/pattern.class.js'),
+        ifSpecifiedInclude('shadow', 'src/shadow.class.js'),
+
+        'src/static_canvas.class.js',
+
+        ifSpecifiedInclude('freedrawing', 'src/brushes/base_brush.class.js'),
+
+        ifSpecifiedInclude('freedrawing', 'src/brushes/pencil_brush.class.js'),
+        ifSpecifiedInclude('freedrawing', 'src/brushes/circle_brush.class.js'),
+        ifSpecifiedInclude('freedrawing', 'src/brushes/spray_brush.class.js'),
+        ifSpecifiedInclude('freedrawing', 'src/brushes/pattern_brush.class.js'),
+
+        ifSpecifiedInclude('interaction', 'src/canvas.class.js'),
+        ifSpecifiedInclude('interaction', 'src/mixins/canvas_events.mixin.js'),
+        ifSpecifiedInclude('interaction', 'src/mixins/canvas_grouping.mixin.js'),
+
+        'src/mixins/canvas_dataurl_exporter.mixin.js',
+
+        ifSpecifiedInclude('serialization', 'src/mixins/canvas_serialization.mixin.js'),
+        ifSpecifiedInclude('gestures', 'src/mixins/canvas_gestures.mixin.js'),
+
+        'src/shapes/object.class.js',
+        'src/mixins/object_origin.mixin.js',
+        'src/mixins/object_geometry.mixin.js',
+        'src/mixins/object_stacking.mixin.js',
+        'src/mixins/object.svg_export.js',
+        'src/mixins/stateful.mixin.js',
+
+        ifSpecifiedInclude('interaction', 'src/mixins/object_interactivity.mixin.js'),
+
+        ifSpecifiedInclude('animation', 'src/mixins/animation.mixin.js'),
+        'src/shapes/line.class.js',
+        'src/shapes/circle.class.js',
+        'src/shapes/triangle.class.js',
+        'src/shapes/ellipse.class.js',
+        'src/shapes/rect.class.js',
+        'src/shapes/polyline.class.js',
+        'src/shapes/polygon.class.js',
+        'src/shapes/path.class.js',
+        'src/shapes/path_group.class.js',
+        'src/shapes/group.class.js',
+        'src/shapes/image.class.js',
+
+        ifSpecifiedInclude('object_straightening', 'src/mixins/object_straightening.mixin.js'),
+
+        ifSpecifiedInclude('image_filters', 'src/filters/base_filter.class.js'),
+        ifSpecifiedInclude('image_filters', 'src/filters/brightness_filter.class.js'),
+        ifSpecifiedInclude('image_filters', 'src/filters/convolute_filter.class.js'),
+        ifSpecifiedInclude('image_filters', 'src/filters/gradienttransparency_filter.class.js'),
+        ifSpecifiedInclude('image_filters', 'src/filters/grayscale_filter.class.js'),
+        ifSpecifiedInclude('image_filters', 'src/filters/invert_filter.class.js'),
+        ifSpecifiedInclude('image_filters', 'src/filters/mask_filter.class.js'),
+        ifSpecifiedInclude('image_filters', 'src/filters/noise_filter.class.js'),
+        ifSpecifiedInclude('image_filters', 'src/filters/pixelate_filter.class.js'),
+        ifSpecifiedInclude('image_filters', 'src/filters/removewhite_filter.class.js'),
+        ifSpecifiedInclude('image_filters', 'src/filters/sepia_filter.class.js'),
+        ifSpecifiedInclude('image_filters', 'src/filters/sepia2_filter.class.js'),
+        ifSpecifiedInclude('image_filters', 'src/filters/tint_filter.class.js'),
+        ifSpecifiedInclude('image_filters', 'src/filters/multiply_filter.class.js'),
+        ifSpecifiedInclude('image_filters', 'src/filters/blend_filter.class.js'),
+        ifSpecifiedInclude('image_filters', 'src/filters/resize_filter.class.js'),
+        ifSpecifiedInclude('image_filters', 'src/filters/colormatrix_filter.class.js'),
+        ifSpecifiedInclude('image_filters', 'src/filters/contrast_filter.class.js'),
+        ifSpecifiedInclude('image_filters', 'src/filters/saturate_filter.class.js'),
+
+        ifSpecifiedInclude('text', 'src/shapes/text.class.js'),
+
+        ifSpecifiedInclude('itext', 'src/shapes/itext.class.js'),
+        ifSpecifiedInclude('itext', 'src/mixins/itext_behavior.mixin.js'),
+        ifSpecifiedInclude('itext', 'src/mixins/itext_click_behavior.mixin.js'),
+        ifSpecifiedInclude('itext', 'src/mixins/itext_key_behavior.mixin.js'),
+        ifSpecifiedInclude('itext', 'src/mixins/itext.svg_export.js'),
+        ifSpecifiedInclude('itext', 'src/shapes/textbox.class.js'),
+        ifSpecifiedInclude('itext', 'src/mixins/textbox_behavior.mixin.js'),
+        ifSpecifiedInclude('itext', 'src/mixins/textbox_click_behavior.mixin.js'),
+
+        ifSpecifiedInclude('node', 'src/node.js')
+
+        // ifSpecifiedAMDInclude(amdLib)
+      ];
+      return filesToInclude.filter(function(fname) { return fname !== ''; });
     }
 
     function collectRegex() {

@@ -207,16 +207,29 @@
     var group = makeGroupWith2Objects();
     group.includeDefaultValues = false;
     var clone = group.toObject();
-
+    var objects = [{
+      type: 'rect',
+      left: 10,
+      top: -30,
+      width: 30,
+      height: 10,
+      strokeWidth: 0
+    }, {
+      type: 'rect',
+      left: -40,
+      top: -10,
+      width: 10,
+      height: 40,
+      strokeWidth: 0
+    }];
     var expectedObject = {
       'type':               'group',
       'left':               50,
       'top':                100,
       'width':              80,
       'height':             60,
-      'objects':            clone.objects
+      'objects':            objects
     };
-
     deepEqual(clone, expectedObject);
   });
 
@@ -514,10 +527,30 @@
     equal(rect1.canvas, canvas);
   });
 
+  test('dirty flag propagation from children up', function() {
+    var g1 = makeGroupWith4Objects();
+    var obj = g1.item(0);
+    g1.dirty = false;
+    obj.dirty = false;
+    equal(g1.dirty, false, 'Group has no dirty flag set');
+    obj.set('fill', 'red');
+    equal(obj.dirty, true, 'Obj has dirty flag set');
+    equal(g1.dirty, true, 'Group has dirty flag set');
+  });
+
+  test('_getCacheCanvasDimensions returns dimensions and zoom for cache canvas are influenced by group', function() {
+    var g1 = makeGroupWith4Objects();
+    var obj = g1.item(0);
+    var dims = obj._getCacheCanvasDimensions();
+    g1.scaleX = 2;
+    var dims2 = obj._getCacheCanvasDimensions();
+    equal((dims2.width - 2), (dims.width - 2) * g1.scaleX, 'width of cache has increased with group scale');
+  });
+
   test('test group transformMatrix', function() {
-    var rect1 = new fabric.Rect({ top: 1, left: 1, width: 2, height: 2, strokeWidth: 0, fill: 'red', opacity: 1}),
-        rect2 = new fabric.Rect({ top: 5, left: 5, width: 2, height: 2, strokeWidth: 0, fill: 'red', opacity: 1}),
-        group = new fabric.Group([rect1, rect2], {opacity: 1, fill: 'blue', strokeWidth: 0}),
+    var rect1 = new fabric.Rect({ top: 1, left: 1, width: 2, height: 2, strokeWidth: 0, fill: 'red', opacity: 1, objectCaching: false}),
+        rect2 = new fabric.Rect({ top: 5, left: 5, width: 2, height: 2, strokeWidth: 0, fill: 'red', opacity: 1, objectCaching: false}),
+        group = new fabric.Group([rect1, rect2], {opacity: 1, fill: 'blue', strokeWidth: 0, objectCaching: false}),
         isTransparent = fabric.util.isTransparent,
         ctx = canvas.contextContainer;
     canvas.add(group);

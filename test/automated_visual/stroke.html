@@ -18,7 +18,7 @@ title: Automated visual tests (stroke)
   function initCanvasForSVG(id, callback) {
     fabric.loadSVGFromURL('../../assets/' + id + '.svg', function(objects, options) {
       var shape = fabric.util.groupSVGElements(objects, options);
-
+      shape.objectCaching = false;
       var canvasEl = document.createElement('canvas');
 
       canvasEl.width = shape.width || 600;
@@ -30,6 +30,7 @@ title: Automated visual tests (stroke)
       });
       canvas.add(shape);
       shape.center();
+      shape.set('dirty', true);
       canvas.renderAll();
 
       callback(canvas)
@@ -71,7 +72,7 @@ title: Automated visual tests (stroke)
         }, 'image not loaded.', 3000);
 
         runs(function() {
-          expect(expected).toImageDiffEqual(actual, 75);
+          expect(actual).toImageDiffEqual(expected, 75);
         });
       });
     });

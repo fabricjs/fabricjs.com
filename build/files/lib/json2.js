@@ -1,4 +1,3 @@
-/* _ES5_COMPAT_START_ */
 /*
     json2.js
     2014-02-04
@@ -488,4 +487,3 @@ if (typeof JSON !== 'object') {
         };
     }
 }());
-/* _ES5_COMPAT_END_ */

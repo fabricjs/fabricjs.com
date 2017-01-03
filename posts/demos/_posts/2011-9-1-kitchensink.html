@@ -439,6 +439,16 @@ title: Kitchensink
           <label for="canvas-background-picker">Canvas background:</label>
           <input type="color" bind-value-to="canvasBgColor">
         </p>
+        <p>
+          <label>
+            Preserve stacking:
+            <input type="checkbox" name="preserve-object-stacking" bind-value-to-canvas="preserveObjectStacking">
+          </label>
+          <label>
+            Controls above overlay:
+            <input type="checkbox" name="controls-abobe-overlay" bind-value-to-canvas="controlsAboveOverlay">
+          </label>
+        </p>
       </div>
       <div style="margin-top:10px;" id="drawing-mode-wrapper">
 

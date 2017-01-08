@@ -10,7 +10,7 @@ title: Animating Crosses
   fabric.Object.prototype.transparentCorners = false;
 
   var Cross = fabric.util.createClass(fabric.Object, {
-
+    objectCaching: false,
     initialize: function(options) {
       this.callSuper('initialize', options);
       this.animDirection = 'up';

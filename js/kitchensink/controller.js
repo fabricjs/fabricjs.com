@@ -274,13 +274,12 @@ function addAccessors($scope) {
       'Ut enim ad minim veniam,\nquis nostrud exercitation ullamco\nlaboris nisi ut aliquip ex ea commodo consequat.';
 
     var textSample = new fabric.Textbox(text.slice(0, getRandomInt(0, text.length)), {
+      fontSize: 20,
       left: getRandomInt(350, 400),
       top: getRandomInt(350, 400),
       fontFamily: 'helvetica',
       angle: getRandomInt(-10, 10),
       fill: '#' + getRandomColor(),
-      scaleX: 0.5,
-      scaleY: 0.5,
       fontWeight: '',
       originX: 'left',
       width: 300,

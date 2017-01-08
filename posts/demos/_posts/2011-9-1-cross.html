@@ -58,7 +58,7 @@ title: Animating Crosses
   );
 
   setTimeout(function animate() {
-    canvas.forEachObject(function(obj){ obj.animateWidthHeight() });
+    canvas.forEachObject(function(obj){ obj.animateWidthHeight(); obj.dirty = true; });
     canvas.renderAll();
     setTimeout(animate, 10);
   }, 10);

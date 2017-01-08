@@ -801,6 +801,13 @@ function addAccessors($scope) {
   addTexts();
 
 
+  $scope.getPreserveObjectStacking = function() {
+    return canvas.preserveObjectStacking;
+  };
+  $scope.setPreserveObjectStacking = function(value) {
+    return canvas.preserveObjectStacking = value;
+  };
+
   $scope.getFreeDrawingMode = function() {
     return canvas.isDrawingMode;
   };

@@ -18,7 +18,7 @@ function setActiveStyle(styleName, value, object) {
     object.setCoords();
   }
   else {
-    object[styleName] = value;
+    object.set(styleName, value);
   }
 
   object.setCoords();
@@ -137,10 +137,10 @@ function addAccessors($scope) {
     setActiveProp('textBackgroundColor', value);
   };
 
-  $scope.getStrokeColor = function() {
+  $scope.getStroke = function() {
     return getActiveStyle('stroke');
   };
-  $scope.setStrokeColor = function(value) {
+  $scope.setStroke = function(value) {
     setActiveStyle('stroke', value);
   };
 
@@ -274,13 +274,12 @@ function addAccessors($scope) {
       'Ut enim ad minim veniam,\nquis nostrud exercitation ullamco\nlaboris nisi ut aliquip ex ea commodo consequat.';
 
     var textSample = new fabric.Textbox(text.slice(0, getRandomInt(0, text.length)), {
+      fontSize: 20,
       left: getRandomInt(350, 400),
       top: getRandomInt(350, 400),
       fontFamily: 'helvetica',
       angle: getRandomInt(-10, 10),
       fill: '#' + getRandomColor(),
-      scaleX: 0.5,
-      scaleY: 0.5,
       fontWeight: '',
       originX: 'left',
       width: 300,
@@ -546,14 +545,14 @@ function addAccessors($scope) {
     if (!obj) return;
 
     if (obj.fill instanceof fabric.Pattern) {
-      obj.fill = null;
+      obj.set('fill', null);
     }
     else {
       if (obj instanceof fabric.PathGroup) {
-        obj.getObjects().forEach(function(o) { o.fill = pattern; });
+        obj.getObjects().forEach(function(o) { o.set('fill', pattern); });
       }
       else {
-        obj.fill = pattern;
+        obj.set('fill', pattern);
       }
     }
     canvas.renderAll();
@@ -801,6 +800,13 @@ function addAccessors($scope) {
 
   addTexts();
 
+
+  $scope.getPreserveObjectStacking = function() {
+    return canvas.preserveObjectStacking;
+  };
+  $scope.setPreserveObjectStacking = function(value) {
+    return canvas.preserveObjectStacking = value;
+  };
 
   $scope.getFreeDrawingMode = function() {
     return canvas.isDrawingMode;

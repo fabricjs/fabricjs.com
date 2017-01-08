@@ -7,8 +7,28 @@ title: Fabric.js. release highlights.
 
 <div class="container" style="margin:30px auto">
   <h2 id="introduction_to_fabricjs">Fabric.js release highlights</h2>
-  <h3>Version 1.7.2</h3>
+  <h3>Version 1.7.3</h3>
+  <p>Mixed release, cleaning and important bugfixes.<br /> Objects <code>fromObject</code> methods have been reworked to be able to wait for Patterns
+  full loading process before actually creating the object, so that the first render has the pattern ready to show. That was a longstanding bug since 2013.<br />
+  Reworked some of the canvas background and overlay code so that gradient and patterns works and are saved and reloaded correctly.<br />
+  During loadFromJSON process, if an image errors out, the process cotinue smooth, the reviver function is invoked with a third argument <code>error</code>
+  equal to true.<br/>
+  Usuals objectCaching improvements: dirty flag propagation from childObjects to parents, added a couple of pixels around the cache canvas to avoid aliasing,
+  added bigger padding for text with custom fonts.
+  </p>
+  <pre>
+    Improvement: mousewheel event has target in the arguments as all the other events. object now fires mousewheel
+    Improvement: Pattern loads for canvas background and overlay, corrected svg pattern export.
+    Fix: Wait for pattern loading before calling callback.
+    Fix: add 2 extra pixels to cache canvases to avoid aliasing cut.
+    Fix: Rerender when deselect an itext editing object.
+    Fix: save new state of dimensionProperties at every cache clear.
+    Improvement: Better error managment in loadFromJSON.
+    Improvement: do not reload backgroundImage as an image if is different type.
+    Improvement: if a children element is set dirty, set the parent dirty as well.
+  </pre>
 
+  <h3>Version 1.7.2</h3>
   <p>Again a maintenance release for iText custom fonts and cache and a workaround for macOS sierra problem with 'object:modified'</p>
   <pre>
     Fix: Textbox do not use stylemap for line wrapping #3546
@@ -23,7 +43,6 @@ title: Fabric.js. release highlights.
   </pre>
 
   <h3>Version 1.7.1</h3>
-
   <p>Just small bugfixes and support for custom properties in gradient and pattern toObject method.</p>
   <pre>
     Add: Gradients/Patterns support customAttributes in toObject method #3477
@@ -34,7 +53,6 @@ title: Fabric.js. release highlights.
   </pre>
 
   <h3>Version 1.7.0</h3>
-
   <p>Introducing object caching, please refer to the example page for more information <a href="/fabric-object-caching">caching</a></p>
   <pre>
     Add: Object Caching #3417
@@ -45,7 +63,6 @@ title: Fabric.js. release highlights.
   </pre>
 
   <h3>Version 1.6.7</h3>
-
   <p>A bugfix release with a new function, snap to angle during rotation.<br />How to activate it? Populate `snapAngle` and `snapTreshold` in the object properties</p>
   <pre>
     Add: Snap rotation added to objects. two parameter introduced, snapAngle and snapTreshold. [#3383]
@@ -57,7 +74,6 @@ title: Fabric.js. release highlights.
   </pre>
 
   <h3>Version 1.6.6</h3>
-
   <p>A bugfix release with 2 new image filters, contrast and saturation</p>
   <pre>
     Add: Contrast and Saturate filters #3341
@@ -67,7 +83,6 @@ title: Fabric.js. release highlights.
   </pre>
 
   <h3>Version 1.6.5</h3>
-
   <p>A bugfix release with some small news:
     <br />New feature <code>backgroundColor</code> is now supported from all classes.
     <br /><code>Clone</code> and <code>fromObject</code> methods are now equal for all classes. You can use the callback for any cloning.
@@ -98,7 +113,6 @@ title: Fabric.js. release highlights.
   </pre>
 
   <h3>Version 1.6.4</h3>
-
   <p>In fabric 1.6.4 we added some new features and refinement to text objects:
     <br />New feature <code>charspacing</code> has been added, charspacing is expressed in thousands of em unit, meaning that with a value of 1000 and a fontsize of 40, you will have an additional space of 40px between chars.
     <br />Lineheight managment has been improved, now the lineheight does not have an extra padding below the line if there are no other lines of text.
@@ -137,7 +151,6 @@ title: Fabric.js. release highlights.
   </pre>
 
   <h3>Version 1.6.3</h3>
-
   <p>Biggest new in 1.6.3 is support of sub-targets in group. Group has a new property <code>subTargetCheck</code> default to false that allows the findTarget
     functions to go deep in the group nested objects.<br />Events will fire for both the group and all the list of sub targets found in case of nested groups</p>
   <p>Other changes inclued better handling of pan and zooming. Transparency checking is now aware of current viewportTransform and 3 new functions have been

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Namespace: array</title>
+    <title>JSDoc: Namespace: CommonMethods</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -71,7 +71,7 @@
     })();
     </script>
 <div id="main">
-    <h1 class="page-title">Namespace: array</h1>
+    <h1 class="page-title">Namespace: CommonMethods</h1>
     
 
 
@@ -82,7 +82,7 @@
 <header>
     
         <h2>
-            <span class="ancestors"><a href="fabric.html">fabric</a><a href="fabric.util.html">.util</a>.</span>array</h2>
+            <span class="ancestors"><a href="fabric.html">fabric</a>.</span>CommonMethods</h2>
         
     
 </header>
@@ -124,7 +124,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1685">line 1685</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line366">line 366</a>
     </li></ul></dd>
     
 
@@ -160,12 +160,12 @@
 
 
     
-    <h4 class="name" id=".invoke"><span class="type-signature">(static) </span>invoke<span class="signature">(array, method)</span><span class="type-signature"> &rarr; {<a href="Array.html">Array</a>}</span></h4>
+    <h4 class="name" id="._setOptions"><span class="type-signature">(static) </span>_setOptions<span class="signature">(options<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
     
 
 
 <div class="description">
-    Invokes method on all items in a given array
+    Sets object's properties from options
 </div>
 
 
@@ -185,6 +185,8 @@
         <th>Type</th>
 
         
+        <th>Attributes</th>
+        
 
         
 
@@ -197,46 +199,33 @@
 
         <tr>
             
-                <td class="name"><code>array</code></td>
+                <td class="name"><code>options</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><a href="Array.html">Array</a></span>
+<span class="param-type">Object</span>
 
 
             
             </td>
 
             
-
-            
-
-            <td class="description last">Array to iterate over</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>method</code></td>
-            
-
-            <td class="type">
-            
+                <td class="attributes">
                 
-<span class="param-type">String</span>
+                    &lt;optional><br>
+                
 
+                
+
+                
+                </td>
+            
 
             
-            </td>
 
-            
-
-            
-
-            <td class="description last">Name of a method to invoke</td>
+            <td class="description last">Options object</td>
         </tr>
 
     
@@ -276,7 +265,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1613">line 1613</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line375">line 375</a>
     </li></ul></dd>
     
 
@@ -293,24 +282,6 @@
 
 
 
-<h5>Returns:</h5>
-
-        
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type"><a href="Array.html">Array</a></span>
-
-
-    </dd>
-</dl>
-
-    
 
 
 
@@ -319,12 +290,12 @@
 
 
     
-    <h4 class="name" id=".max"><span class="type-signature">(static) </span>max<span class="signature">(array, byProperty)</span><span class="type-signature"> &rarr; {*}</span></h4>
+    <h4 class="name" id=".get"><span class="type-signature">(static) </span>get<span class="signature">(property)</span><span class="type-signature"> &rarr; {*}</span></h4>
     
 
 
 <div class="description">
-    Finds maximum value in array (not necessarily "first" one)
+    Basic getter
 </div>
 
 
@@ -356,30 +327,7 @@
 
         <tr>
             
-                <td class="name"><code>array</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="Array.html">Array</a></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Array to iterate over</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>byProperty</code></td>
+                <td class="name"><code>property</code></td>
             
 
             <td class="type">
@@ -395,7 +343,7 @@
 
             
 
-            <td class="description last"></td>
+            <td class="description last">Property name</td>
         </tr>
 
     
@@ -435,7 +383,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1628">line 1628</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line476">line 476</a>
     </li></ul></dd>
     
 
@@ -455,6 +403,10 @@
 <h5>Returns:</h5>
 
         
+<div class="param-desc">
+    value of a property
+</div>
+
 
 
 <dl>
@@ -478,12 +430,12 @@
 
 
     
-    <h4 class="name" id=".min"><span class="type-signature">(static) </span>min<span class="signature">(array, byProperty)</span><span class="type-signature"> &rarr; {*}</span></h4>
+    <h4 class="name" id=".set"><span class="type-signature">(static) </span>set<span class="signature">(key, value)</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span></h4>
     
 
 
 <div class="description">
-    Finds minimum value in array (not necessarily "first" one)
+    Sets property to a given value. When changing position/dimension -related properties (left, top, scale, angle, etc.) `set` does not update position of object's borders/controls. If you need to update those, call `setCoords()`.
 </div>
 
 
@@ -515,36 +467,16 @@
 
         <tr>
             
-                <td class="name"><code>array</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="Array.html">Array</a></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Array to iterate over</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>byProperty</code></td>
+                <td class="name"><code>key</code></td>
             
 
             <td class="type">
             
                 
 <span class="param-type">String</span>
+|
+
+<span class="param-type">Object</span>
 
 
             
@@ -554,7 +486,33 @@
 
             
 
-            <td class="description last"></td>
+            <td class="description last">Property name or object (if object, iterate over the object properties)</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+|
+
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Property value (if function, the value is passed into it and its return value is used as a new one)</td>
         </tr>
 
     
@@ -594,7 +552,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1641">line 1641</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line438">line 438</a>
     </li></ul></dd>
     
 
@@ -614,6 +572,10 @@
 <h5>Returns:</h5>
 
         
+<div class="param-desc">
+    thisArg
+</div>
+
 
 
 <dl>
@@ -622,7 +584,147 @@
     </dt>
     <dd>
         
-<span class="param-type">*</span>
+<span class="param-type"><a href="fabric.Object.html">fabric.Object</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+
+    
+    <h4 class="name" id=".toggle"><span class="type-signature">(static) </span>toggle<span class="signature">(property)</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span></h4>
+    
+
+
+<div class="description">
+    Toggles specified property from `true` to `false` or from `false` to `true`
+</div>
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>property</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Property to toggle</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line463">line 463</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    thisArg
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="fabric.Object.html">fabric.Object</a></span>
 
 
     </dd>
@@ -667,7 +769,7 @@
         <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="fabric.BaseBrush.html">BaseBrush</a></li><li><a href="fabric.Canvas.html">Canvas</a></li><li><a href="fabric.Circle.html">Circle</a></li><li><a href="fabric.CircleBrush.html">CircleBrush</a></li><li><a href="fabric.Color.html">Color</a></li><li><a href="fabric.Ellipse.html">Ellipse</a></li><li><a href="fabric.Gradient.html">Gradient</a></li><li><a href="fabric.Group.html">Group</a></li><li><a href="fabric.Image.html">Image</a></li><li><a href="fabric.Image.filters.BaseFilter.html">BaseFilter</a></li><li><a href="fabric.Image.filters.Brightness.html">Brightness</a></li><li><a href="fabric.Image.filters.ColorMatrix.html">ColorMatrix</a></li><li><a href="fabric.Image.filters.Contrast.html">Contrast</a></li><li><a href="fabric.Image.filters.Convolute.html">Convolute</a></li><li><a href="fabric.Image.filters.fabric.Image.filter.Blend.html">Blend</a></li><li><a href="fabric.Image.filters.GradientTransparency.html">GradientTransparency</a></li><li><a href="fabric.Image.filters.Grayscale.html">Grayscale</a></li><li><a href="fabric.Image.filters.Invert.html">Invert</a></li><li><a href="fabric.Image.filters.Mask.html">Mask</a></li><li><a href="fabric.Image.filters.Multiply.html">Multiply</a></li><li><a href="fabric.Image.filters.Noise.html">Noise</a></li><li><a href="fabric.Image.filters.Pixelate.html">Pixelate</a></li><li><a href="fabric.Image.filters.RemoveWhite.html">RemoveWhite</a></li><li><a href="fabric.Image.filters.Resize.html">Resize</a></li><li><a href="fabric.Image.filters.Saturate.html">Saturate</a></li><li><a href="fabric.Image.filters.Sepia.html">Sepia</a></li><li><a href="fabric.Image.filters.Sepia2.html">Sepia2</a></li><li><a href="fabric.Image.filters.Tint.html">Tint</a></li><li><a href="fabric.Intersection.html">Intersection</a></li><li><a href="fabric.IText.html">IText</a></li><li><a href="fabric.Line.html">Line</a></li><li><a href="fabric.Object.html">Object</a></li><li><a href="fabric.Path.html">Path</a></li><li><a href="fabric.PathGroup.html">PathGroup</a></li><li><a href="fabric.Pattern.html">Pattern</a></li><li><a href="fabric.PatternBrush.html">PatternBrush</a></li><li><a href="fabric.PencilBrush.html">PencilBrush</a></li><li><a href="fabric.Point.html">Point</a></li><li><a href="fabric.Polygon.html">Polygon</a></li><li><a href="fabric.Polyline.html">Polyline</a></li><li><a href="fabric.Rect.html">Rect</a></li><li><a href="fabric.Shadow.html">Shadow</a></li><li><a href="fabric.SprayBrush.html">SprayBrush</a></li><li><a href="fabric.StaticCanvas.html">StaticCanvas</a></li><li><a href="fabric.Text.html">Text</a></li><li><a href="fabric.Textbox.html">Textbox</a></li><li><a href="fabric.Triangle.html">Triangle</a></li></ul><h3>Namespaces</h3><ul><li><a href="fabric.html">fabric</a></li><li><a href="fabric.Collection.html">Collection</a></li><li><a href="fabric.CommonMethods.html">CommonMethods</a></li><li><a href="fabric.Image.filters.html">filters</a></li><li><a href="fabric.Observable.html">Observable</a></li><li><a href="fabric.util.html">util</a></li><li><a href="fabric.util.array.html">array</a></li><li><a href="fabric.util.ease.html">ease</a></li><li><a href="fabric.util.object.html">object</a></li><li><a href="fabric.util.string.html">string</a></li></ul><h3>Global</h3><ul><li><a href="global.html#__cachedLines">__cachedLines</a></li><li><a href="global.html#_getCursorBoundariesOffsets">_getCursorBoundariesOffsets</a></li><li><a href="global.html#_splitTextIntoLines">_splitTextIntoLines</a></li><li><a href="global.html#_wrapLine">_wrapLine</a></li><li><a href="global.html#_wrapText">_wrapText</a></li><li><a href="global.html#applyFilters">applyFilters</a></li><li><a href="global.html#dynamicMinWidth">dynamicMinWidth</a></li><li><a href="global.html#get2DCursorLocation">get2DCursorLocation</a></li><li><a href="global.html#initialize">initialize</a></li><li><a href="global.html#lockScalingFlip">lockScalingFlip</a></li><li><a href="global.html#lockScalingY">lockScalingY</a></li><li><a href="global.html#minWidth">minWidth</a></li><li><a href="global.html#noScaleCache">noScaleCache</a></li><li><a href="global.html#setOnGroup">setOnGroup</a></li><li><a href="global.html#toObject">toObject</a></li><li><a href="global.html#type">type</a></li></ul>
     </div>
 </nav>
-<footer><input id="toggle" type="checkbox" onclick="toggle(this.checked);"  /><label for="toggle" >Hide inherited properties and method from the page</label><br />Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Sun Jan 08 2017 10:59:20 GMT+0100 (CET)
+<footer><input id="toggle" type="checkbox" onclick="toggle(this.checked);"  /><label for="toggle" >Hide inherited properties and method from the page</label><br />Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Sun Jan 08 2017 10:59:16 GMT+0100 (CET)
 </footer>
 <script> prettyPrint(); </script>
 <script src="scripts/linenumber.js"> </script>

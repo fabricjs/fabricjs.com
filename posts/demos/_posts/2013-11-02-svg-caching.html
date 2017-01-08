@@ -3,17 +3,19 @@ layout: demo
 title: SVG caching
 ---
 <p>
-  When rendering complex shapes onto canvas — those consisting of thousands of paths — it's usually faster to "serialize" them into an image and render via <code>ctx.drawImage</code>. This essentially replaces thousands of low-level commands (<code>lineTo</code>, <code>moveTo</code>, <code>bezierCurveTo</code>, <code>arcTo</code>, etc.) with a single <code>drawImage</code>. The downside is loss of quality when scaling the shape up (since it's no longer vector-based). But this is a viable technique if the shape dimensions are constant. In Fabric, you can use <code>fabric.Object#cloneAsImage</code> to create an instance of <code>fabric.Image</code> out of any other Fabric shape.
+  When rendering complex shapes onto canvas — those consisting of thousands of paths — it's usually faster to have them cached so that they get rendered with <code>ctx.drawImage</code>. This essentially replaces thousands of low-level commands (<code>lineTo</code>, <code>moveTo</code>, <code>bezierCurveTo</code>, <code>arcTo</code>, etc.) with a single <code>drawImage</code>. The downside is loss of quality when scaling the shape up (since it's no longer vector-based). But this is a viable technique if the shape dimensions are constant. In Fabric, you can use <code>fabric.Object#cloneAsImage</code> to create an instance of <code>fabric.Image</code> out of any other Fabric shape.
 </p>
 <p>
-  <button id="cache">Cache shapes</button>
+  <button id="cache">toggle cache</button>
 </p>
 
 <canvas id="c" width="650" height="650" style="border:1px solid #ccc"></canvas>
 <script id="main">(function() {
   var canvas = this.__canvas = new fabric.Canvas('c');
+  canvas.setHeight(1000);
   fabric.Object.prototype.originX = fabric.Object.prototype.originY = 'center';
   fabric.Object.prototype.transparentCorners = false;
+  fabric.Object.prototype.objectCaching = true;
 
   fabric.loadSVGFromURL('../lib/tiger2.svg', function(objects, options) {
     var obj = fabric.util.groupSVGElements(objects, options);
@@ -21,7 +23,7 @@ title: SVG caching
 
     // load shapes
     for (var i = 1; i < 4; i++) {
-      for (var j = 1; j < 4; j++) {
+      for (var j = 1; j < 6; j++) {
         obj.clone(function(i, j) {
           return function(clone) {
             clone.set({
@@ -46,22 +48,7 @@ title: SVG caching
 
   function cache() {
     canvas.forEachObject(function(obj, i) {
-      if (obj.type === 'image') return;
-
-      var scaleX = obj.scaleX;
-      var scaleY = obj.scaleY;
-
-      canvas.remove(obj);
-      obj.scale(1).cloneAsImage(function(clone) {
-        clone.set({
-          left: obj.left,
-          top: obj.top,
-          scaleX: scaleX,
-          scaleY: scaleY
-        });
-        canvas.insertAt(clone, i);
-        animate(clone);
-      });
+      obj.toggle('objectCaching');
     });
   }
 

@@ -1111,7 +1111,7 @@
       if (this.canvas && this.canvas.viewportTransform) {
         return this.canvas.viewportTransform;
       }
-      return [1, 0, 0, 1, 0, 0];
+      return fabric.iMatrix.concat();
     },
 
     /**
@@ -1189,8 +1189,9 @@
       else {
         if (this.dirty || (this.statefullCache && this.hasStateChanged('cacheProperties'))) {
           if (!skipCanvas) {
-            var dim = this._getNonTransformedDimensions();
-            this._cacheContext.clearRect(-dim.x / 2, -dim.y / 2, dim.x, dim.y);
+            var width = this.cacheWidth / this.zoomX;
+            var height = this.cacheHeight / this.zoomY;
+            this._cacheContext.clearRect(-width / 2, -height / 2, width, height);
           }
           return true;
         }
@@ -1496,10 +1497,10 @@
 
     /**
      * Returns complexity of an instance
-     * @return {Number} complexity of this instance
+     * @return {Number} complexity of this instance (is 1 unless subclassed)
      */
     complexity: function() {
-      return 0;
+      return 1;
     },
 
     /**

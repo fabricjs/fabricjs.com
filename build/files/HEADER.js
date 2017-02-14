@@ -1,6 +1,6 @@
  /*! Fabric.js Copyright 2008-2015, Printio (Juriy Zaytsev, Maxim Chernyak) */
 
-var fabric = fabric || { version: "1.7.3" };
+var fabric = fabric || { version: "1.7.4" };
 if (typeof exports !== 'undefined') {
   exports.fabric = fabric;
 }
@@ -61,6 +61,7 @@ fabric.SHARED_ATTRIBUTES = [
 fabric.DPI = 96;
 fabric.reNum = '(?:[-+]?(?:\\d+|\\d*\\.\\d+)(?:e[-+]?\\d+)?)';
 fabric.fontPaths = { };
+fabric.iMatrix = [1, 0, 0, 1, 0, 0];
 
 /**
  * Cache Object for widths of chars in text rendering.

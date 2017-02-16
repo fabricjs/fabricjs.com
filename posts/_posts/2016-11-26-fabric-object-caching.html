@@ -61,7 +61,18 @@ cacheProperties: (
  * @type Boolean
  * @default false
  */
-dirty:                false,</pre>
+dirty:                false,
+
+/**
+  * When set to `true`, force the object to have its own cache, even if it is inside a group
+  * it may be needed when your object behave in a particular way on the cache and always needs
+  * its own isolated canvas to render correctly.
+  * since 1.7.5
+  * @type Boolean
+  * @default false
+  */
+ needsItsOwnCache: false,
+</pre>
 <p>
   <code>objectCaching</code> is the main properties, default to true for browsers, false for node, it enables objectCaching at object level.<br />
   <code>statefullCache</code> This property rule if fabric should autocheck if is time to redraw the cached copy or if the dev shoud manually invalidate it.

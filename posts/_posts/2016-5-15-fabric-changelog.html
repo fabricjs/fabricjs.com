@@ -7,6 +7,28 @@ title: Fabric.js. release highlights.
 
 <div class="container" style="margin:30px auto">
   <h2 id="introduction_to_fabricjs">Fabric.js release highlights</h2>
+
+  <h3>Version 1.7.6</h3>
+  <p>Mixed release, cleaning and important bugfixes.<br /> Objects <code>fromObject</code> methods have been reworked to be able to wait for Patterns
+  full loading process before actually creating the object, so that the first render has the pattern ready to show. That was a longstanding bug since 2013.<br />
+  Reworked some of the canvas background and overlay code so that gradient and patterns works and are saved and reloaded correctly.<br />
+  During loadFromJSON process, if an image errors out, the process cotinue smooth, the reviver function is invoked with a third argument <code>error</code>
+  equal to true.<br/>
+  Usuals objectCaching improvements: dirty flag propagation from childObjects to parents, added a couple of pixels around the cache canvas to avoid aliasing,
+  added bigger padding for text with custom fonts.
+  </p>
+  <pre>
+    Improvement: mousewheel event has target in the arguments as all the other events. object now fires mousewheel
+    Improvement: Pattern loads for canvas background and overlay, corrected svg pattern export.
+    Fix: Wait for pattern loading before calling callback.
+    Fix: add 2 extra pixels to cache canvases to avoid aliasing cut.
+    Fix: Rerender when deselect an itext editing object.
+    Fix: save new state of dimensionProperties at every cache clear.
+    Improvement: Better error managment in loadFromJSON.
+    Improvement: do not reload backgroundImage as an image if is different type.
+    Improvement: if a children element is set dirty, set the parent dirty as well.
+  </pre>
+
   <h3>Version 1.7.3</h3>
   <p>Mixed release, cleaning and important bugfixes.<br /> Objects <code>fromObject</code> methods have been reworked to be able to wait for Patterns
   full loading process before actually creating the object, so that the first render has the pattern ready to show. That was a longstanding bug since 2013.<br />

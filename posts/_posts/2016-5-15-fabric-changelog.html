@@ -7,6 +7,40 @@ title: Fabric.js. release highlights.
 
 <div class="container" style="margin:30px auto">
   <h2 id="introduction_to_fabricjs">Fabric.js release highlights</h2>
+
+  <h3>Version 1.7.6 ( plus 1.7.5 and 1.7.4)</h3>
+  <p>
+    New functionalities about coordinates:
+    Now setCoords updates both the corner coords for mouse interaction and a new set called aCoords that is a set of absolute coordinates that a dev can use for its own calculation on positions.<br />
+    Introduced a set of coordinates on canvas that let you figure out where the current viewport start and finish.
+    A new method for objects, called `isOnScreen` let;s you find out if at least a corner of an object is visible in the current viewport
+    Fabric.Color class now can export colors in HEX + opacity format
+    Notable fixes:
+    We switched some touch event handling to accomodate latest chrome changes
+    Removed gaps on continuos textbackgroundColor on Itext
+  </p>
+  <pre>
+    Fix: make the cacheCanvas created on the fly if not available
+    Improvement: draw textbackgroundColor in one single pass when possible
+    Improvement: fire selection changed event just if text is editing
+    Improvement: Add object property 'needsItsOwnCache'
+    Improvement: Skip unnecessary transform if they can be detected with a single if
+    Fix: Moved all the touch event to passive false so that they behave as before chrome changes
+    Fix: force top and left in the object representation of a path to avoid reparsing on restore
+    Add: Enable deselected event for activeObject switch. Ensure deactivateAll call exitEditing
+    Fix: Perform subtargetCheck also if the group is an active object and on activeGroup
+    Fix: Made cursor operation more precise at high canvas zoom level
+    Add: Made getBoundingRect available to return both absolute or standard bounding rect
+    Add: Introduced calcViewportBoundaries() function for fabric.StaticCanvas
+    Add: Introduced isOnScreen() function for fabric.Object
+    Subclassed Polygon from polyline
+    Fix: Removed reference to hovered target when target gets removed
+    Fix: Removed hover cursor for non selectable objects
+    Fix: Switch to passive event for touch move
+    Fix: Restart rendering of cursor after entering some text
+    Add: fabric.Color support toHexa() method now
+  </pre>
+
   <h3>Version 1.7.3</h3>
   <p>Mixed release, cleaning and important bugfixes.<br /> Objects <code>fromObject</code> methods have been reworked to be able to wait for Patterns
   full loading process before actually creating the object, so that the first render has the pattern ready to show. That was a longstanding bug since 2013.<br />

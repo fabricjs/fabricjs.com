@@ -6,10 +6,16 @@ fabric.util.object.extend(fabric.IText.prototype, /** @lends fabric.IText.protot
   initHiddenTextarea: function() {
     this.hiddenTextarea = fabric.document.createElement('textarea');
     this.hiddenTextarea.setAttribute('autocapitalize', 'off');
+    this.hiddenTextarea.setAttribute('autocorrect', 'off');
+    this.hiddenTextarea.setAttribute('autocomplete', 'off');
+    this.hiddenTextarea.setAttribute('spellcheck', 'false');
+
     var style = this._calcTextareaPosition();
-    this.hiddenTextarea.style.cssText = 'position: absolute; top: ' + style.top + '; left: ' + style.left + ';'
-                                        + ' opacity: 0; width: 0px; height: 0px; z-index: -999;';
-    fabric.document.body.appendChild(this.hiddenTextarea);
+    this.hiddenTextarea.style.cssText = 'position: absolute; top: ' + style.top + '; left: ' + style.left + '; z-index: -999;' +
+      ' opacity: 0; width: 0.1px; height: 0.1px; font-size: 0px; line-height: 0; paddingｰtop: ' + style.fontSize + ';';
+    if (this.canvas) {
+      this.canvas.lowerCanvasEl.parentNode.appendChild(this.hiddenTextarea);
+    }
 
     fabric.util.addListener(this.hiddenTextarea, 'keydown', this.onKeyDown.bind(this));
     fabric.util.addListener(this.hiddenTextarea, 'keyup', this.onKeyUp.bind(this));
@@ -31,7 +37,6 @@ fabric.util.object.extend(fabric.IText.prototype, /** @lends fabric.IText.protot
    * @private
    */
   _keysMap: {
-    8:  'removeChars',
     9:  'exitEditing',
     27: 'exitEditing',
     13: 'insertNewline',
@@ -43,7 +48,6 @@ fabric.util.object.extend(fabric.IText.prototype, /** @lends fabric.IText.protot
     38: 'moveCursorUp',
     39: 'moveCursorRight',
     40: 'moveCursorDown',
-    46: 'forwardDelete'
   },
 
   /**
@@ -71,7 +75,7 @@ fabric.util.object.extend(fabric.IText.prototype, /** @lends fabric.IText.protot
    * @param {Event} e Event object
    */
   onKeyDown: function(e) {
-    if (!this.isEditing) {
+    if (!this.isEditing　|| this.inCompositionMode) {
       return;
     }
     if (e.keyCode in this._keysMap) {
@@ -102,7 +106,7 @@ fabric.util.object.extend(fabric.IText.prototype, /** @lends fabric.IText.protot
    * @param {Event} e Event object
    */
   onKeyUp: function(e) {
-    if (!this.isEditing || this._copyDone) {
+    if (!this.isEditing || this._copyDone || this.inCompositionMode) {
       this._copyDone = false;
       return;
     }
@@ -122,56 +126,57 @@ fabric.util.object.extend(fabric.IText.prototype, /** @lends fabric.IText.protot
    * @param {Event} e Event object
    */
   onInput: function(e) {
-    if (!this.isEditing || this.inCompositionMode) {
+    if (!this.isEditing) {
       return;
     }
-    var offset = this.selectionStart || 0,
-        offsetEnd = this.selectionEnd || 0,
-        textLength = this.text.length,
-        newTextLength = this.hiddenTextarea.value.length,
-        diff, charsToInsert, start;
-    if (newTextLength > textLength) {
-      //we added some character
-      start = this._selectionDirection === 'left' ? offsetEnd : offset;
-      diff = newTextLength - textLength;
-      charsToInsert = this.hiddenTextarea.value.slice(start, start + diff);
-    }
-    else {
-      //we selected a portion of text and then input something else.
-      //Internet explorer does not trigger this else
-      diff = newTextLength - textLength + offsetEnd - offset;
-      charsToInsert = this.hiddenTextarea.value.slice(offset, offset + diff);
-    }
-    this.insertChars(charsToInsert);
+    console.log(e.target.selectionEnd - e.target.selectionStart)
+    // var offset = this.selectionStart || 0,
+    //     offsetEnd = this.selectionEnd || 0,
+    //     textLength = this.text.length,
+    //     newTextLength = this.hiddenTextarea.value.length,
+    //     diff, charsToInsert, start;
+    // if (newTextLength > textLength) {
+    //   //we added some character
+    //   start = this._selectionDirection === 'left' ? offsetEnd : offset;
+    //   diff = newTextLength - textLength;
+    //   charsToInsert = this.hiddenTextarea.value.slice(start, start + diff);
+    // }
+    // else {
+    //   //we selected a portion of text and then input something else.
+    //   //Internet explorer does not trigger this else
+    //   diff = newTextLength - textLength + offsetEnd - offset;
+    //   charsToInsert = this.hiddenTextarea.value.slice(offset, offset + diff);
+    // }
+    // this.insertChars(charsToInsert);
+    this.updateFromTextArea();
+    this.canvas && this.canvas.renderAll();
     e.stopPropagation();
   },
 
   /**
    * Composition start
    */
-  onCompositionStart: function() {
+  onCompositionStart: function(e) {
+    console.debug(e)
     this.inCompositionMode = true;
-    this.prevCompositionLength = 0;
-    this.compositionStart = this.selectionStart;
   },
 
   /**
    * Composition end
    */
-  onCompositionEnd: function() {
+  onCompositionEnd: function(e) {
+    console.debug(e)
     this.inCompositionMode = false;
   },
 
-  /**
-   * Composition update
-   */
+  // /**
+  //  * Composition update
+  //  */
   onCompositionUpdate: function(e) {
-    var data = e.data;
-    this.selectionStart = this.compositionStart;
-    this.selectionEnd = this.selectionEnd === this.selectionStart ?
-      this.compositionStart + this.prevCompositionLength : this.selectionEnd;
-    this.insertChars(data, false);
-    this.prevCompositionLength = data.length;
+    console.debug(e)
+    this.compositionStart = e.target.selectionStart;
+    this.compositionEnd = e.target.selectionEnd;
+    this.updateTextareaPosition();
   },
 
   /**
@@ -269,12 +274,12 @@ fabric.util.object.extend(fabric.IText.prototype, /** @lends fabric.IText.protot
    */
   _getWidthBeforeCursor: function(lineIndex, charIndex) {
     var textBeforeCursor = this._textLines[lineIndex].slice(0, charIndex),
-        widthOfLine = this._getLineWidth(this.ctx, lineIndex),
+        widthOfLine = this.getLineWidth(lineIndex),
         widthBeforeCursor = this._getLineLeftOffset(widthOfLine), _char;
 
     for (var i = 0, len = textBeforeCursor.length; i < len; i++) {
       _char = textBeforeCursor[i];
-      widthBeforeCursor += this._getWidthOfChar(this.ctx, _char, lineIndex, i);
+      widthBeforeCursor += this._getWidthOfChar(_char, lineIndex, i);
     }
     return widthBeforeCursor;
   },
@@ -345,7 +350,7 @@ fabric.util.object.extend(fabric.IText.prototype, /** @lends fabric.IText.protot
    */
   _getIndexOnLine: function(lineIndex, width) {
 
-    var widthOfLine = this._getLineWidth(this.ctx, lineIndex),
+    var widthOfLine = this.getLineWidth(lineIndex),
         textOnLine = this._textLines[lineIndex],
         lineLeftOffset = this._getLineLeftOffset(widthOfLine),
         widthOfCharsOnLine = lineLeftOffset,
@@ -355,7 +360,7 @@ fabric.util.object.extend(fabric.IText.prototype, /** @lends fabric.IText.protot
     for (var j = 0, jlen = textOnLine.length; j < jlen; j++) {
 
       var _char = textOnLine[j],
-          widthOfChar = this._getWidthOfChar(this.ctx, _char, lineIndex, j);
+          widthOfChar = this._getWidthOfChar(_char, lineIndex, j);
 
       widthOfCharsOnLine += widthOfChar;
 

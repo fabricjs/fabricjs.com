@@ -872,8 +872,8 @@
           width = dim.x * zoomX,
           height = dim.y * zoomY;
       return {
-        width: Math.ceil(width) + 2,
-        height: Math.ceil(height) + 2,
+        width: width + 2,
+        height: height + 2,
         zoomX: zoomX,
         zoomY: zoomY
       };
@@ -897,8 +897,8 @@
           zoomX = dims.zoomX, zoomY = dims.zoomY;
 
       if (width !== this.cacheWidth || height !== this.cacheHeight) {
-        this._cacheCanvas.width = width;
-        this._cacheCanvas.height = height;
+        this._cacheCanvas.width = Math.ceil(width);
+        this._cacheCanvas.height = Math.ceil(height);
         this._cacheContext.translate(width / 2, height / 2);
         this._cacheContext.scale(zoomX, zoomY);
         this.cacheWidth = width;
@@ -1132,6 +1132,9 @@
     render: function(ctx, noTransform) {
       // do not render if width/height are zeros or object is not visible
       if ((this.width === 0 && this.height === 0) || !this.visible) {
+        return;
+      }
+      if (this.canvas && this.canvas.skipOffscreen && !this.group && !this.isOnScreen()) {
         return;
       }
       ctx.save();
@@ -1814,8 +1817,12 @@
     object = clone(object, true);
     if (forceAsync) {
       fabric.util.enlivenPatterns([object.fill, object.stroke], function(patterns) {
-        object.fill = patterns[0];
-        object.stroke = patterns[1];
+        if (typeof patterns[0] !== 'undefined') {
+          object.fill = patterns[0];
+        }
+        if (typeof patterns[1] !== 'undefined') {
+          object.stroke = patterns[1];
+        }
         var instance = extraParam ? new klass(object[extraParam], object) : new klass(object);
         callback && callback(instance);
       });

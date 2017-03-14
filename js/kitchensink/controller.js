@@ -71,7 +71,7 @@ function addAccessors($scope) {
   };
 
   $scope.isUnderline = function() {
-    return getActiveStyle('textDecoration').indexOf('underline') > -1;
+    return getActiveStyle('textDecoration').indexOf('underline') > -1 || getActiveStyle('underline');
   };
   $scope.toggleUnderline = function() {
     var value = $scope.isUnderline()
@@ -79,10 +79,11 @@ function addAccessors($scope) {
       : (getActiveStyle('textDecoration') + ' underline');
 
     setActiveStyle('textDecoration', value);
+    setActiveStyle('underline', !getActiveStyle('underline'));
   };
 
   $scope.isLinethrough = function() {
-    return getActiveStyle('textDecoration').indexOf('line-through') > -1;
+    return getActiveStyle('textDecoration').indexOf('line-through') > -1 || getActiveStyle('linethrough');
   };
   $scope.toggleLinethrough = function() {
     var value = $scope.isLinethrough()
@@ -90,9 +91,10 @@ function addAccessors($scope) {
       : (getActiveStyle('textDecoration') + ' line-through');
 
     setActiveStyle('textDecoration', value);
+    setActiveStyle('linethrough', !getActiveStyle('linethrough'));
   };
   $scope.isOverline = function() {
-    return getActiveStyle('textDecoration').indexOf('overline') > -1;
+    return getActiveStyle('textDecoration').indexOf('overline') > -1 || getActiveStyle('overline');
   };
   $scope.toggleOverline = function() {
     var value = $scope.isOverline()
@@ -100,6 +102,7 @@ function addAccessors($scope) {
       : (getActiveStyle('textDecoration') + ' overline');
 
     setActiveStyle('textDecoration', value);
+    setActiveStyle('overline', !getActiveStyle('overline'));
   };
 
   $scope.getText = function() {

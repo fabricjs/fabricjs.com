@@ -437,18 +437,45 @@
      * @private
      */
     _updateTextarea: function() {
-      if (!this.hiddenTextarea || this.inCompositionMode) {
+      this.cursorOffsetCache = { };
+      if (!this.hiddenTextarea) {
+        return;
+      }
+      if (!this.inCompositionMode) {
+        this.hiddenTextarea.value = this.text;
+        this.hiddenTextarea.selectionStart = this.selectionStart;
+        this.hiddenTextarea.selectionEnd = this.selectionEnd;
+      }
+      this.updateTextareaPosition();
+    },
+
+    /**
+     * @private
+     */
+    updateFromTextArea: function() {
+      if (!this.hiddenTextarea) {
         return;
       }
       this.cursorOffsetCache = { };
-      this.hiddenTextarea.value = this.text;
-      this.hiddenTextarea.selectionStart = this.selectionStart;
-      this.hiddenTextarea.selectionEnd = this.selectionEnd;
+      this.text = this.hiddenTextarea.value;
+      this.selectionEnd = this.selectionStart = this.hiddenTextarea.selectionEnd;
+      if (!this.inCompositionMode) {
+        this.selectionStart = this.hiddenTextarea.selectionStart;
+      }
+      this.updateTextareaPosition();
+    },
+
+    /**
+     * @private
+     */
+    updateTextareaPosition: function() {
       if (this.selectionStart === this.selectionEnd) {
         var style = this._calcTextareaPosition();
         this.hiddenTextarea.style.left = style.left;
         this.hiddenTextarea.style.top = style.top;
-        this.hiddenTextarea.style.fontSize = style.fontSize;
+        //this.hiddenTextarea.style.fontSize = style.fontSize;
+        this.hiddenTextarea.style.height = style.charHeight　* this.lineHeight + 'px';
+        this.hiddenTextarea.style.paddingTop = style.charHeight　* this.lineHeight + 'px';
       }
     },
 
@@ -460,19 +487,17 @@
       if (!this.canvas) {
         return { x: 1, y: 1 };
       }
-      var chars = this.text.split(''),
-          boundaries = this._getCursorBoundaries(chars, 'cursor'),
-          cursorLocation = this.get2DCursorLocation(),
+      var desiredPostion = this.inCompositionMode ? this.compositionStart : this.selectionStart,
+          boundaries = this._getCursorBoundaries(desiredPostion),
+          cursorLocation = this.get2DCursorLocation(desiredPostion),
           lineIndex = cursorLocation.lineIndex,
           charIndex = cursorLocation.charIndex,
           charHeight = this.getCurrentCharFontSize(lineIndex, charIndex),
-          leftOffset = (lineIndex === 0 && charIndex === 0)
-                    ? this._getLineLeftOffset(this._getLineWidth(this.ctx, lineIndex))
-                    : boundaries.leftOffset,
+          leftOffset = boundaries.leftOffset,
           m = this.calcTransformMatrix(),
           p = {
             x: boundaries.left + leftOffset,
-            y: boundaries.top + boundaries.topOffset + charHeight
+            y: boundaries.top + boundaries.topOffset
           },
           upperCanvas = this.canvas.upperCanvasEl,
           maxWidth = upperCanvas.width - charHeight,
@@ -494,11 +519,7 @@
         p.y = maxHeight;
       }
 
-      // add canvas offset on document
-      p.x += this.canvas._offset.left;
-      p.y += this.canvas._offset.top;
-
-      return { left: p.x + 'px', top: p.y + 'px', fontSize: charHeight };
+      return { left: p.x + 'px', top: p.y + 'px', fontSize: charHeight + 'px', charHeight: charHeight };
     },
 
     /**
@@ -672,10 +693,6 @@
 
       this.shiftLineStyles(lineIndex, +1);
 
-      if (!this.styles[lineIndex + 1]) {
-        this.styles[lineIndex + 1] = {};
-      }
-
       var currentCharStyle = {},
           newLineStyles    = {};
 
@@ -685,21 +702,24 @@
 
       // if there's nothing after cursor,
       // we clone current char style onto the next (otherwise empty) line
-      if (isEndOfLine) {
+      if (isEndOfLine && currentCharStyle) {
         newLineStyles[0] = clone(currentCharStyle);
         this.styles[lineIndex + 1] = newLineStyles;
       }
       // otherwise we clone styles of all chars
       // after cursor onto the next line, from the beginning
       else {
+        var somethingAdded = false;
         for (var index in this.styles[lineIndex]) {
-          if (parseInt(index, 10) >= charIndex) {
-            newLineStyles[parseInt(index, 10) - charIndex] = this.styles[lineIndex][index];
+          var numIndex = parseInt(index, 10);
+          if (numIndex >= charIndex) {
+            somethingAdded = true;
+            newLineStyles[numIndex - charIndex] = this.styles[lineIndex][index];
             // remove lines from the previous line since they're on a new line now
             delete this.styles[lineIndex][index];
           }
         }
-        this.styles[lineIndex + 1] = newLineStyles;
+        somethingAdded && (this.styles[lineIndex + 1] = newLineStyles);
       }
       this._forceClearCache = true;
     },
@@ -733,9 +753,8 @@
           }
         }
       }
-
-      this.styles[lineIndex][charIndex] =
-        style || clone(currentLineStyles[charIndex - 1]);
+      var newStyle = style || currentLineStyles[charIndex - 1];
+      newStyle && (this.styles[lineIndex][charIndex] = newStyle);
       this._forceClearCache = true;
     },
 

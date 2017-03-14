@@ -140,6 +140,13 @@
       this.fire('mouse:out', { target: target, e: e });
       this._hoveredTarget = null;
       target && target.fire('mouseout', { e: e });
+      if (this._iTextInstances) {
+        this._iTextInstances.forEach(function(obj) {
+          if (obj.isEditing) {
+            obj.hiddenTextarea.focus();
+          }
+        });
+      }
     },
 
     /**
@@ -467,6 +474,14 @@
         return;
       }
 
+      var isMiddleClick  = 'which' in e ? e.which === 2 : e.button === 1;
+      if (isMiddleClick) {
+        if (this.fireMiddleClick) {
+          this._handleEvent(e, 'down', target ? target : null);
+        }
+        return;
+      }
+
       if (this.isDrawingMode) {
         this._onMouseDownInDrawingMode(e);
         return;
@@ -497,10 +512,13 @@
           this._beforeTransform(e, target);
           this._setupCurrentTransform(e, target);
         }
-
-        if (target !== this.getActiveGroup() && target !== this.getActiveObject()) {
+        var activeObject = this.getActiveObject();
+        if (target !== this.getActiveGroup() && target !== activeObject) {
           this.deactivateAll();
-          target.selectable && this.setActiveObject(target, e);
+          if (target.selectable) {
+            activeObject && activeObject.fire('deselected', { e: e });
+            this.setActiveObject(target, e);
+          }
         }
       }
       this._handleEvent(e, 'down', target ? target : null);

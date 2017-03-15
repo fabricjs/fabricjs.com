@@ -7,7 +7,32 @@ title: Fabric.js. release highlights.
 
 <div class="container" style="margin:30px auto">
   <h2 id="introduction_to_fabricjs">Fabric.js release highlights</h2>
-
+  <h3>Version 1.7.8 and 1.7.7</h3>
+  <p>
+    This is maybe the last release of the 1.x branch. New important and api breaking work is in progress and will be labeled as fabric 2.x <br />
+    The change i like most comes from a casual contributor, <code>by12</code> and fixes path bounding box calculation. No more trimmed paths!<br />
+    A change in translation on the cache canvas fixed blurriness introduced since 1.7.3, that is also worth an update.<br />
+    For iText, Textbox typers, the style object does not get polluted with useless empty objects now.<br />
+    And last but not the least, we have a new flag called <code>fabric.StaticCanvas.prototype.skipOffscreen</code> default to <code>false</code>
+    that will calculate with objects aCoords if the object is on the screen or outside the screen and will skip the rendering part completely.
+    This is an optional feature but it turns out to be very usefull when you are dealing with large number of objects and you are using zoom or panning much.<br />
+    While object.oCoords needs to be updated every zoom/pan, aCoords are static with object position and are still valid when we change the viewport. This allows us
+    to detect if they are offscreen simply calculating the viewportCoords at the expense of 2 transformed points calculation. A demo page will follow soon.
+  </p>
+  <pre>
+    Fix: Fix dirty flag propagation #3782
+    Fix: Path parsing error in bounding boxes of curves #3774
+    Add: Middle click mouse management on canvas #3764
+    Add: Add parameter to detect and skip offscreen drawing #3758
+    Fix: textarea loosing focus after a drag and exit from canvas #3759
+    Fix for opacity parsing in svg with nested opacities #3747
+    Fix text initialization and boundingrect #3745
+    Fix line bounding box #3742
+    Improvement: do not pollute style object while typing if not necessary #3743
+    fix for broken prototype chain when restoring a dataless object on fill an stroke #3735
+    fix for deselected event not fired on mouse actions #3716
+    fix for blurriness introduced on 1.7.3 #3721
+  </pre>
   <h3>Version 1.7.6 ( plus 1.7.5 and 1.7.4)</h3>
   <p>
     New functionalities about coordinates:

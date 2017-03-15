@@ -39,13 +39,13 @@ title: SVG Rendering
 //    33, 34, 35 /* very intense shapes */,
 //    66 /* the shape is too big */,
 //    68 /* svg has parsing error */,
-    72, 73 /* shapes are too big */,
+//    72, 73 /* shapes are too big */,
 //   74, 75 /* shapes has weird dimensions */,
 //    78, 79, 80, 81, 82, 83, 84, 85 /* wrong offset */,
 //   149 /* too big? */,
-    150 /* svg parse error */ 
+    150 /* svg parse error */
   ];
-  for (var i = 1; i <= 177; i++) {
+  for (var i = 1; i <= 178; i++) {
     if (blacklist.indexOf(i) === -1) {
       document.write(
         '<div class="test"><div class="block left"><p>Canvas #' + i + '</p>' +

@@ -358,6 +358,7 @@
       this.callSuper('initialize', options);
       this.__skipDimension = false;
       this._initDimensions();
+      this.setCoords();
       this.setupState({ propertySet: '_dimensionAffectingProps' });
     },
 
@@ -403,9 +404,9 @@
      */
     _getCacheCanvasDimensions: function() {
       var dim = this.callSuper('_getCacheCanvasDimensions');
-      var fontSize = Math.ceil(this.fontSize) * 2;
-      dim.width += fontSize;
-      dim.height += fontSize;
+      var fontSize = this.fontSize * 2;
+      dim.width += fontSize * dim.zoomX;
+      dim.height += fontSize * dim.zoomY;
       return dim;
     },
 
@@ -846,6 +847,9 @@
     render: function(ctx, noTransform) {
       // do not render if object is not visible
       if (!this.visible) {
+        return;
+      }
+      if (this.canvas && this.canvas.skipOffscreen && !this.group && !this.isOnScreen()) {
         return;
       }
       if (this._shouldClearDimensionCache()) {

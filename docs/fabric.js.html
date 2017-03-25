@@ -82,7 +82,7 @@
             <pre class="prettyprint source linenums"><code>/* build: `node build.js modules=ALL exclude=json,gestures minifier=uglifyjs` */
  /*! Fabric.js Copyright 2008-2015, Printio (Juriy Zaytsev, Maxim Chernyak) */
 
-var fabric = fabric || { version: "1.7.8" };
+var fabric = fabric || { version: "1.7.9" };
 if (typeof exports !== 'undefined') {
   exports.fabric = fabric;
 }
@@ -3884,8 +3884,10 @@ if (typeof console !== 'undefined') {
    * @param {Function} callback Callback to call when parsing is finished;
    * It's being passed an array of elements (parsed from a document).
    * @param {Function} [reviver] Method for further parsing of SVG elements, called after each fabric object created.
+   * @param {Object} [parsingOptions] options for parsing document
+   * @param {String} [parsingOptions.crossOrigin] crossOrigin settings
    */
-  fabric.parseSVGDocument = function(doc, callback, reviver) {
+  fabric.parseSVGDocument = function(doc, callback, reviver, parsingOptions) {
     if (!doc) {
       return;
     }
@@ -3895,7 +3897,7 @@ if (typeof console !== 'undefined') {
     var svgUid =  fabric.Object.__uid++,
         options = applyViewboxTransform(doc),
         descendants = fabric.util.toArray(doc.getElementsByTagName('*'));
-
+    options.crossOrigin = parsingOptions &amp;&amp; parsingOptions.crossOrigin;
     options.svgUid = svgUid;
 
     if (descendants.length === 0 &amp;&amp; fabric.isLikelyNode) {
@@ -3927,7 +3929,7 @@ if (typeof console !== 'undefined') {
       if (callback) {
         callback(instances, options);
       }
-    }, clone(options), reviver);
+    }, clone(options), reviver, parsingOptions);
   };
 
   var reFontDeclaration = new RegExp(
@@ -4079,8 +4081,8 @@ if (typeof console !== 'undefined') {
      * @param {Object} [options] Options object
      * @param {Function} [reviver] Method for further parsing of SVG elements, called after each fabric object created.
      */
-    parseElements: function(elements, callback, options, reviver) {
-      new fabric.ElementsParser(elements, callback, options, reviver).parse();
+    parseElements: function(elements, callback, options, reviver, parsingOptions) {
+      new fabric.ElementsParser(elements, callback, options, reviver, parsingOptions).parse();
     },
 
     /**
@@ -4206,8 +4208,10 @@ if (typeof console !== 'undefined') {
      * @param {String} url
      * @param {Function} callback
      * @param {Function} [reviver] Method for further parsing of SVG elements, called after each fabric object created.
+     * @param {Object} [options] Object containing options for parsing
+     * @param {String} [options.crossOrigin] crossOrigin crossOrigin setting to use for external resources
      */
-    loadSVGFromURL: function(url, callback, reviver) {
+    loadSVGFromURL: function(url, callback, reviver, options) {
 
       url = url.replace(/^\n\s*/, '').trim();
       new fabric.util.request(url, {
@@ -4228,9 +4232,9 @@ if (typeof console !== 'undefined') {
           callback &amp;&amp; callback(null);
         }
 
-        fabric.parseSVGDocument(xml.documentElement, function (results, options) {
-          callback &amp;&amp; callback(results, options);
-        }, reviver);
+        fabric.parseSVGDocument(xml.documentElement, function (results, _options) {
+          callback &amp;&amp; callback(results, _options);
+        }, reviver, options);
       }
     },
 
@@ -4240,8 +4244,10 @@ if (typeof console !== 'undefined') {
      * @param {String} string
      * @param {Function} callback
      * @param {Function} [reviver] Method for further parsing of SVG elements, called after each fabric object created.
+     * @param {Object} [options] Object containing options for parsing
+     * @param {String} [options.crossOrigin] crossOrigin crossOrigin setting to use for external resources
      */
-    loadSVGFromString: function(string, callback, reviver) {
+    loadSVGFromString: function(string, callback, reviver, options) {
       string = string.trim();
       var doc;
       if (typeof DOMParser !== 'undefined') {
@@ -4257,21 +4263,22 @@ if (typeof console !== 'undefined') {
         doc.loadXML(string.replace(/&lt;!DOCTYPE[\s\S]*?(\[[\s\S]*\])*?>/i, ''));
       }
 
-      fabric.parseSVGDocument(doc.documentElement, function (results, options) {
-        callback(results, options);
-      }, reviver);
+      fabric.parseSVGDocument(doc.documentElement, function (results, _options) {
+        callback(results, _options);
+      }, reviver, options);
     }
   });
 
 })(typeof exports !== 'undefined' ? exports : this);
 
 
-fabric.ElementsParser = function(elements, callback, options, reviver) {
+fabric.ElementsParser = function(elements, callback, options, reviver, parsingOptions) {
   this.elements = elements;
   this.callback = callback;
   this.options = options;
   this.reviver = reviver;
   this.svgUid = (options &amp;&amp; options.svgUid) || 0;
+  this.parsingOptions = parsingOptions;
 };
 
 fabric.ElementsParser.prototype.parse = function() {
@@ -19303,7 +19310,7 @@ fabric.util.object.extend(fabric.Object.prototype, /** @lends fabric.Object.prot
    * @see {@link http://www.w3.org/TR/SVG/struct.html#ImageElement}
    */
   fabric.Image.ATTRIBUTE_NAMES =
-    fabric.SHARED_ATTRIBUTES.concat('x y width height preserveAspectRatio xlink:href'.split(' '));
+    fabric.SHARED_ATTRIBUTES.concat('x y width height preserveAspectRatio xlink:href crossOrigin'.split(' '));
 
   /**
    * Returns {@link fabric.Image} instance from an SVG element
@@ -24290,7 +24297,7 @@ fabric.Image.filters.BaseFilter.fromObject = function(object, callback) {
       }
 
       this.isEditing = true;
-
+      this.selected = true;
       this.initHiddenTextarea(e);
       this.hiddenTextarea.focus();
       this._updateTextarea();
@@ -24675,7 +24682,7 @@ fabric.Image.filters.BaseFilter.fromObject = function(object, callback) {
           }
         }
       }
-      var newStyle = style || currentLineStyles[charIndex - 1];
+      var newStyle = style || clone(currentLineStyles[charIndex - 1]);
       newStyle &amp;&amp; (this.styles[lineIndex][charIndex] = newStyle);
       this._forceClearCache = true;
     },
@@ -24711,8 +24718,14 @@ fabric.Image.filters.BaseFilter.fromObject = function(object, callback) {
      * @param {Number} offset Can be -1 or +1
      */
     shiftLineStyles: function(lineIndex, offset) {
-      // shift all line styles by 1 upward
+      // shift all line styles by 1 upward or downward
       var clonedStyles = clone(this.styles);
+      for (var line in clonedStyles) {
+        var numericLine = parseInt(line, 10);
+        if (numericLine &lt;= lineIndex) {
+          delete clonedStyles[numericLine];
+        }
+      }
       for (var line in this.styles) {
         var numericLine = parseInt(line, 10);
         if (numericLine > lineIndex) {
@@ -24927,7 +24940,6 @@ fabric.util.object.extend(fabric.IText.prototype, /** @lends fabric.IText.protot
         return;
       }
       var pointer = this.canvas.getPointer(options.e);
-
       this.__mousedownX = pointer.x;
       this.__mousedownY = pointer.y;
       this.__isMousedown = true;
@@ -25084,8 +25096,8 @@ fabric.util.object.extend(fabric.IText.prototype, /** @lends fabric.IText.protot
     this.hiddenTextarea = fabric.document.createElement('textarea');
     this.hiddenTextarea.setAttribute('autocapitalize', 'off');
     var style = this._calcTextareaPosition();
-    this.hiddenTextarea.style.cssText = 'position: absolute; top: ' + style.top + '; left: ' + style.left + ';'
-                                        + ' opacity: 0; width: 0px; height: 0px; z-index: -999;';
+    this.hiddenTextarea.style.cssText = 'white-space: nowrap; position: absolute; top: ' + style.top +
+      '; left: ' + style.left + '; opacity: 0; width: 1px; height: 1px; z-index: -999;';
     fabric.document.body.appendChild(this.hiddenTextarea);
 
     fabric.util.addListener(this.hiddenTextarea, 'keydown', this.onKeyDown.bind(this));
@@ -26746,7 +26758,7 @@ fabric.util.object.extend(fabric.IText.prototype, /** @lends fabric.IText.protot
         <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="fabric.BaseBrush.html">BaseBrush</a></li><li><a href="fabric.Canvas.html">Canvas</a></li><li><a href="fabric.Circle.html">Circle</a></li><li><a href="fabric.CircleBrush.html">CircleBrush</a></li><li><a href="fabric.Color.html">Color</a></li><li><a href="fabric.Ellipse.html">Ellipse</a></li><li><a href="fabric.Gradient.html">Gradient</a></li><li><a href="fabric.Group.html">Group</a></li><li><a href="fabric.Image.html">Image</a></li><li><a href="fabric.Image.filters.BaseFilter.html">BaseFilter</a></li><li><a href="fabric.Image.filters.Brightness.html">Brightness</a></li><li><a href="fabric.Image.filters.ColorMatrix.html">ColorMatrix</a></li><li><a href="fabric.Image.filters.Contrast.html">Contrast</a></li><li><a href="fabric.Image.filters.Convolute.html">Convolute</a></li><li><a href="fabric.Image.filters.fabric.Image.filter.Blend.html">Blend</a></li><li><a href="fabric.Image.filters.GradientTransparency.html">GradientTransparency</a></li><li><a href="fabric.Image.filters.Grayscale.html">Grayscale</a></li><li><a href="fabric.Image.filters.Invert.html">Invert</a></li><li><a href="fabric.Image.filters.Mask.html">Mask</a></li><li><a href="fabric.Image.filters.Multiply.html">Multiply</a></li><li><a href="fabric.Image.filters.Noise.html">Noise</a></li><li><a href="fabric.Image.filters.Pixelate.html">Pixelate</a></li><li><a href="fabric.Image.filters.RemoveWhite.html">RemoveWhite</a></li><li><a href="fabric.Image.filters.Resize.html">Resize</a></li><li><a href="fabric.Image.filters.Saturate.html">Saturate</a></li><li><a href="fabric.Image.filters.Sepia.html">Sepia</a></li><li><a href="fabric.Image.filters.Sepia2.html">Sepia2</a></li><li><a href="fabric.Image.filters.Tint.html">Tint</a></li><li><a href="fabric.Intersection.html">Intersection</a></li><li><a href="fabric.IText.html">IText</a></li><li><a href="fabric.Line.html">Line</a></li><li><a href="fabric.Object.html">Object</a></li><li><a href="fabric.Path.html">Path</a></li><li><a href="fabric.PathGroup.html">PathGroup</a></li><li><a href="fabric.Pattern.html">Pattern</a></li><li><a href="fabric.PatternBrush.html">PatternBrush</a></li><li><a href="fabric.PencilBrush.html">PencilBrush</a></li><li><a href="fabric.Point.html">Point</a></li><li><a href="fabric.Polygon.html">Polygon</a></li><li><a href="fabric.Polyline.html">Polyline</a></li><li><a href="fabric.Rect.html">Rect</a></li><li><a href="fabric.Shadow.html">Shadow</a></li><li><a href="fabric.SprayBrush.html">SprayBrush</a></li><li><a href="fabric.StaticCanvas.html">StaticCanvas</a></li><li><a href="fabric.Text.html">Text</a></li><li><a href="fabric.Textbox.html">Textbox</a></li><li><a href="fabric.Triangle.html">Triangle</a></li></ul><h3>Namespaces</h3><ul><li><a href="fabric.html">fabric</a></li><li><a href="fabric.Collection.html">Collection</a></li><li><a href="fabric.CommonMethods.html">CommonMethods</a></li><li><a href="fabric.Image.filters.html">filters</a></li><li><a href="fabric.Observable.html">Observable</a></li><li><a href="fabric.util.html">util</a></li><li><a href="fabric.util.array.html">array</a></li><li><a href="fabric.util.ease.html">ease</a></li><li><a href="fabric.util.object.html">object</a></li><li><a href="fabric.util.string.html">string</a></li></ul><h3>Global</h3><ul><li><a href="global.html#__cachedLines">__cachedLines</a></li><li><a href="global.html#_getCursorBoundariesOffsets">_getCursorBoundariesOffsets</a></li><li><a href="global.html#_splitTextIntoLines">_splitTextIntoLines</a></li><li><a href="global.html#_wrapLine">_wrapLine</a></li><li><a href="global.html#_wrapText">_wrapText</a></li><li><a href="global.html#applyFilters">applyFilters</a></li><li><a href="global.html#dynamicMinWidth">dynamicMinWidth</a></li><li><a href="global.html#get2DCursorLocation">get2DCursorLocation</a></li><li><a href="global.html#initialize">initialize</a></li><li><a href="global.html#lockScalingFlip">lockScalingFlip</a></li><li><a href="global.html#lockScalingY">lockScalingY</a></li><li><a href="global.html#minWidth">minWidth</a></li><li><a href="global.html#noScaleCache">noScaleCache</a></li><li><a href="global.html#setOnGroup">setOnGroup</a></li><li><a href="global.html#toObject">toObject</a></li><li><a href="global.html#type">type</a></li></ul>
     </div>
 </nav>
-<footer><input id="toggle" type="checkbox" onclick="toggle(this.checked);"  /><label for="toggle" >Hide inherited properties and method from the page</label><br />Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Wed Mar 15 2017 09:26:36 GMT+0100 (CET)
+<footer><input id="toggle" type="checkbox" onclick="toggle(this.checked);"  /><label for="toggle" >Hide inherited properties and method from the page</label><br />Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Sat Mar 25 2017 19:06:35 GMT+0100 (CET)
 </footer>
 <script> prettyPrint(); </script>
 <script src="scripts/linenumber.js"> </script>

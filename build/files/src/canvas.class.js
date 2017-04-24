@@ -976,13 +976,6 @@
           angle = radiansToDegrees(curAngle - lastAngle + t.theta),
           hasRoated = true;
 
-      // normalize angle to positive value
-      if (angle < 0) {
-        angle = 360 + angle;
-      }
-
-      angle %= 360;
-
       if (t.target.snapAngle > 0) {
         var snapAngle  = t.target.snapAngle,
             snapThreshold  = t.target.snapThreshold || snapAngle,
@@ -995,13 +988,21 @@
         else if (Math.abs(angle - rightAngleLocked) < snapThreshold) {
           angle = rightAngleLocked;
         }
-
-        if (t.target.angle === angle) {
-          hasRoated = false;
-        }
       }
 
-      t.target.angle = angle;
+      // normalize angle to positive value
+      if (angle < 0) {
+        angle = 360 + angle;
+      }
+      angle %= 360;
+
+      if (t.target.angle === angle) {
+        hasRoated = false;
+      }
+      else {
+        t.target.angle = angle;
+      }
+
       return hasRoated;
     },
 
@@ -1136,16 +1137,16 @@
         if (this._hoveredTarget !== target) {
           if (this._hoveredTarget) {
             this.fire('mouse:out', { target: this._hoveredTarget, e: e });
-            this._hoveredTarget.fire('mouseout');
+            this._hoveredTarget.fire('mouseout', { e: e });
           }
           this.fire('mouse:over', { target: target, e: e });
-          target.fire('mouseover');
+          target.fire('mouseover', { e: e });
           this._hoveredTarget = target;
         }
       }
       else if (this._hoveredTarget) {
         this.fire('mouse:out', { target: this._hoveredTarget, e: e });
-        this._hoveredTarget.fire('mouseout');
+        this._hoveredTarget.fire('mouseout', { e: e });
         this._hoveredTarget = null;
       }
     },

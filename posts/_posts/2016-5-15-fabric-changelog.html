@@ -7,6 +7,25 @@ title: Fabric.js. release highlights.
 
 <div class="container" style="margin:30px auto">
   <h2 id="introduction_to_fabricjs">Fabric.js release highlights</h2>
+  <h3>Version 1.7.10</h3>
+  <p>Many fixes to be a minor release: <br />
+  Fixes to SVG export for polygons and for radial gradients in general.
+  Introducing a caching logic for groups that allow to smart cache what has not shadow as children object. This should reduce caching visual errors by much and still
+  allowing for cache optimization.<br />
+  Introduced some manual checks on the value of Math.cos so that we can output a correct angle of 90 or 270 degrees for objects.
+  </p>
+  <pre>
+    Fix: correct svg export for radial gradients #3807
+    Fix: Update fireout events to export the event object #3853
+    Fix: Improve callSuper to avoid infinite loops (not all of them) #3844
+    Fix: avoid selectionBackgroundColor leak on toDataUrl #3862
+    Fix: toDatelessObject for Group #3863
+    Improvement: better caching logic for groups #3864
+    Fix: correct svg gradient export for radial in polygons #3866
+    Fix: First draw could be empty for some objects #3870
+    Fix: Always send event data to object:selected #3871
+    Improvement: reduce angle calculation error #3872
+  </pre>
   <h3>Version 1.7.9</h3>
   <p>Small fixes for text related problems. If you are using text in your application, you should update.</p>
   <pre>

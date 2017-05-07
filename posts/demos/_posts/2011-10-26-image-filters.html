@@ -35,17 +35,17 @@ title: Image Filters
   <p>
     <label><span>Brightness:</span> <input type="checkbox" id="brightness" disabled></label>
     <br>
-    <label>Value: <input type="range" id="brightness-value" value="100" min="-255" max="255" disabled></label>
+    <label>Value: <input type="range" id="brightness-value" value="0.1" min="-1" max="1" step="0.003921" disabled></label>
   </p>
   <p>
     <label><span>Contrast:</span> <input type="checkbox" id="contrast" disabled></label>
     <br>
-    <label>Value: <input type="range" id="contrast-value" value="0" min="-255" max="255" disabled></label>
+    <label>Value: <input type="range" id="contrast-value" value="0" min="-1" max="1" step="0.003921" disabled></label>
   </p>
   <p>
-    <label><span>Saturate:</span> <input type="checkbox" id="saturate" disabled></label>
+    <label><span>Saturation:</span> <input type="checkbox" id="saturation" disabled></label>
     <br>
-    <label>Value: <input type="range" id="saturate-value" value="100" min="-100" max="100" disabled></label>
+    <label>Value: <input type="range" id="saturation-value" value="0" min="-1" max="1" step="0.003921" disabled></label>
   </p>
   <p>
     <label><span>Noise:</span> <input type="checkbox" id="noise" disabled></label>
@@ -105,14 +105,20 @@ title: Image Filters
   function applyFilter(index, filter) {
     var obj = canvas.getActiveObject();
     obj.filters[index] = filter;
-    obj.applyFilters(canvas.renderAll.bind(canvas));
+    console.time('timeTaken');
+    obj.applyFilters();
+    console.timeEnd('timeTaken');
+    canvas.renderAll();
   }
 
   function applyFilterValue(index, prop, value) {
     var obj = canvas.getActiveObject();
     if (obj.filters[index]) {
       obj.filters[index][prop] = value;
-      obj.applyFilters(canvas.renderAll.bind(canvas));
+      console.time('timeTaken');
+      obj.applyFilters();
+      console.timeEnd('timeTaken');
+      canvas.renderAll();
     }
   }
 
@@ -135,7 +141,7 @@ title: Image Filters
                           .forEach(function(el){ el.disabled = false; })
 
       var filters = ['grayscale', 'invert', 'remove-white', 'sepia', 'sepia2',
-                      'brightness', 'contrast', 'saturate', 'noise', 'gradient-transparency', 'pixelate',
+                      'brightness', 'contrast', 'saturation', 'noise', 'gradient-transparency', 'pixelate',
                       'blur', 'sharpen', 'emboss', 'tint', 'multiply', 'blend'];
 
       for (var i = 0; i < filters.length; i++) {
@@ -180,27 +186,27 @@ title: Image Filters
   };
   $('brightness').onclick = function () {
     applyFilter(5, this.checked && new f.Brightness({
-      brightness: parseInt($('brightness-value').value, 10)
+      brightness: parseFloat($('brightness-value').value)
     }));
   };
   $('brightness-value').onchange = function() {
-    applyFilterValue(5, 'brightness', parseInt(this.value, 10));
+    applyFilterValue(5, 'brightness', parseFloat(this.value));
   };
   $('contrast').onclick = function () {
     applyFilter(6, this.checked && new f.Contrast({
-      contrast: parseInt($('contrast-value').value, 10)
+      contrast: parseFloat($('contrast-value').value)
     }));
   };
   $('contrast-value').onchange = function() {
-    applyFilterValue(6, 'contrast', parseInt(this.value, 10));
+    applyFilterValue(6, 'contrast', parseFloat(this.value));
   };
-  $('saturate').onclick = function () {
-    applyFilter(7, this.checked && new f.Saturate({
-      saturate: parseInt($('saturate-value').value, 10)
+  $('saturation').onclick = function () {
+    applyFilter(7, this.checked && new f.Saturation({
+      saturation: parseFloat($('saturation-value').value)
     }));
   };
-  $('saturate-value').onchange = function() {
-    applyFilterValue(7, 'saturate', parseInt(this.value, 10));
+  $('saturation-value').onchange = function() {
+    applyFilterValue(7, 'saturation', parseFloat(this.value));
   };
   $('noise').onclick = function () {
     applyFilter(8, this.checked && new f.Noise({

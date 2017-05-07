@@ -1,5 +1,14 @@
 (function() {
 
+  function parseDecoration(object) {
+    if (object.textDecoration) {
+      object.textDecoration.indexOf('underline') > -1 && (object.underline = true);
+      object.textDecoration.indexOf('line-through') > -1 && (object.linethrough = true);
+      object.textDecoration.indexOf('overline') > -1 && (object.overline = true);
+      delete object.textDecoration;
+    }
+  }
+
   /**
    * IText class (introduced in <b>v1.4</b>) Events are also fired with "text:"
    * prefix when observing canvas.
@@ -262,14 +271,12 @@
      * or on a offscreen canvas to get the text width with measureText.
      * Updates this.width and this.height with the proper values.
      * Does not return dimensions.
-     * @param {CanvasRenderingContext2D} [ctx] Context to render on
      * @private
      */
-    initDimensions: function(ctx) {
-      if (!ctx) {
-        this.clearContextTop();
-      }
-      this.callSuper('initDimensions', ctx);
+    initDimensions: function() {
+      this.abortCursorAnimation();
+      this.clearContextTop();
+      this.callSuper('initDimensions');
     },
 
     /**
@@ -298,7 +305,7 @@
     /**
      * Prepare and clean the contextTop
      */
-    clearContextTop: function() {
+    clearContextTop: function(skipRestore) {
       if (!this.active || !this.isEditing) {
         return;
       }
@@ -309,7 +316,7 @@
         this.transform(ctx);
         this.transformMatrix && ctx.transform.apply(ctx, this.transformMatrix);
         this._clearTextArea(ctx);
-        ctx.restore();
+        skipRestore || ctx.restore();
       }
     },
 
@@ -323,11 +330,7 @@
       var boundaries = this._getCursorBoundaries(), ctx;
       if (this.canvas && this.canvas.contextTop) {
         ctx = this.canvas.contextTop;
-        ctx.save();
-        ctx.transform.apply(ctx, this.canvas.viewportTransform);
-        this.transform(ctx);
-        this.transformMatrix && ctx.transform.apply(ctx, this.transformMatrix);
-        this._clearTextArea(ctx);
+        this.clearContextTop(true);
       }
       else {
         ctx = this.ctx;
@@ -350,24 +353,26 @@
     /**
      * Returns 2d representation (lineIndex and charIndex) of cursor (or selection start)
      * @param {Number} [selectionStart] Optional index. When not given, current selectionStart is used.
+     * @param {Boolean} [skipWrapping] consider the location for unwrapped lines. usefull to manage styles.
      */
-    get2DCursorLocation: function(selectionStart) {
+    get2DCursorLocation: function(selectionStart, skipWrapping) {
       if (typeof selectionStart === 'undefined') {
         selectionStart = this.selectionStart;
       }
-      var len = this._textLines.length;
+      var lines = skipWrapping ? this._unwrappedTextLines : this._textLines;
+      var len = lines.length;
       for (var i = 0; i < len; i++) {
-        if (selectionStart <= this._textLines[i].length) {
+        if (selectionStart <= lines[i].length) {
           return {
             lineIndex: i,
             charIndex: selectionStart
           };
         }
-        selectionStart -= this._textLines[i].length + 1;
+        selectionStart -= lines[i].length + 1;
       }
       return {
         lineIndex: i - 1,
-        charIndex: this._textLines[i - 1].length < selectionStart ? this._textLines[i - 1].length : selectionStart
+        charIndex: lines[i - 1].length < selectionStart ? lines[i - 1].length : selectionStart
       };
     },
 
@@ -405,7 +410,7 @@
       if (this.cursorOffsetCache && 'top' in this.cursorOffsetCache) {
         return this.cursorOffsetCache;
       }
-      var lineLeftOffset = 0,
+      var lineLeftOffset,
           lineIndex = 0,
           charIndex = 0,
           topOffset = 0,
@@ -415,14 +420,16 @@
       for (var i = 0; i < cursorPosition.lineIndex; i++) {
         topOffset += this.getHeightOfLine(i);
       }
-      lineLeftOffset = this._getLineLeftOffset(this.getLineWidth(cursorPosition.lineIndex));
-      leftOffset = this.__charBounds[cursorPosition.lineIndex][cursorPosition.charIndex].left;
+
+      lineLeftOffset = this._getLineLeftOffset(cursorPosition.lineIndex);
+      var bound = this.__charBounds[cursorPosition.lineIndex][cursorPosition.charIndex];
+      bound && (leftOffset = bound.left);
       if (this.charSpacing !== 0 && charIndex === this._textLines[lineIndex].length) {
         leftOffset -= this._getWidthOfCharSpacing();
       }
       boundaries = {
         top: topOffset,
-        left: lineLeftOffset + leftOffset > 0 ? leftOffset : 0,
+        left: lineLeftOffset + (leftOffset > 0 ? leftOffset : 0),
       };
       this.cursorOffsetCache = boundaries;
       return this.cursorOffsetCache;
@@ -437,21 +444,20 @@
       var cursorLocation = this.get2DCursorLocation(),
           lineIndex = cursorLocation.lineIndex,
           charIndex = cursorLocation.charIndex > 0 ? cursorLocation.charIndex - 1 : 0,
-          charHeight = this.getCurrentCharFontSize(lineIndex, charIndex),
+          charHeight = this.getValueOfPropertyAt(lineIndex, charIndex, 'fontSize'),
           multiplier = this.scaleX * this.canvas.getZoom(),
           cursorWidth = this.cursorWidth / multiplier,
           topOffset = boundaries.topOffset;
 
       topOffset += (1 - this._fontSizeFraction) * this.getHeightOfLine(lineIndex) / this.lineHeight
-        - this.getCurrentCharFontSize(lineIndex, charIndex) * (1 - this._fontSizeFraction);
+        - charHeight * (1 - this._fontSizeFraction);
 
       if (this.inCompositionMode) {
         this.renderSelection(boundaries, ctx);
       }
 
-      ctx.fillStyle = this.getCurrentCharColor(lineIndex, charIndex);
+      ctx.fillStyle = this.getValueOfPropertyAt(lineIndex, charIndex, 'fill');
       ctx.globalAlpha = this.__isMousedown ? 1 : this._currentCursorOpacity;
-
       ctx.fillRect(
         boundaries.left + boundaries.leftOffset - cursorWidth / 2,
         topOffset + boundaries.top,
@@ -472,11 +478,11 @@
           end = this.get2DCursorLocation(selectionEnd),
           startLine = start.lineIndex,
           endLine = end.lineIndex,
-          startChar = start.charIndex,
-          endChar = end.charIndex;
+          startChar = start.charIndex < 0 ? 0 : start.charIndex,
+          endChar = end.charIndex < 0 ? 0 : end.charIndex;
 
       for (var i = startLine; i <= endLine; i++) {
-        var lineOffset = this._getLineLeftOffset(this.getLineWidth(i)) || 0,
+        var lineOffset = this._getLineLeftOffset(i) || 0,
             lineHeight = this.getHeightOfLine(i),
             realLineHeight = 0, boxStart = 0, boxEnd = 0;
 
@@ -487,7 +493,12 @@
           boxEnd = this.getLineWidth(i) || 5; // WTF is this 5?
         }
         else if (i === endLine) {
-          boxEnd = this.__charBounds[endLine][endChar].left;
+          if (endChar === 0) {
+            boxEnd = this.__charBounds[endLine][endChar].left;
+          }
+          else {
+            boxEnd = this.__charBounds[endLine][endChar - 1].left + this.__charBounds[endLine][endChar - 1].width;
+          }
         }
         realLineHeight = lineHeight;
         if (this.lineHeight < 1 || (i === endLine && this.lineHeight > 1)) {
@@ -513,6 +524,38 @@
 
         boundaries.topOffset += realLineHeight;
       }
+    },
+
+    /**
+     * High level function to know the height of the cursor.
+     * the currentChar is the one that precedes the cursor
+     * Returns fontSize of char at the current cursor
+     * @return {Number} Character font size
+     */
+    getCurrentCharFontSize: function() {
+      var cp = this._getCurrentCharIndex();
+      return this.getValueOfPropertyAt(cp.l, cp.c, 'fontSize');
+    },
+
+    /**
+     * High level function to know the color of the cursor.
+     * the currentChar is the one that precedes the cursor
+     * Returns color (fill) of char at the current cursor
+     * @return {String} Character color (fill)
+     */
+    getCurrentCharColor: function() {
+      var cp = this._getCurrentCharIndex();
+      return this.getValueOfPropertyAt(cp.l, cp.c, 'fill');
+    },
+
+    /**
+     * Returns the cursor position for the getCurrent.. functions
+     * @private
+     */
+    _getCurrentCharIndex: function() {
+      var cursorPosition = this.get2DCursorLocation(this.selectionStart, true),
+          charIndex = cursorPosition.charIndex > 0 ? cursorPosition.charIndex - 1 : 0;
+      return { l: cursorPosition.lineIndex, c: charIndex };
     }
   });
 
@@ -526,6 +569,14 @@
    * @return {fabric.IText} instance of fabric.IText
    */
   fabric.IText.fromObject = function(object, callback, forceAsync) {
+    parseDecoration(object);
+    if (object.styles) {
+      for (var i in object.styles) {
+        for (var j in object.styles[i]) {
+          parseDecoration(object.styles[i][j]);
+        }
+      }
+    }
     return fabric.Object._fromObject('IText', object, callback, forceAsync, 'text');
   };
 })();

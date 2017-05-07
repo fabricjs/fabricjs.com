@@ -40,10 +40,6 @@
       else {
         this._createActiveGroup(target, e);
       }
-
-      if (this._activeGroup) {
-        this._activeGroup.saveCoords();
-      }
     },
 
     /**
@@ -61,7 +57,7 @@
           // remove group alltogether if after removal it only contains 1 object
           this.discardActiveGroup(e);
           // activate last remaining object
-          this.setActiveObject(activeGroup.item(0));
+          this.setActiveObject(activeGroup.item(0), e);
           return;
         }
       }
@@ -82,7 +78,7 @@
         var group = this._createGroup(target);
         group.addWithUpdate();
 
-        this.setActiveGroup(group);
+        this.setActiveGroup(group, e);
         this._activeObject = null;
 
         this.fire('selection:created', { target: group, e: e });
@@ -126,8 +122,7 @@
         });
         group.addWithUpdate();
         this.setActiveGroup(group, e);
-        group.saveCoords();
-        this.fire('selection:created', { target: group });
+        this.fire('selection:created', { target: group, e: e });
         this.renderAll();
       }
     },

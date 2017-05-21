@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="kitchensink">
+  <head>
+    <meta charset="utf-8">
+
+    <title>{{ page.title }} | Fabric.js Demos</title>
+
+    <link rel="stylesheet" href="../css/master.css">
+    <link rel="stylesheet" href="../css/prism.css">
+    <style>
+      pre { margin-left: 15px !important }
+    </style>
+    <script src="../lib/prism.js"></script>
+    <script>
+      (function() {
+        var fabricUrl = '../lib/fabric2.js';
+        if (document.location.search.indexOf('load_fabric_from=') > -1) {
+          var match = document.location.search.match(/load_fabric_from=([^&]*)/);
+          if (match && match[1]) {
+            fabricUrl = match[1];
+          }
+        }
+        document.write('<script src="' + fabricUrl + '"><\/script>');
+      })();
+    </script>
+    <script src="../js/master.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+  </head>
+  <body>
+    {% include header.html %}
+
+    <div id="bd-wrapper" ng-controller="CanvasControls">
+      <h2><span>Fabric.js demos</span> &middot; {{ page.title }}</h2>
+
+      {{ content }}
+    </div>
+
+    <script>
+      (function(){
+        var mainScriptEl = document.getElementById('main');
+        if (!mainScriptEl) return;
+        var preEl = document.createElement('pre');
+        var codeEl = document.createElement('code');
+        codeEl.innerHTML = mainScriptEl.innerHTML;
+        codeEl.className = 'language-javascript';
+        preEl.appendChild(codeEl);
+        document.getElementById('bd-wrapper').appendChild(preEl);
+      })();
+    </script>
+
+    {% include onload.html %}
+
+  </body>
+</html>

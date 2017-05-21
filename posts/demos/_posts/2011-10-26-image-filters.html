@@ -23,19 +23,25 @@ title: Image Filters
     <label><span>Sepia:</span> <input type="checkbox" id="sepia" disabled></label>
   </p>
   <p>
-    <label><span>Sepia2:</span> <input type="checkbox" id="sepia2" disabled></label>
-  </p>
-  <p>
-    <label><span>Remove white:</span> <input type="checkbox" id="remove-white" disabled></label>
+    <label><span>Remove color:</span> <input type="checkbox" id="remove-color" disabled></label><br>
+    <label>Color: <input type="color" id="remove-color-color" value="#00f900"></label><br>
     <br>
-    <label>Threshold: <input type="range" id="remove-white-threshold" value="60" min="0" max="255" disabled></label>
-    <br>
-    <label>Distance: <input type="range" id="remove-white-distance" value="10" min="0" max="255" disabled></label>
+    <label>Distance: <input type="range" id="remove-color-distance" value="0.02" min="0" max="1" step="0.01" disabled></label>
   </p>
   <p>
     <label><span>Brightness:</span> <input type="checkbox" id="brightness" disabled></label>
     <br>
     <label>Value: <input type="range" id="brightness-value" value="0.1" min="-1" max="1" step="0.003921" disabled></label>
+  </p>
+  <p>
+    <label><span>Gamma:</span> <input type="checkbox" id="gamma" disabled></label>
+    <br>
+    <label>Red: <input type="range" id="gamma-red" value="1" min="0.2" max="2.2" step="0.003921" disabled></label>
+    <br>
+    <label>Green: <input type="range" id="gamma-green" value="1" min="0.2" max="2.2" step="0.003921" disabled></label>
+    <br>
+    <label>Blue: <input type="range" id="gamma-blue" value="1" min="0.2" max="2.2" step="0.003921" disabled></label>
+
   </p>
   <p>
     <label><span>Contrast:</span> <input type="checkbox" id="contrast" disabled></label>
@@ -53,32 +59,20 @@ title: Image Filters
     <label>Value: <input type="range" id="noise-value" value="100" min="0" max="1000" disabled></label>
   </p>
   <p>
-    <label><span>GradientTransparency:</span> <input type="checkbox" id="gradient-transparency" disabled></label>
-    <br>
-    <label>Value: <input type="range" id="gradient-transparency-value" value="100" min="0" max="255" disabled></label>
-  </p>
-  <p>
     <label><span>Pixelate</span> <input type="checkbox" id="pixelate" disabled></label>
     <br>
     <label>Value: <input type="range" id="pixelate-value" value="4" min="2" max="20" disabled></label>
   </p>
   <p>
     <label><span>Blur:</span> <input type="checkbox" id="blur" disabled></label>
+    <br>
+    <label>Value: <input type="range" id="blur-value" value="0.1" min="0" max="1" step="0.01" disabled></label>
   </p>
   <p>
     <label><span>Sharpen:</span> <input type="checkbox" id="sharpen" disabled></label>
   </p>
   <p>
     <label><span>Emboss:</span> <input type="checkbox" id="emboss" disabled></label>
-  </p>
-  <p>
-    <label><span>Tint:</span> <input type="checkbox" id="tint" disabled></label><br>
-    <label>Color: <input type="color" id="tint-color" value=""></label><br>
-    <label>Opacity: <input type="range" id="tint-opacity" min="0" max="1" value="1" step="0.1"></label><br>
-  </p>
-  <p>
-    <label><span>Multiply:</span> <input type="checkbox" id="multiply" disabled></label><br>
-    <label>Color: <input type="color" id="multiply-color" value=""></label><br>
   </p>
   <p>
   <label><span>Blend:</span> <input type="checkbox" id="blend" disabled></label>
@@ -92,9 +86,13 @@ title: Image Filters
       <option value="screen">Screen</option>
       <option value="lighten">Lighten</option>
       <option value="darken">Darken</option>
+      <option value="overlay">Overlay</option>
+      <option value="exclusion">Exclusion</option>
+      <option value="tint">Tint</option>
     </select>
     <br>
     <label>Color: <input type="color" id="blend-color" value="#00f900"></label><br>
+    <label>Alpha: <input type="range" id="blend-alpha" min="0" max="1" value="1" step="0.01"></label><br>
   </p>
 </div>
 
@@ -109,6 +107,11 @@ title: Image Filters
     obj.applyFilters();
     console.timeEnd('timeTaken');
     canvas.renderAll();
+  }
+
+  function getFilter(index) {
+    var obj = canvas.getActiveObject();
+    return obj.filters[index];
   }
 
   function applyFilterValue(index, prop, value) {
@@ -140,12 +143,13 @@ title: Image Filters
       fabric.util.toArray(document.getElementsByTagName('input'))
                           .forEach(function(el){ el.disabled = false; })
 
-      var filters = ['grayscale', 'invert', 'remove-white', 'sepia', 'sepia2',
-                      'brightness', 'contrast', 'saturation', 'noise', 'gradient-transparency', 'pixelate',
-                      'blur', 'sharpen', 'emboss', 'tint', 'multiply', 'blend'];
+      var filters = ['grayscale', 'invert', 'remove-color', 'sepia', '',
+                      'brightness', 'contrast', 'saturation', 'noise', '', 'pixelate',
+                      'blur', 'sharpen', 'emboss', '', '', 'blend-color', 'gamma'];
 
       for (var i = 0; i < filters.length; i++) {
-        $(filters[i]).checked = !!canvas.getActiveObject().filters[i];
+        filters[i] && (
+        $(filters[i]).checked = !!canvas.getActiveObject().filters[i]);
       }
     },
     'selection:cleared': function() {
@@ -154,10 +158,21 @@ title: Image Filters
     }
   });
 
+  fabric.Image.fromURL('../assets/pug.jpg', function(img) {
+    var oImg = img.set({ left: 50, top: 100, angle: -15 }).scale(0.5);
+    canvas.add(oImg);
+  });
   fabric.Image.fromURL('../assets/printio.png', function(img) {
     var oImg = img.set({ left: 50, top: 100, angle: -15 }).scale(0.9);
-    canvas.add(oImg).renderAll();
-    canvas.setActiveObject(oImg);
+    canvas.add(oImg);
+  });
+  fabric.Image.fromURL('../assets/dragon.jpg', function(img) {
+    var oImg = img.set({ left: 50, top: 100, angle: -15 }).scale(0.5);
+    canvas.add(oImg);
+  });
+  fabric.Image.fromURL('../assets/dragon2.jpg', function(img) {
+    var oImg = img.set({ left: 50, top: 100, angle: -15 }).scale(0.5);
+    canvas.add(oImg);
   });
   var indexF;
   $('grayscale').onclick = function() {
@@ -166,23 +181,20 @@ title: Image Filters
   $('invert').onclick = function() {
     applyFilter(1, this.checked && new f.Invert());
   };
-  $('remove-white').onclick = function () {
-    applyFilter(2, this.checked && new f.RemoveWhite({
-      threshold: $('remove-white-threshold').value,
-      distance: $('remove-white-distance').value
+  $('remove-color').onclick = function () {
+    applyFilter(2, this.checked && new f.RemoveColor({
+      distance: $('remove-color-distance').value,
+      color: $('remove-color-color').value,
     }));
   };
-  $('remove-white-threshold').onchange = function() {
-    applyFilterValue(2, 'threshold', this.value);
+  $('remove-color-color').onchange = function() {
+    applyFilterValue(2, 'color', this.value);
   };
-  $('remove-white-distance').onchange = function() {
+  $('remove-color-distance').onchange = function() {
     applyFilterValue(2, 'distance', this.value);
   };
   $('sepia').onclick = function() {
     applyFilter(3, this.checked && new f.Sepia());
-  };
-  $('sepia2').onclick = function() {
-    applyFilter(4, this.checked && new f.Sepia2());
   };
   $('brightness').onclick = function () {
     applyFilter(5, this.checked && new f.Brightness({
@@ -191,6 +203,29 @@ title: Image Filters
   };
   $('brightness-value').onchange = function() {
     applyFilterValue(5, 'brightness', parseFloat(this.value));
+  };
+  $('gamma').onclick = function () {
+    var v1 = parseFloat($('gamma-red').value);
+    var v2 = parseFloat($('gamma-green').value);
+    var v3 = parseFloat($('gamma-blue').value);
+    applyFilter(17, this.checked && new f.Gamma({
+      gamma: [v1, v2, v3]
+    }));
+  };
+  $('gamma-red').onchange = function() {
+    var current = getFilter(17).gamma;
+    current[0] = parseFloat(this.value);
+    applyFilterValue(17, 'gamma', current);
+  };
+  $('gamma-green').onchange = function() {
+    var current = getFilter(17).gamma;
+    current[1] = parseFloat(this.value);
+    applyFilterValue(17, 'gamma', current);
+  };
+  $('gamma-blue').onchange = function() {
+    var current = getFilter(17).gamma;
+    current[2] = parseFloat(this.value);
+    applyFilterValue(17, 'gamma', current);
   };
   $('contrast').onclick = function () {
     applyFilter(6, this.checked && new f.Contrast({
@@ -216,14 +251,6 @@ title: Image Filters
   $('noise-value').onchange = function() {
     applyFilterValue(8, 'noise', parseInt(this.value, 10));
   };
-  $('gradient-transparency').onclick = function () {
-    applyFilter(9, this.checked && new f.GradientTransparency({
-      threshold: parseInt($('gradient-transparency-value').value, 10)
-    }));
-  };
-  $('gradient-transparency-value').onchange = function() {
-    applyFilterValue(9, 'threshold', parseInt(this.value, 10));
-  };
   $('pixelate').onclick = function() {
     applyFilter(10, this.checked && new f.Pixelate({
       blocksize: parseInt($('pixelate-value').value, 10)
@@ -233,11 +260,12 @@ title: Image Filters
     applyFilterValue(10, 'blocksize', parseInt(this.value, 10));
   };
   $('blur').onclick = function() {
-    applyFilter(11, this.checked && new f.Convolute({
-      matrix: [ 1/9, 1/9, 1/9,
-                1/9, 1/9, 1/9,
-                1/9, 1/9, 1/9 ]
+    applyFilter(11, this.checked && new f.Blur({
+      value: 0.1
     }));
+  };
+  $('blur-value').onchange = function() {
+    applyFilterValue(11, 'blur', parseFloat(this.value, 10));
   };
   $('sharpen').onclick = function() {
     applyFilter(12, this.checked && new f.Convolute({
@@ -253,31 +281,11 @@ title: Image Filters
                -1,  -1, -1 ]
     }));
   };
-  $('tint').onclick = function() {
-    applyFilter(14, this.checked && new f.Tint({
-      color: document.getElementById('tint-color').value,
-      opacity: parseFloat(document.getElementById('tint-opacity').value)
-    }));
-  };
-  $('tint-color').onchange = function() {
-    applyFilterValue(14, 'color', this.value);
-  };
-  $('tint-opacity').onchange = function() {
-    applyFilterValue(14, 'opacity', parseFloat(this.value));
-  };
-  $('multiply').onclick = function() {
-    applyFilter(15, this.checked && new f.Multiply({
-      color: document.getElementById('multiply-color').value
-    }));
-  };
-  $('multiply-color').onchange = function() {
-    applyFilterValue(15, 'color', this.value);
-  };
-
   $('blend').onclick= function() {
-    applyFilter(16, this.checked && new f.Blend({
+    applyFilter(16, this.checked && new f.BlendColor({
       color: document.getElementById('blend-color').value,
-      mode: document.getElementById('blend-mode').value
+      mode: document.getElementById('blend-mode').value,
+      alpha: document.getElementById('blend-alpha').value
     }));
   };
 
@@ -287,6 +295,10 @@ title: Image Filters
 
   $('blend-color').onchange = function() {
     applyFilterValue(16, 'color', this.value);
+  };
+
+  $('blend-alpha').onchange = function() {
+    applyFilterValue(16, 'alpha', this.value);
   };
 })();
 </script>

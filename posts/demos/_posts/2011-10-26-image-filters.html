@@ -1,6 +1,6 @@
 ---
 layout: demo
-title: Image Filters
+title: Image Filters fabricjs 2.0 beta
 ---
 
 <style>
@@ -10,17 +10,43 @@ title: Image Filters
   #bd-wrapper { min-width: 1600px; }
 </style>
 
-<canvas id="c" width="600" height="600"></canvas>
+<canvas id="c" width="800" height="700"></canvas>
 <div class="controls">
   <h3>Filters:</h3>
+  <label>Use WebGl<input type="checkbox" id="webgl" checked></label>
+  <div id="bench"></div>
   <p>
-    <label><span>Grayscale:</span> <input type="checkbox" id="grayscale" disabled></label>
+    <label><span>Grayscale:</span> <input type="checkbox" id="grayscale" disabled></label><br />
+    <label><span>Avg.</span> <input type="radio" id="average" name="grayscale" ></label>
+    <label><span>Lum.</span> <input type="radio" id="lightness" name="grayscale" ></label>
+    <label><span>Light.</span> <input type="radio" id="luminosity" name="grayscale" ></label>
   </p>
   <p>
     <label><span>Invert:</span> <input type="checkbox" id="invert" disabled></label>
   </p>
   <p>
+    <label>Colormatrix filters:</label>
+  </p>
+  <p>
     <label><span>Sepia:</span> <input type="checkbox" id="sepia" disabled></label>
+  </p>
+  <p>
+    <label><span>Black/White:</span> <input type="checkbox" id="blackwhite" disabled></label>
+  </p>
+  <p>
+    <label><span>Brownie:</span> <input type="checkbox" id="brownie" disabled></label>
+  </p>
+  <p>
+    <label><span>Vintage:</span> <input type="checkbox" id="vintage" disabled></label>
+  </p>
+  <p>
+    <label><span>Kodachrome:</span> <input type="checkbox" id="kodachrome" disabled></label>
+  </p>
+  <p>
+    <label><span>Technicolor:</span> <input type="checkbox" id="technicolor" disabled></label>
+  </p>
+  <p>
+    <label><span>Polaroid:</span> <input type="checkbox" id="polaroid" disabled></label>
   </p>
   <p>
     <label><span>Remove color:</span> <input type="checkbox" id="remove-color" disabled></label><br>
@@ -97,15 +123,22 @@ title: Image Filters
 </div>
 
 <script id="main">(function() {
+  // manually initialize 2 filter backend to give ability to switch:
+  var webglBackend = new fabric.WebglFilterBackend();
+  var canvas2dBackend = new fabric.Canvas2dFilterBackend()
+
+  fabric.filterBackend = webglBackend;
   fabric.Object.prototype.transparentCorners = false;
   var $ = function(id){return document.getElementById(id)};
 
   function applyFilter(index, filter) {
     var obj = canvas.getActiveObject();
     obj.filters[index] = filter;
-    console.time('timeTaken');
+    var timeStart = +new Date();
     obj.applyFilters();
-    console.timeEnd('timeTaken');
+    var timeEnd = +new Date();
+    var dimString = canvas.getActiveObject().width + ' x ' + canvas.getActiveObject().height;
+    $('bench').innerHTML = dimString + 'px ' + parseFloat(timeEnd-timeStart) + 'ms';
     canvas.renderAll();
   }
 
@@ -118,9 +151,11 @@ title: Image Filters
     var obj = canvas.getActiveObject();
     if (obj.filters[index]) {
       obj.filters[index][prop] = value;
-      console.time('timeTaken');
+      var timeStart = +new Date();
       obj.applyFilters();
-      console.timeEnd('timeTaken');
+      var timeEnd = +new Date();
+      var dimString = canvas.getActiveObject().width + ' x ' + canvas.getActiveObject().height;
+      $('bench').innerHTML = dimString + 'px ' + parseFloat(timeEnd-timeStart) + 'ms';
       canvas.renderAll();
     }
   }
@@ -131,21 +166,15 @@ title: Image Filters
   var canvas = this.__canvas = new fabric.Canvas('c'),
       f = fabric.Image.filters;
 
-  fabric.Image.fromURL('../lib/bg.png', function(img) {
-    canvas.backgroundImage = img;
-    canvas.backgroundImage.width = 600;
-    canvas.backgroundImage.height = 600;
-  });
-
-
   canvas.on({
     'object:selected': function() {
       fabric.util.toArray(document.getElementsByTagName('input'))
                           .forEach(function(el){ el.disabled = false; })
 
-      var filters = ['grayscale', 'invert', 'remove-color', 'sepia', '',
-                      'brightness', 'contrast', 'saturation', 'noise', '', 'pixelate',
-                      'blur', 'sharpen', 'emboss', '', '', 'blend-color', 'gamma'];
+      var filters = ['grayscale', 'invert', 'remove-color', 'sepia', 'brownie',
+                      'brightness', 'contrast', 'saturation', 'noise', 'vintage', 'pixelate',
+                      'blur', 'sharpen', 'emboss', 'technicolor', 'polaroid', 'blend-color',
+                      'gamma', 'kodachrome', 'blackwhite'];
 
       for (var i = 0; i < filters.length; i++) {
         filters[i] && (
@@ -175,8 +204,42 @@ title: Image Filters
     canvas.add(oImg);
   });
   var indexF;
+  $('webgl').onclick = function() {
+    if (this.checked) {
+      fabric.filterBackend = webglBackend;
+    } else {
+      fabric.filterBackend = canvas2dBackend;
+    }
+  };
+  $('brownie').onclick = function() {
+    applyFilter(4, this.checked && new f.Brownie());
+  };
+  $('vintage').onclick = function() {
+    applyFilter(9, this.checked && new f.Vintage());
+  };
+  $('technicolor').onclick = function() {
+    applyFilter(14, this.checked && new f.Technicolor());
+  };
+  $('polaroid').onclick = function() {
+    applyFilter(15, this.checked && new f.Polaroid());
+  };
+  $('kodachrome').onclick = function() {
+    applyFilter(18, this.checked && new f.Kodachrome());
+  };
+  $('blackwhite').onclick = function() {
+    applyFilter(19, this.checked && new f.BlackWhite());
+  };
   $('grayscale').onclick = function() {
     applyFilter(0, this.checked && new f.Grayscale());
+  };
+  $('average').onclick = function() {
+    applyFilterValue(0, 'mode', 'average');
+  };
+  $('luminosity').onclick = function() {
+    applyFilterValue(0, 'mode', 'luminosity');
+  };
+  $('lightness').onclick = function() {
+    applyFilterValue(0, 'mode', 'lightness');
   };
   $('invert').onclick = function() {
     applyFilter(1, this.checked && new f.Invert());
@@ -190,7 +253,7 @@ title: Image Filters
   $('remove-color-color').onchange = function() {
     applyFilterValue(2, 'color', this.value);
   };
-  $('remove-color-distance').onchange = function() {
+  $('remove-color-distance').oninput = function() {
     applyFilterValue(2, 'distance', this.value);
   };
   $('sepia').onclick = function() {
@@ -201,7 +264,7 @@ title: Image Filters
       brightness: parseFloat($('brightness-value').value)
     }));
   };
-  $('brightness-value').onchange = function() {
+  $('brightness-value').oninput = function() {
     applyFilterValue(5, 'brightness', parseFloat(this.value));
   };
   $('gamma').onclick = function () {
@@ -212,17 +275,17 @@ title: Image Filters
       gamma: [v1, v2, v3]
     }));
   };
-  $('gamma-red').onchange = function() {
+  $('gamma-red').oninput = function() {
     var current = getFilter(17).gamma;
     current[0] = parseFloat(this.value);
     applyFilterValue(17, 'gamma', current);
   };
-  $('gamma-green').onchange = function() {
+  $('gamma-green').oninput = function() {
     var current = getFilter(17).gamma;
     current[1] = parseFloat(this.value);
     applyFilterValue(17, 'gamma', current);
   };
-  $('gamma-blue').onchange = function() {
+  $('gamma-blue').oninput = function() {
     var current = getFilter(17).gamma;
     current[2] = parseFloat(this.value);
     applyFilterValue(17, 'gamma', current);
@@ -232,7 +295,7 @@ title: Image Filters
       contrast: parseFloat($('contrast-value').value)
     }));
   };
-  $('contrast-value').onchange = function() {
+  $('contrast-value').oninput = function() {
     applyFilterValue(6, 'contrast', parseFloat(this.value));
   };
   $('saturation').onclick = function () {
@@ -240,7 +303,7 @@ title: Image Filters
       saturation: parseFloat($('saturation-value').value)
     }));
   };
-  $('saturation-value').onchange = function() {
+  $('saturation-value').oninput = function() {
     applyFilterValue(7, 'saturation', parseFloat(this.value));
   };
   $('noise').onclick = function () {
@@ -248,7 +311,7 @@ title: Image Filters
       noise: parseInt($('noise-value').value, 10)
     }));
   };
-  $('noise-value').onchange = function() {
+  $('noise-value').oninput = function() {
     applyFilterValue(8, 'noise', parseInt(this.value, 10));
   };
   $('pixelate').onclick = function() {
@@ -256,15 +319,15 @@ title: Image Filters
       blocksize: parseInt($('pixelate-value').value, 10)
     }));
   };
-  $('pixelate-value').onchange = function() {
+  $('pixelate-value').oninput = function() {
     applyFilterValue(10, 'blocksize', parseInt(this.value, 10));
   };
   $('blur').onclick = function() {
     applyFilter(11, this.checked && new f.Blur({
-      value: 0.1
+      value: parseFloat($('blur-value').value)
     }));
   };
-  $('blur-value').onchange = function() {
+  $('blur-value').oninput = function() {
     applyFilterValue(11, 'blur', parseFloat(this.value, 10));
   };
   $('sharpen').onclick = function() {
@@ -297,7 +360,7 @@ title: Image Filters
     applyFilterValue(16, 'color', this.value);
   };
 
-  $('blend-alpha').onchange = function() {
+  $('blend-alpha').oninput = function() {
     applyFilterValue(16, 'alpha', this.value);
   };
 })();

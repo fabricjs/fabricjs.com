@@ -2,7 +2,6 @@
 layout: demo2
 title: Image Filters fabricjs 2.0 beta
 ---
-
 <style>
   .controls { display: inline-block; background: #fafafa; margin-left: 10px; padding: 15px; border-left: 1px dotted #aaa; }
   .canvas-container { display: inline-block; vertical-align: top; }
@@ -16,13 +15,37 @@ title: Image Filters fabricjs 2.0 beta
   <label>Use WebGl<input type="checkbox" id="webgl" checked></label>
   <div id="bench"></div>
   <p>
-    <label><span>Grayscale:</span> <input type="checkbox" id="grayscale" disabled></label>
+    <label><span>Grayscale:</span> <input type="checkbox" id="grayscale" disabled></label><br />
+    <label><span>Avg.</span> <input type="radio" id="average" name="grayscale" ></label>
+    <label><span>Lum.</span> <input type="radio" id="lightness" name="grayscale" ></label>
+    <label><span>Light.</span> <input type="radio" id="luminosity" name="grayscale" ></label>
   </p>
   <p>
     <label><span>Invert:</span> <input type="checkbox" id="invert" disabled></label>
   </p>
   <p>
+    <label>Colormatrix filters:</label>
+  </p>
+  <p>
     <label><span>Sepia:</span> <input type="checkbox" id="sepia" disabled></label>
+  </p>
+  <p>
+    <label><span>Black/White:</span> <input type="checkbox" id="blackwhite" disabled></label>
+  </p>
+  <p>
+    <label><span>Brownie:</span> <input type="checkbox" id="brownie" disabled></label>
+  </p>
+  <p>
+    <label><span>Vintage:</span> <input type="checkbox" id="vintage" disabled></label>
+  </p>
+  <p>
+    <label><span>Kodachrome:</span> <input type="checkbox" id="kodachrome" disabled></label>
+  </p>
+  <p>
+    <label><span>Technicolor:</span> <input type="checkbox" id="technicolor" disabled></label>
+  </p>
+  <p>
+    <label><span>Polaroid:</span> <input type="checkbox" id="polaroid" disabled></label>
   </p>
   <p>
     <label><span>Remove color:</span> <input type="checkbox" id="remove-color" disabled></label><br>
@@ -147,9 +170,10 @@ title: Image Filters fabricjs 2.0 beta
       fabric.util.toArray(document.getElementsByTagName('input'))
                           .forEach(function(el){ el.disabled = false; })
 
-      var filters = ['grayscale', 'invert', 'remove-color', 'sepia', '',
-                      'brightness', 'contrast', 'saturation', 'noise', '', 'pixelate',
-                      'blur', 'sharpen', 'emboss', '', '', 'blend-color', 'gamma'];
+      var filters = ['grayscale', 'invert', 'remove-color', 'sepia', 'brownie',
+                      'brightness', 'contrast', 'saturation', 'noise', 'vintage', 'pixelate',
+                      'blur', 'sharpen', 'emboss', 'technicolor', 'polaroid', 'blend-color',
+                      'gamma', 'kodachrome', 'blackwhite'];
 
       for (var i = 0; i < filters.length; i++) {
         filters[i] && (
@@ -186,8 +210,35 @@ title: Image Filters fabricjs 2.0 beta
       fabric.filterBackend = canvas2dBackend;
     }
   };
+  $('brownie').onclick = function() {
+    applyFilter(4, this.checked && new f.Brownie());
+  };
+  $('vintage').onclick = function() {
+    applyFilter(9, this.checked && new f.Vintage());
+  };
+  $('technicolor').onclick = function() {
+    applyFilter(14, this.checked && new f.Technicolor());
+  };
+  $('polaroid').onclick = function() {
+    applyFilter(15, this.checked && new f.Polaroid());
+  };
+  $('kodachrome').onclick = function() {
+    applyFilter(18, this.checked && new f.Kodachrome());
+  };
+  $('blackwhite').onclick = function() {
+    applyFilter(19, this.checked && new f.BlackWhite());
+  };
   $('grayscale').onclick = function() {
     applyFilter(0, this.checked && new f.Grayscale());
+  };
+  $('average').onclick = function() {
+    applyFilterValue(0, 'mode', 'average');
+  };
+  $('luminosity').onclick = function() {
+    applyFilterValue(0, 'mode', 'luminosity');
+  };
+  $('lightness').onclick = function() {
+    applyFilterValue(0, 'mode', 'lightness');
   };
   $('invert').onclick = function() {
     applyFilter(1, this.checked && new f.Invert());
@@ -272,7 +323,7 @@ title: Image Filters fabricjs 2.0 beta
   };
   $('blur').onclick = function() {
     applyFilter(11, this.checked && new f.Blur({
-      value: 0.1
+      value: parseFloat($('blur-value').value)
     }));
   };
   $('blur-value').oninput = function() {

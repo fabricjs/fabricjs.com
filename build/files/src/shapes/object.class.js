@@ -767,7 +767,7 @@
 
     /**
      * When `true`, object properties are checked for cache invalidation. In some particular
-     * situation you may want this to be disabled ( spray brush, very big pathgroups, groups)
+     * situation you may want this to be disabled ( spray brush, very big, groups)
      * or if your application does not allow you to modify properties for groups child you want
      * to disable it for groups.
      * default to false
@@ -1132,9 +1132,8 @@
     /**
      * Renders an object on a specified context
      * @param {CanvasRenderingContext2D} ctx Context to render on
-     * @param {Boolean} [noTransform] When true, context is not transformed
      */
-    render: function(ctx, noTransform) {
+    render: function(ctx) {
       // do not render if width/height are zeros or object is not visible
       if ((this.width === 0 && this.height === 0) || !this.visible) {
         return;
@@ -1146,9 +1145,7 @@
       //setup fill rule for current object
       this._setupCompositeOperation(ctx);
       this.drawSelectionBackground(ctx);
-      if (!noTransform) {
-        this.transform(ctx);
-      }
+      this.transform(ctx);
       this._setOpacity(ctx);
       this._setShadow(ctx, this);
       if (this.transformMatrix) {
@@ -1159,16 +1156,16 @@
         if (!this._cacheCanvas) {
           this._createCacheCanvas();
         }
-        if (this.isCacheDirty(noTransform)) {
+        if (this.isCacheDirty()) {
           this.statefullCache && this.saveState({ propertySet: 'cacheProperties' });
-          this.drawObject(this._cacheContext, noTransform);
+          this.drawObject(this._cacheContext);
           this.dirty = false;
         }
         this.drawCacheOnCanvas(ctx);
       }
       else {
-        this.drawObject(ctx, noTransform);
-        if (noTransform && this.objectCaching && this.statefullCache) {
+        this.drawObject(ctx);
+        if (this.objectCaching && this.statefullCache) {
           this.saveState({ propertySet: 'cacheProperties' });
         }
       }
@@ -1201,13 +1198,12 @@
     /**
      * Execute the drawing operation for an object on a specified context
      * @param {CanvasRenderingContext2D} ctx Context to render on
-     * @param {Boolean} [noTransform] When true, context is not transformed
      */
-    drawObject: function(ctx, noTransform) {
+    drawObject: function(ctx) {
       this._renderBackground(ctx);
       this._setStrokeStyles(ctx, this);
       this._setFillStyles(ctx, this);
-      this._render(ctx, noTransform);
+      this._render(ctx);
     },
 
     /**
@@ -1329,8 +1325,10 @@
     _renderControls: function(ctx, styleOverride) {
       var vpt = this.getViewportTransform(),
           matrix = this.calcTransformMatrix(),
-          options;
+          options, drawBorders, drawControls;
       styleOverride = styleOverride || { };
+      drawBorders = typeof styleOverride.hasBorders !== 'undefined' ? styleOverride.hasBorders : this.hasBorders;
+      drawControls = typeof styleOverride.hasControls !== 'undefined' ? styleOverride.hasControls : this.hasControls;
       matrix = fabric.util.multiplyTransformMatrices(vpt, matrix);
       options = fabric.util.qrDecompose(matrix);
       ctx.save();
@@ -1341,13 +1339,13 @@
       }
       if (this.group && this.group === this.canvas.getActiveGroup()) {
         ctx.rotate(degreesToRadians(options.angle));
-        (this.hasBorders || styleOverride.hasBorders) && this.drawBordersInGroup(ctx, options, styleOverride);
+        drawBorders && this.drawBordersInGroup(ctx, options, styleOverride);
       }
       else {
         ctx.rotate(degreesToRadians(this.angle));
-        (this.hasBorders || styleOverride.hasBorders) && this.drawBorders(ctx, styleOverride);
+        drawBorders && this.drawBorders(ctx, styleOverride);
       }
-      (this.hasControls || styleOverride.hasControls) && this.drawControls(ctx, styleOverride);
+      drawControls && this.drawControls(ctx, styleOverride);
       ctx.restore();
     },
 
@@ -1396,12 +1394,12 @@
         return;
       }
       var transform = filler.gradientTransform || filler.patternTransform;
-      if (transform) {
-        ctx.transform.apply(ctx, transform);
-      }
       var offsetX = -this.width / 2 + filler.offsetX || 0,
           offsetY = -this.height / 2 + filler.offsetY || 0;
       ctx.translate(offsetX, offsetY);
+      if (transform) {
+        ctx.transform.apply(ctx, transform);
+      }
     },
 
     /**
@@ -1424,10 +1422,6 @@
       ctx.restore();
     },
 
-    /**
-     * @private
-     * @param {CanvasRenderingContext2D} ctx Context to render on
-     */
     _renderStroke: function(ctx) {
       if (!this.stroke || this.strokeWidth === 0) {
         return;
@@ -1442,6 +1436,41 @@
       this._applyPatternGradientTransform(ctx, this.stroke);
       ctx.stroke();
       ctx.restore();
+    },
+
+    /**
+     * This function is an helper for svg import. it returns the center of the object in the svg
+     * untransformed coordinates
+     * @private
+     * @return {Object} center point from element coordinates
+     */
+    _findCenterFromElement: function() {
+      return { x: this.left + this.width / 2, y: this.top + this.height / 2 };
+    },
+
+    /**
+     * This function is an helper for svg import. it removes the transform matrix
+     * and set to object properties that fabricjs can handle
+     * untransformed coordinates
+     * @private
+     * @chainable
+     * @return {thisArg}
+     */
+    _removeTransformMatrix: function() {
+      var center = this._findCenterFromElement();
+      if (this.transformMatrix) {
+        var options = fabric.util.qrDecompose(this.transformMatrix);
+        this.flipX = false;
+        this.flipY = false;
+        this.set('scaleX', options.scaleX);
+        this.set('scaleY', options.scaleY);
+        this.angle = options.angle;
+        this.skewX = options.skewX;
+        this.skewY = 0;
+        center = fabric.util.transformPoint(center, this.transformMatrix);
+      }
+      this.transformMatrix = null;
+      this.setPositionByOrigin(center, 'center', 'center');
     },
 
     /**

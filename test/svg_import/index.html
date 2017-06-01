@@ -6,8 +6,6 @@ title: SVG Rendering
 <link rel="stylesheet" type="text/css" href="svg_import.css">
 
 <script>
-  fabric.Object.prototype.originX = fabric.Object.prototype.originY = 'center';
-  fabric.PathGroup.prototype.strokeWidth = 0;
   function initCanvas(id) {
     var canvas;
     fabric.loadSVGFromURL('../../assets/' + id + '.svg', function(objects, options) {
@@ -23,11 +21,10 @@ title: SVG Rendering
         iframeEl.style.width = canvasEl.width + 'px';
         iframeEl.style.height = canvasEl.height + 'px';
       }
-
-      canvas = window['__canvas' + id] = new fabric.StaticCanvas('c' + id, { backgroundColor: '#fff' });
+      shape.top = 0;
+      shape.left = 0;
+      canvas = window['__canvas' + id] = new fabric.Canvas('c' + id, { backgroundColor: '#fff' });
       canvas.add(shape);
-      shape.center();
-      canvas.renderAll();
     });
   }
 </script>
@@ -39,11 +36,11 @@ title: SVG Rendering
 //    33, 34, 35 /* very intense shapes */,
 //    66 /* the shape is too big */,
 //    68 /* svg has parsing error */,
-    72, 73 /* shapes are too big */,
+//    72, 73 /* shapes are too big */,
 //   74, 75 /* shapes has weird dimensions */,
-//    78, 79, 80, 81, 82, 83, 84, 85 /* wrong offset */,
+ //   78, 79, 80, 81, 82, 83, 84, 85 /* wrong offset */,
 //   149 /* too big? */,
-    150 /* svg parse error */ 
+    150 /* svg parse error */
   ];
   for (var i = 1; i <= 177; i++) {
     if (blacklist.indexOf(i) === -1) {

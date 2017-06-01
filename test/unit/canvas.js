@@ -1,5 +1,6 @@
 (function() {
 
+
   var EMPTY_JSON = '{"objects":[]}';
 
   // var emptyImageCanvasData = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfQAAAH0CAYAAADL1t+KAAAH7ElEQVR4nO3VMQ0AMAzAsPInvYHoMS2yEeTLHADge/M6AADYM3QACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIuMjH4b7osLFBAAAAAElFTkSuQmCC";
@@ -7,6 +8,21 @@
   var PATH_JSON = '{"objects": [{"type": "path", "originX": "left", "originY": "top", "left": 268, "top": 266, "width": 51, "height": 49,' +
                   ' "fill": "rgb(0,0,0)", "stroke": null, "strokeWidth": 1, "scaleX": 1, "scaleY": 1, ' +
                   '"angle": 0, "flipX": false, "flipY": false, "opacity": 1, "path": [["M", 18.511, 13.99],' +
+                  ' ["c", 0, 0, -2.269, -4.487, -12.643, 4.411], ["c", 0, 0, 4.824, -14.161, 19.222, -9.059],' +
+                  ' ["l", 0.379, -2.1], ["c", -0.759, -0.405, -1.375, -1.139, -1.645, -2.117], ["c", -0.531, ' +
+                  '-1.864, 0.371, -3.854, 1.999, -4.453], ["c", 0.312, -0.118, 0.633, -0.169, 0.953, -0.169], ' +
+                  '["c", 1.299, 0, 2.514, 0.953, 2.936, 2.455], ["c", 0.522, 1.864, -0.372, 3.854, -1.999, ' +
+                  '4.453], ["c", -0.229, 0.084, -0.464, 0.127, -0.692, 0.152], ["l", -0.379, 2.37], ["c", ' +
+                  '1.146, 0.625, 2.024, 1.569, 2.674, 2.758], ["c", 3.213, 2.514, 8.561, 4.184, 11.774, -8.232],' +
+                  ' ["c", 0, 0, 0.86, 16.059, -12.424, 14.533], ["c", 0.008, 2.859, 0.615, 5.364, -0.076, 8.224],' +
+                  ' ["c", 8.679, 3.146, 15.376, 14.389, 17.897, 18.168], ["l", 2.497, -2.151], ["l", 1.206, 1.839],' +
+                  ' ["l", -3.889, 3.458], ["C", 46.286, 48.503, 31.036, 32.225, 22.72, 35.81], ["c", -1.307, 2.851,' +
+                  ' -3.56, 6.891, -7.481, 8.848], ["c", -4.689, 2.336, -9.084, -0.802, -11.277, -2.868], ["l",' +
+                  ' -1.948, 3.104], ["l", -1.628, -1.333], ["l", 3.138, -4.689], ["c", 0.025, 0, 9, 1.932, 9, 1.932], ' +
+                  '["c", 0.877, -9.979, 2.893, -12.905, 4.942, -15.621], ["C", 17.878, 21.775, 18.713, 17.397, 18.511, ' +
+                  '13.99], ["z", null]]}], "background": "#ff5555","overlay": "rgba(0,0,0,0.2)"}';
+
+  var PATH_WITHOUT_DEFAULTS_JSON = '{"objects": [{"type": "path", "left": 268, "top": 266, "width": 51, "height": 49, "path": [["M", 18.511, 13.99],' +
                   ' ["c", 0, 0, -2.269, -4.487, -12.643, 4.411], ["c", 0, 0, 4.824, -14.161, 19.222, -9.059],' +
                   ' ["l", 0.379, -2.1], ["c", -0.759, -0.405, -1.375, -1.139, -1.645, -2.117], ["c", -0.531, ' +
                   '-1.864, 0.371, -3.854, 1.999, -4.453], ["c", 0.312, -0.118, 0.633, -0.169, 0.953, -0.169], ' +
@@ -49,7 +65,7 @@
                   '"visible":true,"clipTo":null,"backgroundColor":"","fillRule":"nonzero","globalCompositeOperation":"source-over","transformMatrix":null,"skewX":0,"skewY":0,"rx":0,"ry":0}],"background":"#ff5555","overlay":"rgba(0,0,0,0.2)"}';
 
   function _createImageElement() {
-    return fabric.isLikelyNode ? new (require('canvas').Image)() : fabric.document.createElement('img');
+    return fabric.isLikelyNode ? new (require(fabric.canvasModule).Image)() : fabric.document.createElement('img');
   }
 
   function getAbsolutePath(path) {
@@ -296,6 +312,17 @@
     equal(isFired, true, 'removing active object should fire "selection:cleared"');
   });
 
+  test('setActiveObject fires deselected', function() {
+    var isFired = false;
+    var rect1 = new fabric.Rect();
+    var rect2 = new fabric.Rect();
+    rect1.on('deselected', function() { isFired = true; });
+
+    canvas.setActiveObject(rect1);
+    canvas.setActiveObject(rect2);
+    equal(isFired, true, 'switching active group fires deselected');
+  });
+
   test('getContext', function() {
     ok(typeof canvas.getContext == 'function');
   });
@@ -405,6 +432,37 @@
     });
     equal(target, group, 'Should return the group');
     equal(canvas.targets[0], rect2, 'should return the rect2');
+    canvas.remove(group);
+  });
+
+  test('findTarget with subTargetCheck on activeObject', function() {
+    var rect = makeRect({ left: 0, top: 0 }),
+        rect2 = makeRect({ left: 30, top:  30}), target,
+        group = new fabric.Group([rect, rect2]);
+
+    canvas.add(group);
+    canvas.setActiveObject(group);
+    group.subTargetCheck = true;
+    target = canvas.findTarget({
+      clientX: 9, clientY: 9
+    });
+    equal(target, group, 'Should return the group');
+    equal(canvas.targets[0], rect, 'should return the rect');
+
+    target = canvas.findTarget({
+      clientX: 9, clientY: 9
+    });
+
+    target = canvas.findTarget({
+      clientX: 9, clientY: 9
+    });
+
+    target = canvas.findTarget({
+      clientX: 9, clientY: 9
+    });
+
+    equal(canvas.targets.length, 1, 'multiple calls to subtarget should not add more to targets');
+
     canvas.remove(group);
   });
 
@@ -723,14 +781,14 @@
       equal(obj.get('width'), 49.803999999999995);
       equal(obj.get('height'), 48.027);
       equal(obj.get('fill'), 'rgb(0,0,0)');
-      equal(obj.get('stroke'), null);
-      equal(obj.get('strokeWidth'), 1);
-      equal(obj.get('scaleX'), 1);
-      equal(obj.get('scaleY'), 1);
-      equal(obj.get('angle'), 0);
-      equal(obj.get('flipX'), false);
-      equal(obj.get('flipY'), false);
-      equal(obj.get('opacity'), 1);
+      strictEqual(obj.get('stroke'), null);
+      strictEqual(obj.get('strokeWidth'), 1);
+      strictEqual(obj.get('scaleX'), 1);
+      strictEqual(obj.get('scaleY'), 1);
+      strictEqual(obj.get('angle'), 0);
+      strictEqual(obj.get('flipX'), false);
+      strictEqual(obj.get('flipY'), false);
+      strictEqual(obj.get('opacity'), 1);
       ok(obj.get('path').length > 0);
       start();
     });
@@ -750,13 +808,42 @@
       equal(obj.get('width'), 49.803999999999995);
       equal(obj.get('height'), 48.027);
       equal(obj.get('fill'), 'rgb(0,0,0)');
-      equal(obj.get('stroke'), null);
-      equal(obj.get('strokeWidth'), 1);
-      equal(obj.get('scaleX'), 1);
-      equal(obj.get('scaleY'), 1);
-      equal(obj.get('angle'), 0);
-      equal(obj.get('flipX'), false);
-      equal(obj.get('flipY'), false);
+      strictEqual(obj.get('stroke'), null);
+      strictEqual(obj.get('strokeWidth'), 1);
+      strictEqual(obj.get('scaleX'), 1);
+      strictEqual(obj.get('scaleY'), 1);
+      strictEqual(obj.get('angle'), 0);
+      strictEqual(obj.get('flipX'), false);
+      strictEqual(obj.get('flipY'), false);
+      strictEqual(obj.get('opacity'), 1);
+      ok(obj.get('path').length > 0);
+      start();
+    });
+  });
+
+  asyncTest('loadFromJSON with json object without default values', function() {
+    canvas.loadFromJSON(JSON.parse(PATH_WITHOUT_DEFAULTS_JSON), function(){
+      var obj = canvas.item(0);
+
+      ok(!canvas.isEmpty(), 'canvas is not empty');
+      equal(obj.type, 'path', 'first object is a path object');
+      equal(canvas.backgroundColor, '#ff5555', 'backgroundColor is populated properly');
+      equal(canvas.overlayColor, 'rgba(0,0,0,0.2)', 'overlayColor is populated properly');
+
+      equal(obj.get('originX'), 'left');
+      equal(obj.get('originY'), 'top');
+      equal(obj.get('left'), 268);
+      equal(obj.get('top'), 266);
+      equal(obj.get('width'), 49.803999999999995);
+      equal(obj.get('height'), 48.027);
+      equal(obj.get('fill'), 'rgb(0,0,0)');
+      strictEqual(obj.get('stroke'), null);
+      strictEqual(obj.get('strokeWidth'), 1);
+      strictEqual(obj.get('scaleX'), 1);
+      strictEqual(obj.get('scaleY'), 1);
+      strictEqual(obj.get('angle'), 0);
+      strictEqual(obj.get('flipX'), false);
+      strictEqual(obj.get('flipY'), false);
       equal(obj.get('opacity'), 1);
       ok(obj.get('path').length > 0);
       start();
@@ -785,14 +872,14 @@
       equal(obj.get('width'), 49.803999999999995);
       equal(obj.get('height'), 48.027);
       equal(obj.get('fill'), 'rgb(0,0,0)');
-      equal(obj.get('stroke'), null);
-      equal(obj.get('strokeWidth'), 1);
-      equal(obj.get('scaleX'), 1);
-      equal(obj.get('scaleY'), 1);
-      equal(obj.get('angle'), 0);
-      equal(obj.get('flipX'), false);
-      equal(obj.get('flipY'), false);
-      equal(obj.get('opacity'), 1);
+      strictEqual(obj.get('stroke'), null);
+      strictEqual(obj.get('strokeWidth'), 1);
+      strictEqual(obj.get('scaleX'), 1);
+      strictEqual(obj.get('scaleY'), 1);
+      strictEqual(obj.get('angle'), 0);
+      strictEqual(obj.get('flipX'), false);
+      strictEqual(obj.get('flipY'), false);
+      strictEqual(obj.get('opacity'), 1);
       equal(obj.get('customID'), 'fabric_1');
       ok(obj.get('path').length > 0);
       start();
@@ -1671,4 +1758,75 @@
     ok(typeof InheritedCanvasClass === 'function');
   });
 
+  test('mouse:down with different buttons', function() {
+    var clickCount = 0;
+    function mouseHandler() {
+      clickCount++;
+    }
+    canvas.on('mouse:down', mouseHandler);
+    canvas.fireMiddleClick = false;
+    canvas.fireRightClick = false;
+    canvas._currentTransform = false;
+    canvas.isDrawingMode = false;
+    canvas.__onMouseDown({ which: 1 });
+    equal(clickCount, 1, 'mouse down fired');
+    clickCount = 0;
+    canvas.__onMouseDown({ which: 3 });
+    equal(clickCount, 0, 'rightclick did not fire a mouse:down event');
+    canvas.fireRightClick = true;
+    canvas.__onMouseDown({ which: 3 });
+    equal(clickCount, 1, 'rightclick did fire a mouse:down event');
+    clickCount = 0;
+    canvas.__onMouseDown({ which: 2 });
+    equal(clickCount, 0, 'middleClick did not fire a mouse:down event');
+    canvas.fireMiddleClick = true;
+    canvas.__onMouseDown({ which: 2 });
+    equal(clickCount, 1, 'middleClick did fire a mouse:down event');
+  });
+
+  test('mouse:down and group selector', function() {
+    var e = { clientX: 30, clientY: 30, which: 1 };
+    var rect = new fabric.Rect({ width: 60, height: 60 });
+    var expectedGroupSelector = { ex: 30, ey: 30, top: 0, left: 0 };
+    canvas.__onMouseDown(e);
+    deepEqual(canvas._groupSelector, expectedGroupSelector, 'a new groupSelector is created');
+    canvas.add(rect);
+    canvas.__onMouseUp(e);
+    canvas.__onMouseDown(e);
+    deepEqual(canvas._groupSelector, null, 'with object on target no groupSelector is started');
+    rect.selectable = false;
+    canvas.__onMouseUp(e);
+    canvas.__onMouseDown(e);
+    deepEqual(canvas._groupSelector, expectedGroupSelector, 'with object non selectable groupSelector is started');
+    canvas.__onMouseUp(e);
+    rect.isEditing = true;
+    canvas.__onMouseUp(e);
+    canvas.__onMouseDown(e);
+    deepEqual(canvas._groupSelector, null, 'with object editing, groupSelector is not started');
+    canvas.__onMouseUp(e);
+  });
+
+  test('mouse:up isClick = true', function() {
+    var e = { clientX: 30, clientY: 30, which: 1 };
+    var isClick = false;
+    canvas.on('mouse:up', function(opt) {
+      isClick = opt.isClick;
+    });
+    canvas.__onMouseDown(e);
+    canvas.__onMouseUp(e);
+    equal(isClick, true, 'without moving the pointer, the click is true');
+  });
+
+  test('mouse:up isClick = false', function() {
+    var e = { clientX: 30, clientY: 30, which: 1 };
+    var e2 = { clientX: 31, clientY: 31, which: 1 };
+    var isClick = true;
+    canvas.on('mouse:up', function(opt) {
+      isClick = opt.isClick;
+    });
+    canvas.__onMouseDown(e);
+    canvas.__onMouseMove(e2);
+    canvas.__onMouseUp(e2);
+    equal(isClick, false, 'moving the pointer, the click is false');
+  });
 })();

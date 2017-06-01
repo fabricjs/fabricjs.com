@@ -678,9 +678,6 @@ function addAccessors($scope) {
   $scope.loadSVG = function() {
     _loadSVG(consoleSVGValue);
   };
-  $scope.loadSVGGROUP = function() {
-    _loadSVGGroup(consoleSVGValue);
-  };
 
   var _loadSVG = function(svg) {
     fabric.loadSVGFromString(svg, function(objects, options) {
@@ -720,24 +717,11 @@ function addAccessors($scope) {
     this.setPositionByOrigin(center, 'center', 'center');
   }
 
-  var _loadSVGGroup = function(svg) {
-    fabric.loadSVGFromString(svg, function(objects, options) {
-      objects.forEach(function(o) {
-        o._removeTransformMatrix();
-      });
-      var obj = new fabric.Group(objects);
-      canvas.add(obj).centerObject(obj).renderAll();
-      obj.setCoords();
-    });
-  };
-
-
   var _loadSVGWithoutGrouping = function(svg) {
     fabric.loadSVGFromString(svg, function(objects) {
-      objects.forEach(function(o) {
-        o._removeTransformMatrix();
-      });
+      canvas.renderOnAddRemove = false;
       canvas.add.apply(canvas, objects);
+      canvas.renderOnAddRemove = true;
       canvas.renderAll();
     });
   };

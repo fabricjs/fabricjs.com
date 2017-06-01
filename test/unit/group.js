@@ -6,7 +6,7 @@
   var canvas = this.canvas = fabric.isLikelyNode ? fabric.createCanvasForNode(600, 600, {enableRetinaScaling: false}) : new fabric.Canvas(el, {enableRetinaScaling: false});
 
   // function _createImageElement() {
-  //   return fabric.isLikelyNode ? new (require('canvas').Image)() : fabric.document.createElement('img');
+  //   return fabric.isLikelyNode ? new (require(fabric.canvasModule).Image)() : fabric.document.createElement('img');
   // }
 
   function makeGroupWith2Objects() {
@@ -305,30 +305,6 @@
     equal(firstObject.get('top'), initialTopValue, 'should restore initial top value');
   });
 
-  test('saveCoords', function() {
-    var group = makeGroupWith2Objects();
-
-    ok(typeof group.saveCoords == 'function');
-    equal(group.saveCoords(), group, 'should be chainable');
-  });
-
-  test('hasMoved', function() {
-    var group = makeGroupWith2Objects();
-
-    ok(typeof group.hasMoved == 'function');
-    equal(group.hasMoved(), false);
-
-    function moveBy10(value) {
-      return value + 10;
-    }
-    group.set('left', moveBy10);
-    equal(group.hasMoved(), true);
-    group.saveCoords();
-    equal(group.hasMoved(), false);
-    group.set('top', moveBy10);
-    equal(group.hasMoved(), true);
-  });
-
   test('setObjectCoords', function(){
     var group = makeGroupWith2Objects();
 
@@ -538,6 +514,17 @@
     equal(g1.dirty, true, 'Group has dirty flag set');
   });
 
+  test('dirty flag propagation from children up with', function() {
+    var g1 = makeGroupWith4Objects();
+    var obj = g1.item(0);
+    g1.dirty = false;
+    obj.dirty = false;
+    equal(g1.dirty, false, 'Group has no dirty flag set');
+    obj.set('angle', 5);
+    equal(obj.dirty, false, 'Obj has dirty flag still false');
+    equal(g1.dirty, true, 'Group has dirty flag set');
+  });
+
   test('_getCacheCanvasDimensions returns dimensions and zoom for cache canvas are influenced by group', function() {
     var g1 = makeGroupWith4Objects();
     var obj = g1.item(0);
@@ -578,6 +565,85 @@
     equal(isTransparent(ctx, 10, 10, 0), false, '10,10 is opaque');
     equal(isTransparent(ctx, 11, 11, 0), false, '11,11 is opaque');
     equal(isTransparent(ctx, 12, 12, 0), true, '12,12 is transparent');
+  });
+
+  test('group toDatalessObject', function() {
+    var rect1 = new fabric.Rect({ top: 1, left: 1, width: 2, height: 2, strokeWidth: 0, fill: 'red', opacity: 1, objectCaching: false}),
+        rect2 = new fabric.Rect({ top: 5, left: 5, width: 2, height: 2, strokeWidth: 0, fill: 'red', opacity: 1, objectCaching: false}),
+        pathGroup = new fabric.Group([rect1, rect2], { sourcePath: 'sourcePath'}),
+        group = new fabric.Group([pathGroup]),
+        dataless = group.toDatalessObject();
+
+    equal(dataless.objects[0].objects, 'sourcePath', 'the paths have been changed with the sourcePath');
+  });
+
+  test('group addWithUpdate', function() {
+    var rect1 = new fabric.Rect({ top: 1, left: 1, width: 2, height: 2, strokeWidth: 0, fill: 'red', opacity: 1, objectCaching: false}),
+        rect2 = new fabric.Rect({ top: 5, left: 5, width: 2, height: 2, strokeWidth: 0, fill: 'red', opacity: 1, objectCaching: false}),
+        group = new fabric.Group([rect1]);
+
+    var coords = group.oCoords;
+    group.addWithUpdate(rect2);
+    var newCoords = group.oCoords;
+    notEqual(coords, newCoords, 'object coords have been recalculated - add');
+  });
+
+  test('group removeWithUpdate', function() {
+    var rect1 = new fabric.Rect({ top: 1, left: 1, width: 2, height: 2, strokeWidth: 0, fill: 'red', opacity: 1, objectCaching: false}),
+        rect2 = new fabric.Rect({ top: 5, left: 5, width: 2, height: 2, strokeWidth: 0, fill: 'red', opacity: 1, objectCaching: false}),
+        group = new fabric.Group([rect1, rect2]);
+
+    var coords = group.oCoords;
+    group.removeWithUpdate(rect2);
+    var newCoords = group.oCoords;
+    notEqual(coords, newCoords, 'object coords have been recalculated - remove');
+  });
+
+  test('group willDrawShadow', function() {
+    var rect1 = new fabric.Rect({ top: 1, left: 1, width: 2, height: 2, strokeWidth: 0, fill: 'red', opacity: 1, objectCaching: false}),
+        rect2 = new fabric.Rect({ top: 5, left: 5, width: 2, height: 2, strokeWidth: 0, fill: 'red', opacity: 1, objectCaching: false}),
+        rect3 = new fabric.Rect({ top: 5, left: 5, width: 2, height: 2, strokeWidth: 0, fill: 'red', opacity: 1, objectCaching: false}),
+        rect4 = new fabric.Rect({ top: 5, left: 5, width: 2, height: 2, strokeWidth: 0, fill: 'red', opacity: 1, objectCaching: false}),
+        group = new fabric.Group([rect1, rect2]),
+        group2 = new fabric.Group([rect3, rect4]),
+        group3 = new fabric.Group([group, group2]);
+
+    equal(group3.willDrawShadow(), false, 'group will not cast shadow because objects do not have it');
+    group3.shadow = {};
+    equal(group3.willDrawShadow(), true, 'group will cast shadow because group itself has shadow');
+    delete group3.shadow;
+    group2.shadow =  {};
+    equal(group3.willDrawShadow(), true, 'group will cast shadow because inner group2 has shadow');
+    delete group2.shadow;
+    rect1.shadow = {};
+    equal(group3.willDrawShadow(), true, 'group will cast shadow because inner rect1 has shadow');
+    equal(group.willDrawShadow(), true, 'group will cast shadow because inner rect1 has shadow');
+    equal(group2.willDrawShadow(), false, 'group will not cast shadow because no child has shadow');
+  });
+
+  test('group shouldCache', function() {
+    var rect1 = new fabric.Rect({ top: 1, left: 1, width: 2, height: 2, strokeWidth: 0, fill: 'red', opacity: 1, objectCaching: true}),
+        rect2 = new fabric.Rect({ top: 5, left: 5, width: 2, height: 2, strokeWidth: 0, fill: 'red', opacity: 1, objectCaching: true}),
+        rect3 = new fabric.Rect({ top: 5, left: 5, width: 2, height: 2, strokeWidth: 0, fill: 'red', opacity: 1, objectCaching: true}),
+        rect4 = new fabric.Rect({ top: 5, left: 5, width: 2, height: 2, strokeWidth: 0, fill: 'red', opacity: 1, objectCaching: true}),
+        group = new fabric.Group([rect1, rect2], { objectCaching: true}),
+        group2 = new fabric.Group([rect3, rect4], { objectCaching: true}),
+        group3 = new fabric.Group([group, group2], { objectCaching: true});
+
+    equal(group3.shouldCache(), true, 'group3 will cache because no child has shadow');
+    equal(group2.shouldCache(), false, 'group2 will not cache because is drawing on parent group3 cache');
+    equal(rect3.shouldCache(), false, 'rect3 will not cache because is drawing on parent2 group cache');
+
+    group2.shadow = {};
+    rect1.shadow = {};
+
+    equal(group3.shouldCache(), false, 'group3 will cache because children have shadow');
+    equal(group2.shouldCache(), true, 'group2 will cache because is not drawing on parent group3 cache and no children have shadow');
+    equal(group.shouldCache(), false, 'group will not cache because even if is not drawing on parent group3 cache children have shadow');
+
+    equal(rect1.shouldCache(), true, 'rect1 will cache because none of its parent is caching');
+    equal(rect3.shouldCache(), false, 'rect3 will not cache because group2 is caching');
+
   });
   // asyncTest('cloning group with image', function() {
   //   var rect = new fabric.Rect({ top: 100, left: 100, width: 30, height: 10 }),

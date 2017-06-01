@@ -19,7 +19,7 @@
       IMG_HEIGHT  = 110;
 
   function _createImageElement() {
-    return fabric.isLikelyNode ? new (require('canvas').Image)() : fabric.document.createElement('img');
+    return fabric.isLikelyNode ? new (require(fabric.canvasModule).Image)() : fabric.document.createElement('img');
   }
 
   function createImageObject(callback) {
@@ -147,16 +147,6 @@
 
     cObj.setOpacity(0.123);
     equal(0.123, cObj.getOpacity());
-  });
-
-  test('setSourcePath', function() {
-    var cObj = new fabric.Object();
-    var SRC_PATH = 'http://example.com/';
-
-    ok(typeof cObj.setSourcePath == 'function');
-
-    cObj.setSourcePath(SRC_PATH);
-    equal(cObj.get('sourcePath'), SRC_PATH);
   });
 
   test('stateProperties', function() {
@@ -527,11 +517,6 @@
   test('drawBorders', function() {
     var cObj = new fabric.Object(), canvas = fabric.document.createElement('canvas');
 
-    //let excanvas kick in for IE8 and lower
-    if (!canvas.getContext && typeof G_vmlCanvasManager != 'undefined') {
-      G_vmlCanvasManager.initElement(canvas);
-    }
-
     var dummyContext = canvas.getContext('2d');
 
     ok(typeof cObj.drawBorders == 'function');
@@ -541,10 +526,6 @@
   test('drawControls', function() {
     var cObj = new fabric.Object(), canvas = fabric.document.createElement('canvas');
 
-    //let excanvas kick in for IE8 and lower
-    if (!canvas.getContext && typeof G_vmlCanvasManager != 'undefined') {
-      G_vmlCanvasManager.initElement(canvas);
-    }
     var dummyContext = canvas.getContext('2d');
     ok(typeof cObj.drawControls == 'function');
     equal(cObj.drawControls(dummyContext), cObj, 'chainable');
@@ -1260,6 +1241,7 @@
 
   test('isCacheDirty statefullCache disabled', function() {
     var object = new fabric.Object({ scaleX: 3, scaleY: 2});
+    equal(object.dirty, true, 'object is dirty after creation');
     object.cacheProperties = ['propA', 'propB'];
     object.dirty = false;
     object.statefullCache = false;
@@ -1277,6 +1259,8 @@
     object.propA = 'A';
     object.setupState({ propertySet: 'cacheProperties' });
     object._createCacheCanvas();
+    equal(object.isCacheDirty(), true, 'object is dirty if canvas has been just created');
+    object.setupState({ propertySet: 'cacheProperties' });
     equal(object.isCacheDirty(), false, 'object is not dirty');
     object.propA = 'B';
     equal(object.isCacheDirty(), true, 'object is dirty because change in propA is detected by statefullCache');

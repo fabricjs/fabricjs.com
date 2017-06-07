@@ -1101,6 +1101,7 @@
       // first check current group (if one exists)
       // active group does not check sub targets like normal groups.
       // if active group just exits.
+      this.targets = [];
       if (activeGroup && !skipGroup && activeGroup === this._searchPossibleTargets([activeGroup], pointer)) {
         this._fireOverOutEvents(activeGroup, e);
         return activeGroup;
@@ -1120,7 +1121,6 @@
         }
       }
 
-      this.targets = [];
       var target = this._searchPossibleTargets(this._objects, pointer);
       if (e[this.altSelectionKey] && target && activeTarget && target !== activeTarget) {
         target = activeTarget;
@@ -1133,21 +1133,25 @@
      * @private
      */
     _fireOverOutEvents: function(target, e) {
+      var overOpt, outOpt, hoveredTarget = this._hoveredTarget;
+      if (hoveredTarget !== target) {
+        overOpt = { e: e, target: target, previousTarget: this._hoveredTarget };
+        outOpt = { e: e, target: this._hoveredTarget, nextTarget: target };
+        this._hoveredTarget = target;
+      }
       if (target) {
-        if (this._hoveredTarget !== target) {
-          if (this._hoveredTarget) {
-            this.fire('mouse:out', { target: this._hoveredTarget, e: e });
-            this._hoveredTarget.fire('mouseout', { e: e });
+        if (hoveredTarget !== target) {
+          if (hoveredTarget) {
+            this.fire('mouse:out', outOpt);
+            hoveredTarget.fire('mouseout', outOpt);
           }
-          this.fire('mouse:over', { target: target, e: e });
-          target.fire('mouseover', { e: e });
-          this._hoveredTarget = target;
+          this.fire('mouse:over', overOpt);
+          target.fire('mouseover', overOpt);
         }
       }
-      else if (this._hoveredTarget) {
-        this.fire('mouse:out', { target: this._hoveredTarget, e: e });
-        this._hoveredTarget.fire('mouseout', { e: e });
-        this._hoveredTarget = null;
+      else if (hoveredTarget) {
+        this.fire('mouse:out', outOpt);
+        hoveredTarget.fire('mouseout', outOpt);
       }
     },
 
@@ -1273,7 +1277,12 @@
     _createUpperCanvas: function () {
       var lowerCanvasClass = this.lowerCanvasEl.className.replace(/\s*lower-canvas\s*/, '');
 
-      this.upperCanvasEl = this._createCanvasElement();
+      if (this.upperCanvasEl) {
+        this.upperCanvasEl.className = '';
+      }
+      else {
+        this.upperCanvasEl = this._createCanvasElement();
+      }
       fabric.util.addClass(this.upperCanvasEl, 'upper-canvas ' + lowerCanvasClass);
 
       this.wrapperEl.appendChild(this.upperCanvasEl);
@@ -1384,9 +1393,9 @@
         currentActiveObject.fire('deselected', { e: e });
       }
       this._setActiveObject(object);
-      this.renderAll();
       this.fire('object:selected', { target: object, e: e });
       object.fire('selected', { e: e });
+      this.renderAll();
       return this;
     },
 
@@ -1545,9 +1554,16 @@
      * @chainable
      */
     deactivateAllWithDispatch: function (e) {
+      var allObjects = this.getObjects(),
+          i = 0,
+          len = allObjects.length,
+          obj;
+      for ( ; i < len; i++) {
+        obj = allObjects[i];
+        obj && obj.set('active', false);
+      }
       this.discardActiveGroup(e);
       this.discardActiveObject(e);
-      this.deactivateAll();
       return this;
     },
 

@@ -1,5 +1,6 @@
 (function() {
 
+
   var EMPTY_JSON = '{"objects":[]}';
 
   // var emptyImageCanvasData = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfQAAAH0CAYAAADL1t+KAAAH7ElEQVR4nO3VMQ0AMAzAsPInvYHoMS2yEeTLHADge/M6AADYM3QACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIuMjH4b7osLFBAAAAAElFTkSuQmCC";
@@ -431,6 +432,37 @@
     });
     equal(target, group, 'Should return the group');
     equal(canvas.targets[0], rect2, 'should return the rect2');
+    canvas.remove(group);
+  });
+
+  test('findTarget with subTargetCheck on activeObject', function() {
+    var rect = makeRect({ left: 0, top: 0 }),
+        rect2 = makeRect({ left: 30, top:  30}), target,
+        group = new fabric.Group([rect, rect2]);
+
+    canvas.add(group);
+    canvas.setActiveObject(group);
+    group.subTargetCheck = true;
+    target = canvas.findTarget({
+      clientX: 9, clientY: 9
+    });
+    equal(target, group, 'Should return the group');
+    equal(canvas.targets[0], rect, 'should return the rect');
+
+    target = canvas.findTarget({
+      clientX: 9, clientY: 9
+    });
+
+    target = canvas.findTarget({
+      clientX: 9, clientY: 9
+    });
+
+    target = canvas.findTarget({
+      clientX: 9, clientY: 9
+    });
+
+    equal(canvas.targets.length, 1, 'multiple calls to subtarget should not add more to targets');
+
     canvas.remove(group);
   });
 
@@ -1750,5 +1782,206 @@
     canvas.fireMiddleClick = true;
     canvas.__onMouseDown({ which: 2 });
     equal(clickCount, 1, 'middleClick did fire a mouse:down event');
+  });
+
+  test('mouse:down and group selector', function() {
+    var e = { clientX: 30, clientY: 30, which: 1 };
+    var rect = new fabric.Rect({ width: 60, height: 60 });
+    var expectedGroupSelector = { ex: 30, ey: 30, top: 0, left: 0 };
+    canvas.__onMouseDown(e);
+    deepEqual(canvas._groupSelector, expectedGroupSelector, 'a new groupSelector is created');
+    canvas.add(rect);
+    canvas.__onMouseUp(e);
+    canvas.__onMouseDown(e);
+    deepEqual(canvas._groupSelector, null, 'with object on target no groupSelector is started');
+    rect.selectable = false;
+    canvas.__onMouseUp(e);
+    canvas.__onMouseDown(e);
+    deepEqual(canvas._groupSelector, expectedGroupSelector, 'with object non selectable groupSelector is started');
+    canvas.__onMouseUp(e);
+    rect.isEditing = true;
+    canvas.__onMouseUp(e);
+    canvas.__onMouseDown(e);
+    deepEqual(canvas._groupSelector, null, 'with object editing, groupSelector is not started');
+    canvas.__onMouseUp(e);
+  });
+
+  test('mouse:up isClick = true', function() {
+    var e = { clientX: 30, clientY: 30, which: 1 };
+    var isClick = false;
+    canvas.on('mouse:up', function(opt) {
+      isClick = opt.isClick;
+    });
+    canvas.__onMouseDown(e);
+    canvas.__onMouseUp(e);
+    equal(isClick, true, 'without moving the pointer, the click is true');
+  });
+
+  test('mouse:up isClick = false', function() {
+    var e = { clientX: 30, clientY: 30, which: 1 };
+    var e2 = { clientX: 31, clientY: 31, which: 1 };
+    var isClick = true;
+    canvas.on('mouse:up', function(opt) {
+      isClick = opt.isClick;
+    });
+    canvas.__onMouseDown(e);
+    canvas.__onMouseMove(e2);
+    canvas.__onMouseUp(e2);
+    equal(isClick, false, 'moving the pointer, the click is false');
+  });
+
+  test('avoid multiple bindings', function() {
+    var el2 = fabric.document.createElement('canvas');
+    var c = fabric.isLikelyNode ? fabric.createCanvasForNode() : new fabric.Canvas(el2);
+    var eventsArray = [
+      c._onMouseDown,
+      c._onMouseMove,
+      c._onMouseUp,
+      c._onResize,
+      c._onGesture,
+      c._onDrag,
+      c._onShake,
+      c._onLongPress,
+      c._onOrientationChange,
+      c._onMouseWheel,
+      c._onMouseOut,
+      c._onMouseEnter,
+      c._onContextMenu
+    ];
+    // initialize canvas more than once
+    c.initialize(el2);
+    c.initialize(el2);
+    var eventsArray2 = [
+      c._onMouseDown,
+      c._onMouseMove,
+      c._onMouseUp,
+      c._onResize,
+      c._onGesture,
+      c._onDrag,
+      c._onShake,
+      c._onLongPress,
+      c._onOrientationChange,
+      c._onMouseWheel,
+      c._onMouseOut,
+      c._onMouseEnter,
+      c._onContextMenu
+    ];
+    deepEqual(eventsArray, eventsArray2, 'after first initialize, functions do not change.');
+  });
+
+  test('avoid multiple registration - mousedown', function() {
+    var el2 = fabric.document.createElement('canvas');
+    var originalMouseDown = fabric.Canvas.prototype._onMouseDown;
+    var counter = 0;
+    fabric.Canvas.prototype._onMouseDown = function() {
+      counter++;
+    };
+    var c = fabric.isLikelyNode ? fabric.createCanvasForNode() : new fabric.Canvas(el2);
+    // initialize canvas more than once
+    c.initialize(el2);
+    c.initialize(el2);
+    var event = fabric.document.createEvent('MouseEvent');
+    event.initEvent('mousedown', true, true);
+    c.upperCanvasEl.dispatchEvent(event);
+    equal(counter, 1, 'listener executed once');
+    fabric.Canvas.prototype._onMouseDown = originalMouseDown;
+  });
+
+  test('avoid multiple registration - mousemove', function() {
+    var el2 = fabric.document.createElement('canvas');
+    var originalMouseMove = fabric.Canvas.prototype._onMouseMove;
+    var counter = 0;
+    fabric.Canvas.prototype._onMouseMove = function() {
+      counter++;
+    };
+    var c = fabric.isLikelyNode ? fabric.createCanvasForNode() : new fabric.Canvas(el2);
+    // initialize canvas more than once
+    c.initialize(el2);
+    c.initialize(el2);
+    var event = fabric.document.createEvent('MouseEvent');
+    event.initEvent('mousemove', true, true);
+    c.upperCanvasEl.dispatchEvent(event);
+    equal(counter, 1, 'listener executed once');
+    fabric.Canvas.prototype._onMouseMove = originalMouseMove;
+  });
+
+  asyncTest('avoid multiple registration - mouseup', function() {
+    var el2 = fabric.document.createElement('canvas');
+    var originalMouseUp = fabric.Canvas.prototype._onMouseUp;
+    var counter = 0;
+    fabric.Canvas.prototype._onMouseUp = function() {
+      counter++;
+    };
+    var c = fabric.isLikelyNode ? fabric.createCanvasForNode() : new fabric.Canvas(el2);
+    // initialize canvas more than once
+    c.initialize(el2);
+    c.initialize(el2);
+
+    // a mouse down is necessary to register mouse up.
+    var _event = fabric.document.createEvent('MouseEvent');
+    _event.initEvent('mousedown', true, true);
+    c.upperCanvasEl.dispatchEvent(_event);
+    setTimeout(function() {
+      var event = fabric.document.createEvent('MouseEvent');
+      event.initEvent('mouseup', true, true);
+      fabric.document.dispatchEvent(event);
+      equal(counter, 1, 'listener executed once');
+      fabric.Canvas.prototype._onMouseUp = originalMouseUp;
+      start();
+    }, 200);
+  });
+
+  test('avoid multiple registration - mouseout', function() {
+    var el2 = fabric.document.createElement('canvas');
+    var originalMouseOut = fabric.Canvas.prototype._onMouseOut;
+    var counter = 0;
+    fabric.Canvas.prototype._onMouseOut = function() {
+      counter++;
+    };
+    var c = this.canvas = fabric.isLikelyNode ? fabric.createCanvasForNode() : new fabric.Canvas(el2);
+    // initialize canvas more than once
+    c.initialize(el2);
+    c.initialize(el2);
+    var event = fabric.document.createEvent('MouseEvent');
+    event.initEvent('mouseout', true, true);
+    c.upperCanvasEl.dispatchEvent(event);
+    equal(counter, 1, 'listener executed once');
+    fabric.Canvas.prototype._onMouseOut = originalMouseOut;
+  });
+
+  test('avoid multiple registration - mouseenter', function() {
+    var el2 = fabric.document.createElement('canvas');
+    var originalMouseEnter = fabric.Canvas.prototype._onMouseEnter;
+    var counter = 0;
+    fabric.Canvas.prototype._onMouseEnter = function() {
+      counter++;
+    };
+    var c = this.canvas = fabric.isLikelyNode ? fabric.createCanvasForNode() : new fabric.Canvas(el2);
+    // initialize canvas more than once
+    c.initialize(el2);
+    c.initialize(el2);
+    var event = fabric.document.createEvent('MouseEvent');
+    event.initEvent('mouseenter', true, true);
+    c.upperCanvasEl.dispatchEvent(event);
+    equal(counter, 1, 'listener executed once');
+    fabric.Canvas.prototype._onMouseEnter = originalMouseEnter;
+  });
+
+  test('avoid multiple events on window', function() {
+    var el2 = fabric.document.createElement('canvas');
+    var originalResize = fabric.Canvas.prototype._onResize;
+    var counter = 0;
+    fabric.Canvas.prototype._onResize = function() {
+      counter++;
+    };
+    var c = this.canvas = fabric.isLikelyNode ? fabric.createCanvasForNode() : new fabric.Canvas(el2);
+    // initialize canvas more than once
+    c.initialize(el2);
+    c.initialize(el2);
+    var event = fabric.document.createEvent('UIEvents');
+    event.initUIEvent('resize', true, false, fabric.window, 0);
+    fabric.window.dispatchEvent(event);
+    equal(counter, 1, 'listener on window executed once');
+    fabric.Canvas.prototype._onResize = originalResize;
   });
 })();

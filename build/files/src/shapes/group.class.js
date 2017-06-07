@@ -161,6 +161,7 @@
       this.forEachObject(this._setObjectActive, this);
       this._calcBounds();
       this._updateObjectsCoords();
+      this.setCoords();
       this.dirty = true;
       return this;
     },
@@ -188,6 +189,7 @@
       this.remove(object);
       this._calcBounds();
       this._updateObjectsCoords();
+      this.setCoords();
       this.dirty = true;
       return this;
     },
@@ -303,7 +305,7 @@
      * @return {Boolean}
      */
     shouldCache: function() {
-      var parentCache = this.objectCaching && (!this.group || this.needsItsOwnCache || !this.group.isCaching());
+      var parentCache = this.objectCaching && (!this.group || this.needsItsOwnCache() || !this.group.isCaching());
       this.caching = parentCache;
       if (parentCache) {
         for (var i = 0, len = this._objects.length; i < len; i++) {

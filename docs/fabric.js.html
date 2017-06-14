@@ -82,7 +82,7 @@
             <pre class="prettyprint source linenums"><code>/* build: `node build.js modules=ALL exclude=json,gestures minifier=uglifyjs` */
  /*! Fabric.js Copyright 2008-2015, Printio (Juriy Zaytsev, Maxim Chernyak) */
 
-var fabric = fabric || { version: "1.7.12" };
+var fabric = fabric || { version: "1.7.13" };
 if (typeof exports !== 'undefined') {
   exports.fabric = fabric;
 }
@@ -5175,7 +5175,7 @@ fabric.ElementsParser.prototype.checkIfDone = function() {
    * @memberOf fabric.Color
    */
    // eslint-disable-next-line max-len
-  fabric.Color.reRGBa = /^rgba?\(\s*(\d{1,3}(?:\.\d+)?\%?)\s*,\s*(\d{1,3}(?:\.\d+)?\%?)\s*,\s*(\d{1,3}(?:\.\d+)?\%?)\s*(?:\s*,\s*(\d+(?:\.\d+)?)\s*)?\)$/;
+  fabric.Color.reRGBa = /^rgba?\(\s*(\d{1,3}(?:\.\d+)?\%?)\s*,\s*(\d{1,3}(?:\.\d+)?\%?)\s*,\s*(\d{1,3}(?:\.\d+)?\%?)\s*(?:\s*,\s*((?:\d*\.?\d+)?)\s*)?\)$/;
 
   /**
    * Regex matching color in HSL or HSLA formats (ex: hsl(200, 80%, 10%), hsla(300, 50%, 80%, 0.5), hsla( 300 , 50% , 80% , 0.5 ))
@@ -11570,11 +11570,19 @@ fabric.util.object.extend(fabric.StaticCanvas.prototype, /** @lends fabric.Stati
       ? JSON.parse(json)
       : fabric.util.object.clone(json);
 
-    this.clear();
+    var _this = this,
+        renderOnAddRemove = this.renderOnAddRemove;
+    this.renderOnAddRemove = false;
 
-    var _this = this;
-    this._enlivenObjects(serialized.objects, function () {
+    this._enlivenObjects(serialized.objects, function (enlivenedObjects) {
+      _this.clear();
       _this._setBgOverlay(serialized, function () {
+        enlivenedObjects.forEach(function(obj, index) {
+          // we splice the array just in case some custom classes restored from JSON
+          // will add more object to canvas at canvas init.
+          _this.insertAt(obj, index);
+        });
+        _this.renderOnAddRemove = renderOnAddRemove;
         // remove parts i cannot set as options
         delete serialized.objects;
         delete serialized.backgroundImage;
@@ -11586,6 +11594,7 @@ fabric.util.object.extend(fabric.StaticCanvas.prototype, /** @lends fabric.Stati
         // create the Object instance. Here the Canvas is
         // already an instance and we are just loading things over it
         _this._setOptions(serialized);
+        _this.renderAll();
         callback &amp;&amp; callback();
       });
     }, reviver);
@@ -11598,13 +11607,12 @@ fabric.util.object.extend(fabric.StaticCanvas.prototype, /** @lends fabric.Stati
    * @param {Function} callback Invoked after all background and overlay images/patterns loaded
    */
   _setBgOverlay: function(serialized, callback) {
-    var _this = this,
-        loaded = {
-          backgroundColor: false,
-          overlayColor: false,
-          backgroundImage: false,
-          overlayImage: false
-        };
+    var loaded = {
+      backgroundColor: false,
+      overlayColor: false,
+      backgroundImage: false,
+      overlayImage: false
+    };
 
     if (!serialized.backgroundImage &amp;&amp; !serialized.overlayImage &amp;&amp; !serialized.background &amp;&amp; !serialized.overlay) {
       callback &amp;&amp; callback();
@@ -11613,7 +11621,6 @@ fabric.util.object.extend(fabric.StaticCanvas.prototype, /** @lends fabric.Stati
 
     var cbIfLoaded = function () {
       if (loaded.backgroundImage &amp;&amp; loaded.overlayImage &amp;&amp; loaded.backgroundColor &amp;&amp; loaded.overlayColor) {
-        _this.renderAll();
         callback &amp;&amp; callback();
       }
     };
@@ -11662,25 +11669,13 @@ fabric.util.object.extend(fabric.StaticCanvas.prototype, /** @lends fabric.Stati
    * @param {Function} [reviver]
    */
   _enlivenObjects: function (objects, callback, reviver) {
-    var _this = this;
-
     if (!objects || objects.length === 0) {
-      callback &amp;&amp; callback();
+      callback &amp;&amp; callback([]);
       return;
     }
 
-    var renderOnAddRemove = this.renderOnAddRemove;
-    this.renderOnAddRemove = false;
-
     fabric.util.enlivenObjects(objects, function(enlivenedObjects) {
-      enlivenedObjects.forEach(function(obj, index) {
-        // we splice the array just in case some custom classes restored from JSON
-        // will add more object to canvas at canvas init.
-        _this.insertAt(obj, index);
-      });
-
-      _this.renderOnAddRemove = renderOnAddRemove;
-      callback &amp;&amp; callback();
+      callback &amp;&amp; callback(enlivenedObjects);
     }, null, reviver);
   },
 
@@ -12627,7 +12622,7 @@ fabric.util.object.extend(fabric.StaticCanvas.prototype, /** @lends fabric.Stati
     _updateCacheCanvas: function() {
       if (this.noScaleCache &amp;&amp; this.canvas &amp;&amp; this.canvas._currentTransform) {
         var action = this.canvas._currentTransform.action;
-        if (action.slice(0, 5) === 'scale') {
+        if (action.slice &amp;&amp; action.slice(0, 5) === 'scale') {
           return false;
         }
       }
@@ -17009,10 +17004,7 @@ fabric.util.object.extend(fabric.Object.prototype, /** @lends fabric.Object.prot
      */
     initialize: function(path, options) {
       options = options || { };
-
-      if (options) {
-        this.setOptions(options);
-      }
+      this.callSuper('initialize', options);
 
       if (!path) {
         path = [];
@@ -17857,7 +17849,7 @@ fabric.util.object.extend(fabric.Object.prototype, /** @lends fabric.Object.prot
         path = elements[0];
         delete object.path;
 
-        fabric.util.object.extend(path, object);
+        path.setOptions(object);
         path.setSourcePath(pathUrl);
 
         callback &amp;&amp; callback(path);
@@ -26973,7 +26965,7 @@ fabric.util.object.extend(fabric.IText.prototype, /** @lends fabric.IText.protot
         <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="fabric.BaseBrush.html">BaseBrush</a></li><li><a href="fabric.Canvas.html">Canvas</a></li><li><a href="fabric.Circle.html">Circle</a></li><li><a href="fabric.CircleBrush.html">CircleBrush</a></li><li><a href="fabric.Color.html">Color</a></li><li><a href="fabric.Ellipse.html">Ellipse</a></li><li><a href="fabric.Gradient.html">Gradient</a></li><li><a href="fabric.Group.html">Group</a></li><li><a href="fabric.Image.html">Image</a></li><li><a href="fabric.Image.filters.BaseFilter.html">BaseFilter</a></li><li><a href="fabric.Image.filters.Brightness.html">Brightness</a></li><li><a href="fabric.Image.filters.ColorMatrix.html">ColorMatrix</a></li><li><a href="fabric.Image.filters.Contrast.html">Contrast</a></li><li><a href="fabric.Image.filters.Convolute.html">Convolute</a></li><li><a href="fabric.Image.filters.fabric.Image.filter.Blend.html">Blend</a></li><li><a href="fabric.Image.filters.GradientTransparency.html">GradientTransparency</a></li><li><a href="fabric.Image.filters.Grayscale.html">Grayscale</a></li><li><a href="fabric.Image.filters.Invert.html">Invert</a></li><li><a href="fabric.Image.filters.Mask.html">Mask</a></li><li><a href="fabric.Image.filters.Multiply.html">Multiply</a></li><li><a href="fabric.Image.filters.Noise.html">Noise</a></li><li><a href="fabric.Image.filters.Pixelate.html">Pixelate</a></li><li><a href="fabric.Image.filters.RemoveWhite.html">RemoveWhite</a></li><li><a href="fabric.Image.filters.Resize.html">Resize</a></li><li><a href="fabric.Image.filters.Saturate.html">Saturate</a></li><li><a href="fabric.Image.filters.Sepia.html">Sepia</a></li><li><a href="fabric.Image.filters.Sepia2.html">Sepia2</a></li><li><a href="fabric.Image.filters.Tint.html">Tint</a></li><li><a href="fabric.Intersection.html">Intersection</a></li><li><a href="fabric.IText.html">IText</a></li><li><a href="fabric.Line.html">Line</a></li><li><a href="fabric.Object.html">Object</a></li><li><a href="fabric.Path.html">Path</a></li><li><a href="fabric.PathGroup.html">PathGroup</a></li><li><a href="fabric.Pattern.html">Pattern</a></li><li><a href="fabric.PatternBrush.html">PatternBrush</a></li><li><a href="fabric.PencilBrush.html">PencilBrush</a></li><li><a href="fabric.Point.html">Point</a></li><li><a href="fabric.Polygon.html">Polygon</a></li><li><a href="fabric.Polyline.html">Polyline</a></li><li><a href="fabric.Rect.html">Rect</a></li><li><a href="fabric.Shadow.html">Shadow</a></li><li><a href="fabric.SprayBrush.html">SprayBrush</a></li><li><a href="fabric.StaticCanvas.html">StaticCanvas</a></li><li><a href="fabric.Text.html">Text</a></li><li><a href="fabric.Textbox.html">Textbox</a></li><li><a href="fabric.Triangle.html">Triangle</a></li></ul><h3>Namespaces</h3><ul><li><a href="fabric.html">fabric</a></li><li><a href="fabric.Collection.html">Collection</a></li><li><a href="fabric.CommonMethods.html">CommonMethods</a></li><li><a href="fabric.Image.filters.html">filters</a></li><li><a href="fabric.Observable.html">Observable</a></li><li><a href="fabric.util.html">util</a></li><li><a href="fabric.util.array.html">array</a></li><li><a href="fabric.util.ease.html">ease</a></li><li><a href="fabric.util.object.html">object</a></li><li><a href="fabric.util.string.html">string</a></li></ul><h3>Global</h3><ul><li><a href="global.html#__cachedLines">__cachedLines</a></li><li><a href="global.html#_getCursorBoundariesOffsets">_getCursorBoundariesOffsets</a></li><li><a href="global.html#_splitTextIntoLines">_splitTextIntoLines</a></li><li><a href="global.html#_wrapLine">_wrapLine</a></li><li><a href="global.html#_wrapText">_wrapText</a></li><li><a href="global.html#applyFilters">applyFilters</a></li><li><a href="global.html#dynamicMinWidth">dynamicMinWidth</a></li><li><a href="global.html#get2DCursorLocation">get2DCursorLocation</a></li><li><a href="global.html#initialize">initialize</a></li><li><a href="global.html#lockScalingFlip">lockScalingFlip</a></li><li><a href="global.html#lockScalingY">lockScalingY</a></li><li><a href="global.html#minWidth">minWidth</a></li><li><a href="global.html#noScaleCache">noScaleCache</a></li><li><a href="global.html#setOnGroup">setOnGroup</a></li><li><a href="global.html#toObject">toObject</a></li><li><a href="global.html#type">type</a></li></ul>
     </div>
 </nav>
-<footer><input id="toggle" type="checkbox" onclick="toggle(this.checked);"  /><label for="toggle" >Hide inherited properties and method from the page</label><br />Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Wed Jun 07 2017 15:08:33 GMT+0200 (CEST)
+<footer><input id="toggle" type="checkbox" onclick="toggle(this.checked);"  /><label for="toggle" >Hide inherited properties and method from the page</label><br />Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Wed Jun 14 2017 22:48:14 GMT+0200 (CEST)
 </footer>
 <script> prettyPrint(); </script>
 <script src="scripts/linenumber.js"> </script>

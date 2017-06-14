@@ -79,10 +79,7 @@
      */
     initialize: function(path, options) {
       options = options || { };
-
-      if (options) {
-        this.setOptions(options);
-      }
+      this.callSuper('initialize', options);
 
       if (!path) {
         path = [];
@@ -927,7 +924,7 @@
         path = elements[0];
         delete object.path;
 
-        fabric.util.object.extend(path, object);
+        path.setOptions(object);
         path.setSourcePath(pathUrl);
 
         callback && callback(path);

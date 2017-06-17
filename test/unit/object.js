@@ -534,18 +534,18 @@
   test('clone', function() {
     var cObj = new fabric.Object({ left: 123, top: 456, opacity: 0.66 });
     ok(typeof cObj.clone == 'function');
-    var clone = cObj.clone();
+    cObj.clone(function(clone) {
+      equal(clone.get('left'), 123);
+      equal(clone.get('top'), 456);
+      equal(clone.get('opacity'), 0.66);
 
-    equal(clone.get('left'), 123);
-    equal(clone.get('top'), 456);
-    equal(clone.get('opacity'), 0.66);
+      // augmenting clone properties should not affect original instance
+      clone.set('left', 12).set('scaleX', 2.5).setAngle(33);
 
-    // augmenting clone properties should not affect original instance
-    clone.set('left', 12).set('scaleX', 2.5).setAngle(33);
-
-    equal(cObj.get('left'), 123);
-    equal(cObj.get('scaleX'), 1);
-    equal(cObj.getAngle(), 0);
+      equal(cObj.get('left'), 123);
+      equal(cObj.get('scaleX'), 1);
+      equal(cObj.getAngle(), 0);
+    });
   });
 
   asyncTest('cloneAsImage', function() {
@@ -730,90 +730,6 @@
       equal(object.fxStraighten(), object, 'should work without callbacks');
       start();
     }, 1000);
-  });
-
-  asyncTest('animate', function() {
-    var object = new fabric.Object({ left: 20, top: 30, width: 40, height: 50, angle: 43 });
-
-    ok(typeof object.animate == 'function');
-
-    object.animate('left', 40);
-    ok(true, 'animate without options does not crash');
-
-    setTimeout(function() {
-
-      equal(40, Math.round(object.getLeft()));
-      start();
-
-    }, 1000);
-  });
-
-  asyncTest('animate multiple properties', function() {
-    var object = new fabric.Object({ left: 123, top: 124 });
-
-    object.animate({ left: 223, top: 224 });
-
-    setTimeout(function() {
-
-      equal(223, Math.round(object.get('left')));
-      equal(224, Math.round(object.get('top')));
-
-      start();
-
-    }, 1000);
-  });
-
-  asyncTest('animate multiple properties with callback', function() {
-
-    var object = new fabric.Object({ left: 0, top: 0 });
-
-    var changedInvocations = 0;
-    var completeInvocations = 0;
-
-    object.animate({ left: 1, top: 1 }, {
-      duration: 1,
-      onChange: function() {
-        changedInvocations++;
-      },
-      onComplete: function() {
-        completeInvocations++;
-      }
-    });
-
-    setTimeout(function() {
-
-      equal(Math.round(object.get('left')), 1);
-      equal(Math.round(object.get('top')), 1);
-
-      //equal(changedInvocations, 2);
-      equal(completeInvocations, 1);
-
-      start();
-
-    }, 1000);
-  });
-
-  asyncTest('animate with abort', function() {
-    var object = new fabric.Object({ left: 123, top: 124 });
-
-    var context;
-    object.animate({ left: 223, top: 224 }, {
-      abort: function() {
-        context = this;
-        return true;
-      }
-    });
-
-    setTimeout(function() {
-
-      equal(123, Math.round(object.get('left')));
-      equal(124, Math.round(object.get('top')));
-
-      equal(context, object, 'abort should be called in context of an object');
-
-      start();
-
-    }, 100);
   });
 
   test('observable', function() {

@@ -37,6 +37,7 @@
    * @fires mouseover
    * @fires mouseout
    * @fires mousewheel
+   * @fires mousedblclick
    */
   fabric.Object = fabric.util.createClass(fabric.CommonMethods, /** @lends fabric.Object.prototype */ {
 
@@ -797,16 +798,6 @@
     dirty:                true,
 
     /**
-     * When set to `true`, force the object to have its own cache, even if it is inside a group
-     * it may be needed when your object behave in a particular way on the cache and always needs
-     * its own isolated canvas to render correctly.
-     * since 1.7.5
-     * @type Boolean
-     * @default false
-     */
-    needsItsOwnCache: false,
-
-    /**
      * List of properties to consider when checking if state
      * of an object is changed (fabric.Object#hasStateChanged)
      * as well as for history (undo/redo) purposes
@@ -836,9 +827,6 @@
       options = options || { };
       if (options) {
         this.setOptions(options);
-      }
-      if (this.objectCaching) {
-        this._createCacheCanvas();
       }
     },
 
@@ -888,7 +876,7 @@
     _updateCacheCanvas: function() {
       if (this.noScaleCache && this.canvas && this.canvas._currentTransform) {
         var action = this.canvas._currentTransform.action;
-        if (action.slice(0, 5) === 'scale') {
+        if (action.slice && action.slice(0, 5) === 'scale') {
           return false;
         }
       }
@@ -1174,6 +1162,18 @@
     },
 
     /**
+     * When set to `true`, force the object to have its own cache, even if it is inside a group
+     * it may be needed when your object behave in a particular way on the cache and always needs
+     * its own isolated canvas to render correctly.
+     * Created to be overridden
+     * since 1.7.12
+     * @returns false
+     */
+    needsItsOwnCache: function() {
+      return false;
+    },
+
+    /**
      * Decide if the object should cache or not.
      * objectCaching is a global flag, wins over everything
      * needsItsOwnCache should be used when the object drawing method requires
@@ -1183,7 +1183,7 @@
      */
     shouldCache: function() {
       return this.objectCaching &&
-      (!this.group || this.needsItsOwnCache || !this.group.isCaching());
+      (!this.group || this.needsItsOwnCache() || !this.group.isCaching());
     },
 
     /**
@@ -1474,17 +1474,18 @@
     },
 
     /**
-     * Clones an instance, some objects are async, so using callback method will work for every object.
-     * Using the direct return does not work for images and groups.
+     * Clones an instance, using a callback method will work for every object.
      * @param {Function} callback Callback is invoked with a clone as a first argument
      * @param {Array} [propertiesToInclude] Any properties that you might want to additionally include in the output
-     * @return {fabric.Object} clone of an instance
      */
     clone: function(callback, propertiesToInclude) {
+      var objectForm = this.toObject(propertiesToInclude);
       if (this.constructor.fromObject) {
-        return this.constructor.fromObject(this.toObject(propertiesToInclude), callback);
+        this.constructor.fromObject(objectForm, callback);
       }
-      return new fabric.Object(this.toObject(propertiesToInclude));
+      else {
+        fabric.Object._fromObject('Object', objectForm, callback);
+      }
     },
 
     /**
@@ -1868,26 +1869,19 @@
    */
   fabric.Object.NUM_FRACTION_DIGITS = 2;
 
-  fabric.Object._fromObject = function(className, object, callback, forceAsync, extraParam) {
+  fabric.Object._fromObject = function(className, object, callback, extraParam) {
     var klass = fabric[className];
     object = clone(object, true);
-    if (forceAsync) {
-      fabric.util.enlivenPatterns([object.fill, object.stroke], function(patterns) {
-        if (typeof patterns[0] !== 'undefined') {
-          object.fill = patterns[0];
-        }
-        if (typeof patterns[1] !== 'undefined') {
-          object.stroke = patterns[1];
-        }
-        var instance = extraParam ? new klass(object[extraParam], object) : new klass(object);
-        callback && callback(instance);
-      });
-    }
-    else {
+    fabric.util.enlivenPatterns([object.fill, object.stroke], function(patterns) {
+      if (typeof patterns[0] !== 'undefined') {
+        object.fill = patterns[0];
+      }
+      if (typeof patterns[1] !== 'undefined') {
+        object.stroke = patterns[1];
+      }
       var instance = extraParam ? new klass(object[extraParam], object) : new klass(object);
       callback && callback(instance);
-      return instance;
-    }
+    });
   };
 
   /**

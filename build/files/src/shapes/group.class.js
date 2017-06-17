@@ -314,7 +314,7 @@
      * @return {Boolean}
      */
     shouldCache: function() {
-      var parentCache = this.objectCaching && (!this.group || this.needsItsOwnCache || !this.group.isCaching());
+      var parentCache = this.objectCaching && (!this.group || this.needsItsOwnCache() || !this.group.isCaching());
       this.caching = parentCache;
       if (parentCache) {
         for (var i = 0, len = this._objects.length; i < len; i++) {
@@ -611,14 +611,5 @@
       callback && callback(new fabric.Group(enlivenedObjects, object, true));
     });
   };
-
-  /**
-   * Indicates that instances of this type are async
-   * @static
-   * @memberOf fabric.Group
-   * @type Boolean
-   * @default
-   */
-  fabric.Group.async = true;
 
 })(typeof exports !== 'undefined' ? exports : this);

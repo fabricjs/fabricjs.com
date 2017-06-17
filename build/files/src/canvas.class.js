@@ -33,6 +33,7 @@
    * @fires mouse:up
    * @fires mouse:over
    * @fires mouse:out
+   * @fires mouse:doubleclick
    *
    */
   fabric.Canvas = fabric.util.createClass(fabric.StaticCanvas, /** @lends fabric.Canvas.prototype */ {
@@ -45,7 +46,7 @@
      */
     initialize: function(el, options) {
       options || (options = { });
-
+      this.renderAndResetBound = this.renderAndReset.bind(this);
       this._initStatic(el, options);
       this._initInteractive();
       this._createCacheCanvas();
@@ -1277,7 +1278,13 @@
     _createUpperCanvas: function () {
       var lowerCanvasClass = this.lowerCanvasEl.className.replace(/\s*lower-canvas\s*/, '');
 
-      this.upperCanvasEl = this._createCanvasElement();
+      // there is no need to create a new upperCanvas element if we have already one.
+      if (this.upperCanvasEl) {
+        this.upperCanvasEl.className = '';
+      }
+      else {
+        this.upperCanvasEl = this._createCanvasElement();
+      }
       fabric.util.addClass(this.upperCanvasEl, 'upper-canvas ' + lowerCanvasClass);
 
       this.wrapperEl.appendChild(this.upperCanvasEl);
@@ -1390,7 +1397,7 @@
       this._setActiveObject(object);
       this.fire('object:selected', { target: object, e: e });
       object.fire('selected', { e: e });
-      this.renderAll();
+      this.requestRenderAll();
       return this;
     },
 

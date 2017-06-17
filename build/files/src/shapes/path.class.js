@@ -79,10 +79,7 @@
      */
     initialize: function(path, options) {
       options = options || { };
-
-      if (options) {
-        this.setOptions(options);
-      }
+      this.callSuper('initialize', options);
 
       if (!path) {
         path = [];
@@ -104,10 +101,6 @@
       }
 
       this._setPositionDimensions(options);
-
-      if (this.objectCaching) {
-        this._createCacheCanvas();
-      }
     },
 
     /**
@@ -913,10 +906,23 @@
    * @memberOf fabric.Path
    * @param {Object} object
    * @param {Function} [callback] Callback to invoke when an fabric.Path instance is created
-   * @param {Boolean} [forceAsync] Force an async behaviour trying to create pattern first
    */
-  fabric.Path.fromObject = function(object, callback, forceAsync) {
-    return fabric.Object._fromObject('Path', object, callback, forceAsync, 'path');
+  fabric.Path.fromObject = function(object, callback) {
+    if (typeof object.path === 'string') {
+      var pathUrl = object.path;
+      fabric.loadSVGFromURL(pathUrl, function (elements) {
+        var path = elements[0];
+        delete object.path;
+
+        path.setOptions(object);
+        path.setSourcePath(pathUrl);
+
+        callback && callback(path);
+      });
+    }
+    else {
+      fabric.Object._fromObject('Path', object, callback, 'path');
+    }
   };
 
   /* _FROM_SVG_START_ */
@@ -935,22 +941,14 @@
    * @param {SVGElement} element to parse
    * @param {Function} callback Callback to invoke when an fabric.Path instance is created
    * @param {Object} [options] Options object
+   * @param {Function} [callback] Options callback invoked after parsing is finished
    */
   fabric.Path.fromElement = function(element, callback, options) {
     var parsedAttributes = fabric.parseAttributes(element, fabric.Path.ATTRIBUTE_NAMES);
     parsedAttributes.originX = 'left';
     parsedAttributes.originY = 'top';
-    callback && callback(new fabric.Path(parsedAttributes.d, extend(parsedAttributes, options)));
+    callback(new fabric.Path(parsedAttributes.d, extend(parsedAttributes, options)));
   };
   /* _FROM_SVG_END_ */
-
-  /**
-   * Indicates that instances of this type are async
-   * @static
-   * @memberOf fabric.Path
-   * @type Boolean
-   * @default
-   */
-  fabric.Path.async = true;
 
 })(typeof exports !== 'undefined' ? exports : this);

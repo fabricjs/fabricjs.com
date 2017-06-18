@@ -1,5 +1,5 @@
 ---
-layout: article
+layout: articlead
 title: Introduction to Fabric.js. Part 1.
 ---
 
@@ -180,7 +180,7 @@ canvas.add(circle, triangle);
 
   <p>Earlier example demonstrated <code>set</code> method and how calling <code>set({ left: 20, top: 50 })</code> &#8220;moved&#8221; object from previous location. In a similar fashion, we can change any other property of an object. But what are those properties?</p>
 
-  <p>Well, as you would expect there are those related to positioning &mdash; <strong>left</strong>, <strong>top</strong>; dimension &mdash; <strong>width</strong>, <strong>height</strong>; rendering &mdash; <strong>fill</strong>, <strong>opacity</strong>, <strong>stroke</strong>, <strong>strokeWidth</strong>; scaling and rotation &mdash; <strong>scaleX</strong>, <strong>scaleY</strong>, <strong>angle</strong>; and even those related to flipping &mdash; <strong>flipX</strong>, <strong>flipY</strong>.</p>
+  <p>Well, as you would expect there are those related to positioning &mdash; <strong>left</strong>, <strong>top</strong>; dimension &mdash; <strong>width</strong>, <strong>height</strong>; rendering &mdash; <strong>fill</strong>, <strong>opacity</strong>, <strong>stroke</strong>, <strong>strokeWidth</strong>; scaling and rotation &mdash; <strong>scaleX</strong>, <strong>scaleY</strong>, <strong>angle</strong>; and even those related to flipping &mdash; <strong>flipX</strong>, <strong>flipY</strong> and skewing <strong>skewX</strong>, <strong>skewY</strong></p>
 
   <p>Yes, creating flipped object in Fabric is as easy as setting flip* property to <code>true</code>.</p>
 
@@ -265,7 +265,8 @@ circle instanceof fabric.Object; // true
 
   <p>As you can see, method immediately becomes available on all instances.</p>
 
-  <p>While child &#8220;classes&#8221; inherit from <code>fabric.Object</code>, they often also define their own methods and properties. For example, <code>fabric.Circle</code> needs to have &#8220;radius&#8221; property. And <code>fabric.Image</code> &mdash; which we'll look at in a moment &mdash; needs to have <code>getElement</code>/<code>setElement</code> methods for accessing/setting HTML &lt;img> element from which image instance originates.</p>
+  <p>While child &#8220;classes&#8221; inherit from <code>fabric.Object</code>, they often also define their own methods and properties. For example, <code>fabric.Circle</code> needs to have &#8220;radius&#8221; property. And <code>fabric.Image</code> &mdash; which we'll look at in a moment &mdash; needs to have <code>getElement</code>/<code>setElement</code> methods for accessing/setting HTML &lt;img> element from which image instance originates.<br />
+  Working with prototypes to obtain custom rendering and behaviour is very common for advanced projects.</p>
 
   <h3 id="canvas">Canvas</h3>
 
@@ -392,11 +393,11 @@ fabric.Image.fromURL('my_image.png', function(oImg) {
 });
 </pre>
 
-  <h3 id="path_and_pathgroup">Path and PathGroup</h3>
+  <h3 id="path_and_pathgroup">Paths</h3>
 
   <p>We've looked at simple shapes, then images. What about even more complex, rich shapes and content?</p>
 
-  <p>Meet the power couple &mdash; Path and PathGroup.</p>
+  <p>Meet the power couple &mdash; Path and Gropus.</p>
 
   <p>Paths in Fabric represent an outline of a shape which can be filled, stroked, and modified in other ways. Paths consist of a series of commands, that essentially mimic a pen going from one point to another. With the help of such commands as &#8220;move&#8221;, &#8220;line&#8221;, &#8220;curve&#8221;, or &#8220;arc&#8221;, paths can form incredibly complex shapes. And with the help of groups of Paths (PathGroup's), the possibilities open up even more.</p>
 
@@ -448,7 +449,7 @@ canvas.add(path.set({ left: 100, top: 200 }));
 
   <p>Chances are, you won't be working with such &#8220;beasts&#8221; directly. Instead, you might want to use something like <code>fabric.loadSVGFromString</code> or <code>fabric.loadSVGFromURL</code> methods to load entire SVG file, and let Fabric's SVG parser do its job of walking over all SVG elements and creating corresponding Path objects.</p>
 
-  <p>Speaking of entire SVG documents, while Fabric's Path usually represent SVG &lt;path> elements, a collection of paths that are often present in SVG documents, are represented as PathGroups (<code>fabric.PathGroup</code> instances). As you can imagine, PathGroup is nothing but a group of Path objects. And since <code>fabric.PathGroup</code> inherits from <code>fabric.Object</code>, it can be added to canvas just like any other object, and manipulated the very same way.</p>
+  <p>Speaking of entire SVG documents, while Fabric's Path usually represent SVG &lt;path> elements, a collection of paths that are often present in SVG documents, are represented as Groups (<code>fabric.Group</code> instances). As you can imagine, Group is nothing but a group of Paths and other objects. And since <code>fabric.Group</code> inherits from <code>fabric.Object</code>, it can be added to canvas just like any other object, and manipulated the very same way.</p>
 
   <p>Just like with Paths, you probably won't be working with them directly. But if you stumble upon one after parsing SVG document, you'll know exactly what it is and which purpose it serves.</p>
 

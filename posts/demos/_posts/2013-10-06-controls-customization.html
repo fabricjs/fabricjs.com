@@ -3,7 +3,7 @@ layout: demo
 title: Controls customization
 ---
 
-<style> 
+<style>
 #setControlVisible {
   margin-top: -10px;
 }
@@ -71,6 +71,13 @@ title: Controls customization
   </p>
   <p>
     <label>
+      <code>cornerStyle</code>
+      <input type="radio" name="cornerStyle" value="rect" id="cornerStyle1" >
+      <input type="radio" name="cornerStyle"  value="circle" id="cornerStyle2">
+    </label>
+  </p>
+  <p>
+    <label>
       <code>padding</code>
       <input type="range" id="padding" value="0" min="0" max="50" style="display: block">
     </label>
@@ -131,6 +138,12 @@ title: Controls customization
       <input type="color" id="cornerColor" style="display: block">
     </label>
   </p>
+  <p>
+    <label>
+      <code>cornerStrokeColor</code>
+      <input type="color" id="cornerStrokeColor" style="display: block">
+    </label>
+  </p>
 </div>
 
 <script id="main">(function() {
@@ -159,13 +172,28 @@ title: Controls customization
 
   function observeNumeric(property) {
     document.getElementById(property).onchange = function() {
+      canvas.item(0)[property] = parseFloat(this.value);
+      canvas.renderAll();
+    };
+  }
+
+  function observeValue(property) {
+    document.getElementById(property).onchange = function() {
       canvas.item(0)[property] = this.value;
       canvas.renderAll();
     };
   }
 
+  function observeRadio(property) {
+    document.getElementById(property).onchange = function() {
+      var name = document.getElementById(this.id).name;
+      canvas.item(0)[name] = this.value;
+      canvas.renderAll();
+    };
+  }
+
   function observeOptionsList(property) {
-    var list = document.querySelectorAll('#' + property + 
+    var list = document.querySelectorAll('#' + property +
     ' [type="checkbox"]');
     for (var i = 0, len = list.length; i < len; i++) {
       list[i].onchange = function() {
@@ -188,8 +216,11 @@ title: Controls customization
   observeNumeric('padding');
   observeNumeric('cornerSize');
   observeNumeric('rotatingPointOffset');
-  observeNumeric('borderColor');
-  observeNumeric('cornerColor');
+  observeValue('borderColor');
+  observeValue('cornerColor');
+  observeValue('cornerStrokeColor');
+  observeRadio('cornerStyle1');
+  observeRadio('cornerStyle2');
 
   observeOptionsList('setControlVisible');
 })();

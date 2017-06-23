@@ -18,7 +18,7 @@ title: Sliding Ladybugs
   }, 1000);
 
   (function animate() {
-    canvas.forEachObject(function(obj) {
+    canvas.getObjects().slice().forEach(function(obj) {
       obj.left += (obj.movingLeft ? -1 : 1);
       obj.top += 1;
       if (obj.left > 900 || obj.top > 500) {

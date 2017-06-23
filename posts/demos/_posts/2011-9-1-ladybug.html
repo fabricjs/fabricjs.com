@@ -15,13 +15,13 @@ title: Sliding Ladybugs
       img.movingLeft = !!Math.round(Math.random());
       canvas.add(img);
     });
-  }, 1000);
+  }, 500);
 
   (function animate() {
-    canvas.forEachObject(function(obj) {
+    canvas.getObjects().concat().forEach(function(obj) {
       obj.left += (obj.movingLeft ? -1 : 1);
       obj.top += 1;
-      if (obj.left > 900 || obj.top > 500) {
+      if (obj.left > 900 || obj.left < -100 || obj.top > 500) {
         canvas.remove(obj);
       }
       else {

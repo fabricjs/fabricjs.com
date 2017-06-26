@@ -3,7 +3,11 @@ layout: articlead
 title: Fabric.js. release highlights.
 ---
 
-<style>h2 { margin-bottom: 15px } h3 { margin-bottom: 10px; } h4 { margin-bottom: 7px; } </style>
+<style>h2 { margin-bottom: 15px } h3 { margin-bottom: 10px; } h4 { margin-bottom: 7px; }
+.show-borders {
+  border:1px solid black;
+}
+</style>
 
 <div class="container" style="margin:30px auto">
   <h2 id="introduction_object_caching">Fabric.js Object caching</h2>
@@ -75,6 +79,30 @@ dirty:                true,
    return false;
  },
 
+ /**
+ * Pixel limit for cache canvases. 1Mpx , 4Mpx should be fine.
+ * @since 1.7.14
+ * @type Number
+ * @default
+ */
+fabric.perfLimitSizeTotal = 2097152;
+
+/**
+ * Pixel limit for cache canvases width or height. IE fixes the maximum at 5000
+ * @since 1.7.14
+ * @type Number
+ * @default
+ */
+fabric.maxCacheSideLimit = 4096;
+
+/**
+ * Lowest pixel limit for cache canvases, set at 256PX
+ * @since 1.7.14
+ * @type Number
+ * @default
+ */
+fabric.minCacheSideLimit = 256;
+
 </pre>
 <p>
   <code>objectCaching</code> is the main properties, default to true for browsers, false for node, it enables objectCaching at object level.<br />
@@ -83,7 +111,14 @@ dirty:                true,
   <code>noScaleCache</code> default to true, disable cache regeneration for scale operation. It can be enabled to avoid blurry effects for big scaling.<br />
   <code>cacheProperties</code> Is an array of properties to be checked when statefullCache is on to detect a state change and trigger a cache re rendering.<br />
   <code>dirty</code> is a simple flag that force a cache rerender at next render method, and is set to false automatically after cache regeneration.
+  <code>fabric.perfLimitSizeTotal</code> Max size in pixel area of generated cache canvases.<br />
+  <code>fabric.maxCacheSideLimit</code> Max size in pixel of the largest side of the cache canvas. ( numbers bigger than 5000 breaks IE )<br />
+  <code>fabric.minCacheSideLimit</code> Max size in pixel of the minimal side of the cache canvas. ( numbers smaller than 256 can disable gpu compositing. to be verified )<br />
 </p>
+
+<p>Example of a cache canvas that is bigger than the drawn object: </p><img class="show-borders" src="../article_assets/carMinCache.png" />
+<p>Example of the biggest size cache canvas at default values ( 2 Mega pixels ). Scroll to see something: </p><iframe class="show-borders" width=256 height=256 src="../article_assets/carMaxCache.png" ></iframe>
+
 <h3>How much performance gain i get, are there any problems?</h3>
 <p>It depends on what your project looks like. Are you drawing just a bunch of circles, rects and simple plygons? Maybe you will not gain that much performance.<br />
   Are you importing and displaying large and complex svgs? well you will move from possibly shuttering to smooth.

@@ -7,6 +7,17 @@ title: Fabric.js. release highlights.
 
 <div class="container" style="margin:30px auto">
   <h2 id="introduction_to_fabricjs">Fabric.js release highlights</h2>
+  <h3>Version 1.7.14</h3>
+  <p>Cache improvement release! Two new features are now in the cache system. The cache will not grow over certain sizes when scaling objects, and also the _cacheCanvas will be resized in advance by a 10% margin so that we do not have to resize each mousemove event.<br />
+  Check <a href="/fabric-object-caching">here</a> for more details<br />
+  The staefull check has been speed up a bit taking inspiration from <code>fast-deep-equal</code> package on npm.<br />
+  Some bug relative to deep state check and group that where invalidating the cache for weird reason have been hopefully solved.</p>
+  <pre>
+  Improvement: Avoid cache canvas to resize each mouse move step. #4037
+  Improvement: Make cache canvas limited in size. #4035
+  Fix: Make groups and statefull cache work. #4032
+  Add: Marked the hiddentextarea from itext so that custom projects can recognize it. #4022
+  </pre>
   <h3>Version 1.7.13</h3>
   <p>Small bugfix release</p>
   <pre>

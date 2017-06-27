@@ -116,7 +116,7 @@ fabric.minCacheSideLimit = 256;
   <code>fabric.minCacheSideLimit</code> Max size in pixel of the minimal side of the cache canvas. ( numbers smaller than 256 can disable gpu compositing. to be verified )<br />
 </p>
 
-<p>Example of a cache canvas that is bigger than the drawn object: </p><img class="show-borders" src="../article_assets/carMinCache.png" />
+<p>Example of a cache canvas that is bigger than the drawn object (256x256 is the minimum by default): </p><img class="show-borders" src="../article_assets/carMinCache.png" />
 <p>Example of the biggest size cache canvas at default values ( 2 Mega pixels ). Scroll to see something: </p><iframe class="show-borders" width=256 height=256 src="../article_assets/carMaxCache.png" ></iframe>
 
 <h3>How much performance gain i get, are there any problems?</h3>
@@ -214,7 +214,7 @@ that contains a list of properties that get checked at every render when the pro
 The array looks like this:</p>
 <pre>
   cacheProperties: (
-    'fill stroke strokeWidth strokeDashArray width height stroke strokeWidth strokeDashArray' +
+    'fill stroke strokeWidth strokeDashArray width height' +
     ' strokeLineCap strokeLineJoin strokeMiterLimit fillRule backgroundColor'
   ).split(' '),
 </pre>

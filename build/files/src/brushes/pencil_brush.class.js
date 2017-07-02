@@ -197,7 +197,7 @@
         // rendered inconsistently across browsers
         // Firefox 4, for example, renders a dot,
         // whereas Chrome 10 renders nothing
-        this.canvas.requestRenderAll();
+        this.canvas.renderAll();
         return;
       }
 
@@ -208,7 +208,7 @@
 
       this.canvas.clearContext(this.canvas.contextTop);
       this._resetShadow();
-      this.canvas.requestRenderAll();
+      this.canvas.renderAll();
 
       // fire event 'path' created
       this.canvas.fire('path:created', { path: path });

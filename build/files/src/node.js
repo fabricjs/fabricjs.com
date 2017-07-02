@@ -9,8 +9,8 @@
       HTTP = require('http'),
       HTTPS = require('https'),
 
-      Canvas = require(fabric.canvasModule),
-      Image = require(fabric.canvasModule).Image;
+      Canvas = require('canvas'),
+      Image = require('canvas').Image;
 
   /** @private */
   function request(url, encoding, callback) {
@@ -146,6 +146,9 @@
     var canvasEl = fabric.document.createElement('canvas'),
         nodeCanvas = new Canvas(width || 600, height || 600, nodeCanvasOptions),
         nodeCacheCanvas = new Canvas(width || 600, height || 600, nodeCanvasOptions);
+
+    // jsdom doesn't create style on canvas element, so here be temp. workaround
+    canvasEl.style = { };
 
     canvasEl.width = nodeCanvas.width;
     canvasEl.height = nodeCanvas.height;

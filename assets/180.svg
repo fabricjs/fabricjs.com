@@ -14,51 +14,51 @@
     <g id="meet-group-1" transform="translate(100, 60)">
       <text x="0" y="-30">--------------- meet ---------------</text>
       <g><text y="-10">xMin*</text><rect x='.5' y='.5' width='49' height='29' fill='none' stroke='blue'/>
-        <image xlink:href="http://www.deltalink.it/andreab/fabric/assets/smile.svg" preserveAspectRatio="xMinYMin meet" width="50" height="30"></image></g>
+        <image xlink:href="http://www.deltalink.it/andreab/fabric/assets/smile.png" preserveAspectRatio="xMinYMin meet" width="50" height="30" ></image></g>
       <g transform="translate(70,0)"><text y="-10">xMid*</text><rect x='.5' y='.5' width='49' height='29' fill='none' stroke='blue'/>
-        <image xlink:href="http://www.deltalink.it/andreab/fabric/assets/smile.svg" preserveAspectRatio="xMidYMid meet"
+        <image xlink:href="http://www.deltalink.it/andreab/fabric/assets/smile.png" preserveAspectRatio="xMidYMid meet"
              width="50" height="30"></image></g>
       <g transform="translate(0,70)"><text y="-10">xMax*</text><rect x='.5' y='.5' width='49' height='29' fill='none' stroke='blue'/>
-        <image xlink:href="http://www.deltalink.it/andreab/fabric/assets/smile.svg" preserveAspectRatio="xMaxYMax meet"
+        <image xlink:href="http://www.deltalink.it/andreab/fabric/assets/smile.png" preserveAspectRatio="xMaxYMax meet"
              width="50" height="30"></image></g>
     </g>
 
     <g id="meet-group-2" transform="translate(250, 60)">
       <text x="0" y="-30">---------- meet ----------</text>
       <g><text y="-10">*YMin</text><rect x='.5' y='.5' width='29' height='59' fill='none' stroke='blue'/>
-        <image xlink:href="http://www.deltalink.it/andreab/fabric/assets/smile.svg" preserveAspectRatio="xMinYMin meet"
+        <image xlink:href="http://www.deltalink.it/andreab/fabric/assets/smile.png" preserveAspectRatio="xMinYMin meet"
              width="30" height="60"></image></g>
       <g transform="translate(50, 0)"><text y="-10">*YMid</text><rect x='.5' y='.5' width='29' height='59' fill='none' stroke='blue'/>
-        <image xlink:href="http://www.deltalink.it/andreab/fabric/assets/smile.svg" preserveAspectRatio="xMidYMid meet"
+        <image xlink:href="http://www.deltalink.it/andreab/fabric/assets/smile.png" preserveAspectRatio="xMidYMid meet"
              width="30" height="60"></image></g>
       <g transform="translate(100, 0)"><text y="-10">*YMax</text><rect x='.5' y='.5' width='29' height='59' fill='none' stroke='blue'/>
-        <image xlink:href="http://www.deltalink.it/andreab/fabric/assets/smile.svg" preserveAspectRatio="xMaxYMax meet"
+        <image xlink:href="http://www.deltalink.it/andreab/fabric/assets/smile.png" preserveAspectRatio="xMaxYMax meet"
              width="30" height="60"></image></g>
     </g>
 
     <g id="slice-group-1" transform="translate(100, 220)">
       <text x="0" y="-30">---------- slice ----------</text>
       <g><text y="-10">xMin*</text><rect x='.5' y='.5' width='29' height='59' fill='none' stroke='blue'/>
-        <image xlink:href="http://www.deltalink.it/andreab/fabric/assets/smile.svg" preserveAspectRatio="xMinYMin slice"
-             width="30" height="60"></image></g>
+        <image xlink:href="http://www.deltalink.it/andreab/fabric/assets/smile.png" preserveAspectRatio="xMinYMin slice"
+             width="30" height="60" viewBox="0 0 30 40"></image></g>
       <g transform="translate(50,0)"><text y="-10">xMid*</text><rect x='.5' y='.5' width='29' height='59' fill='none' stroke='blue'/>
-        <image xlink:href="http://www.deltalink.it/andreab/fabric/assets/smile.svg" preserveAspectRatio="xMidYMid slice"
-             width="30" height="60"></image></g>
+        <image xlink:href="http://www.deltalink.it/andreab/fabric/assets/smile.png" preserveAspectRatio="xMidYMid slice"
+             width="30" height="60" viewBox="0 0 30 40"></image></g>
       <g transform="translate(100,0)"><text y="-10">xMax*</text><rect x='.5' y='.5' width='29' height='59' fill='none' stroke='blue'/>
-        <image xlink:href="http://www.deltalink.it/andreab/fabric/assets/smile.svg" preserveAspectRatio="xMaxYMax slice"
-             width="30" height="60"></image></g>
+        <image xlink:href="http://www.deltalink.it/andreab/fabric/assets/smile.png" preserveAspectRatio="xMaxYMax slice"
+             width="30" height="60" viewBox="0 0 30 40"></image></g>
     </g>
 
     <g id="slice-group-2" transform="translate(250, 220)">
       <text x="0" y="-30">--------------- slice ---------------</text>
       <g><text y="-10">*YMin</text><rect x='.5' y='.5' width='49' height='29' fill='none' stroke='blue'/>
-        <image xlink:href="http://www.deltalink.it/andreab/fabric/assets/smile.svg" preserveAspectRatio="xMinYMin slice"
+        <image xlink:href="http://www.deltalink.it/andreab/fabric/assets/smile.png" preserveAspectRatio="xMinYMin slice"
              width="50" height="30"></image></g>
       <g transform="translate(70,0)"><text y="-10">*YMid</text><rect x='.5' y='.5' width='49' height='29' fill='none' stroke='blue'/>
-        <image xlink:href="http://www.deltalink.it/andreab/fabric/assets/smile.svg" preserveAspectRatio="xMidYMid slice"
+        <image xlink:href="http://www.deltalink.it/andreab/fabric/assets/smile.png" preserveAspectRatio="xMidYMid slice"
              width="50" height="30"></image></g>
       <g transform="translate(140,0)"><text y="-10">*YMax</text><rect x='.5' y='.5' width='49' height='29' fill='none' stroke='blue'/>
-        <image xlink:href="http://www.deltalink.it/andreab/fabric/assets/smile.svg" preserveAspectRatio="xMaxYMax slice"
+        <image xlink:href="http://www.deltalink.it/andreab/fabric/assets/smile.png" preserveAspectRatio="xMaxYMax slice"
              width="50" height="30"></image></g>
     </g>
   </g>

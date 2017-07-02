@@ -40,7 +40,7 @@
      */
     initialize: function(el, options) {
       options || (options = { });
-      this.renderAndResetBound = this.renderAndReset.bind(this);
+
       this._initStatic(el, options);
     },
 
@@ -167,8 +167,6 @@
 
     /**
      * When true, canvas is scaled by devicePixelRatio for better rendering on retina screens
-     * @type Boolean
-     * @default
      */
     enableRetinaScaling: true,
 
@@ -190,10 +188,8 @@
      * If One of the corner of the bounding box of the object is on the canvas
      * the objects get rendered.
      * @memberOf fabric.StaticCanvas.prototype
-     * @type Boolean
-     * @default
      */
-    skipOffscreen: true,
+    skipOffscreen: false,
 
     /**
      * @private
@@ -666,14 +662,14 @@
      * @chainable true
      */
     setViewportTransform: function (vpt) {
-      var activeGroup = this._activeGroup, object, ingoreVpt = false, skipAbsolute = true;
+      var activeGroup = this._activeGroup, object, ignoreVpt = false, skipAbsolute = true;
       this.viewportTransform = vpt;
       for (var i = 0, len = this._objects.length; i < len; i++) {
         object = this._objects[i];
-        object.group || object.setCoords(ingoreVpt, skipAbsolute);
+        object.group || object.setCoords(ignoreVpt, skipAbsolute);
       }
       if (activeGroup) {
-        activeGroup.setCoords(ingoreVpt, skipAbsolute);
+        activeGroup.setCoords(ignoreVpt, skipAbsolute);
       }
       this.calcViewportBoundaries();
       this.renderAll();
@@ -815,31 +811,6 @@
     renderAll: function () {
       var canvasToDrawOn = this.contextContainer;
       this.renderCanvas(canvasToDrawOn, this._objects);
-      return this;
-    },
-
-    /**
-     * Function created to be instance bound at initialization
-     * used in requestAnimationFrame rendering
-     * @return {fabric.Canvas} instance
-     * @chainable
-     */
-    renderAndReset: function() {
-      this.renderAll();
-      this.isRendering = false;
-    },
-
-    /**
-     * Append a renderAll request to next animation frame.
-     * a boolean flag will avoid appending more.
-     * @return {fabric.Canvas} instance
-     * @chainable
-     */
-    requestRenderAll: function () {
-      if (!this.isRendering) {
-        this.isRendering = true;
-        fabric.util.requestAnimFrame(this.renderAndResetBound);
-      }
       return this;
     },
 
@@ -1449,8 +1420,7 @@
         removeFromArray(this._objects, object);
         this._objects.unshift(object);
       }
-      this.renderAll && this.renderAll();
-      return this;
+      return this.renderAll && this.renderAll();
     },
 
     /**
@@ -1478,8 +1448,7 @@
         removeFromArray(this._objects, object);
         this._objects.push(object);
       }
-      this.renderAll && this.renderAll();
-      return this;
+      return this.renderAll && this.renderAll();
     },
 
     /**

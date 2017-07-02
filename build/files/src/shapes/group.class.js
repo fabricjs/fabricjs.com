@@ -93,34 +93,26 @@
       if (isAlreadyGrouped) {
         // do not change coordinate of objects enclosed in a group,
         // because objects coordinate system have been group coodinate system already.
-        var object;
-        for (var i = this._objects.length; i--; ) {
-          object = this._objects[i];
-          object.__origHasControls = object.hasControls;
-          object.hasControls = false;
-        }
+        this._updateObjectsCoords(true);
       }
       else {
-        var center = options && options.centerPoint;
-        // if coming from svg i do not want to calc bounds.
-        // i assume width and height are passed along options
-        center || this._calcBounds();
-        this._updateObjectsCoords(center);
-        delete options.centerPont;
+        this._calcBounds();
+        this._updateObjectsCoords();
         this.callSuper('initialize', options);
       }
 
       this.setCoords();
+      this.saveCoords();
     },
 
     /**
      * @private
      * @param {Boolean} [skipCoordsChange] if true, coordinates of objects enclosed in a group do not change
      */
-    _updateObjectsCoords: function(center) {
-      var center = center || this.getCenterPoint();
+    _updateObjectsCoords: function(skipCoordsChange) {
+      var center = this.getCenterPoint();
       for (var i = this._objects.length; i--; ){
-        this._updateObjectCoords(this._objects[i], center);
+        this._updateObjectCoords(this._objects[i], center, skipCoordsChange);
       }
     },
 
@@ -128,11 +120,16 @@
      * @private
      * @param {Object} object
      * @param {fabric.Point} center, current center of group.
+     * @param {Boolean} [skipCoordsChange] if true, coordinates of object dose not change
      */
-    _updateObjectCoords: function(object, center) {
+    _updateObjectCoords: function(object, center, skipCoordsChange) {
       // do not display corners of objects enclosed in a group
       object.__origHasControls = object.hasControls;
       object.hasControls = false;
+
+      if (skipCoordsChange) {
+        return;
+      }
 
       var objectLeft = object.getLeft(),
           objectTop = object.getTop(),
@@ -284,19 +281,13 @@
      * @return {Object} object representation of an instance
      */
     toDatalessObject: function(propertiesToInclude) {
-      var objsToObject, sourcePath = this.sourcePath;
-      if (sourcePath) {
-        objsToObject = sourcePath;
-      }
-      else {
-        objsToObject = this.getObjects().map(function(obj) {
-          var originalDefaults = obj.includeDefaultValues;
-          obj.includeDefaultValues = obj.group.includeDefaultValues;
-          var _obj = obj.toDatalessObject(propertiesToInclude);
-          obj.includeDefaultValues = originalDefaults;
-          return _obj;
-        });
-      }
+      var objsToObject = this.getObjects().map(function(obj) {
+        var originalDefaults = obj.includeDefaultValues;
+        obj.includeDefaultValues = obj.group.includeDefaultValues;
+        var _obj = obj.toDatalessObject(propertiesToInclude);
+        obj.includeDefaultValues = originalDefaults;
+        return _obj;
+      });
       return extend(this.callSuper('toDatalessObject', propertiesToInclude), {
         objects: objsToObject
       });
@@ -313,7 +304,7 @@
     },
 
     /**
-     * Decide if the object should cache or not. Create its own cache level
+     * Decide if the object should cache or not.
      * objectCaching is a global flag, wins over everything
      * needsItsOwnCache should be used when the object drawing method requires
      * a cache step. None of the fabric classes requires it.
@@ -321,17 +312,17 @@
      * @return {Boolean}
      */
     shouldCache: function() {
-      var ownCache = this.objectCaching && (!this.group || this.needsItsOwnCache() || !this.group.isOnACache());
-      this.ownCaching = ownCache;
-      if (ownCache) {
+      var parentCache = this.objectCaching && (!this.group || this.needsItsOwnCache() || !this.group.isCaching());
+      this.caching = parentCache;
+      if (parentCache) {
         for (var i = 0, len = this._objects.length; i < len; i++) {
           if (this._objects[i].willDrawShadow()) {
-            this.ownCaching = false;
+            this.caching = false;
             return false;
           }
         }
       }
-      return ownCache;
+      return parentCache;
     },
 
     /**
@@ -340,7 +331,7 @@
      */
     willDrawShadow: function() {
       if (this.shadow) {
-        return true;
+        return this.callSuper('willDrawShadow');
       }
       for (var i = 0, len = this._objects.length; i < len; i++) {
         if (this._objects[i].willDrawShadow()) {
@@ -354,13 +345,14 @@
      * Check if this group or its parent group are caching, recursively up
      * @return {Boolean}
      */
-    isOnACache: function() {
-      return this.ownCaching || (this.group && this.group.isOnACache());
+    isCaching: function() {
+      return this.caching || this.group && this.group.isCaching();
     },
 
     /**
      * Execute the drawing operation for an object on a specified context
      * @param {CanvasRenderingContext2D} ctx Context to render on
+     * @param {Boolean} [noTransform] When true, context is not transformed
      */
     drawObject: function(ctx) {
       for (var i = 0, len = this._objects.length; i < len; i++) {
@@ -394,17 +386,14 @@
     /**
      * Renders controls and borders for the object
      * @param {CanvasRenderingContext2D} ctx Context to render on
-     * @param {Object} [styleOverride] properties to override the object style
-     * @param {Object} [childrenOverride] properties to override the children overrides
+     * @param {Boolean} [noTransform] When true, context is not transformed
      */
-    _renderControls: function(ctx, styleOverride, childrenOverride) {
+    _renderControls: function(ctx, noTransform) {
       ctx.save();
       ctx.globalAlpha = this.isMoving ? this.borderOpacityWhenMoving : 1;
-      this.callSuper('_renderControls', ctx, styleOverride);
-      if (this.canvas && this === this.canvas.getActiveGroup()) {
-        for (var i = 0, len = this._objects.length; i < len; i++) {
-          this._objects[i]._renderControls(ctx, childrenOverride);
-        }
+      this.callSuper('_renderControls', ctx, noTransform);
+      for (var i = 0, len = this._objects.length; i < len; i++) {
+        this._objects[i]._renderControls(ctx);
       }
       ctx.restore();
     },
@@ -413,6 +402,11 @@
      * @private
      */
     _renderObject: function(object, ctx) {
+      // do not render if object is not visible
+      if (!object.visible) {
+        return;
+      }
+
       var originalHasRotatingPoint = object.hasRotatingPoint;
       object.hasRotatingPoint = false;
       object.render(ctx);
@@ -477,6 +471,27 @@
      */
     destroy: function() {
       return this._restoreObjectsState();
+    },
+
+    /**
+     * Saves coordinates of this instance (to be used together with `hasMoved`)
+     * @saveCoords
+     * @return {fabric.Group} thisArg
+     * @chainable
+     */
+    saveCoords: function() {
+      this._originalLeft = this.get('left');
+      this._originalTop = this.get('top');
+      return this;
+    },
+
+    /**
+     * Checks whether this group was moved (since `saveCoords` was called last)
+     * @return {Boolean} true if an object was moved (since fabric.Group#saveCoords was called)
+     */
+    hasMoved: function() {
+      return this._originalLeft !== this.get('left') ||
+             this._originalTop !== this.get('top');
     },
 
     /**
@@ -616,5 +631,14 @@
       callback && callback(new fabric.Group(enlivenedObjects, object, true));
     });
   };
+
+  /**
+   * Indicates that instances of this type are async
+   * @static
+   * @memberOf fabric.Group
+   * @type Boolean
+   * @default
+   */
+  fabric.Group.async = true;
 
 })(typeof exports !== 'undefined' ? exports : this);

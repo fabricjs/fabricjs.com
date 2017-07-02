@@ -19,8 +19,7 @@
    *   noise: 700
    * });
    * object.filters.push(filter);
-   * object.applyFilters();
-   * canvas.renderAll();
+   * object.applyFilters(canvas.renderAll.bind(canvas));
    */
   filters.Noise = createClass(filters.BaseFilter, /** @lends fabric.Image.filters.Noise.prototype */ {
 
@@ -32,49 +31,24 @@
     type: 'Noise',
 
     /**
-     * Fragment source for the noise program
+     * Constructor
+     * @memberOf fabric.Image.filters.Noise.prototype
+     * @param {Object} [options] Options object
+     * @param {Number} [options.noise=0] Noise value
      */
-    fragmentSource: 'precision highp float;\n' +
-      'uniform sampler2D uTexture;\n' +
-      'uniform float uStepH;\n' +
-      'uniform float uNoise;\n' +
-      'uniform float uSeed;\n' +
-      'varying vec2 vTexCoord;\n' +
-      'float rand(vec2 co, float seed, float vScale) {\n' +
-        'return fract(sin(dot(co.xy * vScale ,vec2(12.9898 , 78.233))) * 43758.5453 * (seed + 0.01) / 2.0);\n' +
-      '}\n' +
-      'void main() {\n' +
-        'vec4 color = texture2D(uTexture, vTexCoord);\n' +
-        'color.rgb += (0.5 - rand(vTexCoord, uSeed, 0.1 / uStepH)) * uNoise;\n' +
-        'gl_FragColor = color;\n' +
-      '}',
+    initialize: function(options) {
+      options = options || { };
+      this.noise = options.noise || 0;
+    },
 
     /**
-     * Describe the property that is the filter parameter
-     * @param {String} m
-     * @default
+     * Applies filter to canvas element
+     * @param {Object} canvasEl Canvas element to apply filter to
      */
-    mainParameter: 'noise',
-
-    /**
-     * Noise value, from
-     * @param {Number} noise
-     * @default
-     */
-    noise: 0,
-
-    /**
-     * Apply the Brightness operation to a Uint8ClampedArray representing the pixels of an image.
-     *
-     * @param {Object} options
-     * @param {ImageData} options.imageData The Uint8ClampedArray to be filtered.
-     */
-    applyTo2d: function(options) {
-      if (this.noise === 0) {
-        return;
-      }
-      var imageData = options.imageData,
-          data = imageData.data, i, len = data.length,
+    applyTo: function(canvasEl) {
+      var context = canvasEl.getContext('2d'),
+          imageData = context.getImageData(0, 0, canvasEl.width, canvasEl.height),
+          data = imageData.data,
           noise = this.noise, rand;
 
       for (var i = 0, len = data.length; i < len; i += 4) {
@@ -85,30 +59,8 @@
         data[i + 1] += rand;
         data[i + 2] += rand;
       }
-    },
 
-    /**
-     * Return WebGL uniform locations for this filter's shader.
-     *
-     * @param {WebGLRenderingContext} gl The GL canvas context used to compile this filter's shader.
-     * @param {WebGLShaderProgram} program This filter's compiled shader program.
-     */
-    getUniformLocations: function(gl, program) {
-      return {
-        uNoise: gl.getUniformLocation(program, 'uNoise'),
-        uSeed: gl.getUniformLocation(program, 'uSeed'),
-      };
-    },
-
-    /**
-     * Send data from this filter to its shader program's uniforms.
-     *
-     * @param {WebGLRenderingContext} gl The GL canvas context used to compile this filter's shader.
-     * @param {Object} uniformLocations A map of string uniform names to WebGLUniformLocation objects
-     */
-    sendUniformData: function(gl, uniformLocations) {
-      gl.uniform1f(uniformLocations.uNoise, this.noise / 255);
-      gl.uniform1f(uniformLocations.uSeed, Math.random());
+      context.putImageData(imageData, 0, 0);
     },
 
     /**

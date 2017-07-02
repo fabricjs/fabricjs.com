@@ -38,7 +38,6 @@
    * @fires mouseover
    * @fires mouseout
    * @fires mousewheel
-   * @fires mousedblclick
    */
   fabric.Object = fabric.util.createClass(fabric.CommonMethods, /** @lends fabric.Object.prototype */ {
 
@@ -307,7 +306,7 @@
 
     /**
      * Horizontal origin of transformation of an object (one of "left", "right", "center")
-     * See http://jsfiddle.net/1ow02gea/244/ on how originX/originY affect objects in groups
+     * See http://jsfiddle.net/1ow02gea/40/ on how originX/originY affect objects in groups
      * @type String
      * @default
      */
@@ -315,7 +314,7 @@
 
     /**
      * Vertical origin of transformation of an object (one of "top", "bottom", "center")
-     * See http://jsfiddle.net/1ow02gea/244/ on how originX/originY affect objects in groups
+     * See http://jsfiddle.net/1ow02gea/40/ on how originX/originY affect objects in groups
      * @type String
      * @default
      */
@@ -769,7 +768,7 @@
 
     /**
      * When `true`, object properties are checked for cache invalidation. In some particular
-     * situation you may want this to be disabled ( spray brush, very big, groups)
+     * situation you may want this to be disabled ( spray brush, very big pathgroups, groups)
      * or if your application does not allow you to modify properties for groups child you want
      * to disable it for groups.
      * default to false
@@ -945,17 +944,15 @@
         if (shouldResizeCanvas) {
           this._cacheCanvas.width = Math.max(Math.ceil(width) + additionalWidth, minCacheSize);
           this._cacheCanvas.height = Math.max(Math.ceil(height) + additionalHeight, minCacheSize);
-          this.cacheWidth = width;
-          this.cacheHeight = height;
           this.cacheTranslationX = (width + additionalWidth) / 2;
           this.cacheTranslationY = (height + additionalHeight) / 2;
-          console.log('resized', this._cacheCanvas.width, this._cacheCanvas.height)
         }
         else {
-          console.log('not resized')
           this._cacheContext.setTransform(1, 0, 0, 1, 0, 0);
           this._cacheContext.clearRect(0, 0, this._cacheCanvas.width, this._cacheCanvas.height);
         }
+        this.cacheWidth = width;
+        this.cacheHeight = height;
         this._cacheContext.translate(this.cacheTranslationX, this.cacheTranslationY);
         this._cacheContext.scale(zoomX, zoomY);
         this.zoomX = zoomX;
@@ -984,7 +981,7 @@
      * @param {Boolean} fromLeft When true, context is transformed to object's top/left corner. This is used when rendering text on Node
      */
     transform: function(ctx, fromLeft) {
-      if (this.group && !this.group._transformDone) {
+      if (this.group && !this.group._transformDone && this.group === this.canvas._activeGroup) {
         this.group.transform(ctx);
       }
       var center = fromLeft ? this._getLeftTopCoords() : this.getCenterPoint();
@@ -1103,18 +1100,6 @@
     },
 
     /**
-     * Return the object opacity counting also the group property
-     * @return {Object} object with scaleX and scaleY properties
-     */
-    getObjectOpacity: function() {
-      var opacity = this.opacity;
-      if (this.group) {
-        opacity *= this.group.getObjectOpacity();
-      }
-      return opacity;
-    },
-
-    /**
      * @private
      * @param {String} key
      * @param {*} value
@@ -1150,7 +1135,7 @@
         this.dirty = true;
       }
 
-      if (this.group && this.stateProperties.indexOf(key) > -1 && this.group.isOnACache()) {
+      if (this.group && this.stateProperties.indexOf(key) > -1) {
         this.group.set('dirty', true);
       }
 
@@ -1169,6 +1154,17 @@
      */
     setOnGroup: function() {
       // implemented by sub-classes, as needed.
+    },
+
+    /**
+     * Sets sourcePath of an object
+     * @param {String} value Value to set sourcePath to
+     * @return {fabric.Object} thisArg
+     * @chainable
+     */
+    setSourcePath: function(value) {
+      this.sourcePath = value;
+      return this;
     },
 
     /**
@@ -1197,8 +1193,9 @@
     /**
      * Renders an object on a specified context
      * @param {CanvasRenderingContext2D} ctx Context to render on
+     * @param {Boolean} [noTransform] When true, context is not transformed
      */
-    render: function(ctx) {
+    render: function(ctx, noTransform) {
       // do not render if width/height are zeros or object is not visible
       if (this.isNotVisible()) {
         return;
@@ -1207,30 +1204,33 @@
         return;
       }
       ctx.save();
+      //setup fill rule for current object
       this._setupCompositeOperation(ctx);
       this.drawSelectionBackground(ctx);
-      this.transform(ctx);
+      if (!noTransform) {
+        this.transform(ctx);
+      }
       this._setOpacity(ctx);
-      this._setShadow(ctx, this);
+      this._setShadow(ctx);
       if (this.transformMatrix) {
         ctx.transform.apply(ctx, this.transformMatrix);
       }
       this.clipTo && fabric.util.clipContext(this, ctx);
-      if (this.shouldCache()) {
+      if (this.shouldCache(noTransform)) {
         if (!this._cacheCanvas) {
           this._createCacheCanvas();
         }
-        if (this.isCacheDirty()) {
+        if (this.isCacheDirty(noTransform)) {
           this.statefullCache && this.saveState({ propertySet: 'cacheProperties' });
-          this.drawObject(this._cacheContext);
+          this.drawObject(this._cacheContext, noTransform);
           this.dirty = false;
         }
         this.drawCacheOnCanvas(ctx);
       }
       else {
         this.dirty = false;
-        this.drawObject(ctx);
-        if (this.objectCaching && this.statefullCache) {
+        this.drawObject(ctx, noTransform);
+        if (noTransform && this.objectCaching && this.statefullCache) {
           this.saveState({ propertySet: 'cacheProperties' });
         }
       }
@@ -1239,29 +1239,30 @@
     },
 
     /**
-     * When set to `true`, force the object to have its own cache, even if it is inside a group
+     * When returns `true`, force the object to have its own cache, even if it is inside a group
      * it may be needed when your object behave in a particular way on the cache and always needs
      * its own isolated canvas to render correctly.
-     * Created to be overridden
+     * This function is created to be subclassed by custom classes.
      * since 1.7.12
-     * @returns false
+     * @type function
+     * @return false
      */
     needsItsOwnCache: function() {
       return false;
     },
 
     /**
-     * Decide if the object should cache or not. Create its own cache level
+     * Decide if the object should cache or not.
      * objectCaching is a global flag, wins over everything
      * needsItsOwnCache should be used when the object drawing method requires
      * a cache step. None of the fabric classes requires it.
      * Generally you do not cache objects in groups because the group outside is cached.
+     * @param {Boolean} noTransform if rendereing in pathGroup, caching is not supported at object level
      * @return {Boolean}
      */
-    shouldCache: function() {
-      this.ownCaching = this.objectCaching &&
-      (!this.group || this.needsItsOwnCache() || !this.group.isOnACache());
-      return this.ownCaching;
+    shouldCache: function(noTransform) {
+      return !noTransform && this.objectCaching &&
+      (!this.group || this.needsItsOwnCache() || !this.group.isCaching());
     },
 
     /**
@@ -1270,18 +1271,19 @@
      * @return {Boolean}
      */
     willDrawShadow: function() {
-      return !!this.shadow;
+      return !!this.shadow && (this.shadow.offsetX !== 0 || this.shadow.offsetY !== 0);
     },
 
     /**
      * Execute the drawing operation for an object on a specified context
      * @param {CanvasRenderingContext2D} ctx Context to render on
+     * @param {Boolean} [noTransform] When true, context is not transformed
      */
-    drawObject: function(ctx) {
+    drawObject: function(ctx, noTransform) {
       this._renderBackground(ctx);
-      this._setStrokeStyles(ctx, this);
-      this._setFillStyles(ctx, this);
-      this._render(ctx);
+      this._setStrokeStyles(ctx);
+      this._setFillStyles(ctx);
+      this._render(ctx, noTransform);
     },
 
     /**
@@ -1347,31 +1349,26 @@
      * @param {CanvasRenderingContext2D} ctx Context to render on
      */
     _setOpacity: function(ctx) {
-      if (this.group && !this.group.transformDone) {
-        ctx.globalAlpha = this.getObjectOpacity();
-      }
-      else {
-        ctx.globalAlpha *= this.opacity;
+      ctx.globalAlpha *= this.opacity;
+    },
+
+    _setStrokeStyles: function(ctx) {
+      if (this.stroke) {
+        ctx.lineWidth = this.strokeWidth;
+        ctx.lineCap = this.strokeLineCap;
+        ctx.lineJoin = this.strokeLineJoin;
+        ctx.miterLimit = this.strokeMiterLimit;
+        ctx.strokeStyle = this.stroke.toLive
+          ? this.stroke.toLive(ctx, this)
+          : this.stroke;
       }
     },
 
-    _setStrokeStyles: function(ctx, decl) {
-      if (decl.stroke) {
-        ctx.lineWidth = decl.strokeWidth;
-        ctx.lineCap = decl.strokeLineCap;
-        ctx.lineJoin = decl.strokeLineJoin;
-        ctx.miterLimit = decl.strokeMiterLimit;
-        ctx.strokeStyle = decl.stroke.toLive
-          ? decl.stroke.toLive(ctx, this)
-          : decl.stroke;
-      }
-    },
-
-    _setFillStyles: function(ctx, decl) {
-      if (decl.fill) {
-        ctx.fillStyle = decl.fill.toLive
-          ? decl.fill.toLive(ctx, this)
-          : decl.fill;
+    _setFillStyles: function(ctx) {
+      if (this.fill) {
+        ctx.fillStyle = this.fill.toLive
+          ? this.fill.toLive(ctx, this)
+          : this.fill;
       }
     },
 
@@ -1401,17 +1398,18 @@
     /**
      * Renders controls and borders for the object
      * @param {CanvasRenderingContext2D} ctx Context to render on
-     * @param {Object} [styleOverride] properties to override the object style
      */
-    _renderControls: function(ctx, styleOverride) {
+    _renderControls: function(ctx) {
+      if (!this.active || (this.group && this.group !== this.canvas.getActiveGroup())) {
+        return;
+      }
+
       var vpt = this.getViewportTransform(),
           matrix = this.calcTransformMatrix(),
-          options, drawBorders, drawControls;
-      styleOverride = styleOverride || { };
-      drawBorders = typeof styleOverride.hasBorders !== 'undefined' ? styleOverride.hasBorders : this.hasBorders;
-      drawControls = typeof styleOverride.hasControls !== 'undefined' ? styleOverride.hasControls : this.hasControls;
+          options;
       matrix = fabric.util.multiplyTransformMatrices(vpt, matrix);
       options = fabric.util.qrDecompose(matrix);
+
       ctx.save();
       ctx.translate(options.translateX, options.translateY);
       ctx.lineWidth = 1 * this.borderScaleFactor;
@@ -1420,13 +1418,13 @@
       }
       if (this.group && this.group === this.canvas.getActiveGroup()) {
         ctx.rotate(degreesToRadians(options.angle));
-        drawBorders && this.drawBordersInGroup(ctx, options, styleOverride);
+        this.drawBordersInGroup(ctx, options);
       }
       else {
         ctx.rotate(degreesToRadians(this.angle));
-        drawBorders && this.drawBorders(ctx, styleOverride);
+        this.drawBorders(ctx);
       }
-      drawControls && this.drawControls(ctx, styleOverride);
+      this.drawControls(ctx);
       ctx.restore();
     },
 
@@ -1475,12 +1473,12 @@
         return;
       }
       var transform = filler.gradientTransform || filler.patternTransform;
-      var offsetX = -this.width / 2 + filler.offsetX || 0,
-          offsetY = -this.height / 2 + filler.offsetY || 0;
-      ctx.translate(offsetX, offsetY);
       if (transform) {
         ctx.transform.apply(ctx, transform);
       }
+      var offsetX = -this.width / 2 + filler.offsetX || 0,
+          offsetY = -this.height / 2 + filler.offsetY || 0;
+      ctx.translate(offsetX, offsetY);
     },
 
     /**
@@ -1503,6 +1501,10 @@
       ctx.restore();
     },
 
+    /**
+     * @private
+     * @param {CanvasRenderingContext2D} ctx Context to render on
+     */
     _renderStroke: function(ctx) {
       if (!this.stroke || this.strokeWidth === 0) {
         return;
@@ -1520,53 +1522,17 @@
     },
 
     /**
-     * This function is an helper for svg import. it returns the center of the object in the svg
-     * untransformed coordinates
-     * @private
-     * @return {Object} center point from element coordinates
-     */
-    _findCenterFromElement: function() {
-      return { x: this.left + this.width / 2, y: this.top + this.height / 2 };
-    },
-
-    /**
-     * This function is an helper for svg import. it removes the transform matrix
-     * and set to object properties that fabricjs can handle
-     * untransformed coordinates
-     * @private
-     * @chainable
-     * @return {thisArg}
-     */
-    _removeTransformMatrix: function() {
-      var center = this._findCenterFromElement();
-      if (this.transformMatrix) {
-        var options = fabric.util.qrDecompose(this.transformMatrix);
-        this.flipX = false;
-        this.flipY = false;
-        this.set('scaleX', options.scaleX);
-        this.set('scaleY', options.scaleY);
-        this.angle = options.angle;
-        this.skewX = options.skewX;
-        this.skewY = 0;
-        center = fabric.util.transformPoint(center, this.transformMatrix);
-      }
-      this.transformMatrix = null;
-      this.setPositionByOrigin(center, 'center', 'center');
-    },
-
-    /**
-     * Clones an instance, using a callback method will work for every object.
+     * Clones an instance, some objects are async, so using callback method will work for every object.
+     * Using the direct return does not work for images and groups.
      * @param {Function} callback Callback is invoked with a clone as a first argument
      * @param {Array} [propertiesToInclude] Any properties that you might want to additionally include in the output
+     * @return {fabric.Object} clone of an instance
      */
     clone: function(callback, propertiesToInclude) {
-      var objectForm = this.toObject(propertiesToInclude);
       if (this.constructor.fromObject) {
-        this.constructor.fromObject(objectForm, callback);
+        return this.constructor.fromObject(this.toObject(propertiesToInclude), callback);
       }
-      else {
-        fabric.Object._fromObject('Object', objectForm, callback);
-      }
+      return new fabric.Object(this.toObject(propertiesToInclude));
     },
 
     /**
@@ -1950,19 +1916,26 @@
    */
   fabric.Object.NUM_FRACTION_DIGITS = 2;
 
-  fabric.Object._fromObject = function(className, object, callback, extraParam) {
+  fabric.Object._fromObject = function(className, object, callback, forceAsync, extraParam) {
     var klass = fabric[className];
     object = clone(object, true);
-    fabric.util.enlivenPatterns([object.fill, object.stroke], function(patterns) {
-      if (typeof patterns[0] !== 'undefined') {
-        object.fill = patterns[0];
-      }
-      if (typeof patterns[1] !== 'undefined') {
-        object.stroke = patterns[1];
-      }
+    if (forceAsync) {
+      fabric.util.enlivenPatterns([object.fill, object.stroke], function(patterns) {
+        if (typeof patterns[0] !== 'undefined') {
+          object.fill = patterns[0];
+        }
+        if (typeof patterns[1] !== 'undefined') {
+          object.stroke = patterns[1];
+        }
+        var instance = extraParam ? new klass(object[extraParam], object) : new klass(object);
+        callback && callback(instance);
+      });
+    }
+    else {
       var instance = extraParam ? new klass(object[extraParam], object) : new klass(object);
       callback && callback(instance);
-    });
+      return instance;
+    }
   };
 
   /**

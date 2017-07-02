@@ -10,15 +10,14 @@
    * Sepia filter class
    * @class fabric.Image.filters.Sepia
    * @memberOf fabric.Image.filters
-   * @extends fabric.Image.filters.ColorMatrix
+   * @extends fabric.Image.filters.BaseFilter
    * @see {@link http://fabricjs.com/image-filters|ImageFilters demo}
    * @example
    * var filter = new fabric.Image.filters.Sepia();
    * object.filters.push(filter);
-   * object.applyFilters();
+   * object.applyFilters(canvas.renderAll.bind(canvas));
    */
-
-  filters.Sepia = createClass(filters.ColorMatrix, /** @lends fabric.Image.filters.Sepia.prototype */ {
+  filters.Sepia = createClass(filters.BaseFilter, /** @lends fabric.Image.filters.Sepia.prototype */ {
 
     /**
      * Filter type
@@ -28,24 +27,25 @@
     type: 'Sepia',
 
     /**
-     * Colormatrix for sepia tone effect.
-     * array of 20 floats. Numbers in positions 4, 9, 14, 19 loose meaning
-     * outside the -1, 1 range.
-     * 0.0039215686 is the part of 1 that get translated to 1 in 2d
-     * @param {Array} matrix array of 20 numbers.
-     * @default
+     * Applies filter to canvas element
+     * @memberOf fabric.Image.filters.Sepia.prototype
+     * @param {Object} canvasEl Canvas element to apply filter to
      */
-    matrix: [
-      0.393, 0.769, 0.189, 0, 0,
-      0.349, 0.686, 0.168, 0, 0,
-      0.272, 0.534, 0.131, 0, 0,
-      0, 0, 0, 1, 0
-    ],
+    applyTo: function(canvasEl) {
+      var context = canvasEl.getContext('2d'),
+          imageData = context.getImageData(0, 0, canvasEl.width, canvasEl.height),
+          data = imageData.data,
+          iLen = data.length, i, avg;
 
-    /**
-     * Lock the colormatrix on the color part, skipping alpha
-     */
-    colorsOnly: true,
+      for (i = 0; i < iLen; i += 4) {
+        avg = 0.3  * data[i] + 0.59 * data[i + 1] + 0.11 * data[i + 2];
+        data[i] = avg + 100;
+        data[i + 1] = avg + 50;
+        data[i + 2] = avg + 255;
+      }
+
+      context.putImageData(imageData, 0, 0);
+    }
   });
 
   /**
@@ -55,6 +55,10 @@
    * @param {Function} [callback] to be invoked after filter creation
    * @return {fabric.Image.filters.Sepia} Instance of fabric.Image.filters.Sepia
    */
-  fabric.Image.filters.Sepia.fromObject = fabric.Image.filters.BaseFilter.fromObject;
+  fabric.Image.filters.Sepia.fromObject = function(object, callback) {
+    object = object || { };
+    object.type = 'Sepia';
+    return new fabric.Image.filters.BaseFilter.fromObject(object, callback);
+  };
 
 })(typeof exports !== 'undefined' ? exports : this);

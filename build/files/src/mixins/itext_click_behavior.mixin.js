@@ -24,11 +24,22 @@ fabric.util.object.extend(fabric.IText.prototype, /** @lends fabric.IText.protot
       this.fire('tripleclick', options);
       this._stopEvent(options.e);
     }
+    else if (this.isDoubleClick(newPointer)) {
+      this.fire('dblclick', options);
+      this._stopEvent(options.e);
+    }
+
     this.__lastLastClickTime = this.__lastClickTime;
     this.__lastClickTime = this.__newClickTime;
     this.__lastPointer = newPointer;
     this.__lastIsEditing = this.isEditing;
     this.__lastSelected = this.selected;
+  },
+
+  isDoubleClick: function(newPointer) {
+    return this.__newClickTime - this.__lastClickTime < 500 &&
+        this.__lastPointer.x === newPointer.x &&
+        this.__lastPointer.y === newPointer.y && this.__lastIsEditing;
   },
 
   isTripleClick: function(newPointer) {
@@ -59,7 +70,7 @@ fabric.util.object.extend(fabric.IText.prototype, /** @lends fabric.IText.protot
    * Initializes double and triple click event handlers
    */
   initClicks: function() {
-    this.on('mousedblclick', function(options) {
+    this.on('dblclick', function(options) {
       this.selectWord(this.getSelectionStartFromPointer(options.e));
     });
     this.on('tripleclick', function(options) {
@@ -76,7 +87,6 @@ fabric.util.object.extend(fabric.IText.prototype, /** @lends fabric.IText.protot
         return;
       }
       var pointer = this.canvas.getPointer(options.e);
-
       this.__mousedownX = pointer.x;
       this.__mousedownY = pointer.y;
       this.__isMousedown = true;
@@ -159,37 +169,45 @@ fabric.util.object.extend(fabric.IText.prototype, /** @lends fabric.IText.protot
         width = 0,
         height = 0,
         charIndex = 0,
-        lineIndex = 0,
-        lineLeftOffset,
+        newSelectionStart,
         line;
 
     for (var i = 0, len = this._textLines.length; i < len; i++) {
-      if (height <= mouseOffset.y) {
-        height += this.getHeightOfLine(i) * this.scaleY;
-        lineIndex = i;
-        if (i > 0) {
-          charIndex += this._textLines[i - 1].length + 1;
+      line = this._textLines[i];
+      height += this._getHeightOfLine(this.ctx, i) * this.scaleY;
+
+      var widthOfLine = this._getLineWidth(this.ctx, i),
+          lineLeftOffset = this._getLineLeftOffset(widthOfLine);
+
+      width = lineLeftOffset * this.scaleX;
+
+      for (var j = 0, jlen = line.length; j < jlen; j++) {
+
+        prevWidth = width;
+
+        width += this._getWidthOfChar(this.ctx, line[j], i, this.flipX ? jlen - j : j) *
+                 this.scaleX;
+
+        if (height <= mouseOffset.y || width <= mouseOffset.x) {
+          charIndex++;
+          continue;
         }
+
+        return this._getNewSelectionStartFromOffset(
+          mouseOffset, prevWidth, width, charIndex + i, jlen);
       }
-      else {
-        break;
-      }
-    }
-    lineLeftOffset = this._getLineLeftOffset(lineIndex);
-    width = lineLeftOffset * this.scaleX;
-    line = this._textLines[lineIndex];
-    for (var j = 0, jlen = line.length; j < jlen; j++) {
-      prevWidth = width;
-      // i removed something about flipX here, check.
-      width += this.__charBounds[lineIndex][j].kernedWidth * this.scaleX;
-      if (width <= mouseOffset.x) {
-        charIndex++;
-      }
-      else {
-        break;
+
+      if (mouseOffset.y < height) {
+        //this happens just on end of lines.
+        return this._getNewSelectionStartFromOffset(
+          mouseOffset, prevWidth, width, charIndex + i - 1, jlen);
       }
     }
-    return this._getNewSelectionStartFromOffset(mouseOffset, prevWidth, width, charIndex, jlen);
+
+    // clicked somewhere after all chars, so set at the end
+    if (typeof newSelectionStart === 'undefined') {
+      return this.text.length;
+    }
   },
 
   /**
@@ -201,13 +219,14 @@ fabric.util.object.extend(fabric.IText.prototype, /** @lends fabric.IText.protot
         distanceBtwNextCharAndCursor = width - mouseOffset.x,
         offset = distanceBtwNextCharAndCursor > distanceBtwLastCharAndCursor ? 0 : 1,
         newSelectionStart = index + offset;
+
     // if object is horizontally flipped, mirror cursor location from the end
     if (this.flipX) {
       newSelectionStart = jlen - newSelectionStart;
     }
 
-    if (newSelectionStart > this._text.length) {
-      newSelectionStart = this._text.length;
+    if (newSelectionStart > this.text.length) {
+      newSelectionStart = this.text.length;
     }
 
     return newSelectionStart;

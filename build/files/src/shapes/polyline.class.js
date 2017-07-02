@@ -126,8 +126,15 @@
      * @return {String} svg representation of an instance
      */
     toSVG: function(reviver) {
-      var points = [], diffX = this.pathOffset.x, diffY = this.pathOffset.y,
+      var points = [],
+          diffX = 0,
+          diffY = 0,
           markup = this._createBaseSVGMarkup();
+
+      if (!(this.group && this.group.type === 'path-group')) {
+        diffX = this.pathOffset.x;
+        diffY = this.pathOffset.y;
+      }
 
       for (var i = 0, len = this.points.length; i < len; i++) {
         points.push(
@@ -152,11 +159,12 @@
     /**
      * @private
      * @param {CanvasRenderingContext2D} ctx Context to render on
+     * @param {Boolean} noTransform
      */
-    commonRender: function(ctx) {
+    commonRender: function(ctx, noTransform) {
       var point, len = this.points.length,
-          x = this.pathOffset.x,
-          y = this.pathOffset.y;
+          x = noTransform ? 0 : this.pathOffset.x,
+          y = noTransform ? 0 : this.pathOffset.y;
 
       if (!len || isNaN(this.points[len - 1].y)) {
         // do not draw if no points or odd points
@@ -175,9 +183,10 @@
     /**
      * @private
      * @param {CanvasRenderingContext2D} ctx Context to render on
+     * @param {Boolean} noTransform
      */
-    _render: function(ctx) {
-      if (!this.commonRender(ctx)) {
+    _render: function(ctx, noTransform) {
+      if (!this.commonRender(ctx, noTransform)) {
         return;
       }
       this._renderFill(ctx);
@@ -221,20 +230,20 @@
    * Returns fabric.Polyline instance from an SVG element
    * @static
    * @memberOf fabric.Polyline
-   * @param {SVGElement} element Element to parser
-   * @param {Function} callback callback function invoked after parsing
+   * @param {SVGElement} element Element to parse
    * @param {Object} [options] Options object
+   * @return {fabric.Polyline} Instance of fabric.Polyline
    */
-  fabric.Polyline.fromElement = function(element, callback, options) {
+  fabric.Polyline.fromElement = function(element, options) {
     if (!element) {
-      return callback(null);
+      return null;
     }
     options || (options = { });
 
     var points = fabric.parsePointsAttribute(element.getAttribute('points')),
         parsedAttributes = fabric.parseAttributes(element, fabric.Polyline.ATTRIBUTE_NAMES);
 
-    callback(new fabric.Polyline(points, fabric.util.object.extend(parsedAttributes, options)));
+    return new fabric.Polyline(points, fabric.util.object.extend(parsedAttributes, options));
   };
   /* _FROM_SVG_END_ */
 
@@ -244,9 +253,11 @@
    * @memberOf fabric.Polyline
    * @param {Object} object Object to create an instance from
    * @param {Function} [callback] Callback to invoke when an fabric.Path instance is created
+   * @param {Boolean} [forceAsync] Force an async behaviour trying to create pattern first
+   * @return {fabric.Polyline} Instance of fabric.Polyline
    */
-  fabric.Polyline.fromObject = function(object, callback) {
-    return fabric.Object._fromObject('Polyline', object, callback, 'points');
+  fabric.Polyline.fromObject = function(object, callback, forceAsync) {
+    return fabric.Object._fromObject('Polyline', object, callback, forceAsync, 'points');
   };
 
 })(typeof exports !== 'undefined' ? exports : this);

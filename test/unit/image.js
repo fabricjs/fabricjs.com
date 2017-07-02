@@ -46,10 +46,7 @@
     'skewX':                    0,
     'skewY':                    0,
     'transformMatrix':          null,
-    'crossOrigin':              '',
-    'alignX':                   'none',
-    'alignY':                   'none',
-    'meetOrSlice':              'meet'
+    'crossOrigin':              ''
   };
 
   function _createImageElement() {

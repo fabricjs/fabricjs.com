@@ -312,7 +312,8 @@
 
       var enlivenedObjects = [],
           numLoadedObjects = 0,
-          numTotalObjects = objects.length;
+          numTotalObjects = objects.length,
+          forceAsync = true;
 
       if (!numTotalObjects) {
         callback && callback(enlivenedObjects);
@@ -330,7 +331,7 @@
           error || (enlivenedObjects[index] = obj);
           reviver && reviver(o, obj, error);
           onLoaded();
-        });
+        }, forceAsync);
       });
     },
 
@@ -383,26 +384,13 @@
      * @param {Array} elements SVG elements to group
      * @param {Object} [options] Options object
      * @param {String} path Value to set sourcePath to
-     * @return {fabric.Object|fabric.Group}
+     * @return {fabric.Object|fabric.PathGroup}
      */
     groupSVGElements: function(elements, options, path) {
       var object;
-      if (elements.length === 1) {
-        return elements[0];
-      }
-      if (options) {
-        if (options.width && options.height) {
-          options.centerPoint = {
-            x: options.width / 2,
-            y: options.height / 2
-          };
-        }
-        else {
-          delete options.width;
-          delete options.height;
-        }
-      }
-      object = new fabric.Group(elements, options);
+
+      object = new fabric.PathGroup(elements, options);
+
       if (typeof path !== 'undefined') {
         object.sourcePath = path;
       }
@@ -477,6 +465,11 @@
      */
     createCanvasElement: function(canvasEl) {
       canvasEl || (canvasEl = fabric.document.createElement('canvas'));
+      /* eslint-disable camelcase */
+      if (!canvasEl.getContext && typeof G_vmlCanvasManager !== 'undefined') {
+        G_vmlCanvasManager.initElement(canvasEl);
+      }
+      /* eslint-enable camelcase */
       return canvasEl;
     },
 
@@ -487,7 +480,9 @@
      * @return {HTMLImageElement} HTML image element
      */
     createImage: function() {
-      return fabric.document.createElement('img');
+      return fabric.isLikelyNode
+        ? new (require('canvas').Image)()
+        : fabric.document.createElement('img');
     },
 
     /**

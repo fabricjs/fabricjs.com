@@ -330,7 +330,7 @@
      * @return {Boolean}
      */
     willDrawShadow: function() {
-      if (this.shadow) {
+      if (this.callSuper('willDrawShadow')) {
         return true;
       }
       for (var i = 0, len = this._objects.length; i < len; i++) {

@@ -7,6 +7,14 @@ title: Fabric.js. release highlights.
 
 <div class="container" style="margin:30px auto">
   <h2 id="introduction_to_fabricjs">Fabric.js release highlights</h2>
+  <h3>Version 1.7.15</h3>
+  <p>Quick bug fix release and and 2 improvements. Shadow with no offset can be cached, and this is a speed boost if you are using shadow to do halos.<br />
+  Added a note in text docs that allow devs to ovveride some custom key behaviour
+  </p>
+  <pre>
+  Improvement: Made iText keymap public. #4053
+  Improvement: Fix a bug in updateCacheCanvas that was returning always true #4051
+  </pre>
   <h3>Version 1.7.14</h3>
   <p>Cache improvement release! Two new features are now in the cache system. The cache will not grow over certain sizes when scaling objects, and also the _cacheCanvas will be resized in advance by a 10% margin so that we do not have to resize each mousemove event.<br />
   Check <a href="/fabric-object-caching">here</a> for more details<br />

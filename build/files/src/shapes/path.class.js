@@ -160,11 +160,6 @@
           l = -this.pathOffset.x,
           t = -this.pathOffset.y;
 
-      if (this.group && this.group.type === 'path-group') {
-        l = 0;
-        t = 0;
-      }
-
       ctx.beginPath();
 
       for (var i = 0, len = this.path.length; i < len; ++i) {
@@ -514,9 +509,7 @@
         chunks.push(this.path[i].join(' '));
       }
       var path = chunks.join(' ');
-      if (!(this.group && this.group.type === 'path-group')) {
-        addTransform = ' translate(' + (-this.pathOffset.x) + ', ' + (-this.pathOffset.y) + ') ';
-      }
+      addTransform = ' translate(' + (-this.pathOffset.x) + ', ' + (-this.pathOffset.y) + ') ';
       markup.push(
         '<path ', this.getSvgId(),
           'd="', path,
@@ -918,15 +911,12 @@
    * @memberOf fabric.Path
    * @param {Object} object
    * @param {Function} [callback] Callback to invoke when an fabric.Path instance is created
-   * @param {Boolean} [forceAsync] Force an async behaviour trying to create pattern first
    */
-  fabric.Path.fromObject = function(object, callback, forceAsync) {
-    // remove this pattern rom 2.0, accept just object.
-    var path;
+  fabric.Path.fromObject = function(object, callback) {
     if (typeof object.path === 'string') {
-      fabric.loadSVGFromURL(object.path, function (elements) {
-        var pathUrl = object.path;
-        path = elements[0];
+      var pathUrl = object.path;
+      fabric.loadSVGFromURL(pathUrl, function (elements) {
+        var path = elements[0];
         delete object.path;
 
         path.setOptions(object);
@@ -936,7 +926,7 @@
       });
     }
     else {
-      return fabric.Object._fromObject('Path', object, callback, forceAsync, 'path');
+      fabric.Object._fromObject('Path', object, callback, 'path');
     }
   };
 
@@ -956,20 +946,14 @@
    * @param {SVGElement} element to parse
    * @param {Function} callback Callback to invoke when an fabric.Path instance is created
    * @param {Object} [options] Options object
+   * @param {Function} [callback] Options callback invoked after parsing is finished
    */
   fabric.Path.fromElement = function(element, callback, options) {
     var parsedAttributes = fabric.parseAttributes(element, fabric.Path.ATTRIBUTE_NAMES);
-    callback && callback(new fabric.Path(parsedAttributes.d, extend(parsedAttributes, options)));
+    parsedAttributes.originX = 'left';
+    parsedAttributes.originY = 'top';
+    callback(new fabric.Path(parsedAttributes.d, extend(parsedAttributes, options)));
   };
   /* _FROM_SVG_END_ */
-
-  /**
-   * Indicates that instances of this type are async
-   * @static
-   * @memberOf fabric.Path
-   * @type Boolean
-   * @default
-   */
-  fabric.Path.async = true;
 
 })(typeof exports !== 'undefined' ? exports : this);

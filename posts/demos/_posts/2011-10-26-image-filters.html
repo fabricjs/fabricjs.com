@@ -9,7 +9,6 @@ title: Image Filters fabricjs 2.0 beta
   input[disabled] { opacity: 0.5; }
   #bd-wrapper { min-width: 1600px; }
 </style>
-
 <canvas id="c" width="800" height="700"></canvas>
 <div class="controls">
   <h3>Filters:</h3>
@@ -101,7 +100,7 @@ title: Image Filters fabricjs 2.0 beta
     <label><span>Emboss:</span> <input type="checkbox" id="emboss" disabled></label>
   </p>
   <p>
-  <label><span>Blend:</span> <input type="checkbox" id="blend" disabled></label>
+  <label><span>Blend Color:</span> <input type="checkbox" id="blend" disabled></label>
   <br>
   <label>Mode:</label>
     <select id="blend-mode" name="blend-mode">
@@ -119,6 +118,16 @@ title: Image Filters fabricjs 2.0 beta
     <br>
     <label>Color: <input type="color" id="blend-color" value="#00f900"></label><br>
     <label>Alpha: <input type="range" id="blend-alpha" min="0" max="1" value="1" step="0.01"></label><br>
+  </p>
+  <label><span>Blend Image:</span> <input type="checkbox" id="blend-image" disabled></label>
+  <br>
+  <label>Mode:</label>
+    <select id="blend-image-mode" name="blend-image-mode">
+      <option selected value="multiply">Multiply</option>
+      <option value="mask">Mask</option>
+    </select>
+    <br>
+    <label>Alpha: <input type="range" id="blend-image-alpha" min="0" max="1" value="1" step="0.01"></label><br>
   </p>
 </div>
 
@@ -174,7 +183,7 @@ title: Image Filters fabricjs 2.0 beta
       var filters = ['grayscale', 'invert', 'remove-color', 'sepia', 'brownie',
                       'brightness', 'contrast', 'saturation', 'noise', 'vintage', 'pixelate',
                       'blur', 'sharpen', 'emboss', 'technicolor', 'polaroid', 'blend-color',
-                      'gamma', 'kodachrome', 'blackwhite'];
+                      'gamma', 'kodachrome', 'blackwhite', 'blend-image'];
 
       for (var i = 0; i < filters.length; i++) {
         filters[i] && (
@@ -363,5 +372,22 @@ title: Image Filters fabricjs 2.0 beta
   $('blend-alpha').oninput = function() {
     applyFilterValue(16, 'alpha', this.value);
   };
+
+  $('blend-image').onclick= function() {
+    applyFilter(20, this.checked && new f.BlendImage({
+      image: fImage,
+    }));
+  };
+
+  $('blend-image-mode').onchange = function() {
+    applyFilterValue(20, 'mode', this.value);
+  };
+  var imageElement = document.createElement('img');
+  imageElement.src = '../assets/printio.png';
+  var fImage = new fabric.Image(imageElement);
+  fImage.scaleX = 1;
+  fImage.scaleY = 1;
+  fImage.top = 15;
+  fImage.left = 15;
 })();
 </script>

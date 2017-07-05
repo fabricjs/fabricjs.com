@@ -40,10 +40,6 @@
       else {
         this._createActiveGroup(target, e);
       }
-
-      if (this._activeGroup) {
-        this._activeGroup.saveCoords();
-      }
     },
 
     /**
@@ -126,9 +122,8 @@
         });
         group.addWithUpdate();
         this.setActiveGroup(group, e);
-        group.saveCoords();
         this.fire('selection:created', { target: group, e: e });
-        this.renderAll();
+        this.requestRenderAll();
       }
     },
 

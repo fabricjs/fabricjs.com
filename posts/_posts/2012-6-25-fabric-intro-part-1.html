@@ -224,16 +224,16 @@ rect.set({ width: 10, height: 20, fill: '#f55', opacity: 0.7 });
 <pre>
 var rect = new fabric.Rect(); // notice no options passed in
 
-rect.getWidth(); // 0
-rect.getHeight(); // 0
+rect.get('width'); // 0
+rect.get('height'); // 0
 
-rect.getLeft(); // 0
-rect.getTop(); // 0
+rect.get('left'); // 0
+rect.get('top'); // 0
 
-rect.getFill(); // rgb(0,0,0)
-rect.getStroke(); // null
+rect.get('fill'); // rgb(0,0,0)
+rect.get('stroke'); // null
 
-rect.getOpacity(); // 1
+rect.get('opacity'); // 1
 </pre>
 
   <p>Our rectangle got a default set of properties. It's positioned at 0,0, is of black color, fully opaque, has no stroke and <strong>no dimensions</strong> (width and height are 0). Because of no dimensions, we can't see it on canvas. But giving it any positive values for width/height would certainly reveal a black rectangle at the left/top corner of canvas.</p>
@@ -250,7 +250,7 @@ rect.getOpacity(); // 1
 
 <pre>
 fabric.Object.prototype.getAngleInRadians = function() {
-  return this.getAngle() / 180 * Math.PI;
+  return this.get('angle') / 180 * Math.PI;
 };
 
 var rect = new fabric.Rect({ angle: 45 });
@@ -388,7 +388,7 @@ fabric.Image.fromURL('my_image.png', function(oImg) {
 <pre>
 fabric.Image.fromURL('my_image.png', function(oImg) {
   // scale image down, and flip it, before adding it onto canvas
-  oImg.scale(0.5).setFlipX(true);
+  oImg.scale(0.5).set('flipX, true);
   canvas.add(oImg);
 });
 </pre>

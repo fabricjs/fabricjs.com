@@ -149,8 +149,8 @@ group.add(new fabric.Rect({
 <pre>
 group.addWithUpdate(new fabric.Rect({
   ...
-  left: group.getLeft(),
-  top: group.getTop(),
+  left: group.get('left'),
+  top: group.get('top'),
   originX: 'center',
   originY: 'center'
 }));
@@ -161,8 +161,8 @@ group.addWithUpdate(new fabric.Rect({
 <pre>
 group.addWithUpdate(new fabric.Rect({
   ...
-  left: group.getLeft() + 100,
-  top: group.getTop() + 100,
+  left: group.get('left') + 100,
+  top: group.get('top') + 100,
   originX: 'center',
   originY: 'center'
 }));

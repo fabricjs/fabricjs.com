@@ -70,10 +70,10 @@ title: Standalone Controls
   };
 
   function updateControls() {
-    scaleControl.value = rect.getScaleX();
-    angleControl.value = rect.getAngle();
-    leftControl.value = rect.getLeft();
-    topControl.value = rect.getTop();
+    scaleControl.value = rect.scaleX;
+    angleControl.value = rect.angle;
+    leftControl.value = rect.left;
+    topControl.value = rect.top;
   }
   canvas.on({
     'object:moving': updateControls,

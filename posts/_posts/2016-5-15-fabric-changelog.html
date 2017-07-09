@@ -7,6 +7,15 @@ title: Fabric.js. release highlights.
 
 <div class="container" style="margin:30px auto">
   <h2 id="introduction_to_fabricjs">Fabric.js release highlights</h2>
+  <h3>Version 1.7.16</h3>
+  <p>Small bugix release.
+  </p>
+  <pre>
+  Improvement: Add information to onChange and onComplete animation function #4068
+  Improvement: avoid multiplying identity matrices in calcTransformMatrix function
+  Fix: ativeGroup did not destroy correctly if a toObject was happening
+  Improvement: Pass the event to object:modified when available. #4061
+  </pre>
   <h3>Version 1.7.15</h3>
   <p>Quick bug fix release and and 2 improvements. Shadow with no offset can be cached, and this is a speed boost if you are using shadow to do halos.<br />
   Added a note in text docs that allow devs to ovveride some custom key behaviour

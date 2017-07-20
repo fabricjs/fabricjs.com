@@ -6,8 +6,112 @@ title: Fabric.js. release highlights ( 1.x branch ).
 <style>h2 { margin-bottom: 15px } h3 { margin-bottom: 10px; } h4 { margin-bottom: 7px; } </style>
 
 <div class="container" style="margin:30px auto">
-  <h2 id="introduction_to_fabricjs">Fabric.js release highlights</h2>
-
+  <h2 id="introduction_to_fabricjs">Fabric.js release highlights (v1)</h2>
+  <h3>Version 1.7.16</h3>
+  <p>Small bugix release.
+  </p>
+  <pre>
+  Improvement: Add information to onChange and onComplete animation function #4068
+  Improvement: avoid multiplying identity matrices in calcTransformMatrix function
+  Fix: ativeGroup did not destroy correctly if a toObject was happening
+  Improvement: Pass the event to object:modified when available. #4061
+  </pre>
+  <h3>Version 1.7.15</h3>
+  <p>Quick bug fix release and and 2 improvements. Shadow with no offset can be cached, and this is a speed boost if you are using shadow to do halos.<br />
+  Added a note in text docs that allow devs to ovveride some custom key behaviour
+  </p>
+  <pre>
+  Improvement: Made iText keymap public. #4053
+  Improvement: Fix a bug in updateCacheCanvas that was returning always true #4051
+  </pre>
+  <h3>Version 1.7.14</h3>
+  <p>Cache improvement release! Two new features are now in the cache system. The cache will not grow over certain sizes when scaling objects, and also the _cacheCanvas will be resized in advance by a 10% margin so that we do not have to resize each mousemove event.<br />
+  Check <a href="/fabric-object-caching">here</a> for more details<br />
+  The staefull check has been speed up a bit taking inspiration from <code>fast-deep-equal</code> package on npm.<br />
+  Some bug relative to deep state check and group that where invalidating the cache for weird reason have been hopefully solved.</p>
+  <pre>
+  Improvement: Avoid cache canvas to resize each mouse move step. #4037
+  Improvement: Make cache canvas limited in size. #4035
+  Fix: Make groups and statefull cache work. #4032
+  Add: Marked the hiddentextarea from itext so that custom projects can recognize it. #4022
+  </pre>
+  <h3>Version 1.7.13</h3>
+  <p>Small bugfix release</p>
+  <pre>
+  Fix: Try to minimize delay in loadFroJson #4007
+  Fix: allow fabric.Color to parse rgba(x,y,z,.a) without leading 0 #4006
+  Allow path to execute Object.initialize, make extensions easier #4005
+  Fix: properly set options from path fromDatalessObjects #3995
+  Check for slice before action.slice. Avoid conflicts with heavy customized code. #3992
+  </pre>
+  <h3>Version 1.7.12</h3>
+  <p>Bug fixes and some new properties added to mouse events.</p>
+  <pre>
+  Fix: removed possible memleaks from window resize event. #3984
+  Fix: restored default cursor to noTarget only. unselectable objects get the standard hovercursor. #3953
+  Cache fixes: fix uncached pathGroup, removed cache creation at initialize time #3982
+  Improvement: nextTarget to mouseOut and prevTarget to mouseOver #3900
+  Improvement: add isClick boolean to left mouse up #3898
+  Fix: can start selection on top of non selectable object #3892
+  Improvement: better management of right/middle click #3888
+  Fix: subTargetCheck on activeObject/activeGroup was firing too many events #3909
+  Fix: After addWithUpdate or removeWithUpdate object coords must be updated. #3911
+  </pre>
+  <h3>Version 1.7.11</h3>
+  <p>Hotifx for broken PathGroups (SVGs)</p>
+  <h3>Version 1.7.10</h3>
+  <p>Many fixes to be a minor release: <br />
+  Fixes to SVG export for polygons and for radial gradients in general.
+  Introducing a caching logic for groups that allow to smart cache what has not shadow as children object. This should reduce caching visual errors by much and still
+  allowing for cache optimization.<br />
+  Introduced some manual checks on the value of Math.cos so that we can output a correct angle of 90 or 270 degrees for objects.
+  </p>
+  <pre>
+    Fix: correct svg export for radial gradients #3807
+    Fix: Update fireout events to export the event object #3853
+    Fix: Improve callSuper to avoid infinite loops (not all of them) #3844
+    Fix: avoid selectionBackgroundColor leak on toDataUrl #3862
+    Fix: toDatelessObject for Group #3863
+    Improvement: better caching logic for groups #3864
+    Fix: correct svg gradient export for radial in polygons #3866
+    Fix: First draw could be empty for some objects #3870
+    Fix: Always send event data to object:selected #3871
+    Improvement: reduce angle calculation error #3872
+  </pre>
+  <h3>Version 1.7.9</h3>
+  <p>Small fixes for text related problems. If you are using text in your application, you should update.</p>
+  <pre>
+    Fix: Avoid textarea wrapping from chome v57+ #3804
+    Fix: double click needed to move cursor when enterEditing is called programatically #3804
+    Fix: Style regression when inputing new style objects #3804
+    Add: try to support crossOrigin for svg image tags #3804
+  </pre>
+  <h3>Version 1.7.8 and 1.7.7</h3>
+  <p>
+    This is maybe the last release of the 1.x branch. New important and api breaking work is in progress and will be labeled as fabric 2.x <br />
+    The change i like most comes from a casual contributor, <code>by12</code> and fixes path bounding box calculation. No more trimmed paths!<br />
+    A change in translation on the cache canvas fixed blurriness introduced since 1.7.3, that is also worth an update.<br />
+    For iText, Textbox typers, the style object does not get polluted with useless empty objects now.<br />
+    And last but not the least, we have a new flag called <code>fabric.StaticCanvas.prototype.skipOffscreen</code> default to <code>false</code>
+    that will calculate with objects aCoords if the object is on the screen or outside the screen and will skip the rendering part completely.
+    This is an optional feature but it turns out to be very usefull when you are dealing with large number of objects and you are using zoom or panning much.<br />
+    While object.oCoords needs to be updated every zoom/pan, aCoords are static with object position and are still valid when we change the viewport. This allows us
+    to detect if they are offscreen simply calculating the viewportCoords at the expense of 2 transformed points calculation. A demo page will follow soon.
+  </p>
+  <pre>
+    Fix: Fix dirty flag propagation #3782
+    Fix: Path parsing error in bounding boxes of curves #3774
+    Add: Middle click mouse management on canvas #3764
+    Add: Add parameter to detect and skip offscreen drawing #3758
+    Fix: textarea loosing focus after a drag and exit from canvas #3759
+    Fix for opacity parsing in svg with nested opacities #3747
+    Fix text initialization and boundingrect #3745
+    Fix line bounding box #3742
+    Improvement: do not pollute style object while typing if not necessary #3743
+    fix for broken prototype chain when restoring a dataless object on fill an stroke #3735
+    fix for deselected event not fired on mouse actions #3716
+    fix for blurriness introduced on 1.7.3 #3721
+  </pre>
   <h3>Version 1.7.6 ( plus 1.7.5 and 1.7.4)</h3>
   <p>
     New functionalities about coordinates:

@@ -12,9 +12,10 @@
      * @return {Boolean}
      */
     _shouldGroup: function(e, target) {
-      var activeObject = this._activeObject;
-      return e[this.selectionKey] && target && target.selectable && this.selection &&
-            (activeObject !== target || activeObject.type === 'activeSelection');
+      var activeObject = this.getActiveObject();
+      return e[this.selectionKey] && target && target.selectable &&
+            (this.getActiveGroup() || (activeObject && activeObject !== target))
+            && this.selection;
     },
 
     /**
@@ -23,52 +24,67 @@
      * @param {fabric.Object} target
      */
     _handleGrouping: function (e, target) {
-      var activeObject = this._activeObject;
-      if (activeObject.__corner !== 0) {
-        return;
-      }
-      if (target === activeObject) {
+      var activeGroup = this.getActiveGroup();
+
+      if (target === activeGroup) {
         // if it's a group, find target again, using activeGroup objects
         target = this.findTarget(e, true);
-        // if even object is not found or we are on activeObjectCorner, bail out
+        // if even object is not found, bail out
         if (!target) {
           return;
         }
       }
-      if (activeObject && activeObject.type === 'activeSelection') {
-        this._updateActiveSelection(target, e);
+      if (activeGroup) {
+        this._updateActiveGroup(target, e);
       }
       else {
-        this._createActiveSelection(target, e);
+        this._createActiveGroup(target, e);
       }
     },
 
     /**
      * @private
      */
-    _updateActiveSelection: function(target, e) {
-      var activeSelection = this._activeObject;
-      if (activeSelection.contains(target)) {
-        activeSelection.removeWithUpdate(target);
-        if (activeSelection.size() === 1) {
+    _updateActiveGroup: function(target, e) {
+      var activeGroup = this.getActiveGroup();
+
+      if (activeGroup.contains(target)) {
+
+        activeGroup.removeWithUpdate(target);
+        target.set('active', false);
+
+        if (activeGroup.size() === 1) {
+          // remove group alltogether if after removal it only contains 1 object
+          this.discardActiveGroup(e);
           // activate last remaining object
-          this.setActiveObject(activeSelection.item(0), e);
+          this.setActiveObject(activeGroup.item(0), e);
           return;
         }
       }
       else {
-        activeSelection.addWithUpdate(target);
+        activeGroup.addWithUpdate(target);
       }
-      this.fire('selection:created', { target: activeSelection, e: e });
+      this.fire('selection:created', { target: activeGroup, e: e });
+      activeGroup.set('active', true);
     },
 
     /**
      * @private
      */
-    _createActiveSelection: function(target, e) {
-      var group = this._createGroup(target);
-      this.setActiveObject(group, e);
-      this.fire('selection:created', { target: group, e: e });
+    _createActiveGroup: function(target, e) {
+
+      if (this._activeObject && target !== this._activeObject) {
+
+        var group = this._createGroup(target);
+        group.addWithUpdate();
+
+        this.setActiveGroup(group, e);
+        this._activeObject = null;
+
+        this.fire('selection:created', { target: group, e: e });
+      }
+
+      target.set('active', true);
     },
 
     /**
@@ -76,13 +92,14 @@
      * @param {Object} target
      */
     _createGroup: function(target) {
+
       var objects = this.getObjects(),
           isActiveLower = objects.indexOf(this._activeObject) < objects.indexOf(target),
           groupObjects = isActiveLower
             ? [this._activeObject, target]
             : [target, this._activeObject];
       this._activeObject.isEditing && this._activeObject.exitEditing();
-      return new fabric.ActiveSelection(groupObjects, {
+      return new fabric.Group(groupObjects, {
         canvas: this
       });
     },
@@ -100,10 +117,11 @@
         this.setActiveObject(group[0], e);
       }
       else if (group.length > 1) {
-        group = new fabric.ActiveSelection(group.reverse(), {
+        group = new fabric.Group(group.reverse(), {
           canvas: this
         });
-        this.setActiveObject(group, e);
+        group.addWithUpdate();
+        this.setActiveGroup(group, e);
         this.fire('selection:created', { target: group, e: e });
         this.requestRenderAll();
       }
@@ -135,6 +153,7 @@
             currentObject.containsPoint(selectionX1Y1) ||
             currentObject.containsPoint(selectionX2Y2)
         ) {
+          currentObject.set('active', true);
           group.push(currentObject);
 
           // only add one object if it's a click
@@ -154,7 +173,14 @@
       if (this.selection && this._groupSelector) {
         this._groupSelectedObjects(e);
       }
-      this.setCursor(this.defaultCursor);
+
+      var activeGroup = this.getActiveGroup();
+      if (activeGroup) {
+        activeGroup.setObjectsCoords().setCoords();
+        activeGroup.isMoving = false;
+        this.setCursor(this.defaultCursor);
+      }
+
       // clear selection and current transformation
       this._groupSelector = null;
       this._currentTransform = null;

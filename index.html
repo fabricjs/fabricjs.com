@@ -106,7 +106,7 @@ title: Features
             top: 650
           });
           clone.filters.push(new fabric.Image.filters.Invert());
-          clone.applyFilters(canvas.renderAll.bind(canvas));
+          clone.applyFilters();
           canvas.add(clone);
         });
       });
@@ -133,7 +133,9 @@ title: Features
         shape.set({
           left: 380,
           top: 300,
-          angle: -15
+          angle: -15,
+          originX: 'center',
+          originY: 'center',
         }).scale(0.5);
 
         canvas.add(shape);
@@ -144,7 +146,9 @@ title: Features
         shape.set({
           left: 380,
           top: 400,
-          angle: 15
+          angle: 15,
+          originX: 'center',
+          originY: 'center',
         }).scale(0.75)
 
         canvas.add(shape);
@@ -185,7 +189,7 @@ title: Features
         angle: -5,
         fontFamily: 'Courier',
         fontSize: 18,
-        textDecoration: 'underline',
+        underline: true,
         fill: 'blue',
         textAlign: 'center'
       });
@@ -212,12 +216,13 @@ title: Features
           targetFindTolerance: 4,
           hasControls: false,
           hasBorders: false,
-          hoverCursor: 'pointer'
+          hoverCursor: 'pointer',
+          originX: 'center',
+          originY: 'center',
         })
         .setShadow({ color: 'rgba(0,0,0,0.5)', offsetX: 10, offsetY: 10, blur: 10 });
 
         canvas.add(shape);
-        canvas.calcOffset();
       });
 
       // to svg
@@ -275,23 +280,23 @@ title: Features
           top: 1200,
           lockScalingX: true,
           lockScalingY: true,
-          opacity: 0.75
         })
         .scale(0.25);
-        canvas.add(shape).calcOffset();
+        shape.opacity = 0.75;
+        canvas.add(shape);
 
         shape.clone(function(clone) {
           clone.set('left', 250);
           clone.flipX = true;
           clone.lockMovementY = true;
-          canvas.add(clone).calcOffset();
+          canvas.add(clone);
         });
 
         shape.clone(function(clone) {
           clone.set('left', 400);
           clone.flipY = true;
           clone.lockMovementX = true;
-          canvas.add(clone).calcOffset();
+          canvas.add(clone);
         });
       });
 
@@ -370,7 +375,7 @@ window.ooo = text;
       });
 
       // free drawing
-      var path = {"type":"path","originX":"center","originY":"center","left":173,"top":1800,"width":232,"height":49,"fill":null,"overlayFill":null,"stroke":"#aaf","strokeWidth":10,"strokeDashArray":null,"scaleX":1,"scaleY":1,"angle":0,"flipX":false,"flipY":false,"opacity":1,"selectable":true,"hasControls":true,"hasBorders":true,"hasRotatingPoint":true,"transparentCorners":true,"perPixelTargetFind":false,"shadow":{"color":"#aaf","blur":0,"offsetX":0,"offsetY":0},"visible":true,"path":[["M",0,42],["Q",0,42,0,42],["Q",0,42,0.5,42],["Q",1,42,1,41.5],["Q",1,41,3,39],["Q",5,37,10.5,31],["Q",16,25,24.5,18],["Q",33,11,37,8],["Q",41,5,45.5,2.5],["Q",50,0,52.5,0],["Q",55,0,57,0],["Q",59,0,60,3],["Q",61,6,64,19.5],["Q",67,33,68,37],["Q",69,41,69.5,44],["Q",70,47,71.5,48],["Q",73,49,76,49],["Q",79,49,85.5,44],["Q",92,39,100.5,33],["Q",109,27,113.5,23],["Q",118,19,125.5,16],["Q",133,13,139.5,13.5],["Q",146,14,149,17.5],["Q",152,21,153.5,24],["Q",155,27,156.5,29.5],["Q",158,32,160.5,32.5],["Q",163,33,166,32],["Q",169,31,172,27.5],["Q",175,24,179,20.5],["Q",183,17,185.5,14.5],["Q",188,12,189.5,12],["Q",191,12,192.5,12],["Q",194,12,195.5,15],["Q",197,18,199,19.5],["Q",201,21,203,22.5],["Q",205,24,207.5,24],["Q",210,24,214.5,23.5],["Q",219,23,222.5,20.5],["Q",226,18,229,15.5],["L",232,13]],"pathOffset":{"x":116,"y":24.5}};
+      var path = {"type":"path","originX":"center","originY":"center","left":173,"top":1800,"width":232,"height":49,"fill":null,"overlayFill":null,"stroke":"#aaf","strokeWidth":10,"strokeDashArray":null,"scaleX":1,"scaleY":1,"angle":0,"flipX":false,"flipY":false,"opacity":1,"selectable":true,"hasControls":true,"hasBorders":true,"hasRotatingPoint":true,"transparentCorners":true,"TargetFind":false,"shadow":{"color":"#aaf","blur":0,"offsetX":0,"offsetY":0},"visible":true,"path":[["M",0,42],["Q",0,42,0,42],["Q",0,42,0.5,42],["Q",1,42,1,41.5],["Q",1,41,3,39],["Q",5,37,10.5,31],["Q",16,25,24.5,18],["Q",33,11,37,8],["Q",41,5,45.5,2.5],["Q",50,0,52.5,0],["Q",55,0,57,0],["Q",59,0,60,3],["Q",61,6,64,19.5],["Q",67,33,68,37],["Q",69,41,69.5,44],["Q",70,47,71.5,48],["Q",73,49,76,49],["Q",79,49,85.5,44],["Q",92,39,100.5,33],["Q",109,27,113.5,23],["Q",118,19,125.5,16],["Q",133,13,139.5,13.5],["Q",146,14,149,17.5],["Q",152,21,153.5,24],["Q",155,27,156.5,29.5],["Q",158,32,160.5,32.5],["Q",163,33,166,32],["Q",169,31,172,27.5],["Q",175,24,179,20.5],["Q",183,17,185.5,14.5],["Q",188,12,189.5,12],["Q",191,12,192.5,12],["Q",194,12,195.5,15],["Q",197,18,199,19.5],["Q",201,21,203,22.5],["Q",205,24,207.5,24],["Q",210,24,214.5,23.5],["Q",219,23,222.5,20.5],["Q",226,18,229,15.5],["L",232,13]],"pathOffset":{"x":116,"y":24.5}};
 
       fabric.Path.fromObject(path, function(path) {
         canvas.add(path);
@@ -403,7 +408,7 @@ window.ooo = text;
     });
 
     function animate() {
-      var isStart = Math.round(__image.getLeft()) === 50;
+      var isStart = Math.round(__image.left) === 50;
       __image && __image.animate({
         'left': isStart ? 400 : 50,
         opacity: isStart ? 1 : 0.1,
@@ -412,7 +417,7 @@ window.ooo = text;
         scaleY: isStart ? 1 : 0.6
       }, {
         duration: 1500,
-        onChange: __canvas.renderAll.bind(__canvas),
+        onChange: __canvas.renderAndResetBound,
         onComplete: animate
       });
     }
@@ -429,7 +434,6 @@ window.ooo = text;
     <li>Subclassing</li>
     <li>Touch devices support</li>
     <li>Node.js support <em>(and npm package)</em></li>
-    <li>IE&lt;9 support <em>(using excanvas)</em></li>
   </ul>
 
   <p class="next-steps">

@@ -143,9 +143,9 @@
 
     text.set({ opacity: 0.123, fill: 'red', fontFamily: 'blah' });
 
-    equal(text.getOpacity(), 0.123);
-    equal(text.getFill(), 'red');
-    equal(text.get('fontFamily'), 'blah');
+    equal(text.opacity, 0.123);
+    equal(text.fill, 'red');
+    equal(text.fontFamily, 'blah');
   });
 
   test('get bounding rect after init', function() {
@@ -175,27 +175,6 @@
     equal(text.shadow.offsetX, 10);
     equal(text.shadow.offsetY, 8);
     equal(text.shadow.blur, 2);
-  });
-
-  test('setFontSize', function(){
-    var text = createTextObject();
-    ok(typeof text.setFontSize == 'function');
-    equal(text.setFontSize(12), text, 'should be chainable');
-    equal(text.get('fontSize'), 12);
-  });
-
-  test('getText', function(){
-    var text = createTextObject();
-    ok(typeof text.getText == 'function');
-    equal(text.getText(), 'x');
-    equal(text.getText(), text.get('text'));
-  });
-
-  test('setText', function(){
-    var text = createTextObject();
-    ok(typeof text.setText == 'function');
-    equal(text.setText('bar'), text, 'should be chainable');
-    equal(text.getText(), 'bar');
   });
 
   asyncTest('fabric.Text.fromObject', function(){
@@ -290,7 +269,7 @@
     var text = new fabric.Text('x');
     equal(text.width, CHAR_WIDTH);
 
-    text.setText('xx');
+    text.set('text', 'xx');
     equal(text.width, CHAR_WIDTH * 2);
   });
 
@@ -318,7 +297,7 @@
 
     equal(removeTranslate(text.toSVG()), removeTranslate(TEXT_SVG));
 
-    text.setFontFamily('"Arial Black", Arial');
+    text.set('fontFamily', '"Arial Black", Arial');
     // temp workaround for text objects not obtaining width under node
     text.width = CHAR_WIDTH;
 
@@ -330,6 +309,78 @@
     });
 
     equal(removeTranslate(text.toSVG()), removeTranslate(TEXT_SVG_JUSTIFIED));
+  });
+
+  test('text styleHas', function() {
+    var text = new fabric.Text('xxxxxx\nx y');
+    text.styles = { };
+    ok(typeof text.styleHas === 'function');
+    equal(text.styleHas('stroke'), false, 'the text style has no stroke');
+    text.styles = { 1: { 0: { stroke: 'red' }}};
+    equal(text.styleHas('stroke'), true, 'the text style has stroke');
+  });
+
+  test('text cleanStyle', function() {
+    var text = new fabric.Text('xxxxxx\nx y');
+    text.styles = { 1: { 0: { stroke: 'red' }}};
+    text.stroke = 'red';
+    ok(typeof text.cleanStyle === 'function');
+    text.cleanStyle('stroke');
+    equal(text.styles[1], undefined, 'the style has been cleaned since stroke was equal to text property');
+    text.styles = { 1: { 0: { stroke: 'blue' }}};
+    text.stroke = 'red';
+    text.cleanStyle('stroke');
+    equal(text.styles[1][0].stroke, 'blue', 'nothing to clean, style untouched');
+  });
+
+  test('text cleanStyle with empty styles', function() {
+    var text = new fabric.Text('xxxxxx\nx y');
+    text.styles = { 1: { 0: { }, 1: { }}, 2: { }, 3: { 4: { }}};
+    text.cleanStyle('any');
+    equal(text.styles[1], undefined, 'the style has been cleaned since there were no usefull informations');
+    equal(text.styles[2], undefined, 'the style has been cleaned since there were no usefull informations');
+    equal(text.styles[3], undefined, 'the style has been cleaned since there were no usefull informations');
+  });
+
+  test('text cleanStyle with full style', function() {
+    var text = new fabric.Text('xxx');
+    text.styles = { 0: { 0: { fill: 'blue' }, 1:  { fill: 'blue' }, 2:  { fill: 'blue' }}};
+    text.fill = 'black';
+    text.cleanStyle('fill');
+    equal(text.fill, 'blue', 'the fill has been changed to blue');
+    equal(text.styles[0], undefined, 'all the style has been removed');
+  });
+
+  test('text removeStyle with some style', function() {
+    var text = new fabric.Text('xxx');
+    text.styles = { 0: { 0: { stroke: 'black', fill: 'blue' }, 1:  { fill: 'blue' }, 2:  { fill: 'blue' }}};
+    ok(typeof text.removeStyle === 'function');
+    text.fill = 'red';
+    text.removeStyle('fill');
+    equal(text.fill, 'red', 'the fill has not been changed');
+    equal(text.styles[0][0].stroke, 'black', 'the non fill part of the style is still there');
+    equal(text.styles[0][0].fill, undefined, 'the fill part of the style has been removed');
+    text.styles = { 0: { 0: { fill: 'blue' }, 1:  { fill: 'blue' }, 2:  { fill: 'blue' }}};
+    text.removeStyle('fill');
+    equal(text.styles[0], undefined, 'the styles got empty and has been removed');
+  });
+
+  test('getFontCache works with fontWeight numbers', function() {
+    var text = new fabric.Text('xxx', { fontWeight: 400 });
+    text.initDimensions();
+    var cache = fabric.charWidthsCache[text.fontFamily.toLowerCase()];
+    var cacheProp = text.fontStyle + '_400';
+    equal(cacheProp in cache, true, '400 is converted to string');
+  });
+
+  test('getFontCache is case insensitive', function() {
+    var text = new fabric.Text('xxx', { fontWeight: 'BOld', fontStyle: 'NormaL' });
+    text.initDimensions();
+    var text2 = new fabric.Text('xxx', { fontWeight: 'bOLd', fontStyle: 'nORMAl' });
+    text2.initDimensions();
+    var cache = text.getFontCache(text);
+    var cache2 = text2.getFontCache(text2);
+    equal(cache, cache2, 'you get the same cache');
   });
 
 })();

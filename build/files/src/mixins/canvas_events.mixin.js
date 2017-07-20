@@ -294,7 +294,7 @@
      * @param {Object} pointer
      */
     _shouldRender: function(target, pointer) {
-      var activeObject = this._activeObject;
+      var activeObject = this.getActiveGroup() || this.getActiveObject();
 
       if (activeObject && activeObject.isEditing && target === activeObject) {
         // if we mouse up/down over a editing textbox a cursor change,
@@ -533,14 +533,16 @@
       // save pointer for check in __onMouseUp event
       var pointer = this.getPointer(e, true);
       this._previousPointer = pointer;
+
       var shouldRender = this._shouldRender(target, pointer),
           shouldGroup = this._shouldGroup(e, target);
+
       if (this._shouldClearSelection(e, target)) {
-        this.discardActiveObject(e);
+        this.deactivateAllWithDispatch(e);
       }
       else if (shouldGroup) {
         this._handleGrouping(e, target);
-        target = this._activeObject;
+        target = this.getActiveGroup();
       }
 
       if (this.selection && (!target || (!target.selectable && !target.isEditing))) {
@@ -557,11 +559,13 @@
           this._beforeTransform(e, target);
           this._setupCurrentTransform(e, target);
         }
-        if (target.selectable) {
-          this.setActiveObject(target, e);
-        }
-        else {
-          this.discardActiveObject();
+        var activeObject = this.getActiveObject();
+        if (target !== this.getActiveGroup() && target !== activeObject) {
+          this.deactivateAll();
+          if (target.selectable) {
+            activeObject && activeObject.fire('deselected', { e: e });
+            this.setActiveObject(target, e);
+          }
         }
       }
       this._handleEvent(e, 'down', target ? target : null);
@@ -802,10 +806,10 @@
       }
 
       var hoverCursor = target.hoverCursor || this.hoverCursor,
-          activeSelection = this._activeObject,
+          activeGroup = this.getActiveGroup(),
           // only show proper corner when group selection is not active
           corner = target._findTargetCorner
-                    && (!activeSelection || (activeSelection.contains && !activeSelection.contains(target)))
+                    && (!activeGroup || !activeGroup.contains(target))
                     && target._findTargetCorner(this.getPointer(e, true));
 
       if (!corner) {

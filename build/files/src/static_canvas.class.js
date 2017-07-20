@@ -671,14 +671,14 @@
      * @chainable true
      */
     setViewportTransform: function (vpt) {
-      var activeObject = this._activeObject, object, ignoreVpt = false, skipAbsolute = true;
+      var activeGroup = this._activeGroup, object, ignoreVpt = false, skipAbsolute = true;
       this.viewportTransform = vpt;
       for (var i = 0, len = this._objects.length; i < len; i++) {
         object = this._objects[i];
         object.group || object.setCoords(ignoreVpt, skipAbsolute);
       }
-      if (activeObject && activeObject.type === 'activeSelection') {
-        activeObject.setCoords(ignoreVpt, skipAbsolute);
+      if (activeGroup) {
+        activeGroup.setCoords(ignoreVpt, skipAbsolute);
       }
       this.calcViewportBoundaries();
       this.renderOnAddRemove && this.requestRenderAll();
@@ -1376,6 +1376,7 @@
     },
 
     /**
+     * push single object svg representation in the markup
      * @private
      */
     _setSVGObject: function(markup, instance, reviver) {
@@ -1439,10 +1440,10 @@
       if (!object) {
         return this;
       }
-      var activeSelection = this._activeObject,
+      var activeGroup = this._activeGroup,
           i, obj, objs;
-      if (object === activeSelection && object.type === 'activeSelection') {
-        objs = activeSelection._objects;
+      if (object === activeGroup) {
+        objs = activeGroup._objects;
         for (i = objs.length; i--;) {
           obj = objs[i];
           removeFromArray(this._objects, obj);
@@ -1468,10 +1469,10 @@
       if (!object) {
         return this;
       }
-      var activeSelection = this._activeObject,
+      var activeGroup = this._activeGroup,
           i, obj, objs;
-      if (object === activeSelection && object.type === 'activeSelection') {
-        objs = activeSelection._objects;
+      if (object === activeGroup) {
+        objs = activeGroup._objects;
         for (i = 0; i < objs.length; i++) {
           obj = objs[i];
           removeFromArray(this._objects, obj);
@@ -1497,11 +1498,11 @@
       if (!object) {
         return this;
       }
-      var activeSelection = this._activeObject,
+      var activeGroup = this._activeGroup,
           i, obj, idx, newIdx, objs;
 
-      if (object === activeSelection && object.type === 'activeSelection') {
-        objs = activeSelection._objects;
+      if (object === activeGroup) {
+        objs = activeGroup._objects;
         for (i = 0; i < objs.length; i++) {
           obj = objs[i];
           idx = this._objects.indexOf(obj);
@@ -1565,11 +1566,11 @@
       if (!object) {
         return this;
       }
-      var activeSelection = this._activeObject,
+      var activeGroup = this._activeGroup,
           i, obj, idx, newIdx, objs;
 
-      if (object === activeSelection && object.type === 'activeSelection') {
-        objs = activeSelection._objects;
+      if (object === activeGroup) {
+        objs = activeGroup._objects;
         for (i = objs.length; i--;) {
           obj = objs[i];
           idx = this._objects.indexOf(obj);

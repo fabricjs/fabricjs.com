@@ -86,7 +86,17 @@
         this.originY = options.originY;
       }
 
-      if (!isAlreadyGrouped) {
+      if (isAlreadyGrouped) {
+        // do not change coordinate of objects enclosed in a group,
+        // because objects coordinate system have been group coodinate system already.
+        var object;
+        for (var i = this._objects.length; i--; ) {
+          object = this._objects[i];
+          object.__origHasControls = object.hasControls;
+          object.hasControls = false;
+        }
+      }
+      else {
         var center = options && options.centerPoint;
         // if coming from svg i do not want to calc bounds.
         // i assume width and height are passed along options
@@ -116,6 +126,10 @@
      * @param {fabric.Point} center, current center of group.
      */
     _updateObjectCoords: function(object, center) {
+      // do not display corners of objects enclosed in a group
+      object.__origHasControls = object.hasControls;
+      object.hasControls = false;
+
       var objectLeft = object.left,
           objectTop = object.top,
           ignoreZoom = true, skipAbsolute = true;
@@ -124,7 +138,6 @@
         left: objectLeft - center.x,
         top: objectTop - center.y
       });
-      object.group = this;
       object.setCoords(ignoreZoom, skipAbsolute);
     },
 
@@ -150,11 +163,21 @@
         object.group = this;
         object._set('canvas', this.canvas);
       }
+      // since _restoreObjectsState set objects inactive
+      this.forEachObject(this._setObjectActive, this);
       this._calcBounds();
       this._updateObjectsCoords();
       this.setCoords();
       this.dirty = true;
       return this;
+    },
+
+    /**
+     * @private
+     */
+    _setObjectActive: function(object) {
+      object.set('active', true);
+      object.group = this;
     },
 
     /**
@@ -166,6 +189,8 @@
     removeWithUpdate: function(object) {
       this._restoreObjectsState();
       fabric.util.resetObjectTransform(this);
+      // since _restoreObjectsState set objects inactive
+      this.forEachObject(this._setObjectActive, this);
 
       this.remove(object);
       this._calcBounds();
@@ -181,6 +206,7 @@
     _onObjectAdded: function(object) {
       this.dirty = true;
       object.group = this;
+      object._set('canvas', this.canvas);
     },
 
     /**
@@ -189,6 +215,7 @@
     _onObjectRemoved: function(object) {
       this.dirty = true;
       delete object.group;
+      object.set('active', false);
     },
 
     /**
@@ -196,11 +223,18 @@
      */
     _set: function(key, value) {
       var i = this._objects.length;
+
+      if (key === 'canvas') {
+        while (i--) {
+          this._objects[i].set(key, value);
+        }
+      }
       if (this.useSetOnGroup) {
         while (i--) {
           this._objects[i].setOnGroup(key, value);
         }
       }
+
       this.callSuper('_set', key, value);
     },
 
@@ -308,7 +342,7 @@
      */
     drawObject: function(ctx) {
       for (var i = 0, len = this._objects.length; i < len; i++) {
-        this._objects[i].render(ctx);
+        this._renderObject(this._objects[i], ctx);
       }
     },
 
@@ -333,6 +367,34 @@
         }
       }
       return false;
+    },
+
+    /**
+     * Renders controls and borders for the object
+     * @param {CanvasRenderingContext2D} ctx Context to render on
+     * @param {Object} [styleOverride] properties to override the object style
+     * @param {Object} [childrenOverride] properties to override the children overrides
+     */
+    _renderControls: function(ctx, styleOverride, childrenOverride) {
+      ctx.save();
+      ctx.globalAlpha = this.isMoving ? this.borderOpacityWhenMoving : 1;
+      this.callSuper('_renderControls', ctx, styleOverride);
+      if (this.canvas && this === this.canvas.getActiveGroup()) {
+        for (var i = 0, len = this._objects.length; i < len; i++) {
+          this._objects[i]._renderControls(ctx, childrenOverride);
+        }
+      }
+      ctx.restore();
+    },
+
+    /**
+     * @private
+     */
+    _renderObject: function(object, ctx) {
+      var originalHasRotatingPoint = object.hasRotatingPoint;
+      object.hasRotatingPoint = false;
+      object.render(ctx);
+      object.hasRotatingPoint = originalHasRotatingPoint;
     },
 
     /**
@@ -378,7 +440,11 @@
     _restoreObjectState: function(object) {
       this.realizeTransform(object);
       object.setCoords();
+      object.hasControls = object.__origHasControls;
+      delete object.__origHasControls;
+      object.set('active', false);
       delete object.group;
+
       return this;
     },
 

@@ -13,8 +13,8 @@ title: SVG Rendering
 
       var canvasEl = document.getElementById('c' + (id + '').replace('/', '_'));
 
-      canvasEl.width = shape.getWidth() || 600;
-      canvasEl.height = shape.getHeight() || 600;
+      canvasEl.width = shape.getScaledWidth() || 600;
+      canvasEl.height = shape.getScaledHeight() || 600;
 
       var iframeEl = canvasEl.parentNode.nextSibling.childNodes[1];
       if (iframeEl) {

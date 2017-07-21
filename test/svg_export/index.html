@@ -30,7 +30,7 @@ var rect = new fabric.Rect({
   height: 50,
   fill: 'red'
 });
-canvas.add(rect);
+canvas.add(rect); rect.center();
 </pre>
 
 <pre class="test-source">
@@ -43,7 +43,7 @@ var rect = new fabric.Rect({
   stroke: 'blue',
   strokeWidth: 5
 });
-canvas.add(rect);
+canvas.add(rect); rect.center();
 </pre>
 
 <pre class="test-source">
@@ -53,7 +53,7 @@ var circle = new fabric.Circle({
   radius: 50,
   fill: 'green'
 });
-canvas.add(circle);
+canvas.add(circle); circle.center();
 </pre>
 
 <pre class="test-source">
@@ -65,7 +65,7 @@ var circle = new fabric.Circle({
   stroke: 'rgba(255,0,0,0.6)',
   strokeWidth: 15
 });
-canvas.add(circle);
+canvas.add(circle); circle.center();
 </pre>
 
 
@@ -77,7 +77,7 @@ var triangle = new fabric.Triangle({
   height: 70,
   fill: 'blue'
 });
-canvas.add(triangle);
+canvas.add(triangle); triangle.center();
 </pre>
 
 <pre class="test-source">
@@ -89,7 +89,7 @@ var rect = new fabric.Rect({
   fill: 'red',
   angle: 30
 });
-canvas.add(rect);
+canvas.add(rect); rect.center();
 </pre>
 
 <pre class="test-source">
@@ -150,7 +150,7 @@ var poly = new fabric.Polyline([
   ], {
   stroke: 'red'
 });
-canvas.add(poly);
+canvas.add(poly); poly.center();
 </pre>
 
 <pre class="test-source">
@@ -165,7 +165,7 @@ canvas.add(poly);
     stroke: 'red',
     fill: 'yellow'
   });
-  canvas.add(poly);
+  canvas.add(poly); poly.center();
 </pre>
 
 <pre class="test-source">
@@ -181,7 +181,7 @@ canvas.add(poly);
     fill: 'rgba(0,0,255,0.3)',
     strokeWidth: 3
   });
-  canvas.add(poly);
+  canvas.add(poly); poly.center();
 </pre>
 
 <pre class="test-source async">

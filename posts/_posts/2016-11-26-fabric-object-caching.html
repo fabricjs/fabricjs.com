@@ -3,7 +3,11 @@ layout: articlead
 title: Fabric.js. release highlights.
 ---
 
-<style>h2 { margin-bottom: 15px } h3 { margin-bottom: 10px; } h4 { margin-bottom: 7px; } </style>
+<style>h2 { margin-bottom: 15px } h3 { margin-bottom: 10px; } h4 { margin-bottom: 7px; }
+.show-borders {
+  border:1px solid black;
+}
+</style>
 
 <div class="container" style="margin:30px auto">
   <h2 id="introduction_object_caching">Fabric.js Object caching</h2>
@@ -59,19 +63,46 @@ cacheProperties: (
 /**
  * When set to `true`, object's cache will be rerendered next render call.
  * @type Boolean
- * @default false
+ * @default true
  */
-dirty:                false,
+dirty:                true,
 
 /**
-  * When set to `true`, force the object to have its own cache, even if it is inside a group
+  * When return `true`, force the object to have its own cache, even if it is inside a group
   * it may be needed when your object behave in a particular way on the cache and always needs
   * its own isolated canvas to render correctly.
-  * since 1.7.5
-  * @type Boolean
-  * @default false
+  * since 1.7.12
+  * @type function
+  * @return false
   */
- needsItsOwnCache: false,
+ needsItsOwnCache: function() {
+   return false;
+ },
+
+ /**
+ * Pixel limit for cache canvases. 1Mpx , 4Mpx should be fine.
+ * @since 1.7.14
+ * @type Number
+ * @default
+ */
+fabric.perfLimitSizeTotal = 2097152;
+
+/**
+ * Pixel limit for cache canvases width or height. IE fixes the maximum at 5000
+ * @since 1.7.14
+ * @type Number
+ * @default
+ */
+fabric.maxCacheSideLimit = 4096;
+
+/**
+ * Lowest pixel limit for cache canvases, set at 256PX
+ * @since 1.7.14
+ * @type Number
+ * @default
+ */
+fabric.minCacheSideLimit = 256;
+
 </pre>
 <p>
   <code>objectCaching</code> is the main properties, default to true for browsers, false for node, it enables objectCaching at object level.<br />
@@ -80,7 +111,14 @@ dirty:                false,
   <code>noScaleCache</code> default to true, disable cache regeneration for scale operation. It can be enabled to avoid blurry effects for big scaling.<br />
   <code>cacheProperties</code> Is an array of properties to be checked when statefullCache is on to detect a state change and trigger a cache re rendering.<br />
   <code>dirty</code> is a simple flag that force a cache rerender at next render method, and is set to false automatically after cache regeneration.
+  <code>fabric.perfLimitSizeTotal</code> Max size in pixel area of generated cache canvases.<br />
+  <code>fabric.maxCacheSideLimit</code> Max size in pixel of the largest side of the cache canvas. ( numbers bigger than 5000 breaks IE )<br />
+  <code>fabric.minCacheSideLimit</code> Max size in pixel of the minimal side of the cache canvas. ( numbers smaller than 256 can disable gpu compositing. to be verified )<br />
 </p>
+
+<p>Example of a cache canvas that is bigger than the drawn object (256x256 is the minimum by default): </p><img class="show-borders" src="../article_assets/carMinCache.png" />
+<p>Example of the biggest size cache canvas at default values ( 2 Mega pixels ). Scroll to see something: </p><iframe class="show-borders" width=256 height=256 src="../article_assets/carMaxCache.png" ></iframe>
+
 <h3>How much performance gain i get, are there any problems?</h3>
 <p>It depends on what your project looks like. Are you drawing just a bunch of circles, rects and simple plygons? Maybe you will not gain that much performance.<br />
   Are you importing and displaying large and complex svgs? well you will move from possibly shuttering to smooth.
@@ -166,16 +204,17 @@ that is changing some property of an object to detect trigger a change and so he
 Using the object method <code>set</code> will do this for you. So calling <code>object.set('fill', 'red')</code> require no other actions. If for some reason
 you are not using the set method ( for example in situation of text objects in wich setting some properties trigger expensive functions ) you will use the flag.<br />
 There is also a way to ask fabric to check at render time a change for properties. This is not expensive most of the time but i decided to leave it off because in crowded
-situations ( like spray brush or 1000+ svg paths ) it was expensive.<br /> A particular note about groups and pathgroups: calling <code>group.set('fill', 'red')</code>
-on a group is not working as expected. Group does not use its own fill property but send the fill property to the children objects. At render time children object are not checked for dirty flag.
-This will be addressed in a future version.</p>
+situations ( like spray brush or 1000+ svg paths ) it was expensive.<br />
+Groups and PathGroups are taken care of in this way:<br />
+When an object gets set a property, the property is checked, if it is in the <code>cacheProperties</code> array, the object and the group are set as dirty.
+If the property is in the <code>stateProperties</code> array, only the group is set as dirty.</p>
 <h3>How does fabric check for changes in custom subclasses with custom properties?</h3>
 <p>Custom subclassing is one of the fabric strongest features in my opinion and object caching has been built with that in mind.. So there is an array defined called <code>cacheProperties</code>
 that contains a list of properties that get checked at every render when the property <code>statefullCache</code> is set true. (defaults to false).</br>
 The array looks like this:</p>
 <pre>
   cacheProperties: (
-    'fill stroke strokeWidth strokeDashArray width height stroke strokeWidth strokeDashArray' +
+    'fill stroke strokeWidth strokeDashArray width height' +
     ' strokeLineCap strokeLineJoin strokeMiterLimit fillRule backgroundColor'
   ).split(' '),
 </pre>
@@ -188,9 +227,11 @@ or you can add your custom properties that influence rendering to have them chec
 If width and height are not correct for the object we are trying to display, the image will be cut off. There is no other solution than disable the caching for the object or fix the problem.<br />
 Currently affected uses case:
 <pre>
-- paths with wrongly parsed command sequence (very few)
+- (mainly solved since 1.7.7) sometimes things can look blurry
+- (mainly solved since 1.7.8) paths with wrongly parsed command sequence (very few)
 - (mainly solved since 1.7.3) Text using custom fonts with very big ascender/descender and of wich canvas is not able to measure extension.
 - Groups not initialized correctly ( created empty and not updated after using the .add method, please use addWithUpdate)
+- Scaling events that reset scale and modify width/height, disable <code>noScaleCache</code>, set it to false
 </pre>
 </p>
 </div>

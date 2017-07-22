@@ -643,9 +643,9 @@
     fabric.gradientDefs[svgUid] = fabric.getGradientDefs(doc);
     fabric.cssRules[svgUid] = fabric.getCSSRules(doc);
     // Precedence of rules:   style > class > attribute
-    fabric.parseElements(elements, function(instances) {
+    fabric.parseElements(elements, function(instances, elements) {
       if (callback) {
-        callback(instances, options);
+        callback(instances, options, elements, descendants);
       }
     }, clone(options), reviver, parsingOptions);
   };
@@ -950,8 +950,8 @@
           callback && callback(null);
         }
 
-        fabric.parseSVGDocument(xml.documentElement, function (results, _options) {
-          callback && callback(results, _options);
+        fabric.parseSVGDocument(xml.documentElement, function (results, _options, elements, allElements) {
+          callback && callback(results, _options, elements, allElements);
         }, reviver, options);
       }
     },
@@ -981,8 +981,8 @@
         doc.loadXML(string.replace(/<!DOCTYPE[\s\S]*?(\[[\s\S]*\])*?>/i, ''));
       }
 
-      fabric.parseSVGDocument(doc.documentElement, function (results, _options) {
-        callback(results, _options);
+      fabric.parseSVGDocument(doc.documentElement, function (results, _options, elements, allElements) {
+        callback(results, _options, elements, allElements);
       }, reviver, options);
     }
   });

@@ -220,16 +220,16 @@ rect.set({ width: 10, height: 20, fill: '#f55', opacity: 0.7 });
 <pre>
 var rect = new fabric.Rect(); // не передаём никаких параметров
 
-rect.getWidth(); // 0
-rect.getHeight(); // 0
+rect.get('width'); // 0
+rect.get('height'); // 0
 
-rect.getLeft(); // 0
-rect.getTop(); // 0
+rect.get('left'); // 0
+rect.get('top'); // 0
 
-rect.getFill(); // rgb(0,0,0)
-rect.getStroke(); // null
+rect.get('fill'); // rgb(0,0,0)
+rect.get('stroke'); // null
 
-rect.getOpacity(); // 1
+rect.get('opacity'); // 1
 </pre>
 
   <p>Прямоугольник получил значения по умолчанию. Он находится в позиции 0,0, чёрного цвета, непрозрачный, не имеет ни рамок, ни габаритов (ширина и высота равны нулю). Из-за этого мы его и не видим. Как только устанавливаем позитивные width/height, чёрный прямоугольник появляется в левом верхнем углу.</p>
@@ -246,7 +246,7 @@ rect.getOpacity(); // 1
 
 <pre>
 fabric.Object.prototype.getAngleInRadians = function() {
-  return this.getAngle() / 180 * Math.PI;
+  return this.get('angle') / 180 * Math.PI;
 };
 
 var rect = new fabric.Rect({ angle: 45 });
@@ -383,7 +383,7 @@ fabric.Image.fromURL('my_image.png', function(oImg) {
 <pre>
 fabric.Image.fromURL('my_image.png', function(oImg) {
   // уменьшаем картинку и переварачиваем перед добавлением
-  oImg.scale(0.5).setFlipX(true);
+  oImg.scale(0.5).set('flipX', true);
   canvas.add(oImg);
 });
 </pre>

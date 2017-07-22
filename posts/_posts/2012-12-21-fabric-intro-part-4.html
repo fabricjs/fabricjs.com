@@ -1,5 +1,5 @@
 ---
-layout: article
+layout: articlead
 title: Introduction to Fabric.js. Part 4.
 ---
 
@@ -51,7 +51,7 @@ object.hasControls = false;
     <img src="/article_assets/4_3.png" style="border:1px solid #eee">
   </p>
 
-  <p>You can also change their appearance by tweaking "borderColor", "cornerColor", and "cornerSize" properties.</p>
+  <p>You can also change their appearance by tweaking some of the customization properties "cornerDashArray", "borderDashArray", "borderColor", "transparentCorners" "cornerColor", "cornerStrokeColor", "cornerStyle", "selectionBackgroundColor", "padding" and "cornerSize" properties.</p>
 
 <pre>
 object.set({
@@ -61,6 +61,20 @@ object.set({
 });
 </pre>
   <p><img src="/article_assets/4_4.png" style="border:1px solid #eee"></p>
+
+  <pre>
+  object.set({
+    transparentCorners: false,
+    cornerColor: 'blue',
+    cornerStrokeColor: 'red',
+    borderColor: 'red',
+    cornerSize: 12,
+    padding: 10,
+    cornerStyle: 'circle',
+    borderDashArray: [3, 3]
+  });
+  </pre>
+    <p><img src="/article_assets/4_4b.png" style="border:1px solid #eee"></p>
 
   <h4>Disabling selection</h4>
 

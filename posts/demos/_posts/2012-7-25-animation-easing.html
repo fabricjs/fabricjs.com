@@ -58,7 +58,7 @@ title: Animation Easing
   var animateBtn = document.getElementById('animate');
   animateBtn.onclick = function() {
     animateBtn.disabled = true;
-    rect.animate('left', rect.getLeft() === 100 ? 400 : 100, {
+    rect.animate('left', rect.left === 100 ? 400 : 100, {
       duration: 1000,
       onChange: canvas.renderAll.bind(canvas),
       onComplete: function() {

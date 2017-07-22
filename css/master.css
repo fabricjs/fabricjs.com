@@ -98,6 +98,13 @@ b.bench { font-family: monospace; font-size: 18px; background: #ffc; padding: 0 
 
 #printio-lab-project:hover { padding: 10px 15px; top: 85px; left: -5px; }
 
+#warning { position: absolute; top: 130px; left: 0; padding: 5px 10px;
+  background: #eee; border-radius: 3px; border-top-left-radius: 0; border-bottom-left-radius: 0;
+  background: linear-gradient(rgba(255, 0, 0, 0.8), rgba(240, 0, 0, 0.7));
+  transition: all 0.2s; }
+
+#warning:hover { padding: 10px 15px; top: 125px; left: -5px; }
+
 .column { width: 400px; display: inline-block; background: #fafafa; vertical-align: top; padding-left: 20px; margin-right: 10px; margin-top: 10px; margin-left: 10px; }
 .column > ul { padding-left: 0; list-style-position: inside; }
 

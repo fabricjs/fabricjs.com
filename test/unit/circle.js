@@ -46,16 +46,16 @@
     equal(circle.getRadiusX(), 10);
     equal(circle.getRadiusY(), 10);
 
-    equal(circle.getWidth(), 20);
-    equal(circle.getHeight(), 20);
+    equal(circle.width, 20);
+    equal(circle.height, 20);
 
     equal(circle, circle.setRadius(20));
 
     equal(circle.getRadiusX(), 20);
     equal(circle.getRadiusY(), 20);
 
-    equal(circle.getWidth(), 40);
-    equal(circle.getHeight(), 40);
+    equal(circle.width, 40);
+    equal(circle.height, 40);
   });
 
   test('set radius', function() {
@@ -66,8 +66,8 @@
     equal(circle.getRadiusX(), 20);
     equal(circle.getRadiusY(), 20);
 
-    equal(circle.getWidth(), 40);
-    equal(circle.getHeight(), 40);
+    equal(circle.width, 40);
+    equal(circle.height, 40);
   });
 
   test('complexity', function() {
@@ -155,46 +155,46 @@
     elCircle.setAttribute('stroke-linejoin', strokeLineJoin);
     elCircle.setAttribute('stroke-miterlimit', strokeMiterLimit);
 
-    var oCircle = fabric.Circle.fromElement(elCircle);
-    ok(oCircle instanceof fabric.Circle);
+    fabric.Circle.fromElement(elCircle, function(oCircle) {
+      ok(oCircle instanceof fabric.Circle);
+      equal(oCircle.get('radius'), radius);
+      equal(oCircle.get('left'), left - radius);
+      equal(oCircle.get('top'), top - radius);
+      equal(oCircle.get('fill'), fill);
+      equal(oCircle.get('opacity'), opacity);
+      equal(oCircle.get('strokeWidth'), strokeWidth);
+      deepEqual(oCircle.get('strokeDashArray'), strokeDashArray);
+      equal(oCircle.get('strokeLineCap'), strokeLineCap);
+      equal(oCircle.get('strokeLineJoin'), strokeLineJoin);
+      equal(oCircle.get('strokeMiterLimit'), strokeMiterLimit);
 
-    equal(oCircle.get('radius'), radius);
-    equal(oCircle.get('left'), left - radius);
-    equal(oCircle.get('top'), top - radius);
-    equal(oCircle.get('fill'), fill);
-    equal(oCircle.get('opacity'), opacity);
-    equal(oCircle.get('strokeWidth'), strokeWidth);
-    deepEqual(oCircle.get('strokeDashArray'), strokeDashArray);
-    equal(oCircle.get('strokeLineCap'), strokeLineCap);
-    equal(oCircle.get('strokeLineJoin'), strokeLineJoin);
-    equal(oCircle.get('strokeMiterLimit'), strokeMiterLimit);
+      var elFaultyCircle = fabric.document.createElement('circle');
+      elFaultyCircle.setAttribute('r', '-10');
 
-    var elFaultyCircle = fabric.document.createElement('circle');
-    elFaultyCircle.setAttribute('r', '-10');
+      var error;
+      try {
+        fabric.Circle.fromElement(elFaultyCircle);
+      }
+      catch (err) {
+        error = err;
+      }
+      ok(error, 'negative attribute should throw');
 
-    var error;
-    try {
-      fabric.Circle.fromElement(elFaultyCircle);
-    }
-    catch (err) {
-      error = err;
-    }
-    ok(error, 'negative attribute should throw');
+      elFaultyCircle.removeAttribute('r');
 
-    elFaultyCircle.removeAttribute('r');
+      error = void 0;
+      try {
+        fabric.Circle.fromElement(elFaultyCircle);
+      }
+      catch (err) {
+        error = err;
+      }
 
-    error = void 0;
-    try {
-      fabric.Circle.fromElement(elFaultyCircle);
-    }
-    catch (err) {
-      error = err;
-    }
-
-    ok(error, 'inexstent attribute should throw');
+      ok(error, 'inexstent attribute should throw');
+    });
   });
 
-  test('fromObject', function() {
+  asyncTest('fromObject', function() {
     ok(typeof fabric.Circle.fromObject == 'function');
 
     var left    = 112,
@@ -202,32 +202,34 @@
         radius  = 13.45,
         fill    = 'ff5555';
 
-    var circle = fabric.Circle.fromObject({
+    fabric.Circle.fromObject({
       left: left, top: top, radius: radius, fill: fill
+    }, function(circle) {
+      ok(circle instanceof fabric.Circle);
+
+      equal(circle.get('left'), left);
+      equal(circle.get('top'), top);
+      equal(circle.get('radius'), radius);
+      equal(circle.get('fill'), fill);
+
+      var expected = circle.toObject();
+      fabric.Circle.fromObject(expected, function(actual) {
+        deepEqual(actual.toObject(), expected);
+        start();
+      });
     });
-
-    ok(circle instanceof fabric.Circle);
-
-    equal(circle.get('left'), left);
-    equal(circle.get('top'), top);
-    equal(circle.get('radius'), radius);
-    equal(circle.get('fill'), fill);
-
-    var expected = circle.toObject();
-    var actual = fabric.Circle.fromObject(expected).toObject();
-
-    deepEqual(actual, expected);
   });
 
   test('cloning and radius, width, height', function() {
     var circle = new fabric.Circle({ radius: 10, strokeWidth: 0});
     circle.scale(2);
 
-    var clone = circle.clone();
-
-    equal(clone.getWidth(), 40);
-    equal(clone.getHeight(), 40);
-
-    equal(clone.radius, 10);
+    circle.clone(function(clone) {
+      equal(clone.width, 20);
+      equal(clone.getScaledWidth(), 40);
+      equal(clone.height, 20);
+      equal(clone.getScaledHeight(), 40);
+      equal(clone.radius, 10);
+    });
   });
 })();

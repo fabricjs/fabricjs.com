@@ -43,7 +43,7 @@
   var PATH_DATALESS_JSON = '{"objects":[{"type":"path","originX":"left","originY":"top","left":100,"top":100,"width":200,"height":200,"fill":"rgb(0,0,0)",' +
                            '"stroke":null,"strokeWidth":1,"strokeDashArray":null,"strokeLineCap":"butt","strokeLineJoin":"miter","strokeMiterLimit":10,' +
                            '"scaleX":1,"scaleY":1,"angle":0,"flipX":false,"flipY":false,"opacity":1,' +
-                           '"shadow":null,"visible":true,"clipTo":null,"backgroundColor":"","fillRule":"nonzero","globalCompositeOperation":"source-over","transformMatrix":null,"skewX":0,"skewY":0,"pathOffset":{"x":200,"y":200},"path":"http://example.com/"}]}';
+                           '"shadow":null,"visible":true,"clipTo":null,"backgroundColor":"","fillRule":"nonzero","globalCompositeOperation":"source-over","transformMatrix":null,"skewX":0,"skewY":0,"sourcePath":"http://example.com/"}]}';
 
   var RECT_JSON = '{"objects":[{"type":"rect","originX":"left","originY":"top","left":0,"top":0,"width":10,"height":10,"fill":"rgb(0,0,0)",' +
                   '"stroke":null,"strokeWidth":1,"strokeDashArray":null,"strokeLineCap":"butt","strokeLineJoin":"miter","strokeMiterLimit":10,' +
@@ -96,20 +96,18 @@
     'backgroundColor':          '',
     'clipTo':                   null,
     'filters':                  [],
-    'resizeFilters':            [],
     'fillRule':                 'nonzero',
     'globalCompositeOperation': 'source-over',
     'transformMatrix':          null,
     'crossOrigin':              '',
     'skewX':                    0,
     'skewY':                    0,
-    'alignX':                   'none',
-    'alignY':                   'none',
-    'meetOrSlice':              'meet'
+    'cropX':                    0,
+    'cropY':                    0
   };
 
   function _createImageElement() {
-    return fabric.isLikelyNode ? new (require('canvas').Image)() : fabric.document.createElement('img');
+    return fabric.isLikelyNode ? new (require(fabric.canvasModule).Image)() : fabric.document.createElement('img');
   }
 
   function _createImageObject(width, height, callback) {
@@ -619,15 +617,15 @@
     var rect = makeRect({ angle: 10 });
     canvas.add(rect);
     equal(canvas.straightenObject(rect), canvas, 'should be chainable');
-    equal(rect.getAngle(), 0, 'angle should be coerced to 0 (from 10)');
+    equal(rect.get('angle'), 0, 'angle should be coerced to 0 (from 10)');
 
     rect.setAngle('60');
     canvas.straightenObject(rect);
-    equal(rect.getAngle(), 90, 'angle should be coerced to 90 (from 60)');
+    equal(rect.get('angle'), 90, 'angle should be coerced to 90 (from 60)');
 
     rect.setAngle('100');
     canvas.straightenObject(rect);
-    equal(rect.getAngle(), 90, 'angle should be coerced to 90 (from 100)');
+    equal(rect.get('angle'), 90, 'angle should be coerced to 90 (from 100)');
   });
 
   test('toSVG', function() {
@@ -681,13 +679,13 @@
         image = new fabric.Image({width: 0, height: 0}),
         path2 = new fabric.Path('M 0 0 L 200 100 L 200 300 z'),
         path3 = new fabric.Path('M 50 50 L 100 300 L 400 400 z'),
-        pathGroup = new fabric.PathGroup([path2, path3]);
+        pathGroup = new fabric.Group([path2, path3]);
 
     canvas.renderOnAddRemove = false;
     canvas.add(circle, rect, path1, tria, polygon, polyline, group, ellipse, image, pathGroup);
 
     var reviverCount = 0,
-        len = canvas.size() + group.size() + pathGroup.paths.length;
+        len = canvas.size() + group.size() + pathGroup.size();
 
     function reviver(svg) {
       reviverCount++;
@@ -700,7 +698,7 @@
     canvas.renderOnAddRemove = true;
   });
 
-  test('toSVG with reviver', function() {
+  test('toSVG with reviver 2', function() {
     ok(typeof canvas.toSVG == 'function');
     canvas.clear();
 
@@ -719,14 +717,14 @@
         imageOL = new fabric.Image({width: 0, height: 0}),
         path2 = new fabric.Path('M 0 0 L 200 100 L 200 300 z'),
         path3 = new fabric.Path('M 50 50 L 100 300 L 400 400 z'),
-        pathGroup = new fabric.PathGroup([path2, path3]);
+        pathGroup = new fabric.Group([path2, path3]);
 
     canvas.renderOnAddRemove = false;
     canvas.add(circle, rect, path1, tria, polygon, polyline, group, ellipse, image, pathGroup);
     canvas.setBackgroundImage(imageBG);
     canvas.setOverlayImage(imageOL);
     var reviverCount = 0,
-        len = canvas.size() + group.size() + pathGroup.paths.length;
+        len = canvas.size() + group.size() + pathGroup.size();
 
     function reviver(svg) {
       reviverCount++;
@@ -757,12 +755,12 @@
         image = new fabric.Image({width: 0, height: 0}),
         path2 = new fabric.Path('M 0 0 L 200 100 L 200 300 z'),
         path3 = new fabric.Path('M 50 50 L 100 300 L 400 400 z'),
-        pathGroup = new fabric.PathGroup([path2, path3]);
+        pathGroup = new fabric.Group([path2, path3]);
 
     canvas.renderOnAddRemove = false;
     canvas.add(circle, rect, path1, tria, polygon, polyline, group, ellipse, image, pathGroup);
     var reviverCount = 0,
-        len = canvas.size() + group.size() + pathGroup.paths.length;
+        len = canvas.size() + group.size() + pathGroup.size();
 
     function reviver(svg) {
       reviverCount++;
@@ -897,6 +895,24 @@
     equal(canvas.toObject().objects.length, 1, 'only one object gets exported');
   });
 
+  test('toObject excludeFromExport bgImage overlay', function() {
+    var rect = makeRect(), rect2 = makeRect(), rect3 = makeRect();
+    canvas.clear();
+    canvas.backgroundImage = rect;
+    canvas.overlayImage = rect2;
+    canvas.add(rect3);
+    var rectToObject = rect.toObject();
+    var rect2ToObject = rect2.toObject();
+    var canvasToObject = canvas.toObject();
+    deepEqual(canvasToObject.backgroundImage, rectToObject, 'background exported');
+    deepEqual(canvasToObject.overlayImage, rect2ToObject, 'overlay exported');
+    rect.excludeFromExport = true;
+    rect2.excludeFromExport = true;
+    canvasToObject = canvas.toObject();
+    equal(canvasToObject.backgroundImage, undefined, 'background not exported');
+    equal(canvasToObject.overlayImage, undefined, 'overlay not exported');
+  });
+
 
   test('toDatalessObject', function() {
     ok(typeof canvas.toDatalessObject == 'function');
@@ -1029,7 +1045,7 @@
   asyncTest('loadFromJSON with image background and color', function() {
     var serialized = JSON.parse(PATH_JSON);
     serialized.background = 'green';
-    serialized.backgroundImage = JSON.parse('{"type":"image","originX":"left","originY":"top","left":13.6,"top":-1.4,"width":3000,"height":3351,"fill":"rgb(0,0,0)","stroke":null,"strokeWidth":0,"strokeDashArray":null,"strokeLineCap":"butt","strokeLineJoin":"miter","strokeMiterLimit":10,"scaleX":0.05,"scaleY":0.05,"angle":0,"flipX":false,"flipY":false,"opacity":1,"shadow":null,"visible":true,"clipTo":null,"backgroundColor":"","fillRule":"nonzero","globalCompositeOperation":"source-over","transformMatrix":null,"skewX":0,"skewY":0,"src":"' + IMG_SRC + '","filters":[],"crossOrigin":"","alignX":"none","alignY":"none","meetOrSlice":"meet"}');
+    serialized.backgroundImage = JSON.parse('{"type":"image","originX":"left","originY":"top","left":13.6,"top":-1.4,"width":3000,"height":3351,"fill":"rgb(0,0,0)","stroke":null,"strokeWidth":0,"strokeDashArray":null,"strokeLineCap":"butt","strokeLineJoin":"miter","strokeMiterLimit":10,"scaleX":0.05,"scaleY":0.05,"angle":0,"flipX":false,"flipY":false,"opacity":1,"shadow":null,"visible":true,"clipTo":null,"backgroundColor":"","fillRule":"nonzero","globalCompositeOperation":"source-over","transformMatrix":null,"skewX":0,"skewY":0,"src":"' + IMG_SRC + '","filters":[],"crossOrigin":""}');
     canvas.loadFromJSON(serialized, function() {
       ok(!canvas.isEmpty(), 'canvas is not empty');
       equal(canvas.backgroundColor, 'green');

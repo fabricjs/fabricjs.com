@@ -6,6 +6,10 @@
     return new fabric.Text(text || 'x');
   }
 
+  function removeTranslate(str) {
+    return str.replace(/translate\(.*?\)/, '');
+  }
+
   var CHAR_WIDTH = 20;
 
   var REFERENCE_TEXT_OBJECT = {
@@ -37,9 +41,11 @@
     'fontSize':                  40,
     'fontWeight':                'normal',
     'fontFamily':                'Times New Roman',
-    'fontStyle':                 '',
+    'fontStyle':                 'normal',
     'lineHeight':                1.16,
-    'textDecoration':            '',
+    'underline':                 false,
+    'overline':                  false,
+    'linethrough':               false,
     'textAlign':                 'left',
     'textBackgroundColor':       '',
     'fillRule':                  'nonzero',
@@ -47,11 +53,12 @@
     'skewX':                      0,
     'skewY':                      0,
     'transformMatrix':            null,
-    'charSpacing':                0
+    'charSpacing':                0,
+    'styles':                     null
   };
 
-  var TEXT_SVG = '\t<g transform="translate(10.5 26.72)">\n\t\t<text font-family="Times New Roman" font-size="40" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" >\n\t\t\t<tspan x="-10" y="12.6" fill="rgb(0,0,0)">x</tspan>\n\t\t</text>\n\t</g>\n';
-  var TEXT_SVG_JUSTIFIED = '\t<g transform="translate(50.5 26.72)">\n\t\t<text font-family="Times New Roman" font-size="40" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" >\n\t\t\t<tspan x="-50" y="12.6" fill="rgb(0,0,0)">x</tspan>\n\t\t\t<tspan x="30" y="12.6" fill="rgb(0,0,0)">y</tspan>\n\t\t</text>\n\t</g>\n';
+  var TEXT_SVG = '\t<g transform="translate(10.5 26.72)">\n\t\t<text xml:space="preserve" font-family="Times New Roman" font-size="40" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1; white-space: pre;" >\n\t\t\t<tspan x="-10" y="12.57" >x</tspan>\n\t\t</text>\n\t</g>\n';
+  var TEXT_SVG_JUSTIFIED = '\t<g transform="translate(50.5 26.72)">\n\t\t<text xml:space="preserve" font-family="Times New Roman" font-size="40" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1; white-space: pre;" >\n\t\t\t<tspan x=\"-60\" y=\"-13.65\" >xxxxxx</tspan>\n\t\t\t<tspan x=\"-60\" y=\"38.78\" >x </tspan>\n\t\t\t<tspan x=\"40\" y=\"38.78\" >y</tspan>\n\t\t</text>\n\t</g>\n';
 
   test('constructor', function() {
     ok(fabric.Text);
@@ -77,10 +84,10 @@
     var fontDecl = text._getFontDeclaration();
     ok(typeof fontDecl == 'string', 'it returns a string');
     if (fabric.isLikelyNode) {
-      equal(fontDecl, 'normal  40px "Times New Roman"');
+      equal(fontDecl, 'normal normal 40px "Times New Roman"');
     }
     else {
-      equal(fontDecl, ' normal 40px Times New Roman');
+      equal(fontDecl, 'normal normal 40px Times New Roman');
     }
 
   });
@@ -113,10 +120,10 @@
     var text = createTextObject();
     text.text = 'text with one line';
     text.lineHeight = 2;
-    text._initDimensions();
+    text.initDimensions();
     var height = text.height;
     text.lineHeight = 0.5;
-    text._initDimensions();
+    text.initDimensions();
     var heightNew = text.height;
     equal(height, heightNew, 'text height does not change with one single line');
   });
@@ -125,7 +132,7 @@
     var text = createTextObject();
     text.text = 'text with\ntwo lines';
     text.lineHeight = 0.1;
-    text._initDimensions();
+    text.initDimensions();
     var height = text.height,
         minimumHeight = text.fontSize * text._fontSizeMult;
     equal(height > minimumHeight, true, 'text height is always bigger than minimum Height');
@@ -136,9 +143,9 @@
 
     text.set({ opacity: 0.123, fill: 'red', fontFamily: 'blah' });
 
-    equal(text.getOpacity(), 0.123);
-    equal(text.getFill(), 'red');
-    equal(text.get('fontFamily'), 'blah');
+    equal(text.opacity, 0.123);
+    equal(text.fill, 'red');
+    equal(text.fontFamily, 'blah');
   });
 
   test('get bounding rect after init', function() {
@@ -170,56 +177,32 @@
     equal(text.shadow.blur, 2);
   });
 
-  test('setFontSize', function(){
-    var text = createTextObject();
-    ok(typeof text.setFontSize == 'function');
-    equal(text.setFontSize(12), text, 'should be chainable');
-    equal(text.get('fontSize'), 12);
-  });
-
-  test('getText', function(){
-    var text = createTextObject();
-    ok(typeof text.getText == 'function');
-    equal(text.getText(), 'x');
-    equal(text.getText(), text.get('text'));
-  });
-
-  test('setText', function(){
-    var text = createTextObject();
-    ok(typeof text.setText == 'function');
-    equal(text.setText('bar'), text, 'should be chainable');
-    equal(text.getText(), 'bar');
-  });
-
-  test('fabric.Text.fromObject', function(){
+  asyncTest('fabric.Text.fromObject', function(){
     ok(typeof fabric.Text.fromObject == 'function');
-    var text = fabric.Text.fromObject(REFERENCE_TEXT_OBJECT);
-    deepEqual(text.toObject(), REFERENCE_TEXT_OBJECT);
+    fabric.Text.fromObject(REFERENCE_TEXT_OBJECT, function(text) {
+      deepEqual(text.toObject(), REFERENCE_TEXT_OBJECT);
+      start();
+    });
   });
 
   test('fabric.Text.fromElement', function() {
-    ok(typeof fabric.Text.fromElement == 'function');
+    ok(typeof fabric.Text.fromElement === 'function');
 
     var elText = fabric.document.createElement('text');
     elText.textContent = 'x';
 
-    var text = fabric.Text.fromElement(elText);
-
-    ok(text instanceof fabric.Text);
-
-    // temp workaround for text objects not obtaining width under node
-    // text.width = CHAR_WIDTH;
-
-    var expectedObject = fabric.util.object.extend(fabric.util.object.clone(REFERENCE_TEXT_OBJECT), {
-      left: 4.5,
-      top: -5.75,
-      width: 8,
-      height: 18.08,
-      fontSize: 16,
-      originX: 'left'
+    fabric.Text.fromElement(elText, function(text) {
+      ok(text instanceof fabric.Text);
+      var expectedObject = fabric.util.object.extend(fabric.util.object.clone(REFERENCE_TEXT_OBJECT), {
+        left: 0,
+        top: -14.59,
+        width: 8,
+        height: 18.08,
+        fontSize: 16,
+        originX: 'left'
+      });
+      deepEqual(text.toObject(), expectedObject, 'parsed object is what expected');
     });
-
-    deepEqual(text.toObject(), expectedObject);
   });
 
   test('fabric.Text.fromElement with custom attributes', function() {
@@ -244,46 +227,49 @@
     elTextWithAttrs.setAttribute('text-decoration', 'underline');
     elTextWithAttrs.setAttribute('text-anchor', 'middle');
 
-    var textWithAttrs = fabric.Text.fromElement(elTextWithAttrs);
-    // temp workaround for text objects not obtaining width under node
-    textWithAttrs.width = CHAR_WIDTH;
+    fabric.Text.fromElement(elTextWithAttrs, function(textWithAttrs) {
+      // temp workaround for text objects not obtaining width under node
+      textWithAttrs.width = CHAR_WIDTH;
 
-    ok(textWithAttrs instanceof fabric.Text);
+      ok(textWithAttrs instanceof fabric.Text);
 
-    var expectedObject = fabric.util.object.extend(fabric.util.object.clone(REFERENCE_TEXT_OBJECT), {
-      /* left varies slightly due to node-canvas rendering */
-      left:             fabric.util.toFixed(textWithAttrs.left + '', 2),
-      top:              -18.54,
-      width:            CHAR_WIDTH,
-      height:           138.99,
-      fill:             'rgb(255,255,255)',
-      opacity:          0.45,
-      stroke:           'blue',
-      strokeWidth:      3,
-      strokeDashArray:  [5, 2],
-      strokeLineCap:    'round',
-      strokeLineJoin:   'bevil',
-      strokeMiterLimit: 5,
-      fontFamily:       'Monaco',
-      fontStyle:        'italic',
-      fontWeight:       'bold',
-      fontSize:         123,
-      textDecoration:   'underline',
-      originX:          'center'
+      var expectedObject = fabric.util.object.extend(fabric.util.object.clone(REFERENCE_TEXT_OBJECT), {
+        /* left varies slightly due to node-canvas rendering */
+        left:             fabric.util.toFixed(textWithAttrs.left + '', 2),
+        top:              -82.43,
+        width:            CHAR_WIDTH,
+        height:           138.99,
+        fill:             'rgb(255,255,255)',
+        opacity:          0.45,
+        stroke:           'blue',
+        strokeWidth:      3,
+        strokeDashArray:  [5, 2],
+        strokeLineCap:    'round',
+        strokeLineJoin:   'bevil',
+        strokeMiterLimit: 5,
+        fontFamily:       'Monaco',
+        fontStyle:        'italic',
+        fontWeight:       'bold',
+        fontSize:         123,
+        underline:        true,
+        originX:          'left'
+      });
+
+      deepEqual(textWithAttrs.toObject(), expectedObject);
     });
-
-    deepEqual(textWithAttrs.toObject(), expectedObject);
   });
 
   test('empty fromElement', function() {
-    ok(fabric.Text.fromElement() === null);
+    fabric.Text.fromElement(null, function(text) {
+      equal(text, null);
+    });
   });
 
   test('dimensions after text change', function() {
     var text = new fabric.Text('x');
     equal(text.width, CHAR_WIDTH);
 
-    text.setText('xx');
+    text.set('text', 'xx');
     equal(text.width, CHAR_WIDTH * 2);
   });
 
@@ -306,32 +292,95 @@
   test('toSVG', function() {
     var text = new fabric.Text('x');
 
-    function removeTranslate(str) {
-      return str.replace(/translate\(.*?\)/, '');
-    }
-
     // temp workaround for text objects not obtaining width under node
     text.width = CHAR_WIDTH;
 
     equal(removeTranslate(text.toSVG()), removeTranslate(TEXT_SVG));
 
-    text.setFontFamily('"Arial Black", Arial');
+    text.set('fontFamily', '"Arial Black", Arial');
     // temp workaround for text objects not obtaining width under node
     text.width = CHAR_WIDTH;
 
     equal(removeTranslate(text.toSVG()), removeTranslate(TEXT_SVG.replace('font-family="Times New Roman"', 'font-family="\'Arial Black\', Arial"')));
   });
   test('toSVG justified', function() {
-    var text = new fabric.Text('x y');
+    var text = new fabric.Text('xxxxxx\nx y', {
+      textAlign: 'justify',
+    });
 
-    function removeTranslate(str) {
-      return str.replace(/translate\(.*?\)/, '');
-    }
-
-    // temp workaround for text objects not obtaining width under node
-    text.width = 100;
-    text.textAlign = 'justify';
     equal(removeTranslate(text.toSVG()), removeTranslate(TEXT_SVG_JUSTIFIED));
+  });
+
+  test('text styleHas', function() {
+    var text = new fabric.Text('xxxxxx\nx y');
+    text.styles = { };
+    ok(typeof text.styleHas === 'function');
+    equal(text.styleHas('stroke'), false, 'the text style has no stroke');
+    text.styles = { 1: { 0: { stroke: 'red' }}};
+    equal(text.styleHas('stroke'), true, 'the text style has stroke');
+  });
+
+  test('text cleanStyle', function() {
+    var text = new fabric.Text('xxxxxx\nx y');
+    text.styles = { 1: { 0: { stroke: 'red' }}};
+    text.stroke = 'red';
+    ok(typeof text.cleanStyle === 'function');
+    text.cleanStyle('stroke');
+    equal(text.styles[1], undefined, 'the style has been cleaned since stroke was equal to text property');
+    text.styles = { 1: { 0: { stroke: 'blue' }}};
+    text.stroke = 'red';
+    text.cleanStyle('stroke');
+    equal(text.styles[1][0].stroke, 'blue', 'nothing to clean, style untouched');
+  });
+
+  test('text cleanStyle with empty styles', function() {
+    var text = new fabric.Text('xxxxxx\nx y');
+    text.styles = { 1: { 0: { }, 1: { }}, 2: { }, 3: { 4: { }}};
+    text.cleanStyle('any');
+    equal(text.styles[1], undefined, 'the style has been cleaned since there were no usefull informations');
+    equal(text.styles[2], undefined, 'the style has been cleaned since there were no usefull informations');
+    equal(text.styles[3], undefined, 'the style has been cleaned since there were no usefull informations');
+  });
+
+  test('text cleanStyle with full style', function() {
+    var text = new fabric.Text('xxx');
+    text.styles = { 0: { 0: { fill: 'blue' }, 1:  { fill: 'blue' }, 2:  { fill: 'blue' }}};
+    text.fill = 'black';
+    text.cleanStyle('fill');
+    equal(text.fill, 'blue', 'the fill has been changed to blue');
+    equal(text.styles[0], undefined, 'all the style has been removed');
+  });
+
+  test('text removeStyle with some style', function() {
+    var text = new fabric.Text('xxx');
+    text.styles = { 0: { 0: { stroke: 'black', fill: 'blue' }, 1:  { fill: 'blue' }, 2:  { fill: 'blue' }}};
+    ok(typeof text.removeStyle === 'function');
+    text.fill = 'red';
+    text.removeStyle('fill');
+    equal(text.fill, 'red', 'the fill has not been changed');
+    equal(text.styles[0][0].stroke, 'black', 'the non fill part of the style is still there');
+    equal(text.styles[0][0].fill, undefined, 'the fill part of the style has been removed');
+    text.styles = { 0: { 0: { fill: 'blue' }, 1:  { fill: 'blue' }, 2:  { fill: 'blue' }}};
+    text.removeStyle('fill');
+    equal(text.styles[0], undefined, 'the styles got empty and has been removed');
+  });
+
+  test('getFontCache works with fontWeight numbers', function() {
+    var text = new fabric.Text('xxx', { fontWeight: 400 });
+    text.initDimensions();
+    var cache = fabric.charWidthsCache[text.fontFamily.toLowerCase()];
+    var cacheProp = text.fontStyle + '_400';
+    equal(cacheProp in cache, true, '400 is converted to string');
+  });
+
+  test('getFontCache is case insensitive', function() {
+    var text = new fabric.Text('xxx', { fontWeight: 'BOld', fontStyle: 'NormaL' });
+    text.initDimensions();
+    var text2 = new fabric.Text('xxx', { fontWeight: 'bOLd', fontStyle: 'nORMAl' });
+    text2.initDimensions();
+    var cache = text.getFontCache(text);
+    var cache2 = text2.getFontCache(text2);
+    equal(cache, cache2, 'you get the same cache');
   });
 
 })();

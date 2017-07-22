@@ -1,5 +1,5 @@
 ---
-layout: article
+layout: articlead
 title: Introduction to Fabric.js. Part 2.
 ---
 
@@ -81,7 +81,7 @@ rect.animate('left', 500, {
 
 <p>But as fun working with images as it is, it's even cooler to apply image filters to them!</p>
 
-<p>Fabric provides few filters by default, and makes it easy to define your own. Some of the built-in ones you might be very well familiar with &mdash; filter to remove white background, grayscale filter, invert or brightness ones. Others might be a little less popular &mdash; gradient transparency, sepia, or noise.</p>
+<p>Fabric provides few filters by default, both for WEBGL enabled browsers and not. It also makes it easy to define your own. Some of the built-in ones you might be very well familiar with &mdash; filter to remove white background, grayscale filter, invert or brightness ones. Others might be a little less popular &mdash; colormatrix, sepia, or noise.</p>
 
 <p>So how do we apply filters to images in Fabric? Well, every instance of <code>fabric.Image</code> has "filters" property which is a simple array of filters. Each of the filters in that array is an instance of one of Fabric filters. Or an instance of your own custom filter.</p>
 
@@ -94,9 +94,8 @@ fabric.Image.fromURL('pug.jpg', function(img) {
   img.filters.push(new fabric.Image.filters.Grayscale());
 
   // apply filters and re-render canvas when done
-  img.applyFilters(canvas.renderAll.bind(canvas));
-
-  // add image onto canvas
+  img.applyFilters();
+  // add image onto canvas (it also re-render the canvas)
   canvas.add(img);
 });
 </pre>
@@ -108,7 +107,8 @@ fabric.Image.fromURL('pug.jpg', function(img) {
 <pre>
 fabric.Image.fromURL('pug.jpg', function(img) {
   img.filters.push(new fabric.Image.filters.Sepia());
-  img.applyFilters(canvas.renderAll.bind(canvas));
+  img.applyFilters();
+  // add image onto canvas (it also re-render the canvas)
   canvas.add(img);
 });
 </pre>
@@ -123,14 +123,14 @@ fabric.Image.fromURL('pug.jpg', function(img) {
     new fabric.Image.filters.Sepia(),
     new fabric.Image.filters.Brightness({ brightness: 100 }));
 
-  img.applyFilters(canvas.renderAll.bind(canvas));
+  img.applyFilters();
   canvas.add(img);
 });
 </pre>
 
 <p><img src="/article_assets/2_3.png" style="border:1px solid #eee"></p>
 
-<p>Notice that we also passed <code>{ brightness: 100 }</code> object to Brightness filter. That's because some filters can be applied without any additional configuration (e.g. grayscale, invert, sepia) and others provide finer control for their behavior. For brightness filter, it's the actual brightness level (0-255). For noise filter, it's the noise value (0-1000). For "remove white" filter, it's the threshold and distance values. And so on.</p>
+<p>Notice that we also passed <code>{ brightness: 100 }</code> object to Brightness filter. That's because some filters can be applied without any additional configuration (e.g. grayscale, invert, sepia) and others provide finer control for their behavior. For brightness filter, it's the actual brightness level (-1 full black to 1 full white). For noise filter, it's the noise value (0-1000). For "remove color" filter, it's the threshold and distance values. And so on.</p>
 
 <p>So now that you became familiar with Fabric filters, it's time to break out of the box and create your own filter!</p>
 
@@ -141,28 +141,37 @@ fabric.Image.filters.Redify = fabric.util.createClass({
 
   type: 'Redify',
 
-  applyTo: function(canvasEl) {
-    var context = canvasEl.getContext('2d'),
-        imageData = context.getImageData(0, 0, canvasEl.width, canvasEl.height),
-        data = imageData.data;
+  /**
+   * Fragment source for the redify program
+   */
+  fragmentSource: 'precision highp float;\n' +
+    'uniform sampler2D uTexture;\n' +
+    'varying vec2 vTexCoord;\n' +
+    'void main() {\n' +
+      'vec4 color = texture2D(uTexture, vTexCoord);\n' +
+      'color.g = 0;\n' +
+      'color.b = 0;\n' +
+      'gl_FragColor = color;\n' +
+    '}',
 
-    for (var i = 0, len = data.length; i < len; i += 4) {
+  applyTo2d: function(options) {
+    var imageData = options.imageData,
+        data = imageData.data, i, len = data.length;
+
+    for (i = 0; i < len; i += 4) {
       data[i + 1] = 0;
       data[i + 2] = 0;
     }
 
-    context.putImageData(imageData, 0, 0);
   }
 });
 
-fabric.Image.filters.Redify.fromObject = function(object) {
-  return new fabric.Image.filters.Redify(object);
-};
+fabric.Image.filters.Brightness.fromObject = fabric.Image.filters.BaseFilter.fromObject;
 </pre>
 
 <p><img src="/article_assets/2_4.png" style="border:1px solid #eee"></p>
 
-<p>Without delving too much into this code, the main action is hapenning in a loop, where we replace green (data[i+1]) and blue (data[i+2]) components of each pixel with 0, essentialy removing them. Red component of standard rgb triple stays untouched, essentially making entire image painted red. As you can see, <code>applyTo</code> method is being passed main canvas element representing entire image. From there, we can iterate over its pixels (<code>getImageData().data</code>) modifying them in any way we want.</p>
+<p>Without delving too much into this code, the main action is hapenning in a loop. where we replace green (data[i+1]) and blue (data[i+2]) components of each pixel with 0, essentialy removing them. Red component of standard rgb triple stays untouched, essentially making entire image painted red. As you can see, <code>applyTo</code> method is being passed an option object that contains the imageData of the image at that stage of the filtering pipeline. From there, we can iterate over its pixels (<code>getImageData().data</code>) modifying them in any way we want. If the browsers is WEBGL enabled filters can run on the GPU. To do so you have to provide a fragment shader that describes the operation to do over pixels. There are many filter defined in fabric where you can see example of how to write a fragment or vertex shader</p>
 
 <h3 id="colors">Colors</h3>
 
@@ -198,7 +207,7 @@ redish.toGrayscale().toHex(); // "A1A1A1"
 
 <p>An even more expressive way to work with colors is via gradients. Gradients allow us to blend one color into another, creating some stunning graphical effects.</p>
 
-<p>Fabric supports gradients via <code>setGradient</code> method (<code>setGradientFill</code> before v1.1.0), defined on all objects. Calling <code>setGradient('fill', { ... })</code> is just like setting "fill" value of an object, except that we fill object with gradient, rather than single color.</p>
+<p>Fabric supports gradients via <code>setGradient</code> method, defined on all objects. Calling <code>setGradient('fill', { ... })</code> is just like setting "fill" value of an object, except that we fill object with gradient, rather than single color.</p>
 
 <pre>
 var circle = new fabric.Circle({
@@ -209,9 +218,9 @@ var circle = new fabric.Circle({
 
 circle.setGradient('fill', {
   x1: 0,
-  y1: -circle.height / 2,
+  y1: 0,
   x2: 0,
-  y2: circle.height / 2,
+  y2: circle.height,
   colorStops: {
     0: '#000',
     1: '#fff'
@@ -225,19 +234,15 @@ circle.setGradient('fill', {
 
 <p>The argument passed to a method is an options object, which expects 2 coordinate pairs (x1, y1 and x2, y2), as well as "colorStops" object. Coordinates specify where gradient starts and where it ends. colorStops specify which colors a gradient is made of. You can define as many color stops as you want, as long as they range from 0 to 1 (e.g. 0, 0.1, 0.3, 0.5, 0.75, 1). 0 represents beginning of a gradient, 1 &mdash; its end.</p>
 
-<p>To understand how we calculated the coordinates, take a look at the picture below.</p>
-
-<p><img src="/article_assets/2_18.png" style="border:1px solid #eee"></p>
-
-<p>Coordinates are relative to object center, so the highest point of the circle is <code>-circle.height / 2</code>, and the lowest point is <code>circle.height / 2</code>. <code>setGradient</code> calculates width coordinates (x1, x2) in the same way.
+<p>Coordinates are relative to object top left corner, so the highest point of the circle is <code>0</code>, and the lowest point is <code>circle.height</code>. <code>setGradient</code> calculates width coordinates (x1, x2) in the same way.
 
 <p>Here's an example of left-to-right red-blue gradient:</p>
 
 <pre>
 circle.setGradient('fill', {
-  x1: -circle.width / 2,
+  x1: 0,
   y1: 0,
-  x2: circle.width / 2,
+  x2: circle.width,
   y2: 0,
   colorStops: {
     0: "red",
@@ -252,9 +257,9 @@ circle.setGradient('fill', {
 
 <pre>
 circle.setGradient('fill', {
-  x1: -circle.width / 2,
+  x1: 0,
   y1: 0,
-  x2: circle.width / 2,
+  x2: circle.width,
   y2: 0,
   colorStops: {
     0: "red",
@@ -280,11 +285,15 @@ circle.setGradient('fill', {
 <p>Second reason is to provide a much richer functionality than what canvas gives us. Some of the Fabric additions include:</p>
 
 <ul>
-  <li><b>Multiline support</b>. Native text methods unfortunately simply ignore new lines.</li>
-  <li><b>Text alignment</b>. Left, center, right. Useful when working with multiline text.</li>
-  <li><b>Text background</b>. Background also respects text alignment.</li>
-  <li><b>Text decoration</b>. Underline, overline, strike-through.</li>
-  <li><b>Line height</b>. Useful when working with multiline text.</li>
+  <li><b>Multiline support</b> Native text methods unfortunately simply ignore new lines.</li>
+  <li><b>Text alignment</b> Left, center, right. Useful when working with multiline text.</li>
+  <li><b>Text background</b> Background also respects text alignment.</li>
+  <li><b>Text decoration</b> Underline, overline, strike-through.</li>
+  <li><b>Line height</b> Useful when working with multiline text.</li>
+  <li><b>Char spacing</b> Makes text more compact or more spaced</li>
+  <li><b>Subranges</b> apply colors and properties to subranges of your text object</li>
+  <li><b>Multibyte</b> support emoticons!</li>
+  <li><b>On canvas editing</b> with the interactive class you can type text directly over the canvas</li>
 </ul>
 
 <p>How about hello world example?</p>
@@ -345,13 +354,13 @@ var boldText = new fabric.Text("I'm at bold text", {
 
 <pre>
 var underlineText = new fabric.Text("I'm an underlined text", {
-  textDecoration: 'underline'
+  underline; true
 });
 var strokeThroughText = new fabric.Text("I'm a stroke-through text", {
-  textDecoration: 'line-through'
+  linethrough: true
 });
 var overlineText = new fabric.Text("I'm an overline text", {
-  textDecoration: 'overline'
+  overline: true
 });
 </pre>
 
@@ -394,7 +403,7 @@ var anotherItalicText = new fabric.Text("another italic text", {
 
 <p><img src="/article_assets/2_10.png" style="border:1px solid #eee"></p>
 
-<h4>stroke & strokeWidth</h4>
+<h4>stroke and strokeWidth</h4>
 
 <p>By combining stroke (color of the stroke) and strokeWidth (its width), you can achieve some interesting effects on your text. Here's a couple of examples:</p>
 
@@ -409,8 +418,6 @@ var loremIpsumDolor = new fabric.Text("Lorem ipsum dolor", {
   strokeWidth: 3
 });
 </pre>
-
-<p>Note that "stroke" property was named "strokeStyle" until v1.1.6</p>
 
 <p><img src="/article_assets/2_11.png" style="border:1px solid #eee"></p>
 

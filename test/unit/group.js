@@ -6,7 +6,7 @@
   var canvas = this.canvas = fabric.isLikelyNode ? fabric.createCanvasForNode(600, 600, {enableRetinaScaling: false}) : new fabric.Canvas(el, {enableRetinaScaling: false});
 
   // function _createImageElement() {
-  //   return fabric.isLikelyNode ? new (require('canvas').Image)() : fabric.document.createElement('img');
+  //   return fabric.isLikelyNode ? new (require(fabric.canvasModule).Image)() : fabric.document.createElement('img');
   // }
 
   function makeGroupWith2Objects() {
@@ -35,7 +35,6 @@
   QUnit.module('fabric.Group', {
     teardown: function() {
       canvas.clear();
-      canvas.setActiveGroup(null);
       canvas.backgroundColor = fabric.Canvas.prototype.backgroundColor;
       canvas.calcOffset();
     }
@@ -305,30 +304,6 @@
     equal(firstObject.get('top'), initialTopValue, 'should restore initial top value');
   });
 
-  test('saveCoords', function() {
-    var group = makeGroupWith2Objects();
-
-    ok(typeof group.saveCoords == 'function');
-    equal(group.saveCoords(), group, 'should be chainable');
-  });
-
-  test('hasMoved', function() {
-    var group = makeGroupWith2Objects();
-
-    ok(typeof group.hasMoved == 'function');
-    equal(group.hasMoved(), false);
-
-    function moveBy10(value) {
-      return value + 10;
-    }
-    group.set('left', moveBy10);
-    equal(group.hasMoved(), true);
-    group.saveCoords();
-    equal(group.hasMoved(), false);
-    group.set('top', moveBy10);
-    equal(group.hasMoved(), true);
-  });
-
   test('setObjectCoords', function(){
     var group = makeGroupWith2Objects();
 
@@ -411,6 +386,17 @@
     });
   });
 
+  asyncTest('fromObject does not delete objects from source', function() {
+    var group = makeGroupWith2ObjectsWithOpacity();
+    var groupObject = group.toObject();
+
+    fabric.Group.fromObject(groupObject, function(newGroupFromObject) {
+      equal(newGroupFromObject.objects, undefined, 'the objects array has not been pulled in');
+      notEqual(groupObject.objects, undefined, 'the objects array has not been deleted from object source');
+      start();
+    });
+  });
+
   test('toSVG', function() {
     var group = makeGroupWith2Objects();
     ok(typeof group.toSVG == 'function');
@@ -435,21 +421,22 @@
 
     equal(group.get('lockMovementX'), false);
 
-    group.getObjects()[0].lockMovementX = true;
-    equal(group.get('lockMovementX'), true);
-
-    group.getObjects()[0].lockMovementX = false;
-    equal(group.get('lockMovementX'), false);
+    // TODO acitveGroup
+    // group.getObjects()[0].lockMovementX = true;
+    // equal(group.get('lockMovementX'), true);
+    //
+    // group.getObjects()[0].lockMovementX = false;
+    // equal(group.get('lockMovementX'), false);
 
     group.set('lockMovementX', true);
     equal(group.get('lockMovementX'), true);
 
-    group.set('lockMovementX', false);
-    group.getObjects()[0].lockMovementY = true;
-    group.getObjects()[1].lockRotation = true;
-
-    equal(group.get('lockMovementY'), true);
-    equal(group.get('lockRotation'), true);
+    // group.set('lockMovementX', false);
+    // group.getObjects()[0].lockMovementY = true;
+    // group.getObjects()[1].lockRotation = true;
+    //
+    // equal(group.get('lockMovementY'), true);
+    // equal(group.get('lockRotation'), true);
   });
 
   test('z-index methods with group objects', function() {
@@ -507,26 +494,6 @@
     equal(group.insertAt(rect1, 2), group, 'should be chainable');
   });
 
-  test('canvas property propagation', function() {
-    var g1 = makeGroupWith4Objects(),
-        g2 = makeGroupWith4Objects(),
-        rect1 = new fabric.Rect(),
-        rect2 = new fabric.Rect(),
-        group1 = new fabric.Group([g1]);
-
-    group1.add(g2);
-    group1.insertAt(rect1, 0);
-    g2.insertAt(rect2, 0);
-
-    canvas.add(group1);
-    equal(g2.canvas, canvas);
-    equal(g2._objects[3].canvas, canvas);
-    equal(g1.canvas, canvas);
-    equal(g1._objects[3].canvas, canvas);
-    equal(rect2.canvas, canvas);
-    equal(rect1.canvas, canvas);
-  });
-
   test('dirty flag propagation from children up', function() {
     var g1 = makeGroupWith4Objects();
     var obj = g1.item(0);
@@ -543,6 +510,9 @@
     var obj = g1.item(0);
     g1.dirty = false;
     obj.dirty = false;
+    // specify that the group is caching or the test will fail under node since the
+    // object caching is disabled by default
+    g1.ownCaching = true;
     equal(g1.dirty, false, 'Group has no dirty flag set');
     obj.set('angle', 5);
     equal(obj.dirty, false, 'Obj has dirty flag still false');
@@ -565,6 +535,7 @@
         isTransparent = fabric.util.isTransparent,
         ctx = canvas.contextContainer;
     canvas.add(group);
+    canvas.renderAll();
     equal(canvas.enableRetinaScaling, false, 'enable retina scaling is off');
     equal(isTransparent(ctx, 0, 0, 0), true, '0,0 is transparent');
     equal(isTransparent(ctx, 1, 1, 0), false, '1,1 is opaque');
@@ -594,11 +565,11 @@
   test('group toDatalessObject', function() {
     var rect1 = new fabric.Rect({ top: 1, left: 1, width: 2, height: 2, strokeWidth: 0, fill: 'red', opacity: 1, objectCaching: false}),
         rect2 = new fabric.Rect({ top: 5, left: 5, width: 2, height: 2, strokeWidth: 0, fill: 'red', opacity: 1, objectCaching: false}),
-        pathGroup = new fabric.PathGroup([rect1, rect2], { sourcePath: 'sourcePath'}),
+        pathGroup = new fabric.Group([rect1, rect2], { sourcePath: 'sourcePath'}),
         group = new fabric.Group([pathGroup]),
         dataless = group.toDatalessObject();
 
-    equal(dataless.objects[0].paths, 'sourcePath', 'the paths have been changed with the sourcePath');
+    equal(dataless.objects[0].objects, 'sourcePath', 'the paths have been changed with the sourcePath');
   });
 
   test('group addWithUpdate', function() {
@@ -690,6 +661,31 @@
     equal(rect1.shouldCache(), true, 'rect1 will cache because none of its parent is caching');
     equal(rect3.shouldCache(), false, 'rect3 will not cache because group2 is caching');
 
+  });
+
+  test('useSetOnGroup', function() {
+    var rect1 = new fabric.Rect({ top: 1, left: 1, width: 2, height: 2, strokeWidth: 0, fill: 'red', opacity: 1, objectCaching: true}),
+        rect2 = new fabric.Rect({ top: 5, left: 5, width: 2, height: 2, strokeWidth: 0, fill: 'red', opacity: 1, objectCaching: true}),
+        group = new fabric.Group([rect1, rect2]);
+
+    var count = 0;
+    var inspectKey = '';
+    var inspectValue = '';
+    rect1.setOnGroup = function(key, value) {
+      count++;
+      inspectKey = key;
+      inspectValue = value;
+    };
+
+    group.set('fill', 'red');
+    equal(count, 0, 'setOnGroup has not been called');
+    equal(inspectKey, '', 'setOnGroup has not been called');
+    equal(inspectValue, '', 'setOnGroup has not been called');
+    group.useSetOnGroup = true;
+    group.set('fill', 'red');
+    equal(count, 1, 'setOnGroup has been called');
+    equal(inspectKey, 'fill', 'setOnGroup has been called');
+    equal(inspectValue, 'red', 'setOnGroup has been called');
   });
   // asyncTest('cloning group with image', function() {
   //   var rect = new fabric.Rect({ top: 100, left: 100, width: 30, height: 10 }),

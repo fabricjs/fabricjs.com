@@ -1,6 +1,6 @@
 ---
 layout: demo
-title: Image Filters
+title: Image Filters fabricjs 2.0 beta
 ---
 
 <style>
@@ -9,53 +9,79 @@ title: Image Filters
   input[disabled] { opacity: 0.5; }
   #bd-wrapper { min-width: 1600px; }
 </style>
-
-<canvas id="c" width="600" height="600"></canvas>
+<canvas id="c" width="800" height="700"></canvas>
 <div class="controls">
   <h3>Filters:</h3>
+  <label>Use WebGl<input type="checkbox" id="webgl" checked></label>
+  <div id="bench"></div>
   <p>
-    <label><span>Grayscale:</span> <input type="checkbox" id="grayscale" disabled></label>
+    <label><span>Grayscale:</span> <input type="checkbox" id="grayscale" disabled></label><br />
+    <label><span>Avg.</span> <input type="radio" id="average" name="grayscale" ></label>
+    <label><span>Lum.</span> <input type="radio" id="lightness" name="grayscale" ></label>
+    <label><span>Light.</span> <input type="radio" id="luminosity" name="grayscale" ></label>
   </p>
   <p>
     <label><span>Invert:</span> <input type="checkbox" id="invert" disabled></label>
   </p>
   <p>
+    <label>Colormatrix filters:</label>
+  </p>
+  <p>
     <label><span>Sepia:</span> <input type="checkbox" id="sepia" disabled></label>
   </p>
   <p>
-    <label><span>Sepia2:</span> <input type="checkbox" id="sepia2" disabled></label>
+    <label><span>Black/White:</span> <input type="checkbox" id="blackwhite" disabled></label>
   </p>
   <p>
-    <label><span>Remove white:</span> <input type="checkbox" id="remove-white" disabled></label>
+    <label><span>Brownie:</span> <input type="checkbox" id="brownie" disabled></label>
+  </p>
+  <p>
+    <label><span>Vintage:</span> <input type="checkbox" id="vintage" disabled></label>
+  </p>
+  <p>
+    <label><span>Kodachrome:</span> <input type="checkbox" id="kodachrome" disabled></label>
+  </p>
+  <p>
+    <label><span>Technicolor:</span> <input type="checkbox" id="technicolor" disabled></label>
+  </p>
+  <p>
+    <label><span>Polaroid:</span> <input type="checkbox" id="polaroid" disabled></label>
+  </p>
+  <p>
+    <label><span>Remove color:</span> <input type="checkbox" id="remove-color" disabled></label><br>
+    <label>Color: <input type="color" id="remove-color-color" value="#00f900"></label><br>
     <br>
-    <label>Threshold: <input type="range" id="remove-white-threshold" value="60" min="0" max="255" disabled></label>
-    <br>
-    <label>Distance: <input type="range" id="remove-white-distance" value="10" min="0" max="255" disabled></label>
+    <label>Distance: <input type="range" id="remove-color-distance" value="0.02" min="0" max="1" step="0.01" disabled></label>
   </p>
   <p>
     <label><span>Brightness:</span> <input type="checkbox" id="brightness" disabled></label>
     <br>
-    <label>Value: <input type="range" id="brightness-value" value="100" min="-255" max="255" disabled></label>
+    <label>Value: <input type="range" id="brightness-value" value="0.1" min="-1" max="1" step="0.003921" disabled></label>
+  </p>
+  <p>
+    <label><span>Gamma:</span> <input type="checkbox" id="gamma" disabled></label>
+    <br>
+    <label>Red: <input type="range" id="gamma-red" value="1" min="0.2" max="2.2" step="0.003921" disabled></label>
+    <br>
+    <label>Green: <input type="range" id="gamma-green" value="1" min="0.2" max="2.2" step="0.003921" disabled></label>
+    <br>
+    <label>Blue: <input type="range" id="gamma-blue" value="1" min="0.2" max="2.2" step="0.003921" disabled></label>
+
   </p>
   <p>
     <label><span>Contrast:</span> <input type="checkbox" id="contrast" disabled></label>
     <br>
-    <label>Value: <input type="range" id="contrast-value" value="0" min="-255" max="255" disabled></label>
+    <label>Value: <input type="range" id="contrast-value" value="0" min="-1" max="1" step="0.003921" disabled></label>
   </p>
   <p>
-    <label><span>Saturate:</span> <input type="checkbox" id="saturate" disabled></label>
+    <label><span>Saturation:</span> <input type="checkbox" id="saturation" disabled></label>
     <br>
-    <label>Value: <input type="range" id="saturate-value" value="100" min="-100" max="100" disabled></label>
+    <label>Value: <input type="range" id="saturation-value" value="0" min="-1" max="1" step="0.003921" disabled></label>
   </p>
   <p>
     <label><span>Noise:</span> <input type="checkbox" id="noise" disabled></label>
     <br>
     <label>Value: <input type="range" id="noise-value" value="100" min="0" max="1000" disabled></label>
-  </p>
-  <p>
-    <label><span>GradientTransparency:</span> <input type="checkbox" id="gradient-transparency" disabled></label>
-    <br>
-    <label>Value: <input type="range" id="gradient-transparency-value" value="100" min="0" max="255" disabled></label>
   </p>
   <p>
     <label><span>Pixelate</span> <input type="checkbox" id="pixelate" disabled></label>
@@ -64,6 +90,8 @@ title: Image Filters
   </p>
   <p>
     <label><span>Blur:</span> <input type="checkbox" id="blur" disabled></label>
+    <br>
+    <label>Value: <input type="range" id="blur-value" value="0.1" min="0" max="1" step="0.01" disabled></label>
   </p>
   <p>
     <label><span>Sharpen:</span> <input type="checkbox" id="sharpen" disabled></label>
@@ -72,16 +100,7 @@ title: Image Filters
     <label><span>Emboss:</span> <input type="checkbox" id="emboss" disabled></label>
   </p>
   <p>
-    <label><span>Tint:</span> <input type="checkbox" id="tint" disabled></label><br>
-    <label>Color: <input type="color" id="tint-color" value=""></label><br>
-    <label>Opacity: <input type="range" id="tint-opacity" min="0" max="1" value="1" step="0.1"></label><br>
-  </p>
-  <p>
-    <label><span>Multiply:</span> <input type="checkbox" id="multiply" disabled></label><br>
-    <label>Color: <input type="color" id="multiply-color" value=""></label><br>
-  </p>
-  <p>
-  <label><span>Blend:</span> <input type="checkbox" id="blend" disabled></label>
+  <label><span>Blend Color:</span> <input type="checkbox" id="blend" disabled></label>
   <br>
   <label>Mode:</label>
     <select id="blend-mode" name="blend-mode">
@@ -92,27 +111,61 @@ title: Image Filters
       <option value="screen">Screen</option>
       <option value="lighten">Lighten</option>
       <option value="darken">Darken</option>
+      <option value="overlay">Overlay</option>
+      <option value="exclusion">Exclusion</option>
+      <option value="tint">Tint</option>
     </select>
     <br>
     <label>Color: <input type="color" id="blend-color" value="#00f900"></label><br>
+    <label>Alpha: <input type="range" id="blend-alpha" min="0" max="1" value="1" step="0.01"></label><br>
+  </p>
+  <label><span>Blend Image:</span> <input type="checkbox" id="blend-image" disabled></label>
+  <br>
+  <label>Mode:</label>
+    <select id="blend-image-mode" name="blend-image-mode">
+      <option selected value="multiply">Multiply</option>
+      <option value="mask">Mask</option>
+    </select>
+    <br>
+    <label>Alpha: <input type="range" id="blend-image-alpha" min="0" max="1" value="1" step="0.01"></label><br>
   </p>
 </div>
 
 <script id="main">(function() {
+  // manually initialize 2 filter backend to give ability to switch:
+  var webglBackend = new fabric.WebglFilterBackend();
+  var canvas2dBackend = new fabric.Canvas2dFilterBackend()
+
+  fabric.filterBackend = webglBackend;
   fabric.Object.prototype.transparentCorners = false;
   var $ = function(id){return document.getElementById(id)};
 
   function applyFilter(index, filter) {
     var obj = canvas.getActiveObject();
     obj.filters[index] = filter;
-    obj.applyFilters(canvas.renderAll.bind(canvas));
+    var timeStart = +new Date();
+    obj.applyFilters();
+    var timeEnd = +new Date();
+    var dimString = canvas.getActiveObject().width + ' x ' + canvas.getActiveObject().height;
+    $('bench').innerHTML = dimString + 'px ' + parseFloat(timeEnd-timeStart) + 'ms';
+    canvas.renderAll();
+  }
+
+  function getFilter(index) {
+    var obj = canvas.getActiveObject();
+    return obj.filters[index];
   }
 
   function applyFilterValue(index, prop, value) {
     var obj = canvas.getActiveObject();
     if (obj.filters[index]) {
       obj.filters[index][prop] = value;
-      obj.applyFilters(canvas.renderAll.bind(canvas));
+      var timeStart = +new Date();
+      obj.applyFilters();
+      var timeEnd = +new Date();
+      var dimString = canvas.getActiveObject().width + ' x ' + canvas.getActiveObject().height;
+      $('bench').innerHTML = dimString + 'px ' + parseFloat(timeEnd-timeStart) + 'ms';
+      canvas.renderAll();
     }
   }
 
@@ -122,24 +175,19 @@ title: Image Filters
   var canvas = this.__canvas = new fabric.Canvas('c'),
       f = fabric.Image.filters;
 
-  fabric.Image.fromURL('../lib/bg.png', function(img) {
-    canvas.backgroundImage = img;
-    canvas.backgroundImage.width = 600;
-    canvas.backgroundImage.height = 600;
-  });
-
-
   canvas.on({
     'object:selected': function() {
       fabric.util.toArray(document.getElementsByTagName('input'))
                           .forEach(function(el){ el.disabled = false; })
 
-      var filters = ['grayscale', 'invert', 'remove-white', 'sepia', 'sepia2',
-                      'brightness', 'contrast', 'saturate', 'noise', 'gradient-transparency', 'pixelate',
-                      'blur', 'sharpen', 'emboss', 'tint', 'multiply', 'blend'];
+      var filters = ['grayscale', 'invert', 'remove-color', 'sepia', 'brownie',
+                      'brightness', 'contrast', 'saturation', 'noise', 'vintage', 'pixelate',
+                      'blur', 'sharpen', 'emboss', 'technicolor', 'polaroid', 'blend-color',
+                      'gamma', 'kodachrome', 'blackwhite', 'blend-image'];
 
       for (var i = 0; i < filters.length; i++) {
-        $(filters[i]).checked = !!canvas.getActiveObject().filters[i];
+        filters[i] && (
+        $(filters[i]).checked = !!canvas.getActiveObject().filters[i]);
       }
     },
     'selection:cleared': function() {
@@ -148,90 +196,148 @@ title: Image Filters
     }
   });
 
+  fabric.Image.fromURL('../assets/pug.jpg', function(img) {
+    var oImg = img.set({ left: 50, top: 100, angle: -15 }).scale(0.5);
+    canvas.add(oImg);
+  });
   fabric.Image.fromURL('../assets/printio.png', function(img) {
     var oImg = img.set({ left: 50, top: 100, angle: -15 }).scale(0.9);
-    canvas.add(oImg).renderAll();
-    canvas.setActiveObject(oImg);
+    canvas.add(oImg);
+  });
+  fabric.Image.fromURL('../assets/dragon.jpg', function(img) {
+    var oImg = img.set({ left: 50, top: 100, angle: -15 }).scale(0.5);
+    canvas.add(oImg);
+  });
+  fabric.Image.fromURL('../assets/dragon2.jpg', function(img) {
+    var oImg = img.set({ left: 50, top: 100, angle: -15 }).scale(0.5);
+    canvas.add(oImg);
   });
   var indexF;
+  $('webgl').onclick = function() {
+    if (this.checked) {
+      fabric.filterBackend = webglBackend;
+    } else {
+      fabric.filterBackend = canvas2dBackend;
+    }
+  };
+  $('brownie').onclick = function() {
+    applyFilter(4, this.checked && new f.Brownie());
+  };
+  $('vintage').onclick = function() {
+    applyFilter(9, this.checked && new f.Vintage());
+  };
+  $('technicolor').onclick = function() {
+    applyFilter(14, this.checked && new f.Technicolor());
+  };
+  $('polaroid').onclick = function() {
+    applyFilter(15, this.checked && new f.Polaroid());
+  };
+  $('kodachrome').onclick = function() {
+    applyFilter(18, this.checked && new f.Kodachrome());
+  };
+  $('blackwhite').onclick = function() {
+    applyFilter(19, this.checked && new f.BlackWhite());
+  };
   $('grayscale').onclick = function() {
     applyFilter(0, this.checked && new f.Grayscale());
+  };
+  $('average').onclick = function() {
+    applyFilterValue(0, 'mode', 'average');
+  };
+  $('luminosity').onclick = function() {
+    applyFilterValue(0, 'mode', 'luminosity');
+  };
+  $('lightness').onclick = function() {
+    applyFilterValue(0, 'mode', 'lightness');
   };
   $('invert').onclick = function() {
     applyFilter(1, this.checked && new f.Invert());
   };
-  $('remove-white').onclick = function () {
-    applyFilter(2, this.checked && new f.RemoveWhite({
-      threshold: $('remove-white-threshold').value,
-      distance: $('remove-white-distance').value
+  $('remove-color').onclick = function () {
+    applyFilter(2, this.checked && new f.RemoveColor({
+      distance: $('remove-color-distance').value,
+      color: $('remove-color-color').value,
     }));
   };
-  $('remove-white-threshold').onchange = function() {
-    applyFilterValue(2, 'threshold', this.value);
+  $('remove-color-color').onchange = function() {
+    applyFilterValue(2, 'color', this.value);
   };
-  $('remove-white-distance').onchange = function() {
+  $('remove-color-distance').oninput = function() {
     applyFilterValue(2, 'distance', this.value);
   };
   $('sepia').onclick = function() {
     applyFilter(3, this.checked && new f.Sepia());
   };
-  $('sepia2').onclick = function() {
-    applyFilter(4, this.checked && new f.Sepia2());
-  };
   $('brightness').onclick = function () {
     applyFilter(5, this.checked && new f.Brightness({
-      brightness: parseInt($('brightness-value').value, 10)
+      brightness: parseFloat($('brightness-value').value)
     }));
   };
-  $('brightness-value').onchange = function() {
-    applyFilterValue(5, 'brightness', parseInt(this.value, 10));
+  $('brightness-value').oninput = function() {
+    applyFilterValue(5, 'brightness', parseFloat(this.value));
+  };
+  $('gamma').onclick = function () {
+    var v1 = parseFloat($('gamma-red').value);
+    var v2 = parseFloat($('gamma-green').value);
+    var v3 = parseFloat($('gamma-blue').value);
+    applyFilter(17, this.checked && new f.Gamma({
+      gamma: [v1, v2, v3]
+    }));
+  };
+  $('gamma-red').oninput = function() {
+    var current = getFilter(17).gamma;
+    current[0] = parseFloat(this.value);
+    applyFilterValue(17, 'gamma', current);
+  };
+  $('gamma-green').oninput = function() {
+    var current = getFilter(17).gamma;
+    current[1] = parseFloat(this.value);
+    applyFilterValue(17, 'gamma', current);
+  };
+  $('gamma-blue').oninput = function() {
+    var current = getFilter(17).gamma;
+    current[2] = parseFloat(this.value);
+    applyFilterValue(17, 'gamma', current);
   };
   $('contrast').onclick = function () {
     applyFilter(6, this.checked && new f.Contrast({
-      contrast: parseInt($('contrast-value').value, 10)
+      contrast: parseFloat($('contrast-value').value)
     }));
   };
-  $('contrast-value').onchange = function() {
-    applyFilterValue(6, 'contrast', parseInt(this.value, 10));
+  $('contrast-value').oninput = function() {
+    applyFilterValue(6, 'contrast', parseFloat(this.value));
   };
-  $('saturate').onclick = function () {
-    applyFilter(7, this.checked && new f.Saturate({
-      saturate: parseInt($('saturate-value').value, 10)
+  $('saturation').onclick = function () {
+    applyFilter(7, this.checked && new f.Saturation({
+      saturation: parseFloat($('saturation-value').value)
     }));
   };
-  $('saturate-value').onchange = function() {
-    applyFilterValue(7, 'saturate', parseInt(this.value, 10));
+  $('saturation-value').oninput = function() {
+    applyFilterValue(7, 'saturation', parseFloat(this.value));
   };
   $('noise').onclick = function () {
     applyFilter(8, this.checked && new f.Noise({
       noise: parseInt($('noise-value').value, 10)
     }));
   };
-  $('noise-value').onchange = function() {
+  $('noise-value').oninput = function() {
     applyFilterValue(8, 'noise', parseInt(this.value, 10));
-  };
-  $('gradient-transparency').onclick = function () {
-    applyFilter(9, this.checked && new f.GradientTransparency({
-      threshold: parseInt($('gradient-transparency-value').value, 10)
-    }));
-  };
-  $('gradient-transparency-value').onchange = function() {
-    applyFilterValue(9, 'threshold', parseInt(this.value, 10));
   };
   $('pixelate').onclick = function() {
     applyFilter(10, this.checked && new f.Pixelate({
       blocksize: parseInt($('pixelate-value').value, 10)
     }));
   };
-  $('pixelate-value').onchange = function() {
+  $('pixelate-value').oninput = function() {
     applyFilterValue(10, 'blocksize', parseInt(this.value, 10));
   };
   $('blur').onclick = function() {
-    applyFilter(11, this.checked && new f.Convolute({
-      matrix: [ 1/9, 1/9, 1/9,
-                1/9, 1/9, 1/9,
-                1/9, 1/9, 1/9 ]
+    applyFilter(11, this.checked && new f.Blur({
+      value: parseFloat($('blur-value').value)
     }));
+  };
+  $('blur-value').oninput = function() {
+    applyFilterValue(11, 'blur', parseFloat(this.value, 10));
   };
   $('sharpen').onclick = function() {
     applyFilter(12, this.checked && new f.Convolute({
@@ -247,31 +353,11 @@ title: Image Filters
                -1,  -1, -1 ]
     }));
   };
-  $('tint').onclick = function() {
-    applyFilter(14, this.checked && new f.Tint({
-      color: document.getElementById('tint-color').value,
-      opacity: parseFloat(document.getElementById('tint-opacity').value)
-    }));
-  };
-  $('tint-color').onchange = function() {
-    applyFilterValue(14, 'color', this.value);
-  };
-  $('tint-opacity').onchange = function() {
-    applyFilterValue(14, 'opacity', parseFloat(this.value));
-  };
-  $('multiply').onclick = function() {
-    applyFilter(15, this.checked && new f.Multiply({
-      color: document.getElementById('multiply-color').value
-    }));
-  };
-  $('multiply-color').onchange = function() {
-    applyFilterValue(15, 'color', this.value);
-  };
-
   $('blend').onclick= function() {
-    applyFilter(16, this.checked && new f.Blend({
+    applyFilter(16, this.checked && new f.BlendColor({
       color: document.getElementById('blend-color').value,
-      mode: document.getElementById('blend-mode').value
+      mode: document.getElementById('blend-mode').value,
+      alpha: document.getElementById('blend-alpha').value
     }));
   };
 
@@ -282,5 +368,26 @@ title: Image Filters
   $('blend-color').onchange = function() {
     applyFilterValue(16, 'color', this.value);
   };
+
+  $('blend-alpha').oninput = function() {
+    applyFilterValue(16, 'alpha', this.value);
+  };
+
+  $('blend-image').onclick= function() {
+    applyFilter(20, this.checked && new f.BlendImage({
+      image: fImage,
+    }));
+  };
+
+  $('blend-image-mode').onchange = function() {
+    applyFilterValue(20, 'mode', this.value);
+  };
+  var imageElement = document.createElement('img');
+  imageElement.src = '../assets/printio.png';
+  var fImage = new fabric.Image(imageElement);
+  fImage.scaleX = 1;
+  fImage.scaleY = 1;
+  fImage.top = 15;
+  fImage.left = 15;
 })();
 </script>

@@ -3,7 +3,7 @@
 
   function createImageElement() {
     return fabric.isLikelyNode
-            ? new (require('canvas').Image)()
+            ? new (require(fabric.canvasModule).Image)()
             : fabric.document.createElement('img');
   }
   function setSrc(img, src, callback) {
@@ -108,8 +108,8 @@
     var pattern = new fabric.Pattern({
       source: function() {
         patternSourceCanvas.setDimensions({
-          width: img.getWidth() + padding,
-          height: img.getHeight() + padding
+          width: img.width + padding,
+          height: img.height + padding
         });
         return patternSourceCanvas.getElement();
       },

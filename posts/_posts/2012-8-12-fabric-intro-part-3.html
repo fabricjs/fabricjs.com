@@ -1,5 +1,5 @@
 ---
-layout: article
+layout: articlead
 title: Introduction to Fabric.js. Part 3.
 ---
 
@@ -120,7 +120,7 @@ fabric.Image.fromURL('/assets/pug.jpg', function(img) {
 
 <p>So which other methods are available when working with groups? There's <code>getObjects()</code> method, which works exactly the same as <code>fabric.Canvas#getObjects()</code> and returns an array of all objects in a group. There's <code>size()</code> which represents the number of all objects in a group. There's <code>contains()</code> which allows to check if a particular object is in a group. There's <code>item()</code>, which we saw earlier, allowing to retrieve specific object in a group. There's <code>forEachObject()</code>, once again mirroring <code>fabric.Canvas#forEachObject</code>, only in relation to group objects. Finally there's <code>add()</code> and <code>remove()</code> method to add and remove objects from the group accordingly.</p>
 
-<p>You can add/remove objects from group in 2 ways — with update of group dimensions/position and without.</p>
+<p>You can add/remove objects from group in 2 ways — with update of group dimensions/position and without. We suggest to use the update dimensions, unless you are doing a batch operation and you have no problem with the group having wrong width/height during the process</p>
 
 <p>To add rectangle at the center of a group:</p>
 
@@ -149,8 +149,8 @@ group.add(new fabric.Rect({
 <pre>
 group.addWithUpdate(new fabric.Rect({
   ...
-  left: group.getLeft(),
-  top: group.getTop(),
+  left: group.get('left'),
+  top: group.get('top'),
   originX: 'center',
   originY: 'center'
 }));
@@ -161,8 +161,8 @@ group.addWithUpdate(new fabric.Rect({
 <pre>
 group.addWithUpdate(new fabric.Rect({
   ...
-  left: group.getLeft() + 100,
-  top: group.getTop() + 100,
+  left: group.get('left') + 100,
+  top: group.get('top') + 100,
   originX: 'center',
   originY: 'center'
 }));
@@ -335,6 +335,8 @@ console.log(JSON.stringify(canvas));
 
 <p>We extended object's existing <code>toObject</code> method with additional property — "name", so that property is now part of <code>toObject</code> output, and as a result appears in canvas JSON representation. One more thing worth mentioning is that if you extend objects like this, you'll also want to make sure object's "class" (<code>fabric.Rect</code> in this case) has this property in "stateProperties" array, so that loading canvas from string representation would parse and add it to an object correctly.</p>
 
+<p>You can mark an object as non exportable setting <code>excludeFromExport</code> to <code>true</code>. In this way some helper objects you can have on canvas will not be saved during your serialization.</p>
+
 <h4>toSVG</h4>
 
 <p>Another efficient text-based canvas representation is in SVG format. Since Fabric specializes in SVG parsing and rendering on canvas, it only makes sense to make this a two-way process and provide canvas-to-SVG conversion. Let's add the same rectangle to canvas, and see what kind of representation is returned from <code>toSVG</code> method:</p>
@@ -422,13 +424,13 @@ fabric.loadSVGFromString('...', function(objects, options) {
 });
 </pre>
 
-<p>First argument is the SVG string, second one is the callback function. The callback is invoked when SVG is parsed and loaded and receives 2 arguments — <code>objects</code> and <code>options</code>. <code>objects</code> contains an array of objects parsed from SVG — paths, path groups (for complex objects), images, text, and so on. In order to group all of those objects into a cohesive collection, and to make them look the same way as they are in SVG document, we're using <code>fabric.util.groupSVGElements</code> passing it both <code>objects</code> and <code>options</code>. In return, we get either an instance of <code>fabric.Path</code> or <code>fabric.PathGroup</code>, which we can then add onto canvas.</p>
+<p>First argument is the SVG string, second one is the callback function. The callback is invoked when SVG is parsed and loaded and receives 2 arguments — <code>objects</code> and <code>options</code>. <code>objects</code> contains an array of objects parsed from SVG — paths, path groups (for complex objects), images, text, and so on. In order to group all of those objects into a cohesive collection, and to make them look the same way as they are in SVG document, we're using <code>fabric.util.groupSVGElements</code> passing it both <code>objects</code> and <code>options</code>. In return, we get either an instance of <code>fabric.Path</code> or <code>fabric.Group</code>, which we can then add onto canvas.</p>
 
 <p><code>fabric.loadSVGFromURL</code> works the same way, except that you pass string containing URL rather than SVG contents. Note that Fabric will attempt to fetch that URL via XMLHttpRequest, so the SVG needs to conform to the usual SOP rules.</p>
 
 <h3 id="subclassing">Subclassing</h3>
 
-<p>Since Fabric is built in a truly object-oriented fashion, it's designed to make subclassing and extension simple and natural. As you know from 1st part of this series, there's an existing hierarchy of objects in Fabric. All 2D objects (paths, images, text, etc.) inherit from <code>fabric.Object</code>, and some "classes" — like <code>fabric.PathGroup</code> — even form 3-level inheritance.</p>
+<p>Since Fabric is built in a truly object-oriented fashion, it's designed to make subclassing and extension simple and natural. As you know from 1st part of this series, there's an existing hierarchy of objects in Fabric. All 2D objects (paths, images, text, etc.) inherit from <code>fabric.Object</code>, and some "classes" — like <code>fabric.IText</code> — even form 3-level inheritance.</p>
 
 <p>So how would we go about subclassing one of the existing "classes" in Fabric? Or maybe even creating our own?</p>
 

@@ -71,7 +71,7 @@ function addAccessors($scope) {
   };
 
   $scope.isUnderline = function() {
-    return getActiveStyle('textDecoration').indexOf('underline') > -1;
+    return getActiveStyle('textDecoration').indexOf('underline') > -1 || getActiveStyle('underline');
   };
   $scope.toggleUnderline = function() {
     var value = $scope.isUnderline()
@@ -79,10 +79,11 @@ function addAccessors($scope) {
       : (getActiveStyle('textDecoration') + ' underline');
 
     setActiveStyle('textDecoration', value);
+    setActiveStyle('underline', !getActiveStyle('underline'));
   };
 
   $scope.isLinethrough = function() {
-    return getActiveStyle('textDecoration').indexOf('line-through') > -1;
+    return getActiveStyle('textDecoration').indexOf('line-through') > -1 || getActiveStyle('linethrough');
   };
   $scope.toggleLinethrough = function() {
     var value = $scope.isLinethrough()
@@ -90,9 +91,10 @@ function addAccessors($scope) {
       : (getActiveStyle('textDecoration') + ' line-through');
 
     setActiveStyle('textDecoration', value);
+    setActiveStyle('linethrough', !getActiveStyle('linethrough'));
   };
   $scope.isOverline = function() {
-    return getActiveStyle('textDecoration').indexOf('overline') > -1;
+    return getActiveStyle('textDecoration').indexOf('overline') > -1 || getActiveStyle('overline');
   };
   $scope.toggleOverline = function() {
     var value = $scope.isOverline()
@@ -100,6 +102,7 @@ function addAccessors($scope) {
       : (getActiveStyle('textDecoration') + ' overline');
 
     setActiveStyle('textDecoration', value);
+    setActiveStyle('overline', !getActiveStyle('overline'));
   };
 
   $scope.getText = function() {
@@ -401,18 +404,10 @@ function addAccessors($scope) {
   };
 
   $scope.removeSelected = function() {
-    var activeObject = canvas.getActiveObject(),
-        activeGroup = canvas.getActiveGroup();
-
-    if (activeGroup) {
-      var objectsInGroup = activeGroup.getObjects();
-      canvas.discardActiveGroup();
-      objectsInGroup.forEach(function(object) {
-        canvas.remove(object);
-      });
-    }
-    else if (activeObject) {
-      canvas.remove(activeObject);
+    var activeObjects = canvas.getActiveObjects();
+    canvas.discardActiveObject()
+    if (activeObjects.length) {
+      canvas.remove.apply(canvas, activeObjects);
     }
   };
 
@@ -684,9 +679,41 @@ function addAccessors($scope) {
     });
   };
 
+  fabric.Line.prototype._findCenterFromElement = function() {
+    var x = this.x1 + this.x2;
+    var y = this.y1 + this.y2;
+    return {
+      x: x/2,
+      y: y/2,
+    }
+  }
+
+  fabric.Object.prototype._findCenterFromElement = function() {
+    return { x: this.left + this.width/2, y: this.top + this.height/2 };
+  }
+
+  fabric.Object.prototype._removeTransformMatrix = function() {
+    var center = this._findCenterFromElement();
+    if (this.transformMatrix) {
+      var options = fabric.util.qrDecompose(this.transformMatrix);
+      this.flipX = false;
+      this.flipY = false;
+      this.set('scaleX', options.scaleX);
+      this.set('scaleY', options.scaleY);
+      this.angle = options.angle;
+      this.skewX = options.skewX;
+      this.skewY = 0;
+      center = fabric.util.transformPoint(center, this.transformMatrix);
+    }
+    this.transformMatrix = null;
+    this.setPositionByOrigin(center, 'center', 'center');
+  }
+
   var _loadSVGWithoutGrouping = function(svg) {
     fabric.loadSVGFromString(svg, function(objects) {
+      canvas.renderOnAddRemove = false;
       canvas.add.apply(canvas, objects);
+      canvas.renderOnAddRemove = true;
       canvas.renderAll();
     });
   };

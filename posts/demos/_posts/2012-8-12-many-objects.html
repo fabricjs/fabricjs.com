@@ -57,11 +57,12 @@ title: Rendering Many Objects
       left:   getRandomInt(0, 400),
       top:    getRandomInt(0, 350),
       radius: 3,
-      fill:   rainbow[getRandomInt(0, rainbowEnd)]
+      fill:   rainbow[getRandomInt(0, rainbowEnd)],
+      objectCaching: false
     });
     canvas1.add(dot);
   }
-  results1.innerHTML = 'Regular rendering of <strong>100</strong> elements in <strong>' + stopTimer() + 'ms</strong>';
+  results1.innerHTML = 'Regular ( objectCaching = false ) rendering of <strong>100</strong> elements in <strong>' + stopTimer() + 'ms</strong>';
   this.__canvases.push(canvas1);
 
   //
@@ -76,12 +77,13 @@ title: Rendering Many Objects
       left:   getRandomInt(0, 400),
       top:    getRandomInt(0, 350),
       radius: 3,
-      fill:   rainbow[getRandomInt(0, rainbowEnd)]
+      fill:   rainbow[getRandomInt(0, rainbowEnd)],
+      objectCaching: false
     });
     canvas2.add(dot);
   }
   canvas2.renderAll(); // Note, calling renderAll() is important in this case
-  results2.innerHTML = 'Rendering <strong>1000</strong> elements using <code>canvas.renderOnAddRemove = false</code> in <strong>' + stopTimer() + 'ms</strong>';
+  results2.innerHTML = 'Rendering <strong>1000</strong> elements using <code>canvas.renderOnAddRemove = false and objectCaching = false</code> in <strong>' + stopTimer() + 'ms</strong>';
   this.__canvases.push(canvas2);
 })();
 </script>

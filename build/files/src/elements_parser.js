@@ -41,17 +41,7 @@ fabric.ElementsParser.prototype.createObject = function(el, index) {
 };
 
 fabric.ElementsParser.prototype._createObject = function(klass, el, index) {
-  if (klass.async) {
-    klass.fromElement(el, this.createCallback(index, el), this.options);
-  }
-  else {
-    var obj = klass.fromElement(el, this.options);
-    this.resolveGradient(obj, 'fill');
-    this.resolveGradient(obj, 'stroke');
-    this.reviver && this.reviver(el, obj);
-    this.instances[index] = obj;
-    this.checkIfDone();
-  }
+  klass.fromElement(el, this.createCallback(index, el), this.options);
 };
 
 fabric.ElementsParser.prototype.createCallback = function(index, el) {
@@ -59,6 +49,10 @@ fabric.ElementsParser.prototype.createCallback = function(index, el) {
   return function(obj) {
     _this.resolveGradient(obj, 'fill');
     _this.resolveGradient(obj, 'stroke');
+    obj._removeTransformMatrix();
+    if (obj instanceof fabric.Image) {
+      obj.parsePreserveAspectRatioAttribute(el);
+    }
     _this.reviver && _this.reviver(el, obj);
     _this.instances[index] = obj;
     _this.checkIfDone();
@@ -84,6 +78,6 @@ fabric.ElementsParser.prototype.checkIfDone = function() {
       // eslint-disable-next-line no-eq-null, eqeqeq
       return el != null;
     });
-    this.callback(this.instances);
+    this.callback(this.instances, this.elements);
   }
 };

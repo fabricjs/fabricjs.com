@@ -1,5 +1,5 @@
 ---
-layout: benchmark
+layout: benchmarkad
 title: vs. Raphael (Simple Shape)
 ---
 
@@ -64,7 +64,7 @@ title: vs. Raphael (Simple Shape)
 
       (function testFabric() {
 
-        var canvas = this.__canvas = new fabric.Element('canvas', {
+        var canvas = this.__canvas = new fabric.Canvas('canvas', {
               renderOnAddRemove: false,
               stateful: false,
               HOVER_CURSOR: 'default'
@@ -75,11 +75,11 @@ title: vs. Raphael (Simple Shape)
 
         canvas.on({
           'object:selected': function(e) {
-            e.target.setOpacity(0.75);
+            e.target.set('opacity', 0.75);
           },
           'mouse:up': function(e) {
             if (e.target) {
-              e.target.setOpacity(1);
+              e.target.set('opacity', 1);
               canvas.renderAll();
             }
           }
@@ -91,7 +91,8 @@ title: vs. Raphael (Simple Shape)
             left: getRandomNum(0, width),
             top: getRandomNum(0, height),
             fill: 'red',
-            stroke: 'blue'
+            stroke: 'blue',
+            objectCaching: true,
           });
           c.hasControls = c.hasBorders = false;
           canvas.add(c);
@@ -104,7 +105,7 @@ title: vs. Raphael (Simple Shape)
       })();
     };
   })();
-  
+
   function reload(num) {
     document.location.search = '?' + num;
     return false;

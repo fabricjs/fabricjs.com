@@ -7,6 +7,18 @@ title: Fabric.js. release highlights ( 1.x branch ).
 
 <div class="container" style="margin:30px auto">
   <h2 id="introduction_to_fabricjs">Fabric.js release highlights (v1)</h2>
+  <h3>Version 1.7.17</h3>
+  <p>Small bugix release, mostly selection and text bugfixes reported by users</p>
+  <pre>
+    Change: swapped style white-space:nowrap with attribute wrap="off" since the style rule was creating
+            problems in browsers like ie11 and safari. #4119
+    Fix: Remove an object from activeGroup if removed from canvas #4120
+    Fix: avoid bringFroward, sendBackwards to swap objects in active selections #4119
+    Fix: avoid disposing canvas on mouse event to throw error #4119
+    Fix: make svg respect white spaces #4119
+    Fix: avoid exporting bgImage and overlayImage if excludeFromExport = true #4119
+    Fix: Avoid group fromObject mutating original data #4111
+  </pre>
   <h3>Version 1.7.16</h3>
   <p>Small bugix release.
   </p>

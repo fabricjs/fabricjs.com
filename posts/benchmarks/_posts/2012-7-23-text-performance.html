@@ -1,5 +1,5 @@
 ---
-layout: benchmark
+layout: benchmarkad
 title: Text performance
 ---
 
@@ -10,7 +10,7 @@ title: Text performance
 <script src="../lib/fonts/Delicious.font.js"></script>
 
 <p>Below is a text with 3463 characters. Try dragging/resizing it, to see how responsive it is.</p>
-<label>Use native: <input type="checkbox" id="use-native" checked></label>
+<label>Use Cache: <input type="checkbox" id="use-native" checked></label>
 <canvas id="c" width="800" height="800" style="border:1px solid #ccc"></canvas>
 
 <script>
@@ -32,7 +32,7 @@ title: Text performance
     console.log(canvas.item(0).text.length);
 
     document.getElementById('use-native').onclick = function() {
-      canvas.item(0).useNative = this.checked;
+      canvas.item(0).objectCaching = this.checked;
       canvas.renderAll();
     };
 

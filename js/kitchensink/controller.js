@@ -404,18 +404,10 @@ function addAccessors($scope) {
   };
 
   $scope.removeSelected = function() {
-    var activeObject = canvas.getActiveObject(),
-        activeGroup = canvas.getActiveGroup();
-
-    if (activeGroup) {
-      var objectsInGroup = activeGroup.getObjects();
-      canvas.discardActiveGroup();
-      objectsInGroup.forEach(function(object) {
-        canvas.remove(object);
-      });
-    }
-    else if (activeObject) {
-      canvas.remove(activeObject);
+    var activeObjects = canvas.getActiveObjects();
+    canvas.discardActiveObject()
+    if (activeObjects.length) {
+      canvas.remove.apply(canvas, activeObjects);
     }
   };
 

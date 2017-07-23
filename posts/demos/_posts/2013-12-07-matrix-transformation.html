@@ -92,7 +92,34 @@ title: Matrix transformation
     angle: <span id="angle">0</span>
   </code>
 </div>
-
+<br />
+<br />
+TransformMatrix was the only way to represent some SVG transformations.<br />
+Since 2.0 the transformation can be decomponed and used  with the normal object properties.<br />
+This is the code behind the merge button.
+There are no plans to update controls to respect transformMatrix, but probably deprecate it.
+<br />
+<br />
+<pre>
+  var obj = canvas.item(0);
+  // get the current transform matrix, from object properties.
+  var currentT = obj.calcTransformMatrix();
+  // get the transformMatrix array
+  var transformMatrix = obj.transformMatrix;
+  // multiply the matrices together to get the combined transform
+  var mT = fabric.util.multiplyTransformMatrices(currentT, transformMatrix);
+  // Unfold the matrix in a combination of scaleX, scaleY, skewX, skewY...
+  var options = fabric.util.qrDecompose(mT);
+  var newCenter = { x: options.translateX, y: options.translateY };
+  // reset transformMatrix to identity and resets flips since negative scale
+  // resulting from decompose, will automatically set them.
+  obj.transformMatrix = [ 1,0,0,1,0,0];
+  obj.flipX = false;
+  obj.flipY = false;
+  obj.set(options);
+  // position the object in the center given from translateX and translateY
+  obj.setPositionByOrigin(newCenter, 'center', 'center');
+</pre>
 <script>(function() {
   var canvas = this.__canvas = new fabric.Canvas('canvas');
   fabric.Image.fromURL('../assets/printio.png', function(image) {
@@ -154,7 +181,7 @@ title: Matrix transformation
     obj.transformMatrix = [ 1,0,0,1,0,0];
     obj.flipX = false;
     obj.flipY = false;
-    obj.setOptions(options);
+    obj.set(options);
     obj.setPositionByOrigin(newCenter, 'center', 'center');
     document.getElementById('numbers').reset();
     update();

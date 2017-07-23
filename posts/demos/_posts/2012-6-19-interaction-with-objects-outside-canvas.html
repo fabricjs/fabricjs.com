@@ -1,5 +1,5 @@
 ---
-layout: demo
+layout: demo2
 title: Interaction with objects outside canvas
 ---
 
@@ -35,6 +35,7 @@ title: Interaction with objects outside canvas
     canvas.add(img.set({ left: 250, top: 250, angle: 30 }).scale(0.25));
 
     img.on('moving', function() { positionBtn(img) });
+    img.on('scaling', function() { positionBtn(img) });
     positionBtn(img);
   });
 })();

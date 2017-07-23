@@ -1,5 +1,5 @@
 ---
-layout: demo
+layout: demo2
 title: Intersection
 ---
 
@@ -47,7 +47,7 @@ title: Intersection
     options.target.setCoords();
     canvas.forEachObject(function(obj) {
       if (obj === options.target) return;
-      obj.setOpacity(options.target.intersectsWithObject(obj) ? 0.5 : 1);
+      obj.set('opacity' ,options.target.intersectsWithObject(obj) ? 0.5 : 1);
     });
   }
 })();

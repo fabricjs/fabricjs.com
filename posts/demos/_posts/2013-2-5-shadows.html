@@ -1,5 +1,5 @@
 ---
-layout: demo
+layout: demo2
 title: Shadows
 ---
 
@@ -23,7 +23,7 @@ title: Shadows
     obj.animate({ angle: 30 }, {
       duration: 2000,
       easing: fabric.util.ease.easeOutCubic,
-      onChange: canvas.renderAll.bind(canvas),
+      onChange: canvas.renderAndResetBound,
       onComplete: function onComplete() {
         obj.animate({
           angle: Math.round(obj.angle) === 30 ? -30 : 30
@@ -53,7 +53,7 @@ title: Shadows
       }, options);
 
       obj.animate({ 'shadow.blur': dir ? 20 : 0 }, fabric.util.object.extend({
-        onChange: canvas.renderAll.bind(canvas),
+        onChange: canvas.renderAndResetBound,
         onComplete: function() {
           obj.direction = !obj.direction;
           animate(obj.direction);

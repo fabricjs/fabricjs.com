@@ -1,5 +1,5 @@
 ---
-layout: demo
+layout: demo2
 title: 1000 particles
 ---
 
@@ -29,15 +29,15 @@ title: 1000 particles
 
   function blobLoaded(img) {
     for (var i = 0; i < total; i++) {
-      var img = new fabric.Image(img.getElement(), {
+      var img2 = new fabric.Image(img.getElement(), {
         left: Math.random() * maxx,
         top: Math.random() * maxy,
         selectable: false
       });
-      img.vx = 0;
-      img.vy = 0;
-      canvas.add(img);
-      blobs[i] = img;
+      img2.vx = 0;
+      img2.vy = 0;
+      canvas.add(img2);
+      blobs[i] = img2;
     }
 
     msg = new fabric.Text('FPS: 0/' + myfps, {
@@ -95,7 +95,7 @@ title: 1000 particles
       prevTime = time;
       frames = 0;
 
-      msg.setText("FPS: " + fps + "/" + myfps);
+      msg.set('text', "FPS: " + fps + "/" + myfps);
     }
 
     fabric.util.requestAnimFrame(animate, canvas.getElement());

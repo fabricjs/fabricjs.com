@@ -19,7 +19,7 @@ title: Static Canvas
   });
 
   function animate() {
-    canvas.item(0).animate('top', canvas.item(0).get('top') === 500 ? '100' : '500', { 
+    canvas.item(0).animate('top', canvas.item(0).get('top') === 500 ? '100' : '500', {
       duration: 1000,
       onChange: canvas.renderAll.bind(canvas),
       onComplete: animate

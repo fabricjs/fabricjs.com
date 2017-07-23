@@ -1,5 +1,5 @@
 ---
-layout: demo
+layout: demo2
 title: Controls customization
 ---
 
@@ -171,14 +171,14 @@ title: Controls customization
   }
 
   function observeNumeric(property) {
-    document.getElementById(property).onchange = function() {
+    document.getElementById(property).oninput = function() {
       canvas.item(0)[property] = parseFloat(this.value);
       canvas.renderAll();
     };
   }
 
   function observeValue(property) {
-    document.getElementById(property).onchange = function() {
+    document.getElementById(property).oninput = function() {
       canvas.item(0)[property] = this.value;
       canvas.renderAll();
     };

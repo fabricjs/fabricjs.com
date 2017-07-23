@@ -1,5 +1,5 @@
 ---
-layout: demo
+layout: demo2
 title: Solar system
 ---
 
@@ -77,9 +77,7 @@ title: Solar system
     canvas.add(hoverCircle);
 
     for (var i = 0; i < totalPlanets; i++) {
-      var planet = createPlanet(i, planetsImg, tempCanvas);
-      planets.push(planet);
-      animatePlanet(planet, i);
+      createPlanet(i, planetsImg, tempCanvas);
     }
 
     canvas.add(planetLabel);
@@ -110,29 +108,28 @@ title: Solar system
     tempCanvas.renderAll();
 
     // get data url for that planet
-    var img = new Image;
+    var img = new Image();
+    img.onload = function() {
+      // create image of a planet from data url
+      var oImg = new fabric.Image(img, {
+
+        name: planetNames[i],
+        index: i,
+        scaleX: 1 / canvas.getRetinaScaling(),
+        scaleY: 1 / canvas.getRetinaScaling(),
+        // position planet 90px from canvas center and 26px from previous planet
+        left: (canvas.getWidth() / 2) - 90 - (planetSize * i),
+        top: canvas.getHeight() / 2,
+
+        // remove borders and corners but leaving object available for events
+        hasBorders: false,
+        hasControls: false
+      });
+      canvas.add(oImg);
+      planets.push(oImg);
+      animatePlanet(oImg, i);
+    }
     img.src = tempCanvas.toDataURL();
-
-    // create image of a planet from data url
-    var oImg = new fabric.Image(img, {
-
-      width: planetSize,
-      height: planetSize,
-
-      name: planetNames[i],
-      index: i,
-
-      // position planet 90px from canvas center and 26px from previous planet
-      left: (canvas.getWidth() / 2) - 90 - (planetSize * i),
-      top: canvas.getHeight() / 2,
-
-      // remove borders and corners but leaving object available for events
-      hasBorders: false,
-      hasControls: false
-    });
-
-    canvas.add(oImg);
-    return oImg;
   }
 
   function animatePlanet(oImg, planetIndex) {
@@ -190,8 +187,11 @@ title: Solar system
   });
 
   canvas.on('after:render', function() {
-    if (hoverTarget) {
-
+    orbits.forEach(function(orbit) {
+      orbit.strokeWidth = 1;
+      orbit.stroke = 'rgba(0,192,255,0.5)';
+    });
+    if (hoverTarget && !hoverTarget.text) {
       var hoveredPlanet = planets[hoverTarget.index];
       var hoveredOrbit = orbits[hoveredPlanet.index];
 
@@ -214,13 +214,6 @@ title: Solar system
     else {
       hoverCircle.set({ left: -100, top: -100 });
       planetLabel.set({ left: -100, top: -100 });
-
-      prevHoverTarget &&
-      orbits[prevHoverTarget.index] &&
-      orbits[prevHoverTarget.index].set({
-        strokeWidth: 1,
-        stroke: 'rgba(0,192,255,0.5)'
-      });
     }
   });
 })();

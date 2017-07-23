@@ -128,7 +128,7 @@ There are no plans to update controls to respect transformMatrix, but probably d
   });
 
   function update() {
-    canvas.renderAll();
+    canvas.requestRenderAll();
     var matrix = canvas.item(0).transformMatrix;
     document.getElementById('a-val').innerHTML = matrix[0];
     document.getElementById('b-val').innerHTML = matrix[1];

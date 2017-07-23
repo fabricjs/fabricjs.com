@@ -1,5 +1,5 @@
 ---
-layout: demo
+layout: demo2
 title: Dynamic patterns
 ---
 <style>
@@ -46,10 +46,9 @@ title: Dynamic patterns
   fabric.Image.fromURL('../assets/pug.jpg', function(img) {
 
     img.scaleToWidth(100);
-
     var patternSourceCanvas = new fabric.StaticCanvas();
     patternSourceCanvas.add(img);
-
+    patternSourceCanvas.renderAll();
     var pattern = new fabric.Pattern({
       source: function() {
         patternSourceCanvas.setDimensions({
@@ -73,29 +72,29 @@ title: Dynamic patterns
         objectCaching: false
       }));
 
-    document.getElementById('img-width').onchange = function() {
+    document.getElementById('img-width').oninput = function() {
       img.scaleToWidth(parseInt(this.value, 10));
-      canvas.renderAll();
+      canvas.requestRenderAll();
     };
-    document.getElementById('img-angle').onchange = function() {
-      img.setAngle(this.value);
-      canvas.renderAll();
+    document.getElementById('img-angle').oninput = function() {
+      img.set('angle', this.value);
+      canvas.requestRenderAll();
     };
-    document.getElementById('img-padding').onchange = function() {
+    document.getElementById('img-padding').oninput = function() {
       padding = parseInt(this.value, 10);
-      canvas.renderAll();
+      canvas.requestRenderAll();
     };
-    document.getElementById('img-offset-x').onchange = function() {
+    document.getElementById('img-offset-x').oninput = function() {
       pattern.offsetX = parseInt(this.value, 10);
-      canvas.renderAll();
+      canvas.requestRenderAll();
     };
-    document.getElementById('img-offset-y').onchange = function() {
+    document.getElementById('img-offset-y').oninput = function() {
       pattern.offsetY = parseInt(this.value, 10);
-      canvas.renderAll();
+      canvas.requestRenderAll();
     };
     document.getElementById('img-repeat').onclick = function() {
       pattern.repeat = this.checked ? 'repeat' : 'no-repeat';
-      canvas.renderAll();
+      canvas.requestRenderAll();
     };
   });
 })();

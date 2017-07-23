@@ -1,10 +1,12 @@
 ---
-layout: demo
+layout: demo2
 title: SVG caching
 ---
 <p>
-  When rendering complex shapes onto canvas — those consisting of thousands of paths — it's usually faster to have them cached so that they get rendered with <code>ctx.drawImage</code>. This essentially replaces thousands of low-level commands (<code>lineTo</code>, <code>moveTo</code>, <code>bezierCurveTo</code>, <code>arcTo</code>, etc.) with a single <code>drawImage</code>. The downside is loss of quality when scaling the shape up (since it's no longer vector-based). But this is a viable technique if the shape dimensions are constant. In Fabric, you can use <code>fabric.Object#cloneAsImage</code> to create an instance of <code>fabric.Image</code> out of any other Fabric shape.
-</p>
+  When rendering complex shapes onto canvas — those consisting of thousands of paths — it's usually faster to have them cached so that they get rendered with <code>ctx.drawImage</code>.<br />
+  This essentially replaces thousands of low-level commands (<code>lineTo</code>, <code>moveTo</code>, <code>bezierCurveTo</code>, <code>arcTo</code>, etc.) with a single <code>drawImage</code>.<br />
+  The downside is an higher memory usage since all svgs gets a canvas with a image copy of the svg. During Object scaling, this canvas gets repainted.
+  </p>
 <p>
   <button id="cache">toggle cache</button>
 </p>

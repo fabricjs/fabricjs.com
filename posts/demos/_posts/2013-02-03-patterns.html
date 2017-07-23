@@ -1,5 +1,5 @@
 ---
-layout: demo
+layout: demo2
 title: Patterns
 ---
 <canvas id="c" width="500" height="500" style="border:1px solid #ccc"></canvas>
@@ -37,25 +37,37 @@ title: Patterns
 
   function loadPattern(url) {
     fabric.util.loadImage(url, function(img) {
-      text.fill = new fabric.Pattern({
+      text.set('fill', new fabric.Pattern({
         source: img,
         repeat: document.getElementById('repeat').value
-      });
+      }));
+      shape.set('fill', new fabric.Pattern({
+        source: img,
+        repeat: document.getElementById('repeat').value
+      }));
       canvas.renderAll();
     });
   }
 
   var text = new fabric.Text('Honey,\nI\'m subtle', {
     fontSize: 250,
-    left: 50,
+    left: 0,
     top: 0,
     lineHeight: 1,
     originX: 'left',
     fontFamily: 'Helvetica',
     fontWeight: 'bold',
-    statefullCache: true
+    statefullCache: true,
+    scaleX: 0.4,
+    scaleY: 0.4
   });
-  canvas.add(text);
+  var shape = new fabric.Rect({
+    width: 200,
+    height: 100,
+    left: 10,
+    top: 300,
+  });
+  canvas.add(text, shape);
 
   loadPattern('../assets/honey_im_subtle.png');
 

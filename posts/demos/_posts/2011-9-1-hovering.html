@@ -1,5 +1,5 @@
 ---
-layout: demo
+layout: demo2
 title: Hovering
 ---
 
@@ -10,12 +10,12 @@ title: Hovering
   fabric.Object.prototype.transparentCorners = false;
 
   canvas.on('mouse:over', function(e) {
-    e.target.setFill('red');
+    e.target.set('fill', 'red');
     canvas.renderAll();
   });
 
   canvas.on('mouse:out', function(e) {
-    e.target.setFill('green');
+    e.target.set('fill', 'green');
     canvas.renderAll();
   });
 

@@ -1,5 +1,5 @@
 ---
-layout: demo
+layout: demo2
 title: Opacity Mouse Move
 ---
 
@@ -14,6 +14,8 @@ title: Opacity Mouse Move
   fabric.loadSVGFromURL('../assets/135.svg', function(objects) {
 
     var obj = objects[0].scale(0.25);
+    obj.originX = 'center';
+    obj.originY = 'center';
     canvas.centerObject(obj);
     canvas.add(obj);
 
@@ -39,7 +41,7 @@ title: Opacity Mouse Move
             distY = Math.abs(p.y - obj.top),
             dist = Math.round(Math.sqrt(Math.pow(distX, 2) + Math.pow(distY, 2)));
 
-        obj.setOpacity(1 / (dist / 20));
+        obj.set('opacity', 1 / (dist / 20));
       });
 
       canvas.renderAll();

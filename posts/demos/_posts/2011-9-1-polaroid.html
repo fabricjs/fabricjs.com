@@ -1,6 +1,6 @@
 ---
-layout: demo
-title: Polaroid (custom class)
+layout: demo2
+title: Polaroid (subclassing)
 ---
 
 <canvas id="c" width="600" height="500"></canvas>
@@ -13,7 +13,7 @@ title: Polaroid (custom class)
     HOVER_CURSOR: 'pointer'
   });
 
-  var PolaroidPhoto = fabric.util.createClass(fabric.Object, fabric.Observable, {
+  var PolaroidPhoto = fabric.util.createClass(fabric.Image, {
     H_PADDING: 20,
     V_PADDING: 50,
     originX: 'center',

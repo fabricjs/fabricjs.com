@@ -1,18 +1,22 @@
 ---
-layout: demo
+layout: demo2
 title: Event inspector
 ---
 
 <style>
   p { margin-top: 3px; margin-bottom: 3px; }
-  #log1, #log2 { display: inline-block; width: 200px; height: 500px; overflow-y: scroll; font-family: monospace; font-size: 11px; }
-  #observing-events-log { position: absolute; top: 70px; left: 450px }
-  #non-observing-events-log { position: absolute; top: 70px; left: 653px; }
+  #log1, #log2 { display: inline-block; width: 300px; height: 260px; overflow-y: scroll; font-family: monospace; font-size: 11px; }
+  #observing-events-log { position: absolute; top: 70px; left: 650px }
+  #non-observing-events-log { position: absolute; top: 70px; left: 853px; }
   .log strong { margin-bottom: 10px; display: block; }
 </style>
-
-<canvas id="c1" width="200" height="200"></canvas>
-<canvas id="c2" width="200" height="200"></canvas>
+<p>
+  Please take care that on macos sierra, the mouse move fires at very high speed.<br />
+  Use the checkbox to disable it.
+  <br /><input type="checkbox" id="move" checked /> MouseMove.
+</p>
+<canvas id="c1" width="300" height="260"></canvas>
+<canvas id="c2" width="300" height="260"></canvas>
 
 <div id="observing-events-log" class="log">
   <strong>Observing these events</strong>
@@ -46,6 +50,9 @@ title: Event inspector
   var log2 = document.getElementById('log2');
 
   function log(message, where) {
+    if (message === 'mouse:move' && !document.getElementById('move').checked) {
+      return;
+    }
     var el = document.createElement('p');
     el.appendChild(document.createTextNode(message));
     var containerEl = (where === 1 ? log1 : log2);
@@ -63,8 +70,8 @@ title: Event inspector
 
   function observe(eventName) {
     logObservingEvent(eventName);
-    canvas1.on(eventName, function(){ log(eventName, 1) });
-    canvas2.on(eventName, function(){ log(eventName, 2) });
+    canvas1.on(eventName, function(opt){ log(eventName, 1, opt) });
+    canvas2.on(eventName, function(opt){ log(eventName, 2, opt) });
   }
 
   observe('object:modified');
@@ -87,6 +94,8 @@ title: Event inspector
   observe('mouse:move');
   observe('mouse:dblclick');
   observe('mouse:wheel');
+  observe('mouse:over');
+  observe('mouse:out');
   addSeparator();
 
   observe('after:render');

@@ -362,7 +362,7 @@ title: Custom Fabric build
 
     document.getElementById('build').onclick = function() {
       build();
-    }
+    };
 
     document.getElementById('build-min').onclick = function() {
       build(true);
@@ -377,6 +377,11 @@ title: Custom Fabric build
       if (!this.checked) {
         document.getElementById('gestures').checked = false;
         document.getElementById('freedrawing').checked = false;
+      }
+    };
+    document.getElementById('textbox').onclick = function () {
+      if (this.checked) {
+        document.getElementById('itext').checked = true;
       }
     };
     document.getElementById('itext').onclick = function() {

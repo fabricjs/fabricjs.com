@@ -14,7 +14,7 @@ title: Fabric.js. release 2.0.0 highlights.
     The main reason of a big version bump is that text api changed and filter images changed.
     A lot of things changed and detailed explanations and examples are required to easily jump on the new version.<br />
     Please check here: <a href="v2-breaking-changes">Fabric 2.0 breaking changes</a><br />
-    Below a summary of changs
+    Below a summary of changs that are the breaking ones:
   </p>
   <pre>
   Removed PathGroup class completely
@@ -26,5 +26,9 @@ title: Fabric.js. release 2.0.0 highlights.
   Named setters/getters are optional and disabled by default
   fabric.Images lost 3 properties: alignX,alignY,meetOrSlice and gained cropX and cropY.
   (...more as i remember i ll add them)
+  Dependency updates for node: jsdom bumped to 9.x and node 4 required.
+  Removed all the JSON and ES5 shimmers. If you need to support non ES5 browsers, do it with external polyfills
+  Api normalization for fromObject, fromElement, and clone. all are ASYNC.
+  lockRotation will make ... rotation locked. Will not hide the control
   </pre>
 </div>

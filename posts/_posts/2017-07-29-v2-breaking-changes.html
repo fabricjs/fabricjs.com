@@ -1,13 +1,13 @@
 ---
 layout: articlead
-title: Fabric.js. release 2.0.0 highlights.
+title: Fabric.js breaking changes
 ---
 
 <style>h2 { margin-bottom: 15px } h3 { margin-bottom: 10px; } h4 { margin-bottom: 7px; } </style>
 
 <div class="container" style="margin:30px auto">
   <h2 id="introduction_to_fabricjs">Fabric.js V 2.0 list of breaking changes</h2>
-  <h3>PathGroup</h3>
+  <h3>fabric.PathGroup</h3>
   <p>
     Fabric.PathGroup has been removed. The class existed as container able to render the imported SVGs.<br />
     Since now fabric.Group can handle it, the class has been removed from the codebase.
@@ -41,7 +41,83 @@ title: Fabric.js. release 2.0.0 highlights.
           callback(group);
         });
       }
-    };
-  </pre>
+    };</pre>
   This should do the trick.
+  <h3>fabric.Image</h3>
+  <p>
+    Fabric.Image got some changes.
+    Lets' s start with the easy ones.
+    <code>alignX, alignY, meetOrSlice</code> are gone.
+    Old objects carrying those 3 properties will evntually restore it at no use.
+    This feature was introduced by myself to support:
+    <a href="https://developer.mozilla.org/en/docs/Web/SVG/Attribute/preserveAspectRatio" >preserveAspectRatio</a>
+    attribute from SVGs. It turned out that outside SVGs no one had ever a clue of how using it and other than the reference
+    example SVG no other SVG ever used it. A complete useless thing. <code>I would be happy to be proven wrong anyway</code>.
+    Instead of it we introduced <code>cropX</code>, <code>cropY</code> attributes. Those 2 new attributes togheter with the classic
+    width and height can still emulate the full functionality of SVG's preserveAspectRatio attribute and let you do more.
+    So the image svg parser got bigger to translate <code>preserveAspectRatio</code> into a combination of <code>scaleX, scaleY, width, height, cropX, cropY</code>,
+    but you can do more. More what?<br />
+    <strong><b>You can actually crop pictures!</b></strong>. There is no interface for it and maybe there will be not, but you can do that with the normal events.
+    So a fundamental behaviour has changed: before 2.0 release, altering a fabric.Image width and height property would make it bigger or smaller, exactly as scaleX
+    and scaleY would do. This was a side effect of drawImage htmlCanvas api. Now for images drawImage is used in the 9 parameter form:
+    <code>ctx.drawImage(element, cropX, cropY, width, height, dx, dy, dw, dh)</code>.<br />
+    So cropX and cropY represent how much are you cropping from the top left corner for the image, in pixels, no scales involved.<br />
+    Width and height properties are influencing how much of the image are you using. A crop rectangle.
+  </p>
+  <p>
+    <b>Image.applyFilters got sync!</b> <br />
+    the applyFilter functions of fabric.Image on the version 1.x is:
+    <pre>
+    1) create a new canvas to hosted the filtered image
+    2) copy the current image on that canvas
+    3) for each filter do the following:
+      a) getImageData from the canvas
+      b) processImageData
+      c) write everything on the canvas
+      d) rinse, repeat.
+    4) a the end convert the canvas in dataUrl
+    5) create a new Image element and load the dataUrl</pre>
+    So the function, after blocking the main thread for many many milliseconds, sometimes thousands, start an async process
+    to load the image back on an imageElement, with pain of the callback managment, and no benefit of it, since it was heavily blocking.<br />
+    The new process is different. First of all is on WEBGL, but a complete explanation of that will come, if you do not have WEBGL available, the
+    process is as follow:
+    <pre>
+    1) create a new canvas to host the filtered image if you do not have one.
+    2) copy the current image on that canvas, getImageData from the canvas.
+    3) for each filter do the following:
+      a) processImageData
+    4) At the end putImageData on the canvas.
+    5) Keep that canvas as drawing element since is ok
+    6) If you filter again, the canvas is cleaned and reused.</pre>
+    If you ever built a slider to preview brightness in real time with the old code, every sliding, every mousemove, you were creating a new canvas element,
+    stop using it at the next tick, memory went up for all canvases created, at some point the GC would kick in and stop you for some time. The DataURL took time, even considering
+    that everything was happening in your memory, to a dataurl operation from a grid of pixel is involved a PNG compression, a reading and a PNG decompression
+    from the image element, a painting over the Bitmap. Is not for free.
+    Even without WEBGL the new canvas filtering is faster.
+    So important, all the examples you find around ( i corrected all that i could find ):
+    <pre>
+    img.applyFilters(canvas.renderAll.bind(canvas));</pre>
+    are out dated and will throw error.
+    You have just to do:
+    <pre>
+    img.applyFilters();
+    canvas.requestRenderAll(); // or the old canvas.renderAll() if you prefer or need it
+    // Optionally you can pass a filters array to applyFilter
+    // if you want to apply something that is not the image filter chain.
+    img.applyFilters([ new fabric.Image.filters.Contrast({ contrast: 15 })]);
+    </pre>
+    Another breaking change is that the <code>.resizeFilters</code> is no more an array of resize filter.
+    Is a single resizeFilter that you can use when the object is scaled on the canvas.
+    <pre>
+    image.resizeFilter = new fabric.Image.filters.ResizeFilter({type: 'hermite'});
+    </pre>
+    Resize filters are not ready in WEBGL yet.
+    <h3>fabric.Image.filters</h3>
+    <a href="/fabric-filters">About filtering</a> Here you find a complete explanation of the filter logic of fabricJS, including how to write your filters.
+    What changed?<br />
+    Structure of the filter changed.<br />
+    Filters include a WEBGL shader to operate fast on the GPU.<br />
+    Filters can be COMPOSED! you can use the new class ComposedFilter that is like a group of filters where you can save your custom filter.<br />
+    New filters like Blur and Gamma. ( Colormatrix and Saturation have been silently introduced in 1.7.x ).
+  </p>
 </div>

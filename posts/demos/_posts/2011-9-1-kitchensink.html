@@ -421,15 +421,18 @@ title: Kitchensink
           <button class="btn btn-success" id="rasterize" ng-click="rasterize()">
             Image
           </button>
+          <button class="btn btn-success" id="rasterize" ng-click="rasterize3x()">
+            Image 3X multiplied
+          </button>
           <button class="btn btn-success" id="rasterize-svg" ng-click="rasterizeSVG()">
             SVG
           </button>
           <button class="btn btn-success" id="rasterize-json" ng-click="rasterizeJSON()">
             JSON
           </button>
-          <button class="btn btn-danger clear" ng-click="confirmClear()">Clear canvas</button>
         </p>
         <p>
+          <button class="btn btn-danger clear" ng-click="confirmClear()">Clear canvas</button>
           <button class="btn btn-object-action" id="remove-selected"
             ng-click="removeSelected()">
             Remove selected object/group
@@ -440,6 +443,15 @@ title: Kitchensink
           <input type="color" bind-value-to="canvasBgColor">
         </p>
         <p>
+          <label>
+            Enable HIDPI (retina) scaling:
+            <input type="checkbox" name="enable-retina" bind-value-to="enableRetinaScaling">
+          </label>
+          <label>
+            Skip offscreen rendering:
+            <input type="checkbox" name="enable-retina" bind-value-to="skipOffscreen">
+          </label>
+          <br />
           <label>
             Preserve stacking:
             <input type="checkbox" name="preserve-object-stacking" bind-value-to="preserveObjectStacking">
@@ -516,7 +528,12 @@ title: Kitchensink
   </div>
 
 </div>
-
+<div style="min-width: 800px; width: 800px;" >
+  rasterized canvas:<br />
+  <img id="canvasRasterizer" /><br />
+  svg canvas:<br />
+  <div id="SVGRasterizer" style="display: inline-block" />
+</div>
 <!-- <script src="../../lib/centering_guidelines.js"></script>
 <script src="../../lib/aligning_guidelines.js"></script> -->
 

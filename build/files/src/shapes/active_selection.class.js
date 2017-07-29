@@ -62,6 +62,7 @@
       this._objects = [];
       var options = this.toObject();
       var newGroup = new fabric.Group([]);
+      delete options.objects;
       newGroup.set(options);
       newGroup.type = 'group';
       objects.forEach(function(object) {
@@ -73,8 +74,8 @@
         return newGroup;
       }
       var canvas = this.canvas;
-      canvas._activeObject = newGroup;
       canvas.add(newGroup);
+      canvas._activeObject = newGroup;
       newGroup.setCoords();
       return newGroup;
     },
@@ -90,7 +91,7 @@
     },
 
     /**
-     * Returns string represenation of a group
+     * Returns string representation of a group
      * @return {String}
      */
     toString: function() {

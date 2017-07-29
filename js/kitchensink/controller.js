@@ -380,19 +380,22 @@ function addAccessors($scope) {
     }
   };
 
-  $scope.rasterize = function() {
+  $scope.rasterize3x = function() {
+    $scope.rasterize(3);
+  }
+
+  $scope.rasterize = function(multiplier) {
     if (!fabric.Canvas.supports('toDataURL')) {
       alert('This browser doesn\'t provide means to serialize canvas to an image');
     }
     else {
-      window.open(canvas.toDataURL('png'));
+      var data = canvas.toDataURL({ multiplier: multiplier, format: 'png' });
+      document.getElementById('canvasRasterizer').src = data;
     }
   };
 
   $scope.rasterizeSVG = function() {
-    window.open(
-      'data:image/svg+xml;utf8,' +
-      encodeURIComponent(canvas.toSVG()));
+    document.getElementById('SVGRasterizer').innerHTML = canvas.toSVG();
   };
 
   $scope.rasterizeJSON = function() {
@@ -833,6 +836,24 @@ function addAccessors($scope) {
   };
   $scope.setPreserveObjectStacking = function(value) {
     return canvas.preserveObjectStacking = value;
+  };
+
+  $scope.getEnableRetinaScaling = function() {
+    return canvas.enableRetinaScaling;
+  };
+  $scope.setEnableRetinaScaling = function(value) {
+    canvas.enableRetinaScaling = value;
+    canvas.setDimensions({
+      width: canvas.width,
+      height: canvas.height });
+    return value
+  };
+
+  $scope.getSkipOffscreen = function() {
+    return canvas.skipOffscreen;
+  };
+  $scope.setSkipOffscreen = function(value) {
+    return canvas.skipOffscreen = value;
   };
 
   $scope.getFreeDrawingMode = function() {

@@ -30,12 +30,12 @@ title: Custom Fabric build
 
 <ul id="options">
   <li>
-    <input type="checkbox" id="text">
+    <input checked type="checkbox" id="text">
     <label for="text">Text</label><br>
     <p>Adds support for text rendering via `fabric.Text`</p>
   </li>
   <li>
-    <input type="checkbox" id="itext">
+    <input checked type="checkbox" id="itext">
     <label for="itext">Interactive text</label><br>
     <p>Adds support for text rendering via `fabric.IText` or `fabric.Textbox` See: <a href="/test/misc/itext.html" >iText demo</a>. Depends on "Animation" and "Text"</p>
   </li>
@@ -45,57 +45,57 @@ title: Custom Fabric build
     <p>Adds support for multitouch gestures with help of <a href="https://github.com/mudcube/Event.js">Event.js</a>. Depends on "Interaction" module.</p>
   </li>
   <li>
-    <input type="checkbox" id="animation">
+    <input checked type="checkbox" id="animation">
     <label for="animation">Animation</label><br>
     <p>Adds support for animation and animate_color functions.</p>
   </li>
   <li>
-    <input type="checkbox" id="easing">
+    <input checked type="checkbox" id="easing">
     <label for="easing">Easing</label><br>
     <p>Adds support for <a href="/animation-easing/">animation easing</a> functions. Depends on "Animation".</p>
   </li>
   <li>
-    <input type="checkbox" id="object_straightening">
+    <input checked type="checkbox" id="object_straightening">
     <label for="object_straightening">Object straightening</label><br>
     <p>Adds support for object straightening.</p>
   </li>
   <li>
-    <input type="checkbox" id="parser">
+    <input checked type="checkbox" id="parser">
     <label for="parser">Parser</label><br>
-    <p>Adds support for `fabric.parseSVGDocument`, `fabric.loadSVGFromURL`, and `fabric.loadSVGFromString`</p>
+    <p>Adds support for `fabric.parseSVGDocument`, `fabric.loadSVGFromURL`, and `fabric.loadSVGFromString` Requires shapes to be present</p>
   </li>
   <li>
-    <input type="checkbox" id="freedrawing">
+    <input checked type="checkbox" id="freedrawing">
     <label for="freedrawing">Free drawing</label><br>
     <p>Adds support for free drawing. Depends on "Interaction"</p>
   </li>
   <li>
-    <input type="checkbox" id="interaction">
+    <input checked type="checkbox" id="interaction">
     <label for="interaction">Interaction</label><br>
     <p>Adds support for interactive features of fabric — selecting/transforming objects/groups via mouse/touch devices</p>
   </li>
   <li>
-    <input type="checkbox" id="serialization">
+    <input checked type="checkbox" id="serialization">
     <label for="serialization">Serialization</label><br>
     <p>Adds support for `loadFromJSON`, `loadFromDatalessJSON`, and `clone` methods on `fabric.Canvas`</p>
   </li>
   <li>
-    <input type="checkbox" id="image_filters">
+    <input checked type="checkbox" id="image_filters">
     <label for="image_filters">Image filters</label><br>
     <p>Adds support for <a href="/image-filters">image filters</a>, such as grayscale of white removal</p>
   </li>
   <li>
-    <input type="checkbox" id="gradient">
+    <input checked type="checkbox" id="gradient">
     <label for="gradient">Gradients</label><br>
     <p>Adds support for gradients</p>
   </li>
   <li>
-    <input type="checkbox" id="pattern">
+    <input checked type="checkbox" id="pattern">
     <label for="pattern">Patterns</label><br>
     <p>Adds support for <a href="/patterns">patterns</a></p>
   </li>
   <li>
-    <input type="checkbox" id="shadow">
+    <input checked type="checkbox" id="shadow">
     <label for="shadow">Shadows</label><br>
     <p>Adds support for <a href="/shadows">shadows</a></p>
   </li>
@@ -104,6 +104,56 @@ title: Custom Fabric build
     <label for="node">Node</label><br>
     <p>Adds support for running fabric under <a href="http://nodejs.org">Node.js</a>, with help of <a href="https://github.com/tmpvar/jsdom">jsdom</a> and <a href="https://github.com/learnboost/node-canvas">node-canvas</a> libraries.</p>
   </li>
+  <li>
+    <input type="checkbox" id="accessors">
+    <label for="accessors">Named accessors</label><br>
+    <p>Bring back support for named setters and getters, one for each element of stateProperties (unsupported. unsuggested)</p>
+  </li>
+  <li>
+    <input checked type="checkbox" id="rect">
+    <label for="rect">fabric.Rect</label><br>
+    <p>Add support for fabric.Rect</p>
+  </li>
+  <li>
+    <input checked type="checkbox" id="circle">
+    <label for="circle">fabric.Circle</label><br>
+    <p>Add support for fabric.Circle</p>
+  </li>
+  <li>
+    <input checked type="checkbox" id="ellipse">
+    <label for="ellipse">fabric.Ellipse</label><br>
+    <p>Add support for fabric.Ellipse</p>
+  </li>
+  <li>
+    <input checked type="checkbox" id="image">
+    <label for="image">fabric.Image</label><br>
+    <p>Add support for fabric.Image</p>
+  </li>
+  <li>
+    <input checked type="checkbox" id="line">
+    <label for="line">fabric.Line</label><br>
+    <p>Add support for fabric.Line</p>
+  </li>
+  <li>
+    <input checked type="checkbox" id="path">
+    <label for="path">fabric.Path</label><br>
+    <p>Add support for fabric.Path</p>
+  </li>
+  <li>
+    <input checked type="checkbox" id="polygon">
+    <label for="polygon">fabric.Polygon</label><br>
+    <p>Add support for fabric.Polygon</p>
+  </li>
+  <li>
+    <input checked type="checkbox" id="polyline">
+    <label for="polyline">fabric.Polyline</label><br>
+    <p>Add support for fabric.Polyline</p>
+  </li>
+  <li>
+    <input checked type="checkbox" id="triangle">
+    <label for="triangle">fabric.Triangle</label><br>
+    <p>Add support for fabric.Triangle</p>
+  </li>
 </ul>
 <h1>From built file remove code:</h1>
 <ul id="options">
@@ -111,11 +161,6 @@ title: Custom Fabric build
     <input type="checkbox" class="regexs" id="noSVGImport">
     <label for="noSVGImport">Remove SVG import</label><br>
     <p>Remove .fromElement() functions from shapes</p>
-  </li>
-  <li>
-    <input type="checkbox" class="regexs" id="noES5Compat">
-    <label for="noES5Compat">Remove ES5 polyfills</label><br>
-    <p>Remove ES5 Polyfills to support older browsers.</p>
   </li>
   <li>
     <input type="checkbox" class="regexs" id="noSVGExport">
@@ -140,7 +185,6 @@ title: Custom Fabric build
 
     var regexs = {
       noSVGExport: /\/\* _TO_SVG_START_ \*\/[\s\S]*?\/\* _TO_SVG_END_ \*\//g,
-      noES5Compat: /\/\* _ES5_COMPAT_START_ \*\/[\s\S]*?\/\* _ES5_COMPAT_END_ \*\//g,
       noSVGImport: /\/\* _FROM_SVG_START_ \*\/[\s\S]*?\/\* _FROM_SVG_END_ \*\//g,
       noStrict: /"use strict";?\n?/,
     }
@@ -161,17 +205,6 @@ title: Custom Fabric build
     }
 
     function collectFilesName() {
-      // var inputs = document.getElementsByTagName('input');
-      // var result = baseFiles.slice(0);
-      // var input;
-      // for (var i = 0, len = inputs.length; i < len; i++) {
-      //   input = inputs[i];
-      //   if (inputs[i].checked) {
-      //     if (inputs[i].className !== 'regexs') {
-      //       result = result.concat(idToFiles[inputs[i].id]);
-      //     }
-      //   }
-      // }
       var filesToInclude = [
         'HEADER.js',
 
@@ -180,8 +213,8 @@ title: Custom Fabric build
         'src/mixins/observable.mixin.js',
         'src/mixins/collection.mixin.js',
         'src/mixins/shared_methods.mixin.js',
-
         'src/util/misc.js',
+        ifSpecifiedInclude('accessors', 'src/util/named_accessors.mixin.js'),
         'src/util/arc.js',
         'src/util/lang_array.js',
         'src/util/lang_object.js',
@@ -239,16 +272,16 @@ title: Custom Fabric build
         ifSpecifiedInclude('interaction', 'src/mixins/object_interactivity.mixin.js'),
 
         ifSpecifiedInclude('animation', 'src/mixins/animation.mixin.js'),
-        'src/shapes/line.class.js',
-        'src/shapes/circle.class.js',
-        'src/shapes/triangle.class.js',
-        'src/shapes/ellipse.class.js',
-        'src/shapes/rect.class.js',
-        'src/shapes/polyline.class.js',
-        'src/shapes/polygon.class.js',
-        'src/shapes/path.class.js',
+        ifSpecifiedInclude('line', 'src/shapes/line.class.js'),
+        ifSpecifiedInclude('circle', 'src/shapes/circle.class.js'),
+        ifSpecifiedInclude('triangle', 'src/shapes/triangle.class.js'),
+        ifSpecifiedInclude('ellipse', 'src/shapes/ellipse.class.js'),
+        ifSpecifiedInclude('rect', 'src/shapes/rect.class.js'),
+        ifSpecifiedInclude('polyline', 'src/shapes/polyline.class.js'),
+        ifSpecifiedInclude('polygon', 'src/shapes/polygon.class.js'),
+        ifSpecifiedInclude('path', 'src/shapes/path.class.js'),
         'src/shapes/group.class.js',
-        'src/shapes/image.class.js',
+        ifSpecifiedInclude('animation', 'src/shapes/image.class.js'),
 
         ifSpecifiedInclude('object_straightening', 'src/mixins/object_straightening.mixin.js'),
 
@@ -280,8 +313,8 @@ title: Custom Fabric build
         ifSpecifiedInclude('itext', 'src/mixins/itext_key_behavior.mixin.js'),
         ifSpecifiedInclude('itext', 'src/mixins/itext.svg_export.js'),
 
-        ifSpecifiedInclude('textbox', 'src/shapes/textbox.class.js'),
-        ifSpecifiedInclude('textbox', 'src/mixins/textbox_behavior.mixin.js'),
+        ifSpecifiedInclude('itext', 'src/shapes/textbox.class.js'),
+        ifSpecifiedInclude('itext', 'src/mixins/textbox_behavior.mixin.js'),
 
         ifSpecifiedInclude('node', 'src/node.js')
 

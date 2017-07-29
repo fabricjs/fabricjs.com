@@ -12,9 +12,19 @@ title: Fabric.js. release 2.0.0 highlights.
   <p>
     2.0.0 Milestone!
     The main reason of a big version bump is that text api changed and filter images changed.
-    Your curve text extension or your custom filters needs reworking now.
+    A lot of things changed and detailed explanations and examples are required to easily jump on the new version.<br />
+    Please check here: <a href="v2-breaking-changes">Fabric 2.0 breaking changes</a><br />
+    Below a summary of changs
   </p>
   <pre>
-
+  Removed PathGroup class completely
+  Introduced requestAnimationFrame for interactive renders
+  SVGs are now handled by fabric.Group
+  transformMatrix property is now deprectated
+  Filtering system overhaul. Speedups for imageData version and introduced the WEBGL one. More filters added
+  IText styles are handled by text now. So text is stylable, support multybe, has better caching system and kerning support
+  Named setters/getters are optional and disabled by default
+  fabric.Images lost 3 properties: alignX,alignY,meetOrSlice and gained cropX and cropY.
+  (...more as i remember i ll add them)
   </pre>
 </div>

@@ -282,7 +282,7 @@
      * @return {fabric.Text} thisArg
      */
     initialize: function(text, options) {
-      options = options || { };
+      this.styles = options ? (options.styles || { }) : { };
       this.text = text;
       this.__skipDimension = true;
       this.callSuper('initialize', options);
@@ -424,7 +424,7 @@
       }
       var obj = this.styles, line, lineNum, charNum;
       for (lineNum in obj) {
-        var line = obj[lineNum];
+        line = obj[lineNum];
         for (charNum in line) {
           delete line[charNum][property];
           if (Object.keys(line[charNum]).length === 0) {

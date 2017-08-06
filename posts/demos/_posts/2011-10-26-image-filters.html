@@ -79,6 +79,11 @@ title: Image Filters
     <label>Value: <input type="range" id="saturation-value" value="0" min="-1" max="1" step="0.003921" disabled></label>
   </p>
   <p>
+    <label><span>Hue:</span> <input type="checkbox" id="hue" disabled></label>
+    <br>
+    <label>Value: <input type="range" id="hue-value" value="0" min="-2" max="2" step="0.002" disabled></label>
+  </p>
+  <p>
     <label><span>Noise:</span> <input type="checkbox" id="noise" disabled></label>
     <br>
     <label>Value: <input type="range" id="noise-value" value="100" min="0" max="1000" disabled></label>
@@ -188,7 +193,7 @@ title: Image Filters
                       'brightness', 'contrast', 'saturation', 'noise', 'vintage',
                       'pixelate', 'blur', 'sharpen', 'emboss', 'technicolor',
                       'polaroid', 'blend-color', 'gamma', 'kodachrome',
-                      'blackwhite', 'blend-image'];
+                      'blackwhite', 'blend-image', 'hue'];
 
       for (var i = 0; i < filters.length; i++) {
         filters[i] && (
@@ -376,6 +381,16 @@ title: Image Filters
 
   $('blend-alpha').oninput = function() {
     applyFilterValue(16, 'alpha', this.value);
+  };
+
+  $('hue').onclick= function() {
+    applyFilter(21, this.checked && new f.HueRotation({
+      rotation: document.getElementById('hue-value').value,
+    }));
+  };
+
+  $('hue-value').oninput = function() {
+    applyFilterValue(21, 'rotation', this.value);
   };
 
   $('blend-image').onclick= function() {

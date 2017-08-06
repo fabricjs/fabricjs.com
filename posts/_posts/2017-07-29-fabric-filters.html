@@ -1,12 +1,252 @@
 ---
 layout: articlead
-title: Fabric.js filtering tutorial
+title: Fabric.js filtering overview
 ---
 
 <div class="container" style="margin:30px auto">
-  <h2 id="introduction_to_fabricjs">Fabricjs filtering tutorial</h2>
+  <h2 id="introduction_to_fabricjs">FabricJS filtering overview</h2>
   <h3>Introduction</h3>
   <p>
-    Work in progress.
+    Fabric has a filtering engine that can work on both WEBGL or plain CPU javascript.<br />
+    Fabric has 2 classes to handle filtering, one is called <code>WebglFilterBackend</code> another is <code>Canvas2dFilterBackend</code>.<br />
+    The first time you get to filter an image, this code is run:
+  </p>
+  <pre>
+    fabric.initFilterBackend = function() {
+      if (fabric.enableGLFiltering &&  fabric.isWebglSupported && fabric.isWebglSupported(fabric.textureSize)) {
+        console.log('max texture size: ' + fabric.maxTextureSize);
+        return (new fabric.WebglFilterBackend({ tileSize: fabric.textureSize }));
+      }
+      else if (fabric.Canvas2dFilterBackend) {
+        return (new fabric.Canvas2dFilterBackend());
+      }
+    };
+  </pre>
+  <p>
+    This code will identify if the WEBGL is enabled and supported and set in fabric the backend to use.<br />
+  </p>
+  <h3>Canvas2d backend</h3>
+  <p>
+    The canvas backend is very simple. It creates an object containing some basic properties:
+  </p>
+  <pre>
+    var pipelineState = {
+      sourceWidth: sourceWidth,  // starting widht of the image to be filtered
+      sourceHeight: sourceHeight, // starting height of the image to be filtered
+      imageData: imageData, // imageData of the image to be filtered
+      originalEl: sourceElement, // original picture element (image or canvas) of the image to be filtered
+      originalImageData: originalImageData, // original picture element (image or canvas) of the image to be filtered
+      canvasEl: targetCanvas, // canvas element that is the destination of filtering
+      ctx: ctx, // context of canvasEl
+      filterBackend: this,  // reference to filterBackend.
+    };
+  </pre>
+  <p>
+    Then this object is sent to every <code>applyTo</code> function of each filter in the chain. The apply2d function is triggered.
+    This function is problably ( but is not necessary ) going to modify imageData. At the end of the filter chain this imageData is applied
+    to the canvasEl that then will be referenced as the <code>fabric.Image</code> instance <code>.element</code> property, that is the one that gets displayed
+    on the <code>fabric.Canvas</code>.<br />
+    The applyTo filter can do different things from manipulating the pixel values as long as it mutates the imageData.
+    Writing a filter that apply a mask using `globalCompositeOperation` and another image via `context.drawImage` is another way to filter the image.
+  </p>
+  <h3>WEBGL backend</h3>
+  <p>
+    Webgl context is more complicated to handle than canvas2d context.<br />
+    To be filtered images needs to be put in a texture. Texture size limit varies with hardware and drivers.<br />
+    Number of active contexts is limited on the browsers, so filtering many images one after the other often crash the browser.<br />
+    So to achieve something that is stable and usable fabricjs needs to make compromises.
+    A canvas get initialized at 2048x2048 that looks like a safe limit for old hardware. This limit the max image size that can be filtered
+    with fabricjs at that size unless the dev decide to set it higher setting the parameter <code>fabric.textureSize</code>.<br />You are still limited from
+    the maximum canvas size in a browser. So the minimum between canvas size and maxTextureSize is your size cap for image filterin in webgl.
+    This initialized canvas gets referenced in the filter backend and will be used as final step to draw the result of the WEBGL operations
+    in the filter chain.<br />
+    Every image gets assigned a textured id in the constructor, the first time the image gets filtered, the image gets loaded as texture once
+    then the same texture gets reused next time for faster filtering.<br />
+    Bringing the result of the webgl filter chain down to the main fabric.Canvas is a costly operation that gets executed either with a getImageData
+    or with drawimage, depending what is the fastest result from a syntetic benchmark executed when the WEBGL backend gets initialized.
+  </p>
+  <pre>
+    var pipelineState = {
+      originalWidth: source.width || source.originalWidth,
+      originalHeight: source.height || source.originalHeight,
+      sourceWidth: width,
+      sourceHeight: height,
+      context: gl, // context of the webgl canvas
+      sourceTexture: this.createTexture(gl, width, height, !cachedTexture && source), // image texture A
+      targetTexture: this.createTexture(gl, width, height), // another texture with same dimensions texture B
+      originalTexture: cachedTexture ||
+        this.createTexture(gl, width, height, !cachedTexture && source),  // the cached texture that is read only for us
+      passes: filters.length,
+      webgl: true, // just a flag that inform the filters that we are in the webgl domain
+      squareVertices: this.squareVertices,
+      programCache: this.programCache, // cache of the compiled shaders
+      pass: 0, // passes needed to complete the filtering, needed to understand when we are at -1 from end
+      filterBackend: this  // reference to filterBackend.
+    };
+  </pre>
+  <p>
+    Then this object is sent to every <code>applyTo</code> function of each filter in the chain. The applyToWebgl function is triggered.
+    Each applyToWebgl iteration read from a texture and write to the other in the couple A - B.<br />
+    The first filter reads from originalTexture and write to A, then we swap between A and B, till the last filter that instead of writing
+    the data to another texture, paints it on the canvas element that we are using in glmode.<br />
+    From this canvas then we make a copy to the final canvas element that will be referenced in the <code>fabric.Image</code> as the
+    <code>.element</code> property that represent the final filtered image.<br />
+    Other than collecting the data and creating the pipelineState object, the webgl backend creates and keep a reference of created textures.
+  </p>
+  <h3>The fabric filter</h3>
+  <p>
+    fabric has a basic non working class, used to keep all the basic filter functionality, from which we extend each filter class.<br />
+    Once the filter backend gathered the necessary data for filtering, the <code>pipelineState</code>, what it does is:<br />
+  </p>
+  <pre>
+    filters.forEach(filter => {
+      filter.applyTo(pipelineState)
+    });
+  </pre>
+  <p>
+    This will make iterate each filter over the data, producing the final result.
+    Each webgl filter needs a series of step before being used, that can be executed once:
+  </p>
+  <pre>
+    - compiling the vertex shader
+    - compiling the fragment shader
+    - linking the 2 pieces in a program
+    - keep track of the identifiers that represets our filter parameters
+  </pre>
+  <p>
+    and some operations that gets exectued each filtering:
+  </p>
+  <pre>
+    - send data to the program when is filtering time
+    - bind additional textures if the filter needs them
+  </pre>
+  <p>
+    I'm not going in details over the webgl code for those operations, since there are better tutorial and example online ( where i took most of the inspiration and code ).<br />
+    What is important is that fabric exposes a way to provide a fragment shadere, a javascript function ( for non webgl filtering ), eventually a vertex shader
+    and the it will handle all the rest to make it happen.
+  </p>
+  <h3>An example of fabric filter, Brightness</h3>
+  <p>
+    To create a filter you need to know how it operates over the image data. The brightness filter add a or subtract from each channel a value.<br />
+    We will need a filter parameter to represent how much we want this value to be and the functions to apply it with plain JS or with WEBGL.
+  </p>
+  <h4>The javascript version</h4>
+  <p>
+    For the plain javascript version, we need to add a value to each channel of imageData except the alpha.<br />
+    In fabricjs this means we have to populate the apply2d function of the filter with an iterator that add the brightness value to 3 bytes out of 4:
+  </p>
+  <pre>
+    /**
+     * Apply the MyFilter operation to a Uint8ClampedArray representing the pixels of an image.
+     *
+     * @param {Object} options
+     * @param {ImageData} options.imageData The Uint8ClampedArray to be filtered.
+     */
+     applyTo2d: function(options) {
+       if (this.brightess === 0) {
+         // early return if the brightness is 0, since we do not need to change anything
+         return;
+       }
+       var imageData = options.imageData,
+           data = imageData.data, i, len = data.length;
+       for (i = 0; i < len; i += 4) {
+         // we iterate 4 bytes at once to represent a pixel in rgba 8,8,8,8 format.
+         data[i] += this.brightess;
+         data[i + 1] += this.brightess;
+         data[i + 2] += this.brightess;
+       }
+     },
+  </pre>
+  <p>
+    That's it. At this point the image data has been changed, the function does not return anything and the pipelineState gets passed to the next filter.
+  </p>
+  <h4>The WEBGL version</h4>
+  <p>
+    The WEBGL version require to write a fragment shader insted of  javascript function. FabricJS provides a standard function that does not change anything
+    to start with. I will not go in detail of what you can do or not do with WEBGL, since i have not the necessary expertise an since there is much material out ther
+    with lot of explanations.<br />
+    The basic fragment shader looks like this:
+  </p>
+  <pre>
+    /**
+     * Fragment source for the brightness program
+     */
+      precision highp float;
+      uniform sampler2D uTexture;
+      varying vec2 vTexCoord;
+      void main() {
+        vec4 color = texture2D(uTexture, vTexCoord);
+        gl_FragColor = color;
+      }
+  </pre>
+  <p>
+    We need to add a parameter to represent the brightness and add this paramter to each pixel of the rgb value of the color.
+  </p>
+  <pre>
+    /**
+     * Fragment source for the brightness program
+     */
+      precision highp float;
+      uniform sampler2D uTexture;
+      uniform float uBrightness;
+      varying vec2 vTexCoord;
+      void main() {
+        vec4 color = texture2D(uTexture, vTexCoord);
+        color.rgb += uBrightness;
+        gl_FragColor = color;
+      }
+  </pre>
+  <p>
+    we added a float uniform called uBrightness outside the main loop. The main loop adds this value to the rgb vector for each pixel of the image
+    that we extract from the texture using the vTextCoord.<br />
+    To make fabric find and valorize that value in the fragment shader with our brightness level we need to populate 2 methods of the filter class:
+  </p>
+  <pre>
+    /**
+     * Return WebGL uniform locations for this filter's shader.
+     *
+     * @param {WebGLRenderingContext} gl The GL canvas context used to compile this filter's shader.
+     * @param {WebGLShaderProgram} program This filter's compiled shader program.
+     */
+    getUniformLocations: function(gl, program) {
+      return {
+        uBrightness: gl.getUniformLocation(program, 'uBrightness'),
+      };
+    },
+
+    /**
+     * Send data from this filter to its shader program's uniforms.
+     *
+     * @param {WebGLRenderingContext} gl The GL canvas context used to compile this filter's shader.
+     * @param {Object} uniformLocations A map of string uniform names to WebGLUniformLocation objects
+     */
+    sendUniformData: function(gl, uniformLocations) {
+      gl.uniform1f(uniformLocations.uBrightness, this.brightness);
+    },
+  </pre>
+  <p>
+    <code>getUniformLocations</code> is instructed to find in the program the variable named `uBrightness`. This function is called once per filter initializaion.<br />
+    <code>sendUniformData</code> is instructed to valorize the location found with the value of the brightness property of the filter. This function is executed each filtering.<br />
+    if your filter needs more parameters, you will add them in the exacty same way. You give them a name in the fragmenShader, then you write a <code>getUniformLocations</code>
+    and a <code>sendUniformData</code> that locate and valorize more parameters:
+  </p>
+  <pre>
+    getUniformLocations: function(gl, program) {
+      return {
+        uBrightness: gl.getUniformLocation(program, 'uBrightness'),
+        uParam2: gl.getUniformLocation(program, 'uParam2'),
+        uParam3: gl.getUniformLocation(program, 'uParam3'),
+      };
+    },
+
+    sendUniformData: function(gl, uniformLocations) {
+      gl.uniform1f(uniformLocations.uBrightness, this.brightness);
+      gl.uniform1f(uniformLocations.uParam2, this.uParam2);
+      gl.uniform1f(uniformLocations.uParam3, this.uParam3);
+    },
+  </pre>
+  <p>
+    After that the filter just works. On the github repository you can find an empty boilerplate class to help you start with your own filter.
+    <a href="https://github.com/kangax/fabric.js/blob/master/src/filters/filter_boilerplate.js">empty filter class</a>
   </p>
 </div>

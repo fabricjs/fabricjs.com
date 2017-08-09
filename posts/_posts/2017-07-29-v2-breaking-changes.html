@@ -43,7 +43,7 @@ title: Fabric.js breaking changes
       }
     };</pre>
   This should do the trick.
-  <h3><a id="image">fabric.Image</a></h3>
+  <h3><a href="#image" id="image">fabric.Image</a></h3>
   <p>
     Fabric.Image got some changes.
     Lets' s start with the easy ones.
@@ -112,12 +112,74 @@ title: Fabric.js breaking changes
     image.resizeFilter = new fabric.Image.filters.ResizeFilter({type: 'hermite'});
     </pre>
     Resize filters are not ready in WEBGL yet.
-    <h3>fabric.Image.filters</h3>
+    <h3><a href="#filters" id="filters" >fabric.Image.filters</a></h3>
     <a href="/fabric-filters">About filtering</a> Here you find a complete explanation of the filter logic of fabricJS, including how to write your filters.
     What changed?<br />
     Structure of the filter changed.<br />
     Filters include a WEBGL shader to operate fast on the GPU.<br />
     Filters can be COMPOSED! you can use the new class ComposedFilter that is like a group of filters where you can save your custom filter.<br />
     New filters like Blur and Gamma. ( Colormatrix and Saturation have been silently introduced in 1.7.x ).
+  </p>
+  <h3><a href="#requestRenderAll" id="image">use of requestAnimationFrame and automatic renders from the api</a></h3>
+  <p>
+    <code>Canvas.renderall</code> is a sync operation, blocking the main thread for a decent amount of milliseconds.<br />
+    When dragging around object for each mouse mouse move fired you were getting a renderAll, also when adding may objects with a for loop, you were getting a renderAll for each
+    object if you did not stop the rendering with <code>renderOnAddRemove = false</code>.<br />
+    Additionally some methods were rendering to display the canvas changes, others were not.<br />
+    In this release we tried to do things better.<br />
+    We suggest to replace <code>Canvas.renderAll</code> with <code>Canvas.requestRenderAll</code>, and this has been already done for all the actions that involve
+    mouse operations.
+    requestRenderAll ad renderAll interact in this way:
+    <pre>
+      /**
+       * Append a renderAll request to next animation frame.
+       * a boolean flag will avoid appending more.
+       * @return {fabric.Canvas} instance
+       * @chainable
+       */
+      requestRenderAll: function () {
+        if (!this.isRendering) {
+          this.isRendering = fabric.util.requestAnimFrame(this.renderAndResetBound);
+        }
+        return this;
+      },
+
+      /**
+       * Function created to be instance bound at initialization
+       * used in requestAnimationFrame rendering
+       * @return {fabric.Canvas} instance
+       * @chainable
+       */
+      renderAndReset: function() {
+        this.isRendering = 0;
+        this.renderAll();
+      },
+
+      /**
+       * Renders the canvas
+       * @return {fabric.Canvas} instance
+       * @chainable
+       */
+      renderAll: function () {
+        var canvasToDrawOn = this.contextContainer;
+        if (this.rendering) {
+          fabric.window.cancelAnimationFrame(this.rendering);
+        }
+        this.renderCanvas(canvasToDrawOn, this._objects);
+        return this;
+      },
+    </pre>
+    <code>Canvas.requestRenderAll</code> is going to append a render to the next frame ( a sort of dynamic setTimeout ) and save in <code>this.rendering</code>
+    the handler to that request. When the times come, fabric zeros the handler and renders with <code>renderAll</code>.<br />
+    if You call requestRenderAll twice before you get a render, the second one is skipped ( check the <code>if(!this.isRendering)</code> ).<br />
+    This will greatly improve the app performance since during dragging on macOS you get something more than 60 mouse move events in one second, and most of them are
+    wasted cpu time in rendering a frame that get in the screen before the vsync. If your renderAll takes too much time, you will probably render one frame each 2
+    but is better than a cpu at hogged at 100% that cannot finish a frame before another is requested.<br />If you do not like it, the old plain renderAll is still there.<br />
+    The old renderAll before rendering check if there is a quequed rendered frame and will cancel the animation pending, since it is about to render immediately.<br />
+    <h3>List of methods that call requestRenderAll</h3>
+    Those methods render on theyr own and can be stopped with <code>renderOnAddRemove = false</code>:
+    <pre>
+      ... coming soon ...
+    </pre>
   </p>
 </div>

@@ -120,7 +120,7 @@ title: Fabric.js breaking changes
     Filters can be COMPOSED! you can use the new class ComposedFilter that is like a group of filters where you can save your custom filter.<br />
     New filters like Blur and Gamma. ( Colormatrix and Saturation have been silently introduced in 1.7.x ).
   </p>
-  <h3><a href="#requestRenderAll" id="image">use of requestAnimationFrame and automatic renders from the api</a></h3>
+  <h3><a href="#requestRenderAll" id="requestRenderAll">use of requestAnimationFrame and automatic renders from the api</a></h3>
   <p>
     <code>Canvas.renderall</code> is a sync operation, blocking the main thread for a decent amount of milliseconds.<br />
     When dragging around object for each mouse mouse move fired you were getting a renderAll, also when adding may objects with a for loop, you were getting a renderAll for each
@@ -167,8 +167,7 @@ title: Fabric.js breaking changes
         }
         this.renderCanvas(canvasToDrawOn, this._objects);
         return this;
-      },
-    </pre>
+      },</pre>
     <code>Canvas.requestRenderAll</code> is going to append a render to the next frame ( a sort of dynamic setTimeout ) and save in <code>this.rendering</code>
     the handler to that request. When the times come, fabric zeros the handler and renders with <code>renderAll</code>.<br />
     if You call requestRenderAll twice before you get a render, the second one is skipped ( check the <code>if(!this.isRendering)</code> ).<br />
@@ -177,9 +176,28 @@ title: Fabric.js breaking changes
     but is better than a cpu at hogged at 100% that cannot finish a frame before another is requested.<br />If you do not like it, the old plain renderAll is still there.<br />
     The old renderAll before rendering check if there is a quequed rendered frame and will cancel the animation pending, since it is about to render immediately.<br />
     <h3>List of methods that call requestRenderAll</h3>
-    Those methods render on theyr own and can be stopped with <code>renderOnAddRemove = false</code>:
+    Those methods render on their own and can be stopped with <code>renderOnAddRemove = false</code>:
     <pre>
-      ... coming soon ...
-    </pre>
+      Collection.add ( Group, Canvas, ActiveSelection classes )
+      Collection.insertAt ( Group, Canvas, ActiveSelection classes )
+      Collection.remove ( Group, Canvas, ActiveSelection classes )
+      StaticCanvas.setViewportTransform
+      StaticCanvas.clear
+      StaticCanvas.sendToBack
+      StaticCanvas.sendBackwards
+      StaticCanvas.bringToFront
+      StaticCanvas.bringForward
+      StaticCanvas.moveTo
+      StaticCanvas._centerObject ( all the center related function, viewport or not)</pre>
+    Those methods fire a render and they just do it:
+    <pre>
+      IText.enterEditing
+      StaticCanvas.setDimensions</pre>
+    The property <code>renderOnAddRemove</code> looks misnamed at least. This property already existed, and in version 1 it was covering
+    just add , remove and insertAt. As a fabricjs developer and without requestAnimationFrame and without caching, using some methods
+    that would force a render was very frustrating for me, and i ended up always writing crazy functions to do what the methods to but without
+    rendering. So i builded up the idea that this was something that a developer wanted to control.<br />
+    Keep `renderOnAddRemove` to `true` and use the methods normally. Consecutive request to rendering are ignored anyway.
+    If you want to avoid rendering completely, just set it to false, and call requestRenderAll when you need it.
   </p>
 </div>

@@ -13,25 +13,25 @@ title: Fabric.js. release 2.0.0 highlights.
     2.0.0 Milestone!
     The main reason of a big version bump is that text api changed and filter images changed.
     A lot of things changed and detailed explanations and examples are required to easily jump on the new version.<br />
-    Please check here: <a href="v2-breaking-changes">Fabric 2.0 breaking changes</a><br />
+    Please check here: <a href="v2-breaking-changes">Fabric 2.0 breaking changes - part 1</a><br />
     Below a summary of changs that are the breaking ones:
   </p>
-  <pre>
-  Removed PathGroup class completely
-  Introduced requestAnimationFrame for interactive renders, removed some automatic renders.
-  SVGs are now handled by fabric.Group
-  transformMatrix property is now deprectated
-  Filtering system overhaul. Speedups for imageData version and introduced the WEBGL one. More filters added
-  IText styles are handled by text now. So text is stylable, support multybe, has better caching system and kerning support
-  Named setters/getters are optional and disabled by default
-  fabric.Images lost 3 properties: alignX,alignY,meetOrSlice and gained cropX and cropY.
+  <p>
+  <a href="v2-breaking-changes">Removed PathGroup class completely</a><br />
+  <a href="v2-breaking-changes#requestRenderAll">Introduced requestAnimationFrame for interactive renders, removed some automatic renders.</a><br />
+  SVGs are now handled by fabric.Group<br />
+  transformMatrix property is now deprectated<br />
+  <a href="/fabric-filters">Filtering system overhaul. Speedups for imageData version and introduced the WEBGL one. More filters added</a><br />
+  <a href="/fabric-text">IText styles are handled by text now. So text is stylable, support multybe, has better caching system and kerning support</a><br />
+  Named setters/getters are optional and disabled by default<br />
+  <a href="v2-breaking-changes#image">fabric.Images lost 3 properties: alignX,alignY,meetOrSlice and gained cropX and cropY.</a><br />
   (...more as i remember i ll add them)
-  Dependency updates for node: jsdom bumped to 9.x and node 4 required.
-  Removed all the JSON and ES5 shimmers. If you need to support non ES5 browsers, do it with external polyfills
-  Api normalization for fromObject, fromElement, and clone. all are ASYNC.
-  lockRotation will make ... rotation locked. Will not hide the control
-  .clipTo is deprecated, please stop using it, i want to do something better.
-  </pre>
+  Dependency updates for node: jsdom bumped to 9.x and node 4 required.<br />
+  Removed all the JSON and ES5 shimmers. If you need to support non ES5 browsers, do it with external polyfills<br />
+  Api normalization for fromObject, fromElement, and clone. all are ASYNC.<br />
+  lockRotation will make ... rotation locked. Will not hide the control<br />
+  .clipTo is deprecated, please stop using it, i want to do something better.<br />
+</p>
 </div>
 
 <div id="changelog">

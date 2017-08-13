@@ -519,7 +519,7 @@
      */
     _createLowerCanvas: function (canvasEl) {
       // canvasEl === 'HTMLCanvasElement' does not work on jsdom/node
-      if (canvasEl.getContext) {
+      if (canvasEl && canvasEl.getContext) {
         this.lowerCanvasEl = canvasEl;
       }
       else {
@@ -825,8 +825,8 @@
      */
     renderAll: function () {
       var canvasToDrawOn = this.contextContainer;
-      if (this.rendering) {
-        fabric.window.cancelAnimationFrame(this.rendering);
+      if (this.isRendering) {
+        fabric.util.cancelAnimFrame(this.isRendering);
       }
       this.renderCanvas(canvasToDrawOn, this._objects);
       return this;
@@ -1070,7 +1070,7 @@
      */
     _centerObject: function(object, center) {
       object.setPositionByOrigin(center, 'center', 'center');
-      this.requestRenderAll();
+      this.renderOnAddRemove && this.requestRenderAll();
       return this;
     },
 

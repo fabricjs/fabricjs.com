@@ -533,7 +533,7 @@ function addAccessors($scope) {
   };
 
   var pattern = new fabric.Pattern({
-    source: '/assets/escheresque.png',
+    source: '/assets/ladybug.png',
     repeat: 'repeat'
   });
 
@@ -546,12 +546,7 @@ function addAccessors($scope) {
       obj.set('fill', null);
     }
     else {
-      if (obj instanceof fabric.PathGroup) {
-        obj.getObjects().forEach(function(o) { o.set('fill', pattern); });
-      }
-      else {
-        obj.set('fill', pattern);
-      }
+      obj.set('fill', pattern);
     }
     canvas.renderAll();
   };

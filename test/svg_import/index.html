@@ -6,11 +6,12 @@ title: SVG Rendering
 <link rel="stylesheet" type="text/css" href="svg_import.css">
 
 <script>
+  fabric.Object.prototype.originX = 'center';
+  fabric.Object.prototype.originY = 'center';
   function initCanvas(id) {
     var canvas;
     fabric.loadSVGFromURL('../../assets/' + id + '.svg', function(objects, options) {
       var shape = fabric.util.groupSVGElements(objects, options);
-
       var canvasEl = document.getElementById('c' + (id + '').replace('/', '_'));
 
       canvasEl.width = shape.getScaledWidth() || 600;
@@ -21,8 +22,8 @@ title: SVG Rendering
         iframeEl.style.width = canvasEl.width + 'px';
         iframeEl.style.height = canvasEl.height + 'px';
       }
-      shape.top = 0;
-      shape.left = 0;
+      shape.top = canvasEl.height/2;
+      shape.left = canvasEl.width/2;
       canvas = window['__canvas' + id] = new fabric.Canvas('c' + id, { backgroundColor: '#fff' });
       canvas.add(shape);
     });

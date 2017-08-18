@@ -13,9 +13,9 @@ title: SVG Rendering — Gradients
       var shape = fabric.util.groupSVGElements(objects, options);
 
       var canvasEl = document.getElementById('c_' + id.replace('/', '_'));
-
-      canvasEl.width = shape.width || 600;
-      canvasEl.height = shape.height || 600;
+      var divExp = document.getElementById('exp_' + id.replace('/', '_'));
+      divExp.width = canvasEl.width = shape.width || 600;
+      divExp.height = canvasEl.height = shape.height || 600;
 
       var iframeEl = canvasEl.parentNode.nextSibling.childNodes[1];
       if (iframeEl) {
@@ -28,7 +28,8 @@ title: SVG Rendering — Gradients
       });
       canvas.add(shape);
       shape.center();
-      canvas.renderAll();
+      divExp.innerHTML = canvas.toSVG();
+      canvas.requestRenderAll();
     });
   }
 </script>
@@ -62,7 +63,10 @@ title: SVG Rendering — Gradients
       '<div class="test"><div class="block left"><p>'+ id + '</p>' +
       '<canvas id="c_' + id.replace('/', '_') + '" width="600" height="600"></canvas></div>' +
       '<div class="block"><p><a href="../../assets/'+ id + '.svg">SVG</a></p>' +
-      '<iframe src="../../assets/' + id + '.svg"></iframe></div></div><br>'
+      '<iframe src="../../assets/' + id + '.svg"></iframe></div>' +
+      '<div class="block"><p><a href="../../assets/'+ id + '.svg">EXP SVG</a></p>' +
+      '<div id="exp_' + id.replace('/', '_') + '" ></div></div>' +
+      '</div><br>'
     );
     initCanvas(id);
   }

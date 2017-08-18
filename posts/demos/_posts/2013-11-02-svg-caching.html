@@ -41,7 +41,7 @@ title: SVG caching
   });
 
   function animate(obj) {
-    obj.setAngle(0).animate({ angle: 360 }, {
+    obj.rotate(0).animate({ angle: 360 }, {
       duration: 3000,
       onComplete: function(){ animate(obj) },
       easing: function(t, b, c, d) { return c*t/d + b }
@@ -55,7 +55,7 @@ title: SVG caching
   }
 
   (function render(){
-    canvas.renderAll();
+    canvas.requestRenderAll();
     fabric.util.requestAnimFrame(render);
   })();
 

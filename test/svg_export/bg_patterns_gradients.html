@@ -122,8 +122,8 @@ var rect = new fabric.Rect({
 canvas.add(rect);
 
 rect.setGradient('fill', {
-  x1: -rect.getWidth()/2, y1: -rect.getWidth()/2,
-  x2: rect.getWidth()/2, y2: rect.getHeight()/2,
+  x1: 0, y1: 0,
+  x2: rect.width, y2: rect.height,
   colorStops: {'0': '#fff', '0.8': '#555', '1': '#222' }
 });
 canvas.renderAll();
@@ -136,10 +136,10 @@ var circle = new fabric.Circle({
   radius: 100
 });
 canvas.add(circle);
-
+var radius = circle.get('radius');
 circle.setGradient('fill', {
-  x1: 0, y1: 0, r1: 0,
-  x2: 0, y2: 0, r2: circle.get('radius'),
+  x1: radius, y1: radius, r1: 0,
+  x2: radius, y2: radius, r2: circle.get('radius'),
   colorStops: {'0': '#fff', '0.8': '#555', '1': '#222' }
 });
 canvas.renderAll();

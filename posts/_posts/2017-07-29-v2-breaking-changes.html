@@ -64,6 +64,45 @@ title: Fabric.js breaking changes
     So cropX and cropY represent how much are you cropping from the top left corner for the image, in pixels, no scales involved.<br />
     Width and height properties are influencing how much of the image are you using. A crop rectangle.
   </p>
+  <h3>fabric.Image.fromObject IMPORTANT!</h3>
+  <p>
+    Due to changes in how width and height are handled, the old JSON will not load properly if the image dimensions have been modified.
+    What follow is a dropin replacement for <code>fabric.Image.fromObject</code> to fix the difference:
+  </p>
+  <pre>
+    /**
+     * Creates an instance of fabric.Image from its object representation
+     * @static
+     * @param {Object} object Object to create an instance from
+     * @param {Function} callback Callback to invoke when an image instance is created
+     */
+     fabric.Image.fromObject = function(object, callback) {
+       fabric.util.loadImage(object.src, function(img, error) {
+         if (error) {
+           callback && callback(null, error);
+           return;
+         }
+         fabric.Image.prototype._initFilters.call(object, object.filters, function(filters) {
+           object.filters = filters || [];
+           fabric.Image.prototype._initFilters.call(object, [object.resizeFilter], function(resizeFilters) {
+             object.resizeFilter = resizeFilters[0];
+             if (typeof object.version === 'undefined') {
+               var elWidth = img.naturalWidth || img.width;
+               var elHeight = img.naturalHeight || img.height;
+               var scaleX = (object.scaleX || 1) * object.width / elWidth;
+               var scaleY = (object.scaleY || 1) * object.height / elHeight;
+               object.width = elWidth;
+               object.height = elHeight;
+               object.scaleX = scaleX;
+               object.scaleY = scaleY;
+             }
+             var image = new fabric.Image(img, object);
+             callback(image);
+           });
+         });
+       }, null, object.crossOrigin);
+     };
+  </pre>
   <p>
     <b>Image.applyFilters got sync!</b> <br />
     the applyFilter functions of fabric.Image on the version 1.x is:

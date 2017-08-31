@@ -106,23 +106,6 @@
     equal(cObj.set('opacity', 0.5), cObj, 'chainable');
   });
 
-  test('set and minScaleLimit', function() {
-    var cObj = new fabric.Object({ left: 11, top: 22, width: 50, height: 60, opacity: 0.7 });
-
-    //the min scale limit is given by height.
-    equal(cObj.minScaleLimit.toFixed(3), 0.017);
-
-    cObj.set('width', 1000);
-    equal(cObj.width, 1000);
-    //the min scale limit is given by width.
-    equal(cObj.minScaleLimit, 0.001);
-
-    cObj.set('width', 1);
-    equal(cObj.width, 1);
-    //the min scale limit is given by height.
-    equal(cObj.minScaleLimit.toFixed(3), 0.017);
-  });
-
   test('set with object of prop/values', function() {
     var cObj = new fabric.Object({  });
 
@@ -164,13 +147,13 @@
   });
 
   test('toJSON', function() {
-    var emptyObjectJSON = '{"type":"object","originX":"left","originY":"top","left":0,"top":0,"width":0,"height":0,"fill":"rgb(0,0,0)",' +
+    var emptyObjectJSON = '{"type":"object","version":"2.0.0-beta6","originX":"left","originY":"top","left":0,"top":0,"width":0,"height":0,"fill":"rgb(0,0,0)",' +
                           '"stroke":null,"strokeWidth":1,"strokeDashArray":null,"strokeLineCap":"butt","strokeLineJoin":"miter","strokeMiterLimit":10,' +
                           '"scaleX":1,"scaleY":1,"angle":0,"flipX":false,"flipY":false,"opacity":1,' +
                           '"shadow":null,"visible":true,"clipTo":null,"backgroundColor":"","fillRule":"nonzero","globalCompositeOperation":"source-over",' +
                           '"transformMatrix":null,"skewX":0,"skewY":0}';
 
-    var augmentedJSON = '{"type":"object","originX":"left","originY":"top","left":0,"top":0,"width":122,"height":0,"fill":"rgb(0,0,0)",' +
+    var augmentedJSON = '{"type":"object","version":"2.0.0-beta6","originX":"left","originY":"top","left":0,"top":0,"width":122,"height":0,"fill":"rgb(0,0,0)",' +
                         '"stroke":null,"strokeWidth":1,"strokeDashArray":[5,2],"strokeLineCap":"round","strokeLineJoin":"bevil","strokeMiterLimit":5,' +
                         '"scaleX":1.3,"scaleY":1,"angle":0,"flipX":false,"flipY":true,"opacity":0.88,' +
                         '"shadow":null,"visible":true,"clipTo":null,"backgroundColor":"","fillRule":"nonzero","globalCompositeOperation":"source-over",' +
@@ -194,6 +177,7 @@
 
   test('toObject', function() {
     var emptyObjectRepr = {
+      'version':                  fabric.version,
       'type':                     'object',
       'originX':                  'left',
       'originY':                  'top',
@@ -226,6 +210,7 @@
     };
 
     var augmentedObjectRepr = {
+      'version':                  fabric.version,
       'type':                     'object',
       'originX':                  'left',
       'originY':                  'top',
@@ -297,9 +282,10 @@
 
   test('toObject without default values', function() {
 
-    var emptyObjectRepr = { type: 'object' };
+    var emptyObjectRepr = { version: fabric.version, type: 'object' };
 
     var augmentedObjectRepr = {
+      version: fabric.version,
       type: 'object',
       left: 10,
       top: 20,

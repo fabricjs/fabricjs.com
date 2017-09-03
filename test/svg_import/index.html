@@ -13,7 +13,7 @@ title: SVG Rendering
     fabric.loadSVGFromURL('../../assets/' + id + '.svg', function(objects, options) {
       var shape = fabric.util.groupSVGElements(objects, options);
       var canvasEl = document.getElementById('c' + (id + '').replace('/', '_'));
-
+      var div = document.getElementById('exp_c' + (id + '').replace('/', '_'));
       canvasEl.width = shape.getScaledWidth() || 600;
       canvasEl.height = shape.getScaledHeight() || 600;
 
@@ -26,6 +26,7 @@ title: SVG Rendering
       shape.left = canvasEl.width/2;
       canvas = window['__canvas' + id] = new fabric.Canvas('c' + id, { backgroundColor: '#fff' });
       canvas.add(shape);
+      div.innerHTML = canvas.toSVG();
     });
   }
 </script>
@@ -43,14 +44,16 @@ title: SVG Rendering
 //   149 /* too big? */,
     150 /* svg parse error */
   ];
-  for (var i = 1; i <= 180; i++) {
+  for (var i = 181; i >= 171; i--) {
 
     if (blacklist.indexOf(i) === -1) {
       document.write(
         '<div class="test"><div class="block left"><p>Canvas #' + i + '</p>' +
-        '<canvas id="c' + i + '" width="600" height="600"></canvas></div>' +
+        '<canvas id="c' + i + '" width="300" height="300"></canvas></div>' +
         '<div class="block"><p><a href="../../assets/' + i + '.svg">SVG</a></p>' +
-        '<iframe src="../../assets/' + i + '.svg"></iframe></div></div>'
+        '<iframe src="../../assets/' + i + '.svg"></iframe></div>' +
+        '<div class="block"><p><a href="../../assets/' + i + '.svg">EXPORTED SVG</a></p>' +
+        '<div id="exp_c' + i + '" ></div></div></div>'
       );
       initCanvas(i);
     }

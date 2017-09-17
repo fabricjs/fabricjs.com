@@ -50,6 +50,7 @@
       var activeSelection = this._activeObject;
       if (activeSelection.contains(target)) {
         activeSelection.removeWithUpdate(target);
+        target.fire('deselected', { e: e });
         this._hoveredTarget = target;
         if (activeSelection.size() === 1) {
           // activate last remaining object
@@ -59,9 +60,10 @@
       }
       else {
         activeSelection.addWithUpdate(target);
+        target.fire('selected', { e: e });
         this._hoveredTarget = activeSelection;
       }
-      this.fire('selection:created', { target: activeSelection, e: e });
+      this.fire('selection:updated', { target: activeSelection, e: e, updated: target });
     },
 
     /**
@@ -70,6 +72,7 @@
     _createActiveSelection: function(target, e) {
       var group = this._createGroup(target);
       this.setActiveObject(group, e);
+      target.fire('selected', { e: e });
       this.fire('selection:created', { target: group, e: e });
     },
 
@@ -95,19 +98,22 @@
      */
     _groupSelectedObjects: function (e) {
 
-      var group = this._collectObjects();
+      var group = this._collectObjects(),
+          aGroup;
 
       // do not create group for 1 element only
       if (group.length === 1) {
         this.setActiveObject(group[0], e);
       }
       else if (group.length > 1) {
-        group = new fabric.ActiveSelection(group.reverse(), {
+        aGroup = new fabric.ActiveSelection(group.reverse(), {
           canvas: this
         });
-        this.setActiveObject(group, e);
-        this.fire('selection:created', { target: group, e: e });
-        this.requestRenderAll();
+        group.forEach(function(object) {
+          object.fire('selected', { e: e });
+        });
+        this.setActiveObject(aGroup, e);
+        this.fire('selection:created', { target: aGroup, e: e });
       }
     },
 
@@ -124,7 +130,7 @@
           selectionX1Y1 = new fabric.Point(min(x1, x2), min(y1, y2)),
           selectionX2Y2 = new fabric.Point(max(x1, x2), max(y1, y2)),
           isClick = x1 === x2 && y1 === y2;
-
+      // we iterate reverse order to collect top first in case of click.
       for (var i = this._objects.length; i--; ) {
         currentObject = this._objects[i];
 

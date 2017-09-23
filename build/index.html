@@ -207,7 +207,7 @@ title: Custom Fabric build
     function collectFilesName() {
       var filesToInclude = [
         'HEADER.js',
-
+        ifSpecifiedInclude('global', 'src/globalFabric.js'),
         ifSpecifiedInclude('gestures', 'lib/event.js'),
 
         'src/mixins/observable.mixin.js',
@@ -220,7 +220,7 @@ title: Custom Fabric build
         'src/util/lang_object.js',
         'src/util/lang_string.js',
         'src/util/lang_class.js',
-        'src/util/dom_event.js',
+        ifSpecifiedInclude('interaction', 'src/util/dom_event.js'),
         'src/util/dom_style.js',
         'src/util/dom_misc.js',
         'src/util/dom_request.js',
@@ -255,7 +255,6 @@ title: Custom Fabric build
         ifSpecifiedInclude('interaction', 'src/canvas.class.js'),
         ifSpecifiedInclude('interaction', 'src/mixins/canvas_events.mixin.js'),
         ifSpecifiedInclude('interaction', 'src/mixins/canvas_grouping.mixin.js'),
-        ifSpecifiedInclude('interaction', 'src/shapes/active_selection.class.js'),
 
         'src/mixins/canvas_dataurl_exporter.mixin.js',
 
@@ -272,6 +271,7 @@ title: Custom Fabric build
         ifSpecifiedInclude('interaction', 'src/mixins/object_interactivity.mixin.js'),
 
         ifSpecifiedInclude('animation', 'src/mixins/animation.mixin.js'),
+
         ifSpecifiedInclude('line', 'src/shapes/line.class.js'),
         ifSpecifiedInclude('circle', 'src/shapes/circle.class.js'),
         ifSpecifiedInclude('triangle', 'src/shapes/triangle.class.js'),
@@ -281,7 +281,8 @@ title: Custom Fabric build
         ifSpecifiedInclude('polygon', 'src/shapes/polygon.class.js'),
         ifSpecifiedInclude('path', 'src/shapes/path.class.js'),
         'src/shapes/group.class.js',
-        ifSpecifiedInclude('animation', 'src/shapes/image.class.js'),
+        ifSpecifiedInclude('interaction', 'src/shapes/active_selection.class.js'),
+        ifSpecifiedInclude('image', 'src/shapes/image.class.js'),
 
         ifSpecifiedInclude('object_straightening', 'src/mixins/object_straightening.mixin.js'),
 
@@ -307,6 +308,7 @@ title: Custom Fabric build
         ifSpecifiedInclude('image_filters', 'src/filters/hue_rotation.class.js'),
 
         ifSpecifiedInclude('text', 'src/shapes/text.class.js'),
+        ifSpecifiedInclude('text', 'src/mixins/text_style.mixin.js'),
 
         ifSpecifiedInclude('itext', 'src/shapes/itext.class.js'),
         ifSpecifiedInclude('itext', 'src/mixins/itext_behavior.mixin.js'),

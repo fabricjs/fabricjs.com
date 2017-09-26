@@ -414,6 +414,13 @@ function addAccessors($scope) {
     }
   };
 
+  $scope.getLockScalingFlip = function() {
+    return getActiveProp('lockScalingFlip');
+  };
+  $scope.setLockScalingFlip = function(value) {
+    setActiveProp('lockScalingFlip', value);
+  };
+
   $scope.getHorizontalLock = function() {
     return getActiveProp('lockMovementX');
   };

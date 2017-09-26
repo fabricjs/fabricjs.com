@@ -106,8 +106,9 @@
           'r="', this.radius,
           '" style="', this.getSvgStyles(),
           '" transform="', this.getSvgTransform(),
-          ' ', this.getSvgTransformMatrix(),
-          '"/>\n'
+          ' ', this.getSvgTransformMatrix(), '"',
+          this.addPaintOrder(),
+          '/>\n'
         );
       }
       else {
@@ -123,7 +124,8 @@
           ' 0 ', +largeFlag + ' 1', ' ' + endX + ' ' + endY,
           '" style="', this.getSvgStyles(),
           '" transform="', this.getSvgTransform(),
-          ' ', this.getSvgTransformMatrix(),
+          ' ', this.getSvgTransformMatrix(), '"',
+          this.addPaintOrder(),
           '"/>\n'
         );
       }
@@ -138,13 +140,13 @@
      */
     _render: function(ctx) {
       ctx.beginPath();
-      ctx.arc(0,
+      ctx.arc(
+        0,
         0,
         this.radius,
         this.startAngle,
         this.endAngle, false);
-      this._renderFill(ctx);
-      this._renderStroke(ctx);
+      this._renderPaintInOrder(ctx);
     },
 
     /**

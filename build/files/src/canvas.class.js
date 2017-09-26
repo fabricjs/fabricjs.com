@@ -17,11 +17,12 @@
    * @see {@link fabric.Canvas#initialize} for constructor definition
    *
    * @fires object:added
+   * @fires object:removed
    * @fires object:modified
    * @fires object:rotating
    * @fires object:scaling
    * @fires object:moving
-   * @fires object:selected
+   * @fires object:selected this event is deprecated. use selection:created
    *
    * @fires before:selection:cleared
    * @fires selection:cleared
@@ -879,8 +880,8 @@
       var dist = localMouse.y + localMouse.x,
           lastDist = _dim.y * transform.original.scaleY / target.scaleY +
                      _dim.x * transform.original.scaleX / target.scaleX,
-          scaled, signX = localMouse.x / Math.abs(localMouse.x),
-          signY = localMouse.y / Math.abs(localMouse.y);
+          scaled, signX = localMouse.x < 0 ? -1 : 1,
+          signY = localMouse.y < 0 ? -1 : 1;
 
       // We use transform.scaleX/Y instead of target.scaleX/Y
       // because the object may have a min scale and we'll loose the proportions
@@ -986,7 +987,7 @@
       var lastAngle = atan2(t.ey - t.top, t.ex - t.left),
           curAngle = atan2(y - t.top, x - t.left),
           angle = radiansToDegrees(curAngle - lastAngle + t.theta),
-          hasRoated = true;
+          hasRotated = true;
 
       if (t.target.snapAngle > 0) {
         var snapAngle  = t.target.snapAngle,
@@ -1009,13 +1010,13 @@
       angle %= 360;
 
       if (t.target.angle === angle) {
-        hasRoated = false;
+        hasRotated = false;
       }
       else {
         t.target.angle = angle;
       }
 
-      return hasRoated;
+      return hasRotated;
     },
 
     /**
@@ -1396,6 +1397,48 @@
     },
 
     /**
+     * @private
+     * Compares the old activeObject with the current one and fires correct events
+     * @param {fabric.Object} obj old activeObject
+     */
+    _fireSelectionEvents: function(oldObjects, e) {
+      var somethingChanged = false, objects = this.getActiveObjects(),
+          added = [], removed = [], opt = { e: e };
+      oldObjects.forEach(function(oldObject) {
+        if (objects.indexOf(oldObject) === -1) {
+          somethingChanged = true;
+          oldObject.fire('deselected', opt);
+          removed.push(oldObject);
+        }
+      });
+      objects.forEach(function(object) {
+        if (oldObjects.indexOf(object) === -1) {
+          somethingChanged = true;
+          object.fire('selected', opt);
+          added.push(object);
+        }
+      });
+      if (oldObjects.length > 0 && objects.length > 0) {
+        opt.selected = added;
+        opt.deselected = removed;
+        somethingChanged && this.fire('selection:updated', opt);
+      }
+      else if (objects.length > 0) {
+        if (objects.length === 1) {
+          opt.target = added[0];
+          this.fire('object:selected', opt);
+        }
+        opt.target = undefined;
+        opt.selected = added;
+        this.fire('selection:created', opt);
+      }
+      else if (oldObjects.length > 0) {
+        opt.deselected = removed;
+        this.fire('selection:cleared', opt);
+      }
+    },
+
+    /**
      * Sets given object as the only active object on canvas
      * @param {fabric.Object} object Object to set as an active one
      * @param {Event} [e] Event (passed along when firing "object:selected")
@@ -1403,15 +1446,9 @@
      * @chainable
      */
     setActiveObject: function (object, e) {
-      var currentActiveObject = this._activeObject;
-      if (object === currentActiveObject) {
-        return this;
-      }
-      if (this._setActiveObject(object, e)) {
-        currentActiveObject && currentActiveObject.fire('deselected', { e: e });
-        this.fire('object:selected', { target: object, e: e });
-        object.fire('selected', { e: e });
-      }
+      var currentActives = this.getActiveObjects();
+      this._setActiveObject(object, e);
+      this._fireSelectionEvents(currentActives, e);
       return this;
     },
 
@@ -1460,14 +1497,12 @@
      * @chainable
      */
     discardActiveObject: function (e) {
-      var activeObject = this._activeObject;
-      if (activeObject) {
-        this.fire('before:selection:cleared', { target: activeObject, e: e });
-        if (this._discardActiveObject(e)) {
-          this.fire('selection:cleared', { e: e, target: activeObject });
-          activeObject.fire('deselected', { e: e });
-        }
+      var currentActives = this.getActiveObjects();
+      if (currentActives.length) {
+        this.fire('before:selection:cleared', { target: currentActives[0], e: e });
       }
+      this._discardActiveObject(e);
+      this._fireSelectionEvents(currentActives, e);
       return this;
     },
 

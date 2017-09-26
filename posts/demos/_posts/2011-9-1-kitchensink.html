@@ -143,6 +143,12 @@ title: Kitchensink
             ng-class="{'btn-inverse': getRotationLock()}">
             {[ getRotationLock() ? 'Unlock rotation' : 'Lock rotation' ]}
           </button>
+          <br>
+          <button class="btn btn-lock btn-object-action"
+            ng-click="setLockScalingFlip(!getLockScalingFlip())"
+            ng-class="{'btn-inverse': getLockScalingFlip()}">
+            {[ getLockScalingFlip() ? 'Unlock scaling flip' : 'Lock scaling flip' ]}
+          </button>
         </div>
 
         <div style="margin-top:10px">

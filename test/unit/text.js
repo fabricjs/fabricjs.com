@@ -50,6 +50,7 @@
     'textAlign':                 'left',
     'textBackgroundColor':       '',
     'fillRule':                  'nonzero',
+    'paintFirst':               'fill',
     'globalCompositeOperation':  'source-over',
     'skewX':                      0,
     'skewY':                      0,
@@ -250,6 +251,7 @@
         strokeLineJoin:   'bevil',
         strokeMiterLimit: 5,
         fontFamily:       'Monaco',
+        paintFirst:       'fill',
         fontStyle:        'italic',
         fontWeight:       'bold',
         fontSize:         123,
@@ -499,6 +501,15 @@
     assert.deepEqual(iText.getStyleAtPosition(1), { });
 
     assert.deepEqual(iText.getStyleAtPosition(18), { fill: 'green' });
+  });
+
+  QUnit.test('_splitText', function(assert) {
+    var text = new fabric.Text('test foo bar-baz\nqux', {});
+    var test = text._splitText();
+    assert.equal(test.lines[0], 'test foo bar-baz', 'first line is correct');
+    assert.equal(test.lines[1], 'qux', 'second line is correct');
+    assert.deepEqual(test.graphemeLines[0], ['t','e','s','t',' ','f','o','o',' ','b','a','r','-','b','a','z'], 'first line is correct');
+    assert.deepEqual(test.graphemeLines[1], ['q','u','x'], 'second line is correct');
   });
 
   QUnit.test('getStyleAtPosition complete', function(assert) {

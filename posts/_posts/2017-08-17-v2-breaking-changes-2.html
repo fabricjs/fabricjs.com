@@ -85,9 +85,13 @@ Events fired by objects are:
 <pre>selected
 deselected</pre>
 Events fired by canvas are:
-<pre>object:selected
+<pre>selection:created
+selection:updated
 before:selection:cleared
-selection:cleared</pre>
+selection:cleared
+// deprecated
+object:selected
+</pre>
 For each object are available 2 callbacks
 <pre>onDeselect
 onSelect</pre>
@@ -96,25 +100,23 @@ but just to return a boolean to cancel the current process depending on dynamic 
 which mutating the properties of objects like selectable, evented or others, is not comfortable or
 anyway brings to weird code paths.
 </p>
-<p>Follows a description of the most common user selection flows, and the fabric code behind them.</p>
-<h4>Selection</h4>
-<p>An user click on an object, no other active objects on canvas<br/>
-<code>setActiveObject()</code> gets called.<br />
-setActiveObject calls the <code>onSelect</code> method of the target object, passing as first argument an object with
-`e` property containing the reference to the event.<br />
-At this point you may have or not have assigned to onSelect some custom logic to intervene on the selection process.<br />
-If onSelect returns true, the selection process ends here and nothing gets selected.
-If it returns false as default, the object is set as selected, a canvas level event gets fired <code>object:selected</code>, and a object level one fires
-<code>selected</code>, both of them having access to the original mouse event.
-<h4>Deselection</h4>
-<p>An user click on a non selectable area of the canvas, having an object selected.<br/>
-<code>discardActiveObject()</code> gets called.<br />
-First a canvas level event fires <code>before:selection:cleared</code>, getting in the option argument both the actual activeObject and the event.<br />
-Then discardActiveObject calls the <code>onDeselect</code> method of the target object, passing as first argument an object with
-`e` property containing the reference to the event and eventually a reference to the next target that is replacing this, in this case undefined.<br />
-At this point you may have or not have assigned to onDeselect some custom logic to intervene on the selection process.<br />
-If onDeselect returns true, the deselection process ends here and nothing gets deselected, no additional events fired.
-If it returns false as default, the active object is removed from the property _activeObject, a canvas level event gets fired as <code>selection:cleared</code>, and a object level one fires
-<code>deselected</code>, both of them having access to the original mouse event.
+<h4>Firing events</h4>
+<p>Those events are meant to intercept user interaction with the selection of fabric.<br/>
+You should expect the canvas to fire <code>selection:created</code> every time the user pass from a situation
+of no selection to something selected. Each object involved in the seleciton process, one or more, by click or <body>
+click and drag, will fire the <code>selected</code> event.<br />
+When <code>selection:created</code> fires, it receives as first argument of the callback an object that contains <thead>
+property 'selected', with an array of all the selected fabric instances.<br />
+When an user remove or add an object from the multiselection or switch from single to multi selection, or simply move the selection
+from the object A to the object B, the event <code>selection:udpated</code> fires. The event receives as first argument of the
+callback an object that contains both 'selected' and 'deselected'
+property contaning an array of the objects that entered or exited the selection status. Each object involved in the process fires its
+own single event.<br />
+Finally when an user destroy a multiple selection or deselect an object, the event <code>selection:cleared</code> fires, getting in <thead>
+arguments an object with the 'deselected' property. <br />
+The event <code>object:selected</code> is considered deprecated and will be removed in the next major version of fabricjs.
+<h4>Callbacks on multiple selection</h4>
+The callbacks onSelect and onDeselect are not available yet on the click and drag selection or on the shift click selection and will
+be added as a feature as soon as branch 2.0 is ready.
 </p>
 </div>

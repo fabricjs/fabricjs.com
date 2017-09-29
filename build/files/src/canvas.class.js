@@ -483,8 +483,9 @@
       var ctx = this.contextCache,
           originalColor = target.selectionBackgroundColor;
 
-      target.hasBorders = target.transparentCorners = false;
       target.selectionBackgroundColor = '';
+
+      this.clearContext(ctx);
 
       ctx.save();
       ctx.transform.apply(ctx, this.viewportTransform);
@@ -494,14 +495,14 @@
       target === this._activeObject && target._renderControls(ctx, {
         hasBorders: false,
         transparentCorners: false
+      }, {
+        hasBorders: false,
       });
 
       target.selectionBackgroundColor = originalColor;
 
       var isTransparent = fabric.util.isTransparent(
         ctx, x, y, this.targetFindTolerance);
-
-      this.clearContext(ctx);
 
       return isTransparent;
     },
@@ -1421,15 +1422,20 @@
       if (oldObjects.length > 0 && objects.length > 0) {
         opt.selected = added;
         opt.deselected = removed;
+        // added for backward compatibility
+        opt.updated = added[0] || removed[0];
+        opt.target = this._activeObject;
         somethingChanged && this.fire('selection:updated', opt);
       }
       else if (objects.length > 0) {
+        // deprecated event
         if (objects.length === 1) {
           opt.target = added[0];
           this.fire('object:selected', opt);
         }
-        opt.target = undefined;
         opt.selected = added;
+        // added for backward compatibility
+        opt.target = this._activeObject;
         this.fire('selection:created', opt);
       }
       else if (oldObjects.length > 0) {

@@ -201,7 +201,8 @@ title: Custom Fabric build
     }
 
     function ifSpecifiedInclude(moduleName, filename) {
-      return document.getElementById(moduleName).checked ? filename : '';
+      var elem = document.getElementById(moduleName);
+      return elem && elem.checked ? filename : '';
     }
 
     function collectFilesName() {

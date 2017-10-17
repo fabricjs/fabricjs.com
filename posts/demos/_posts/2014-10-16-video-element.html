@@ -54,15 +54,15 @@ canvas.add(video2);
 video2.getElement().play();
 
 // adding webcam video element
-getUserMedia({video: true}, function getWebcamSuccess(localMediaStream) {
+getUserMedia({video: true}, function getWebcamAllowed(localMediaStream) {
   var video = document.getElementById('webcam');
   video.src = window.URL.createObjectURL(localMediaStream);
 
   canvas.add(webcam);
   webcam.moveTo(0); // move webcam element to back of zIndex stack
   webcam.getElement().play();
-}, function getWebcamError(e) {
-  console.log('Reeeejected!', e);
+}, function getWebcamNotAllowed(e) {
+  // block will be hit if user selects "no" for browser "allow webcam access" prompt
 });
 
 // making navigator.getUserMedia cross-browser compatible

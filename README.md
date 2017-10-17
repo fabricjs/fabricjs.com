@@ -1,3 +1,9 @@
+### Running this repo locally
+
+This repo uses [Jekyll](http://jekyllrb.com/) to serve pages, which can be installed [here](http://jekyllrb.com/docs/installation/#install-with-rubygems).
+
+Once installed just run the command `jekyll serve` in your terminal in the root directory of this repo.
+
 ### Not familiar with Fabric?
 
 Best place to start is by going through **[4-part tutorial](/articles)**

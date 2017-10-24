@@ -970,7 +970,7 @@ function addAccessors($scope) {
         fill: this.color
       });
 
-      var canvasWidth = rect.getBoundingRectWidth();
+      var canvasWidth = rect.getBoundingRect().width;
 
       patternCanvas.width = patternCanvas.height = canvasWidth + squareDistance;
       rect.set({ left: canvasWidth / 2, top: canvasWidth / 2 });

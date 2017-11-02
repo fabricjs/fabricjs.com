@@ -743,21 +743,16 @@
     /**
      * Transforms context when rendering an object
      * @param {CanvasRenderingContext2D} ctx Context
-     * @param {Boolean} fromLeft When true, context is transformed to object's top/left corner. This is used when rendering text on Node
      */
-    transform: function(ctx, fromLeft) {
+    transform: function(ctx) {
+      var m;
       if (this.group && !this.group._transformDone) {
-        this.group.transform(ctx);
+        m = this.calcTransformMatrix();
       }
-      var center = fromLeft ? this._getLeftTopCoords() : this.getCenterPoint();
-      ctx.translate(center.x, center.y);
-      this.angle && ctx.rotate(degreesToRadians(this.angle));
-      ctx.scale(
-        this.scaleX * (this.flipX ? -1 : 1),
-        this.scaleY * (this.flipY ? -1 : 1)
-      );
-      this.skewX && ctx.transform(1, 0, Math.tan(degreesToRadians(this.skewX)), 1, 0, 0);
-      this.skewY && ctx.transform(1, Math.tan(degreesToRadians(this.skewY)), 0, 1, 0, 0);
+      else {
+        m = this.calcOwnMatrix();
+      }
+      ctx.transform(m[0], m[1], m[2], m[3], m[4], m[5]);
     },
 
     /**
@@ -884,7 +879,8 @@
      * @return {fabric.Object} thisArg
      */
     _set: function(key, value) {
-      var shouldConstrainValue = (key === 'scaleX' || key === 'scaleY');
+      var shouldConstrainValue = (key === 'scaleX' || key === 'scaleY'),
+          isChanged = this[key] !== value, groupNeedsUpdate = false;
 
       if (shouldConstrainValue) {
         value = this._constrainScale(value);
@@ -906,15 +902,15 @@
 
       this[key] = value;
 
-      if (this.cacheProperties.indexOf(key) > -1) {
-        if (this.group) {
+      if (isChanged) {
+        groupNeedsUpdate = this.group && this.group.isOnACache();
+        if (this.cacheProperties.indexOf(key) > -1) {
+          this.dirty = true;
+          groupNeedsUpdate && this.group.set('dirty', true);
+        }
+        else if (groupNeedsUpdate && this.stateProperties.indexOf(key) > -1) {
           this.group.set('dirty', true);
         }
-        this.dirty = true;
-      }
-
-      if (this.group && this.stateProperties.indexOf(key) > -1 && this.group.isOnACache()) {
-        this.group.set('dirty', true);
       }
 
       return this;
@@ -1210,7 +1206,8 @@
         multY *= fabric.devicePixelRatio;
       }
       ctx.shadowColor = this.shadow.color;
-      ctx.shadowBlur = this.shadow.blur * (multX + multY) * (scaling.scaleX + scaling.scaleY) / 4;
+      ctx.shadowBlur = this.shadow.blur * fabric.browserShadowBlurConstant *
+        (multX + multY) * (scaling.scaleX + scaling.scaleY) / 4;
       ctx.shadowOffsetX = this.shadow.offsetX * multX * scaling.scaleX;
       ctx.shadowOffsetY = this.shadow.offsetY * multY * scaling.scaleY;
     },
@@ -1237,12 +1234,12 @@
       if (!filler || !filler.toLive) {
         return { offsetX: 0, offsetY: 0 };
       }
-      var transform = filler.gradientTransform || filler.patternTransform;
+      var t = filler.gradientTransform || filler.patternTransform;
       var offsetX = -this.width / 2 + filler.offsetX || 0,
           offsetY = -this.height / 2 + filler.offsetY || 0;
       ctx.translate(offsetX, offsetY);
-      if (transform) {
-        ctx.transform.apply(ctx, transform);
+      if (t) {
+        ctx.transform(t[0], t[1], t[2], t[3], t[4], t[5]);
       }
       return { offsetX: offsetX, offsetY: offsetY };
     },

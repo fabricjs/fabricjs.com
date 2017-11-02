@@ -480,6 +480,7 @@
       this.text = this.hiddenTextarea.value;
       if (this._shouldClearDimensionCache()) {
         this.initDimensions();
+        this.setCoords();
       }
       var newSelection = this.fromStringToGraphemeSelection(
         this.hiddenTextarea.selectionStart, this.hiddenTextarea.selectionEnd, this.hiddenTextarea.value);
@@ -604,7 +605,10 @@
       this.abortCursorAnimation();
       this._restoreEditingProps();
       this._currentCursorOpacity = 0;
-
+      if (this._shouldClearDimensionCache()) {
+        this.initDimensions();
+        this.setCoords();
+      }
       this.fire('editing:exited');
       isTextChanged && this.fire('modified');
       if (this.canvas) {
@@ -835,9 +839,13 @@
       }
       linesLenght && this.insertNewlineStyleObject(
         cursorLoc.lineIndex, cursorLoc.charIndex + addedLines[0], linesLenght);
-      for (var i = 1; i <= linesLenght; i++) {
+      for (var i = 1; i < linesLenght; i++) {
         this.insertCharStyleObject(cursorLoc.lineIndex + i, 0, addedLines[i], copiedStyle);
         copiedStyle = copiedStyle && copiedStyle.slice(addedLines[i] + 1);
+      }
+      // we use i outside the loop to get it like linesLength
+      if (addedLines[i] > 0) {
+        this.insertCharStyleObject(cursorLoc.lineIndex + i, 0, addedLines[i], copiedStyle);
       }
     },
 

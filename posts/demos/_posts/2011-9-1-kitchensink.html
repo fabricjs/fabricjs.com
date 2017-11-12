@@ -69,6 +69,9 @@ title: Kitchensink
               <option>Center</option>
               <option>Right</option>
               <option>Justify</option>
+              <option>Justify-left</option>
+              <option>Justify-right</option>
+              <option>Justify-center</option>
             </select>
             <div>
               <label for="text-lines-bg-color">Background text color:</label>
@@ -585,10 +588,7 @@ title: Kitchensink
     canvas.on('object:selected', function(opt) {
         var target = opt.target;
         if (target._cacheCanvas) {
-          document.getElementById('cacheInspector').replaceChild(
-            target._cacheCanvas,
-            document.getElementById('cacheInspector').firstChild
-          );
+          
         }
     })
 

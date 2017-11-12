@@ -67,9 +67,16 @@ title: Features
       var canvas = this.__canvas = new fabric.Canvas('intro-canvas');
 
       // simple shapes
-      var rect = new fabric.Rect({ width: 80, height: 60, left: 100, top: 100, fill: '#f55' })
-      var circle = new fabric.Circle({ radius: 30, left: 50, top: 50, fill: 'rgb(50, 205, 50)' });
-      var triangle = new fabric.Triangle({ width: 80, height: 80, left: 150, top: 130, fill: '#55f' });
+      var rect = new fabric.Rect({ width: 80, height: 60, left: 100, top: 100, fill: '#f55', strokeWidth: 0 })
+      var circle = new fabric.Circle({ radius: 30, left: 50, top: 50, fill: 'rgb(50, 205, 50)', strokeWidth: 0 });
+      var triangle = new fabric.Triangle({ width: 80, height: 80, left: 150, top: 130, fill: '#55f', strokeWidth: 0 });
+
+      canvas.add(triangle, rect, circle);
+
+      // simple shapes with border
+      var rect = new fabric.Rect({ width: 79, height: 59, left: 190, top: 100, fill: '#f55', strokeWidth: 1, stroke: 'black' })
+      var circle = new fabric.Circle({ radius: 29.5, left: 140, top: 50, fill: 'rgb(50, 205, 50)', strokeWidth: 1, stroke: 'black' });
+      var triangle = new fabric.Triangle({ width: 79, height: 79, left: 240, top: 130, fill: '#55f', strokeWidth: 1, stroke: 'black' });
 
       canvas.add(triangle, rect, circle);
 
@@ -160,6 +167,7 @@ title: Features
         top: 570,
         angle: -5,
         fontFamily: 'Helvetica',
+        strokeWidth:0,
         fontSize: 20,
         fill: 'red'
       });
@@ -169,7 +177,7 @@ title: Features
         top: 560,
         fontFamily: 'Impact',
         fill: '#eee',
-        strokeWidth: 1,
+        strokeWidth: 2,
         stroke: 'red'
       });
       var text3 = new fabric.Text('multiline text', {
@@ -177,6 +185,7 @@ title: Features
         top: 615,
         angle: -5,
         fontFamily: 'Georgia',
+        strokeWidth:0,
         fontSize: 20,
         fontWeight: 'bold',
         fill: 'green',
@@ -189,6 +198,7 @@ title: Features
         fontFamily: 'Courier',
         fontSize: 18,
         underline: true,
+        strokeWidth:0,
         fill: 'blue',
         textAlign: 'center'
       });
@@ -199,6 +209,7 @@ title: Features
         fontFamily: 'Arial',
         fontStyle: 'italic',
         fontSize: 20,
+        strokeWidth:0,
         fill: 'grey',
         textAlign: 'right'
       });
@@ -301,8 +312,8 @@ title: Features
 
       // events
       (function(){
-        var rect = new fabric.Rect({ width: 200, height: 50, fill: '#faa', rx: 10, ry: 10 });
-        var text = new fabric.Text('Do stuff with me!', { fontSize: 20, fontFamily: 'Georgia' });
+        var rect = new fabric.Rect({ width: 200, height: 50, fill: '#faa', rx: 10, ry: 10, strokeWidth:0 });
+        var text = new fabric.Text('Do stuff with me!', { fontSize: 20, fontFamily: 'Georgia', strokeWidth:0 });
         var group = new fabric.Group([ rect, text ], { left: 250, top: 1320 });
         canvas.add(group).calcOffset();
 window.ooo = text;
@@ -367,6 +378,8 @@ window.ooo = text;
           fontSize: 150,
           left: 250,
           top: 1600,
+          strokeWidth: 2,
+          stroke: 'black',
           fontFamily: 'Impact',
           fill: pattern
         });

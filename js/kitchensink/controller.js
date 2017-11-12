@@ -684,36 +684,6 @@ function addAccessors($scope) {
     });
   };
 
-  fabric.Line.prototype._findCenterFromElement = function() {
-    var x = this.x1 + this.x2;
-    var y = this.y1 + this.y2;
-    return {
-      x: x/2,
-      y: y/2,
-    }
-  }
-
-  fabric.Object.prototype._findCenterFromElement = function() {
-    return { x: this.left + this.width/2, y: this.top + this.height/2 };
-  }
-
-  fabric.Object.prototype._removeTransformMatrix = function() {
-    var center = this._findCenterFromElement();
-    if (this.transformMatrix) {
-      var options = fabric.util.qrDecompose(this.transformMatrix);
-      this.flipX = false;
-      this.flipY = false;
-      this.set('scaleX', options.scaleX);
-      this.set('scaleY', options.scaleY);
-      this.angle = options.angle;
-      this.skewX = options.skewX;
-      this.skewY = 0;
-      center = fabric.util.transformPoint(center, this.transformMatrix);
-    }
-    this.transformMatrix = null;
-    this.setPositionByOrigin(center, 'center', 'center');
-  }
-
   var _loadSVGWithoutGrouping = function(svg) {
     fabric.loadSVGFromString(svg, function(objects) {
       canvas.renderOnAddRemove = false;
@@ -1049,7 +1019,6 @@ function watchCanvas($scope) {
 
   canvas
     .on('object:selected', updateScope)
-    .on('group:selected', updateScope)
     .on('path:created', updateScope)
     .on('selection:cleared', updateScope);
 }

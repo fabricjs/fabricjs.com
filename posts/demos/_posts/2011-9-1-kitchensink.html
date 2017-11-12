@@ -245,6 +245,8 @@ title: Kitchensink
             Clip
           </button>
         </div>
+        <div id="cacheInspector">
+        </div>
       </div>
     </div>
 
@@ -580,6 +582,16 @@ title: Kitchensink
 
       ctx.restore();
     }
+    canvas.on('object:selected', function(opt) {
+        var target = opt.target;
+        if (target._cacheCanvas) {
+          document.getElementById('cacheInspector').replaceChild(
+            target._cacheCanvas,
+            document.getElementById('cacheInspector').firstChild
+          );
+        }
+    })
+
 
     canvas.on('mouse:wheel', function(opt) {
       var e = opt.e;

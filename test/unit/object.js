@@ -1049,14 +1049,14 @@
   QUnit.test('_getCacheCanvasDimensions returns dimensions and zoom for cache canvas', function(assert) {
     var object = new fabric.Object({ width: 10, height: 10, strokeWidth: 0 });
     var dims = object._getCacheCanvasDimensions();
-    assert.deepEqual(dims, { width: 12, height: 12, zoomX: 1, zoomY: 1 }, 'if no scaling is applied cache is as big as object');
+    assert.deepEqual(dims, { width: 12, height: 12, zoomX: 1, zoomY: 1, x: 10, y: 10 }, 'if no scaling is applied cache is as big as object');
     object.strokeWidth = 2;
     dims = object._getCacheCanvasDimensions();
-    assert.deepEqual(dims, { width: 14, height: 14, zoomX: 1, zoomY: 1 }, 'cache contains the stroke');
+    assert.deepEqual(dims, { width: 14, height: 14, zoomX: 1, zoomY: 1, x: 12, y: 12 }, 'cache contains the stroke');
     object.scaleX = 2;
     object.scaleY = 3;
     dims = object._getCacheCanvasDimensions();
-    assert.deepEqual(dims, { width: 26, height: 38, zoomX: 2, zoomY: 3 }, 'cache is as big as the scaled object');
+    assert.deepEqual(dims, { width: 26, height: 38, zoomX: 2, zoomY: 3, x: 12, y: 12 }, 'cache is as big as the scaled object');
   });
 
   QUnit.test('_updateCacheCanvas check if cache canvas should be updated', function(assert) {
@@ -1197,20 +1197,26 @@
       offsetY: 15
     });
     object._setShadow(context);
-    assert.equal(context.shadowOffsetX, object.shadow.offsetX);
-    assert.equal(context.shadowOffsetY, object.shadow.offsetY);
-    assert.equal(context.shadowBlur, object.shadow.blur);
+    assert.equal(context.shadowOffsetX, object.shadow.offsetX, 'shadow offsetX is set');
+    assert.equal(context.shadowOffsetY, object.shadow.offsetY, 'shadow offsetY is set');
+    assert.equal(context.shadowBlur, object.shadow.blur, 'shadow blur is set');
+    fabric.browserShadowBlurConstant = 1.5;
+    object._setShadow(context);
+    assert.equal(context.shadowOffsetX, object.shadow.offsetX, 'shadow offsetX is unchanged with browserConstant');
+    assert.equal(context.shadowOffsetY, object.shadow.offsetY, 'shadow offsetY is unchanged with browserConstant');
+    assert.equal(context.shadowBlur, object.shadow.blur * 1.5, 'shadow blur is affected with browserConstant');
+    fabric.browserShadowBlurConstant = 1;
     object.scaleX = 2;
     object.scaleY = 3;
     object._setShadow(context);
-    assert.equal(context.shadowOffsetX, object.shadow.offsetX * object.scaleX);
-    assert.equal(context.shadowOffsetY, object.shadow.offsetY * object.scaleY);
-    assert.equal(context.shadowBlur, object.shadow.blur * (object.scaleX + object.scaleY) / 2);
+    assert.equal(context.shadowOffsetX, object.shadow.offsetX * object.scaleX, 'shadow offsetX is affected by scaleX');
+    assert.equal(context.shadowOffsetY, object.shadow.offsetY * object.scaleY, 'shadow offsetY is affected by scaleY');
+    assert.equal(context.shadowBlur, object.shadow.blur * (object.scaleX + object.scaleY) / 2, 'shadow blur is affected by scaleY and scaleX');
     object.group = group;
     object._setShadow(context);
-    assert.equal(context.shadowOffsetX, object.shadow.offsetX * object.scaleX * group.scaleX);
-    assert.equal(context.shadowOffsetY, object.shadow.offsetY * object.scaleY * group.scaleY);
-    assert.equal(context.shadowBlur, object.shadow.blur * (object.scaleX * group.scaleX + object.scaleY * group.scaleY) / 2);
+    assert.equal(context.shadowOffsetX, object.shadow.offsetX * object.scaleX * group.scaleX, 'shadow offsetX is affected by scaleX and group.scaleX');
+    assert.equal(context.shadowOffsetY, object.shadow.offsetY * object.scaleY * group.scaleY, 'shadow offsetX is affected by scaleX and group.scaleX');
+    assert.equal(context.shadowBlur, object.shadow.blur * (object.scaleX * group.scaleX + object.scaleY * group.scaleY) / 2, 'shadow blur is affected by scales');
   });
 
   QUnit.test('willDrawShadow', function(assert) {
@@ -1218,5 +1224,23 @@
     assert.equal(object.willDrawShadow(), false, 'object will not drawShadow');
     object.shadow.offsetX = 1;
     assert.equal(object.willDrawShadow(), true, 'object will drawShadow');
+  });
+
+  QUnit.test('_set  change a property', function(assert) {
+    var object = new fabric.Object({ fill: 'blue' });
+    object._set('fill', 'red');
+    assert.equal(object.fill, 'red', 'property changed');
+  });
+  QUnit.test('_set can rise the dirty flag', function(assert) {
+    var object = new fabric.Object({ fill: 'blue' });
+    object.dirty = false;
+    object._set('fill', 'red');
+    assert.equal(object.dirty, true, 'dirty is rised');
+  });
+  QUnit.test('_set rise dirty flag only if value changed', function(assert) {
+    var object = new fabric.Object({ fill: 'blue' });
+    object.dirty = false;
+    object._set('fill', 'blue');
+    assert.equal(object.dirty, false, 'dirty is not rised');
   });
 })();

@@ -21,7 +21,7 @@ title: Custom Fabric build
   }
 </style>
 
-<div class="version">Fabric version: <b>2.0.0 - beta</b></div>
+<div class="version">Fabric version: <b>2.0.0 - rc 1</b></div>
 <h1>FabricJS builder</h1>
 <div style="margin-top: 10px">
   <button id="select-all">Select all</button>
@@ -98,11 +98,6 @@ title: Custom Fabric build
     <input checked type="checkbox" id="shadow">
     <label for="shadow">Shadows</label><br>
     <p>Adds support for <a href="/shadows">shadows</a></p>
-  </li>
-  <li>
-    <input type="checkbox" id="node">
-    <label for="node">Node</label><br>
-    <p>Adds support for running fabric under <a href="http://nodejs.org">Node.js</a>, with help of <a href="https://github.com/tmpvar/jsdom">jsdom</a> and <a href="https://github.com/learnboost/node-canvas">node-canvas</a> libraries.</p>
   </li>
   <li>
     <input type="checkbox" id="accessors">
@@ -323,8 +318,6 @@ title: Custom Fabric build
 
         ifSpecifiedInclude('itext', 'src/shapes/textbox.class.js'),
         ifSpecifiedInclude('itext', 'src/mixins/textbox_behavior.mixin.js'),
-
-        ifSpecifiedInclude('node', 'src/node.js')
 
         // ifSpecifiedAMDInclude(amdLib)
       ];

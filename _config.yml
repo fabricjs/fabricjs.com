@@ -1,4 +1,3 @@
-markdown:   rdiscount
 highlighter:   pygments
 permalink:  ./:title
 url:        http://fabricjs.com

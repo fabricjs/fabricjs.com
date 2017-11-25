@@ -141,7 +141,7 @@ title: Image Filters
   var webglBackend = new fabric.WebglFilterBackend();
   var canvas2dBackend = new fabric.Canvas2dFilterBackend()
 
-  fabric.filterBackend = webglBackend;
+  fabric.filterBackend = fabric.initFilterBackend();
   fabric.Object.prototype.transparentCorners = false;
   var $ = function(id){return document.getElementById(id)};
 
@@ -196,7 +196,7 @@ title: Image Filters
                       'blackwhite', 'blend-image', 'hue', 'resize'];
 
       for (var i = 0; i < filters.length; i++) {
-        filters[i] && (
+        $(filters[i]) && (
         $(filters[i]).checked = !!canvas.getActiveObject().filters[i]);
       }
     },

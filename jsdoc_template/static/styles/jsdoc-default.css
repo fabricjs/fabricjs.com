@@ -272,9 +272,9 @@ h6
   user-select: none;
 }
 
-.prettyprint.linenums ol
+.prettyprint.linenums ol.linenums
 {
-  padding-left: 0;
+  padding-left: 60px;
 }
 
 .prettyprint.linenums li

@@ -108,7 +108,8 @@ pre.prettyprint {
 /* Specify class=linenums on a pre to get line numbering */
 ol.linenums {
   margin-top: 0;
-  margin-bottom: 0; }
+  margin-bottom: 0;
+  padding-left: 58px; }
 
 /* IE indents via margin-left */
 li.L0,

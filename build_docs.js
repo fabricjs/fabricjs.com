@@ -1,5 +1,5 @@
 var exec = require('child_process').exec;
-var command = 'jsdoc lib/fabric.js README.md -c jsdoc.json';
+var command = 'jsdoc lib/fabric.js lib/package.json README.md  -c jsdoc.json';
 
 console.log('Running:', command);
 

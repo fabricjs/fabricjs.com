@@ -45,6 +45,13 @@
 */
 /* Docs Page*/
 
+#carbonads-container {
+  position: fixed;
+  right: 1px;
+  top: 45px;
+  width: 200px;
+}
+
 #carbonads {
   display: block;
   overflow: hidden;

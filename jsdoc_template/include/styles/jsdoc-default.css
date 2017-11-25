@@ -45,8 +45,8 @@ header
     position: fixed;
     top: 48px;
     bottom: 50px;
-    left: 0px;
-    right: 230px;
+    left: 230px;
+    right: 0px;
     overflow-y: scroll;
     border-bottom: 1px solid #ccc;
 }
@@ -54,10 +54,9 @@ header
 section
 {
 	display: block;
-	
+
 	background-color: #fff;
 	padding: 12px 24px;
-    margin-right: 240px;
 }
 
 .variation {
@@ -77,7 +76,7 @@ nav {
     float: left;
     margin-left: -230px;
     margin-top: 28px;
-    width: 220px; 
+    width: 220px;
     border-left: 1px solid #ccc;
     padding-left: 9px; */
 /* */
@@ -86,8 +85,9 @@ nav {
     position: fixed;
     top: 48px;
     bottom: 0px;
-    right: 0px;
+    left: 0px;
     width: 220px;
+    padding-left: 10px;
 }
 
 nav > .upperNav {
@@ -141,6 +141,7 @@ footer {
     font-size: 90%;
     position: fixed;
     bottom: 5px;
+    left: 230px;
 }
 
 h1
@@ -244,6 +245,12 @@ h6
 	font-family: Palatino, 'Palatino Linotype', serif;
 	font-size: 107%;
 	margin: 0;
+}
+
+pre.prettyprint
+{
+    padding: 0px;
+    background: #ffffff
 }
 
 .prettyprint

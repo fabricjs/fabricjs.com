@@ -249,4 +249,61 @@ title: Fabric.js filtering overview
     After that the filter just works. On the github repository you can find an empty boilerplate class to help you start with your own filter.
     <a href="https://github.com/kangax/fabric.js/blob/master/src/filters/filter_boilerplate.js">empty filter class</a>
   </p>
+  <h3>Common errors and problems:</h3>
+  <h4>Picture is cutted</h4>
+  <p>The picture will be painted over a tile of 2048x2048 size, bigger pictures won't fit. <code>fabric.textureSize</code> set at 2408 is a safe limit.
+  Most of the hardware will support 4096 and so 4096x4096 is a limit that will probably work and give you less headaches. Take in mind that canvas
+  has a max size too. If you are supporting browsers like IE11 you will have probably problems with canvases bigger than 5000 on a size, whatever your
+  webgl hardware is capable of.</p>
+  <h4>Old filter values are incompatible</h4>
+  <p>With this change each filter changed and the default values are between 0 and 1 or -1 and 1. <br />
+    Removed filters are: blend_filter splitted in blend_color and blend_image, gradienttransparency is removed, mask_filter is removed,
+    removewhite is now removecolor, tint filter is now a part of blend color.
+  Here follow a conversion pattern from 1.x filtering:</p>
+  <pre>
+fabric.Image.filters.BaseFilter.fromObject = function(object, callback) {
+  switch (object.type) {
+    case 'Brightness':
+    case 'Contrast':
+      object.brightness = object.brightness / 255;
+    break;
+    case 'Blend':
+      if (!object.image) {
+        object.type = 'BlendColor';
+      } else {
+        // conversion harder
+      }
+    break;
+    case 'Multiply':
+      object.type = 'BlendColor';
+      object.mode = 'multiply';
+    break;
+    // may not give exact same result
+    case 'RemoveWhite':
+      object.type = 'RemoveColor';
+      object.color = '#FFFFFF';
+      object.distance = object.distance / 255;
+    break;
+    case 'Saturate':
+      object.saturation = object.saturate / 100;
+    break;
+    case 'Tint':
+      object.type = 'BlendColor';
+      object.saturation = object.saturate / 100;
+    break;
+  }
+  var filter = new fabric.Image.filters[object.type](object);
+  callback && callback(filter);
+  return filter;
+};
+  </pre>
+  <h4>Usage of gpu memory</h4>
+  <p>Each image will create a texture in the gpu memory on first filtering. The texture is identified with an ID and is cached for faster refiltering.<br />
+  is dev duty to clean this cache using image.dispose() when he knows he will not use the image anymore. Some image could possibly share the same asset but have 2
+copies of the texture in memory, to solve this you can assign to an image the cacheKey property to a fixed value before filtering in order to get the same
+texture of another existing image. Also canvas.dispose() will call dispose on each image that was on the canvas.</p>
+<h4>Manually initialize the backend</h4>
+<p>Fabric <code>fabric.isWebglSupported(fabric.textureSize);</code> is a fundamental step for webgl to work, is called on first filtering operation from the initBackend procedure.
+If you plan on using the 2 backends manually, creaing a webgl and a canvas2d to swap on command, you need to run <code>fabric.isWebglSupported(fabric.textureSize);</code> once manually.
+This function will also try to detect your hardware max precision and swap it at runtime since some hardware could not support `highp` by default.</p>
 </div>

@@ -257,7 +257,7 @@ title: Fabric.js filtering overview
   webgl hardware is capable of.</p>
   <h4>Old filter values are incompatible</h4>
   <p>With this change each filter changed and the default values are between 0 and 1 or -1 and 1. <br />
-    Removed filters are: blend_filter splitted in blend_color and blend_image, gradienttransparency is removed, mask_filter is removed,
+    Removed filters are: blend_filter splitted in blend_color and blend_image, gradienttransparency is removed, mask_filter is part of blendImage,
     removewhite is now removecolor, tint filter is now a part of blend color.
   Here follow a conversion pattern from 1.x filtering:</p>
   <pre>
@@ -266,6 +266,10 @@ fabric.Image.filters.BaseFilter.fromObject = function(object, callback) {
     case 'Brightness':
     case 'Contrast':
       object.brightness = object.brightness / 255;
+    break;
+    case 'Mask':
+      object.type = 'BlendImage';
+      object.image = object.mask;
     break;
     case 'Blend':
       if (!object.image) {

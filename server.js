@@ -35,16 +35,15 @@ console.log('Server listening on http://localhost:' + PORT);
 __fabric.Object.prototype.originX = __fabric.Object.prototype.originY = 'center';
 
 function serveImage(__response, __code, __async) {
-  var canvas = __fabric.createCanvasForNode(200, 200);
+  var canvas = new __fabric.StaticCanvas(null, { width: 200, height: 200 });
 
-  var font = new canvas.Font('Arial', __dirname + '/assets/fonts/Arial.ttf');
+  var font = new __fabric.nodeCanvas.Font('Arial', __dirname + '/assets/fonts/Arial.ttf');
 
   font.addFace(__dirname + '/assets/fonts/Arial Bold.ttf', 'bold');
   font.addFace(__dirname + '/assets/fonts/Arial Italic.ttf', 'normal', 'italic');
   font.addFace(__dirname + '/assets/fonts/Arial Bold Italic.ttf', 'bold', 'italic');
 
   canvas.contextContainer.addFont(font);  // when using createPNGStream or createJPEGStream
-  canvas.contextTop.addFont(font);      // when using toDataURL or toDataURLWithMultiplier
 
   eval(__code);
 

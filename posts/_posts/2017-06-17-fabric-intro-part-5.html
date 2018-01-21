@@ -209,8 +209,6 @@ if (zoom < 400 / 1000) {
   this.viewportTransform[4] = 200 - 1000 * zoom / 2;
   this.viewportTransform[5] = 200 - 1000 * zoom / 2;
 } else {
-  this.viewportTransform[4] += e.clientX - this.lastPosX;
-  this.viewportTransform[5] += e.clientY - this.lastPosY;
   if (vpt[4] >= 0) {
     this.viewportTransform[4] = 0;
   } else if (vpt[4] < canvas.getWidth() - 1000 * zoom) {
@@ -250,8 +248,6 @@ if (zoom < 400 / 1000) {
           this.viewportTransform[4] = 200 - 1000 * zoom / 2;
           this.viewportTransform[5] = 200 - 1000 * zoom / 2;
         } else {
-          this.viewportTransform[4] += e.clientX - this.lastPosX;
-          this.viewportTransform[5] += e.clientY - this.lastPosY;
           if (this.viewportTransform[4] >= 0) {
             this.viewportTransform[4] = 0;
           } else if (this.viewportTransform[4] < canvas.getWidth() - 1000 * zoom) {

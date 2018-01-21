@@ -13,7 +13,7 @@ title: Introduction to Fabric.js. Part 5.
   <h3 id="free_drawing">Zoom and panning</h3>
   <p>Let's see how we can implement a basic system of zoom and pan with the mouse interactions. We will use the mouse wheel
      to zoom up to 20X ( 2000% ) on a canvas and a alt + click action to drag around.<br />
-     We start be hooking up the basic controls:</p>
+     We start be hooking up the basic controls:<br /></p>
   <div class="example">
     <canvas id="step1" width="400" height="400"></canvas>
     <pre>
@@ -51,7 +51,7 @@ canvas.on('mouse:wheel', function(opt) {
   </div>
   <p>This is a basic zoom control, limited between 1% and 2000%. we want now to add dragging of the canvas.
     We will use ALT + DRAG, but you can change to another combination. The idea is that a mousedown with alt will
-    set a boolean to true, so that a mouse move event can then understand that is time for dragging.</p>
+    set a boolean to true, so that a mouse move event can then understand that is time for dragging.<br /></p>
   <div class="example">
     <canvas id="step2" width="400" height="400"></canvas>
     <pre>
@@ -111,7 +111,7 @@ canvas.on('mouse:up', function(opt) {
       canvas.on('mouse:move', function(opt) {
         if (this.isDragging) {
           var e = opt.e;
-          this.viewportTransform[4] += e.offsetX - this.lastPosX;
+          this.viewportTransform[4] += e.clientX - this.lastPosX;
           this.viewportTransform[5] += e.clientY - this.lastPosY;
           this.requestRenderAll();
           this.lastPosX = e.clientX;
@@ -126,19 +126,20 @@ canvas.on('mouse:up', function(opt) {
     </script>
   </div>
   <p>Ok, this is a basic setup that will allow you to control zoom and panning. There are still a couple of possible enhancement.<br />
-  For example we can make the wheel-zoom to center the canvas around the point where the cursor is:</p>
+  For example we can make the wheel-zoom to center the canvas around the point where the cursor is:<br /></p>
   <div class="example">
     <canvas id="step3" width="400" height="400"></canvas>
     <pre>
-canvas.on('mouse:move', function(opt) {
-  if (this.isDragging) {
-    var e = opt.e;
-    this.viewportTransform[4] += e.clientX - this.lastPosX;
-    this.viewportTransform[5] += e.clientY - this.lastPosY;
-    this.lastPosX = e.clientX;
-    this.lastPosY = e.clientY;
-    this.requestRenderAll();
-  }
+canvas.on('mouse:wheel', function(opt) {
+  var delta = opt.e.deltaY;
+  var pointer = canvas.getPointer(opt.e);
+  var zoom = canvas.getZoom();
+  zoom = zoom + delta/200;
+  if (zoom > 20) zoom = 20;
+  if (zoom < 0.01) zoom = 0.01;
+  canvas.zoomToPoint({ x: opt.e.offsetX, y: opt.e.offsetY }, zoom);
+  opt.e.preventDefault();
+  opt.e.stopPropagation();
 });
     </pre>
     <script type="text/javascript">
@@ -189,7 +190,7 @@ canvas.on('mouse:move', function(opt) {
   </div>
   <p>As a final touch we can limit the panning area to avoid view to go infinity in one direction.
     We stroke a rect of 1000x1000 pixels that will represent our panning area. And we add the code to limit the movements
-    in that boundaries:
+    in that boundaries:<br />
   </p>
   <div class="example">
     <canvas id="step4" width="400" height="400"></canvas>

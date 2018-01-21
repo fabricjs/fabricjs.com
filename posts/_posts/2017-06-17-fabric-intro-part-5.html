@@ -3,7 +3,7 @@ layout: articlead
 title: Introduction to Fabric.js. Part 5.
 ---
 
-<style>h2 { margin-bottom: 15px } h3 { margin-bottom: 10px; } h4 { margin-bottom: 7px; } </style>
+<style>h2 { margin-bottom: 15px } h3 { margin-bottom: 10px; } h4 { margin-bottom: 7px; } .canvas-container { display: inline-block; margin-left: 15px; margin-right: 15px; } pre { display: inline-block; } </style>
 
 <div class="container" style="margin:30px auto">
   <h2 id="introduction_to_fabricjs">Introduction to Fabric.js. Part 5.</h2>
@@ -11,5 +11,298 @@ title: Introduction to Fabric.js. Part 5.
   <p>We've covered so many topics in the previous series; from basic object manipulations to animations, events, filters, groups, and subclasses. But there's still couple of very interesting and useful things to discuss!</p>
 
   <h3 id="free_drawing">Zoom and panning</h3>
-
+  <p>Let's see how we can implement a basic system of zoom and pan with the mouse interactions. We will use the mouse wheel
+     to zoom up to 20X ( 2000% ) on a canvas and a alt + click action to drag around.<br />
+     We start be hooking up the basic controls:</p>
+  <div class="example">
+    <canvas id="step1" width="400" height="400"></canvas>
+    <pre>
+canvas.on('mouse:wheel', function(opt) {
+  var delta = opt.e.deltaY;
+  var zoom = canvas.getZoom();
+  zoom = zoom + delta/200;
+  if (zoom > 20) zoom = 20;
+  if (zoom < 0.01) zoom = 0.01;
+  canvas.setZoom(zoom);
+  opt.e.preventDefault();
+  opt.e.stopPropagation();
+})
+    </pre>
+    <script type="text/javascript">
+    fabric.Object.prototype.selectable = false;
+      var canvas = new fabric.Canvas('step1');
+      canvas.add(new fabric.Rect({ width: 50, height: 50, fill: 'blue', angle: 10 }))
+      canvas.add(new fabric.Circle({ radius: 50, fill: 'red', top: 44, left: 80 }))
+      canvas.add(new fabric.Ellipse({ rx: 50, ry: 10, fill: 'yellow', top: 80, left: 35 }))
+      canvas.add(new fabric.Rect({ width: 50, height: 50, fill: 'purple', angle: -19, top: 70, left: 70 }))
+      canvas.add(new fabric.Circle({ radius: 50, fill: 'green', top: 110, left: 30 }))
+      canvas.add(new fabric.Ellipse({ rx: 50, ry: 10, fill: 'orange', top: 12, left: 100, angle: 30 }))
+      canvas.on('mouse:wheel', function(opt) {
+        var delta = opt.e.deltaY;
+        var zoom = canvas.getZoom();
+        zoom = zoom + delta/200;
+        if (zoom > 20) zoom = 20;
+        if (zoom < 0.01) zoom = 0.01;
+        canvas.setZoom(zoom);
+        opt.e.preventDefault();
+        opt.e.stopPropagation();
+      })
+    </script>
+  </div>
+  <p>This is a basic zoom control, limited between 1% and 2000%. we want now to add dragging of the canvas.
+    We will use ALT + DRAG, but you can change to another combination. The idea is that a mousedown with alt will
+    set a boolean to true, so that a mouse move event can then understand that is time for dragging.</p>
+  <div class="example">
+    <canvas id="step2" width="400" height="400"></canvas>
+    <pre>
+canvas.on('mouse:down', function(opt) {
+  var evt = opt.e;
+  if (evt.altKey === true) {
+    this.isDragging = true;
+    this.selection = false;
+    this.lastPosX = evt.clientX;
+    this.lastPosY = evt.clientY;
+  }
+});
+canvas.on('mouse:move', function(opt) {
+  if (this.isDragging) {
+    var e = opt.e;
+    this.viewportTransform[4] += e.clientX - this.lastPosX;
+    this.viewportTransform[5] += e.clientY - this.lastPosY;
+    this.requestRenderAll();
+    this.lastPosX = e.clientX;
+    this.lastPosY = e.clientY;
+  }
+});
+canvas.on('mouse:up', function(opt) {
+  this.isDragging = false;
+  this.selection = true;
+});
+    </pre>
+    <script type="text/javascript">
+    (function(){
+      var canvas = new fabric.Canvas('step2');
+      canvas.add(new fabric.Rect({ width: 50, height: 50, fill: 'blue', angle: 10 }))
+      canvas.add(new fabric.Circle({ radius: 50, fill: 'red', top: 44, left: 80 }))
+      canvas.add(new fabric.Ellipse({ rx: 50, ry: 10, fill: 'yellow', top: 80, left: 35 }))
+      canvas.add(new fabric.Rect({ width: 50, height: 50, fill: 'purple', angle: -19, top: 70, left: 70 }))
+      canvas.add(new fabric.Circle({ radius: 50, fill: 'green', top: 110, left: 30 }))
+      canvas.add(new fabric.Ellipse({ rx: 50, ry: 10, fill: 'orange', top: 12, left: 100, angle: 30 }))
+      canvas.on('mouse:wheel', function(opt) {
+        var delta = opt.e.deltaY;
+        var pointer = canvas.getPointer(opt.e);
+        var zoom = canvas.getZoom();
+        zoom = zoom + delta/200;
+        if (zoom > 20) zoom = 20;
+        if (zoom < 0.01) zoom = 0.01;
+        canvas.setZoom(zoom);
+        opt.e.preventDefault();
+        opt.e.stopPropagation();
+      });
+      canvas.on('mouse:down', function(opt) {
+        var evt = opt.e;
+        if (evt.altKey === true) {
+          this.isDragging = true;
+          this.selection = false;
+          this.lastPosX = evt.clientX;
+          this.lastPosY = evt.clientY;
+        }
+      });
+      canvas.on('mouse:move', function(opt) {
+        if (this.isDragging) {
+          var e = opt.e;
+          this.viewportTransform[4] += e.offsetX - this.lastPosX;
+          this.viewportTransform[5] += e.clientY - this.lastPosY;
+          this.requestRenderAll();
+          this.lastPosX = e.clientX;
+          this.lastPosY = e.clientY;
+        }
+      });
+      canvas.on('mouse:up', function(opt) {
+        this.isDragging = false;
+        this.selection = true;
+      });
+    })()
+    </script>
+  </div>
+  <p>Ok, this is a basic setup that will allow you to control zoom and panning. There are still a couple of possible enhancement.<br />
+  For example we can make the wheel-zoom to center the canvas around the point where the cursor is:</p>
+  <div class="example">
+    <canvas id="step3" width="400" height="400"></canvas>
+    <pre>
+canvas.on('mouse:move', function(opt) {
+  if (this.isDragging) {
+    var e = opt.e;
+    this.viewportTransform[4] += e.clientX - this.lastPosX;
+    this.viewportTransform[5] += e.clientY - this.lastPosY;
+    this.lastPosX = e.clientX;
+    this.lastPosY = e.clientY;
+    this.requestRenderAll();
+  }
+});
+    </pre>
+    <script type="text/javascript">
+    (function(){
+      var canvas = new fabric.Canvas('step3');
+      canvas.add(new fabric.Rect({ width: 50, height: 50, fill: 'blue', angle: 10 }))
+      canvas.add(new fabric.Circle({ radius: 50, fill: 'red', top: 44, left: 80 }))
+      canvas.add(new fabric.Ellipse({ rx: 50, ry: 10, fill: 'yellow', top: 80, left: 35 }))
+      canvas.add(new fabric.Rect({ width: 50, height: 50, fill: 'purple', angle: -19, top: 70, left: 70 }))
+      canvas.add(new fabric.Circle({ radius: 50, fill: 'green', top: 110, left: 30 }))
+      canvas.add(new fabric.Ellipse({ rx: 50, ry: 10, fill: 'orange', top: 12, left: 100, angle: 30 }))
+      canvas.on('mouse:wheel', function(opt) {
+        var delta = opt.e.deltaY;
+        var pointer = canvas.getPointer(opt.e);
+        var zoom = canvas.getZoom();
+        zoom = zoom + delta/200;
+        if (zoom > 20) zoom = 20;
+        if (zoom < 0.01) zoom = 0.01;
+        canvas.zoomToPoint({ x: opt.e.offsetX, y: opt.e.offsetY }, zoom);
+        opt.e.preventDefault();
+        opt.e.stopPropagation();
+      });
+      canvas.on('mouse:down', function(opt) {
+        var evt = opt.e;
+        if (evt.altKey === true) {
+          this.isDragging = true;
+          this.selection = false;
+          this.lastPosX = evt.clientX;
+          this.lastPosY = evt.clientY;
+        }
+      });
+      canvas.on('mouse:move', function(opt) {
+        if (this.isDragging) {
+          var e = opt.e;
+          this.viewportTransform[4] += e.clientX - this.lastPosX;
+          this.viewportTransform[5] += e.clientY - this.lastPosY;
+          this.lastPosX = e.clientX;
+          this.lastPosY = e.clientY;
+          this.requestRenderAll();
+        }
+      });
+      canvas.on('mouse:up', function(opt) {
+        this.isDragging = false;
+        this.selection = true;
+      });
+    })()
+    </script>
+  </div>
+  <p>As a final touch we can limit the panning area to avoid view to go infinity in one direction.
+    We stroke a rect of 1000x1000 pixels that will represent our panning area. And we add the code to limit the movements
+    in that boundaries:
+  </p>
+  <div class="example">
+    <canvas id="step4" width="400" height="400"></canvas>
+      <pre>
+canvas.on('mouse:wheel', function(opt) {
+var delta = opt.e.deltaY;
+var zoom = canvas.getZoom();
+zoom = zoom + delta/200;
+if (zoom > 20) zoom = 20;
+if (zoom < 0.01) zoom = 0.01;
+canvas.zoomToPoint({ x: opt.e.offsetX, y: opt.e.offsetY }, zoom);
+opt.e.preventDefault();
+opt.e.stopPropagation();
+var vpt = this.viewportTransform;
+if (zoom < 400 / 1000) {
+  this.viewportTransform[4] = 200 - 1000 * zoom / 2;
+  this.viewportTransform[5] = 200 - 1000 * zoom / 2;
+} else {
+  this.viewportTransform[4] += e.clientX - this.lastPosX;
+  this.viewportTransform[5] += e.clientY - this.lastPosY;
+  if (vpt[4] >= 0) {
+    this.viewportTransform[4] = 0;
+  } else if (vpt[4] < canvas.getWidth() - 1000 * zoom) {
+    this.viewportTransform[4] = canvas.getWidth() - 1000 * zoom;
+  }
+  if (vpt[5] >= 0) {
+    this.viewportTransform[5] = 0;
+  } else if (vpt[5] < canvas.getHeight() - 1000 * zoom) {
+    this.viewportTransform[5] = canvas.getHeight() - 1000 * zoom;
+  }
+})
+    </pre>
+    <script type="text/javascript">
+    (function(){
+      var canvas = new fabric.Canvas('step4');
+      var bg = new fabric.Rect({ width: 990, height: 990, stroke: 'pink', strokeWidth: 10, fill: '' });
+      bg.fill = new fabric.Pattern({ source: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAASElEQVQ4y2NkYGD4z0A6+M3AwMBKrGJWBgYGZiibEQ0zIInDaCaoelYyHYcX/GeitomjBo4aOGrgQBj4b7RwGFwGsjAwMDAAAD2/BjgezgsZAAAAAElFTkSuQmCC' },
+       function() { bg.dirty = true; canvas.requestRenderAll() });
+      canvas.add(bg)
+      canvas.add(new fabric.Rect({ width: 50, height: 50, fill: 'blue', angle: 10 }))
+      canvas.add(new fabric.Circle({ radius: 50, fill: 'red', top: 44, left: 80 }))
+      canvas.add(new fabric.Ellipse({ rx: 50, ry: 10, fill: 'yellow', top: 80, left: 35 }))
+      canvas.add(new fabric.Rect({ width: 50, height: 50, fill: 'purple', angle: -19, top: 70, left: 70 }))
+      canvas.add(new fabric.Circle({ radius: 50, fill: 'green', top: 110, left: 30 }))
+      canvas.add(new fabric.Ellipse({ rx: 50, ry: 10, fill: 'orange', top: 12, left: 100, angle: 30 }))
+      canvas.on('mouse:wheel', function(opt) {
+        var delta = opt.e.deltaY;
+        var pointer = canvas.getPointer(opt.e);
+        var zoom = canvas.getZoom();
+        zoom = zoom + delta/200;
+        if (zoom > 20) zoom = 20;
+        if (zoom < 0.01) zoom = 0.01;
+        canvas.zoomToPoint({ x: opt.e.offsetX, y: opt.e.offsetY }, zoom);
+        opt.e.preventDefault();
+        opt.e.stopPropagation();
+        if (zoom < 0.4) {
+          this.viewportTransform[4] = 200 - 1000 * zoom / 2;
+          this.viewportTransform[5] = 200 - 1000 * zoom / 2;
+        } else {
+          this.viewportTransform[4] += e.clientX - this.lastPosX;
+          this.viewportTransform[5] += e.clientY - this.lastPosY;
+          if (this.viewportTransform[4] >= 0) {
+            this.viewportTransform[4] = 0;
+          } else if (this.viewportTransform[4] < canvas.getWidth() - 1000 * zoom) {
+            this.viewportTransform[4] = canvas.getWidth() - 1000 * zoom;
+          }
+          if (this.viewportTransform[5] >= 0) {
+            this.viewportTransform[5] = 0;
+          } else if (this.viewportTransform[5] < canvas.getHeight() - 1000 * zoom) {
+            this.viewportTransform[5] = canvas.getHeight() - 1000 * zoom;
+          }
+        }
+      });
+      canvas.on('mouse:down', function(opt) {
+        var evt = opt.e;
+        if (evt.altKey === true) {
+          this.isDragging = true;
+          this.selection = false;
+          this.lastPosX = evt.clientX;
+          this.lastPosY = evt.clientY;
+        }
+      });
+      canvas.on('mouse:move', function(opt) {
+        if (this.isDragging) {
+          var e = opt.e;
+          var zoom = canvas.getZoom();
+          if (zoom < 0.4) {
+            this.viewportTransform[4] = 200 - 1000 * zoom / 2;
+            this.viewportTransform[5] = 200 - 1000 * zoom / 2;
+          } else {
+            this.viewportTransform[4] += e.clientX - this.lastPosX;
+            this.viewportTransform[5] += e.clientY - this.lastPosY;
+            if (this.viewportTransform[4] >= 0) {
+              this.viewportTransform[4] = 0;
+            } else if (this.viewportTransform[4] < canvas.getWidth() - 1000 * zoom) {
+              this.viewportTransform[4] = canvas.getWidth() - 1000 * zoom;
+            }
+            if (this.viewportTransform[5] >= 0) {
+              this.viewportTransform[5] = 0;
+            } else if (this.viewportTransform[5] < canvas.getHeight() - 1000 * zoom) {
+              this.viewportTransform[5] = canvas.getHeight() - 1000 * zoom;
+            }
+          }
+          this.requestRenderAll();
+          this.lastPosX = e.clientX;
+          this.lastPosY = e.clientY;
+        }
+      });
+      canvas.on('mouse:up', function(opt) {
+        this.isDragging = false;
+        this.selection = true;
+      });
+    })()
+    </script>
+  </div>
 </div>

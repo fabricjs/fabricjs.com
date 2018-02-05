@@ -466,8 +466,38 @@
       assert.equal(typeof dataURL, 'string');
       assert.equal(dataURL.substring(0, 21), 'data:image/png;base64');
       //we can just compare that the dataUrl generated differs from the dataURl of an empty canvas.
-      assert.equal(dataURL.substring(200, 210) != 'AAAAAAAAAA', true);
+      assert.equal(dataURL.substring(200, 210) !== 'AAAAAAAAAA', true);
     }
+  });
+
+  QUnit.test('toDataURL with enableRetinaScaling: true', function(assert) {
+    var done = assert.async();
+    fabric.devicePixelRatio = 2;
+    var c = new fabric.StaticCanvas(null, { enableRetinaScaling: true, width: 10, height: 10 });
+    var dataUrl = c.toDataURL({ enableRetinaScaling: true });
+    var img = fabric.document.createElement('img');
+    img.onload = function() {
+      assert.equal(img.width, c.width * fabric.devicePixelRatio, 'output width is bigger');
+      assert.equal(img.height, c.height * fabric.devicePixelRatio, 'output height is bigger');
+      fabric.devicePixelRatio = 1;
+      done();
+    };
+    img.src = dataUrl;
+  });
+
+  QUnit.test('toDataURL with enableRetinaScaling: false', function(assert) {
+    var done = assert.async();
+    fabric.devicePixelRatio = 2;
+    var c = new fabric.StaticCanvas(null, { enableRetinaScaling: true, width: 10, height: 10 });
+    var dataUrl = c.toDataURL({ enableRetinaScaling: false });
+    var img = fabric.document.createElement('img');
+    img.onload = function() {
+      assert.equal(img.width, c.width, 'output width is bigger');
+      assert.equal(img.height, c.height, 'output height is bigger');
+      fabric.devicePixelRatio = 1;
+      done();
+    };
+    img.src = dataUrl;
   });
 
   QUnit.test('toDataURL jpg', function(assert) {
@@ -487,9 +517,11 @@
   });
 
   QUnit.test('toDataURL cropping', function(assert) {
+    var done = assert.async();
     assert.ok(typeof canvas.toDataURL === 'function');
     if (!fabric.Canvas.supports('toDataURL')) {
       window.alert('toDataURL is not supported by this environment. Some of the tests can not be run.');
+      done();
     }
     else {
       var croppingWidth = 75,
@@ -499,6 +531,7 @@
       fabric.Image.fromURL(dataURL, function (img) {
         assert.equal(img.width, croppingWidth, 'Width of exported image should correspond to cropping width');
         assert.equal(img.height, croppingHeight, 'Height of exported image should correspond to cropping height');
+        done();
       });
     }
   });

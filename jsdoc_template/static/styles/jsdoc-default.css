@@ -72,6 +72,7 @@ tt, code, kbd, samp {
 #main {
     float: left;
     width: 70%;
+    z-index: -1;
 }
 
 article dl {

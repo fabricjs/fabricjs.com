@@ -25,30 +25,15 @@
       <li><a href="http://fabricjs.com/help">Support</a></li>
       <li><a href="http://fabricjs.com/test">Tests/Benchmarks</a></li>
       <li><a href="http://fabricjs.com/team">Team</a></li>
-
-      <li class="secondary">
-        <a href="http://travis-ci.org/#!/kangax/fabric.js">
-          <img src="https://api.travis-ci.org/kangax/fabric.js.png?branch=master">
-        </a>
-      </li>
-      <li class="gittip secondary">
-        <iframe style="border: 0; margin: 0; padding: 0;"
-          src="https://www.gittip.com/kangax/widget.html" width="48pt" height="22pt"></iframe>
-      </li>
-      <li class="flattr secondary">
-        <a class="FlattrButton" style="display:none;" rev="flattr;button:compact;" href="http://kangax.github.com/fabric.js"></a>
-        <noscript>
-          <a href="http://flattr.com/thing/391332/Fabric-js" target="_blank">
-            <img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0" />
-          </a>
-        </noscript>
-      </li>
       <li class="github secondary">
         <iframe src="http://ghbtns.com/github-btn.html?user=kangax&repo=fabric.js&type=watch&count=true"
           allowtransparency="true" frameborder="0" scrolling="0" width="95px" height="20px"></iframe>
       </li>
       <li class="twitter secondary">
         <a href="https://twitter.com/fabricjs" class="twitter-follow-button" data-show-count="true">Follow @fabricjs</a>
+      </li>
+      <li id="carbonads-container">
+        <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=fabricjscom" id="_carbonads_js"></script>
       </li>
     </ul>
 
@@ -62,12 +47,27 @@
         }
       }
       else {
-        var s = document.createElement('script'), t = document.getElementsByTagName('script')[0];
-        s.async = true;
-        s.src = 'http://api.flattr.com/js/0.6/load.js?mode=auto';
-        t.parentNode.insertBefore(s, t);
         !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
       }
+    })();
+    (function() {
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          var ads = document.getElementById('carbonads');
+          var ads2 = document.getElementById('carbonads-container');
+          var style = window.getComputedStyle(ads2);
+          if (!ads || style.display === 'none') {
+            var nag = document.getElementById('nag');
+            if (!nag) {
+              var newDiv = document.createElement('div');
+              newDiv.id = 'gentle-reminder-docs';
+              newDiv.className = 'reminder';
+              newDiv.innerHTML = 'Do you like fabricJS?<br />If you want it continue running and you do not mind tech related ads, please allow this website in your adblocker.<br /><br />❤️ Thank You!';
+              document.body.appendChild(newDiv)
+            }
+          }
+        }, 4000);
+      });
     })();
     </script>
     <nav>
@@ -1279,7 +1279,7 @@ Determines whether to use WebGL or Canvas2D based on the options.webgl flag.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line20247">line 20247</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line20248">line 20248</a>
     </li></ul></dd>
     
 
@@ -1586,7 +1586,7 @@ remember that options.targetCanvas is available for use till end of chain.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line20304">line 20304</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line20305">line 20305</a>
     </li></ul></dd>
     
 
@@ -1759,7 +1759,7 @@ remember that options.targetCanvas is available for use till end of chain.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line20063">line 20063</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line20064">line 20064</a>
     </li></ul></dd>
     
 
@@ -2027,7 +2027,7 @@ remember that options.targetCanvas is available for use till end of chain.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line20124">line 20124</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line20125">line 20125</a>
     </li></ul></dd>
     
 
@@ -2562,7 +2562,7 @@ remember that options.targetCanvas is available for use till end of chain.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line20040">line 20040</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line20041">line 20041</a>
     </li></ul></dd>
     
 
@@ -2687,7 +2687,7 @@ remember that options.targetCanvas is available for use till end of chain.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line20190">line 20190</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line20191">line 20191</a>
     </li></ul></dd>
     
 
@@ -3258,7 +3258,7 @@ remember that options.targetCanvas is available for use till end of chain.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line20150">line 20150</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line20151">line 20151</a>
     </li></ul></dd>
     
 
@@ -3543,7 +3543,7 @@ remember that options.targetCanvas is available for use till end of chain.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line20050">line 20050</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line20051">line 20051</a>
     </li></ul></dd>
     
 
@@ -3849,7 +3849,7 @@ remember that options.targetCanvas is available for use till end of chain.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line20329">line 20329</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line20330">line 20330</a>
     </li></ul></dd>
     
 
@@ -4003,10 +4003,7 @@ remember that options.targetCanvas is available for use till end of chain.
 
 
 </div>
-<div id="carbonads-container">
-  <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=fabricjscom" id="_carbonads_js"></script>
-</div>
-<footer><input id="toggle" type="checkbox" onclick="toggle(this.checked);"  /><label for="toggle" >Hide inherited properties and method from the page</label><br />Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Feb 05 2018 09:16:56 GMT+0100 (CET)
+<footer><input id="toggle" type="checkbox" onclick="toggle(this.checked);"  /><label for="toggle" >Hide inherited properties and method from the page</label><br />Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sat Feb 10 2018 13:40:33 GMT+0100 (CET)
 </footer>
 <script> prettyPrint(); </script>
 <script src="scripts/linenumber.js"> </script>

@@ -40,14 +40,13 @@
       var ads2 = document.getElementById('carbonads-container');
       var style = window.getComputedStyle(ads2);
       if (!ads || style.display === 'none') {
-        ads2.style.display = 'inline-block';
         var nag = document.getElementById('nag');
         if (!nag) {
           var newDiv = document.createElement('div');
-          newDiv.id = 'carbonads';
+          newDiv.id = 'gentle-reminder';
           newDiv.className = 'reminder';
           newDiv.innerHTML = 'Do you like fabricJS?<br />If you want it continue running and you do not mind tech related ads, please allow this website in your adblocker.<br /><br />❤️ Thank You!';
-          ads2.appendChild(newDiv)
+          document.body.appendChild(newDiv)
         }
       }
     }, 4000);

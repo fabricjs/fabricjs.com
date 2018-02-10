@@ -115,8 +115,22 @@ b.bench { font-family: monospace; font-size: 18px; background: #ffc; padding: 0 
 .team .bio p:first-child { margin-top: 0; }
 .team img { padding: 3px; border: 1px solid #ccc; }
 
+#gentle-reminder {
+  position: fixed;
+  right: 1px;
+  top: 45px;
+  width: 144px;
+}
+
+#gentle-reminder-docs {
+  position: fixed;
+  right: 16px;
+  top: 45px;
+  width: 144px;
+}
+
 .reminder {
-  font-size: 10px;
+  font-size: 13px;
   color: white;
   text-align: center;
   padding: 2px;

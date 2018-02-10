@@ -49,6 +49,7 @@ header
     right: 0px;
     overflow-y: scroll;
     border-bottom: 1px solid #ccc;
+    z-index: -1;
 }
 
 section

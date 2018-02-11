@@ -1,0 +1,24 @@
+---
+layout: articlead
+title: Fabric.js release 2.0.0 Breaking changes
+---
+
+<style>h2 { margin-bottom: 15px } h3 { margin-bottom: 10px; } h4 { margin-bottom: 7px; } </style>
+
+<div class="container" style="margin:30px auto">
+  <h2>Version 2.0.0 and breaking changes</h3>
+  <p>
+    This is a list of general talk pages where the biggest changes are described.
+  <a href="v2-breaking-changes-2">Changes to selection handling</a><br />
+  <a href="v2-breaking-changes">PathGroup removed, Image changes, requestAnimatiomFrame introduced</a><br />
+  <a href="/fabric-filters">Filtering system overhaul. Speedups for imageData version and introduced the WEBGL one. More filters added</a><br />
+  <a href="/fabric-text">IText styles are handled by text now. So text is stylable, support multybe, has better caching system and kerning support</a><br />
+  Named setters/getters are optional and disabled by default<br />
+  Dependency updates for node: jsdom bumped to 9.x and node 4 required.<br />
+  Removed all the JSON and ES5 shimmers. If you need to support non ES5 browsers, do it with external polyfills<br />
+  Api normalization for fromObject, fromElement, and clone. all are ASYNC.<br />
+  lockRotation will make ... rotation locked. Will not hide the control<br />
+  .clipTo is deprecated, please stop using it.<br />
+  transformMatrix is deprecated, please stop using it.<br />
+</p>
+</div>

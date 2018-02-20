@@ -66,4 +66,206 @@ var pointInObjectPixels = fabric.util.transformPoint(pointClicked, mInverse);</p
 }
 </pre>
     <p>The function gives back one of the possible solution for this matrix, putting as constrain a skewY to 0.</p>
+  <h3>A real use case</h3>
+  <p>One developer wants to group objects togheter, but keep them free at the same time. Ideally when a main object moves he wants some other objects to follow it.<br />
+    To explain this example i will call the main object BOSS and the other MINIONS.<br />
+    So let's imagine to have some objects around the canvas and we can move them freely. At some point we want to lock theyr relative position and scale togheter and move one.
+    When we setup the position we want, the BOSS position is described by a MATRIX, as we learned till now, and each minion too.<br />
+    I m sure it exist a matrix that defines the necessary transformation to move from the boss to the minion, and i have to find it.</p>
+<pre>
+// i m looking for the UNKNOW relation matrix where:
+BOSS * UNKNOW = MINION
+// i multiply left for BOSS-INV
+BOSS-INV * BOSS * UNKNOW = BOSS-INV * MINION
+// BOSS-INV * BOSS = IDENTIY, a neutral matrix.
+IDENTITY * UNKNOW = BOSS-INV * MINION
+// so...
+UNKNOW = BOSS-INV * MINION
+// that in fabricJS code equals to:
+var minions = canvas.getObjects().filter(o => o !== boss);
+var bossTransform = boss.calcTransformMatrix();
+var invertedBossTransform = fabric.util.invertTransform(bossTransform);
+minions.forEach(o => {
+  var desiredTransform = multiply(invertedBossTransform, o.calcTransformMatrix());
+  // save the desired relation here.
+  o.relationship = desiredTransform;
+});</pre>
+<p>Ok so now that i know how to find the relationship, i can write some event handler to apply this relationship on each BOSS action.</p>
+  <div class="example">
+    <pre>
+var canvas = new fabric.Canvas('c');
+var boss = new fabric.Rect(
+  { width: 150, height: 200, fill: 'red' });
+var minion1 = new fabric.Rect(
+  { width: 40, height: 40, fill: 'blue' });
+var minion2 = new fabric.Rect(
+  { width: 40, height: 40, fill: 'blue' });
+
+canvas.add(boss, minion1, minion2);
+
+boss.on('moving', updateMinions);
+boss.on('rotating', updateMinions);
+boss.on('scaling', updateMinions);
+
+var multiply = fabric.util.multiplyTransformMatrices;
+var invert = fabric.util.invertTransform;
+
+function updateMinions() {
+  var minions = canvas.getObjects().filter(o => o !== boss);
+  minions.forEach(o => {
+    if (!o.relationship) {
+      return;
+    }
+    var relationship = o.relationship;
+    var newTransform = multiply(
+      boss.calcTransformMatrix(),
+      relationship
+    );
+    opt = fabric.util.qrDecompose(newTransform);
+    o.set({
+      flipX: false,
+      flipY: false,
+    });
+    o.setPositionByOrigin(
+      { x: opt.translateX, y: opt.translateY },
+      'center',
+      'center'
+    );
+    o.set(opt);
+    o.setCoords();
+  });
+}
+
+document.getElementById('bind').onclick = function() {
+  var minions = canvas.getObjects().filter(o => o !== boss);
+  var bossTransform = boss.calcTransformMatrix();
+  var invertedBossTransform = invert(bossTransform);
+  minions.forEach(o => {
+    var desiredTransform = multiply(
+      invertedBossTransform,
+      o.calcTransformMatrix()
+    );
+    // save the desired relation here.
+    o.relationship = desiredTransform;
+  });
+}
+    </pre>
+    <div style="display: inline-block;">
+      <button id="bind">Bind MINION TO BOSS</button><br />
+      <canvas id="c" width="350" height="400" />
+    </div>
+  </div>
 </div>
+<script type="text/javascript">
+(function() {
+  var canvas = new fabric.Canvas('c');
+  var boss = new fabric.Rect({ width: 150, height: 200, fill: 'red' });
+  var minion1 = new fabric.Rect({ width: 40, height: 40, fill: 'blue' });
+  var minion2 = new fabric.Rect({ width: 40, height: 40, fill: 'blue' });
+
+  canvas.add(boss, minion1, minion2);
+
+  boss.on('moving', updateMinions);
+  boss.on('rotating', updateMinions);
+  boss.on('scaling', updateMinions);
+
+  var multiply = fabric.util.multiplyTransformMatrices;
+  var invert = fabric.util.invertTransform;
+
+  function updateMinions() {
+    var minions = canvas.getObjects().filter(o => o !== boss);
+    minions.forEach(o => {
+      if (!o.relationship) {
+        return;
+      }
+      var relationship = o.relationship;
+      var newTransform = multiply(boss.calcTransformMatrix(), relationship);
+      opt = fabric.util.qrDecompose(newTransform);
+      o.set({
+        flipX: false,
+        flipY: false,
+      });
+      o.setPositionByOrigin({ x: opt.translateX, y: opt.translateY }, 'center', 'center');
+      o.set(opt);
+      o.setCoords();
+    });
+  }
+
+  document.getElementById('bind').onclick = function() {
+    var minions = canvas.getObjects().filter(o => o !== boss);
+    var bossTransform = boss.calcTransformMatrix();
+    var invertedBossTransform = fabric.util.invertTransform(bossTransform);
+    minions.forEach(o => {
+      var desiredTransform = multiply(invertedBossTransform, o.calcTransformMatrix());
+      // save the desired relation here.
+      o.relationship = desiredTransform;
+    });
+  }
+})()
+</script>
+<script type="text/javascript">
+(function() {
+  var canvas = new fabric.Canvas('c2');
+  var boss = new fabric.Rect({ width: 150, height: 200, fill: 'red' });
+  var minion1 = new fabric.Rect({ width: 40, height: 40, fill: 'blue' });
+  var minion2 = new fabric.Rect({ width: 40, height: 40, fill: 'blue' });
+
+  canvas.add(boss, minion1, minion2);
+
+  boss.on('moving', requestUpdate);
+  boss.on('rotating', requestUpdate);
+  boss.on('scaling', requestUpdate);
+  canvas.on('before:render', updateMinions);
+
+  var multiply = fabric.util.multiplyTransformMatrices;
+  var invert = fabric.util.invertTransform;
+
+  function requestUpdate() {
+    canvas.updateMinions = true;
+  }
+
+  function updateMinions() {
+    if(!canvas.updateMinions) {
+      return;
+    }
+    canvas.updateMinions = false;
+    var minions = canvas.getObjects().filter(o => o !== boss);
+    minions.forEach(o => {
+      if (!o.relationship) {
+        return;
+      }
+      var relationship = o.relationship;
+      var newTransform = multiply(
+        boss.calcTransformMatrix(),
+        relationship
+      );
+      opt = fabric.util.qrDecompose(newTransform);
+      o.set({
+        flipX: false,
+        flipY: false,
+      });
+      o.setPositionByOrigin(
+        { x: opt.translateX, y: opt.translateY },
+        'center',
+        'center'
+      );
+      o.set(opt);
+      o.setCoords();
+    });
+  }
+
+  document.getElementById('bind2').onclick = function() {
+    var minions = canvas.getObjects().filter(o => o !== boss);
+    var bossTransform = boss.calcTransformMatrix();
+    var invertedBossTransform = invert(bossTransform);
+    minions.forEach(o => {
+      var desiredTransform = multiply(
+        invertedBossTransform,
+        o.calcTransformMatrix()
+      );
+      // save the desired relation here.
+      o.relationship = desiredTransform;
+    });
+  }
+});
+</script>

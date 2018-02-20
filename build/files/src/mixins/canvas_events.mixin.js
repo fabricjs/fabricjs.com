@@ -56,10 +56,7 @@
       addListener(this.upperCanvasEl, 'mouseenter', this._onMouseEnter);
       addListener(this.upperCanvasEl, 'wheel', this._onMouseWheel);
       addListener(this.upperCanvasEl, 'contextmenu', this._onContextMenu);
-      addListener(this.upperCanvasEl, 'dragover', this._onDragOver);
-      addListener(this.upperCanvasEl, 'dragenter', this._onDragEnter);
-      addListener(this.upperCanvasEl, 'dragleave', this._onDragLeave);
-      addListener(this.upperCanvasEl, 'drop', this._onDrop);
+
       // touch events
       addListener(this.upperCanvasEl, 'touchstart', this._onMouseDown, { passive: false });
       addListener(this.upperCanvasEl, 'touchmove', this._onMouseMove, { passive: false });
@@ -77,7 +74,7 @@
      * @private
      */
     _bindEvents: function() {
-      if (this.eventsBound) {
+      if (this.eventsBinded) {
         // for any reason we pass here twice we do not want to bind events twice.
         return;
       }
@@ -95,11 +92,7 @@
       this._onMouseEnter = this._onMouseEnter.bind(this);
       this._onContextMenu = this._onContextMenu.bind(this);
       this._onDoubleClick = this._onDoubleClick.bind(this);
-      this._onDragOver = this._onDragOver.bind(this);
-      this._onDragEnter = this._simpleEventHandler.bind(this, 'dragenter');
-      this._onDragLeave = this._simpleEventHandler.bind(this, 'dragleave');
-      this._onDrop = this._simpleEventHandler.bind(this, 'drop');
-      this.eventsBound = true;
+      this.eventsBinded = true;
     },
 
     /**
@@ -117,10 +110,6 @@
       removeListener(this.upperCanvasEl, 'doubleclick', this._onDoubleClick);
       removeListener(this.upperCanvasEl, 'touchstart', this._onMouseDown);
       removeListener(this.upperCanvasEl, 'touchmove', this._onMouseMove);
-      removeListener(this.upperCanvasEl, 'dragover', this._onDragOver);
-      removeListener(this.upperCanvasEl, 'dragenter', this._onDragEnter);
-      removeListener(this.upperCanvasEl, 'dragleave', this._onDragLeave);
-      removeListener(this.upperCanvasEl, 'drop', this._onDrop);
 
       if (typeof eventjs !== 'undefined' && 'remove' in eventjs) {
         eventjs.remove(this.upperCanvasEl, 'gesture', this._onGesture);
@@ -211,16 +200,6 @@
      */
     _onLongPress: function(e, self) {
       this.__onLongPress && this.__onLongPress(e, self);
-    },
-
-    /**
-     * prevent default to allow drop event to be fired
-     * @private
-     * @param {Event} [e] Event object fired on Event.js shake
-     */
-    _onDragOver: function(e) {
-      e.preventDefault();
-      this._simpleEventHandler('dragover', e);
     },
 
     /**
@@ -397,30 +376,6 @@
       this._handleEvent(e, 'up', target ? target : null, LEFT_CLICK, isClick);
       target && (target.__corner = 0);
       shouldRender && this.requestRenderAll();
-    },
-
-    /**
-     * @private
-     * Handle event firing for target and subtargets
-     * @param {Event} e event from mouse
-     * @param {String} eventType event to fire (up, down or move)
-     */
-    _simpleEventHandler: function(eventType, e) {
-      var target = this.findTarget(e),
-          targets = this.targets,
-          options = {
-            e: e,
-            target: target,
-            subTargets: targets,
-          };
-      this.fire(eventType, options);
-      target && target.fire(eventType, options);
-      if (!targets) {
-        return;
-      }
-      for (var i = 0; i < targets.length; i++) {
-        targets[i].fire(eventType, options);
-      }
     },
 
     /**

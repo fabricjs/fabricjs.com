@@ -8,6 +8,19 @@ title: Fabric.js. release 2.0.0 highlights.
 <div class="container" style="margin:30px auto">
   <h2 id="introduction_to_fabricjs">Fabric.js release highlights</h2>
   <p> Find general v2 changes <a href="changes-introduction">here</a></p>
+  <h3>Version 2.0.3</h3>
+  <p>
+    This time is contributors time!
+    <a href="https://github.com/boomyao">@boomayao</a> noticed that the pencilBrush was doing too much work and wrote a function to draw just the new segment, <a href="https://github.com/stefanhayden">@stefanhayden</a> fixed
+    the clanStyle function for text styles, <a href="https://github.com/scriptspry">@scriptspry</a> fixed a weird interaction between onBeforeScaleRotate and canvasZoom, <a href="https://github.com/blucobalto">@blucobalto</a>
+    repoted the exact line and problem of a group subclass problem.
+  </p>
+  <pre>
+-  Fix: now sub target check can work with subclasses of fabric.Group #4753
+-  Improvement: PencilBrush is now compexity 1 instead of complexity N during draw #4743
+-  Fix the cleanStyle was not checking for the right property to exist #4751
+-  Fix onBeforeScaleRotate with canvas zoom #4734
+  </pre>
   <h3>Version 2.0.2</h3>
   <p>
     Fix image toSVG export for images with cropping. Improved math around coordinates to avoid long decimals

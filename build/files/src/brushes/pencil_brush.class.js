@@ -24,6 +24,7 @@
     _drawSegment: function (ctx, p1, p2) {
       var midPoint = p1.midPointFrom(p2);
       ctx.quadraticCurveTo(p1.x, p1.y, midPoint.x, midPoint.y);
+      return midPoint;
     },
 
     /**
@@ -43,12 +44,17 @@
      * @param {Object} pointer
      */
     onMouseMove: function(pointer) {
-      if (this._captureDrawingPath(pointer) && this._points.length > 2) {
-        var length = this._points.length;
+      if (this._captureDrawingPath(pointer) && this._points.length > 1) {
+        var points = this._points, length = points.length, ctx = this.canvas.contextTop;
         // draw the curve update
-        console.log('rendering ', length - 3, length - 2)
-        this._drawSegment(this.canvas.contextTop, this._points[length - 3], this._points[length - 2]);
-        this.canvas.contextTop.stroke();
+        this._saveAndTransform(ctx);
+        if (this.oldEnd) {
+          ctx.beginPath();
+          ctx.moveTo(this.oldEnd.x, this.oldEnd.y);
+        }
+        this.oldEnd = this._drawSegment(ctx, points[length - 2], points[length - 1], true);
+        ctx.stroke();
+        ctx.restore();
       }
     },
 
@@ -56,6 +62,7 @@
      * Invoked on mouse up
      */
     onMouseUp: function() {
+      this.oldEnd = undefined;
       this._finalizeAndAddPath();
     },
 
@@ -69,7 +76,6 @@
 
       this._reset();
       this._addPoint(p);
-
       this.canvas.contextTop.moveTo(p.x, p.y);
     },
 

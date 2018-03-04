@@ -189,6 +189,16 @@ function addAccessors($scope) {
     canvas.renderAll();
   };
 
+  $scope.setSubScript = function() {
+    var obj = canvas.getActiveObject();
+    obj.setSubScript();
+  };
+
+  $scope.setSuperScript = function() {
+    var obj = canvas.getActiveObject();
+    obj.setSuperScript();
+  };
+
   $scope.addRect = function() {
     var coord = getRandomLeftTop();
 

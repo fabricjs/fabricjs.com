@@ -117,6 +117,15 @@ title: Kitchensink
               ng-class="{'btn-inverse': isOverline()}">
               Overline
             </button>
+            <br />
+            <button type="button" class="btn btn-object-action" id="text-cmd-superscript"
+              ng-click="setSuperScript()">
+              Superscript
+            </button>
+            <button type="button" class="btn btn-object-action" id="text-cmd-subscript"
+              ng-click="setSubScript()">
+              Subscript
+            </button>
           </div>
         </div>
         <div style="margin-top:10px;">
@@ -588,7 +597,7 @@ title: Kitchensink
     canvas.on('object:selected', function(opt) {
         var target = opt.target;
         if (target._cacheCanvas) {
-          
+
         }
     })
 

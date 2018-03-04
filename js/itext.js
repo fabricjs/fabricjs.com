@@ -21,8 +21,36 @@ var canvases = this.__canvases = [
   new fabric.Canvas('c17'),
   new fabric.Canvas('c18'),
   new fabric.Canvas('c19'),
-  new fabric.Canvas('c20')
+  new fabric.Canvas('c20'),
+  new fabric.Canvas('c21'),
 ];
+
+var iText22 = new fabric.IText('e = mc2\na2 + b2 = c2', {
+  left: 10,
+  top: 20,
+  styles: {
+    0: {
+      6: {
+        deltaY: -14,
+        fontSize: 24,
+      }
+    },
+    1: {
+      1: {
+        deltaY: 4.4,
+        fontSize: 24,
+      },
+      6: {
+        deltaY: 4.4,
+        fontSize: 24,
+      },
+      11: {
+        deltaY: 4.4,
+        fontSize: 24,
+      }
+    }
+  }
+})
 
 
 var iText1 = new fabric.IText('zomg123\nbar\n0bAz\nand something else', {
@@ -207,6 +235,7 @@ var iText10 = new fabric.IText('foobar\nbaz', {
   }
 });
 
+canvases[20].add(iText22);
 canvases[0].add(iText1);
 canvases[1].add(iText2);
 canvases[2].add(iText3);
@@ -605,6 +634,17 @@ function addHandler(id, fn, eventName) {
   };
 }
 
+addHandler('super-script', function(obj) {
+  if (obj.selectionStart !== obj.selectionEnd) {
+    obj.setSuperscript();
+  }
+});
+
+addHandler('sub-script', function(obj) {
+  if (obj.selectionStart !== obj.selectionEnd) {
+    obj.setSubscript();
+  }
+});
 
 addHandler('bold', function(obj) {
   var isBold = getStyle(obj, 'fontWeight') === 'bold';

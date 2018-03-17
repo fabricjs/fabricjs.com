@@ -736,11 +736,12 @@
           prevStyle = prevGrapheme ? this.getCompleteStyleDeclaration(lineIndex, charIndex - 1) : { },
           info = this._measureChar(grapheme, style, prevGrapheme, prevStyle),
           kernedWidth = info.kernedWidth,
-          width = info.width;
+          width = info.width, charSpacing;
 
       if (this.charSpacing !== 0) {
-        width += this._getWidthOfCharSpacing();
-        kernedWidth += this._getWidthOfCharSpacing();
+        charSpacing = this._getWidthOfCharSpacing();
+        width += charSpacing;
+        kernedWidth += charSpacing;
       }
 
       var box = {
@@ -767,8 +768,11 @@
         return this.__lineHeights[lineIndex];
       }
 
-      var line = this._textLines[lineIndex], maxHeight = 0;
-      for (var i = 0, len = line.length; i < len; i++) {
+      var line = this._textLines[lineIndex],
+          // char 0 is measured before the line cycle because it nneds to char
+          // emptylines
+          maxHeight = this.getHeightOfChar(lineIndex, 0);
+      for (var i = 1, len = line.length; i < len; i++) {
         maxHeight = Math.max(this.getHeightOfChar(lineIndex, i), maxHeight);
       }
 
@@ -1199,12 +1203,16 @@
      */
     _getFontDeclaration: function(styleObject, forMeasuring) {
       var style = styleObject || this;
+      var fontFamily = style.fontFamily === undefined ||
+      style.fontFamily.indexOf('\'') > -1 ||
+      style.fontFamily.indexOf('"') > -1
+        ? style.fontFamily : '"' + style.fontFamily + '"';
       return [
         // node-canvas needs "weight style", while browsers need "style weight"
         (fabric.isLikelyNode ? style.fontWeight : style.fontStyle),
         (fabric.isLikelyNode ? style.fontStyle : style.fontWeight),
         forMeasuring ? this.CACHE_FONT_SIZE + 'px' : style.fontSize + 'px',
-        (fabric.isLikelyNode ? ('"' + style.fontFamily + '"') : style.fontFamily)
+        fontFamily
       ].join(' ');
     },
 

@@ -78,13 +78,13 @@
     assert.ok(typeof text._getFontDeclaration === 'function', 'has a private method _getFontDeclaration');
     var fontDecl = text._getFontDeclaration();
     assert.ok(typeof fontDecl == 'string', 'it returns a string');
-    if (fabric.isLikelyNode) {
-      assert.equal(fontDecl, 'normal normal 40px "Times New Roman"');
-    }
-    else {
-      assert.equal(fontDecl, 'normal normal 40px Times New Roman');
-    }
-
+    assert.equal(fontDecl, 'normal normal 40px "Times New Roman"');
+    text.fontFamily = '"Times New Roman"';
+    fontDecl = text._getFontDeclaration();
+    assert.equal(fontDecl, 'normal normal 40px "Times New Roman"');
+    text.fontFamily = '\'Times New Roman\'';
+    fontDecl = text._getFontDeclaration();
+    assert.equal(fontDecl, 'normal normal 40px \'Times New Roman\'');
   });
 
   QUnit.test('toObject', function(assert) {
@@ -716,5 +716,14 @@
 
     assert.equal(text.styles[0][2].fontSize, styleFontSize * schema.size, 'character 2: fontSize has been decreased');
     assert.equal(text.styles[0][2].deltaY, styleDeltaY + styleFontSize * schema.baseline, 'character 2: deltaY has been increased');
+  });
+
+  QUnit.test('getHeightOfLine measures height of aline', function(assert) {
+    var text = new fabric.Text('xxx\n');
+    var height1 = text.getHeightOfLine(0);
+    var height2 = text.getHeightOfLine(1);
+    assert.equal(Math.round(height1), 52, 'height of line with text is ok');
+    assert.equal(Math.round(height2), 52, 'height of empty line is ok');
+    assert.equal(height1, height2, 'should have same height');
   });
 })();

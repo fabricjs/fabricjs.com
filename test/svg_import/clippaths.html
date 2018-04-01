@@ -1,0 +1,53 @@
+---
+layout: test
+title: SVG clippath Rendering
+---
+
+<link rel="stylesheet" type="text/css" href="svg_import.css">
+
+<script>
+  fabric.Object.prototype.originX = 'center';
+  fabric.Object.prototype.originY = 'center';
+  function initCanvas(id) {
+    var canvas;
+    fabric.loadSVGFromURL('../../assets/clippath-' + id + '.svg', function(objects, options) {
+      var shape = fabric.util.groupSVGElements(objects, options);
+      var canvasEl = document.getElementById('c' + (id + '').replace('/', '_'));
+      var div = document.getElementById('exp_c' + (id + '').replace('/', '_'));
+
+      canvasEl.width = shape.getScaledWidth() || 600;
+      canvasEl.height = shape.getScaledHeight() || 600;
+
+      var iframeEl = canvasEl.parentNode.nextSibling.childNodes[1];
+      if (iframeEl) {
+        iframeEl.style.width = canvasEl.width + 'px';
+        iframeEl.style.height = canvasEl.height + 'px';
+      }
+      shape.top = canvasEl.height/2;
+      shape.left = canvasEl.width/2;
+      canvas = window['__canvas' + id] = new fabric.Canvas('c' + id, { backgroundColor: '#fff' });
+      canvas.add(shape);
+    });
+  }
+  window['__debug'] = function(id) {
+    var divDebug = document.getElementById('debug' + (id + '').replace('/', '_'));
+    var el = window['__canvas' + id].getActiveObject().clipPath._cacheCanvas;
+    var el2 = window['__canvas' + id].getActiveObject()._cacheCanvas;
+    divDebug.appendChild(el);
+    divDebug.appendChild(el2);
+  }
+</script>
+
+<script>
+  for (var i = 4; i >= 4; i--) {
+    document.write(
+      '<div class="test"><div class="block left"><p>Canvas #' + i + '</p>' +
+      '<canvas id="c' + i + '" width="300" height="300"></canvas></div>' +
+      '<div class="block"><p><a href="../../assets/clippath-' + i + '.svg">SVG</a></p>' +
+      '<iframe src="../../assets/clippath-' + i + '.svg"></iframe></div>' +
+      '<div class="block"><p>EXPORTED SVG</p>' +
+      '<div id="exp_c' + i + '" ></div><div id="debug' + i + '" ></div></div></div>'
+    );
+    initCanvas(i);
+  }
+</script>

@@ -49,13 +49,14 @@ title: SVG caching
   }
 
   function cache() {
+    fabric.Object.prototype.objectCaching = !fabric.Object.prototype.objectCaching;
     canvas.forEachObject(function(obj, i) {
-      obj.toggle('objectCaching');
+      obj.set('dirty', true);
     });
   }
 
   (function render(){
-    canvas.requestRenderAll();
+    canvas.renderAll();
     fabric.util.requestAnimFrame(render);
   })();
 

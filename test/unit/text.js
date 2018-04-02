@@ -220,6 +220,7 @@
     elTextWithAttrs.setAttribute('font-style', 'italic');
     elTextWithAttrs.setAttribute('font-weight', 'bold');
     elTextWithAttrs.setAttribute('font-size', '123');
+    elTextWithAttrs.setAttribute('letter-spacing', '1em');
     elTextWithAttrs.setAttribute('text-decoration', 'underline');
     elTextWithAttrs.setAttribute('text-anchor', 'middle');
 
@@ -246,6 +247,7 @@
         fontFamily:       'Monaco',
         paintFirst:       'fill',
         fontStyle:        'italic',
+        charSpacing:      1000,
         fontWeight:       'bold',
         fontSize:         123,
         underline:        true,
@@ -616,7 +618,7 @@
       fontSize: 25,
     };
     var styleString = iText.getSvgSpanStyles(styleObject);
-    var expected = 'stroke-width: 30; font-family: Verdana; font-size: 25px; fill: rgb(255,0,0); ';
+    var expected = 'stroke-width: 30; font-family: \'Verdana\'; font-size: 25px; fill: rgb(255,0,0); ';
     assert.equal(styleString, expected, 'style is as expected');
   });
   QUnit.test('getSvgSpanStyles produces correct output with useWhiteSpace', function(assert) {
@@ -628,7 +630,7 @@
       fontSize: 25,
     };
     var styleString = iText.getSvgSpanStyles(styleObject, true);
-    var expected = 'stroke-width: 30; font-family: Verdana; font-size: 25px; fill: rgb(255,0,0); white-space: pre; ';
+    var expected = 'stroke-width: 30; font-family: \'Verdana\'; font-size: 25px; fill: rgb(255,0,0); white-space: pre; ';
     assert.equal(styleString, expected, 'style is as expected');
   });
   QUnit.test('getSvgTextDecoration with overline true produces correct output', function(assert){

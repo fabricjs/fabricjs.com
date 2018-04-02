@@ -8,6 +8,39 @@ title: Fabric.js. release 2.0.0 highlights.
 <div class="container" style="margin:30px auto">
   <h2 id="introduction_to_fabricjs">Fabric.js release highlights</h2>
   <p> Find general v2 changes <a href="changes-introduction">here</a></p>
+  <h3>Version 2.2.3</h3>
+  <p>There are mixed changes. Most of them are about toSVG and fromSVG without new big features.<br />
+  There 2 changes that may interests you and change how your code behaves:<br />
+  When rotating an object by mouse, the origins are no more forced to be centered, that means that top and left of the rotating object
+  will not change to centerPoint without you asking for that. Top and Left will change accordingly to what you see on screen, like it happens
+  for scale, skew and translate. Is a good change, but it may be considered a behaviour change. I did not feel like leave it like this nor to issue
+  a major version for it. <br />
+  Another change is that setSrc on image is also going to reset width and heigth to the one of the element. Since width and height now crop an image
+  or just render it with white space around if dimensions do not match, changing width and heigth back to default is something that i consider a bugfix.
+  If you built a feature between 2.0 and 2.2.2 that rely on swapping image sources and not changing widht and height, this may gonna break.
+</p>
+<pre>
+-  improvement: Allow to parse quoted url string. url('#myid') #4881
+-  improvement: text fromSVG import char-spacing attribute #3718
+-  fix: text toSVG export with multiple spaces in safari #4880
+-  fix: setSrc reset width and height on images #4877
+-  improvements: Removed forced origin swap when rotating #4878
+-  fix: Make the background of canvas cover all SVG in toSVG export #4852
+-  fix: Added startAngle to cacheProperties for fabric.Circle #4875
+-  fix: Rerender all the content of upperCanvas if canvas gets resized #4850
+-  fix: Remove references to context when disposing #4846
+-  improvements: Added single quoting to font names in toSVG #4840
+-  improvements: Added reserved space to wrapLine functionality #4841
+</pre>
+<h3>Version 2.2.2</h3>
+<pre>
+-  Fixed: Applying filters to an image will invalidate its cache #4828
+-  Fixed: Attempt at fix font families that requires quoting #4831
+-  Improvement: check upperCanvas client size for textarea position #4827
+-  Fixed: Attempt to fix multiple touchends #4804
+-  Fixed: Wrapping of textbox with charspacing #4803
+-  Fixed: bad calculation of empty line in text (regression from 2.2.0) #4802
+</pre>
   <h3>Version 2.2.0</h3>
   <p>New feature: superscript and subscript! check the demo to see how to activate it, along with the docs.<br />
   Fixes to text kerning with fonts that have a positive kerning on couples</p>

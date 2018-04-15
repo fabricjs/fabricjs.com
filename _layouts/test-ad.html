@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>{{ page.title }} | Fabric.js Demos</title>
+
+    <link rel="stylesheet" href="../../css/master.css">
+    <link rel="stylesheet" href="../../css/ads.css">
+    <script src="../../lib/fabric.js" data-cover></script>
+    <!--[if lt IE 9]>
+      <script src="../../lib/excanvas.js"></script>
+    <![endif]-->
+    <script src="../../js/master.js"></script>
+
+  </head>
+  <body class="demo">
+    {% include header2.html %}
+
+    <div id="bd-wrapper">
+      <h2><span>Fabric.js tests</span> &middot; {{ page.title }}</h2>
+
+      {{ content }}
+    </div>
+
+    {% include onload.html %}
+  </body>
+</html>

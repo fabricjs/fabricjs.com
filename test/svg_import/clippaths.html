@@ -1,10 +1,14 @@
 ---
-layout: test
+layout: test-ad
 title: SVG clippath Rendering
 ---
 
 <link rel="stylesheet" type="text/css" href="svg_import.css">
-
+<style>
+  .debug > canvas {
+    border: 1px solid red;
+  }
+</style>
 <script>
   fabric.Object.prototype.originX = 'center';
   fabric.Object.prototype.originY = 'center';
@@ -14,7 +18,7 @@ title: SVG clippath Rendering
       var shape = fabric.util.groupSVGElements(objects, options);
       var canvasEl = document.getElementById('c' + (id + '').replace('/', '_'));
       var div = document.getElementById('exp_c' + (id + '').replace('/', '_'));
-
+      shape.scale(0.9);
       canvasEl.width = shape.getScaledWidth() || 600;
       canvasEl.height = shape.getScaledHeight() || 600;
 
@@ -39,14 +43,13 @@ title: SVG clippath Rendering
 </script>
 
 <script>
-  for (var i = 4; i >= 4; i--) {
+  for (var i = 4; i >= 1; i--) {
     document.write(
       '<div class="test"><div class="block left"><p>Canvas #' + i + '</p>' +
       '<canvas id="c' + i + '" width="300" height="300"></canvas></div>' +
-      '<div class="block"><p><a href="../../assets/clippath-' + i + '.svg">SVG</a></p>' +
+      '<div class="block"><p><a style="" href="../../assets/clippath-' + i + '.svg">SVG</a></p>' +
       '<iframe src="../../assets/clippath-' + i + '.svg"></iframe></div>' +
-      '<div class="block"><p>EXPORTED SVG</p>' +
-      '<div id="exp_c' + i + '" ></div><div id="debug' + i + '" ></div></div></div>'
+      '</div>'
     );
     initCanvas(i);
   }

@@ -29,7 +29,7 @@ title: Event inspector
 
 <div id="drag-stuff" class="log">
   Drag me on the canvas<br /><br />
-  <div id="drag-me" draggable="true"></div>
+  <div id="drag-me" draggable="true" ondragstart="event.dataTransfer.setData('text/plain', '')"></div>
 </div>
 
 <div id="observing-events-log" class="log">

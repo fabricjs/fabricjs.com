@@ -18,9 +18,9 @@ title: SVG clippath Rendering
       var shape = fabric.util.groupSVGElements(objects, options);
       var canvasEl = document.getElementById('c' + (id + '').replace('/', '_'));
       var div = document.getElementById('exp_c' + (id + '').replace('/', '_'));
-      shape.scale(0.9);
-      canvasEl.width = shape.getScaledWidth() || 600;
-      canvasEl.height = shape.getScaledHeight() || 600;
+      canvasEl.width = 550;
+      shape.scaleToWidth(550);
+      canvasEl.height = shape.getScaledHeight();
 
       var iframeEl = canvasEl.parentNode.nextSibling.childNodes[1];
       if (iframeEl) {
@@ -43,12 +43,13 @@ title: SVG clippath Rendering
 </script>
 
 <script>
-  for (var i = 4; i >= 1; i--) {
+  for (var i = 7; i >= 1; i--) {
     document.write(
       '<div class="test"><div class="block left"><p>Canvas #' + i + '</p>' +
       '<canvas id="c' + i + '" width="300" height="300"></canvas></div>' +
       '<div class="block"><p><a style="" href="../../assets/clippath-' + i + '.svg">SVG</a></p>' +
       '<iframe src="../../assets/clippath-' + i + '.svg"></iframe></div>' +
+      '<div id="debug' + i + '"></div>' +
       '</div>'
     );
     initCanvas(i);

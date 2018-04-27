@@ -1087,8 +1087,8 @@
       var path = this.clipPath;
       ctx.save();
       // DEBUG: uncomment this line, comment the following
-      // ctx.globalAlpha = 0.4
-      ctx.globalCompositeOperation = 'destination-in';
+      ctx.globalAlpha = 0.4
+      // ctx.globalCompositeOperation = 'destination-in';
       //ctx.scale(1 / 2, 1 / 2);
       path.transform(ctx);
       ctx.scale(1 / path.zoomX, 1 / path.zoomY);

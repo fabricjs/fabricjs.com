@@ -97,7 +97,7 @@
 
     _.bindAll(this,
       'addRect', 'addCircle', 'addLine', 'addTriangle', 'addPolygon', 'addText',
-      'addImage1', 'addImage2', 'addImage3', 'maybeLoadShape');
+      'addImage1', 'addImage2', 'addImage3', 'addImage4', 'maybeLoadShape');
 
     rivets.bind($('#simple-shapes'), {
       app: this
@@ -195,6 +195,19 @@
   },
   addImage3: function() {
     this.addImage('printio.png', 0.5, 0.75);
+  },
+  addImage4: function() {
+    var scr = 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4
+    var video1El = document.createElement('video');
+    video1El.src = src;
+    video1El.load();
+    var coord = getRandomLeftTop();
+    var video = new fabric.Image(video1El, {
+      left: coord.left,
+      top: coord.top,
+      angle: getRandomInt(-10, 10)
+    });
+    this.canvas.add(video)
   },
 
   addShape: function(shapeName) {

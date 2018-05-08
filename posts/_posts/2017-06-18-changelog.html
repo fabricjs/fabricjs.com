@@ -8,6 +8,20 @@ title: Fabric.js. release 2.0.0 highlights.
 <div class="container" style="margin:30px auto">
   <h2 id="introduction_to_fabricjs">Fabric.js release highlights</h2>
   <p> Find general v2 changes <a href="changes-introduction">here</a></p>
+  <h3>Version 2.2.4</h3>
+  <p>Just fixes to brushes, filters and events mostly coming from contributors.<br />
+    A new method is added isPartiallyOnscreen for objects, helps you identify when the object is crossing your viewport boundaries and an important bug in statefull processing is fixed that was causing type errors when comparing an array with null or an object with null or a string</p>
+  <pre>
+- Fix getPointer on touch devices #4866
+- Fix issues with selectionDashArray bleeding into free drawing #4894
+- Fix blur filter for nodejs #4905
+- Fix Register mousemove as non passive to help touch devices #4933
+- Fix modified shadow tosvg for safari compatibility #4934
+- Fix shader to avoid premultiplied alpha pixel getting dirty in blend filter #4936
+- Add isPartiallyOnScreen method #4856
+- Fix isEqual failing on array/null or objects/null/string compare #4949
+- Fix pencilBrush with alpha and with rerendering canvas #4938
+  </pre>
   <h3>Version 2.2.3</h3>
   <p>There are mixed changes. Most of them are about toSVG and fromSVG without new big features.<br />
   There 2 changes that may interests you and change how your code behaves:<br />

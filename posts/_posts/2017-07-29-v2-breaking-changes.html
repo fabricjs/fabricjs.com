@@ -7,6 +7,12 @@ title: Fabric.js breaking changes
 
 <div class="container" style="margin:30px auto">
   <h2 id="introduction_to_fabricjs">Fabric.js V 2.0 list of breaking changes</h2>
+  <h3>Removed methods</h3>
+  <p>
+    Object.getWidth() and Object.getHeight have been renamed to getScaledWidth and getScaledHeight.<br />
+    The reason behind it is that they were confusion on what they were supposed to give back.<br />
+    If you use the accessors optional mixin, you get them back but they will just be getters for .width and .height
+  </p>
   <h3>fabric.PathGroup</h3>
   <p>
     Fabric.PathGroup has been removed. The class existed as container able to render the imported SVGs.<br />

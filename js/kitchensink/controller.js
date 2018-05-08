@@ -384,6 +384,28 @@ function addAccessors($scope) {
     addImage('printio.png', 0.5, 0.75);
   };
 
+  $scope.addImage4 = function() {
+    var src = 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4';
+    var video1El = document.createElement('video');
+    video1El.crossOrigin = 'anonymous';
+    video1El.src = src;
+    video1El.addEventListener('loadeddata', function() {
+        // Video is loaded and can be played
+       var coord = getRandomLeftTop();
+       var video = new fabric.Image(video1El, {
+         left: coord.left,
+         top: coord.top,
+         angle: getRandomInt(-10, 10)
+       });
+       canvas.add(video);
+    }, false);
+    video1El.width = 384;
+    video1El.height = 206;
+    //video1El.style.display = 'none';
+    document.body.appendChild(video1El);
+    video1El.load();
+  };
+
   $scope.confirmClear = function() {
     if (confirm('Are you sure?')) {
       canvas.clear();
@@ -567,6 +589,19 @@ function addAccessors($scope) {
     }
     canvas.renderAll();
   };
+
+  $scope.play = function() {
+    var obj = canvas.getActiveObject();
+
+    if (!obj || !obj.getElement || !obj.getElement().play) return;
+    obj.getElement().play();
+    renderLoop();
+  };
+
+  function renderLoop() {
+    canvas.requestRenderAll();
+    window.requestAnimationFrame(renderLoop);
+  }
 
   $scope.clip = function() {
     var obj = canvas.getActiveObject();

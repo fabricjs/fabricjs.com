@@ -61,7 +61,7 @@ title: Event inspector
   var log2 = document.getElementById('log1');
 
   function log(message, opt, color) {
-    if ((message === 'mouse:move' || message === 'mousemove') && !document.getElementById('move').checked) {
+    if ((message === 'mouse:move' || message === 'mousemove' || message === 'mouse:move:before' || message === 'mousemove:before') && !document.getElementById('move').checked) {
       return;
     }
     if ((message === 'dragover') && !document.getElementById('dragover').checked) {
@@ -116,8 +116,13 @@ title: Event inspector
   observe('object:scaling');
   observe('object:rotating');
   observe('object:skewing');
+  observe('object:moved');
+  observe('object:scaled');
+  observe('object:rotated');
+  observe('object:skewed');
   addSeparator('observing-events-log');
 
+  observe('before:transform');
   observe('before:selection:cleared');
   observe('selection:cleared');
   observe('selection:created');
@@ -127,6 +132,9 @@ title: Event inspector
   observe('mouse:up');
   observe('mouse:down');
   observe('mouse:move');
+  observe('mouse:up:before');
+  observe('mouse:down:before');
+  observe('mouse:move:before');
   observe('mouse:dblclick');
   observe('mouse:wheel');
   observe('mouse:over');
@@ -146,11 +154,18 @@ title: Event inspector
   observeObj('scaling');
   observeObj('rotating');
   observeObj('skewing');
+  observeObj('moved');
+  observeObj('scaled');
+  observeObj('rotated');
+  observeObj('skewed');
   addSeparator('observing-events-log-obj');
 
   observeObj('mouseup');
   observeObj('mousedown');
   observeObj('mousemove');
+  observeObj('mouseup:before');
+  observeObj('mousedown:before');
+  observeObj('mousemove:before');
   observeObj('mousedblclick');
   observeObj('mousewheel');
   observeObj('mouseover');

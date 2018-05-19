@@ -138,7 +138,12 @@ title: Image Filters
 
 <script id="main">(function() {
   // manually initialize 2 filter backend to give ability to switch:
-  var webglBackend = new fabric.WebglFilterBackend();
+  var webglBackend;
+  try {
+    webglBackend = new fabric.WebglFilterBackend();
+  } catch (e) {
+    console.log(e)
+  }
   var canvas2dBackend = new fabric.Canvas2dFilterBackend()
 
   fabric.filterBackend = fabric.initFilterBackend();

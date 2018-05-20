@@ -8,6 +8,13 @@ title: Fabric.js. release 2.0.0 highlights.
 <div class="container" style="margin:30px auto">
   <h2 id="introduction_to_fabricjs">Fabric.js release highlights</h2>
   <p> Find general v2 changes <a href="changes-introduction">here</a></p>
+  <h3>Version 2.3.0</h3>
+  <p>Added new events and a performance improvement for pixel transparency on cached object.<br />
+    Cached objects gets now sampled directly on their cached to check for transparency without a repaint.
+    <br />Check the new events <a href="/new-events">here</a></p>
+  <pre>
+- Add and improve more events for transformations and mouse interaction #4979
+- Improvement: whenever possible use cache for target transparency sampling #4955</pre>
   <h3>Version 2.2.4</h3>
   <p>Just fixes to brushes, filters and events mostly coming from contributors.<br />
     A new method is added isPartiallyOnscreen for objects, helps you identify when the object is crossing your viewport boundaries and an important bug in statefull processing is fixed that was causing type errors when comparing an array with null or an object with null or a string</p>

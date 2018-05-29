@@ -201,7 +201,8 @@ title: Custom Fabric build
     }
 
     function ifSpecifiedInclude(moduleName, filename) {
-      return document.getElementById(moduleName).checked ? filename : '';
+      var elem = document.getElementById(moduleName);
+      return elem && elem.checked ? filename : '';
     }
 
     function collectFilesName() {
@@ -299,6 +300,7 @@ title: Custom Fabric build
         ifSpecifiedInclude('image_filters', 'src/filters/removecolor_filter.class.js'),
         ifSpecifiedInclude('image_filters', 'src/filters/filter_generator.js'),
         ifSpecifiedInclude('image_filters', 'src/filters/blendcolor_filter.class.js'),
+        ifSpecifiedInclude('image_filters', 'src/filters/blendimage_filter.class.js'),
         ifSpecifiedInclude('image_filters', 'src/filters/resize_filter.class.js'),
         ifSpecifiedInclude('image_filters', 'src/filters/contrast_filter.class.js'),
         ifSpecifiedInclude('image_filters', 'src/filters/saturate_filter.class.js'),

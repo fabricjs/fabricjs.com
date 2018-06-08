@@ -8,6 +8,14 @@ title: Fabric.js. release 2.0.0 highlights.
 <div class="container" style="margin:30px auto">
   <h2 id="introduction_to_fabricjs">Fabric.js release highlights</h2>
   <p> Find general v2 changes <a href="changes-introduction">here</a></p>
+  <h3>Version 2.3.2</h3>
+  <p>Lot of small IText fixes and a group caching bug removed.</p>
+  <pre>
+ - Fix: justify + charspacing + textDecoration Add and improve more events for transformations and mouse interaction. #5007 #5009
+ - Fix: Enter edit on object selected programmatically. #5010
+ - Fix: Canvas.dispose was not removing all events properly. #5020
+ - Fix: Make rgba and hsla regex work case insensitive. #5017
+ - Fix: Make group transitioning from not cached to cached work. #5021</pre>
   <h3>Version 2.3.0</h3>
   <p>Added new events and a performance improvement for pixel transparency on cached object.<br />
     Cached objects gets now sampled directly on their cached to check for transparency without a repaint.

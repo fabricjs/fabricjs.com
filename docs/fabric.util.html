@@ -232,7 +232,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2508">line 2508</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2517">line 2517</a>
     </li></ul></dd>
     
 
@@ -374,7 +374,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2394">line 2394</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2403">line 2403</a>
     </li></ul></dd>
     
 
@@ -538,7 +538,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2186">line 2186</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2195">line 2195</a>
     </li></ul></dd>
     
 
@@ -965,7 +965,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2754">line 2754</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2763">line 2763</a>
     </li></ul></dd>
     
 
@@ -1317,7 +1317,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2851">line 2851</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2860">line 2860</a>
     </li></ul></dd>
     
 
@@ -1347,7 +1347,14 @@
 
 
 <div class="description">
-    Clear char widths cache for a font family.
+    Clear char widths cache for the given font family or all the cache if no
+fontFamily is specified.
+Use it if you know you are loading fonts in a lazy way and you are not waiting
+for custom fonts to load properly when adding text objects to the canvas.
+If a text object is added when its own font is not loaded yet, you will get wrong
+measurement and so wrong bounding boxes.
+After the font cache is cleared, either change the textObject text content or call
+initDimensions() to trigger a recalculation
 </div>
 
 
@@ -1447,7 +1454,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1324">line 1324</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1331">line 1331</a>
     </li></ul></dd>
     
 
@@ -1977,7 +1984,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1979">line 1979</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1988">line 1988</a>
     </li></ul></dd>
     
 
@@ -2395,7 +2402,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1480">line 1480</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1489">line 1489</a>
     </li></ul></dd>
     
 
@@ -3350,7 +3357,7 @@ called after each fabric object created.</td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1514">line 1514</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1523">line 1523</a>
     </li></ul></dd>
     
 
@@ -3471,7 +3478,7 @@ called after each fabric object created.</td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2335">line 2335</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2344">line 2344</a>
     </li></ul></dd>
     
 
@@ -3610,7 +3617,7 @@ called after each fabric object created.</td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2467">line 2467</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2476">line 2476</a>
     </li></ul></dd>
     
 
@@ -4053,7 +4060,7 @@ called after each fabric object created.</td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2203">line 2203</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2212">line 2212</a>
     </li></ul></dd>
     
 
@@ -4357,7 +4364,7 @@ called after each fabric object created.</td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2587">line 2587</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2596">line 2596</a>
     </li></ul></dd>
     
 
@@ -4475,7 +4482,7 @@ called after each fabric object created.</td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2425">line 2425</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2434">line 2434</a>
     </li></ul></dd>
     
 
@@ -5208,7 +5215,8 @@ at specified location (taking tolerance into account)
 
 
 <div class="description">
-    Clear char widths cache for a font family.
+    Given current aspect ratio, determines the max width and height that can
+respect the total allowed area for the cache.
 </div>
 
 
@@ -5319,7 +5327,7 @@ at specified location (taking tolerance into account)
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1341">line 1341</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1350">line 1350</a>
     </li></ul></dd>
     
 
@@ -6050,7 +6058,7 @@ at specified location (taking tolerance into account)
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2372">line 2372</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2381">line 2381</a>
     </li></ul></dd>
     
 
@@ -6190,7 +6198,7 @@ at specified location (taking tolerance into account)
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2562">line 2562</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2571">line 2571</a>
     </li></ul></dd>
     
 
@@ -6330,7 +6338,7 @@ at specified location (taking tolerance into account)
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2543">line 2543</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2552">line 2552</a>
     </li></ul></dd>
     
 
@@ -7615,7 +7623,7 @@ Presence of value (and its position in an array) is determined via `Array.protot
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2196">line 2196</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2205">line 2205</a>
     </li></ul></dd>
     
 
@@ -7954,7 +7962,7 @@ Presence of value (and its position in an array) is determined via `Array.protot
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2669">line 2669</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2678">line 2678</a>
     </li></ul></dd>
     
 
@@ -8118,7 +8126,7 @@ In order to get a precise start time, `requestAnimFrame` should be called as an 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2811">line 2811</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2820">line 2820</a>
     </li></ul></dd>
     
 
@@ -8748,7 +8756,7 @@ In order to get a precise start time, `requestAnimFrame` should be called as an 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2262">line 2262</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2271">line 2271</a>
     </li></ul></dd>
     
 
@@ -9024,7 +9032,7 @@ In order to get a precise start time, `requestAnimFrame` should be called as an 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2346">line 2346</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2355">line 2355</a>
     </li></ul></dd>
     
 
@@ -9613,7 +9621,7 @@ In order to get a precise start time, `requestAnimFrame` should be called as an 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2408">line 2408</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2417">line 2417</a>
     </li></ul></dd>
     
 
@@ -9669,7 +9677,7 @@ In order to get a precise start time, `requestAnimFrame` should be called as an 
 
 
 </div>
-<footer><input id="toggle" type="checkbox" onclick="toggle(this.checked);"  /><label for="toggle" >Hide inherited properties and method from the page</label><br />Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Tue May 29 2018 13:44:57 GMT+0200 (CEST)
+<footer><input id="toggle" type="checkbox" onclick="toggle(this.checked);"  /><label for="toggle" >Hide inherited properties and method from the page</label><br />Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Jun 08 2018 21:43:34 GMT+0200 (CEST)
 </footer>
 <script> prettyPrint(); </script>
 <script src="scripts/linenumber.js"> </script>

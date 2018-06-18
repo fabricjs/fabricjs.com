@@ -8,6 +8,18 @@ title: Fabric.js. release 2.0.0 highlights.
 <div class="container" style="margin:30px auto">
   <h2 id="introduction_to_fabricjs">Fabric.js release highlights</h2>
   <p> Find general v2 changes <a href="changes-introduction">here</a></p>
+  <h3>Version 2.3.3</h3>
+  <p>
+    Some well reported bug got easily fixed. Generic fonts like serif, sans-serif, monospace works again.<br />
+    We were quoting the font name for all fonts in order to avoid problem with fonts starting with numbers or with spaces in the family name, but it looks like
+    that you cannot do that for serif, sans-serif, fantasy, monospace and cursive. Those are sort of reserved name and must be used without quotes.<br />
+    Fabric was leaving trails of text selection if a fast zoom would happen when an itext had selected text or blinking cursor. While this is an edge case created
+    by developers, the fix was fairly easy and so we fixed it.<br />
+    Also zero width characters were correctly measured but then wrongly retrieved from measuring cache. That whould mean that text would break and also that there was
+    a performance hit ( very small ) since a 0 width joiner, spacer, non joiner was always measured and never returned from cache.
+    All the fix have been handled in a single PR that you can check here: <br /> <a href="https://github.com/fabricjs/fabric.js/pull/5048" >#5048</a>
+
+  </p>
   <h3>Version 2.3.2</h3>
   <p>Lot of small IText fixes and a group caching bug removed.</p>
   <pre>

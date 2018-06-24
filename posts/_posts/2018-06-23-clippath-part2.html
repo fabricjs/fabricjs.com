@@ -1,0 +1,77 @@
+---
+layout: articlead
+title: ClipPath in 2.4.0 - introduction to FabricJS - Part 1
+---
+
+<style>h2 { margin-bottom: 15px } h3 { margin-bottom: 10px; } h4 { margin-bottom: 7px; } .canvas-container { display: inline-block; margin-left: 5px; margin-right: 0px; } pre { display: inline-block; } </style>
+
+<div class="container" style="margin:30px auto">
+  <h2 id="introduction_to_fabricjs">More advanced use cases</h2>
+  <h3>Nesting clipPaths</h3>
+  <p>One problem of clipTo and usage of canvas.clip() was that you could not have more than one clipPath at time.</p>
+  <p>With this implementation clippaths can have their own clippaths. While this is less intuitive to program manually, it allows to intersect clipPaths togheter.</p>
+  <pre id="ex4pre"></pre>
+  <canvas id="ex4" width="300" height="200" ></canvas>
+  <p>ClipPaths in objects inside groups should be isolated from the clipPath of the group itself:</p>
+  <pre id="ex5pre"></pre>
+  <canvas id="ex5" width="300" height="200" ></canvas>
+  <h3 id="introduction_to_fabricjs">Clipping with Text</h3>
+  <p>Clipping with text was not possible with clipTo too, dev had usually to fallback on patterns for that</p>
+  <pre id="ex6pre"></pre>
+  <canvas id="ex6" width="300" height="200" ></canvas>
+</div>
+<script type="text/javascript" display-in-pre="ex4pre">(function() {
+  var canvas = new fabric.Canvas('ex4');
+  var clipPath = new fabric.Circle({ radius: 70, top: -50, left: -50 });
+  var innerClipPath = new fabric.Circle({ radius: 70, top: -90, left: -90 });
+  clipPath.clipPath = innerClipPath;
+  var group = new fabric.Group([
+    new fabric.Rect({ width: 100, height: 100, fill: 'red' }),
+    new fabric.Rect({ width: 100, height: 100, fill: 'yellow', left: 100 }),
+    new fabric.Rect({ width: 100, height: 100, fill: 'blue', top: 100 }),
+    new fabric.Rect({ width: 100, height: 100, fill: 'green', left: 100, top: 100 })
+  ]);
+  group.clipPath = clipPath;
+  canvas.add(group);
+})()</script>
+<script type="text/javascript" display-in-pre="ex5pre">(function() {
+  var canvas = new fabric.Canvas('ex5');
+  var clipPath = new fabric.Circle({ radius: 100, top: -100, left: -100 });
+  var small = new fabric.Circle({ radius: 50, top: -50, left: -50 });
+  var group = new fabric.Group([
+    new fabric.Rect({ width: 100, height: 100, fill: 'red', clipPath: small }),
+    new fabric.Rect({ width: 100, height: 100, fill: 'yellow', left: 100 }),
+    new fabric.Rect({ width: 100, height: 100, fill: 'blue', top: 100 }),
+    new fabric.Rect({ width: 100, height: 100, fill: 'green', left: 100, top: 100 })
+  ]);
+  group.clipPath = clipPath;
+  canvas.add(group);
+})()</script>
+<script type="text/javascript" display-in-pre="ex6pre">(function() {
+  var canvas = new fabric.Canvas('ex6');
+  var clipPath = new fabric.Text(
+    'Hi I\'m the \nnew ClipPath!\nI hope we\'ll\nbe friends',
+    { top: -100, left: -100 });
+  var group = new fabric.Group([
+    new fabric.Rect({ width: 100, height: 100, fill: 'red' }),
+    new fabric.Rect({ width: 100, height: 100, fill: 'yellow', left: 100 }),
+    new fabric.Rect({ width: 100, height: 100, fill: 'blue', top: 100 }),
+    new fabric.Rect({ width: 100, height: 100, fill: 'green', left: 100, top: 100 })
+  ]);
+  group.clipPath = clipPath;
+  canvas.add(group);
+})()</script>
+<script>
+(function() {
+  var list = document.querySelectorAll("script");
+  list.forEach(function(scr) {
+    var id = scr.getAttribute('display-in-pre'), destination;
+    if (id) {
+      destination = document.getElementById(id);
+    }
+    if (destination) {
+      destination.innerText = scr.innerText;
+    }
+  });
+})()
+</script>

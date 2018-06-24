@@ -326,23 +326,31 @@
      * @param {CanvasRenderingContext2D} ctx Context to render on
      */
     drawObject: function(ctx) {
+      var path = this.clipPath;
       for (var i = 0, len = this._objects.length; i < len; i++) {
         this._objects[i].render(ctx);
+      }
+      if (path) {
+        // needed to setup a couple of variables
+        path.shouldCache();
+        path._transformDone = true;
+        path.renderCache(this, true);
+        this.drawClipPathOnCache(ctx);
       }
     },
 
     /**
      * Check if cache is dirty
      */
-    isCacheDirty: function() {
-      if (this.callSuper('isCacheDirty')) {
+    isCacheDirty: function(skipCanvas, parentObject) {
+      if (this.callSuper('isCacheDirty', skipCanvas, parentObject)) {
         return true;
       }
       if (!this.statefullCache) {
         return false;
       }
       for (var i = 0, len = this._objects.length; i < len; i++) {
-        if (this._objects[i].isCacheDirty(true)) {
+        if (this._objects[i].isCacheDirty(true, parentObject)) {
           if (this._cacheCanvas) {
             // if this group has not a cache canvas there is nothing to clean
             var x = this.cacheWidth / this.zoomX, y = this.cacheHeight / this.zoomY;

@@ -1,0 +1,88 @@
+---
+layout: articlead
+title: ClipPath in 2.4.0 - introduction to FabricJS
+---
+
+<style>h2 { margin-bottom: 15px } h3 { margin-bottom: 10px; } h4 { margin-bottom: 7px; } .canvas-container { display: inline-block; margin-left: 5px; margin-right: 0px; } pre { display: inline-block; } </style>
+
+<div class="container" style="margin:30px auto">
+  <h2 id="introduction_to_fabricjs">The new clipPath property</h2>
+  <p>In 2.4.0 we introduce the clipPath property for all objects. ClipPath will replace <code>clipTo: funcion() {}</code> trying to achieve the same flexibility but better compatibility.</p>
+  <h3>How to use it</h3>
+  <p>Create your own clipPath as a normal fabric Object, and assign it to the clipPath property of the object you want to clip.<br />
+    By definition in SVG specs clipPath have no stroke and are filled with black, the pixel of the object that overlaps with black pixels will be visible, the other not.<br />
+    Let's start with some basic examples and let's see how it looks like.<br />
+    In this first example a red rectable is clipped with a circle, only the part inside the circle is visible. Not very usefull, but still the basic functionality is this.<br />
+    Please notice: the clipPath is positioned starting from the center of the object, object originX and originY do not play any role, while clipPath originX and originY do.
+    The positioning logic is the same as for <code>fabric.Group</code>.
+  </p>
+  <pre id="ex1pre"></pre>
+  <canvas id="ex1" width="300" height="200" ></canvas>
+  <p>We can clip a group:</p>
+  <pre id="ex2pre"></pre>
+  <canvas id="ex2" width="300" height="200" ></canvas>
+  <p>Or We can clip using groups. In case of groups remember that each object in the group will be logically OR with others, there is no <code>nonzero</code> or <code>evenodd</code> clip-rule</p>
+  <pre id="ex3pre"></pre>
+  <canvas id="ex3" width="300" height="200" ></canvas>
+</div>
+<script type="text/javascript" display-in-pre="ex1pre">(function() {
+  var canvas = new fabric.Canvas('ex1');
+  var clipPath = new fabric.Circle({
+    radius: 40,
+    top: -40,
+    left: -40
+  });
+  var rect = new fabric.Rect({
+    width: 200,
+    height: 100,
+    fill: 'red'
+  });
+  rect.clipPath = clipPath;
+  canvas.add(rect);
+})()</script>
+<script type="text/javascript" display-in-pre="ex2pre">(function() {
+  var canvas = new fabric.Canvas('ex2');
+  var clipPath = new fabric.Circle({
+    radius: 100,
+    top: -100,
+    left: -100
+  });
+  var group = new fabric.Group([
+    new fabric.Rect({ width: 100, height: 100, fill: 'red' }),
+    new fabric.Rect({ width: 100, height: 100, fill: 'yellow', left: 100 }),
+    new fabric.Rect({ width: 100, height: 100, fill: 'blue', top: 100 }),
+    new fabric.Rect({ width: 100, height: 100, fill: 'green', left: 100, top: 100 })
+  ]);
+  group.clipPath = clipPath;
+  canvas.add(group);
+})()</script>
+<script type="text/javascript" display-in-pre="ex3pre">(function() {
+  var canvas = new fabric.Canvas('ex3');
+  var clipPath = new fabric.Group([
+    new fabric.Circle({ radius: 70, top: -70, left: -70 }),
+    new fabric.Circle({ radius: 40, left: -95, top: -95 }),
+    new fabric.Circle({ radius: 40, left: 15, top: 15 }),
+  ], { left: -95, top: -95 });
+  var group = new fabric.Group([
+    new fabric.Rect({ width: 100, height: 100, fill: 'red' }),
+    new fabric.Rect({ width: 100, height: 100, fill: 'yellow', left: 100 }),
+    new fabric.Rect({ width: 100, height: 100, fill: 'blue', top: 100 }),
+    new fabric.Rect({ width: 100, height: 100, fill: 'green', left: 100, top: 100 })
+  ]);
+  group.clipPath = clipPath;
+  canvas.add(group);
+})()</script>
+<script>
+(function() {
+  var list = document.querySelectorAll("script");
+  list.forEach(function(scr) {
+    var id = scr.getAttribute('display-in-pre'), destination;
+    if (id) {
+      destination = document.getElementById(id);
+    }
+    if (destination) {
+      destination.innerText = scr.innerText;
+    }
+  });
+})()
+</script>

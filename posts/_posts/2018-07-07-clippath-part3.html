@@ -1,0 +1,114 @@
+---
+layout: articlead
+title: ClipPath in 2.4.0 - introduction to FabricJS - Part 3
+---
+
+<style>h2 { margin-bottom: 15px } h3 { margin-bottom: 10px; } h4 { margin-bottom: 7px; } .canvas-container { display: inline-block; margin-left: 5px; margin-right: 0px; } pre { display: inline-block; } </style>
+
+<div class="container" style="margin:30px auto">
+  <h2>Clipping the canvas</h2>
+  <p>We can apply a clipPath to a StaticCanvas exactly as we do for objects. The clipPath in this case is influenced
+  by zoom and pan and contrary from Object.clipPath is positioned fom the top-left corner.</p>
+  <pre id="ex7pre"></pre>
+  <canvas id="ex7" width="300" height="200" ></canvas>
+  <p>As the old clipTo function, clipPath is clipping controls too, unless you use canvas.controlsAboveOverlay set to true</p>
+  <pre id="ex8pre"></pre>
+  <canvas id="ex8" width="300" height="200" ></canvas>
+  <h3 id="introduction_to_fabricjs">Animating the clipPaths</h3>
+  <p>ClipPaths can be animated as any other object. Canvas clipPath animation is very efficent, while animating the Object's one
+  will invalidate the object cache each time.</p>
+  <pre id="ex9pre"></pre>
+  <canvas id="ex9" width="300" height="200" ></canvas>
+</div>
+<script type="text/javascript" display-in-pre="ex7pre">(function() {
+  var canvas = new fabric.Canvas('ex7');
+  var clipPath = new fabric.Circle({ radius: 100, top: 0, left: 50 });
+  var group = new fabric.Group([
+    new fabric.Rect({ width: 100, height: 100, fill: 'red' }),
+    new fabric.Rect({ width: 100, height: 100, fill: 'yellow', left: 100 }),
+    new fabric.Rect({ width: 100, height: 100, fill: 'blue', top: 100 }),
+    new fabric.Rect({ width: 100, height: 100, fill: 'green', left: 100, top: 100 })
+  ]);
+  canvas.clipPath = clipPath;
+  canvas.add(group);
+})()</script>
+<script type="text/javascript" display-in-pre="ex8pre">(function() {
+  var canvas = new fabric.Canvas('ex8');
+  canvas.controlsAboveOverlay = true;
+  var clipPath = new fabric.Circle({ radius: 100, top: 0, left: 50 });
+  var group = new fabric.Group([
+    new fabric.Rect({ width: 100, height: 100, fill: 'red' }),
+    new fabric.Rect({ width: 100, height: 100, fill: 'yellow', left: 100 }),
+    new fabric.Rect({ width: 100, height: 100, fill: 'blue', top: 100 }),
+    new fabric.Rect({ width: 100, height: 100, fill: 'green', left: 100, top: 100 })
+  ]);
+  canvas.clipPath = clipPath;
+  canvas.add(group);
+})()</script>
+<script type="text/javascript" display-in-pre="ex9pre">(function() {
+  var canvas = new fabric.Canvas('ex9');
+  canvas.controlsAboveOverlay = true;
+  var clipPath = new fabric.Rect({ width: 100, height: 100, top: 0, left: 0 });
+  function animateLeft() {
+    clipPath.animate({
+      left: 200,
+    }, {
+      duration: 900,
+      onChange: canvas.requestRenderAll.bind(canvas),
+      onComplete: animateRight,
+    });
+  }
+  function animateRight() {
+    clipPath.animate({
+      left: 0,
+    }, {
+      duration: 1200,
+      onChange: canvas.requestRenderAll.bind(canvas),
+      onComplete: animateLeft,
+    });
+  }
+  function animateDown() {
+    clipPath.animate({
+      top: 100,
+    }, {
+      duration: 500,
+      onChange: canvas.requestRenderAll.bind(canvas),
+      onComplete: animateUp,
+    });
+  }
+  function animateUp() {
+    clipPath.animate({
+      top: 0,
+    }, {
+      duration: 400,
+      onChange: canvas.requestRenderAll.bind(canvas),
+      onComplete: animateDown,
+    });
+  }
+  var group = new fabric.Group([
+    new fabric.Rect({ width: 100, height: 100, fill: 'red' }),
+    new fabric.Rect({ width: 100, height: 100, fill: 'yellow', left: 100 }),
+    new fabric.Rect({ width: 100, height: 100, fill: 'blue', top: 100 }),
+    new fabric.Rect({ width: 100, height: 100, fill: 'green', left: 100, top: 100 })
+  ], {
+    scaleX: 1.5
+  });
+  animateLeft();
+  animateDown();
+  canvas.clipPath = clipPath;
+  canvas.add(group);
+})()</script>
+<script>
+(function() {
+  var list = document.querySelectorAll("script");
+  list.forEach(function(scr) {
+    var id = scr.getAttribute('display-in-pre'), destination;
+    if (id) {
+      destination = document.getElementById(id);
+    }
+    if (destination) {
+      destination.innerText = scr.innerText;
+    }
+  });
+})()
+</script>

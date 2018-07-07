@@ -31,6 +31,7 @@ title: SVG clippath Rendering
       shape.left = canvasEl.width/2;
       canvas = window['__canvas' + id] = new fabric.Canvas('c' + id, { backgroundColor: '#fff' });
       canvas.add(shape);
+      div.innerHTML = canvas.toSVG();
     });
   }
   window['__debug'] = function(id) {
@@ -49,6 +50,7 @@ title: SVG clippath Rendering
       '<canvas id="c' + i + '" width="300" height="300"></canvas></div>' +
       '<div class="block"><p><a style="" href="../../assets/clippath-' + i + '.svg">SVG</a></p>' +
       '<iframe src="../../assets/clippath-' + i + '.svg"></iframe></div>' +
+      '<div id="exp_c' + i + '" ></div>' +
       '<div id="debug' + i + '"></div>' +
       '</div>'
     );

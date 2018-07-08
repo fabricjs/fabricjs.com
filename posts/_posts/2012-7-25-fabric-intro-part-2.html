@@ -137,7 +137,7 @@ fabric.Image.fromURL('pug.jpg', function(img) {
 <p>The template for creating a filter is pretty straightforward. We'll need to create a "class", then define <code>applyTo</code> method. Optionally, we might give filter <code>toJSON</code> method (support for JSON serialization), and/or <code>initialize</code> method (support for optional parameters).</p>
 
 <pre>
-fabric.Image.filters.Redify = fabric.util.createClass({
+fabric.Image.filters.Redify = fabric.util.createClass(fabric.Image.filters.BaseFilter, {
 
   type: 'Redify',
 
@@ -166,7 +166,7 @@ fabric.Image.filters.Redify = fabric.util.createClass({
   }
 });
 
-fabric.Image.filters.Brightness.fromObject = fabric.Image.filters.BaseFilter.fromObject;
+fabric.Image.filters.Redify.fromObject = fabric.Image.filters.BaseFilter.fromObject;
 </pre>
 
 <p><img src="/article_assets/2_4.png" style="border:1px solid #eee"></p>

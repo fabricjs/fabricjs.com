@@ -489,18 +489,28 @@ function addAccessors($scope) {
   };
 
   $scope.getOriginX = function() {
-    return getActiveProp('originX');
+    return getActiveProp('originX') + '';
   };
 
   $scope.setOriginX = function(value) {
-    setActiveProp('originX', value);
+    var num = parseFloat(value);
+    setActiveProp('originX', isNaN(num) ? value : num);
+  };
+
+  $scope.setCenteredRotation = function(value) {
+    setActiveProp('centeredRotation', value);
+  };
+
+  $scope.getCenteredRotation = function(value) {
+    return getActiveProp('centeredRotation');
   };
 
   $scope.getOriginY = function() {
-    return getActiveProp('originY');
+    return getActiveProp('originY') + '';
   };
   $scope.setOriginY = function(value) {
-    setActiveProp('originY', value);
+    var num = parseFloat(value);
+    setActiveProp('originY', isNaN(num) ? value : num);
   };
 
   $scope.getObjectCaching = function() {

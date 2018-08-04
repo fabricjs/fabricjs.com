@@ -53,6 +53,9 @@ noScaleCache:              true,
 
 /**
  * List of properties to consider when checking if cache needs refresh
+ * Those properties are checked by statefullCache ON ( or lazy mode if we want ) or from single
+ * calls to Object.set(key, value). If the key is in this list, the object is marked as dirty
+ * and refreshed at the next render
  * @type Array
  */
 cacheProperties: (
@@ -109,7 +112,7 @@ fabric.minCacheSideLimit = 256;
   <code>statefullCache</code> This property rule if fabric should autocheck if is time to redraw the cached copy or if the dev shoud manually invalidate it.
   this property is default to false. More on this later.<br />
   <code>noScaleCache</code> default to true, disable cache regeneration for scale operation. It can be enabled to avoid blurry effects for big scaling.<br />
-  <code>cacheProperties</code> Is an array of properties to be checked when statefullCache is on to detect a state change and trigger a cache re rendering.<br />
+  <code>cacheProperties</code> Every time Object.set(key, value) is called, key is searched in this array of properties. If found it mark the object as needing a re render. StatefullCache set to true instead exentesively compare all the keys with a copy of the old values at each render. <br />
   <code>dirty</code> is a simple flag that force a cache rerender at next render method, and is set to false automatically after cache regeneration.
   <code>fabric.perfLimitSizeTotal</code> Max size in pixel area of generated cache canvases.<br />
   <code>fabric.maxCacheSideLimit</code> Max size in pixel of the largest side of the cache canvas. ( numbers bigger than 5000 breaks IE )<br />

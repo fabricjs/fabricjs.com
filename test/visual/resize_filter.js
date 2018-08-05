@@ -1,5 +1,6 @@
 (function() {
   fabric.enableGLFiltering = false;
+  fabric.isWebglSupported = false;
   var _pixelMatch = pixelmatch;
   if (fabric.isLikelyNode) {
     var fs = global.fs;
@@ -45,9 +46,11 @@
     }
     var img = fabric.document.createElement('img');
     img.onload = function() {
+      img.onload = null;
       callback(img);
     };
     img.onerror = function(err) {
+      img.onerror = null;
       console.log('Image loading errored', err);
     };
     img.src = filename;
@@ -127,8 +130,8 @@
       group.scaleToWidth(canvas.width);
       canvas.add(group);
       canvas.renderAll();
-      callback(canvas.lowerCanvasEl);
       image.dispose();
+      callback(canvas.lowerCanvasEl);
     });
   }
 
@@ -147,7 +150,6 @@
       backdropImage.scaleX = -1;
       image.filters.push(new fabric.Image.filters.BlendImage({ image: backdropImage }));
       image.applyFilters();
-      console.log('applied filters')
       image.scaleToWidth(400);
       canvas.setDimensions({
         width: 400,
@@ -155,9 +157,9 @@
       });
       canvas.add(image);
       canvas.renderAll();
-      callback(canvas.lowerCanvasEl);
       image.dispose();
       backdropImage.dispose();
+      callback(canvas.lowerCanvasEl);
     });
   }
 
@@ -166,6 +168,32 @@
     code: blendImageTest2,
     golden: 'parrotblend2.png',
     newModule: 'Image Blend test',
+    percentage: 0.06,
+  });
+
+  function blendImageTest(canvas, callback) {
+    getImage(getFixtureName('parrot.png'), false, function(img) {
+      getImage(getFixtureName('very_large_image.jpg'), false, function(backdrop) {
+        var image = new fabric.Image(img);
+        var backdropImage = new fabric.Image(backdrop);
+        image.filters.push(new fabric.Image.filters.BlendImage({image: backdropImage, alpha: 0.5 }));
+        image.scaleToWidth(400);
+        image.applyFilters();
+        canvas.setDimensions({
+          width: 400,
+          height: 400,
+        });
+        canvas.add(image);
+        canvas.renderAll();
+        callback(canvas.lowerCanvasEl);
+      });
+    });
+  }
+
+  tests.push({
+    test: 'Blend image test',
+    code: blendImageTest,
+    golden: 'parrotblend.png',
     percentage: 0.06,
   });
 
@@ -183,7 +211,6 @@
     QUnit.test(testName, function(assert) {
       var done = assert.async();
       code(fabricCanvas, function(renderedCanvas) {
-        console.log('callback called')
         var width = renderedCanvas.width;
         var height = renderedCanvas.height;
         var totalPixels = width * height;
@@ -193,8 +220,8 @@
         canvas.height = height;
         var ctx = canvas.getContext('2d');
         var output = ctx.getImageData(0, 0, width, height).data;
-        getImage(getGoldeName(golden), renderedCanvas, function(golden) {
-          ctx.drawImage(golden, 0, 0);
+        getImage(getGoldeName(golden), renderedCanvas, function(goldenImage) {
+          ctx.drawImage(goldenImage, 0, 0);
           var imageDataGolden = ctx.getImageData(0, 0, width, height).data;
           var differentPixels = _pixelMatch(imageDataCanvas, imageDataGolden, output, width, height, pixelmatchOptions);
           var percDiff = differentPixels / totalPixels * 100;

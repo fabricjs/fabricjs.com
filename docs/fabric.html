@@ -143,7 +143,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3289">line 3289</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3349">line 3349</a>
     </li></ul></dd>
     
 
@@ -279,6 +279,128 @@
         
             
 
+<h4 class="name" id=".arcToSegmentsCache"><a href="#.arcToSegmentsCache" ><span class="type-signature">(static) </span>arcToSegmentsCache<span class="type-signature"></span></a></h4>
+
+
+<div class="description">
+    This object contains the result of arc to beizer conversion for faster retrieving if the same arc needs to be converted again.
+It was an internal variable, is accessible since version 2.3.4
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line148">line 148</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+        
+            
+
+<h4 class="name" id=".boundsOfCurveCache"><a href="#.boundsOfCurveCache" ><span class="type-signature">(static) </span>boundsOfCurveCache<span class="type-signature"></span></a></h4>
+
+
+<div class="description">
+    This object keeps the results of the boundsOfCurve calculation mapped by the joined arguments necessary to calculate it.
+It does speed up calculation, if you parse and add always the same paths, but in case of heavy usage of freedrawing
+you do not get any speed benefit and you get a big object in memory.
+The object was a private variable before, while now is appended to the lib so that you have access to it and you
+can eventually clear it.
+It was an internal variable, is accessible since version 2.3.4
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line158">line 158</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+        
+            
+
 <h4 class="name" id=".browserShadowBlurConstant"><a href="#.browserShadowBlurConstant" ><span class="type-signature">(static) </span>browserShadowBlurConstant<span class="type-signature"> :Number</span></a></h4>
 
 
@@ -345,6 +467,69 @@ Values that work quite well (as of October 2017) are:
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
         <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line142">line 142</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+        
+            
+
+<h4 class="name" id=".cachesBoundsOfCurve"><a href="#.cachesBoundsOfCurve" ><span class="type-signature">(static) </span>cachesBoundsOfCurve<span class="type-signature"></span></a></h4>
+
+
+<div class="description">
+    If disabled boundsOfCurveCache is not used. For apps that make heavy usage of pencil drawing probably disabling it is better
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li>true</li>
+        </ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line164">line 164</a>
     </li></ul></dd>
     
 
@@ -1231,7 +1416,7 @@ of the canvas backend
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line4208">line 4208</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line4268">line 4268</a>
     </li></ul></dd>
     
 
@@ -1371,7 +1556,7 @@ of the canvas backend
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line4042">line 4042</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line4102">line 4102</a>
     </li></ul></dd>
     
 
@@ -1511,7 +1696,7 @@ of the canvas backend
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line19889">line 19889</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line19938">line 19938</a>
     </li></ul></dd>
     
 
@@ -1819,7 +2004,7 @@ of the canvas backend
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line4301">line 4301</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line4361">line 4361</a>
     </li></ul></dd>
     
 
@@ -2106,7 +2291,7 @@ Note that SVG is fetched via XMLHttpRequest, so it needs to conform to SOP (Same
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line4265">line 4265</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line4325">line 4325</a>
     </li></ul></dd>
     
 
@@ -2236,7 +2421,7 @@ Note that SVG is fetched via XMLHttpRequest, so it needs to conform to SOP (Same
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2720">line 2720</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2780">line 2780</a>
     </li></ul></dd>
     
 
@@ -2378,7 +2563,7 @@ Parses parent "g" nodes recursively upwards.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line4082">line 4082</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line4142">line 4142</a>
     </li></ul></dd>
     
 
@@ -2625,7 +2810,7 @@ Parses parent "g" nodes recursively upwards.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line4136">line 4136</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line4196">line 4196</a>
     </li></ul></dd>
     
 
@@ -2766,7 +2951,7 @@ Parses parent "g" nodes recursively upwards.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line4003">line 4003</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line4063">line 4063</a>
     </li></ul></dd>
     
 
@@ -2884,7 +3069,7 @@ Parses parent "g" nodes recursively upwards.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line4172">line 4172</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line4232">line 4232</a>
     </li></ul></dd>
     
 
@@ -3024,7 +3209,7 @@ Parses parent "g" nodes recursively upwards.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line4147">line 4147</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line4207">line 4207</a>
     </li></ul></dd>
     
 
@@ -3333,7 +3518,7 @@ It's being passed an array of elements (parsed from a document).</td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3943">line 3943</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line4003">line 4003</a>
     </li></ul></dd>
     
 
@@ -3451,7 +3636,7 @@ It's being passed an array of elements (parsed from a document).</td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3476">line 3476</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3536">line 3536</a>
     </li></ul></dd>
     
 
@@ -3603,7 +3788,7 @@ It's being passed an array of elements (parsed from a document).</td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2726">line 2726</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2786">line 2786</a>
     </li></ul></dd>
     
 
@@ -3637,7 +3822,7 @@ It's being passed an array of elements (parsed from a document).</td>
 
 
 </div>
-<footer><input id="toggle" type="checkbox" onclick="toggle(this.checked);"  /><label for="toggle" >Hide inherited properties and method from the page</label><br />Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Jun 18 2018 12:05:53 GMT+0200 (CEST)
+<footer><input id="toggle" type="checkbox" onclick="toggle(this.checked);"  /><label for="toggle" >Hide inherited properties and method from the page</label><br />Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Aug 06 2018 00:34:30 GMT+0200 (CEST)
 </footer>
 <script> prettyPrint(); </script>
 <script src="scripts/linenumber.js"> </script>

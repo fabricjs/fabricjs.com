@@ -1,4 +1,5 @@
 .DS_Store
 .ruby-version
 _site/
+node_modules/
 Gemfile.lock

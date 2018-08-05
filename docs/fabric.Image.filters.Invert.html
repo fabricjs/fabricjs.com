@@ -158,7 +158,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line21510">line 21510</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line21570">line 21570</a>
     </li></ul></dd>
     
 
@@ -267,7 +267,7 @@ object.applyFilters(canvas.renderAll.bind(canvas));</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line21548">line 21548</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line21608">line 21608</a>
     </li></ul></dd>
     
 
@@ -335,7 +335,7 @@ object.applyFilters(canvas.renderAll.bind(canvas));</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line21528">line 21528</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line21588">line 21588</a>
     </li></ul></dd>
     
 
@@ -627,7 +627,7 @@ Determines whether to use WebGL or Canvas2D based on the options.webgl flag.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line20578">line 20578</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line20647">line 20647</a>
     </li></ul></dd>
     
 
@@ -796,7 +796,7 @@ Determines whether to use WebGL or Canvas2D based on the options.webgl flag.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line21558">line 21558</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line21618">line 21618</a>
     </li></ul></dd>
     
 
@@ -1108,7 +1108,7 @@ Determines whether to use WebGL or Canvas2D based on the options.webgl flag.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line20618">line 20618</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line20683">line 20683</a>
     </li></ul></dd>
     
 
@@ -1187,7 +1187,7 @@ remember that options.targetCanvas is available for use till end of chain.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line20675">line 20675</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line20740">line 20740</a>
     </li></ul></dd>
     
 
@@ -1360,7 +1360,7 @@ remember that options.targetCanvas is available for use till end of chain.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line20434">line 20434</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line20483">line 20483</a>
     </li></ul></dd>
     
 
@@ -1510,7 +1510,7 @@ remember that options.targetCanvas is available for use till end of chain.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line20495">line 20495</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line20544">line 20544</a>
     </li></ul></dd>
     
 
@@ -1680,7 +1680,7 @@ remember that options.targetCanvas is available for use till end of chain.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line21578">line 21578</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line21645">line 21645</a>
     </li></ul></dd>
     
 
@@ -1817,7 +1817,7 @@ remember that options.targetCanvas is available for use till end of chain.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line20411">line 20411</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line20460">line 20460</a>
     </li></ul></dd>
     
 
@@ -1842,8 +1842,6 @@ remember that options.targetCanvas is available for use till end of chain.
         
             
 
-<div class="inherited">
-
 
     
     <h4 class="name" id="isNeutralState"><a href="#isNeutralState" ><span class="type-signature"></span>isNeutralState<span class="signature">(options)</span><span class="type-signature"></span></a></h4>
@@ -1851,7 +1849,9 @@ remember that options.targetCanvas is available for use till end of chain.
 
 
 <div class="description">
-    Intentionally left blank, to be overridden in custom filters
+    Invert filter isNeutralState implementation
+Used only in image applyFilters to discard filters that will not have an effect
+on the image
 </div>
 
 
@@ -1917,8 +1917,10 @@ remember that options.targetCanvas is available for use till end of chain.
     
 
     
-    <dt class="inherited-from">Inherited From:</dt>
-    <dd class="inherited-from"><ul class="dummy"><li>
+
+    
+    <dt class="tag-overrides">Overrides:</dt>
+    <dd class="tag-overrides"><ul class="dummy"><li>
         <a href="fabric.Image.filters.BaseFilter.html#isNeutralState">fabric.Image.filters.BaseFilter#isNeutralState</a>
     </li></ul></dd>
     
@@ -1940,11 +1942,9 @@ remember that options.targetCanvas is available for use till end of chain.
     
 
     
-
-    
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line20561">line 20561</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line21635">line 21635</a>
     </li></ul></dd>
     
 
@@ -1962,8 +1962,6 @@ remember that options.targetCanvas is available for use till end of chain.
 
 
 
-
-</div>
 
 
         
@@ -2143,7 +2141,7 @@ remember that options.targetCanvas is available for use till end of chain.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line20599">line 20599</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line20664">line 20664</a>
     </li></ul></dd>
     
 
@@ -2293,7 +2291,7 @@ remember that options.targetCanvas is available for use till end of chain.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line20521">line 20521</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line20570">line 20570</a>
     </li></ul></dd>
     
 
@@ -2441,7 +2439,7 @@ remember that options.targetCanvas is available for use till end of chain.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line21590">line 21590</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line21657">line 21657</a>
     </li></ul></dd>
     
 
@@ -2578,7 +2576,7 @@ remember that options.targetCanvas is available for use till end of chain.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line20421">line 20421</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line20470">line 20470</a>
     </li></ul></dd>
     
 
@@ -2656,7 +2654,7 @@ remember that options.targetCanvas is available for use till end of chain.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line20700">line 20700</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line20765">line 20765</a>
     </li></ul></dd>
     
 
@@ -2756,7 +2754,7 @@ remember that options.targetCanvas is available for use till end of chain.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line20688">line 20688</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line20753">line 20753</a>
     </li></ul></dd>
     
 
@@ -2814,7 +2812,7 @@ remember that options.targetCanvas is available for use till end of chain.
 
 
 </div>
-<footer><input id="toggle" type="checkbox" onclick="toggle(this.checked);"  /><label for="toggle" >Hide inherited properties and method from the page</label><br />Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Jun 18 2018 12:05:54 GMT+0200 (CEST)
+<footer><input id="toggle" type="checkbox" onclick="toggle(this.checked);"  /><label for="toggle" >Hide inherited properties and method from the page</label><br />Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Aug 06 2018 00:34:31 GMT+0200 (CEST)
 </footer>
 <script> prettyPrint(); </script>
 <script src="scripts/linenumber.js"> </script>

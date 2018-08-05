@@ -8,6 +8,23 @@ title: Fabric.js. release 2.0.0 highlights.
 <div class="container" style="margin:30px auto">
   <h2 id="introduction_to_fabricjs">Fabric.js release highlights</h2>
   <p> Find general v2 changes <a href="changes-introduction">here</a></p>
+  <h3>Version 2.3.4</h3>
+  <p>
+    Lot of bug fixes and improvement by contributors. A big news: we have an automated visual tests suite that works across browser, node and travis.<br />Notable changes:
+  </p>
+  <pre>
+- Fix: ToSVG was ignoring excludeFromExport for backgroundImage and OverlayImage. #5075
+- Fix: ToSVG for circle with start and end angles. #5085
+- Fix: Added callback for setPatternFill. #5101
+- Fix: Resize filter taking in account multiple scale sources. #5117
+- Fix: Blend image filter clean after refilter. #5121
+- Fix: Object.toDataURL should not be influenced by zoom. #5139
+- Improvement: requestRenderAllBound add to Canvas instance. #5138
+- Improvement: Make path bounding cache optional and also reacheable/cleanable #5140
+- Improvement: Make the logic of isNeutralState filters work before filtering start. #5129
+- Improvement: Added some code to clean up some memory when canvas is disposed in nodejs. #5142
+- Fix: Make numeric origins work with group creation. #5143
+  </pre>
   <h3>Version 2.3.3</h3>
   <p>
     Some well reported bug got easily fixed. Generic fonts like serif, sans-serif, monospace works again.<br />
@@ -18,7 +35,6 @@ title: Fabric.js. release 2.0.0 highlights.
     Also zero width characters were correctly measured but then wrongly retrieved from measuring cache. That whould mean that text would break and also that there was
     a performance hit ( very small ) since a 0 width joiner, spacer, non joiner was always measured and never returned from cache.
     All the fix have been handled in a single PR that you can check here: <br /> <a href="https://github.com/fabricjs/fabric.js/pull/5048" >#5048</a>
-
   </p>
   <h3>Version 2.3.2</h3>
   <p>Lot of small IText fixes and a group caching bug removed.</p>

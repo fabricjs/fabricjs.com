@@ -89,7 +89,7 @@
             .join(',');
 
       markup.push(
-        '<polygon ', this.getSvgCommons(),
+        '<polygon ', this.getSvgId(),
         'points="', points,
         '" style="', this.getSvgStyles(),
         '" transform="', this.getSvgTransform(), '"',

@@ -132,7 +132,7 @@
         );
       }
       markup.push(
-        '<', this.type, ' ', this.getSvgCommons(),
+        '<', this.type, ' ', this.getSvgId(),
         'points="', points.join(''),
         '" style="', this.getSvgStyles(),
         '" transform="', this.getSvgTransform(),

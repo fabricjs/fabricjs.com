@@ -22,7 +22,7 @@ function setActiveStyle(styleName, value, object) {
   }
 
   object.setCoords();
-  canvas.renderAll();
+  canvas.requestRenderAll();
 };
 
 function getActiveProp(name) {
@@ -40,6 +40,11 @@ function setActiveProp(name, value) {
 }
 
 function addAccessors($scope) {
+
+  var pattern = new fabric.Pattern({
+    source: '/assets/ladybug.png',
+    repeat: 'repeat'
+  });
 
   $scope.getOpacity = function() {
     return getActiveStyle('opacity') * 100;
@@ -180,6 +185,42 @@ function addAccessors($scope) {
   $scope.setBold = function(value) {
     setActiveStyle('fontWeight', value ? 'bold' : '');
   };
+
+  $scope.setPatternStyle = function(value) {
+    var obj = canvas.getActiveObject();
+    if (obj && obj.fill instanceof fabric.Pattern) {
+      obj.fill.repeat = value;
+      obj.dirty = true;
+      canvas.requestRenderAll();
+    }
+  };
+
+  $scope.hasPattern = function() {
+    return getActiveStyle('fill') instanceof fabric.Pattern;
+  };
+
+  $scope.getPatternRepeat = function() {
+    if ($scope.hasPattern()) {
+      return getActiveStyle('fill').repeat;
+    }
+  };
+
+  $scope.addResizeFilter = function() {
+    setActiveStyle('resizeFilter', new fabric.Image.filters.Resize());
+    canvas.requestRenderAll();
+  }
+
+  $scope.addInvertFilter = function() {
+    setActiveStyle('filters', [new fabric.Image.filters.Invert()]);
+    var obj = canvas.getActiveObject();
+    obj.applyFilters && obj.applyFilters();
+  }
+
+  $scope.addContrastFilter = function() {
+    setActiveStyle('filters', [new fabric.Image.filters.Contrast({ contrast: 0.7 })]);
+    var obj = canvas.getActiveObject();
+    obj.applyFilters && obj.applyFilters();
+  }
 
   $scope.getCanvasBgColor = function() {
     return canvas.backgroundColor;
@@ -343,6 +384,19 @@ function addAccessors($scope) {
 
       canvas.add(loadedObject);
     });
+  };
+
+  $scope.addPatternRect = function() {
+    var coord = getRandomLeftTop();
+    var rect = new fabric.Rect({
+      width: 300,
+      height: 300,
+      left: coord.left,
+      top: coord.top,
+      angle: getRandomInt(-10, 10),
+      fill: pattern,
+    });
+    canvas.add(rect);
   };
 
   $scope.maybeLoadShape = function(e) {
@@ -580,11 +634,6 @@ function addAccessors($scope) {
       canvas.bringToFront(activeObject);
     }
   };
-
-  var pattern = new fabric.Pattern({
-    source: '/assets/ladybug.png',
-    repeat: 'repeat'
-  });
 
   $scope.patternify = function() {
     var obj = canvas.getActiveObject();

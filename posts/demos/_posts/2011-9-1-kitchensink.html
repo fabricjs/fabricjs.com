@@ -305,6 +305,29 @@ title: Kitchensink
           <button id="play" class="btn btn-object-action" ng-click="play()">
             Play
           </button>
+          <br />
+          <button id="patternfy-repeatX" class="btn btn-object-action" ng-click="setPatternStyle('repeat')">
+            Pattern repeat
+          </button>
+          <button id="patternfy-repeatX" class="btn btn-object-action" ng-click="setPatternStyle('repeat-x')">
+            Pattern repeat-x
+          </button>
+          <button id="patternfy-repeatX" class="btn btn-object-action" ng-click="setPatternStyle('repeat-y')">
+            Pattern repeat-y
+          </button>
+          <button id="patternfy-repeatX" class="btn btn-object-action" ng-click="setPatternStyle('no-repeat')">
+            Pattern repeat-none
+          </button>
+          <br />
+          <button id="resize-filter" class="btn btn-object-action" ng-click="addResizeFilter()">
+            Add Resize filter
+          </button>
+          <button id="invert-filter" class="btn btn-object-action" ng-click="addInvertFilter()">
+            set Invert filter
+          </button>
+          <button id="invert-filter" class="btn btn-object-action" ng-click="addContrastFilter()">
+            set Contrast filter
+          </button>
         </div>
         <div id="cacheInspector">
         </div>
@@ -325,6 +348,7 @@ title: Kitchensink
         <button class="btn" ng-click="addText()">Add text</button>
         <button class="btn" ng-click="addIText()">Add Itext</button>
         <button class="btn" ng-click="addTextbox()">Add textbox</button>
+        <button class="btn" ng-click="addPatternRect()">Add pattern rect</button>
       </p>
 
       <p>Add <strong>images</strong> to canvas:</p>

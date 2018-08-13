@@ -295,6 +295,14 @@ fabric.Image.filters.BaseFilter.fromObject = function(object, callback) {
       object.type = 'BlendColor';
       object.saturation = object.saturate / 100;
     break;
+    // Color matrix in 1.x where made for imageData and the column of the costants
+    // was in the -255 to 255 range, now is in the -1 to 1
+    case 'ColorMatrix':
+      object.matrix[4] = object.matrix[4] / 255;
+      object.matrix[9] = object.matrix[9] / 255;
+      object.matrix[14] = object.matrix[14] / 255;
+      object.matrix[19] = object.matrix[19] / 255;
+    break;
   }
   var filter = new fabric.Image.filters[object.type](object);
   callback && callback(filter);

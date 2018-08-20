@@ -8,6 +8,30 @@ title: Fabric.js. release 2.0.0 highlights.
 <div class="container" style="margin:30px auto">
   <h2 id="introduction_to_fabricjs">Fabric.js release highlights</h2>
   <p> Find general v2 changes <a href="changes-introduction">here</a></p>
+  <h3>Version 2.3.6</h3>
+  <p>
+    Fixed a regression in spray brush created by the 2.3.5 group fix.
+    Make the image class aware of natural dimensions of the image element if available and restored two fingers events that were broken since we improved the normal events.<br />
+    The issue of iText interaction fixed in 2.3.5 has been reopened with a less common interaction problem. We are working on automated interaction tests before fixing it.
+  </p>
+  <pre>
+- Fix: Make image.class aware of naturalWidth and naturalHeight. #5178
+- Fix: Make 2 finger events works again #5177
+- Fix: Make Groups respect origin and correct position ( fix spray/circle brushes ) #5176
+  </pre>
+  <h3>Version 2.3.5</h3>
+  <p>
+    2 notable changes! from now canvas.getObjects() will return a copy of the array of objects. The documentation was never clear about what was given back.
+    Not returning a copy was creating subtle strange bugs that often took hours to debug. Also resize filters and color filters should interact properly with
+    each other now. On top of this minor improvements in svg import export.
+  </p>
+  <pre>
+- Change: make canvas.getObjects() always return a shallow copy of the array #5162
+- Fix: Improve fabric.Pattern.toSVG to look correct on offsets and no-repeat #5164
+- Fix: Do not enter edit in Itext if the mouseUp is relative to a group selector #5153
+- Improvement: Do not require xlink namespace in front of href attribut for svgs ( is a SVG2 new spec, unsupported ) #5156
+- Fix: fix resizeFilter having the wrong cached texture, also improved interaction between filters #5165
+  </pre>
   <h3>Version 2.3.4</h3>
   <p>
     Lot of bug fixes and improvement by contributors. A big news: we have an automated visual tests suite that works across browser, node and travis.<br />Notable changes:

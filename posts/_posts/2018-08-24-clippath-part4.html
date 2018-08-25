@@ -11,6 +11,11 @@ title: ClipPath in 2.4.0 - introduction to FabricJS - Part 3
   The object will be free of movement, while the clipPath will be steady. The effect is that the clipPath creates a shape on the canvas, and ONLY its own object is allowed to appear inside there.</p>
   <pre id="ex10pre"></pre>
   <canvas id="ex10" width="500" height="500" ></canvas>
+  <h2>Inverted clipPaths</h2>
+  <p>We can also clip an object with the inverted shape defined from a clipPath. <br />Warning: if you create a group, you have to invert the group. Inverting the single objects inside a group, used as a clipPath, does not make any effect and is unsupported.<br />
+  You can also probably obtain cool effects using globalCompositeOperation of single objects, but that is unsupported too.</p>
+  <pre id="ex11pre"></pre>
+  <canvas id="ex11" width="500" height="300" ></canvas>
 </div>
 <script type="text/javascript" display-in-pre="ex10pre">(function() {
   var canvas = new fabric.Canvas('ex10');
@@ -25,6 +30,20 @@ title: ClipPath in 2.4.0 - introduction to FabricJS - Part 3
     img.clipPath = clipPath2;
     img.scaleToWidth(500);
     img.top = 250;
+    canvas.add(img);
+  });
+})()</script>
+<script type="text/javascript" display-in-pre="ex11pre">(function() {
+  var canvas = new fabric.Canvas('ex11');
+  var clipPath = new fabric.Circle({ radius: 100, top: -200, left: -200 });
+  var clipPath2 = new fabric.Circle({ radius: 100, top: 0, left: 0 });
+  var clipPath3 = new fabric.Circle({ radius: 100, top: 0, left: -200 });
+  var clipPath4 = new fabric.Circle({ radius: 100, top: -200, left: 0 });
+  var g = new fabric.Group([clipPath, clipPath2, clipPath3, clipPath4]);
+  g.inverted = true;
+  fabric.Image.fromURL('assets/dragon.jpg', function(img) {
+    img.clipPath = g;
+    img.scaleToWidth(500);
     canvas.add(img);
   });
 })()</script>

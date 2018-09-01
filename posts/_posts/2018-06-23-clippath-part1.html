@@ -7,7 +7,9 @@ title: ClipPath in 2.4.0 - introduction to FabricJS - Part 1
 
 <div class="container" style="margin:30px auto">
   <h2 id="introduction_to_fabricjs">The new clipPath property</h2>
-  <p>In 2.4.0 we introduce the clipPath property for all objects. ClipPath will replace <code>clipTo: funcion() {}</code> trying to achieve the same flexibility but better compatibility.</p>
+  <p>In 2.4.0 we introduce the clipPath property for all objects. ClipPath will replace <code>clipTo: funcion() {}</code> trying to achieve the same flexibility but better compatibility.<br />
+    ClipPath REQUIRES object caching.
+  </p>
   <h3>How to use it</h3>
   <p>Create your own clipPath as a normal fabric Object, and assign it to the clipPath property of the object you want to clip.<br />
     By definition in SVG specs clipPath have no stroke and are filled with black, the pixel of the object that overlaps with black pixels will be visible, the other not.<br />

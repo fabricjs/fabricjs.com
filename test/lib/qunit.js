@@ -3820,7 +3820,6 @@
 
   			for (x = 0, z = moduleObj.tests.length; x < z; x++) {
   				test = moduleObj.tests[x];
-
   				appendTest(test.name, test.testId, moduleObj.name);
   			}
   		}

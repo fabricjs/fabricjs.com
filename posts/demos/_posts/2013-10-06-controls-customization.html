@@ -173,14 +173,17 @@ title: Controls customization
   function observeNumeric(property) {
     document.getElementById(property).oninput = function() {
       canvas.item(0)[property] = parseFloat(this.value);
-      canvas.renderAll();
+      if (property === 'padding') {
+        canvas.item(0).setCoords();
+      }
+      canvas.requestRenderAll();
     };
   }
 
   function observeValue(property) {
     document.getElementById(property).oninput = function() {
       canvas.item(0)[property] = this.value;
-      canvas.renderAll();
+      canvas.requestRenderAll();
     };
   }
 

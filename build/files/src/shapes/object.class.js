@@ -613,6 +613,27 @@
     clipPath: undefined,
 
     /**
+     * Meaningfull ONLY when the object is used as clipPath.
+     * if true, the clipPath will make the object clip to the outside of the clipPath
+     * since 2.4.0
+     * @type boolean
+     * @default false
+     */
+    inverted: false,
+
+    /**
+     * Meaningfull ONLY when the object is used as clipPath.
+     * if true, the clipPath will have its top and left relative to canvas, and will
+     * not be influenced by the object transform. This will make the clipPath relative
+     * to the canvas, but clipping just a particular object.
+     * WARNING this is beta, this feature may change or be renamed.
+     * since 2.4.0
+     * @type boolean
+     * @default false
+     */
+    absolutePositioned: false,
+
+    /**
      * Constructor
      * @param {Object} [options] Options object
      */
@@ -842,6 +863,8 @@
 
       if (this.clipPath) {
         object.clipPath = this.clipPath.toObject(propertiesToInclude);
+        object.clipPath.inverted = this.clipPath.inverted;
+        object.clipPath.absolutePositioned = this.clipPath.absolutePositioned;
       }
 
       fabric.util.populateWithProperties(this, object, propertiesToInclude);
@@ -1264,8 +1287,8 @@
 
     _setClippingProperties: function(ctx) {
       ctx.globalAlpha = 1;
-      ctx.lineWidth = 0;
-      ctx.fillStyle = 'black';
+      ctx.strokeStyle = 'transparent';
+      ctx.fillStyle = '#000000';
     },
 
     /**

@@ -34,6 +34,7 @@ title: Animated sprite
       });
       canvas.add(sprite);
       setTimeout(function() {
+        sprite.set('dirty', true);
         sprite.play();
       }, fabric.util.getRandomInt(1, 10) * 100);
     };

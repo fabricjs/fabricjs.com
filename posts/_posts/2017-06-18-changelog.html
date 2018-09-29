@@ -8,6 +8,19 @@ title: Fabric.js. release 2.0.0 highlights.
 <div class="container" style="margin:30px auto">
   <h2 id="introduction_to_fabricjs">Fabric.js release highlights</h2>
   <p> Find general v2 changes <a href="changes-introduction">here</a></p>
+  <h3>Version 2.4.1</h3>
+  <p>First round of feedback for clipPath bugs, plus other bugfixes that piledup while working on clipPaths</p>
+  <pre>
+- Fix: Avoid enterEditing if another object is the activeObject #5261
+- Fix: clipPath enliving for Image fromObject #5279
+- Fix: toDataURL and canvas clipPath #5278
+- Fix: early return if no xml is available #5263
+- Fix: clipPath svg parsing in nodejs #5262
+- Fix: Avoid running selection logic on mouse up #5259
+- Fix: fix font size parsing on SVG #5258
+- Fix: Avoid extra renders on mouseUp/Down #5256</pre>
+  <h3>Version 2.4.0</h3>
+  <p>Launched clipPath support, check tutorial for more info <a href="" >ClipPath tutorials</a>
   <h3>Version 2.3.6</h3>
   <p>
     Fixed a regression in spray brush created by the 2.3.5 group fix.

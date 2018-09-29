@@ -28,7 +28,8 @@ var video1 = new fabric.Image(video1El, {
   top: 300,
   angle: -15,
   originX: 'center',
-  originY: 'center'
+  originY: 'center',
+  objectCaching: false,
 });
 
 var video2 = new fabric.Image(video2El, {
@@ -36,7 +37,8 @@ var video2 = new fabric.Image(video2El, {
   top: 350,
   angle: 15,
   originX: 'center',
-  originY: 'center'
+  originY: 'center',
+  objectCaching: false,
 });
 
 var webcam = new fabric.Image(webcamEl, {
@@ -44,7 +46,8 @@ var webcam = new fabric.Image(webcamEl, {
   top: 328,
   angle: 94.5,
   originX: 'center',
-  originY: 'center'
+  originY: 'center',
+  objectCaching: false,
 });
 
 canvas.add(video1);

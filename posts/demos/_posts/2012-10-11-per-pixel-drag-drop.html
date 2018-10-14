@@ -16,7 +16,8 @@ title: Per-pixel drag & drop
 <script id="main">(function() {
   var canvas = this.__canvas = new fabric.Canvas('c', {
     hoverCursor: 'pointer',
-    selection: false
+    selection: false,
+    targetFindTolerance: 2
   });
 
   canvas.on({
@@ -37,7 +38,6 @@ title: Per-pixel drag & drop
       });
 
       img.perPixelTargetFind = true;
-      img.targetFindTolerance = 4;
       img.hasControls = img.hasBorders = false;
 
       img.scale(fabric.util.getRandomInt(50, 100) / 100);

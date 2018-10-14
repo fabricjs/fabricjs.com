@@ -286,53 +286,51 @@
 
     /* _TO_SVG_START_ */
     /**
-     * Returns SVG representation of an instance
-     * @param {Function} [reviver] Method for further parsing of svg representation.
-     * @return {String} svg representation of an instance
+     * Returns svg representation of an instance
+     * @return {Array} an array of strings with the specific svg representation
+     * of the instance
      */
-    toSVG: function(reviver) {
-      var markup = this._createBaseSVGMarkup(), x = -this.width / 2, y = -this.height / 2, clipPath = '';
+    _toSVG: function() {
+      var svgString = [], imageMarkup = [], strokeSvg,
+          x = -this.width / 2, y = -this.height / 2, clipPath = '';
       if (this.hasCrop()) {
         var clipPathId = fabric.Object.__uid++;
-        markup.push(
+        svgString.push(
           '<clipPath id="imageCrop_' + clipPathId + '">\n',
           '\t<rect x="' + x + '" y="' + y + '" width="' + this.width + '" height="' + this.height + '" />\n',
           '</clipPath>\n'
         );
         clipPath = ' clip-path="url(#imageCrop_' + clipPathId + ')" ';
       }
-      markup.push('<g transform="', this.getSvgTransform(), this.getSvgTransformMatrix(), '">\n');
-      var imageMarkup = ['\t<image ', this.getSvgCommons(), 'xlink:href="', this.getSvgSrc(true),
+      imageMarkup.push('\t<image ', 'COMMON_PARTS', 'xlink:href="', this.getSvgSrc(true),
         '" x="', x - this.cropX, '" y="', y - this.cropY,
-        '" style="', this.getSvgStyles(),
         // we're essentially moving origin of transformation from top/left corner to the center of the shape
         // by wrapping it in container <g> element with actual transformation, then offsetting object to the top/left
         // so that object's center aligns with container's left/top
         '" width="', this._element.width || this._element.naturalWidth,
         '" height="', this._element.height || this._element.height,
         '"', clipPath,
-        '></image>\n'];
-      if (this.paintFirst === 'fill') {
-        Array.prototype.push.apply(markup, imageMarkup);
-      }
+        '></image>\n');
+
       if (this.stroke || this.strokeDashArray) {
         var origFill = this.fill;
         this.fill = null;
-        markup.push(
+        strokeSvg = [
           '\t<rect ',
           'x="', x, '" y="', y,
           '" width="', this.width, '" height="', this.height,
           '" style="', this.getSvgStyles(),
           '"/>\n'
-        );
+        ];
         this.fill = origFill;
       }
       if (this.paintFirst !== 'fill') {
-        Array.prototype.push.apply(markup, imageMarkup);
+        svgString = svgString.concat(strokeSvg, imageMarkup);
       }
-      markup.push('</g>\n');
-
-      return reviver ? reviver(markup.join('')) : markup.join('');
+      else {
+        svgString = svgString.concat(imageMarkup, strokeSvg);
+      }
+      return svgString;
     },
     /* _TO_SVG_END_ */
 
@@ -483,6 +481,23 @@
       }
       this._stroke(ctx);
       this._renderPaintInOrder(ctx);
+    },
+
+    /**
+     * Decide if the object should cache or not. Create its own cache level
+     * objectCaching is a global flag, wins over everything
+     * needsItsOwnCache should be used when the object drawing method requires
+     * a cache step. None of the fabric classes requires it.
+     * Generally you do not cache objects in groups because the group outside is cached.
+     * This is the special image version where we would like to avoid caching where possible.
+     * Essentially images do not benefit from caching. They may require caching, and in that
+     * case we do it. Also caching an image usually ends in a loss of details.
+     * A full performance audit should be done.
+     * @return {Boolean}
+     */
+    shouldCache: function() {
+      this.ownCaching = this.objectCaching && this.needsItsOwnCache();
+      return this.ownCaching;
     },
 
     _renderFill: function(ctx) {

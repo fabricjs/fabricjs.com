@@ -30,8 +30,8 @@
 
     /**
      * Resize type
-     * for webgl resizyType is just lanczos, for canvas2d can be:
-     * bilinear, hermite, sliceHacl, lanczos.
+     * for webgl resizeType is just lanczos, for canvas2d can be:
+     * bilinear, hermite, sliceHack, lanczos.
      * @param {String} resizeType
      * @default
      */

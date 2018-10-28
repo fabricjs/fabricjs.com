@@ -101,6 +101,7 @@
       canvas.preserveObjectStacking = fabric.Canvas.prototype.preserveObjectStacking;
     },
     afterEach: function() {
+      canvas.viewportTransform = [1, 0, 0, 1, 0, 0];
       canvas.clear();
       canvas.backgroundColor = fabric.Canvas.prototype.backgroundColor;
       canvas.overlayColor = fabric.Canvas.prototype.overlayColor;
@@ -572,6 +573,67 @@
     canvas.selectionFullyContained = false;
   });
 
+  QUnit.test('_collectObjects does not collect objects that have onSelect returning true', function(assert) {
+    canvas.selectionFullyContained = false;
+    var rect1 = new fabric.Rect({ width: 10, height: 10, top: 2, left: 2 });
+    rect1.onSelect = function() {
+      return true;
+    };
+    var rect2 = new fabric.Rect({ width: 10, height: 10, top: 2, left: 2 });
+    canvas.add(rect1, rect2);
+    canvas._groupSelector = {
+      top: 20,
+      left: 20,
+      ex: 1,
+      ey: 1
+    };
+    var collected = canvas._collectObjects();
+    assert.equal(collected.length, 1, 'objects are in the same position buy only one gets selected');
+    assert.equal(collected[0], rect2, 'contains rect2 but not rect 1');
+  });
+
+  QUnit.test('_shouldGroup return false if onSelect return true', function(assert) {
+    var rect = new fabric.Rect();
+    var rect2 = new fabric.Rect();
+    rect.onSelect = function() {
+      return true;
+    };
+    canvas._activeObject = rect2;
+    var selectionKey = canvas.selectionKey;
+    var event = {};
+    event[selectionKey] = true;
+    var returned = canvas._shouldGroup(event, rect);
+    assert.equal(returned, false, 'if onSelect returns true, shouldGroup return false');
+  });
+
+  QUnit.test('_shouldGroup return true if onSelect return false and selectionKey is true', function(assert) {
+    var rect = new fabric.Rect();
+    var rect2 = new fabric.Rect();
+    rect.onSelect = function() {
+      return false;
+    };
+    canvas._activeObject = rect2;
+    var selectionKey = canvas.selectionKey;
+    var event = {};
+    event[selectionKey] = true;
+    var returned = canvas._shouldGroup(event, rect);
+    assert.equal(returned, true, 'if onSelect returns false, shouldGroup return true');
+  });
+
+  QUnit.test('_shouldGroup return false if selectionKey is false', function(assert) {
+    var rect = new fabric.Rect();
+    var rect2 = new fabric.Rect();
+    rect.onSelect = function() {
+      return false;
+    };
+    canvas._activeObject = rect2;
+    var selectionKey = canvas.selectionKey;
+    var event = {};
+    event[selectionKey] = false;
+    var returned = canvas._shouldGroup(event, rect);
+    assert.equal(returned, false, 'shouldGroup return false');
+  });
+
   QUnit.test('_fireSelectionEvents fires multiple things', function(assert) {
     var rect1Deselected = false;
     var rect3Selected = false;
@@ -704,6 +766,85 @@
     assert.equal(target, group, 'Should return the group');
     assert.equal(canvas.targets[0], rect2, 'should return the rect2');
     canvas.remove(group);
+  });
+
+  QUnit.test('findTarget with subTargetCheck and canvas zoom', function(assert) {
+    var rect3 = new fabric.Rect({
+      width: 100,
+      height: 100,
+      fill: 'yellow'
+    });
+    var rect4 = new fabric.Rect({
+      width: 100,
+      height: 100,
+      left: 100,
+      top: 100,
+      fill: 'purple'
+    });
+    var group3 = new fabric.Group(
+      [rect3, rect4],
+      { scaleX: 0.5, scaleY: 0.5, top: 100, left: 0 });
+    group3.subTargetCheck = true;
+
+    var rect1 = new fabric.Rect({
+      width: 100,
+      height: 100,
+      fill: 'red'
+    });
+    var rect2 = new fabric.Rect({
+      width: 100,
+      height: 100,
+      left: 100,
+      top: 100,
+      fill: 'blue'
+    });
+    var g = new fabric.Group([rect1, rect2, group3], { top: -150, left: -50 });
+    g.subTargetCheck = true;
+    canvas.viewportTransform = [0.1, 0, 0, 0.1, 100, 200];
+    canvas.add(g);
+
+    var target = canvas.findTarget({
+      clientX: 96, clientY: 186
+    }, true);
+    assert.equal(target, g, 'Should return the group 96');
+    assert.equal(canvas.targets[0], rect1, 'should find the target rect 96');
+    canvas.targets = [];
+
+    target = canvas.findTarget({
+      clientX: 98, clientY: 188
+    }, true);
+    assert.equal(target, g, 'Should return the group 98');
+    assert.equal(canvas.targets[0], rect1, 'should find the target rect1 98');
+    canvas.targets = [];
+
+    target = canvas.findTarget({
+      clientX: 100, clientY: 190
+    }, true);
+    assert.equal(target, g, 'Should return the group 100');
+    assert.equal(canvas.targets[0], rect1, 'should find the target rect1 100');
+    canvas.targets = [];
+
+    target = canvas.findTarget({
+      clientX: 102, clientY: 192
+    }, true);
+    assert.equal(target, g, 'Should return the group 102');
+    assert.equal(canvas.targets[0], rect1, 'should find the target rect 102');
+    canvas.targets = [];
+
+    target = canvas.findTarget({
+      clientX: 104, clientY: 194
+    }, true);
+    assert.equal(target, g, 'Should return the group 104');
+    assert.equal(canvas.targets[0], rect1, 'should find the target rect 104');
+    canvas.targets = [];
+
+    target = canvas.findTarget({
+      clientX: 106, clientY: 196
+    }, true);
+    assert.equal(target, g, 'Should return the group 106');
+    assert.equal(canvas.targets[0], rect2, 'should find the target rect2 106');
+    canvas.targets = [];
+
   });
 
   QUnit.test('findTarget with subTargetCheck on activeObject', function(assert) {

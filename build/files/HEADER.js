@@ -1,6 +1,6 @@
 /*! Fabric.js Copyright 2008-2015, Printio (Juriy Zaytsev, Maxim Chernyak) */
 
-var fabric = fabric || { version: '2.4.3' };
+var fabric = fabric || { version: '2.4.5' };
 if (typeof exports !== 'undefined') {
   exports.fabric = fabric;
 }
@@ -32,7 +32,8 @@ else {
  * True when in environment that supports touch events
  * @type boolean
  */
-fabric.isTouchSupported = 'ontouchstart' in fabric.window;
+fabric.isTouchSupported = 'ontouchstart' in fabric.window || 'ontouchstart' in fabric.document ||
+  (fabric.window && fabric.window.navigator && fabric.window.navigator.maxTouchPoints > 0);
 
 /**
  * True when in environment that's probably Node.js
@@ -51,7 +52,7 @@ fabric.SHARED_ATTRIBUTES = [
   'transform',
   'fill', 'fill-opacity', 'fill-rule',
   'opacity',
-  'stroke', 'stroke-dasharray', 'stroke-linecap',
+  'stroke', 'stroke-dasharray', 'stroke-linecap', 'stroke-dashoffset',
   'stroke-linejoin', 'stroke-miterlimit',
   'stroke-opacity', 'stroke-width',
   'id', 'paint-order',

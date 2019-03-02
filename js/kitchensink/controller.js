@@ -797,8 +797,9 @@ function addAccessors($scope) {
     });
   };
 
-  $scope.saveJSON = function() {
-    _saveJSON(JSON.stringify(canvas));
+  $scope.saveJSON = function(withDefaults) {
+    canvas.includeDefaultValues = withDefaults;
+    _saveJSON(JSON.stringify(canvas.toJSON()));
   };
 
   var _saveJSON = function(json) {

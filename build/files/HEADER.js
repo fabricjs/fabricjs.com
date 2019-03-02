@@ -1,6 +1,6 @@
 /*! Fabric.js Copyright 2008-2015, Printio (Juriy Zaytsev, Maxim Chernyak) */
 
-var fabric = fabric || { version: '2.4.6' };
+var fabric = fabric || { version: '2.7.0' };
 if (typeof exports !== 'undefined') {
   exports.fabric = fabric;
 }
@@ -10,7 +10,10 @@ else if (typeof define === 'function' && define.amd) {
 }
 /* _AMD_END_ */
 if (typeof document !== 'undefined' && typeof window !== 'undefined') {
-  fabric.document = document;
+  if (document instanceof HTMLDocument)
+    fabric.document = document;
+  else
+    fabric.document = document.implementation.createHTMLDocument("");
   fabric.window = window;
 }
 else {
@@ -55,7 +58,7 @@ fabric.SHARED_ATTRIBUTES = [
   'stroke', 'stroke-dasharray', 'stroke-linecap', 'stroke-dashoffset',
   'stroke-linejoin', 'stroke-miterlimit',
   'stroke-opacity', 'stroke-width',
-  'id', 'paint-order',
+  'id', 'paint-order', 'vector-effect',
   'instantiated_by_use', 'clip-path'
 ];
 /* _FROM_SVG_END_ */

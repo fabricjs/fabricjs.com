@@ -14,7 +14,7 @@
     return src;
   }
 
-  var IMG_SRC = fabric.isLikelyNode ? (__dirname + '/../fixtures/test_image.gif') : getAbsolutePath('../fixtures/test_image.gif'),
+  var IMG_SRC = fabric.isLikelyNode ? ('file://' + __dirname + '/../fixtures/test_image.gif') : getAbsolutePath('../fixtures/test_image.gif'),
       IMG_WIDTH = 276,
       IMG_HEIGHT  = 110;
 
@@ -272,7 +272,7 @@
 
   QUnit.test('toObject without default values', function(assert) {
 
-    var emptyObjectRepr = { version: fabric.version, type: 'object' };
+    var emptyObjectRepr = { version: fabric.version, type: 'object', top: 0, left: 0 };
 
     var augmentedObjectRepr = {
       version: fabric.version,
@@ -293,7 +293,7 @@
     var cObj = new fabric.Object(),
         toObjectObj;
     cObj.includeDefaultValues = false;
-    assert.deepEqual(emptyObjectRepr, cObj.toObject());
+    assert.deepEqual(emptyObjectRepr, cObj.toObject(), 'top and left are always mantained');
 
     cObj.set('left', 10)
       .set('top', 20)
@@ -583,6 +583,21 @@
       assert.equal(object.fxStraighten(), object, 'should work without callbacks');
       done();
     }, 1000);
+  });
+
+  QUnit.test('on off fire are chainable', function(assert) {
+    var object = new fabric.Object({ left: 20, top: 30, width: 40, height: 50, angle: 43 });
+    var ret;
+    ret = object.fire('');
+    assert.equal(ret, object, 'fire is chainable when no events are registered at all');
+    ret = object.on('hi', function() {});
+    assert.equal(ret, object, 'on is chainable');
+    ret = object.fire('bye');
+    assert.equal(ret, object, 'fire is chainable when firing a non registerd event');
+    ret = object.fire('hi');
+    assert.equal(ret, object, 'fire is chainable when firing a registerd event');
+    ret = object.off('hi');
+    assert.equal(ret, object, 'off is chainable');
   });
 
   QUnit.test('observable', function(assert) {
@@ -1057,7 +1072,20 @@
     object.scaleX = 2;
     object.scaleY = 3;
     dims = object._getCacheCanvasDimensions();
-    assert.deepEqual(dims, { width: 26, height: 38, zoomX: 2, zoomY: 3, x: 12, y: 12 }, 'cache is as big as the scaled object');
+    assert.deepEqual(dims, { width: 26, height: 38, zoomX: 2, zoomY: 3, x: 24, y: 36 }, 'cache is as big as the scaled object');
+  });
+
+  QUnit.test('_getCacheCanvasDimensions and strokeUniform', function(assert) {
+    var object = new fabric.Object({ width: 10, height: 10, strokeWidth: 2 });
+    var dims = object._getCacheCanvasDimensions();
+    assert.deepEqual(dims, { width: 14, height: 14, zoomX: 1, zoomY: 1, x: 12, y: 12 }, 'if no scaling is applied cache is as big as object + strokeWidth');
+    object.strokeUniform = true;
+    var dims = object._getCacheCanvasDimensions();
+    assert.deepEqual(dims, { width: 14, height: 14, zoomX: 1, zoomY: 1, x: 12, y: 12 }, 'if no scaling is applied strokeUniform makes no difference');
+    object.scaleX = 2;
+    object.scaleY = 3;
+    dims = object._getCacheCanvasDimensions();
+    assert.deepEqual(dims, { width: 24, height: 34, zoomX: 2, zoomY: 3, x: 22, y: 32 }, 'cache is as big as the scaled object');
   });
 
   QUnit.test('_updateCacheCanvas check if cache canvas should be updated', function(assert) {
@@ -1253,5 +1281,91 @@
     assert.equal(object.isNotVisible(), true, 'object is not visilbe with visible false');
     object = new fabric.Object({ fill: 'blue', width: 0, height: 0, strokeWidth: 0 });
     assert.equal(object.isNotVisible(), true, 'object is not visilbe with also strokeWidth equal 0');
+  });
+  QUnit.test('shouldCache', function(assert) {
+    var object = new fabric.Object();
+    object.objectCaching = false;
+    assert.equal(object.shouldCache(), false, 'if objectCaching is false, object should not cache');
+    object.objectCaching = true;
+    assert.equal(object.shouldCache(), true, 'if objectCaching is true, object should cache');
+    object.objectCaching = false;
+    object.needsItsOwnCache = function () { return true; };
+    assert.equal(object.shouldCache(), true, 'if objectCaching is false, but we have a clipPath, shouldCache returns true');
+
+    object.needsItsOwnCache = function () { return false; };
+
+    object.objectCaching = true;
+    object.group = { isOnACache: function() { return true; }};
+    assert.equal(object.shouldCache(), false, 'if objectCaching is true, but we are in a group, shouldCache returns false');
+
+    object.objectCaching = true;
+    object.group = { isOnACache: function() { return false; }};
+    assert.equal(object.shouldCache(), true, 'if objectCaching is true, but we are in a not cached group, shouldCache returns true');
+
+    object.objectCaching = false;
+    object.group = { isOnACache: function() { return false; }};
+    assert.equal(object.shouldCache(), false, 'if objectCaching is false, but we are in a not cached group, shouldCache returns false');
+
+    object.objectCaching = false;
+    object.group = { isOnACache: function() { return true; }};
+    assert.equal(object.shouldCache(), false, 'if objectCaching is false, but we are in a cached group, shouldCache returns false');
+
+    object.needsItsOwnCache = function () { return true; };
+
+    object.objectCaching = false;
+    object.group = { isOnACache: function() { return true; }};
+    assert.equal(object.shouldCache(), true, 'if objectCaching is false, but we have a clipPath, group cached, we cache anyway');
+
+    object.objectCaching = false;
+    object.group = { isOnACache: function() { return false; }};
+    assert.equal(object.shouldCache(), true, 'if objectCaching is false, but we have a clipPath, group not cached, we cache anyway');
+
+  });
+  QUnit.test('needsItsOwnCache', function(assert) {
+    var object = new fabric.Object();
+    assert.equal(object.needsItsOwnCache(), false, 'default needsItsOwnCache is false');
+    object.clipPath = {};
+    assert.equal(object.needsItsOwnCache(), true, 'with a clipPath is true');
+    delete object.clipPath;
+
+    object.paintFirst = 'stroke';
+    object.stroke = 'black';
+    object.shadow = {};
+    assert.equal(object.needsItsOwnCache(), true, 'if stroke first will return true');
+
+    object.paintFirst = 'stroke';
+    object.stroke = 'black';
+    object.shadow = null;
+    assert.equal(object.needsItsOwnCache(), true, 'if stroke first will return false if no shadow');
+
+    object.paintFirst = 'stroke';
+    object.stroke = '';
+    object.shadow = {};
+    assert.equal(object.needsItsOwnCache(), false, 'if stroke first will return false if no stroke');
+
+    object.paintFirst = 'stroke';
+    object.stroke = 'black';
+    object.fill = '';
+    object.shadow = {};
+    assert.equal(object.needsItsOwnCache(), false, 'if stroke first will return false if no fill');
+  });
+  QUnit.test('hasStroke', function(assert) {
+    var object = new fabric.Object({ fill: 'blue', width: 100, height: 100, strokeWidth: 3, stroke: 'black' });
+    assert.equal(object.hasStroke(), true, 'if strokeWidth is present and stroke is black hasStroke is true');
+    object.stroke = '';
+    assert.equal(object.hasStroke(), false, 'if strokeWidth is present and stroke is empty string hasStroke is false');
+    object.stroke = 'transparent';
+    assert.equal(object.hasStroke(), false, 'if strokeWidth is present and stroke is transparent hasStroke is false');
+    object.stroke = 'black';
+    object.strokeWidth = 0;
+    assert.equal(object.hasStroke(), false, 'if strokeWidth is 0 and stroke is a color hasStroke is false');
+  });
+  QUnit.test('hasFill', function(assert) {
+    var object = new fabric.Object({ fill: 'blue', width: 100, height: 100 });
+    assert.equal(object.hasFill(), true, 'with a color that is not transparent, hasFill is true');
+    object.fill = '';
+    assert.equal(object.hasFill(), false, 'without a color, hasFill is false');
+    object.fill = 'transparent';
+    assert.equal(object.hasFill(), false, 'with a color that is transparent, hasFill is true');
   });
 })();

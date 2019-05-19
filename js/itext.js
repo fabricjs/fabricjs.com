@@ -649,21 +649,25 @@ addHandler('sub-script', function(obj) {
 addHandler('bold', function(obj) {
   var isBold = getStyle(obj, 'fontWeight') === 'bold';
   setStyle(obj, 'fontWeight', isBold ? '' : 'bold');
+  obj.dirty = true;
 });
 
 addHandler('italic', function() {
   var isItalic = getStyle(obj, 'fontStyle') === 'italic';
   setStyle(obj, 'fontStyle', isItalic ? '' : 'italic');
+  obj.dirty = true;
 });
 
 addHandler('underline', function(obj) {
-  var isUnderline = (getStyle(obj, 'textDecoration') || '').indexOf('underline') > -1;
-  setStyle(obj, 'textDecoration', isUnderline ? '' : 'underline');
+  var isUnderline = (getStyle(obj, 'underline') || false);
+  setStyle(obj, 'underline', isUnderline ? false : true);
+  obj.dirty = true;
 });
 
-addHandler('line-through', function(obj) {
-  var isLinethrough = (getStyle(obj, 'textDecoration') || '').indexOf('line-through') > -1;
-  setStyle(obj, 'textDecoration', isLinethrough ? '' : 'line-through');
+addHandler('line-through', function(obj) {linethrough
+  var islinethrough = (getStyle(obj, 'linethrough') || false);
+  setStyle(obj, 'linethrough', islinethrough ? false : true);
+  obj.dirty = true;
 });
 
 addHandler('color', function(obj) {

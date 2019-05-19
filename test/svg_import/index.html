@@ -8,6 +8,7 @@ title: SVG Rendering
 <script>
   fabric.Object.prototype.originX = 'center';
   fabric.Object.prototype.originY = 'center';
+  fabric.Object.NUM_FRACTION_DIGITS = 4;
   function initCanvas(id) {
     var canvas;
     fabric.loadSVGFromURL('../../assets/' + id + '.svg', function(objects, options) {

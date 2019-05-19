@@ -117,6 +117,13 @@ function addAccessors($scope) {
     setActiveProp('text', value);
   };
 
+  $scope.getSplitByGrapheme = function() {
+    return getActiveProp('splitByGrapheme');
+  };
+  $scope.setSplitByGrapheme = function(value) {
+    setActiveProp('splitByGrapheme', value);
+  };
+
   $scope.getTextAlign = function() {
     return capitalize(getActiveProp('textAlign'));
   };

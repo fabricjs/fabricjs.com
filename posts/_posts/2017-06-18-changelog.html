@@ -8,11 +8,51 @@ title: Fabric.js. release 2.0.0 highlights.
 <div class="container" style="margin:30px auto">
   <h2 id="introduction_to_fabricjs">Fabric.js release highlights</h2>
   <p> Find general v2 changes <a href="changes-introduction">here</a></p>
-  <h3>Version 2.7.0</h3>
-  <p><code>Object.strokeUniform</code></p>
+  <h3>Version 3.0.0</h3>
+Support for Node 4 and 6 is removed, now fabricJS uses JSDOM 15.1 also as SVG parser under node, and uses node-canvas 2.5+.
+This brings improved support under node, including better text support.<br />
+splitByGrapheme and strokeUniform have been properly fixed.<br />
+Some new property: <code>fabric.Shadow</code> gets nonScaling that let the shadow fix during a scaling operation, <code>fabric.disableStyleCopyPasting</code>
+will control style copy/pasting during copy operations between IText and Textbox objects. Finally <code>Canvas.enablePointerEvents</code> will let you use
+pointer events instead of mouse events.
+For image filtering <code>fabric.forceGLPutImageData</code> will let you set a slower but more compatible webgl texture copy. This helps on computer running on old intel hardware.
+Detecting the presence of the hardware is developer duty.<br />
+Finally <code>fabric.Object.objectCaching</code> set to false will disable objectCaching only if current setup does not require it. Is not more a preference than a mandatory setting.
+If an object has a clipPath. objectCaching will be automatically activated.
   <pre>
-- Fix: Shift click and onSelect function #5348
-- Fix: Load from Json from images with filters and resize filters #5346</pre>
+- Breaking: removed support for node 4 and 6. #5356
+- Breaking: changed objectCaching meaning to disable caching only if possible. #5566
+- Breaking: private method _setLineStyle can set only empty object now #5588
+- Breaking: private method _getLineStyle can only return boolean now #5588
+- Fix: splitByGrapheme can now handle cursor properly #5588
+- Add: Added hasStroke and hasFill, helper methods for decisions on caching and for devs, change image shouldCache method #5567
+- Fix: Canvas toObject won't throw error now if there is a clipPath #5556
+- Add: added nonScaling property to shadow class #5558
+- Fix: fixed import of Rect from SVG when has 0 dimensions. #5582
+- Fix: Shadow offset in dataurl export with retina #5593
+- Fix: Text can be used as clipPath in SVG export (output is not correct yet) #5591
+- Add: Fabric.disableStyleCopyPasting to disable style transfers on copy-paste of itext #5590
+- Fix: avoid adding quotes to fontFamily containing a coma #5624
+- Fix: strokeUniform and cache dimensions #5626
+- Fix: Do not call onSelect on objects that won't be part of the selection #5632
+- Fix: fixed handling of empty lines in splitByGrapheme #5645
+- Fix: Textbox selectable property not restored after exitEditing #5655
+- Fix: 'before:selection:cleared' event gets target in the option passed #5658
+- Added: enablePointerEvents options to Canvas activates pointer events #5589
+- Fix: Polygon/Polyline/Path respect points position when initializing #5668
+- Fix: Do not load undefine objects in group/canvas array when restoring from JSON or SVG. #5684
+- Improvement: support for canvas background or overlay as gradient #5684
+- Fix: properly restore clipPath when restoring from JSON #5641
+- Fix: respect chainable attribute in observable mixin #5606
+- Added: fabric.forceGLPutImageData #5672</pre>
+  <h3>Version 2.7.0</h3>
+  <p>Added <code>strokeUniform</code> property, that lets you scale objects without deforming the stroke (only outside groups)</p>
+  <pre>
+- Add: strokeUniform property, avoid stroke scaling with paths #5473
+- Fix: fix bug in image setSrc #5502
+- Add: strokeUniform import/export svg #5527
+- Fix: GraphemeSplit and toSvg for circle #5544
+- Improvement: support running in a XML document #5530</pre>
   <h3>Version 2.6.0</h3>
   <p>Mostly svg fixes for this release, on input and output</p>
   <pre>

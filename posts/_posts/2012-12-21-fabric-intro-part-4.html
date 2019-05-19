@@ -205,7 +205,7 @@ var fs = require('fs'),
     fabric = require('fabric').fabric,
     out = fs.createWriteStream(__dirname + '/helloworld.png');
 
-var canvas = fabric.createCanvasForNode(null, { width: 200, height: 200 });
+var canvas = new fabric.StaticCanvas(null, { width: 200, height: 200 });
 var text = new fabric.Text('Hello world', {
   left: 100,
   top: 100,
@@ -226,13 +226,13 @@ stream.on('data', function(chunk) {
 
 <p>So what's going on here? Let's go over important parts of this code.</p>
 
-<p>First, we're including Fabric itself (<code>fabric = require('fabric').fabric</code>). Then, we create the good old Fabric canvas, only using <code>fabric.createCanvasForNode()</code> instead of the usual <code>new fabric.Canvas()</code>. This method takes width and height as paramters and creates canvas of that size (in this case: 200x200).</p>
+<p>First, we're including Fabric itself (<code>fabric = require('fabric').fabric</code>). Then, we create the good old Fabric canvas.</p>
 
 <p>Then there's familiar-looking object creation (<code>new fabric.Text()</code>) and canvas addition (<code>canvas.add(text)</code>).</p>
 
 <p>All of this simply creates Fabric canvas and renders text object onto it. Now, how to create an image of whatever is rendered on canvas? Using <code>createPNGStream</code> method available right on the canvas instance. <code>createPNGStream</code> returns Node's <a href="http://nodejs.org/api/stream.html">stream object</a>, and can then be output into an image file using <code>on('data')</code>, and writing into the stream corresponding to an image file (<code>fs.createWriteStream()</code>).</p>
 
-<p><code>fabric.createCanvasForNode</code> and <code>fabric.Canvas#createPNGStream</code> are pretty much the only 2 methods specific to Node. Everything else works the same — you can still create objects as you usually would, add them on canvas, modify, render, and so on. It's worth mentioning that when you create canvas via <code>createCanvasForNode</code>, it gets extended with <code>nodeCanvas</code> property which is a reference to original node-canvas instance.</p>
+<p><code>fabric.Canvas#createPNGStream</code> is one of the methods specific to Node. Everything else works the same — you can still create objects as you usually would, add them on canvas, modify, render, and so on.</p>
 
 <h4>Node server and Fabric</h4>
 
@@ -246,7 +246,7 @@ var fabric = require('fabric').fabric, // or import { fabric } from 'fabric';
 
 var server = http.createServer(function (request, response) {
   var params = url.parse(request.url, true);
-  var canvas = fabric.createCanvasForNode(200, 200);
+  var canvas = new fabric.StaticCanvas(null, { width: 200, height: 200 });
 
   response.writeHead(200, { 'Content-Type': 'image/png' });
 
@@ -301,54 +301,61 @@ In this example we use <a href="http://www.google.com/fonts/specimen/Ubuntu" tar
 </p>
 
 <pre>
-var fs = require('fs'),
-    fabric = require('fabric').fabric, // or import { fabric } from 'fabric';
-    canvas = new fabric.StaticCanvas(null, { width: 300, height: 250 });
+  var fs = require('fs'),
+      fabric = require('fabric').fabric; // or import { fabric } from 'fabric';
 
-var font = new fabric.nodeCanvas.Font('Ubuntu', __dirname + '/fonts/Ubuntu-Regular.ttf');
-font.addFace(__dirname + '/fonts/Ubuntu-Bold.ttf', 'bold');
-font.addFace(__dirname + '/fonts/Ubuntu-Italic.ttf', 'normal', 'italic');
-font.addFace(__dirname + '/fonts/Ubuntu-BoldItalic.ttf', 'bold', 'italic');
+  fabric.nodeCanvas.registerFont(__dirname + '/test/fixtures/Ubuntu-Regular.ttf', {
+    family: 'Ubuntu', weight: 'regular', style: 'normal'
+  });
+  fabric.nodeCanvas.registerFont(__dirname + '/test/fixtures/Ubuntu-Bold.ttf', {
+    family: 'Ubuntu', weight: 'bold', style: 'normal'
+  });
+  fabric.nodeCanvas.registerFont(__dirname + '/test/fixtures/Ubuntu-Italic.ttf', {
+    family: 'Ubuntu', weight: 'regular', style: 'italic'
+  });
+  fabric.nodeCanvas.registerFont(__dirname + '/test/fixtures/Ubuntu-BoldItalic.ttf', {
+    family: 'Ubuntu', weight: 'bold', style: 'italic'
+  });
 
-canvas.contextContainer.addFont(font);  // when using createPNGStream or createJPEGStream
+  var canvas = new fabric.StaticCanvas(null, { width: 300, height: 250 });
 
-var text = new fabric.Text('regular', {
-    left: 150,
-    top: 50,
-    fontFamily: 'Ubuntu'
-});
-canvas.add(text);
+  var text = new fabric.Text('regular', {
+      left: 0,
+      top: 50,
+      fontFamily: 'Ubuntu'
+  });
+  canvas.add(text);
 
-text = new fabric.Text('bold', {
-    left: 150,
-    top: 100,
-    fontFamily: 'Ubuntu',
-    fontWeight: 'bold'
-});
-canvas.add(text);
+  text = new fabric.Text('bold', {
+      left: 0,
+      top: 100,
+      fontFamily: 'Ubuntu',
+      fontWeight: 'bold'
+  });
+  canvas.add(text);
 
-text = new fabric.Text('italic', {
-    left: 150,
-    top: 150,
-    fontFamily: 'Ubuntu',
-    fontStyle: 'italic'
-});
-canvas.add(text);
+  text = new fabric.Text('italic', {
+      left: 0,
+      top: 150,
+      fontFamily: 'Ubuntu',
+      fontStyle: 'italic'
+  });
+  canvas.add(text);
 
-text = new fabric.Text('bold italic', {
-    left: 150,
-    top: 200,
-    fontFamily: 'Ubuntu',
-    fontWeight: 'bold',
-    fontStyle: 'italic'
-});
-canvas.add(text);
-
-var out = fs.createWriteStream(__dirname + '/customfont.png');
-var stream = canvas.createPNGStream();
-stream.on('data', function(chunk) {
-    out.write(chunk);
-});
+  text = new fabric.Text('bold italic', {
+      left: 0,
+      top: 200,
+      fontFamily: 'Ubuntu',
+      fontWeight: 'bold',
+      fontStyle: 'italic'
+  });
+  canvas.add(text);
+  canvas.renderAll();
+  var out = fs.createWriteStream(__dirname + '/customfont.png');
+  var stream = canvas.createPNGStream();
+  stream.on('data', function(chunk) {
+      out.write(chunk);
+  });
 </pre>
 
 <p>
@@ -360,9 +367,8 @@ Running the example with <code>node customfont.js</code> creates an image (custo
 <p>
 Lets have a closer look at what's happening.
 On fabric.nodeCanvas is exposed the node-canvas library required from JSDOM to interface the node-canvas with the HTMLCanvas Api.
-First we create a font object with <code>new fabirc.nodeCanvas.Font()</code> by passing the font <i>name</i> and <i>path</i> (to the regular font file) as parameters.
-Then additional font faces are added using <code>font.addFace()</code> by passing the font face <i>path</i>, <i>weight</i> and <i>style</i> as parameters.
-Finaly the font is ready to be added to the desired context using <code>canvas.contextContainer.addFont()</code> (when using <b>createPNGStream</b> or <b>createJPEGStream</b>).
+For each font file we want to use we need to register the file with <code>fabric.nodeCanvas.registerFont()</code> by passing the font file <i>path</i> and an object that specifies the font properties.
+Remember that this has to happen before creating the Canvas itself.
 </p>
 
 <p>

@@ -130,9 +130,9 @@ fabric.minCacheSideLimit = 256;
 <h3>What about compatibility problem with my current project? should i update? Can i disable caching?</h3>
 <p>I would say yes, switch to 1.7.0, check if everything is fine. If not report any visual problem to issue tracker, you can still completly disable the feature everywhere doing:</p>
 <pre>fabric.Object.prototype.objectCaching = false;</pre> to ovveride the standard value and cache will be disabled for your project.
-<h3>Live sampes</h3>
-<p>Below you can see 2 fabric canvases. The left one is the default chaced one, while the right one is drawn with cache disabled as it was on previous versions.<br />
-The canvases are loaded with heavy pathgroups, the snowwhite, the heaviest i could find is in 3 copies and makes the render speed cripple down.
+<h3>Live samples</h3>
+<p>Below you can see 2 fabric canvases. The left one is the default cached one, while the right one is drawn with cache disabled as it was on previous versions.<br />
+The canvases are loaded with heavy pathgroups, the snowwhite, the heaviest I could find is in 3 copies and makes the render speed cripple down.
 Try to drag around one of the shapes on the left or right canvas and notice the speed difference.
 </p>
 <canvas id="normal1" width="450" height="400" ></canvas><canvas id="nocache1" width="450" height="400" ></canvas>

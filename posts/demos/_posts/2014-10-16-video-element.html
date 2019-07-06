@@ -8,11 +8,6 @@ title: HTML5 &lt;video> element
   <source src="http://html5demos.com/assets/dizzy.ogv">
 </video>
 
-<video height="360" width="640" id="video2" style="display: none" muted>
-  <source src="http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4">
-  <source src="http://www.quirksmode.org/html5/videos/big_buck_bunny.ogv">
-</video>
-
 <video height="360" width="500" id="webcam" style="display: none">
 </video>
 
@@ -20,22 +15,12 @@ title: HTML5 &lt;video> element
 
 <script id="main">var canvas = new fabric.Canvas('c');
 var video1El = document.getElementById('video1');
-var video2El = document.getElementById('video2');
 var webcamEl = document.getElementById('webcam');
 
 var video1 = new fabric.Image(video1El, {
   left: 200,
   top: 300,
   angle: -15,
-  originX: 'center',
-  originY: 'center',
-  objectCaching: false,
-});
-
-var video2 = new fabric.Image(video2El, {
-  left: 1000,
-  top: 350,
-  angle: 15,
   originX: 'center',
   originY: 'center',
   objectCaching: false,
@@ -53,26 +38,42 @@ var webcam = new fabric.Image(webcamEl, {
 canvas.add(video1);
 video1.getElement().play();
 
-canvas.add(video2);
-video2.getElement().play();
+// Older browsers might not implement mediaDevices at all, so we set an empty object first
+if (navigator.mediaDevices === undefined) {
+  navigator.mediaDevices = {};
+}
+
+if (navigator.mediaDevices.getUserMedia === undefined) {
+  navigator.mediaDevices.getUserMedia = function(constraints) {
+
+    // First get ahold of the legacy getUserMedia, if present
+    var getUserMedia = navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
+
+    // Some browsers just don't implement it - return a rejected promise with an error
+    // to keep a consistent interface
+    if (!getUserMedia) {
+      return Promise.reject(new Error('getUserMedia is not implemented in this browser'));
+    }
+
+    // Otherwise, wrap the call to the old navigator.getUserMedia with a Promise
+    return new Promise(function(resolve, reject) {
+      getUserMedia.call(navigator, constraints, resolve, reject);
+    });
+  }
+}
+
 
 // adding webcam video element
-getUserMedia({video: true}, function getWebcamAllowed(localMediaStream) {
-  var video = document.getElementById('webcam');
-  video.src = window.URL.createObjectURL(localMediaStream);
+navigator.mediaDevices.getUserMedia({video: true})
+  .then(function getWebcamAllowed(localMediaStream) {
+    webcamEl.srcObject = localMediaStream;
 
-  canvas.add(webcam);
-  webcam.moveTo(0); // move webcam element to back of zIndex stack
-  webcam.getElement().play();
-}, function getWebcamNotAllowed(e) {
+    canvas.add(webcam);
+    webcam.moveTo(0); // move webcam element to back of zIndex stack
+    webcam.getElement().play();
+  }).catch(function getWebcamNotAllowed(e) {
   // block will be hit if user selects "no" for browser "allow webcam access" prompt
-});
-
-// making navigator.getUserMedia cross-browser compatible
-function getUserMedia() {
-  var userMediaFunc = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
-  if (userMediaFunc) userMediaFunc.apply(navigator, arguments);
-}
+  });
 
 fabric.util.requestAnimFrame(function render() {
   canvas.renderAll();

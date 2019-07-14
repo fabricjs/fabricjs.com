@@ -56,7 +56,9 @@ canvas.add(group);
 <p>Now that we have a group on canvas, let's change it up a little:</p>
 
 <pre>
-group.item(0).setFill('red');
+// in order to use setFill named setter, you need to add the optional named setter/getter
+// code from src/util/named_accessors.mixins.js
+group.item(0).set('fill', 'red');
 group.item(1).set({
   text: 'trololo',
   fill: 'white'

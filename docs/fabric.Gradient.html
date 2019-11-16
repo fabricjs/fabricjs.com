@@ -158,7 +158,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5839">line 5839</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5767">line 5767</a>
     </li></ul></dd>
     
 
@@ -207,6 +207,159 @@
 
     
         <h3 class="subsection-title">Members</h3>
+
+        
+            
+
+<h4 class="name" id="gradientTransform"><a href="#gradientTransform" ><span class="type-signature"></span>gradientTransform<span class="type-signature"> :Array.&lt;Number></span></a></h4>
+
+
+<div class="description">
+    A transform matrix to apply to the gradient before painting.
+Imported from svg gradients, is not applied with the current transform in the center.
+Before this transform is applied, the origin point is at the top left corner of the object
+plus the addition of offsetY and offsetX.
+</div>
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Array.&lt;Number></span>
+
+
+        </li>
+    </ul>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li>null</li>
+        </ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5797">line 5797</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+        
+            
+
+<h4 class="name" id="gradientUnits"><a href="#gradientUnits" ><span class="type-signature"></span>gradientUnits<span class="type-signature"> :String</span></a></h4>
+
+
+<div class="description">
+    coordinates units for coords.
+If `pixels`, the number of coords are in the same unit of width / height.
+If set as `percentage` the coords are still a number, but 1 means 100% of width
+for the X and 100% of the height for the y. It can be bigger than 1 and negative.
+allowed values pixels or percentage.
+</div>
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">String</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li>'pixels'</li>
+        </ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5808">line 5808</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
 
         
             
@@ -266,7 +419,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5852">line 5852</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5780">line 5780</a>
     </li></ul></dd>
     
 
@@ -339,7 +492,80 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5859">line 5859</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5787">line 5787</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+        
+            
+
+<h4 class="name" id="type"><a href="#type" ><span class="type-signature"></span>type<span class="type-signature"> :String</span></a></h4>
+
+
+<div class="description">
+    Gradient type linear or radial
+</div>
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">String</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li>'pixels'</li>
+        </ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5815">line 5815</a>
     </li></ul></dd>
     
 
@@ -371,6 +597,7 @@
 
 <div class="description">
     Returns <a href="fabric.Gradient.html">fabric.Gradient</a> instance from its object representation
+this function is uniquely used by Object.setGradient and is deprecated with it.
 </div>
 
 
@@ -489,6 +716,8 @@
     
 
     
+        <dt class="important tag-deprecated">Deprecated:</dt><dd><ul class="dummy"><li>since 3.4.0</li></ul></dd>
+    
 
     
 
@@ -501,7 +730,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6156">line 6156</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6158">line 6158</a>
     </li></ul></dd>
     
 
@@ -526,7 +755,7 @@
 
 
     
-    <h4 class="name" id=".fromElement"><a href="#.fromElement" ><span class="type-signature">(static) </span>fromElement<span class="signature">(el, instance)</span><span class="type-signature"> &rarr; {<a href="fabric.Gradient.html">fabric.Gradient</a>}</span></a></h4>
+    <h4 class="name" id=".fromElement"><a href="#.fromElement" ><span class="type-signature">(static) </span>fromElement<span class="signature">(el, instance, opacityAttr, svgOptions, viewBoxWidth, viewBoxHeight, width, height)</span><span class="type-signature"> &rarr; {<a href="fabric.Gradient.html">fabric.Gradient</a>}</span></a></h4>
     
 
 
@@ -606,6 +835,145 @@
         </tr>
 
     
+
+        <tr>
+            
+                <td class="name"><code>opacityAttr</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">A fill-opacity or stroke-opacity attribute to multiply to each stop's opacity.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>svgOptions</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">an object containing the size of the SVG in order to parse correctly graidents
+that uses gradientUnits as 'userSpaceOnUse' and percentages.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>viewBoxWidth</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object.number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">width part of the viewBox attribute on svg</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>viewBoxHeight</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object.number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">height part of the viewBox attribute on svg</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>width</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object.number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">width part of the svg tag if viewBox is not specified</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>height</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object.number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">height part of the svg tag if viewBox is not specified</td>
+        </tr>
+
+    
     </tbody>
 </table>
 
@@ -642,7 +1010,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6072">line 6072</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6064">line 6064</a>
     </li></ul></dd>
     
 
@@ -791,7 +1159,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5899">line 5899</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5873">line 5873</a>
     </li></ul></dd>
     
 
@@ -838,7 +1206,7 @@
 
 
     
-    <h4 class="name" id="initialize"><a href="#initialize" ><span class="type-signature"></span>initialize<span class="signature">(options<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {<a href="fabric.Gradient.html">fabric.Gradient</a>}</span></a></h4>
+    <h4 class="name" id="initialize"><a href="#initialize" ><span class="type-signature"></span>initialize<span class="signature">(options)</span><span class="type-signature"> &rarr; {<a href="fabric.Gradient.html">fabric.Gradient</a>}</span></a></h4>
     
 
 
@@ -862,8 +1230,6 @@
 
         <th>Type</th>
 
-        
-        <th>Attributes</th>
         
 
         
@@ -890,6 +1256,50 @@
             </td>
 
             
+
+            
+
+            <td class="description last">Options object with type, coords, gradientUnits and colorStops
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>type</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
                 <td class="attributes">
                 
                     &lt;optional><br>
@@ -903,7 +1313,401 @@
 
             
 
-            <td class="description last">Options object with type, coords, gradientUnits and colorStops</td>
+            <td class="description last">gradient type linear or radial</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>gradientUnits</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">gradient units</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>offsetX</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">SVG import compatibility</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>offsetY</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">SVG import compatibility</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>colorStops</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;Object></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">contains the colorstops.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>coords</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">contains the coords of the gradient
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>x1</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">X coordiante of the first point for linear or of the focal point for radial</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>y1</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">Y coordiante of the first point for linear or of the focal point for radial</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>x2</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">X coordiante of the second point for linear or of the center point for radial</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>y2</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">Y coordiante of the second point for linear or of the center point for radial</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>r1</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">only for radial gradient, radius of the inner circle</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>r2</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">only for radial gradient, radius of the external circle</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
         </tr>
 
     
@@ -943,7 +1747,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5866">line 5866</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5834">line 5834</a>
     </li></ul></dd>
     
 
@@ -1083,7 +1887,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6028">line 6028</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line6013">line 6013</a>
     </li></ul></dd>
     
 
@@ -1231,7 +2035,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5916">line 5916</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5890">line 5890</a>
     </li></ul></dd>
     
 
@@ -1367,7 +2171,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5936">line 5936</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5911">line 5911</a>
     </li></ul></dd>
     
 
@@ -1423,7 +2227,7 @@
 
 
 </div>
-<footer><input id="toggle" type="checkbox" onclick="toggle(this.checked);"  /><label for="toggle" >Hide inherited properties and method from the page</label><br />Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sat Jun 22 2019 13:38:36 GMT+0200 (Central European Summer Time)
+<footer><input id="toggle" type="checkbox" onclick="toggle(this.checked);"  /><label for="toggle" >Hide inherited properties and method from the page</label><br />Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sat Nov 16 2019 22:57:26 GMT+0100 (Central European Standard Time)
 </footer>
 <script> prettyPrint(); </script>
 <script src="scripts/linenumber.js"> </script>

@@ -144,7 +144,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line626">line 626</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line625">line 625</a>
     </li></ul></dd>
     
 
@@ -232,7 +232,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2639">line 2639</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2554">line 2554</a>
     </li></ul></dd>
     
 
@@ -374,7 +374,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2525">line 2525</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2440">line 2440</a>
     </li></ul></dd>
     
 
@@ -538,7 +538,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2317">line 2317</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2263">line 2263</a>
     </li></ul></dd>
     
 
@@ -1002,7 +1002,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2883">line 2883</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2802">line 2802</a>
     </li></ul></dd>
     
 
@@ -1387,7 +1387,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2983">line 2983</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2904">line 2904</a>
     </li></ul></dd>
     
 
@@ -1404,6 +1404,579 @@
 
 
 
+
+
+
+        
+            
+
+
+    
+    <h4 class="name" id=".calcDimensionsMatrix"><a href="#.calcDimensionsMatrix" ><span class="type-signature">(static) </span>calcDimensionsMatrix<span class="signature">(options)</span><span class="type-signature"> &rarr; {Array.&lt;Number>}</span></a></h4>
+    
+
+
+<div class="description">
+    Returns a transform matrix starting from an object of the same kind of
+the one returned from qrDecompose, useful also if you want to calculate some
+transformations from an object that is not enlived yet.
+is called DimensionsTransformMatrix because those properties are the one that influence
+the size of the resulting box of the object.
+</div>
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>scaleX</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>scaleY</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>flipX</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>flipY</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>skewX</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>skewX</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1342">line 1342</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    transform matrix
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array.&lt;Number></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+
+    
+    <h4 class="name" id=".calcRotateMatrix"><a href="#.calcRotateMatrix" ><span class="type-signature">(static) </span>calcRotateMatrix<span class="signature">(options)</span><span class="type-signature"> &rarr; {Array.&lt;Number>}</span></a></h4>
+    
+
+
+<div class="description">
+    Returns a transform matrix starting from an object of the same kind of
+the one returned from qrDecompose, useful also if you want to calculate some
+transformations from an object that is not enlived yet
+</div>
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>angle</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">angle in degrees</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1315">line 1315</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    transform matrix
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array.&lt;Number></span>
+
+
+    </dd>
+</dl>
+
+    
 
 
 
@@ -1524,7 +2097,7 @@ initDimensions() to trigger a recalculation
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1438">line 1438</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1546">line 1546</a>
     </li></ul></dd>
     
 
@@ -1663,7 +2236,7 @@ initDimensions() to trigger a recalculation
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1248">line 1248</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1253">line 1253</a>
     </li></ul></dd>
     
 
@@ -1680,6 +2253,473 @@ initDimensions() to trigger a recalculation
 
 
 
+
+
+
+        
+            
+
+
+    
+    <h4 class="name" id=".composeMatrix"><a href="#.composeMatrix" ><span class="type-signature">(static) </span>composeMatrix<span class="signature">(options)</span><span class="type-signature"> &rarr; {Array.&lt;Number>}</span></a></h4>
+    
+
+
+<div class="description">
+    Returns a transform matrix starting from an object of the same kind of
+the one returned from qrDecompose, useful also if you want to calculate some
+transformations from an object that is not enlived yet
+</div>
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>angle</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>scaleX</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>scaleY</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>flipX</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>flipY</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>skewX</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>skewX</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>translateX</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>translateY</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1387">line 1387</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    transform matrix
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array.&lt;Number></span>
+
+
+    </dd>
+</dl>
+
+    
 
 
 
@@ -1781,7 +2821,7 @@ initDimensions() to trigger a recalculation
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1210">line 1210</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1215">line 1215</a>
     </li></ul></dd>
     
 
@@ -1921,7 +2961,7 @@ initDimensions() to trigger a recalculation
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line638">line 638</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line637">line 637</a>
     </li></ul></dd>
     
 
@@ -2008,7 +3048,7 @@ initDimensions() to trigger a recalculation
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1199">line 1199</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1204">line 1204</a>
     </li></ul></dd>
     
 
@@ -2194,7 +3234,7 @@ initDimensions() to trigger a recalculation
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2110">line 2110</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2218">line 2218</a>
     </li></ul></dd>
     
 
@@ -2263,7 +3303,7 @@ initDimensions() to trigger a recalculation
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1237">line 1237</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1242">line 1242</a>
     </li></ul></dd>
     
 
@@ -2296,6 +3336,195 @@ initDimensions() to trigger a recalculation
     <dd>
         
 <span class="param-type">HTMLImageElement</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+
+    
+    <h4 class="name" id=".customTransformMatrix"><a href="#.customTransformMatrix" ><span class="type-signature">(static) </span>customTransformMatrix<span class="signature">(scaleX, scaleY, skewX)</span><span class="type-signature"> &rarr; {Array.&lt;Number>}</span></a></h4>
+    
+
+
+<div class="description">
+    Returns a transform matrix that has the same effect of scaleX, scaleY and skewX.
+Is deprecated for composeMatrix. Please do not use it.
+</div>
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>scaleX</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>scaleY</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>skewX</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <dt class="important tag-deprecated">Deprecated:</dt><dd><ul class="dummy"><li>since 3.4.0</li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1410">line 1410</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    transform matrix
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array.&lt;Number></span>
 
 
     </dd>
@@ -2403,7 +3632,7 @@ initDimensions() to trigger a recalculation
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line710">line 710</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line709">line 709</a>
     </li></ul></dd>
     
 
@@ -2612,7 +3841,7 @@ initDimensions() to trigger a recalculation
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1600">line 1600</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1708">line 1708</a>
     </li></ul></dd>
     
 
@@ -2848,7 +4077,7 @@ See <a href="http://stackoverflow.com/questions/4576724/dotted-stroke-in-canvas"
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1166">line 1166</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1171">line 1171</a>
     </li></ul></dd>
     
 
@@ -3036,7 +4265,7 @@ called after each fabric object created.</td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1026">line 1026</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1031">line 1031</a>
     </li></ul></dd>
     
 
@@ -3178,7 +4407,7 @@ called after each fabric object created.</td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1070">line 1070</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1075">line 1075</a>
     </li></ul></dd>
     
 
@@ -3247,7 +4476,7 @@ called after each fabric object created.</td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line875">line 875</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line880">line 880</a>
     </li></ul></dd>
     
 
@@ -3567,7 +4796,7 @@ called after each fabric object created.</td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1634">line 1634</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1742">line 1742</a>
     </li></ul></dd>
     
 
@@ -3688,7 +4917,7 @@ called after each fabric object created.</td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2466">line 2466</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2381">line 2381</a>
     </li></ul></dd>
     
 
@@ -3827,7 +5056,7 @@ called after each fabric object created.</td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2598">line 2598</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2513">line 2513</a>
     </li></ul></dd>
     
 
@@ -3967,7 +5196,7 @@ called after each fabric object created.</td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1348">line 1348</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1456">line 1456</a>
     </li></ul></dd>
     
 
@@ -4130,7 +5359,7 @@ called after each fabric object created.</td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line886">line 886</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line891">line 891</a>
     </li></ul></dd>
     
 
@@ -4169,124 +5398,6 @@ called after each fabric object created.</td>
 </dl>
 
     
-
-
-
-        
-            
-
-
-    
-    <h4 class="name" id=".getPointer"><a href="#.getPointer" ><span class="type-signature">(static) </span>getPointer<span class="signature">(event)</span><span class="type-signature"></span></a></h4>
-    
-
-
-<div class="description">
-    Cross-browser wrapper for getting event's coordinates
-</div>
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>event</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Event</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Event object</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2334">line 2334</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
 
 
 
@@ -4411,7 +5522,7 @@ called after each fabric object created.</td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line699">line 699</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line698">line 698</a>
     </li></ul></dd>
     
 
@@ -4574,7 +5685,7 @@ called after each fabric object created.</td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2718">line 2718</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2633">line 2633</a>
     </li></ul></dd>
     
 
@@ -4692,7 +5803,7 @@ called after each fabric object created.</td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2556">line 2556</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2471">line 2471</a>
     </li></ul></dd>
     
 
@@ -4832,7 +5943,7 @@ called after each fabric object created.</td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line898">line 898</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line903">line 903</a>
     </li></ul></dd>
     
 
@@ -5046,7 +6157,7 @@ called after each fabric object created.</td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1111">line 1111</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1116">line 1116</a>
     </li></ul></dd>
     
 
@@ -5185,7 +6296,7 @@ called after each fabric object created.</td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line811">line 811</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line816">line 816</a>
     </li></ul></dd>
     
 
@@ -5395,7 +6506,7 @@ at specified location (taking tolerance into account)
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1360">line 1360</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1468">line 1468</a>
     </li></ul></dd>
     
 
@@ -5537,7 +6648,7 @@ respect the total allowed area for the cache.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1457">line 1457</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1565">line 1565</a>
     </li></ul></dd>
     
 
@@ -5804,7 +6915,7 @@ respect the total allowed area for the cache.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line949">line 949</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line954">line 954</a>
     </li></ul></dd>
     
 
@@ -5945,7 +7056,7 @@ respect the total allowed area for the cache.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line997">line 997</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1002">line 1002</a>
     </li></ul></dd>
     
 
@@ -5992,7 +7103,7 @@ respect the total allowed area for the cache.
 
 
     
-    <h4 class="name" id=".makeBoundingBoxFromPoints"><a href="#.makeBoundingBoxFromPoints" ><span class="type-signature">(static) </span>makeBoundingBoxFromPoints<span class="signature">(points)</span><span class="type-signature"> &rarr; {Object}</span></a></h4>
+    <h4 class="name" id=".makeBoundingBoxFromPoints"><a href="#.makeBoundingBoxFromPoints" ><span class="type-signature">(static) </span>makeBoundingBoxFromPoints<span class="signature">(points, transform<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Object}</span></a></h4>
     
 
 
@@ -6016,6 +7127,8 @@ respect the total allowed area for the cache.
 
         <th>Type</th>
 
+        
+        <th>Attributes</th>
         
 
         
@@ -6042,10 +7155,51 @@ respect the total allowed area for the cache.
             </td>
 
             
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
 
             
 
             <td class="description last">4 points array</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>transform</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">an array of 6 numbers representing a 2x3 transform matrix</td>
         </tr>
 
     
@@ -6268,7 +7422,7 @@ respect the total allowed area for the cache.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2503">line 2503</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2418">line 2418</a>
     </li></ul></dd>
     
 
@@ -6408,7 +7562,7 @@ respect the total allowed area for the cache.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2693">line 2693</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2608">line 2608</a>
     </li></ul></dd>
     
 
@@ -6548,7 +7702,7 @@ respect the total allowed area for the cache.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2674">line 2674</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2589">line 2589</a>
     </li></ul></dd>
     
 
@@ -6688,7 +7842,7 @@ respect the total allowed area for the cache.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1482">line 1482</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1590">line 1590</a>
     </li></ul></dd>
     
 
@@ -6894,7 +8048,7 @@ respect the total allowed area for the cache.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1264">line 1264</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1269">line 1269</a>
     </li></ul></dd>
     
 
@@ -7034,7 +8188,7 @@ respect the total allowed area for the cache.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1402">line 1402</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1510">line 1510</a>
     </li></ul></dd>
     
 
@@ -7201,7 +8355,7 @@ Returns converted pixels or original value not converted.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line839">line 839</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line844">line 844</a>
     </li></ul></dd>
     
 
@@ -7363,7 +8517,7 @@ Returns converted pixels or original value not converted.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1143">line 1143</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1148">line 1148</a>
     </li></ul></dd>
     
 
@@ -7415,7 +8569,7 @@ Returns converted pixels or original value not converted.
 
 
 <div class="description">
-    Decomposes standard 2x2 matrix into transform componentes
+    Decomposes standard 2x3 matrix into transform components
 </div>
 
 
@@ -7503,7 +8657,7 @@ Returns converted pixels or original value not converted.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1283">line 1283</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1288">line 1288</a>
     </li></ul></dd>
     
 
@@ -7643,7 +8797,7 @@ Returns converted pixels or original value not converted.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line721">line 721</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line720">line 720</a>
     </li></ul></dd>
     
 
@@ -7807,7 +8961,7 @@ Presence of value (and its position in an array) is determined via `Array.protot
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line683">line 683</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line682">line 682</a>
     </li></ul></dd>
     
 
@@ -7993,7 +9147,7 @@ Presence of value (and its position in an array) is determined via `Array.protot
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2327">line 2327</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2275">line 2275</a>
     </li></ul></dd>
     
 
@@ -8332,7 +9486,7 @@ Presence of value (and its position in an array) is determined via `Array.protot
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2798">line 2798</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2713">line 2713</a>
     </li></ul></dd>
     
 
@@ -8496,7 +9650,7 @@ In order to get a precise start time, `requestAnimFrame` should be called as an 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2942">line 2942</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2863">line 2863</a>
     </li></ul></dd>
     
 
@@ -8614,7 +9768,7 @@ In order to get a precise start time, `requestAnimFrame` should be called as an 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1312">line 1312</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1420">line 1420</a>
     </li></ul></dd>
     
 
@@ -8732,7 +9886,7 @@ In order to get a precise start time, `requestAnimFrame` should be called as an 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line925">line 925</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line930">line 930</a>
     </li></ul></dd>
     
 
@@ -8918,7 +10072,7 @@ In order to get a precise start time, `requestAnimFrame` should be called as an 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line734">line 734</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line733">line 733</a>
     </li></ul></dd>
     
 
@@ -9081,7 +10235,7 @@ In order to get a precise start time, `requestAnimFrame` should be called as an 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line748">line 748</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line747">line 747</a>
     </li></ul></dd>
     
 
@@ -9221,7 +10375,7 @@ In order to get a precise start time, `requestAnimFrame` should be called as an 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1329">line 1329</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1437">line 1437</a>
     </li></ul></dd>
     
 
@@ -9384,7 +10538,7 @@ In order to get a precise start time, `requestAnimFrame` should be called as an 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2393">line 2393</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2308">line 2308</a>
     </li></ul></dd>
     
 
@@ -9524,7 +10678,7 @@ In order to get a precise start time, `requestAnimFrame` should be called as an 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line659">line 659</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line658">line 658</a>
     </li></ul></dd>
     
 
@@ -9660,7 +10814,7 @@ In order to get a precise start time, `requestAnimFrame` should be called as an 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2477">line 2477</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2392">line 2392</a>
     </li></ul></dd>
     
 
@@ -9842,7 +10996,7 @@ In order to get a precise start time, `requestAnimFrame` should be called as an 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1227">line 1227</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1232">line 1232</a>
     </li></ul></dd>
     
 
@@ -10008,7 +11162,7 @@ In order to get a precise start time, `requestAnimFrame` should be called as an 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line828">line 828</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line833">line 833</a>
     </li></ul></dd>
     
 
@@ -10218,7 +11372,7 @@ In order to get a precise start time, `requestAnimFrame` should be called as an 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line768">line 768</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line767">line 767</a>
     </li></ul></dd>
     
 
@@ -10435,7 +11589,7 @@ In order to get a precise start time, `requestAnimFrame` should be called as an 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2539">line 2539</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2454">line 2454</a>
     </li></ul></dd>
     
 
@@ -10491,7 +11645,7 @@ In order to get a precise start time, `requestAnimFrame` should be called as an 
 
 
 </div>
-<footer><input id="toggle" type="checkbox" onclick="toggle(this.checked);"  /><label for="toggle" >Hide inherited properties and method from the page</label><br />Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sat Jun 22 2019 13:38:38 GMT+0200 (Central European Summer Time)
+<footer><input id="toggle" type="checkbox" onclick="toggle(this.checked);"  /><label for="toggle" >Hide inherited properties and method from the page</label><br />Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sat Nov 16 2019 22:57:27 GMT+0100 (Central European Standard Time)
 </footer>
 <script> prettyPrint(); </script>
 <script src="scripts/linenumber.js"> </script>

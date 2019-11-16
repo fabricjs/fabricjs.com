@@ -15,7 +15,7 @@ h3, h4 { margin-top: 1.5em !important; }
 #features .next-steps a:nth-child(2) { color: green; margin-right: 20px; }
 #features .next-steps a:nth-child(3) { color: blue; }
 
-#features .canvas-container { margin-top: 20px; }
+#features .canvas-container { margin: 30px auto; }
 #to-svg { position: absolute; top: 1800px; left: -100px; font-size: 18px; }
 #to-json { position: absolute; top: 1800px; left: -190px; font-size: 18px; }
 

@@ -1381,9 +1381,6 @@
       else {
         alternative && alternative(ctx);
       }
-      if (this.strokeUniform) {
-        ctx.setLineDash(ctx.getLineDash().map(function(value) { return value * ctx.lineWidth; }));
-      }
     },
 
     /**
@@ -1715,9 +1712,10 @@
       options || (options = { });
 
       var utils = fabric.util, origParams = utils.saveObjectTransform(this),
+          originalGroup = this.group,
           originalShadow = this.shadow, abs = Math.abs,
           multiplier = (options.multiplier || 1) * (options.enableRetinaScaling ? fabric.devicePixelRatio : 1);
-
+      delete this.group;
       if (options.withoutTransform) {
         utils.resetObjectTransform(this);
       }
@@ -1739,6 +1737,7 @@
         else {
           scaling = this.getObjectScaling();
         }
+        // consider non scaling shadow.
         shadowOffset.x = 2 * Math.round(abs(shadow.offsetX) + shadowBlur) * (abs(scaling.scaleX));
         shadowOffset.y = 2 * Math.round(abs(shadow.offsetY) + shadowBlur) * (abs(scaling.scaleY));
       }
@@ -1761,6 +1760,9 @@
       var canvasEl = canvas.toCanvasElement(multiplier || 1, options);
       this.shadow = originalShadow;
       this.canvas = originalCanvas;
+      if (originalGroup) {
+        this.group = originalGroup;
+      }
       this.set(origParams).setCoords();
       // canvas.dispose will call image.dispose that will nullify the elements
       // since this canvas is a simple element for the process, we remove references
@@ -1903,6 +1905,7 @@
      * @param {Function} [callback] Callback to invoke when image set as a pattern
      * @return {fabric.Object} thisArg
      * @chainable
+     * @deprecated since 3.5.0
      * @see {@link http://jsfiddle.net/fabricjs/QT3pa/|jsFiddle demo}
      * @example <caption>Set pattern</caption>
      * object.setPatternFill({
@@ -1923,6 +1926,7 @@
      * @param {Number} [options.offsetY=0] Shadow vertical offset
      * @return {fabric.Object} thisArg
      * @chainable
+     * @deprecated since 3.5.0
      * @see {@link http://jsfiddle.net/fabricjs/7gvJG/|jsFiddle demo}
      * @example <caption>Set shadow with string notation</caption>
      * object.setShadow('2px 2px 10px rgba(0,0,0,0.2)');
@@ -1944,6 +1948,7 @@
      * Sets "color" of an instance (alias of `set('fill', &hellip;)`)
      * @param {String} color Color value
      * @return {fabric.Object} thisArg
+     * @deprecated since 3.5.0
      * @chainable
      */
     setColor: function(color) {

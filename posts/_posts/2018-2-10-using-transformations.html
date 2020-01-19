@@ -1,12 +1,12 @@
 ---
 layout: articlead
-title: Using transformations, introduction to FabricJS
+title: Using transformations, Introduction to Fabric.js
 ---
 
 <style>h2 { margin-bottom: 15px } h3 { margin-bottom: 10px; } h4 { margin-bottom: 7px; } .canvas-container { display: inline-block; margin-left: 15px; margin-right: 15px; } pre { display: inline-block; } </style>
 
 <div class="container" style="margin:30px auto">
-  <h2 id="introduction_to_fabricjs">Using transformations, introduction to FabricJS part 6</h2>
+  <h2 id="introduction_to_fabricjs">Using transformations, Introduction to Fabric.js Part 6</h2>
   <p>Understanding how transformations work on fabricJS is a key aspect to code your application as smoothly as possible.</p>
   <h3>Methods and properties related to transformations</h3>
   <p>Those are the methods you should learn to use most if you plan to understand and use fabricJS transformations with custom code.<br />
@@ -14,7 +14,7 @@ title: Using transformations, introduction to FabricJS
 a simple JS object that looks like { x: number, y: number }, or a fabric.Point class instance. ( often it does not make difference )</p>
 <pre>
 Canvas:
-- vieportTransform = matrix;
+- viewportTransform = matrix;
 Objects:
 - matrix = fabric.Object.prototype.calcTransformMatrix();
 - matrix = fabric.Object.prototype.calcOwnMatrix();
@@ -27,9 +27,9 @@ Utils:
     <p>Using fabricJS you often have to interact with coordinates and position, but understanding where those coordinates are can be troublesome if you do not have the right background.<br />
     I'm going to list the transformation and its usage and then I'll try to make 2 examples to clarify better what happened, and how to do it.</p>
     <p>Canvas.viewportTransform: Move a point of your virtual canvas to the zoom and pan space. <br />
-    A point that is at position P when the canvas is not zoomed and not panned, after applying a zoom and pan represented from the viewportTransfrom M, can be found at cooridinates:<br />
+    A point that is at position P when the canvas is not zoomed and not panned, after applying a zoom and pan represented from the viewportTransfrom M, can be found at coordinates:<br />
     <code>newP = fabric.util.transformPoint(P, canvas.viewportTransform);</code></p>
-    <p>Object.calcTransformMatrix: Returns the matrix that represents the generic object transform at that particular moment ( influenced by top, left,s cale and many other properties ),
+    <p>Object.calcTransformMatrix: Returns the matrix that represents the generic object transform at that particular moment ( influenced by top, left, scale and many other properties ),
     and moves points from object space to canvas space, not zoomed. So given a point in the object space coordinates that is at coordinates P, the point will be drawn on the canvas at:<br />
     <code>newP = fabric.util.transformPoint(P, object.calcTransformMatrix());</code></p>
   <h3>Transforms order</h3>
@@ -69,7 +69,7 @@ var pointInObjectPixels = fabric.util.transformPoint(pointClicked, mInverse);</p
   <h3>A real use case</h3>
   <p>One developer wants to group objects together, but keep them free at the same time. Ideally when a main object moves he wants some other objects to follow it.<br />
     To explain this example i will call the main object BOSS and the other MINIONS.<br />
-    So let's imagine to have some objects around the canvas and we can move them freely. At some point we want to lock theyr relative position and scale together and move one.
+    So let's imagine to have some objects around the canvas and we can move them freely. At some point we want to lock their relative position and scale together and move one.
     When we setup the position we want, the BOSS position is described by a MATRIX, as we learned till now, and each minion too.<br />
     I m sure it exist a matrix that defines the necessary transformation to move from the boss to the minion, and i have to find it.</p>
 <pre>

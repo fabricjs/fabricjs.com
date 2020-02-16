@@ -23,7 +23,6 @@
    * @fires object:scaling while an object is being scaled by controls
    * @fires object:moving while an object is being dragged
    * @fires object:skewing while an object is being skewed from the controls
-   * @fires object:selected this event is deprecated. use selection:created
    *
    * @fires before:transform before a transform is is started
    * @fires before:selection:cleared
@@ -658,8 +657,7 @@
         return;
       }
 
-      var pointer = this.getPointer(e), isTouch = isTouchEvent(e),
-          corner = target._findTargetCorner(this.getPointer(e, true), isTouch),
+      var pointer = this.getPointer(e), corner = target.__corner,
           actionHandler = !!corner && target.controls[corner].getActionHandler(),
           action = this._getActionFromCorner(alreadySelected, corner, e, target),
           origin = this._getOriginFromCorner(target, corner),
@@ -1150,11 +1148,6 @@
         somethingChanged && this.fire('selection:updated', opt);
       }
       else if (objects.length > 0) {
-        // deprecated event
-        if (objects.length === 1) {
-          opt.target = added[0];
-          this.fire('object:selected', opt);
-        }
         opt.selected = added;
         // added for backward compatibility
         opt.target = this._activeObject;

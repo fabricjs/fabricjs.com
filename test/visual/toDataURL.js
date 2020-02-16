@@ -50,7 +50,7 @@
     code: toDataURL1,
     golden: 'dataurl1.png',
     newModule: 'DataURL exports',
-    percentage: 0.09,
+    percentage: 0.10,
     beforeEachHandler: function() {
       fabric.Object.prototype.objectCaching = false;
     }
@@ -74,7 +74,7 @@
     test: 'Text to DataURL with shadow no offset',
     code: toDataURL2,
     golden: 'dataurl2.png',
-    percentage: 0.09,
+    percentage: 0.10,
   });
 
   function toDataURL3(canvas, callback) {
@@ -243,7 +243,7 @@
       opacity: .8
     });
 
-    rect.setShadow(shadow);
+    rect.shadow = new fabric.Shadow(shadow);
     fabricCanvas.add(rect);
     var dataUrl = fabricCanvas.toDataURL({ multiplier: 0.5 });
     callback(dataUrl);
@@ -285,7 +285,7 @@
       opacity: .8
     });
 
-    rect.setShadow(shadow);
+    rect.shadow = new fabric.Shadow(shadow);
     fabricCanvas.add(rect);
     var dataUrl = fabricCanvas.toDataURL({ multiplier: 0.5 });
     callback(dataUrl);
@@ -327,7 +327,7 @@
       opacity: .8
     });
 
-    rect.setShadow(shadow);
+    rect.shadow = new fabric.Shadow(shadow);
     fabricCanvas.add(rect);
     var dataUrl = fabricCanvas.toDataURL({ multiplier: 0.5, enableRetinaScaling: true });
     fabric.devicePixelRatio = 1;
@@ -403,6 +403,7 @@
     // use the same golden on purpose
     golden: 'dataurl15.png',
     percentage: 0.09,
+    disabled: true,
     width: 100,
     height: 100,
   });

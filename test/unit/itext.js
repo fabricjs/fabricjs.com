@@ -26,6 +26,7 @@
     opacity:                  1,
     shadow:                   null,
     visible:                  true,
+    clipTo:                   null,
     text:                     'x',
     fontSize:                 40,
     fontWeight:               'normal',
@@ -43,6 +44,7 @@
     globalCompositeOperation: 'source-over',
     skewX:                    0,
     skewY:                    0,
+    transformMatrix:          null,
     charSpacing:              0,
     styles:                     { }
   };

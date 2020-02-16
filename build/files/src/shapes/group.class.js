@@ -107,9 +107,9 @@
      * @param {Boolean} [skipCoordsChange] if true, coordinates of objects enclosed in a group do not change
      */
     _updateObjectsACoords: function() {
-      var ignoreZoom = true;
+      var ignoreZoom = true, skipAbsolute = true;
       for (var i = this._objects.length; i--; ){
-        this._objects[i].setCoords(ignoreZoom);
+        this._objects[i].setCoords(ignoreZoom, skipAbsolute);
       }
     },
 
@@ -132,14 +132,14 @@
     _updateObjectCoords: function(object, center) {
       var objectLeft = object.left,
           objectTop = object.top,
-          ignoreZoom = true;
+          ignoreZoom = true, skipAbsolute = true;
 
       object.set({
         left: objectLeft - center.x,
         top: objectTop - center.y
       });
       object.group = this;
-      object.setCoords(ignoreZoom);
+      object.setCoords(ignoreZoom, skipAbsolute);
     },
 
     /**
@@ -303,8 +303,8 @@
      * @return {Boolean}
      */
     willDrawShadow: function() {
-      if (fabric.Object.prototype.willDrawShadow.call(this)) {
-        return true;
+      if (this.shadow) {
+        return fabric.Object.prototype.willDrawShadow.call(this);
       }
       for (var i = 0, len = this._objects.length; i < len; i++) {
         if (this._objects[i].willDrawShadow()) {
@@ -486,8 +486,8 @@
         o.setCoords(ignoreZoom);
         for (j = 0; j < jLen; j++) {
           prop = props[j];
-          aX.push(o.aCoords[prop].x);
-          aY.push(o.aCoords[prop].y);
+          aX.push(o.oCoords[prop].x);
+          aY.push(o.oCoords[prop].y);
         }
       }
 

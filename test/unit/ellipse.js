@@ -58,6 +58,8 @@
       'fillRule':                 'nonzero',
       'paintFirst':               'fill',
       'globalCompositeOperation': 'source-over',
+      'clipTo':                   null,
+      'transformMatrix':          null
     };
     assert.ok(typeof ellipse.toObject === 'function');
     assert.deepEqual(ellipse.toObject(), defaultProperties);

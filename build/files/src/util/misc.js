@@ -628,6 +628,20 @@
     },
 
     /**
+     * @static
+     * @memberOf fabric.util
+     * @deprecated since 2.0.0
+     * @param {fabric.Object} receiver Object implementing `clipTo` method
+     * @param {CanvasRenderingContext2D} ctx Context to clip
+     */
+    clipContext: function(receiver, ctx) {
+      ctx.save();
+      ctx.beginPath();
+      receiver.clipTo(ctx);
+      ctx.clip();
+    },
+
+    /**
      * Multiply matrix A by matrix B to nest transformations
      * @static
      * @memberOf fabric.util
@@ -760,11 +774,25 @@
       if (options.angle) {
         matrix = multiply(matrix, fabric.util.calcRotateMatrix(options));
       }
-      if (options.scaleX !== 1 || options.scaleY !== 1 ||
-          options.skewX || options.skewY || options.flipX || options.flipY) {
+      if (options.scaleX || options.scaleY || options.skewX || options.skewY || options.flipX || options.flipY) {
         matrix = multiply(matrix, fabric.util.calcDimensionsMatrix(options));
       }
       return matrix;
+    },
+
+    /**
+     * Returns a transform matrix that has the same effect of scaleX, scaleY and skewX.
+     * Is deprecated for composeMatrix. Please do not use it.
+     * @static
+     * @deprecated since 3.4.0
+     * @memberOf fabric.util
+     * @param  {Number} scaleX
+     * @param  {Number} scaleY
+     * @param  {Number} skewX
+     * @return {Number[]} transform matrix
+     */
+    customTransformMatrix: function(scaleX, scaleY, skewX) {
+      return fabric.util.composeMatrix({ scaleX: scaleX, scaleY: scaleY, skewX: skewX });
     },
 
     /**
@@ -928,36 +956,10 @@
       return Math.max(min, Math.min(value, max));
     },
 
-    /**
-     * Finds the scale for the object source to fit inside the object destination,
-     * keeping aspect ratio intact.
-     * respect the total allowed area for the cache.
-     * @memberOf fabric.util
-     * @param {Object | fabric.Object} source
-     * @param {Number} source.height natural unscaled height of the object
-     * @param {Number} source.width natural unscaled width of the object
-     * @param {Object | fabric.Object} destination
-     * @param {Number} destination.height natural unscaled height of the object
-     * @param {Number} destination.width natural unscaled width of the object
-     * @return {Number} scale factor to apply to source to fit into destination
-     */
     findScaleToFit: function(source, destination) {
       return Math.min(destination.width / source.width, destination.height / source.height);
     },
 
-    /**
-     * Finds the scale for the object source to cover entirely the object destination,
-     * keeping aspect ratio intact.
-     * respect the total allowed area for the cache.
-     * @memberOf fabric.util
-     * @param {Object | fabric.Object} source
-     * @param {Number} source.height natural unscaled height of the object
-     * @param {Number} source.width natural unscaled width of the object
-     * @param {Object | fabric.Object} destination
-     * @param {Number} destination.height natural unscaled height of the object
-     * @param {Number} destination.width natural unscaled width of the object
-     * @return {Number} scale factor to apply to source to cover destination
-     */
     findScaleToCover: function(source, destination) {
       return Math.max(destination.width / source.width, destination.height / source.height);
     },

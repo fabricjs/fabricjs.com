@@ -34,11 +34,13 @@
     'shadow':                   null,
     'visible':                  true,
     'backgroundColor':          '',
+    'clipTo':                   null,
     'fillRule':                 'nonzero',
     'paintFirst':               'fill',
     'globalCompositeOperation': 'source-over',
     'skewX':                    0,
     'skewY':                    0,
+    'transformMatrix':          null
   };
 
   var REFERENCE_EMPTY_OBJECT = {
@@ -160,7 +162,9 @@
         'points': expectedPoints,
         'left': 10,
         'top': 10,
+        'transformMatrix': [2, 0, 0, 2, -10, -20]
       }));
+      assert.deepEqual(polylineWithAttrs.get('transformMatrix'), [2, 0, 0, 2, -10, -20]);
     });
   });
 

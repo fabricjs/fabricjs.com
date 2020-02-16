@@ -125,6 +125,10 @@
     assert.equal(group.get('left'), 1234, 'group\'s own "left" property should be set properly');
     assert.ok(firstObject.get('left') !== 1234, 'objects\' value should not be affected');
 
+    group.set('left', function(value){ return value + 1234; });
+    assert.equal(group.get('left'), 2468, 'group\'s own "left" property should be set properly via function');
+    assert.ok(firstObject.get('left') !== 2468, 'objects\' value should not be affected when set via function');
+
     group.set({ left: 888, top: 999 });
     assert.equal(group.get('left'), 888, 'group\'s own "left" property should be set properly via object');
     assert.equal(group.get('top'), 999, 'group\'s own "top" property should be set properly via object');
@@ -173,6 +177,7 @@
       'shadow':                   null,
       'visible':                  true,
       'backgroundColor':          '',
+      'clipTo':                   null,
       'angle':                    0,
       'flipX':                    false,
       'flipY':                    false,
@@ -180,6 +185,7 @@
       'fillRule':                 'nonzero',
       'paintFirst':               'fill',
       'globalCompositeOperation': 'source-over',
+      'transformMatrix':          null,
       'skewX':                    0,
       'skewY':                    0,
       'objects':                  clone.objects
@@ -633,7 +639,7 @@
     assert.equal((dims2.width - 2), (dims.width - 2) * g1.scaleX, 'width of cache has increased with group scale');
   });
 
-  QUnit.test('test group - pixels.', function(assert) {
+  QUnit.test('test group transformMatrix', function(assert) {
     var rect1 = new fabric.Rect({ top: 1, left: 1, width: 2, height: 2, strokeWidth: 0, fill: 'red', opacity: 1, objectCaching: false}),
         rect2 = new fabric.Rect({ top: 5, left: 5, width: 2, height: 2, strokeWidth: 0, fill: 'red', opacity: 1, objectCaching: false}),
         group = new fabric.Group([rect1, rect2], {opacity: 1, fill: 'blue', strokeWidth: 0, objectCaching: false}),
@@ -650,6 +656,21 @@
     assert.equal(isTransparent(ctx, 5, 5, 0), false, '5,5 is opaque');
     assert.equal(isTransparent(ctx, 6, 6, 0), false, '6,6 is opaque');
     assert.equal(isTransparent(ctx, 7, 7, 0), true, '7,7 is transparent');
+    group.transformMatrix = [2, 0, 0, 2, 2, 2];
+    canvas.renderAll();
+    assert.equal(isTransparent(ctx, 0, 0, 0), false, '0,0 is opaque');
+    assert.equal(isTransparent(ctx, 1, 1, 0), false, '1,1 is opaque');
+    assert.equal(isTransparent(ctx, 2, 2, 0), false, '2,2 is opaque');
+    assert.equal(isTransparent(ctx, 3, 3, 0), false, '3,3 is opaque');
+    assert.equal(isTransparent(ctx, 4, 4, 0), true, '4,4 is transparent');
+    assert.equal(isTransparent(ctx, 5, 5, 0), true, '5,5 is transparent');
+    assert.equal(isTransparent(ctx, 6, 6, 0), true, '6,6 is transparent');
+    assert.equal(isTransparent(ctx, 7, 7, 0), true, '7,7 is transparent');
+    assert.equal(isTransparent(ctx, 8, 8, 0), false, '8,8 is opaque');
+    assert.equal(isTransparent(ctx, 9, 9, 0), false, '9,9 is opaque');
+    assert.equal(isTransparent(ctx, 10, 10, 0), false, '10,10 is opaque');
+    assert.equal(isTransparent(ctx, 11, 11, 0), false, '11,11 is opaque');
+    assert.equal(isTransparent(ctx, 12, 12, 0), true, '12,12 is transparent');
   });
 
   QUnit.test('group toDatalessObject', function(assert) {
@@ -726,10 +747,6 @@
     assert.equal(group3.willDrawShadow(), true, 'group will cast shadow because group itself has shadow and one offsetX different than 0');
     group3.shadow = { offsetX: 0, offsetY: -2 };
     assert.equal(group3.willDrawShadow(), true, 'group will cast shadow because group itself has shadow and one offsetY different than 0');
-    rect1.shadow = { offsetX: 1, offsetY: 2, };
-    group3.shadow = { offsetX: 0, offsetY: 0 };
-    assert.equal(group3.willDrawShadow(), true, 'group will cast shadow because group itself will not, but rect 1 will');
-
   });
 
   QUnit.test('group shouldCache', function(assert) {

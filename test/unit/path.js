@@ -27,11 +27,13 @@
     'shadow':                   null,
     'visible':                  true,
     'backgroundColor':          '',
+    'clipTo':                   null,
     'fillRule':                 'nonzero',
     'paintFirst':               'fill',
     'globalCompositeOperation': 'source-over',
     'skewX':                    0,
     'skewY':                    0,
+    'transformMatrix':          null
   };
 
   function getPathElement(path) {
@@ -266,12 +268,14 @@
         strokeDashArray:  [5, 2],
         strokeLineCap:    'round',
         strokeLineJoin:   'bevil',
-        strokeMiterLimit: 5
+        strokeMiterLimit: 5,
+        transformMatrix:  [2, 0, 0, 2, 0, 0]
       }));
 
       var ANGLE_DEG = 90;
       elPath.setAttributeNS(namespace, 'transform', 'rotate(' + ANGLE_DEG + ')');
       fabric.Path.fromElement(elPath, function(path) {
+
         assert.deepEqual(
           path.get('transformMatrix'),
           [0, 1, -1, 0, 0, 0]
@@ -292,7 +296,9 @@
 
     fabric.Path.fromElement(elPath, function(path) {
       assert.ok(path instanceof fabric.Path);
-      assert.deepEqual(path.transformMatrix, [0.2, 0, 0, 0.2, 0, 0], 'transform has been parsed');
+
+      assert.deepEqual(path.toObject().transformMatrix, [0.2, 0, 0, 0.2, 0, 0]);
+
       done();
     });
   });

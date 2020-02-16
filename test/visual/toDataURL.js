@@ -243,7 +243,7 @@
       opacity: .8
     });
 
-    rect.shadow = new fabric.Shadow(shadow);
+    rect.setShadow(shadow);
     fabricCanvas.add(rect);
     var dataUrl = fabricCanvas.toDataURL({ multiplier: 0.5 });
     callback(dataUrl);
@@ -285,7 +285,7 @@
       opacity: .8
     });
 
-    rect.shadow = new fabric.Shadow(shadow);
+    rect.setShadow(shadow);
     fabricCanvas.add(rect);
     var dataUrl = fabricCanvas.toDataURL({ multiplier: 0.5 });
     callback(dataUrl);
@@ -327,7 +327,7 @@
       opacity: .8
     });
 
-    rect.shadow = new fabric.Shadow(shadow);
+    rect.setShadow(shadow);
     fabricCanvas.add(rect);
     var dataUrl = fabricCanvas.toDataURL({ multiplier: 0.5, enableRetinaScaling: true });
     fabric.devicePixelRatio = 1;

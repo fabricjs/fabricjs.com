@@ -74,6 +74,7 @@
       'shadow':                   null,
       'visible':                  true,
       'backgroundColor':          '',
+      'clipTo':                   null,
       'angle':                    0,
       'flipX':                    false,
       'flipY':                    false,
@@ -81,6 +82,7 @@
       'fillRule':                 'nonzero',
       'paintFirst':               'fill',
       'globalCompositeOperation': 'source-over',
+      'transformMatrix':          null,
       'skewX':                    0,
       'skewY':                    0,
       'objects':                  clone.objects

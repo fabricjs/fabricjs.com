@@ -170,13 +170,6 @@
     cornerSize:               13,
 
     /**
-     * Size of object's controlling corners when touch interaction is detected
-     * @type Number
-     * @default
-     */
-    touchCornerSize:               24,
-
-    /**
      * When true, object's controlling corners are rendered as transparent inside (i.e. stroke instead of fill)
      * @type Boolean
      * @default
@@ -209,7 +202,7 @@
      * @type String
      * @default
      */
-    borderColor:              'rgb(178,204,255)',
+    borderColor:              'rgba(102,153,255,0.75)',
 
     /**
      * Array specifying dash pattern of an object's borders (hasBorder must be true)
@@ -223,7 +216,7 @@
      * @type String
      * @default
      */
-    cornerColor:              'rgb(178,204,255)',
+    cornerColor:              'rgba(102,153,255,0.5)',
 
     /**
      * Color of controlling corners of an object (when it's active and transparentCorners false)
@@ -372,13 +365,22 @@
 
     /**
      * Scale factor of object's controlling borders
-     * bigger number will make a thicker border
-     * border is 1, so this is basically a border tickness
-     * since there is no way to change the border itself.
      * @type Number
      * @default
      */
     borderScaleFactor:        1,
+
+    /**
+     * Transform matrix (similar to SVG's transform matrix)
+     * This property has been depreacted. Since caching and and qrDecompose this
+     * property can be handled with the standard top,left,scaleX,scaleY,angle and skewX.
+     * A documentation example on how to parse and merge a transformMatrix will be provided before
+     * completely removing it in fabric 4.0
+     * If you are starting a project now, DO NOT use it.
+     * @deprecated since 3.2.0
+     * @type Array
+     */
+    transformMatrix:          null,
 
     /**
      * Minimum allowed scale value of an object
@@ -424,6 +426,20 @@
     hasBorders:               true,
 
     /**
+     * When set to `false`, object's controlling rotating point will not be visible or selectable
+     * @type Boolean
+     * @default
+     */
+    hasRotatingPoint:         true,
+
+    /**
+     * Offset for object's controlling rotating point (when enabled via `hasRotatingPoint`)
+     * @type Number
+     * @default
+     */
+    rotatingPointOffset:      40,
+
+    /**
      * When set to `true`, objects are "found" on canvas on per-pixel basis rather than according to bounding box
      * @type Boolean
      * @default
@@ -436,6 +452,16 @@
      * @default
      */
     includeDefaultValues:     true,
+
+    /**
+     * Function that determines clipping of an object (context is passed as a first argument).
+     * If you are using code minification, ctx argument can be minified/manglied you should use
+     * as a workaround `var ctx = arguments[0];` in the function;
+     * Note that context origin is at the object's center point (not left/top corner)
+     * @deprecated since 2.0.0
+     * @type Function
+     */
+    clipTo:                   null,
 
     /**
      * When `true`, object horizontal movement is locked
@@ -471,6 +497,13 @@
      * @default
      */
     lockScalingY:             false,
+
+    /**
+     * When `true`, object non-uniform scaling is locked
+     * @type Boolean
+     * @default
+     */
+    lockUniScaling:           false,
 
     /**
      * When `true`, object horizontal skewing is locked
@@ -580,7 +613,7 @@
     stateProperties: (
       'top left width height scaleX scaleY flipX flipY originX originY transformMatrix ' +
       'stroke strokeWidth strokeDashArray strokeLineCap strokeDashOffset strokeLineJoin strokeMiterLimit ' +
-      'angle opacity fill globalCompositeOperation shadow visible backgroundColor ' +
+      'angle opacity fill globalCompositeOperation shadow clipTo visible backgroundColor ' +
       'skewX skewY fillRule paintFirst clipPath strokeUniform'
     ).split(' '),
 
@@ -792,6 +825,7 @@
       this._setOptions(options);
       this._initGradient(options.fill, 'fill');
       this._initGradient(options.stroke, 'stroke');
+      this._initClipping(options);
       this._initPattern(options.fill, 'fill');
       this._initPattern(options.stroke, 'stroke');
     },
@@ -835,8 +869,6 @@
             strokeLineCap:            this.strokeLineCap,
             strokeDashOffset:         this.strokeDashOffset,
             strokeLineJoin:           this.strokeLineJoin,
-            // TODO: add this before release
-            // strokeUniform:            this.strokeUniform,
             strokeMiterLimit:         toFixed(this.strokeMiterLimit, NUM_FRACTION_DIGITS),
             scaleX:                   toFixed(this.scaleX, NUM_FRACTION_DIGITS),
             scaleY:                   toFixed(this.scaleY, NUM_FRACTION_DIGITS),
@@ -846,10 +878,12 @@
             opacity:                  toFixed(this.opacity, NUM_FRACTION_DIGITS),
             shadow:                   (this.shadow && this.shadow.toObject) ? this.shadow.toObject() : this.shadow,
             visible:                  this.visible,
+            clipTo:                   this.clipTo && String(this.clipTo),
             backgroundColor:          this.backgroundColor,
             fillRule:                 this.fillRule,
             paintFirst:               this.paintFirst,
             globalCompositeOperation: this.globalCompositeOperation,
+            transformMatrix:          this.transformMatrix ? this.transformMatrix.concat() : null,
             skewX:                    toFixed(this.skewX, NUM_FRACTION_DIGITS),
             skewY:                    toFixed(this.skewY, NUM_FRACTION_DIGITS),
           };
@@ -917,8 +951,13 @@
      * @return {Object} object with scaleX and scaleY properties
      */
     getObjectScaling: function() {
-      var options = fabric.util.qrDecompose(this.calcTransformMatrix());
-      return { scaleX: Math.abs(options.scaleX), scaleY: Math.abs(options.scaleY) };
+      var scaleX = this.scaleX, scaleY = this.scaleY;
+      if (this.group) {
+        var scaling = this.group.getObjectScaling();
+        scaleX *= scaling.scaleX;
+        scaleY *= scaling.scaleY;
+      }
+      return { scaleX: scaleX, scaleY: scaleY };
     },
 
     /**
@@ -1045,6 +1084,10 @@
       this.transform(ctx);
       this._setOpacity(ctx);
       this._setShadow(ctx, this);
+      if (this.transformMatrix) {
+        ctx.transform.apply(ctx, this.transformMatrix);
+      }
+      this.clipTo && fabric.util.clipContext(this, ctx);
       if (this.shouldCache()) {
         this.renderCache();
         this.drawCacheOnCanvas(ctx);
@@ -1057,6 +1100,7 @@
           this.saveState({ propertySet: 'cacheProperties' });
         }
       }
+      this.clipTo && ctx.restore();
       ctx.restore();
     },
 
@@ -1500,11 +1544,7 @@
       }
 
       ctx.save();
-      if (this.strokeUniform && this.group) {
-        var scaling = this.getObjectScaling();
-        ctx.scale(1 / scaling.scaleX, 1 / scaling.scaleY);
-      }
-      else if (this.strokeUniform) {
+      if (this.strokeUniform) {
         ctx.scale(1 / this.scaleX, 1 / this.scaleY);
       }
       this._setLineDash(ctx, this.strokeDashArray, this._renderDashedStroke);
@@ -1666,7 +1706,7 @@
      * @param {Boolean} [options.enableRetinaScaling] Enable retina scaling for clone image. Introduce in 1.6.4
      * @param {Boolean} [options.withoutTransform] Remove current object transform ( no scale , no angle, no flip, no skew ). Introduced in 2.3.4
      * @param {Boolean} [options.withoutShadow] Remove current object shadow. Introduced in 2.4.2
-     * @return {HTMLCanvasElement} Returns DOM element <canvas> with the fabric.Object
+     * @return {String} Returns a data: URL containing a representation of the object in the format specified by options.format
      */
     toCanvasElement: function(options) {
       options || (options = { });
@@ -1782,6 +1822,141 @@
     toJSON: function(propertiesToInclude) {
       // delegate, not alias
       return this.toObject(propertiesToInclude);
+    },
+
+    /**
+     * Sets gradient (fill or stroke) of an object
+     * percentages for x1,x2,y1,y2,r1,r2 together with gradientUnits 'pixels', are not supported.
+     * <b>Backwards incompatibility note:</b> This method was named "setGradientFill" until v1.1.0
+     * @param {String} property Property name 'stroke' or 'fill'
+     * @param {Object} [options] Options object
+     * @param {String} [options.type] Type of gradient 'radial' or 'linear'
+     * @param {Number} [options.x1=0] x-coordinate of start point
+     * @param {Number} [options.y1=0] y-coordinate of start point
+     * @param {Number} [options.x2=0] x-coordinate of end point
+     * @param {Number} [options.y2=0] y-coordinate of end point
+     * @param {Number} [options.r1=0] Radius of start point (only for radial gradients)
+     * @param {Number} [options.r2=0] Radius of end point (only for radial gradients)
+     * @param {Object} [options.colorStops] Color stops object eg. {0: 'ff0000', 1: '000000'}
+     * @param {Object} [options.gradientTransform] transformMatrix for gradient
+     * @return {fabric.Object} thisArg
+     * @chainable
+     * @deprecated since 3.4.0
+     * @see {@link http://jsfiddle.net/fabricjs/58y8b/|jsFiddle demo}
+     * @example <caption>Set linear gradient</caption>
+     * object.setGradient('fill', {
+     *   type: 'linear',
+     *   x1: -object.width / 2,
+     *   y1: 0,
+     *   x2: object.width / 2,
+     *   y2: 0,
+     *   colorStops: {
+     *     0: 'red',
+     *     0.5: '#005555',
+     *     1: 'rgba(0,0,255,0.5)'
+     *   }
+     * });
+     * canvas.renderAll();
+     * @example <caption>Set radial gradient</caption>
+     * object.setGradient('fill', {
+     *   type: 'radial',
+     *   x1: 0,
+     *   y1: 0,
+     *   x2: 0,
+     *   y2: 0,
+     *   r1: object.width / 2,
+     *   r2: 10,
+     *   colorStops: {
+     *     0: 'red',
+     *     0.5: '#005555',
+     *     1: 'rgba(0,0,255,0.5)'
+     *   }
+     * });
+     * canvas.renderAll();
+     */
+    setGradient: function(property, options) {
+      options || (options = { });
+
+      var gradient = { colorStops: [] };
+
+      gradient.type = options.type || (options.r1 || options.r2 ? 'radial' : 'linear');
+      gradient.coords = {
+        x1: options.x1,
+        y1: options.y1,
+        x2: options.x2,
+        y2: options.y2
+      };
+      gradient.gradientUnits = options.gradientUnits || 'pixels';
+      if (options.r1 || options.r2) {
+        gradient.coords.r1 = options.r1;
+        gradient.coords.r2 = options.r2;
+      }
+
+      gradient.gradientTransform = options.gradientTransform;
+      fabric.Gradient.prototype.addColorStop.call(gradient, options.colorStops);
+
+      return this.set(property, fabric.Gradient.forObject(this, gradient));
+    },
+
+    /**
+     * Sets pattern fill of an object
+     * @param {Object} options Options object
+     * @param {(String|HTMLImageElement)} options.source Pattern source
+     * @param {String} [options.repeat=repeat] Repeat property of a pattern (one of repeat, repeat-x, repeat-y or no-repeat)
+     * @param {Number} [options.offsetX=0] Pattern horizontal offset from object's left/top corner
+     * @param {Number} [options.offsetY=0] Pattern vertical offset from object's left/top corner
+     * @param {Function} [callback] Callback to invoke when image set as a pattern
+     * @return {fabric.Object} thisArg
+     * @chainable
+     * @deprecated since 3.5.0
+     * @see {@link http://jsfiddle.net/fabricjs/QT3pa/|jsFiddle demo}
+     * @example <caption>Set pattern</caption>
+     * object.setPatternFill({
+     *   source: 'http://fabricjs.com/assets/escheresque_ste.png',
+     *   repeat: 'repeat'
+     * },canvas.renderAll.bind(canvas));
+     */
+    setPatternFill: function(options, callback) {
+      return this.set('fill', new fabric.Pattern(options, callback));
+    },
+
+    /**
+     * Sets {@link fabric.Object#shadow|shadow} of an object
+     * @param {Object|String} [options] Options object or string (e.g. "2px 2px 10px rgba(0,0,0,0.2)")
+     * @param {String} [options.color=rgb(0,0,0)] Shadow color
+     * @param {Number} [options.blur=0] Shadow blur
+     * @param {Number} [options.offsetX=0] Shadow horizontal offset
+     * @param {Number} [options.offsetY=0] Shadow vertical offset
+     * @return {fabric.Object} thisArg
+     * @chainable
+     * @deprecated since 3.5.0
+     * @see {@link http://jsfiddle.net/fabricjs/7gvJG/|jsFiddle demo}
+     * @example <caption>Set shadow with string notation</caption>
+     * object.setShadow('2px 2px 10px rgba(0,0,0,0.2)');
+     * canvas.renderAll();
+     * @example <caption>Set shadow with object notation</caption>
+     * object.setShadow({
+     *   color: 'red',
+     *   blur: 10,
+     *   offsetX: 20,
+     *   offsetY: 20
+     * });
+     * canvas.renderAll();
+     */
+    setShadow: function(options) {
+      return this.set('shadow', options ? new fabric.Shadow(options) : null);
+    },
+
+    /**
+     * Sets "color" of an instance (alias of `set('fill', &hellip;)`)
+     * @param {String} color Color value
+     * @return {fabric.Object} thisArg
+     * @deprecated since 3.5.0
+     * @chainable
+     */
+    setColor: function(color) {
+      this.set('fill', color);
+      return this;
     },
 
     /**

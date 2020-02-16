@@ -227,7 +227,7 @@
       });
       if (this.shadow) {
         this.shadow.affectStroke = true;
-        path.shadow = new fabric.Shadow(this.shadow);
+        path.setShadow(this.shadow);
       }
 
       return path;

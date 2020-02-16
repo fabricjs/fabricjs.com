@@ -762,6 +762,12 @@
     assert.deepEqual(m3, [2, 2, 2, 2, 0, 0]);
   });
 
+  QUnit.test('customTransformMatrix', function(assert) {
+    assert.ok(typeof fabric.util.customTransformMatrix === 'function');
+    var m1 = fabric.util.customTransformMatrix(5, 4, 45);
+    assert.deepEqual(m1, [5, 0, 4.999999999999999, 4, 0, 0]);
+  });
+
   QUnit.test('resetObjectTransform', function(assert) {
     assert.ok(typeof fabric.util.resetObjectTransform === 'function');
     var rect = new fabric.Rect({
@@ -1090,15 +1096,5 @@
       height: 50,
     });
     assert.equal(scale, 2, 'findScaleToFit is 2');
-  });
-
-  QUnit.test('fabric.util.isTouchEvent', function(assert) {
-    assert.ok(typeof fabric.util.isTouchEvent === 'function');
-    assert.ok(fabric.util.isTouchEvent({ type: 'touchstart' }));
-    assert.ok(fabric.util.isTouchEvent({ type: 'touchend' }));
-    assert.ok(fabric.util.isTouchEvent({ type: 'touchmove' }));
-    assert.ok(fabric.util.isTouchEvent({ pointerType: 'touch' }));
-    assert.notOk(fabric.util.isTouchEvent({ type: 'mousedown' }));
-    assert.notOk(fabric.util.isTouchEvent({ pointerType: 'mouse' }));
   });
 })();

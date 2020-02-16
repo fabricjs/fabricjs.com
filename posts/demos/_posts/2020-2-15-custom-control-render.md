@@ -20,7 +20,7 @@ And to run custom code for
 We create a new control and we add it to the object.
 To create a control we use `new fabric.Control(options)`
 In this case we want the corner to be near the top right classic control, so we give it a position of x of 0.5 that is the extreme right of the bounding box of the object.
-Same for y at -0.5. We do not want it to overlap with the current top right corner, so we add an `offsetX` with a negative number that will make it render a bit more on the left.
+Same for y at -0.5. We do not want it to overlap with the current top right corner, so we add an `offsetY` with a positive number that will make it render a bit more down.
 
 We want our control to render an icon rather than a fabric supported circle or square.
 So we have to provide our own render function to the control.
@@ -80,7 +80,7 @@ We build a function following the mouseUpHandler signature and we use there `can
 
   fabric.Object.prototype.controls.deleteControl = new fabric.Control({
     position: { x: 0.5, y: -0.5 },
-    offsetX: -10,
+    offsetY: 10,
     cursorStyle: 'pointer',
     mouseUpHandler: deleteObject,
     render: renderIcon,
@@ -100,7 +100,11 @@ We build a function following the mouseUpHandler signature and we use there `can
       return;
     }
     var size = this.cornerSize;
-    ctx.drawImage(img, left - size / 2, top - size / 2, size, size);
+    ctx.save();
+    ctx.translate(left, top);
+    ctx.rotate(fabric.util.degreesToRadians(fabricObject.angle));
+    ctx.drawImage(img, -size/2, -size/2, size, size);
+    ctx.restore();
   }
 </pre>
 </div>

@@ -136,3 +136,7 @@ b.bench { font-family: monospace; font-size: 18px; background: #ffc; padding: 0 
   padding: 2px;
   background-color: pink !important;
 }
+
+.cp_embed_wrapper {
+  margin-right: 150px;
+}

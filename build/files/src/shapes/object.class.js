@@ -170,6 +170,13 @@
     cornerSize:               13,
 
     /**
+     * Size of object's controlling corners when touch interaction is detected
+     * @type Number
+     * @default
+     */
+    touchCornerSize:               24,
+
+    /**
      * When true, object's controlling corners are rendered as transparent inside (i.e. stroke instead of fill)
      * @type Boolean
      * @default
@@ -202,7 +209,7 @@
      * @type String
      * @default
      */
-    borderColor:              'rgba(102,153,255,0.75)',
+    borderColor:              'rgb(178,204,255)',
 
     /**
      * Array specifying dash pattern of an object's borders (hasBorder must be true)
@@ -216,7 +223,7 @@
      * @type String
      * @default
      */
-    cornerColor:              'rgba(102,153,255,0.5)',
+    cornerColor:              'rgb(178,204,255)',
 
     /**
      * Color of controlling corners of an object (when it's active and transparentCorners false)
@@ -365,6 +372,9 @@
 
     /**
      * Scale factor of object's controlling borders
+     * bigger number will make a thicker border
+     * border is 1, so this is basically a border tickness
+     * since there is no way to change the border itself.
      * @type Number
      * @default
      */
@@ -426,20 +436,6 @@
     hasBorders:               true,
 
     /**
-     * When set to `false`, object's controlling rotating point will not be visible or selectable
-     * @type Boolean
-     * @default
-     */
-    hasRotatingPoint:         true,
-
-    /**
-     * Offset for object's controlling rotating point (when enabled via `hasRotatingPoint`)
-     * @type Number
-     * @default
-     */
-    rotatingPointOffset:      40,
-
-    /**
      * When set to `true`, objects are "found" on canvas on per-pixel basis rather than according to bounding box
      * @type Boolean
      * @default
@@ -497,13 +493,6 @@
      * @default
      */
     lockScalingY:             false,
-
-    /**
-     * When `true`, object non-uniform scaling is locked
-     * @type Boolean
-     * @default
-     */
-    lockUniScaling:           false,
 
     /**
      * When `true`, object horizontal skewing is locked
@@ -869,6 +858,8 @@
             strokeLineCap:            this.strokeLineCap,
             strokeDashOffset:         this.strokeDashOffset,
             strokeLineJoin:           this.strokeLineJoin,
+            // TODO: add this before release
+            // strokeUniform:            this.strokeUniform,
             strokeMiterLimit:         toFixed(this.strokeMiterLimit, NUM_FRACTION_DIGITS),
             scaleX:                   toFixed(this.scaleX, NUM_FRACTION_DIGITS),
             scaleY:                   toFixed(this.scaleY, NUM_FRACTION_DIGITS),
@@ -951,13 +942,8 @@
      * @return {Object} object with scaleX and scaleY properties
      */
     getObjectScaling: function() {
-      var scaleX = this.scaleX, scaleY = this.scaleY;
-      if (this.group) {
-        var scaling = this.group.getObjectScaling();
-        scaleX *= scaling.scaleX;
-        scaleY *= scaling.scaleY;
-      }
-      return { scaleX: scaleX, scaleY: scaleY };
+      var options = fabric.util.qrDecompose(this.calcTransformMatrix());
+      return { scaleX: Math.abs(options.scaleX), scaleY: Math.abs(options.scaleY) };
     },
 
     /**
@@ -1544,7 +1530,11 @@
       }
 
       ctx.save();
-      if (this.strokeUniform) {
+      if (this.strokeUniform && this.group) {
+        var scaling = this.getObjectScaling();
+        ctx.scale(1 / scaling.scaleX, 1 / scaling.scaleY);
+      }
+      else if (this.strokeUniform) {
         ctx.scale(1 / this.scaleX, 1 / this.scaleY);
       }
       this._setLineDash(ctx, this.strokeDashArray, this._renderDashedStroke);
@@ -1727,7 +1717,8 @@
           // skip canvas zoom and calculate with setCoords now.
           boundingRect = this.getBoundingRect(true, true),
           shadow = this.shadow, scaling,
-          shadowOffset = { x: 0, y: 0 }, shadowBlur;
+          shadowOffset = { x: 0, y: 0 }, shadowBlur,
+          width, height;
 
       if (shadow) {
         shadowBlur = shadow.blur;
@@ -1741,10 +1732,12 @@
         shadowOffset.x = 2 * Math.round(abs(shadow.offsetX) + shadowBlur) * (abs(scaling.scaleX));
         shadowOffset.y = 2 * Math.round(abs(shadow.offsetY) + shadowBlur) * (abs(scaling.scaleY));
       }
-      el.width = boundingRect.width + shadowOffset.x;
-      el.height = boundingRect.height + shadowOffset.y;
-      el.width += el.width % 2 ? 2 - el.width % 2 : 0;
-      el.height += el.height % 2 ? 2 - el.height % 2 : 0;
+      width = boundingRect.width + shadowOffset.x;
+      height = boundingRect.height + shadowOffset.y;
+      // if the current width/height is not an integer
+      // we need to make it so.
+      el.width = Math.ceil(width);
+      el.height = Math.ceil(height);
       var canvas = new fabric.StaticCanvas(el, {
         enableRetinaScaling: false,
         renderOnAddRemove: false,

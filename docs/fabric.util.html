@@ -232,7 +232,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2557">line 2557</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2583">line 2583</a>
     </li></ul></dd>
     
 
@@ -374,7 +374,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2443">line 2443</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2469">line 2469</a>
     </li></ul></dd>
     
 
@@ -538,7 +538,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2266">line 2266</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2292">line 2292</a>
     </li></ul></dd>
     
 
@@ -1002,7 +1002,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2789">line 2789</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2815">line 2815</a>
     </li></ul></dd>
     
 
@@ -1387,7 +1387,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2891">line 2891</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2917">line 2917</a>
     </li></ul></dd>
     
 
@@ -3234,7 +3234,7 @@ transformations from an object that is not enlived yet
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2221">line 2221</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2247">line 2247</a>
     </li></ul></dd>
     
 
@@ -3841,7 +3841,7 @@ Is deprecated for composeMatrix. Please do not use it.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1711">line 1711</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1737">line 1737</a>
     </li></ul></dd>
     
 
@@ -4519,6 +4519,636 @@ called after each fabric object created.</td>
 
 
     
+    <h4 class="name" id=".findScaleToCover"><a href="#.findScaleToCover" ><span class="type-signature">(static) </span>findScaleToCover<span class="signature">(source, destination)</span><span class="type-signature"> &rarr; {Number}</span></a></h4>
+    
+
+
+<div class="description">
+    Finds the scale for the object source to cover entirely the object destination,
+keeping aspect ratio intact.
+respect the total allowed area for the cache.
+</div>
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>source</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+|
+
+<span class="param-type"><a href="fabric.Object.html">fabric.Object</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>height</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">natural unscaled height of the object</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>width</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">natural unscaled width of the object</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>destination</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+|
+
+<span class="param-type"><a href="fabric.Object.html">fabric.Object</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>height</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">natural unscaled height of the object</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>width</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">natural unscaled width of the object</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1608">line 1608</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    scale factor to apply to source to cover destination
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Number</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+
+    
+    <h4 class="name" id=".findScaleToFit"><a href="#.findScaleToFit" ><span class="type-signature">(static) </span>findScaleToFit<span class="signature">(source, destination)</span><span class="type-signature"> &rarr; {Number}</span></a></h4>
+    
+
+
+<div class="description">
+    Finds the scale for the object source to fit inside the object destination,
+keeping aspect ratio intact.
+respect the total allowed area for the cache.
+</div>
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>source</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+|
+
+<span class="param-type"><a href="fabric.Object.html">fabric.Object</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>height</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">natural unscaled height of the object</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>width</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">natural unscaled width of the object</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>destination</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+|
+
+<span class="param-type"><a href="fabric.Object.html">fabric.Object</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>height</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">natural unscaled height of the object</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>width</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">natural unscaled width of the object</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1591">line 1591</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    scale factor to apply to source to fit into destination
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Number</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+
+    
     <h4 class="name" id=".getBoundsOfArc"><a href="#.getBoundsOfArc" ><span class="type-signature">(static) </span>getBoundsOfArc<span class="signature">(fx, fy, rx, ry, rot, large, sweep, tx, ty)</span><span class="type-signature"></span></a></h4>
     
 
@@ -4796,7 +5426,7 @@ called after each fabric object created.</td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1745">line 1745</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1771">line 1771</a>
     </li></ul></dd>
     
 
@@ -4917,7 +5547,7 @@ called after each fabric object created.</td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2384">line 2384</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2410">line 2410</a>
     </li></ul></dd>
     
 
@@ -5056,7 +5686,7 @@ called after each fabric object created.</td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2516">line 2516</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2542">line 2542</a>
     </li></ul></dd>
     
 
@@ -5685,7 +6315,7 @@ called after each fabric object created.</td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2636">line 2636</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2662">line 2662</a>
     </li></ul></dd>
     
 
@@ -5803,7 +6433,7 @@ called after each fabric object created.</td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2474">line 2474</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2500">line 2500</a>
     </li></ul></dd>
     
 
@@ -7422,7 +8052,7 @@ respect the total allowed area for the cache.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2421">line 2421</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2447">line 2447</a>
     </li></ul></dd>
     
 
@@ -7562,7 +8192,7 @@ respect the total allowed area for the cache.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2611">line 2611</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2637">line 2637</a>
     </li></ul></dd>
     
 
@@ -7702,7 +8332,7 @@ respect the total allowed area for the cache.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2592">line 2592</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2618">line 2618</a>
     </li></ul></dd>
     
 
@@ -7842,7 +8472,7 @@ respect the total allowed area for the cache.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1593">line 1593</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1619">line 1619</a>
     </li></ul></dd>
     
 
@@ -9147,7 +9777,7 @@ Presence of value (and its position in an array) is determined via `Array.protot
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2278">line 2278</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2304">line 2304</a>
     </li></ul></dd>
     
 
@@ -9486,7 +10116,7 @@ Presence of value (and its position in an array) is determined via `Array.protot
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2716">line 2716</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2742">line 2742</a>
     </li></ul></dd>
     
 
@@ -9650,7 +10280,7 @@ In order to get a precise start time, `requestAnimFrame` should be called as an 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2850">line 2850</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2876">line 2876</a>
     </li></ul></dd>
     
 
@@ -10538,7 +11168,7 @@ In order to get a precise start time, `requestAnimFrame` should be called as an 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2311">line 2311</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2337">line 2337</a>
     </li></ul></dd>
     
 
@@ -10814,7 +11444,7 @@ In order to get a precise start time, `requestAnimFrame` should be called as an 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2395">line 2395</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2421">line 2421</a>
     </li></ul></dd>
     
 
@@ -11589,7 +12219,7 @@ In order to get a precise start time, `requestAnimFrame` should be called as an 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2457">line 2457</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2483">line 2483</a>
     </li></ul></dd>
     
 
@@ -11645,7 +12275,7 @@ In order to get a precise start time, `requestAnimFrame` should be called as an 
 
 
 </div>
-<footer><input id="toggle" type="checkbox" onclick="toggle(this.checked);"  /><label for="toggle" >Hide inherited properties and method from the page</label><br />Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sun Feb 16 2020 19:36:10 GMT+0100 (Central European Standard Time)
+<footer><input id="toggle" type="checkbox" onclick="toggle(this.checked);"  /><label for="toggle" >Hide inherited properties and method from the page</label><br />Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sat Mar 21 2020 23:49:01 GMT+0100 (Central European Standard Time)
 </footer>
 <script> prettyPrint(); </script>
 <script src="scripts/linenumber.js"> </script>

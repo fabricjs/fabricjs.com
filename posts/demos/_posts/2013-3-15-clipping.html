@@ -8,7 +8,6 @@ title: Clipping
 <script id="main">(function() {
   var canvas = this.__canvas = new fabric.Canvas('c');
   fabric.Object.prototype.transparentCorners = false;
-
   var radius = 300;
 
   fabric.Image.fromURL('../assets/pug_small.jpg', function(img) {
@@ -16,24 +15,29 @@ title: Clipping
       left: 100,
       top: 100,
       angle: -15,
-      clipTo: function (ctx) {
-        ctx.arc(0, 0, radius, 0, Math.PI * 2, true);
-      }
+      clipPath: new fabric.Circle({
+        radius: radius,
+        originX: 'center',
+        originY: 'center',
+      }),
     });
+
+    (function animate() {
+      fabric.util.animate({
+        startValue: Math.round(radius) === 50 ? 50 : 300,
+        endValue: Math.round(radius) === 50 ? 300 : 50,
+        duration: 1000,
+        onChange: function(value) {
+          radius = value;
+          img.clipPath.set('radius', value);
+          img.set('dirty', true);
+          canvas.renderAll();
+        },
+        onComplete: animate
+      });
+    })();
+
     canvas.add(img).setActiveObject(img);
   });
-
-  (function animate() {
-    fabric.util.animate({
-      startValue: Math.round(radius) === 50 ? 50 : 300,
-      endValue: Math.round(radius) === 50 ? 300 : 50,
-      duration: 1000,
-      onChange: function(value) {
-        radius = value;
-        canvas.renderAll();
-      },
-      onComplete: animate
-    });
-  })();
 })();
 </script>

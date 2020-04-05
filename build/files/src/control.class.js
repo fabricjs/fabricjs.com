@@ -3,7 +3,7 @@
   'use strict';
 
   var fabric = global.fabric || (global.fabric = { }),
-      degreesToRadians = fabric.util.degreesToRadians,
+      util = fabric.util,
       renderCircleControl = fabric.controlRenderers.renderCircleControl,
       renderSquareControl = fabric.controlRenderers.renderSquareControl;
 
@@ -176,9 +176,14 @@
     /**
      * Returns controls visibility
      * @param {fabric.Object} object on which the control is displayed
+     * @param {String} controlKey key where the control is memorized on the
      * @return {Boolean}
      */
-    getVisibility: function(/*fabricObject */) {
+    getVisibility: function(fabricObject, controlKey) {
+      var objectVisibility = fabricObject._controlsVisibility;
+      if (objectVisibility && typeof objectVisibility[controlKey] !== 'undefined') {
+        return objectVisibility[controlKey];
+      }
       return this.visible;
     },
 
@@ -192,31 +197,10 @@
     },
 
 
-    positionHandler: function(dim, finalMatrix, fabricObject /* currentControl */ ) {
-      var padding = fabricObject.padding, angle = degreesToRadians(fabricObject.angle),
-          cos = fabric.util.cos(angle), sin = fabric.util.sin(angle), offsetX = this.offsetX,
-          offsetY = this.offsetY, cosP = cos * padding, sinP = sin * padding, cosY = cos * offsetY,
-          cosX = cos * offsetX, sinY = sin * offsetY, sinX = sin * offsetX,
-          point = fabric.util.transformPoint({
-            x: (this.x * dim.x),
-            y: (this.y * dim.y) }, finalMatrix);
-      if (this.x > 0) {
-        point.y += sinP + sinX + cosY;
-        point.x += cosP + cosX - sinY;
-      }
-      if (this.y > 0) {
-        point.y += cosP + sinX + cosY;
-        point.x += -sinP + cosX - sinY;
-      }
-      // to be verified
-      if (this.x < 0) {
-        point.y += -sinP - sinX - cosY;
-        point.x += -cosP - cosX + sinY;
-      }
-      if (this.y < 0) {
-        point.y += -cosP - sinX + cosY;
-        point.x += sinP + cosX - sinY;
-      }
+    positionHandler: function(dim, finalMatrix /*, fabricObject, currentControl */) {
+      var point = util.transformPoint({
+        x: this.x * dim.x + this.offsetX,
+        y: this.y * dim.y + this.offsetY }, finalMatrix);
       return point;
     },
 
@@ -235,9 +219,6 @@
     */
     render: function(ctx, left, top, styleOverride, fabricObject) {
       styleOverride = styleOverride || {};
-      if (!this.getVisibility(fabricObject)) {
-        return;
-      }
       switch (styleOverride.cornerStyle || fabricObject.cornerStyle) {
         case 'circle':
           renderCircleControl.call(this, ctx, left, top, styleOverride, fabricObject);

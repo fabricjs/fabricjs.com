@@ -3,13 +3,60 @@ layout: demoV4
 title: Custom controls, polygon
 codepen: true
 ---
+This demo show how to use the controls api to do something like changing the shape of a polygon.
+This is generally harder to grasp because require understanding the internal polygon logic,
+anchor points and transformations.
+
+We have a function that trigger the `edit mode`.
+When we enter in edit mode we create one new control for each polygon point.
+To those controls we attach a property, called point index, to remember to which point they are bound to.
+
+Those controls use their own custo position handler: `polygonPositionHandler`. This function
+look at the pointIndex of the control and return the current canvas position for that particular point.
+In this way interaction and rendering are done.
+
+To make the actual control change the current point, we need to write a custom action handler.
+
+Changing a point position is actually easy:
+`fabricObject.points[index].x = number; fabricObject.points[index].y = number;`
+The hard part is handling the object that change dimensions while mantaining the correct position.
+
+We need an anchor point. We choose to fix the polygon position on the actual position of any point of the points array that is not the one that we are dragging.
+
+So chosen the point we calculate its actual absolute position:
+```
+var absolutePoint = fabric.util.transformPoint({
+    x: (fabricObject.points[anchorIndex].x - fabricObject.pathOffset.x),
+    y: (fabricObject.points[anchorIndex].y - fabricObject.pathOffset.y),
+}, fabricObject.calcTransformMatrix());
+```
+We will use this absolute position after we have modified the polygon.
+
+Then we swap the dragged point with the new one, we recalculate the width/height and pathOffset of the polygon ( basically we reinitialize its dimensions ).
+
+Now to keep its position steady, we want to know the point that represent the anchor point, in what position is now relative to polygon size.
+
+```
+var newX = (fabricObject.points[anchorIndex].x - fabricObject.pathOffset.x) / fabricObject.width,
+    newY = (fabricObject.points[anchorIndex].y - fabricObject.pathOffset.y) / fabricObject.height;
+```
+Now newX and newY represent the point position with a range from -0.5 to 0.5 for X and Y.
+Fabric supports numeric origins for objects with a range from 0 to 1. This let us use the relative position as an origin to translate the old absolutePoint we find before.
+
+```
+fabricObject.setPositionByOrigin(absolutePoint, newX + 0.5, newY + 0.5);
+```
+
+
+### Creating the control
+
 <div
   class="codepen-later"
   data-editable="true"
   data-height="600"
   data-default-tab="js,result"
   data-prefill='{
-    "scripts": "https://unpkg.com/fabric@4.0.0-beta1/dist/fabric.js"
+    "scripts": "https://unpkg.com/fabric@4.0.0-beta.10/dist/fabric.js"
   }'
 >
 <pre data-lang="css" data-options-autoprefixer="true">
@@ -32,15 +79,27 @@ codepen: true
 	var points = [{
 		x: 3, y: 4
 	}, {
+		x: 16, y: 3
+	}, {
 		x: 30, y: 5
 	},  {
 		x: 25, y: 55
 	}, {
+		x: 19, y: 44
+	}, {
 		x: 15, y: 30
 	}, {
-		x: 5, y: 55
+		x: 15, y: 55
+	}, {
+		x: 9, y: 55
+	}, {
+		x: 6, y: 53
 	}, {
 		x: -2, y: 55
+	}, {
+		x: -4, y: 40
+	}, {
+		x: 0, y: 20
 	}]
 	var polygon = new fabric.Polygon(points, {
 		left: 100,
@@ -90,16 +149,15 @@ codepen: true
   function anchorWrapper(anchorIndex, fn) {
     return function(eventData, transform, x, y) {
       var fabricObject = transform.target,
-          anchorPoint = { x: fabricObject.left, y: fabricObject.top },
-          relX = (fabricObject.points[anchorIndex].x / fabricObject.width),
-  		    relY = (fabricObject.points[anchorIndex].y / fabricObject.height);
-      var currentPosition = fabricObject.translateToOriginPoint(anchorPoint, relX, relY);
-      console.log({ currentPosition, relX, relY })
+          absolutePoint = fabric.util.transformPoint({
+              x: (fabricObject.points[anchorIndex].x - fabricObject.pathOffset.x),
+              y: (fabricObject.points[anchorIndex].y - fabricObject.pathOffset.y),
+          }, fabricObject.calcTransformMatrix());
       var actionPerformed = fn(eventData, transform, x, y);
       var newDim = fabricObject._setPositionDimensions({});
-      var newX = (fabricObject.points[anchorIndex].x) / fabricObject.width,
-  		    newY = (fabricObject.points[anchorIndex].y) / fabricObject.height;
-      // fabricObject.setPositionByOrigin(currentPosition, newX, newY);
+      var newX = (fabricObject.points[anchorIndex].x - fabricObject.pathOffset.x) / fabricObject.width,
+  		    newY = (fabricObject.points[anchorIndex].y - fabricObject.pathOffset.y) / fabricObject.height;
+      fabricObject.setPositionByOrigin(absolutePoint, newX + 0.5, newY + 0.5);
       return actionPerformed;
     }
   }
@@ -114,6 +172,7 @@ codepen: true
 		poly.edit = !poly.edit;
 		if (poly.edit) {
       var lastControl = poly.points.length - 1;
+      poly.cornerStyle = 'circle';
 	    poly.controls = poly.points.reduce(function(acc, point, index) {
 				acc['p' + index] = new fabric.Control({
 					positionHandler: polygonPositionHandler,
@@ -124,6 +183,7 @@ codepen: true
 				return acc;
 			}, { });
 		} else {
+      poly.cornerStyle = 'rect';
 			poly.controls = fabric.Object.prototype.controls;
 		}
 		poly.hasBorders = !poly.edit;

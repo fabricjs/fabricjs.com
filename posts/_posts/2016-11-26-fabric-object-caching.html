@@ -119,18 +119,18 @@ fabric.minCacheSideLimit = 256;
 <p>Example of a cache canvas that is bigger than the drawn object (256x256 is the minimum by default): </p><img class="show-borders" src="../article_assets/carMinCache.png"/>
 <p>Example of the biggest size cache canvas at default values (2 Mega pixels). Scroll to see something: </p><iframe class="show-borders" width=256 height=256 src="../article_assets/carMaxCache.png" ></iframe>
 
-<h3>How much performance gain do i get? are there any problems?</h3>
+<h3>How much performance gain do i get? Are there any problems?</h3>
 <p>
   It depends on what your project looks like. Are you drawing just a bunch of circles, rects and simple polygons? Maybe you will not gain that much performance.<br/>
   Are you importing and displaying large and complex svgs? Well you will move from possibly shuttering to smooth.<br/>
-  Is there any glitch i should be aware of? Well you may not like the <code>noScaleCache</code> feature and that is why there is a flag to disable it.
+  Is there any glitch I should be aware of? Well you may not like the <code>noScaleCache</code> feature and that is why there is a flag to disable it.
 </p>
-<h3>What about compatibility problem with my current project? Should i update? Can i disable caching?</h3>
-<p>I would say yes, switch to 1.7.0, check if everything is fine. If not, report any visual problem to issue tracker, you can still completely disable the feature everywhere by doing:</p>
+<h3>What about compatibility problem with my current project? Should I update? Can I disable caching?</h3>
+<p>I would say yes, switch to 1.7.0, check if everything is fine. If not, report any visual problem to issue tracker. You can still completely disable the feature everywhere by doing:</p>
 <pre>fabric.Object.prototype.objectCaching = false;</pre> to override the standard value and cache will be disabled for your project.
 <h3>Live samples</h3>
 <p>Below you can see 2 fabric canvases. The left one is the default cached one, while the right one is drawn with cache disabled as it was on previous versions.<br/>
-The canvases are loaded with heavy pathgroups, the snowwhite, the heaviest i could find is in 3 copies and makes the render speed cripple down.
+The canvases are loaded with heavy pathgroups, the snowwhite, the heaviest I could find is in 3 copies and makes the render speed cripple down.
 Try to drag around one of the shapes on the left or right canvas and notice the speed difference.
 </p>
 <canvas id="normal1" width="450" height="400" ></canvas><canvas id="nocache1" width="450" height="400" ></canvas>
@@ -199,10 +199,10 @@ fabric.loadSVGFromURL('../assets/171.svg', function(objects, options) {
 });
 </script>
 <h3>When does the cache get updated with a new version?</h3>
-<p>Fabric has an hardcoded trigger to update cache during the built-in functions where the developer has no easy way to insert code.<br/>
-Those situations are: <code>scaling</code>, <code>typing text</code>, <code>canvas global zoom</code>.<br/>In all other cases is the developer that is changing some property of an object to detect trigger a change and so he will also set the object to dirty manipulating the <code>dirty</code> flag.
+<p>Fabric has a hardcoded trigger to update cache during the built-in functions where the developer has no easy way to insert code.<br/>
+Those situations are: <code>scaling</code>, <code>typing text</code>, <code>canvas global zoom</code>.<br/> In all other cases is the developer that is changing some property of an object to detect trigger a change and so he will also set the object to dirty manipulating the <code>dirty</code> flag.
 Using the object method <code>set</code> will do this for you. So calling <code>object.set('fill', 'red')</code> requires no other actions. If for some reason you are not using the set method (for example in situation of text objects in which setting some properties trigger expensive functions), you should use the flag.<br/>
-There is also a way to ask fabric to check, at render time, a change for properties. This is not expensive most of the time, but i decided to leave it off because in crowded situations (like spray brush or 1000+ svg paths), it was expensive.<br/>
+There is also a way to ask fabric to check, at render time, a change for properties. This is not expensive most of the time, but I decided to leave it off because in crowded situations (like spray brush or 1000+ svg paths), it was expensive.<br/>
 Groups and PathGroups are taken care of in this way:<br/>
 When an object gets set a property, the property is checked, if it is in the <code>cacheProperties</code> array, the object and the group are set as dirty.
 If the property is in the <code>stateProperties</code> array, only the group is set as dirty.</p>

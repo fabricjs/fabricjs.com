@@ -8,6 +8,8 @@ title: SVG Rendering
 <script>
   fabric.Object.prototype.originX = 'center';
   fabric.Object.prototype.originY = 'center';
+  fabric.Object.NUM_FRACTION_DIGITS = 4;
+
   function initCanvas(id) {
     var canvas;
     fabric.loadSVGFromURL('../../assets/' + id + '.svg', function(objects, options) {
@@ -44,7 +46,7 @@ title: SVG Rendering
 //   149 /* too big? */,
     150 /* svg parse error */
   ];
-  for (var i = 182; i >= 1; i--) {
+  for (var i = 183; i >= 1; i--) {
 
     if (blacklist.indexOf(i) === -1) {
       document.write(

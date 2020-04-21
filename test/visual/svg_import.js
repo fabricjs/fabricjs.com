@@ -12,7 +12,6 @@
     visualTestLoop = window.visualTestLoop;
     getAsset = window.getAsset;
   }
-  var fabricCanvas = new fabric.Canvas(null, {enableRetinaScaling: false, renderOnAddRemove: false});
 
   function createTestFromSVG(svgName) {
     var test = function(canvas, callback) {
@@ -28,7 +27,7 @@
           canvas.add(group);
           canvas.setDimensions({ width: group.width + group.left, height: group.height + group.top });
           canvas.renderAll();
-          callback(fabricCanvas.lowerCanvasEl);
+          callback(canvas.lowerCanvasEl);
         });
       });
     };
@@ -40,16 +39,7 @@
     };
   }
 
-  function beforeEachHandler() {
-    fabricCanvas.clipPath = null;
-    fabricCanvas.viewportTransform = [1, 0, 0, 1, 0, 0];
-    fabricCanvas.clear();
-    fabricCanvas.renderAll();
-  }
-
-  QUnit.module('Simple svg import test', {
-    beforeEach: beforeEachHandler,
-  });
+  QUnit.module('Simple svg import test');
 
   var tests = [
     'svg_stroke_1',
@@ -68,6 +58,7 @@
     'svg_linear_6',
     'svg_linear_7',
     'svg_linear_8',
+    'svg_linear_9',
     'svg_radial_1',
     'svg_radial_2',
     'svg_radial_3',
@@ -85,8 +76,14 @@
     'clippath-6',
     'clippath-7',
     'clippath-9',
-    //'clippath-8',
+    'vector-effect',
+    'svg-with-no-dim-rect',
+    'notoemoji-person',
+    // 'clippath-8',
+    'emoji-b',
+    'gold-logo',
+    'svg_missing_clippath'
   ].map(createTestFromSVG);
 
-  tests.forEach(visualTestLoop(fabricCanvas, QUnit));
+  tests.forEach(visualTestLoop(QUnit));
 })();

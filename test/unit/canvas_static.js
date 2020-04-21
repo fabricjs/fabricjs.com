@@ -3,10 +3,10 @@
   // var emptyImageCanvasData = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfQAAAH0CAYAAADL1t+KAAAH7ElEQVR4nO3VMQ0AMAzAsPInvYHoMS2yEeTLHADge/M6AADYM3QACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIMHQACDB0AAgwdAAIuMjH4b7osLFBAAAAAElFTkSuQmCC";
 
   var CANVAS_SVG = '<?xml version="1.0" encoding="UTF-8" standalone="no" ?>\n<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">\n' +
-                   '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="600" height="600" viewBox="0 0 600 600" xml:space="preserve">\n<desc>Created with Fabric.js ' + fabric.version + '</desc>\n<defs>\n</defs>\n</svg>';
+                   '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="200" height="200" viewBox="0 0 200 200" xml:space="preserve">\n<desc>Created with Fabric.js ' + fabric.version + '</desc>\n<defs>\n</defs>\n</svg>';
 
   var CANVAS_SVG_VIEWBOX = '<?xml version="1.0" encoding="UTF-8" standalone="no" ?>\n<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">\n' +
-                           '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="600" height="600" viewBox="100 100 300 300" xml:space="preserve">\n<desc>Created with Fabric.js ' + fabric.version + '</desc>\n<defs>\n</defs>\n</svg>';
+                           '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="200" height="200" viewBox="100 100 300 300" xml:space="preserve">\n<desc>Created with Fabric.js ' + fabric.version + '</desc>\n<defs>\n</defs>\n</svg>';
 
   var PATH_JSON = '{"version":"' + fabric.version + '","objects": [{"type": "path", "version":"' + fabric.version + '", "originX": "left", "originY": "top", "left": 268, "top": 266, "width": 51, "height": 49,' +
                   ' "fill": "rgb(0,0,0)", "stroke": null, "strokeWidth": 1, "scaleX": 1, "scaleY": 1, ' +
@@ -40,7 +40,7 @@
                   '["c", 0.877, -9.979, 2.893, -12.905, 4.942, -15.621], ["C", 17.878, 21.775, 18.713, 17.397, 18.511, ' +
                   '13.99], ["z", null]]}], "background": "#ff5555","overlay": "rgba(0,0,0,0.2)"}';
 
-  var PATH_DATALESS_JSON = '{"version":"' + fabric.version + '","objects":[{"type":"path","version":"' + fabric.version + '","originX":"left","originY":"top","left":100,"top":100,"width":200,"height":200,"fill":"rgb(0,0,0)",' +
+  var PATH_DATALESS_JSON = '{"version":"' + fabric.version + '","objects":[{"type":"path","version":"' + fabric.version + '","originX":"left","originY":"top","left":99.5,"top":99.5,"width":200,"height":200,"fill":"rgb(0,0,0)",' +
                            '"stroke":null,"strokeWidth":1,"strokeDashArray":null,"strokeLineCap":"butt","strokeDashOffset":0,"strokeLineJoin":"miter","strokeMiterLimit":4,' +
                            '"scaleX":1,"scaleY":1,"angle":0,"flipX":false,"flipY":false,"opacity":1,' +
                            '"shadow":null,"visible":true,"clipTo":null,"backgroundColor":"","fillRule":"nonzero","paintFirst":"fill","globalCompositeOperation":"source-over","transformMatrix":null,"skewX":0,"skewY":0,"sourcePath":"http://example.com/"}]}';
@@ -64,49 +64,51 @@
     imgEl = null;
     return src;
   }
-
-  var IMG_SRC     = fabric.isLikelyNode ? (__dirname + '/../fixtures/test_image.gif') : getAbsolutePath('../fixtures/test_image.gif'),
+  var IMG_SRC =
+        fabric.isLikelyNode ? ('file://' + require('path').join(__dirname + '/../fixtures/test_image.gif'))
+          :
+          getAbsolutePath('../fixtures/test_image.gif'),
       IMG_WIDTH   = 276,
       IMG_HEIGHT  = 110;
 
   var REFERENCE_IMG_OBJECT = {
-    'version': fabric.version,
-    'type':                    'image',
-    'originX':                 'left',
-    'originY':                 'top',
-    'left':                     0,
-    'top':                      0,
-    'width':                    IMG_WIDTH, // node-canvas doesn't seem to allow setting width/height on image objects
-    'height':                   IMG_HEIGHT, // or does it now?
-    'fill':                     'rgb(0,0,0)',
-    'stroke':                   null,
-    'strokeWidth':              0,
-    'strokeDashArray':          null,
-    'strokeDashOffset':         0,
-    'strokeLineCap':            'butt',
-    'strokeLineJoin':           'miter',
-    'strokeMiterLimit':         4,
-    'scaleX':                   1,
-    'scaleY':                   1,
-    'angle':                    0,
-    'flipX':                    false,
-    'flipY':                    false,
-    'opacity':                  1,
-    'src':                      IMG_SRC,
-    'shadow':                   null,
-    'visible':                  true,
-    'backgroundColor':          '',
-    'clipTo':                   null,
-    'filters':                  [],
-    'fillRule':                 'nonzero',
-    'paintFirst':               'fill',
-    'globalCompositeOperation': 'source-over',
-    'transformMatrix':          null,
-    'crossOrigin':              '',
-    'skewX':                    0,
-    'skewY':                    0,
-    'cropX':                    0,
-    'cropY':                    0
+    version: fabric.version,
+    type: 'image',
+    originX: 'left',
+    originY: 'top',
+    left: 0,
+    top: 0,
+    width: IMG_WIDTH, // node-canvas doesn't seem to allow setting width/height on image objects
+    height: IMG_HEIGHT, // or does it now?
+    fill: 'rgb(0,0,0)',
+    stroke: null,
+    strokeWidth: 0,
+    strokeDashArray: null,
+    strokeDashOffset: 0,
+    strokeLineCap: 'butt',
+    strokeLineJoin: 'miter',
+    strokeMiterLimit: 4,
+    scaleX: 1,
+    scaleY: 1,
+    angle: 0,
+    flipX: false,
+    flipY: false,
+    opacity: 1,
+    src: IMG_SRC,
+    shadow: null,
+    visible: true,
+    backgroundColor: '',
+    clipTo: null,
+    filters: [],
+    fillRule: 'nonzero',
+    paintFirst: 'fill',
+    globalCompositeOperation: 'source-over',
+    transformMatrix: null,
+    crossOrigin: '',
+    skewX: 0,
+    skewY: 0,
+    cropX: 0,
+    cropY: 0
   };
 
   function _createImageElement() {
@@ -143,8 +145,8 @@
 
   // force creation of static canvas
   // TODO: fix this
-  var canvas = this.canvas = new fabric.StaticCanvas(null, {enableRetinaScaling: false, width: 600, height: 600});
-  var canvas2 = this.canvas2 = new fabric.StaticCanvas(null, {enableRetinaScaling: false, width: 600, height: 600});
+  var canvas = this.canvas = new fabric.StaticCanvas(null, {renderOnAddRemove: false, enableRetinaScaling: false, width: 200, height: 200});
+  var canvas2 = this.canvas2 = new fabric.StaticCanvas(null, {renderOnAddRemove: false, enableRetinaScaling: false, width: 200, height: 200});
 
 
   var lowerCanvasEl = canvas.lowerCanvasEl;
@@ -158,15 +160,24 @@
     beforeEach: function() {
       fabric.Object.__uid = 0;
       canvas.clear();
+      canvas.setDimensions({ width: 200, heigth: 200 });
+      canvas2.setDimensions({ width: 200, heigth: 200 });
       canvas.backgroundColor = fabric.StaticCanvas.prototype.backgroundColor;
       canvas.backgroundImage = fabric.StaticCanvas.prototype.backgroundImage;
       canvas.overlayColor = fabric.StaticCanvas.prototype.overlayColor;
       canvas.viewportTransform = [1, 0, 0, 1, 0, 0];
       canvas.calcOffset();
+      canvas.cancelRequestedRender();
+      canvas2.cancelRequestedRender();
+    },
+    afterEach: function() {
+      canvas.cancelRequestedRender();
+      canvas2.cancelRequestedRender();
     }
   });
 
   QUnit.test('initialProperties', function(assert) {
+    var canvas = new fabric.StaticCanvas();
     assert.ok('backgroundColor' in canvas);
     assert.ok('overlayColor' in canvas);
     assert.ok('backgroundImage' in canvas);
@@ -454,22 +465,41 @@
     assert.equal(canvas, canvas.renderAll());
   });
 
+  // QUnit.test('setDimensions', function(assert) {
+  //   assert.ok(typeof canvas.setDimensions === 'function');;
+  //   canvas.setDimensions({ width: 4, height: 5 });
+  //   assert.equal(canvas.getWidth(), 4);
+  //   assert.equal(canvas.getHeight(), 5);
+  //   assert.equal(canvas.lowerCanvasEl.style.width, '5px');
+  //   assert.equal(canvas.lowerCanvasEl.style.height, '4px');
+  // });
+
+  QUnit.test('toCanvasElement', function(assert) {
+    assert.ok(typeof canvas.toCanvasElement === 'function');;
+    var canvasEl = canvas.toCanvasElement();
+    assert.equal(canvasEl.width, canvas.getWidth(), 'get a canvas of same width');
+    assert.equal(canvasEl.height, canvas.getHeight(), 'get a canvas of same height');
+  });
+
+  QUnit.test('toCanvasElement with multiplier', function(assert) {
+    assert.ok(typeof canvas.toCanvasElement === 'function');
+    var multiplier = 2;
+    var canvasEl = canvas.toCanvasElement(multiplier);
+    assert.equal(canvasEl.width, canvas.getWidth() * multiplier, 'get a canvas of multiplied width');
+    assert.equal(canvasEl.height, canvas.getHeight() * multiplier, 'get a canvas of multiplied height');
+  });
+
   QUnit.test('toDataURL', function(assert) {
     assert.ok(typeof canvas.toDataURL === 'function');
-    if (!fabric.Canvas.supports('toDataURL')) {
-      window.alert('toDataURL is not supported by this environment. Some of the tests can not be run.');
-    }
-    else {
-      var rect = new fabric.Rect({width: 100, height: 100, fill: 'red', top: 0, left: 0});
-      canvas.add(rect);
-      var dataURL = canvas.toDataURL();
-      // don't compare actual data url, as it is often browser-dependent
-      // this.assertIdentical(emptyImageCanvasData, canvas.toDataURL('png'));
-      assert.equal(typeof dataURL, 'string');
-      assert.equal(dataURL.substring(0, 21), 'data:image/png;base64');
-      //we can just compare that the dataUrl generated differs from the dataURl of an empty canvas.
-      assert.equal(dataURL.substring(200, 210) !== 'AAAAAAAAAA', true);
-    }
+    var rect = new fabric.Rect({width: 100, height: 100, fill: 'red', top: 0, left: 0});
+    canvas.add(rect);
+    var dataURL = canvas.toDataURL();
+    // don't compare actual data url, as it is often browser-dependent
+    // this.assertIdentical(emptyImageCanvasData, canvas.toDataURL('png'));
+    assert.equal(typeof dataURL, 'string');
+    assert.equal(dataURL.substring(0, 21), 'data:image/png;base64');
+    //we can just compare that the dataUrl generated differs from the dataURl of an empty canvas.
+    assert.equal(dataURL.substring(200, 210) !== 'AAAAAAAAAA', true);
   });
 
   QUnit.test('toDataURL with enableRetinaScaling: true and no multiplier', function(assert) {
@@ -477,6 +507,7 @@
     fabric.devicePixelRatio = 2;
     var c = new fabric.StaticCanvas(null, { enableRetinaScaling: true, width: 10, height: 10 });
     var dataUrl = c.toDataURL({ enableRetinaScaling: true });
+    c.cancelRequestedRender();
     var img = fabric.document.createElement('img');
     img.onload = function() {
       assert.equal(img.width, c.width * fabric.devicePixelRatio, 'output width is bigger');
@@ -492,6 +523,7 @@
     fabric.devicePixelRatio = 2;
     var c = new fabric.StaticCanvas(null, { enableRetinaScaling: true, width: 10, height: 10 });
     var dataUrl = c.toDataURL({ enableRetinaScaling: true, multiplier: 1 });
+    c.cancelRequestedRender();
     var img = fabric.document.createElement('img');
     img.onload = function() {
       assert.equal(img.width, c.width * fabric.devicePixelRatio, 'output width is bigger');
@@ -507,6 +539,7 @@
     fabric.devicePixelRatio = 2;
     var c = new fabric.StaticCanvas(null, { enableRetinaScaling: true, width: 10, height: 10 });
     var dataUrl = c.toDataURL({ enableRetinaScaling: true, multiplier: 3 });
+    c.cancelRequestedRender();
     var img = fabric.document.createElement('img');
     img.onload = function() {
       assert.equal(img.width, c.width * fabric.devicePixelRatio * 3, 'output width is bigger by 6');
@@ -522,6 +555,7 @@
     fabric.devicePixelRatio = 2;
     var c = new fabric.StaticCanvas(null, { enableRetinaScaling: true, width: 10, height: 10 });
     var dataUrl = c.toDataURL({ enableRetinaScaling: false });
+    c.cancelRequestedRender();
     var img = fabric.document.createElement('img');
     img.onload = function() {
       assert.equal(img.width, c.width, 'output width is not bigger');
@@ -537,6 +571,7 @@
     fabric.devicePixelRatio = 2;
     var c = new fabric.StaticCanvas(null, { enableRetinaScaling: true, width: 10, height: 10 });
     var dataUrl = c.toDataURL({ enableRetinaScaling: false, multiplier: 1 });
+    c.cancelRequestedRender();
     var img = fabric.document.createElement('img');
     img.onload = function() {
       assert.equal(img.width, c.width, 'output width is not bigger');
@@ -552,6 +587,7 @@
     fabric.devicePixelRatio = 2;
     var c = new fabric.StaticCanvas(null, { enableRetinaScaling: true, width: 10, height: 10 });
     var dataUrl = c.toDataURL({ enableRetinaScaling: false, multiplier: 3 });
+    c.cancelRequestedRender();
     var img = fabric.document.createElement('img');
     img.onload = function() {
       assert.equal(img.width, c.width * 3, 'output width is bigger by 3');
@@ -567,6 +603,7 @@
     fabric.devicePixelRatio = 2;
     var c = new fabric.StaticCanvas(null, { enableRetinaScaling: true, width: 10, height: 10 });
     var dataUrl = c.toDataURL({ enableRetinaScaling: false });
+    c.cancelRequestedRender();
     var img = fabric.document.createElement('img');
     img.onload = function() {
       assert.equal(img.width, c.width, 'output width is bigger');
@@ -578,39 +615,28 @@
   });
 
   QUnit.test('toDataURL jpeg', function(assert) {
-    if (!fabric.Canvas.supports('toDataURL')) {
-      window.alert('toDataURL is not supported by this environment. Some of the tests can not be run.');
+    try {
+      var dataURL = canvas.toDataURL({ format: 'jpeg' });
+      assert.equal(dataURL.substring(0, 22), 'data:image/jpeg;base64');
     }
-    else {
-      try {
-        var dataURL = canvas.toDataURL({ format: 'jpeg' });
-        assert.equal(dataURL.substring(0, 22), 'data:image/jpeg;base64');
-      }
-      // node-canvas does not support jpeg data urls
-      catch (err) {
-        assert.ok(true);
-      }
+    // node-canvas does not support jpeg data urls
+    catch (err) {
+      assert.ok(true);
     }
   });
 
   QUnit.test('toDataURL cropping', function(assert) {
     var done = assert.async();
     assert.ok(typeof canvas.toDataURL === 'function');
-    if (!fabric.Canvas.supports('toDataURL')) {
-      window.alert('toDataURL is not supported by this environment. Some of the tests can not be run.');
-      done();
-    }
-    else {
-      var croppingWidth = 75,
-          croppingHeight = 50,
-          dataURL = canvas.toDataURL({width: croppingWidth, height: croppingHeight});
+    var croppingWidth = 75,
+        croppingHeight = 50,
+        dataURL = canvas.toDataURL({width: croppingWidth, height: croppingHeight});
 
-      fabric.Image.fromURL(dataURL, function (img) {
-        assert.equal(img.width, croppingWidth, 'Width of exported image should correspond to cropping width');
-        assert.equal(img.height, croppingHeight, 'Height of exported image should correspond to cropping height');
-        done();
-      });
-    }
+    fabric.Image.fromURL(dataURL, function (img) {
+      assert.equal(img.width, croppingWidth, 'Width of exported image should correspond to cropping width');
+      assert.equal(img.height, croppingHeight, 'Height of exported image should correspond to cropping height');
+      done();
+    });
   });
 
   QUnit.test('centerObjectH', function(assert) {
@@ -780,8 +806,7 @@
     canvas.renderOnAddRemove = false;
     canvas.add(circle, rect, path1, tria, polygon, polyline, group, ellipse, image, pathGroup);
 
-    var reviverCount = 0,
-        len = canvas.size() + group.size() + pathGroup.size();
+    var reviverCount = 0;
 
     function reviver(svg) {
       reviverCount++;
@@ -789,7 +814,7 @@
     }
 
     canvas.toSVG(null, reviver);
-    assert.equal(reviverCount, len);
+    assert.equal(reviverCount, 14);
 
     canvas.renderOnAddRemove = true;
   });
@@ -869,7 +894,7 @@
   });
 
   QUnit.test('toSVG with a clipPath', function(assert) {
-    var canvasClip = new fabric.StaticCanvas(null, { width: 400, height: 400 });
+    var canvasClip = new fabric.StaticCanvas(null, { width: 400, height: 400, renderOnAddRemove: false });
     canvasClip.clipPath = new fabric.Rect({ width: 200, height: 200 });
     canvasClip.add(new fabric.Circle({ radius: 200 }));
     var svg = canvasClip.toSVG();
@@ -885,12 +910,12 @@
     canvas.renderOnAddRemove = false;
     canvas.backgroundImage = imageBG;
     canvas.overlayImage = imageOL;
-    var expectedSVG = '<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\" ?>\n<!DOCTYPE svg PUBLIC \"-//W3C//DTD SVG 1.1//EN\" \"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd\">\n<svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" version=\"1.1\" width=\"600\" height=\"600\" viewBox=\"0 0 600 600\" xml:space=\"preserve\">\n<desc>Created with Fabric.js ' + fabric.version + '</desc>\n<defs>\n</defs>\n<g transform=\"matrix(1 0 0 1 0 0)\"  >\n\t<image style=\"stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;\"  xlink:href=\"\" x=\"0\" y=\"0\" width=\"0\" height=\"0\"></image>\n</g>\n<g transform=\"matrix(1 0 0 1 0 0)\"  >\n\t<image style=\"stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;\"  xlink:href=\"\" x=\"0\" y=\"0\" width=\"0\" height=\"0\"></image>\n</g>\n</svg>';
+    var expectedSVG = '<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\" ?>\n<!DOCTYPE svg PUBLIC \"-//W3C//DTD SVG 1.1//EN\" \"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd\">\n<svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" version=\"1.1\" width=\"200\" height=\"200\" viewBox=\"0 0 200 200\" xml:space=\"preserve\">\n<desc>Created with Fabric.js ' + fabric.version + '</desc>\n<defs>\n</defs>\n<g transform=\"matrix(1 0 0 1 0 0)\"  >\n\t<image style=\"stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;\"  xlink:href=\"\" x=\"0\" y=\"0\" width=\"0\" height=\"0\"></image>\n</g>\n<g transform=\"matrix(1 0 0 1 0 0)\"  >\n\t<image style=\"stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;\"  xlink:href=\"\" x=\"0\" y=\"0\" width=\"0\" height=\"0\"></image>\n</g>\n</svg>';
     var svg1 = canvas.toSVG();
     assert.equal(svg1, expectedSVG, 'svg with bg and overlay do not match');
     imageBG.excludeFromExport = true;
     imageOL.excludeFromExport = true;
-    var expectedSVG2 = '<?xml version="1.0" encoding="UTF-8" standalone="no" ?>\n<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">\n<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="600" height="600" viewBox="0 0 600 600" xml:space="preserve">\n<desc>Created with Fabric.js ' + fabric.version + '</desc>\n<defs>\n</defs>\n</svg>';
+    var expectedSVG2 = '<?xml version="1.0" encoding="UTF-8" standalone="no" ?>\n<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">\n<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="200" height="200" viewBox="0 0 200 200" xml:space="preserve">\n<desc>Created with Fabric.js ' + fabric.version + '</desc>\n<defs>\n</defs>\n</svg>';
     var svg2 = canvas.toSVG();
     assert.equal(svg2, expectedSVG2, 'svg without bg and overlay do not match');
     canvas.backgroundImage = null;
@@ -1011,7 +1036,7 @@
     var rect = makeRect();
     canvas.add(rect);
     var cObject = canvas.toObject();
-    var expectedRect = { version: fabric.version, type: 'rect', width: 10, height: 10 };
+    var expectedRect = { version: fabric.version, type: 'rect', width: 10, height: 10, top: 0, left: 0 };
     assert.deepEqual(cObject.objects[0], expectedRect, 'Rect should be exported withoud defaults');
     canvas.includeDefaultValues = true;
   });
@@ -1227,6 +1252,16 @@
       assert.equal(200, canvas.item(0).top);
       assert.equal('NAME HERE', canvas.item(0).text);
 
+      done();
+    });
+  });
+
+  QUnit.test('loadFromJSON with clipPath', function(assert) {
+    var done = assert.async();
+    var json = '{"clipPath": {"type":"text","left":150,"top":200,"width":128,"height":64.32,"fill":"#000000","stroke":"","strokeWidth":"","scaleX":0.8,"scaleY":0.8,"angle":0,"flipX":false,"flipY":false,"opacity":1,"text":"NAME HERE","fontSize":24,"fontWeight":"","fontFamily":"Delicious_500","fontStyle":"","lineHeight":"","textDecoration":"","textAlign":"center","path":"","strokeStyle":"","backgroundColor":""}}';
+    canvas.loadFromJSON(json, function() {
+      canvas.renderAll();
+      assert.equal('text', canvas.clipPath.type);
       done();
     });
   });
@@ -1454,7 +1489,7 @@
   });
 
   QUnit.test('dispose clear references', function(assert) {
-    var canvas2 = new fabric.Canvas();
+    var canvas2 = new fabric.StaticCanvas(null, { renderOnAddRemove: false });
     assert.ok(typeof canvas2.dispose === 'function');
     canvas2.add(makeRect(), makeRect(), makeRect());
     canvas2.dispose();
@@ -1470,7 +1505,7 @@
 
   QUnit.test('getSetWidth', function(assert) {
     assert.ok(typeof canvas.getWidth === 'function');
-    assert.equal(canvas.getWidth(), 600);
+    assert.equal(canvas.getWidth(), 200);
     assert.equal(canvas.setWidth(444), canvas, 'should be chainable');
     assert.equal(canvas.getWidth(), 444);
     assert.equal(canvas.lowerCanvasEl.style.width, 444 + 'px');
@@ -1478,7 +1513,7 @@
 
   QUnit.test('getSetHeight', function(assert) {
     assert.ok(typeof canvas.getHeight === 'function');
-    assert.equal(canvas.getHeight(), 600);
+    assert.equal(canvas.getHeight(), 200);
     assert.equal(canvas.setHeight(765), canvas, 'should be chainable');
     assert.equal(canvas.getHeight(), 765);
     assert.equal(canvas.lowerCanvasEl.style.height, 765 + 'px');
@@ -1497,7 +1532,16 @@
     canvas.setHeight('100%', { cssOnly: true });
 
     assert.equal(canvas.lowerCanvasEl.style.height, '100%', 'Should be as the css only value');
-    assert.equal(canvas.getWidth(), 123, 'Should be as the none css only value');
+    assert.equal(canvas.getHeight(), 123, 'Should be as the none css only value');
+  });
+
+  QUnit.test('setDimensions css only', function(assert) {
+    canvas.setDimensions({ width: 200, height: 200 });
+    canvas.setDimensions({ width: '250px', height: '350px' }, { cssOnly: true });
+    assert.equal(canvas.lowerCanvasEl.style.width, '250px', 'Should be as none backstore only value + "px"');
+    assert.equal(canvas.lowerCanvasEl.style.height, '350px', 'Should be as none backstore only value + "px"');
+    assert.equal(canvas.getWidth(), 200, 'Should be as the backstore only value');
+    assert.equal(canvas.getHeight(), 200, 'Should be as the backstore only value');
   });
 
   QUnit.test('setWidth backstore only', function(assert) {
@@ -1516,6 +1560,16 @@
     assert.equal(canvas.getHeight(), 500, 'Should be as the backstore only value');
   });
 
+  QUnit.test('setDimensions backstore only', function(assert) {
+    canvas.setDimensions({ width: 200, height: 200 });
+    canvas.setDimensions({ width: 250, height: 350 }, { backstoreOnly: true });
+    assert.equal(canvas.lowerCanvasEl.style.width, 200 + 'px', 'Should be as none backstore only value + "px"');
+    assert.equal(canvas.lowerCanvasEl.style.height, 200 + 'px', 'Should be as none backstore only value + "px"');
+    assert.equal(canvas.getWidth(), 250, 'Should be as the backstore only value');
+    assert.equal(canvas.getHeight(), 350, 'Should be as the backstore only value');
+    canvas.cancelRequestedRender();
+  });
+
   QUnit.test('fxRemove', function(assert) {
     var done = assert.async();
     assert.ok(typeof canvas.fxRemove === 'function');
@@ -1526,16 +1580,14 @@
     var callbackFired = false;
     function onComplete(){
       callbackFired = true;
+      assert.equal(canvas.item(0), undefined);
+      assert.ok(callbackFired);
+      canvas.cancelRequestedRender();
+      done();
     }
 
     assert.ok(canvas.item(0) === rect);
     assert.equal(canvas.fxRemove(rect, { onComplete: onComplete }), canvas, 'should be chainable');
-
-    setTimeout(function() {
-      assert.equal(canvas.item(0), undefined);
-      assert.ok(callbackFired);
-      done();
-    }, 1000);
   });
 
   QUnit.test('options in setBackgroundImage from URL', function(assert) {
@@ -1783,7 +1835,30 @@
       },
     });
     var svg = canvas2.toSVG();
-    var expectedSVG = '<?xml version="1.0" encoding="UTF-8" standalone="no" ?>\n<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">\n<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="300" height="150" viewBox="0 0 300 150" xml:space="preserve">\n<desc>Created with Fabric.js ' + fabric.version + '</desc>\n<defs>\n<linearGradient id="SVGID_0" gradientUnits="userSpaceOnUse" x1="-150" y1="-75" x2="150" y2="-75">\n<stop offset="0%" style="stop-color:black;"/>\n<stop offset="100%" style="stop-color:white;"/>\n</linearGradient>\n</defs>\n<rect transform="translate(150,75)" x="-150" y="-75" width="300" height="150" fill="url(#SVGID_0)"></rect>\n</svg>';
+    var expectedSVG = '<?xml version="1.0" encoding="UTF-8" standalone="no" ?>\n<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">\n<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="300" height="150" viewBox="0 0 300 150" xml:space="preserve">\n<desc>Created with Fabric.js ' + fabric.version + '</desc>\n<defs>\n<linearGradient id=\"SVGID_0\" gradientUnits=\"userSpaceOnUse\" gradientTransform=\"matrix(1 0 0 1 0 0) matrix(1 0 0 1 -150 -75)\"  x1=\"0\" y1=\"0\" x2=\"300\" y2=\"0\">\n<stop offset="0%" style="stop-color:black;"/>\n<stop offset="100%" style="stop-color:white;"/>\n</linearGradient>\n</defs>\n<rect transform="matrix(1 0 0 1 0 0) translate(150,75)" x="-150" y="-75" width="300" height="150" fill="url(#SVGID_0)"></rect>\n</svg>';
+    assert.equal(svg, expectedSVG, 'svg is as expected');
+  });
+
+  QUnit.test('toSVG with background gradient and transforms', function(assert) {
+    fabric.Object.__uid = 0;
+    var canvas2 = new fabric.StaticCanvas();
+    canvas2.viewportTransform = [1, 2, 3, 4, 5, 6];
+    canvas2.backgroundColor = new fabric.Gradient({
+      type: 'linear',
+      gradientTransform: [0.2, 0.3, 0.4, 0.5, -3, -5],
+      colorStops: [
+        { offset: 0, color: 'black' },
+        { offset: 1, color: 'white' },
+      ],
+      coords: {
+        x1: 0,
+        x2: 300,
+        y1: 0,
+        y2: 0,
+      },
+    });
+    var svg = canvas2.toSVG();
+    var expectedSVG = '<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\" ?>\n<!DOCTYPE svg PUBLIC \"-//W3C//DTD SVG 1.1//EN\" \"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd\">\n<svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" version=\"1.1\" width=\"300\" height=\"150\" viewBox=\"-5 -1.5 300 37.5\" xml:space=\"preserve\">\n<desc>Created with Fabric.js ' + fabric.version + '</desc>\n<defs>\n<linearGradient id=\"SVGID_0\" gradientUnits=\"userSpaceOnUse\" gradientTransform=\"matrix(1 2 3 4 5 6) matrix(0.2 0.3 0.4 0.5 -153 -23.75)\"  x1=\"0\" y1=\"0\" x2=\"300\" y2=\"0\">\n<stop offset=\"0%\" style=\"stop-color:black;\"/>\n<stop offset=\"100%\" style=\"stop-color:white;\"/>\n</linearGradient>\n</defs>\n<rect transform=\"matrix(-2 1 1.5 -0.5 1 -2) translate(150,75)\" x=\"-150\" y=\"-75\" width=\"300\" height=\"150\" fill=\"url(#SVGID_0)\"></rect>\n</svg>';
     assert.equal(svg, expectedSVG, 'svg is as expected');
   });
 
@@ -1795,7 +1870,7 @@
       repeat: 'repeat',
     });
     var svg = canvas2.toSVG();
-    var expectedSVG = '<?xml version="1.0" encoding="UTF-8" standalone="no" ?>\n<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">\n<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="300" height="150" viewBox="0 0 300 150" xml:space="preserve">\n<desc>Created with Fabric.js ' + fabric.version + '</desc>\n<defs>\n<pattern id="SVGID_0" x="0" y="0" width="0" height="0">\n<image x="0" y="0" width="0" height="0" xlink:href=""></image>\n</pattern>\n</defs>\n<rect transform="translate(150,75)" x="-150" y="-75" width="300" height="150" fill="url(#SVGID_0)"></rect>\n</svg>';
+    var expectedSVG = '<?xml version="1.0" encoding="UTF-8" standalone="no" ?>\n<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">\n<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="300" height="150" viewBox="0 0 300 150" xml:space="preserve">\n<desc>Created with Fabric.js ' + fabric.version + '</desc>\n<defs>\n<pattern id="SVGID_0" x="0" y="0" width="0" height="0">\n<image x="0" y="0" width="0" height="0" xlink:href=""></image>\n</pattern>\n</defs>\n<rect transform="matrix(1 0 0 1 0 0) translate(150,75)" x="-150" y="-75" width="300" height="150" fill="url(#SVGID_0)"></rect>\n</svg>';
     assert.equal(svg, expectedSVG, 'svg is as expected');
   });
 

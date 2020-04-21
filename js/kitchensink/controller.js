@@ -117,6 +117,13 @@ function addAccessors($scope) {
     setActiveProp('text', value);
   };
 
+  $scope.getSplitByGrapheme = function() {
+    return getActiveProp('splitByGrapheme');
+  };
+  $scope.setSplitByGrapheme = function(value) {
+    setActiveProp('splitByGrapheme', value);
+  };
+
   $scope.getTextAlign = function() {
     return capitalize(getActiveProp('textAlign'));
   };
@@ -797,8 +804,9 @@ function addAccessors($scope) {
     });
   };
 
-  $scope.saveJSON = function() {
-    _saveJSON(JSON.stringify(canvas));
+  $scope.saveJSON = function(withDefaults) {
+    canvas.includeDefaultValues = withDefaults;
+    _saveJSON(JSON.stringify(canvas.toJSON()));
   };
 
   var _saveJSON = function(json) {

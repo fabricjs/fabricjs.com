@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="kitchensink">
+  <head>
+    <meta charset="utf-8">
+    <title>{{ page.title }} | Fabric.js 4.0 Demos</title>
+    <link rel="stylesheet" href="../css/master.css">
+    <link rel="stylesheet" href="../css/ads.css">
+  </head>
+  <body>
+    {% include header2.html %}
+    <div id="bd-wrapper" ng-controller="CanvasControls">
+      <h2><span>Fabric.js demos</span> &middot; {{ page.title }}</h2>
+      <h3>based on fabric.js 4.0 beta</h3>
+      {{ content }}
+    </div>
+    {% if page.codepen == true %}
+    {% include codepen.html %}
+    {% endif %}
+  </body>
+</html>

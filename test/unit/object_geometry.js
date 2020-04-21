@@ -435,13 +435,73 @@
   });
 
   QUnit.test('_calcDimensionsTransformMatrix', function(assert) {
-    var cObj = new fabric.Object({ width: 10, height: 15, strokeWidth: 0 });
+    var cObj = new fabric.Object({ width: 10, height: 15, strokeWidth: 0, scaleX: 2, scaleY: 3, skewY: 10 });
     assert.ok(typeof cObj._calcDimensionsTransformMatrix === 'function', '_calcDimensionsTransformMatrix should exist');
+    var matrix = cObj._calcDimensionsTransformMatrix();
+    var expected = [
+      2,
+      0,
+      0,
+      3,
+      0,
+      0
+    ];
+    assert.deepEqual(matrix, expected, 'dimensions matrix is equal');
+  });
+
+  QUnit.test('_calcDimensionsTransformMatrix with flipping', function(assert) {
+    var cObj = new fabric.Object({ width: 10, height: 15, strokeWidth: 0, scaleX: 2, scaleY: 3, skewY: 10, flipX: true });
+    assert.ok(typeof cObj._calcDimensionsTransformMatrix === 'function', '_calcDimensionsTransformMatrix should exist');
+    var matrix = cObj._calcDimensionsTransformMatrix(0, 0, false);
+    var expected = [
+      2,
+      0,
+      0,
+      3,
+      0,
+      0
+    ];
+    assert.deepEqual(matrix, expected, 'dimensions matrix with flipping = false is equal');
+    var matrix2 = cObj._calcDimensionsTransformMatrix(0, 0, true);
+    var expected = [
+      -2,
+      0,
+      0,
+      3,
+      0,
+      0
+    ];
+    assert.deepEqual(matrix2, expected, 'dimensions matrix with flipping = true is equal');
   });
 
   QUnit.test('_calcRotateMatrix', function(assert) {
-    var cObj = new fabric.Object({ width: 10, height: 15, strokeWidth: 0 });
+    var cObj = new fabric.Object({ width: 10, height: 15, strokeWidth: 0, angle: 90 });
     assert.ok(typeof cObj._calcRotateMatrix === 'function', '_calcRotateMatrix should exist');
+    var matrix = cObj._calcRotateMatrix();
+    var expected = [
+      0,
+      1,
+      -1,
+      0,
+      0,
+      0
+    ];
+    assert.deepEqual(matrix, expected, 'rotate matrix is equal');
+  });
+
+  QUnit.test('_calcTranslateMatrix', function(assert) {
+    var cObj = new fabric.Object({ top: 5, width: 10, height: 15, strokeWidth: 0, angle: 90 });
+    assert.ok(typeof cObj._calcTranslateMatrix === 'function', '_calcTranslateMatrix should exist');
+    var matrix = cObj._calcTranslateMatrix();
+    var expected = [
+      1,
+      0,
+      0,
+      1,
+      -7.5,
+      10
+    ];
+    assert.deepEqual(matrix, expected, 'translate matrix is equal');
   });
 
   QUnit.test('scaleToWidth', function(assert) {
@@ -822,4 +882,16 @@
     assert.equal(cObj.isPartiallyOnScreen(true), true, 'after zooming object is partially onScreen and offScreen');
   });
 
+  QUnit.test('_getTransformedDimensions', function(assert) {
+    var cObj = new fabric.Object({
+      left: 50, top: 50, width: 100, height: 100, strokeWidth: 2,
+      scaleX: 3, scaleY: 4, skewX: 45, skewY: 45,
+    });
+    var dim = cObj._getTransformedDimensions();
+    assert.equal(Math.round(dim.x), 918, 'width is 918');
+    assert.equal(dim.y, 816, 'height is 816');
+    var dim2 = cObj._getTransformedDimensions(0, 0);
+    assert.equal(dim2.x, 306, 'width without skew is 306');
+    assert.equal(dim2.y, 408, 'height without skew is 408');
+  });
 })();

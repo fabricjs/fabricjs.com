@@ -7,7 +7,8 @@
   exports.getAsset = function(name, callback) {
     var finalName = getAssetName(name);
     if (fabric.isLikelyNode) {
-      return fs.readFile(finalName, { encoding: 'utf8' }, callback);
+      var plainFileName = finalName.replace('file://', '');
+      return fs.readFile(plainFileName, { encoding: 'utf8' }, callback);
     }
     else {
       fabric.util.request(finalName, {
@@ -16,6 +17,18 @@
         }
       });
     }
+  };
+
+  function createCanvasForTest(opts) {
+    var fabricClass = opts.fabricClass || 'StaticCanvas';
+    var options = { enableRetinaScaling: false, renderOnAddRemove: false, width: 200, height: 200 };
+    if (opts.width) {
+      options.width = opts.width;
+    }
+    if (opts.height) {
+      options.height = opts.height;
+    }
+    return new fabric[fabricClass](null, options);
   };
 
   function getAbsolutePath(path) {
@@ -28,30 +41,36 @@
     return src;
   }
 
+  function localPath(path, filename) {
+    return 'file://' + require('path').join(__dirname, path, filename)
+  }
+
   function getAssetName(filename) {
     var finalName = '/assets/' + filename + '.svg';
-    return fabric.isLikelyNode ? (__dirname + '/../visual' + finalName) : getAbsolutePath('/test/visual' + finalName);
+    return fabric.isLikelyNode ? localPath('/../visual', finalName) : getAbsolutePath('/test/visual' + finalName);
   }
+  exports.getAssetName = getAssetName;
 
   function getGoldeName(filename) {
     var finalName = '/golden/' + filename;
-    return fabric.isLikelyNode ? (__dirname + '/../visual' + finalName) : getAbsolutePath('/test/visual' + finalName);
+    return fabric.isLikelyNode ? localPath('/../visual', finalName) : getAbsolutePath('/test/visual' + finalName);
   }
 
   function getFixtureName(filename) {
     var finalName = '/fixtures/' + filename;
-    return fabric.isLikelyNode ? (__dirname + '/..' + finalName) : getAbsolutePath('/test' + finalName);
+    return fabric.isLikelyNode ? localPath('/..', finalName) : getAbsolutePath('/test' + finalName);
   }
 
   function getImage(filename, original, callback) {
     if (fabric.isLikelyNode && original) {
+      var plainFileName = filename.replace('file://', '');
       try {
-        fs.statSync(filename);
+        fs.statSync(plainFileName);
       }
       catch (err) {
         var dataUrl = original.toDataURL().split(',')[1];
         console.log('creating original for ', filename);
-        fs.writeFileSync(filename, dataUrl, { encoding: 'base64' });
+        fs.writeFileSync(plainFileName, dataUrl, { encoding: 'base64' });
       }
     }
     var img = fabric.document.createElement('img');
@@ -67,7 +86,7 @@
     img.src = filename;
   }
 
-  exports.visualTestLoop = function(fabricCanvas, QUnit) {
+  exports.visualTestLoop = function(QUnit) {
     var _pixelMatch;
     var visualCallback;
     var imageDataToChalk;
@@ -89,17 +108,11 @@
       threshold: 0.095
     };
 
-    function beforeEachHandler() {
-      fabricCanvas.clipPath = null;
-      fabricCanvas.viewportTransform = [1, 0, 0, 1, 0, 0];
-      fabricCanvas.clear();
-      fabricCanvas.renderAll();
-    }
-
     return function testCallback(testObj) {
       if (testObj.disabled) {
         return;
       }
+      fabric.StaticCanvas.prototype.requestRenderAll = fabric.StaticCanvas.prototype.renderAll;
       var testName = testObj.test;
       var code = testObj.code;
       var percentage = testObj.percentage;
@@ -107,11 +120,12 @@
       var newModule = testObj.newModule;
       if (newModule) {
         QUnit.module(newModule, {
-          beforeEach: beforeEachHandler,
+          beforeEach: testObj.beforeEachHandler,
         });
       }
       QUnit.test(testName, function(assert) {
         var done = assert.async();
+        var fabricCanvas = createCanvasForTest(testObj);
         code(fabricCanvas, function(renderedCanvas) {
           var width = renderedCanvas.width;
           var height = renderedCanvas.height;
@@ -144,6 +158,7 @@
               console.log(stringa);
             }
             done();
+            fabricCanvas.dispose();
           });
         });
       });

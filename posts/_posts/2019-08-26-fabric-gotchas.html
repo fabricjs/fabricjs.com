@@ -1,0 +1,67 @@
+---
+layout: articlead
+title: FabricJS common gotchas
+---
+<div class="container" style="margin:30px auto">
+<h1>FabricJS gotchas</h1>
+<p>
+This page contains a list of the most common issues opened by people approaching fabricJS for the first time.
+Those pitfalls are caused both from the lack of clear explanations and non perfect docs.
+Here we try to address the common issues.
+</p>
+<h3>Objects are no more selectable - setCoords</h3>
+<p>
+Fabric mantains 2 sets of coordinates to quickly know where an object is on the canvas. Those are linked to 2 objects properties, oCoords and aCoords.<br/>
+Those coordinates are updated by fabricJS automatically when an user interact with objects corners or ends a transformation, a drag for example.
+In all the other cases is the developer that has to call `Object.setCoords()` in order to have the object recognized in the rendered position.<br />
+The most commmon Symptom is an object not being selectable. This happens after the dev changed by code the top/left or the scale or the canvas viewport.
+After those operations, that same code should call `setCoords()` eventually on all objects.
+</p>
+<pre>
+  function repositionRect(x, y) {
+    rect.left = x;
+    rect.top = y;
+    rect.setCoords();
+  }
+</pre>
+<h3>Wrong position after reloading a JSON object - NUM_FRACTION_DIGITS</h3>
+<p>
+Fabric can serialize and deserialize objects in a plain object format.<br />
+When dealing with serialization, floats can be a problem and give long strings with an unnecessary quantity of decimals. This blows up the string size.<br />
+To reduce that, there is a constant defined on the Object  called `NUM_FRACTION_DIGITS`, historically set to 2.
+That means that a top value of `3.454534413123` is saved as `3.45`, same for scale, width, height. This is mostly fine unless you are dealing without
+situation where precision matter.<br />
+To make an example, a very large image, can be scaled down to a small size using a scale of `0.0151`.<br />
+In this case a serialization would save it as `0.02` changing meaningully the scale.
+If you are facing such situations, in your project se the constant higher:
+`fabric.Object.NUM_FRACTION_DIGITS = 8` to have 8 decimals on properties.<br />
+This affects SVG export too.
+</p>
+
+<h3>Objects misbehave when dealing with text input - numbers vs strings</h3>
+<p>
+Sometimes in prototypes and quick proof of concepts, people change fabric objects properties with text inputs.<br />
+Fabric documentation states that top, left, scaleX, angle and other properties requires numbers as values.<br />
+<strong>Text inputs return strings.</strong> FabricJS does not check types and does not convert them, when it does convert a string to a number is because
+of a side effect of some code and is not a feature to rely on.<br />
+Use parseInt and parseFloat before assigning a value to a property that requires a number.
+</p>
+
+<h3>Object does not update after changing property - objectCaching</h3>
+<p>
+A common source of confusion is when a developer assigns a new property to fill and the objects does not update after a renderAll.<br />
+FabricJS does cache objects as images to speed up rendering. If you want fabricJS to know that something changed and that a particular object
+needs to be redrawn, use the `set` method.
+</p>
+<pre>
+  rect.set('fill', 'red');
+  canvas.requestRenderAll();
+</pre>
+<p> or, as an alternative:</p>
+<pre>
+  rect.fill = 'red';
+  rect.stroke = 'blue';
+  rect.set('dirty', true);
+</pre>
+<p> For more information and detailed explanation, check the <a href="/fabric-object-caching">dedicated caching page</a>.</p>
+</div>

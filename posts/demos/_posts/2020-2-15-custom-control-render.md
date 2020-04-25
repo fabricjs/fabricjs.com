@@ -35,7 +35,7 @@ We build a function following the mouseUpHandler signature and we use there `can
   data-height="500"
   data-default-tab="js,result"
   data-prefill='{
-    "scripts": "https://unpkg.com/fabric@4.0.0-beta.10/dist/fabric.js"
+    "scripts": "https://unpkg.com/fabric@4.0.0-beta.11/dist/fabric.js"
   }'
 >
 <pre data-lang="css" data-options-autoprefixer="true">
@@ -123,7 +123,7 @@ For the clone functionality we will simply do
   data-height="500"
   data-default-tab="js,result"
   data-prefill='{
-    "scripts": "https://unpkg.com/fabric@4.0.0-beta.10/dist/fabric.js"
+    "scripts": "https://unpkg.com/fabric@4.0.0-beta.11/dist/fabric.js"
   }'
 >
 <pre data-lang="css" data-options-autoprefixer="true">

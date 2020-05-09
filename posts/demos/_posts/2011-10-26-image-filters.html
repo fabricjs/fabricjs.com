@@ -50,7 +50,7 @@ title: Image Filters
   <p>
     <label><span>Remove color:</span> <input type="checkbox" id="remove-color" disabled></label><br>
     <label>Color: <input type="color" id="remove-color-color" value="#00f900"></label><br>
-    <br>
+    <br />
     <label>Distance: <input type="range" id="remove-color-distance" value="0.02" min="0" max="1" step="0.01" disabled></label>
   </p>
   <p>
@@ -132,8 +132,7 @@ title: Image Filters
       <option value="mask">Mask</option>
     </select>
     <br>
-    <label>Alpha: <input type="range" id="blend-image-alpha" min="0" max="1" value="1" step="0.01"></label><br>
-  </p>
+    <label>Alpha: <input type="range" id="blend-image-alpha" min="0" max="1" value="1" step="0.01" /></label><br />
 </div>
 
 <script id="main">(function() {
@@ -190,7 +189,7 @@ title: Image Filters
       f = fabric.Image.filters;
 
   canvas.on({
-    'object:selected': function() {
+    'selection:created': function() {
       fabric.util.toArray(document.getElementsByTagName('input'))
                           .forEach(function(el){ el.disabled = false; })
 
@@ -225,6 +224,10 @@ title: Image Filters
   });
   fabric.Image.fromURL('../assets/dragon2.jpg', function(img) {
     var oImg = img.set({ left: 0, top: 500}).scale(0.2);
+    canvas.add(oImg);
+  });
+  fabric.Image.fromURL('../assets/frame.png', function(img) {
+    var oImg = img.set({ left: 150, top: 500}).scale(0.2);
     canvas.add(oImg);
   });
   var indexF;

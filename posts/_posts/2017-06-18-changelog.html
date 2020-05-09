@@ -8,17 +8,61 @@ title: Fabric.js. release 2.0.0 highlights.
 <div class="container" style="margin:30px auto">
   <h2 id="introduction_to_fabricjs">Fabric.js release highlights</h2>
   <p> Find general v2 changes <a href="changes-introduction">here</a></p>
+  <h3>Version 3.6.0</h3>
+  <h3>Version 3.5.1</h3>
+  <h3>Version 3.5.0</h3>
+  <h3>Version 3.4.0</h3>
+  <p>Huge rewrite of gradient parsing! Now gradients have a property more called `gradientUnits` and allow to specify gradients with percetages.<br />
+  A couple of deprecation for <code>Object.setGradient</code>. A new doc page explaining gradients from top to bottom coming soon.</p>
+<pre>
+- SVG import: Implement fill-opacity in on Path objects with gradients. #5812
+- Animation: Trigger onChange and onComplete with the right values. #5813
+- SVG import: Fix gradient parsing. #5836
+</pre>
+  <h3>Version 3.3.0</h3>
+  <p>
+Rewrite pointer/touch events! It seems now that pointer events and touch events can work correctly with multi fingers.
+Attention has been made in freedrawing with accidental multi touch usage and ability to work with pencils.
+Also a small fix for the words boundaries in text.
+Some deprecation on old event properties required another minor version bump.
+  </p>
+<pre>
+ - Differently support multi mouse events. #5785
+ - Word boundary search update. #5788
+</pre>
+  <h3>Version 3.2.0</h3>
+  <p>
+    This version is mainly a bug fix release for the new feature. It gets a minor bump because of official deprecation of Object.transformatrix.
+  </p>
+<pre>
+ - Fix Group.toSVG export missing opacity and visibility. #5755
+ - Pass raw event information to brushes. #5687
+ - Added deprecation warning for Object.transformMatrix. #5747
+ - Fix decimante points breaking point drawing in freedrawing. #5771
+</pre>
+  <h3>Version 3.1.0</h3>
+  <p>
+    A new property to the pencil brush has been added. The `decimate` will allow you to remove extra points to the brush and simplify the outcoming path.
+    also when parsing floats from SVG, now scientific notation with uppercase E is supported.
+  </p>
+<pre>
+ - Fix free draw positioning. #5718
+ - Improvement: Support scientific notation with uppercase E. #5731
+ - Add: PencilBrush brush now support decimate property to remove dots that are too near to each other. #5718
+</pre>
   <h3>Version 3.0.0</h3>
+  <p>
 Support for Node 4 and 6 is removed, now fabricJS uses JSDOM 15.1 also as SVG parser under node, and uses node-canvas 2.5+.
 This brings improved support under node, including better text support.<br />
 splitByGrapheme and strokeUniform have been properly fixed.<br />
-Some new property: <code>fabric.Shadow</code> gets nonScaling that let the shadow fix during a scaling operation, <code>fabric.disableStyleCopyPasting</code>
+Some new properties: <code>fabric.Shadow</code> gets nonScaling that makes the shadow fixed during scaling operations, <code>fabric.disableStyleCopyPaste</code>
 will control style copy/pasting during copy operations between IText and Textbox objects. Finally <code>Canvas.enablePointerEvents</code> will let you use
 pointer events instead of mouse events.
 For image filtering <code>fabric.forceGLPutImageData</code> will let you set a slower but more compatible webgl texture copy. This helps on computer running on old intel hardware.
 Detecting the presence of the hardware is developer duty.<br />
 Finally <code>fabric.Object.objectCaching</code> set to false will disable objectCaching only if current setup does not require it. Is not more a preference than a mandatory setting.
-If an object has a clipPath. objectCaching will be automatically activated.
+If an object has a clipPath, objectCaching will be automatically activated.
+  </p>
   <pre>
 - Breaking: removed support for node 4 and 6. #5356
 - Breaking: changed objectCaching meaning to disable caching only if possible. #5566
@@ -31,7 +75,7 @@ If an object has a clipPath. objectCaching will be automatically activated.
 - Fix: fixed import of Rect from SVG when has 0 dimensions. #5582
 - Fix: Shadow offset in dataurl export with retina #5593
 - Fix: Text can be used as clipPath in SVG export (output is not correct yet) #5591
-- Add: Fabric.disableStyleCopyPasting to disable style transfers on copy-paste of itext #5590
+- Add: Fabric.disableStyleCopyPaste to disable style transfers on copy-paste of itext #5590
 - Fix: avoid adding quotes to fontFamily containing a coma #5624
 - Fix: strokeUniform and cache dimensions #5626
 - Fix: Do not call onSelect on objects that won't be part of the selection #5632

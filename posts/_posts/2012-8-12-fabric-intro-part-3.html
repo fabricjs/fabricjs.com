@@ -56,7 +56,9 @@ canvas.add(group);
 <p>Now that we have a group on canvas, let's change it up a little:</p>
 
 <pre>
-group.item(0).setFill('red');
+// in order to use setFill named setter, you need to add the optional named setter/getter
+// code from src/util/named_accessors.mixins.js
+group.item(0).set('fill', 'red');
 group.item(1).set({
   text: 'trololo',
   fill: 'white'
@@ -482,7 +484,7 @@ redPoint.x; // 15
 redPoint.y; // 33
 redPoint.color; // "#f55"
 
-redPoint.toString(); "15/35 (color: #f55)"
+redPoint.toString(); "15/33 (color: #f55)"
 </pre>
 
 <p>So now that we went over creating our own "classes" and "subclasses", let's see how to work with already-existing Fabric ones. For example, let's create a <code>LabeledRect</code> "class" which will essentially be a rectangle that has some kind of label associated with it. When rendered on canvas, that label will be represented as a text inside rectangle. Something similar to previous group example with circle and text. As you're working with Fabric, you'll notice that combined abstractions like this could be achieved either by using groups or by using custom classes.</p>

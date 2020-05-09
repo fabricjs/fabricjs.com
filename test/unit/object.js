@@ -444,6 +444,31 @@
     assert.ok(typeof canvasEl.getContext === 'function', 'the element returned is a canvas');
   });
 
+  QUnit.test('toCanvasElement activeSelection', function(assert) {
+    var cObj = new fabric.Rect({
+      width: 100, height: 100, fill: 'red', strokeWidth: 0
+    });
+
+    var cObj2 = new fabric.Rect({
+      width: 100, height: 100, fill: 'red', strokeWidth: 0
+    });
+
+    canvas.add(cObj, cObj2);
+
+    var activeSel = new fabric.ActiveSelection([cObj, cObj2], { canvas: canvas });
+
+    assert.equal(cObj.canvas, canvas, 'canvas is the main one step 1');
+
+    activeSel.toCanvasElement();
+
+    assert.equal(cObj.canvas, canvas, 'canvas is the main one step 2');
+
+    activeSel.destroy();
+
+    assert.equal(cObj.canvas, canvas, 'canvas is the main one step 3');
+
+  });
+
   QUnit.test('toCanvasElement does not modify oCoords on zoomed canvas', function(assert) {
     var cObj = new fabric.Rect({
       width: 100, height: 100, fill: 'red', strokeWidth: 0
@@ -531,6 +556,10 @@
     assert.equal(object.strokeDashArray.length, 3, 'strokeDash array is odd');
     object._setLineDash(canvas.contextContainer, object.strokeDashArray, null);
     assert.equal(object.strokeDashArray.length, 6, 'strokeDash array now is even');
+
+    assert.equal(canvas.contextContainer.getLineDash().length, 6, 'object pushed line dash to canvas');
+    object._setLineDash(canvas.contextContainer, [], null);
+    assert.equal(canvas.contextContainer.getLineDash().length, 6, 'bailed immediately as array empty');
   });
 
   QUnit.test('straighten', function(assert) {
@@ -1016,6 +1045,21 @@
     assert.deepEqual(objectScale, {
       scaleX: object.scaleX * group.scaleX,
       scaleY: object.scaleY * group.scaleY
+    });
+  });
+
+  QUnit.test('getObjectScaling in group with object rotated', function(assert) {
+    var object = new fabric.Object({ scaleX: 3, scaleY: 2, angle: 45 });
+    var group = new fabric.Group();
+    group.scaleX = 2;
+    group.scaleY = 3;
+    object.group = group;
+    var objectScale = object.getObjectScaling();
+    objectScale.scaleX = objectScale.scaleX.toFixed(3);
+    objectScale.scaleY = objectScale.scaleY.toFixed(3);
+    assert.deepEqual(objectScale, {
+      scaleX: '7.649',
+      scaleY: '4.707',
     });
   });
 

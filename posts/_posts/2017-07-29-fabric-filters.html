@@ -264,8 +264,9 @@ title: Fabric.js filtering overview
 fabric.Image.filters.BaseFilter.fromObject = function(object, callback) {
   switch (object.type) {
     case 'Brightness':
-    case 'Contrast':
       object.brightness = object.brightness / 255;
+    case 'Contrast':
+      object.contrast = object.contrast / 255;
     break;
     case 'Mask':
       object.type = 'BlendImage';

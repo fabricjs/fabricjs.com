@@ -1,0 +1,30 @@
+I")<h1 id="custom-controls-api">Custom controls api</h1>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>This api lets the developer create its own custom controls without having to use overrides on standard fabricJS controls method. This makes customizaion supported, easy and makes update to the latest version always possible.</p>
+
+<p>FabricJS uses the api internally to define the standard controls set with the same feature and customization that was possible in version 3 and below.</p>
+
+<h3 id="how-does-it-work">How does it work.</h3>
+
+<p>Now every object has a control set, and a control set is simply a plan js object that has a set of keys, for each key the value is a <code class="highlighter-rouge">fabric.Control</code> class. For simplicity in the standard control set the keys are keeping the old names <code class="highlighter-rouge">tl</code>, <code class="highlighter-rouge">mt</code>, <code class="highlighter-rouge">tr</code>, <code class="highlighter-rouge">mr</code>, <code class="highlighter-rouge">br</code>, <code class="highlighter-rouge">mb</code>, <code class="highlighter-rouge">bl</code>, <code class="highlighter-rouge">ml</code> and <code class="highlighter-rouge">mtr</code>.</p>
+
+<p>The difference is that the code that draws the controls does not know anything anymore about the specific controls, but will loop over the keys of this controlset  and draw each control.</p>
+
+<h3 id="anotomy-of-a-control">Anotomy of a control</h3>
+
+<p>A control is a collection of a positioning function, rendering function, style function, visibility function and an action, called in a coordinate way.
+All the other properties are optional and depends on the implementation of the former.</p>
+
+<p>Let’s see how fabricJS controls are defined in the library itself, let’s take for example the control <code class="highlighter-rouge">mr</code>:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">objectControls</span><span class="p">.</span><span class="nx">mr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">fabric</span><span class="p">.</span><span class="nx">Control</span><span class="p">({</span>
+  <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">mr</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">position</span><span class="p">:</span> <span class="p">{</span> <span class="na">x</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="na">y</span><span class="p">:</span> <span class="mi">0</span> <span class="p">},</span>
+  <span class="na">cursorStyleHandler</span><span class="p">:</span> <span class="nx">scaleSkewStyleHandler</span><span class="p">,</span>
+  <span class="na">actionHandler</span><span class="p">:</span> <span class="nx">scalingXOrSkewingY</span><span class="p">,</span>
+  <span class="na">getActionName</span><span class="p">:</span> <span class="nx">scaleOrSkewActionName</span><span class="p">,</span>
+<span class="p">});</span>
+</code></pre></div></div>
+:ET

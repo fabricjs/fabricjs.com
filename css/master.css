@@ -61,7 +61,7 @@ h3, h4 { margin-top: 1.5em !important; }
 .twitter iframe { margin-top: 8px; margin-right: 10px; margin-left: 10px; }
 .github span, .twitter span { color: pink }
 
-#bd-wrapper { padding: 10px; min-width: 1200px; }
+#bd-wrapper { padding: 15px; padding-right: 150px}
 #bd-wrapper > ul > li { margin-bottom: 5px }
 
 #articles li ul { margin-top: 5px; margin-bottom: 15px; padding-left: 15px; list-style-type: disc }

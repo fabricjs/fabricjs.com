@@ -1,13 +1,23 @@
 ---
-layout: articlead
-title: Fabric.js. release 2.0.0 highlights.
+layout: articleadmd
+title: Fabric.js. release changelog.
 ---
+<style>
+  #changelog {
+    top: 50px;
+  }
+  #changelog:hover {
+    top: 45px;
+  }
+</style>
 
-<style>h2 { margin-bottom: 15px } h3 { margin-bottom: 10px; } h4 { margin-bottom: 7px; } </style>
-
-<div class="container" style="margin:30px auto">
-  <h2 id="introduction_to_fabricjs">Fabric.js release highlights</h2>
+## Fabric.js release highlights
   <p> Find general v2 changes <a href="changes-introduction">here</a></p>
+  <h3>Version 4.0.0</h3>
+  <p>Added a new api to handle controls customizations. Read more here <a href="/controls-api">controls api</a>
+  <h3>Version 3.6.3</h3>
+  <h3>Version 3.6.2</h3>
+  <h3>Version 3.6.1</h3>
   <h3>Version 3.6.0</h3>
   <h3>Version 3.5.1</h3>
   <h3>Version 3.5.0</h3>
@@ -313,7 +323,6 @@ If an object has a clipPath, objectCaching will be automatically activated.
 - fixed interactions between canvas toDataURL and multiplier + retina
 - fixed bug with originX and originY not invalidating the transform
 - fixed unwanted mutation on object enliving in fabric.Image</pre>
-</div>
 
 <div id="changelog">
   <a href="/fabric-changelog-old"><b>Changelog on 1.X branch</b></a>

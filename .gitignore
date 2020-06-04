@@ -1,5 +1,6 @@
 .DS_Store
 .ruby-version
+.jekyll-cache/
 _site/
 node_modules/
 Gemfile.lock

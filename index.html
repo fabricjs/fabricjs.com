@@ -103,7 +103,7 @@ title: Features
         image.scale(0.3).setCoords();
         canvas.add(image);
         canvas.calcOffset();
-        canvas.setActiveObject(image);
+        canvas.setActiveObject(supportText);
 
         // filters
         image.clone(function(clone) {
@@ -160,6 +160,34 @@ title: Features
         canvas.add(shape);
         canvas.calcOffset();
       });
+      var styleU = {
+        underline: true,
+      };
+      var supportText = new fabric.Textbox("This lib is free for everyone.\nSome things are not.\nPeople behind FabricJS acknowledge that Black people have to fight for basic rights, against systemic racism, unequal opportunities and injustice across the 🌎.\nWe know this is wrong and we are 💔. 💪🏽💪🏾💪🏿!", {
+        width: 460,
+        fontSize: 36,
+        fontFamily: 'Helvetica',
+        fill: 'white',
+        backgroundColor: 'black',
+        styles: {
+          0: {
+            21: styleU,
+            22: styleU,
+            23: styleU,
+            24: styleU,
+            25: styleU,
+            26: styleU,
+            27: styleU,
+            28: styleU,
+          },
+          1: {
+
+          },
+        },
+        left: 250,
+        top: 260,
+        textAlign: 'center',
+      });
 
       // text
       var text1 = new fabric.Text('Fabric', {
@@ -213,8 +241,7 @@ title: Features
         fill: 'grey',
         textAlign: 'right'
       });
-      canvas.add(text1, text2, text3, text4, text5);
-
+      canvas.add(text1, text2, text3, text4, text5, supportText);
       // shadow and per-pixel drag drop
       fabric.loadSVGFromURL('assets/112.svg', function(objects, options) {
         var shape = fabric.util.groupSVGElements(objects, options);

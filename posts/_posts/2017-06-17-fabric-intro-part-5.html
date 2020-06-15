@@ -137,7 +137,7 @@ canvas.on('mouse:wheel', function(opt) {
   zoom *= 0.999 ** delta;
   if (zoom > 20) zoom = 20;
   if (zoom < 0.01) zoom = 0.01;
-  canvas.zoomToPoint({ x: opt.e.offsetX, y: opt.e.offsetY }, zoom);
+  canvas.zoomToPoint(pointer, zoom);
   opt.e.preventDefault();
   opt.e.stopPropagation();
 });
@@ -158,7 +158,7 @@ canvas.on('mouse:wheel', function(opt) {
         zoom *= 0.999 ** delta;
         if (zoom > 20) zoom = 20;
         if (zoom < 0.01) zoom = 0.01;
-        canvas.zoomToPoint({ x: opt.e.offsetX, y: opt.e.offsetY }, zoom);
+        canvas.zoomToPoint(pointer, zoom);
         opt.e.preventDefault();
         opt.e.stopPropagation();
       });
@@ -198,10 +198,11 @@ canvas.on('mouse:wheel', function(opt) {
 canvas.on('mouse:wheel', function(opt) {
 var delta = opt.e.deltaY;
 var zoom = canvas.getZoom();
+var pointer = canvas.getPointer(opt.e);
 zoom *= 0.999 ** delta;
 if (zoom > 20) zoom = 20;
 if (zoom < 0.01) zoom = 0.01;
-canvas.zoomToPoint({ x: opt.e.offsetX, y: opt.e.offsetY }, zoom);
+canvas.zoomToPoint(pointer, zoom);
 opt.e.preventDefault();
 opt.e.stopPropagation();
 var vpt = this.viewportTransform;
@@ -241,7 +242,7 @@ if (zoom < 400 / 1000) {
         zoom *= 0.999 ** delta;
         if (zoom > 20) zoom = 20;
         if (zoom < 0.01) zoom = 0.01;
-        canvas.zoomToPoint({ x: opt.e.offsetX, y: opt.e.offsetY }, zoom);
+        canvas.zoomToPoint(pointer, zoom);
         opt.e.preventDefault();
         opt.e.stopPropagation();
         if (zoom < 0.4) {

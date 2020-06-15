@@ -67,8 +67,9 @@ canvas.on('mouse:down', function(opt) {
 canvas.on('mouse:move', function(opt) {
   if (this.isDragging) {
     var e = opt.e;
-    this.viewportTransform[4] += e.clientX - this.lastPosX;
-    this.viewportTransform[5] += e.clientY - this.lastPosY;
+    var vpt = this.viewportTransform;
+    vpt[4] += e.clientX - this.lastPosX;
+    vpt[5] += e.clientY - this.lastPosY;
     this.requestRenderAll();
     this.lastPosX = e.clientX;
     this.lastPosY = e.clientY;
@@ -111,8 +112,9 @@ canvas.on('mouse:up', function(opt) {
       canvas.on('mouse:move', function(opt) {
         if (this.isDragging) {
           var e = opt.e;
-          this.viewportTransform[4] += e.clientX - this.lastPosX;
-          this.viewportTransform[5] += e.clientY - this.lastPosY;
+          var vpt = this.viewportTransform;
+          vpt[4] += e.clientX - this.lastPosX;
+          vpt[5] += e.clientY - this.lastPosY;
           this.requestRenderAll();
           this.lastPosX = e.clientX;
           this.lastPosY = e.clientY;
@@ -174,8 +176,9 @@ canvas.on('mouse:wheel', function(opt) {
       canvas.on('mouse:move', function(opt) {
         if (this.isDragging) {
           var e = opt.e;
-          this.viewportTransform[4] += e.clientX - this.lastPosX;
-          this.viewportTransform[5] += e.clientY - this.lastPosY;
+          var vpt = this.viewportTransform;
+          vpt[4] += e.clientX - this.lastPosX;
+          vpt[5] += e.clientY - this.lastPosY;
           this.lastPosX = e.clientX;
           this.lastPosY = e.clientY;
           this.requestRenderAll();
@@ -206,18 +209,18 @@ opt.e.preventDefault();
 opt.e.stopPropagation();
 var vpt = this.viewportTransform;
 if (zoom < 400 / 1000) {
-  this.viewportTransform[4] = 200 - 1000 * zoom / 2;
-  this.viewportTransform[5] = 200 - 1000 * zoom / 2;
+  vpt[4] = 200 - 1000 * zoom / 2;
+  vpt[5] = 200 - 1000 * zoom / 2;
 } else {
   if (vpt[4] >= 0) {
-    this.viewportTransform[4] = 0;
+    vpt[4] = 0;
   } else if (vpt[4] < canvas.getWidth() - 1000 * zoom) {
-    this.viewportTransform[4] = canvas.getWidth() - 1000 * zoom;
+    vpt[4] = canvas.getWidth() - 1000 * zoom;
   }
   if (vpt[5] >= 0) {
-    this.viewportTransform[5] = 0;
+    vpt[5] = 0;
   } else if (vpt[5] < canvas.getHeight() - 1000 * zoom) {
-    this.viewportTransform[5] = canvas.getHeight() - 1000 * zoom;
+    vpt[5] = canvas.getHeight() - 1000 * zoom;
   }
 })
     </pre>
@@ -244,19 +247,20 @@ if (zoom < 400 / 1000) {
         canvas.zoomToPoint({ x: opt.e.offsetX, y: opt.e.offsetY }, zoom);
         opt.e.preventDefault();
         opt.e.stopPropagation();
+        var vpt = this.viewportTransform;
         if (zoom < 0.4) {
-          this.viewportTransform[4] = 200 - 1000 * zoom / 2;
-          this.viewportTransform[5] = 200 - 1000 * zoom / 2;
+          vpt[4] = 200 - 1000 * zoom / 2;
+          vpt[5] = 200 - 1000 * zoom / 2;
         } else {
-          if (this.viewportTransform[4] >= 0) {
-            this.viewportTransform[4] = 0;
-          } else if (this.viewportTransform[4] < canvas.getWidth() - 1000 * zoom) {
-            this.viewportTransform[4] = canvas.getWidth() - 1000 * zoom;
+          if (vpt[4] >= 0) {
+            vpt[4] = 0;
+          } else if (vpt[4] < canvas.getWidth() - 1000 * zoom) {
+            vpt[4] = canvas.getWidth() - 1000 * zoom;
           }
-          if (this.viewportTransform[5] >= 0) {
-            this.viewportTransform[5] = 0;
-          } else if (this.viewportTransform[5] < canvas.getHeight() - 1000 * zoom) {
-            this.viewportTransform[5] = canvas.getHeight() - 1000 * zoom;
+          if (vpt[5] >= 0) {
+            vpt[5] = 0;
+          } else if (vpt[5] < canvas.getHeight() - 1000 * zoom) {
+            vpt[5] = canvas.getHeight() - 1000 * zoom;
           }
         }
       });
@@ -273,21 +277,22 @@ if (zoom < 400 / 1000) {
         if (this.isDragging) {
           var e = opt.e;
           var zoom = canvas.getZoom();
+          var vpt = this.viewportTransform;
           if (zoom < 0.4) {
-            this.viewportTransform[4] = 200 - 1000 * zoom / 2;
-            this.viewportTransform[5] = 200 - 1000 * zoom / 2;
+            vpt[4] = 200 - 1000 * zoom / 2;
+            vpt[5] = 200 - 1000 * zoom / 2;
           } else {
-            this.viewportTransform[4] += e.clientX - this.lastPosX;
-            this.viewportTransform[5] += e.clientY - this.lastPosY;
-            if (this.viewportTransform[4] >= 0) {
-              this.viewportTransform[4] = 0;
-            } else if (this.viewportTransform[4] < canvas.getWidth() - 1000 * zoom) {
-              this.viewportTransform[4] = canvas.getWidth() - 1000 * zoom;
+            vpt[4] += e.clientX - this.lastPosX;
+            vpt[5] += e.clientY - this.lastPosY;
+            if (vpt[4] >= 0) {
+              vpt[4] = 0;
+            } else if (vpt[4] < canvas.getWidth() - 1000 * zoom) {
+              vpt[4] = canvas.getWidth() - 1000 * zoom;
             }
-            if (this.viewportTransform[5] >= 0) {
-              this.viewportTransform[5] = 0;
-            } else if (this.viewportTransform[5] < canvas.getHeight() - 1000 * zoom) {
-              this.viewportTransform[5] = canvas.getHeight() - 1000 * zoom;
+            if (vpt[5] >= 0) {
+              vpt[5] = 0;
+            } else if (vpt[5] < canvas.getHeight() - 1000 * zoom) {
+              vpt[5] = canvas.getHeight() - 1000 * zoom;
             }
           }
           this.requestRenderAll();

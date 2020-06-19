@@ -7,6 +7,9 @@ This demo show how to use the controls api to do something like changing the sha
 This is generally harder to grasp because require understanding the internal polygon logic,
 anchor points and transformations.
 
+In the demo the canvas has zoom and translation, so we are sure our code is generic enough.
+The polygon is given some big strokeWidth for the same reason.
+
 We have a function that trigger the `edit mode`.
 When we enter in edit mode we create one new control for each polygon point.
 To those controls we attach a property, called point index, to remember to which point they are bound to.
@@ -56,7 +59,7 @@ fabricObject.setPositionByOrigin(absolutePoint, newX + 0.5, newY + 0.5);
   data-height="600"
   data-default-tab="js,result"
   data-prefill='{
-    "scripts": "https://unpkg.com/fabric@4.0.0-beta.11/dist/fabric.js"
+    "scripts": "https://unpkg.com/fabric@4.0.0-beta.12/dist/fabric.js"
   }'
 >
 <pre data-lang="css" data-options-autoprefixer="true">
@@ -105,14 +108,15 @@ fabricObject.setPositionByOrigin(absolutePoint, newX + 0.5, newY + 0.5);
 		left: 100,
 		top: 50,
 		fill: '#D81B60',
-		strokeWidth: 0,
+		strokeWidth: 4,
+    stroke: 'green',
 		scaleX: 4,
 		scaleY: 4,
 		objectCaching: false,
 		transparentCorners: false,
-		cornerColor: 'blue'
+		cornerColor: 'blue',
 	});
-
+  canvas.viewportTransform = [0.7, 0, 0, 0.7, -50, 50];
 	canvas.add(polygon);
 
 	// define a function that can locate the controls.
@@ -121,7 +125,11 @@ fabricObject.setPositionByOrigin(absolutePoint, newX + 0.5, newY + 0.5);
 	  var x = (fabricObject.points[this.pointIndex].x - fabricObject.pathOffset.x),
 		    y = (fabricObject.points[this.pointIndex].y - fabricObject.pathOffset.y);
 		return fabric.util.transformPoint(
-			{ x: x, y: y }, fabricObject.calcTransformMatrix()
+			{ x: x, y: y },
+      fabric.util.multiplyTransformMatrices(
+        fabricObject.canvas.viewportTransform,
+        fabricObject.calcTransformMatrix()
+      )
 		);
 	}
 
@@ -135,10 +143,11 @@ fabricObject.setPositionByOrigin(absolutePoint, newX + 0.5, newY + 0.5);
 		var polygon = transform.target,
 		    currentControl = polygon.controls[polygon.__corner],
 		    mouseLocalPosition = polygon.toLocalPoint(new fabric.Point(x, y), 'center', 'center'),
+        polygonBaseSize = polygon._getNonTransformedDimensions(),
 				size = polygon._getTransformedDimensions(0, 0),
 				finalPointPosition = {
-					x: mouseLocalPosition.x * polygon.width / size.x + polygon.pathOffset.x,
-					y: mouseLocalPosition.y * polygon.height / size.y + polygon.pathOffset.y
+					x: mouseLocalPosition.x * polygonBaseSize.x / size.x + polygon.pathOffset.x,
+					y: mouseLocalPosition.y * polygonBaseSize.y / size.y + polygon.pathOffset.y
 				};
 		polygon.points[currentControl.pointIndex] = finalPointPosition;
 		return true;
@@ -152,11 +161,12 @@ fabricObject.setPositionByOrigin(absolutePoint, newX + 0.5, newY + 0.5);
           absolutePoint = fabric.util.transformPoint({
               x: (fabricObject.points[anchorIndex].x - fabricObject.pathOffset.x),
               y: (fabricObject.points[anchorIndex].y - fabricObject.pathOffset.y),
-          }, fabricObject.calcTransformMatrix());
-      var actionPerformed = fn(eventData, transform, x, y);
-      var newDim = fabricObject._setPositionDimensions({});
-      var newX = (fabricObject.points[anchorIndex].x - fabricObject.pathOffset.x) / fabricObject.width,
-  		    newY = (fabricObject.points[anchorIndex].y - fabricObject.pathOffset.y) / fabricObject.height;
+          }, fabricObject.calcTransformMatrix()),
+          actionPerformed = fn(eventData, transform, x, y),
+          newDim = fabricObject._setPositionDimensions({}),
+          polygonBaseSize = polygon._getNonTransformedDimensions(),
+          newX = (fabricObject.points[anchorIndex].x - fabricObject.pathOffset.x) / polygonBaseSize.x,
+  		    newY = (fabricObject.points[anchorIndex].y - fabricObject.pathOffset.y) / polygonBaseSize.y;
       fabricObject.setPositionByOrigin(absolutePoint, newX + 0.5, newY + 0.5);
       return actionPerformed;
     }
@@ -173,6 +183,7 @@ fabricObject.setPositionByOrigin(absolutePoint, newX + 0.5, newY + 0.5);
 		if (poly.edit) {
       var lastControl = poly.points.length - 1;
       poly.cornerStyle = 'circle';
+      poly.cornerColor = 'rgba(0,0,255,0.5)';
 	    poly.controls = poly.points.reduce(function(acc, point, index) {
 				acc['p' + index] = new fabric.Control({
 					positionHandler: polygonPositionHandler,
@@ -183,6 +194,7 @@ fabricObject.setPositionByOrigin(absolutePoint, newX + 0.5, newY + 0.5);
 				return acc;
 			}, { });
 		} else {
+      poly.cornerColor = 'blue';
       poly.cornerStyle = 'rect';
 			poly.controls = fabric.Object.prototype.controls;
 		}

@@ -23,7 +23,7 @@ By default all fabricJS objects share the same controls set, exception made for 
 
 Nothing stops you from creating a different controls set for each subClass, or having the same control set everywhere and make controls visible/hidden depending on the object that is currently rendering.
 
-### Anatomy of a control
+### Structure of a control
 
 A control is a collection of a positioning function, rendering function, style function, visibility function, an actionHandler and a bunch of other properties, called and used in the right order from fabricJS.
 Some of properties are optional and depends on the implementation of the control.

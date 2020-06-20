@@ -15,16 +15,20 @@ FabricJS uses the api internally to define the standard controls set with the sa
 
 ### How does it work.
 
-Now every object has a control set, and a control set is simply a plan js object that has a set of keys, for each key the value is a `fabric.Control` class. For simplicity in the standard control set the keys are keeping the old names `tl`, `mt`, `tr`, `mr`, `br`, `mb`, `bl`, `ml` and `mtr`.
+Now fabric.Object prototype has a control set, and a control set is simply a plan js object that has a set of keys, for each key the value is a `fabric.Control` class. For simplicity in the standard control set the keys are keeping the old names `tl`, `mt`, `tr`, `mr`, `br`, `mb`, `bl`, `ml` and `mtr`.
 
-The difference is that the code that draws the controls does not know anything anymore about the specific controls, but will loop over the keys of this controlset  and draw each control.
+The difference is that the code that draws the controls does not know anything anymore about the  controls, but will loop over the keys of this controlset and draw each control.
+
+By default all fabricJS objects share the same controls set, exception made for the textbox that has different controls that make possible changing the width rather than scaling.
+
+Nothing stops you from creating a different controls set for each subClass, or having the same control set everywhere and make controls visible/hidden depending on the object that is currently rendering.
 
 ### Anatomy of a control
 
-A control is a collection of a positioning function, rendering function, style function, visibility function and an action, called in the right order from fabricJS.
-All the other properties are optional and depends on the implementation of the former.
+A control is a collection of a positioning function, rendering function, style function, visibility function, an actionHandler and a bunch of other properties, called and used in the right order from fabricJS.
+Some of properties are optional and depends on the implementation of the control.
 
-Let's see how fabricJS controls are defined in the library itself, let's take for example the control `mr`:
+Let's see how fabricJS controls are defined in the library itself, let's take for example the control `mr` of the standard object:
 
 ```js
 objectControls.mr = new fabric.Control({
@@ -37,6 +41,8 @@ objectControls.mr = new fabric.Control({
 ```
 
 The control is completely configurable, either providing handlers or providing values for the default hanflers.
+
+Default controls are defined here: [standard controls definition](https://github.com/fabricjs/fabric.js/blob/master/src/mixins/default_controls.js).
 
 #### visible and getVisibility
 

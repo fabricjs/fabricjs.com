@@ -90,7 +90,6 @@ canvas.on('mouse:up', function(opt) {
       canvas.add(new fabric.Ellipse({ rx: 50, ry: 10, fill: 'orange', top: 12, left: 100, angle: 30 }))
       canvas.on('mouse:wheel', function(opt) {
         var delta = opt.e.deltaY;
-        var pointer = canvas.getPointer(opt.e);
         var zoom = canvas.getZoom();
         zoom *= 0.999 ** delta;
         if (zoom > 20) zoom = 20;
@@ -132,7 +131,6 @@ canvas.on('mouse:up', function(opt) {
     <pre>
 canvas.on('mouse:wheel', function(opt) {
   var delta = opt.e.deltaY;
-  var pointer = canvas.getPointer(opt.e);
   var zoom = canvas.getZoom();
   zoom *= 0.999 ** delta;
   if (zoom > 20) zoom = 20;
@@ -153,7 +151,6 @@ canvas.on('mouse:wheel', function(opt) {
       canvas.add(new fabric.Ellipse({ rx: 50, ry: 10, fill: 'orange', top: 12, left: 100, angle: 30 }))
       canvas.on('mouse:wheel', function(opt) {
         var delta = opt.e.deltaY;
-        var pointer = canvas.getPointer(opt.e);
         var zoom = canvas.getZoom();
         zoom *= 0.999 ** delta;
         if (zoom > 20) zoom = 20;
@@ -236,7 +233,6 @@ if (zoom < 400 / 1000) {
       canvas.add(new fabric.Ellipse({ rx: 50, ry: 10, fill: 'orange', top: 12, left: 100, angle: 30 }))
       canvas.on('mouse:wheel', function(opt) {
         var delta = opt.e.deltaY;
-        var pointer = canvas.getPointer(opt.e);
         var zoom = canvas.getZoom();
         zoom *= 0.999 ** delta;
         if (zoom > 20) zoom = 20;

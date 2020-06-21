@@ -122,7 +122,6 @@ The inputs on the small one will generate events to manipulate the zoom on the b
     minimapView.controls = {
       br: fabric.Object.prototype.controls.br,
     };
-    console.log(minimapView.controls)
     minimap.add(minimapView);
   }
 

@@ -3,10 +3,14 @@ layout: demoV4
 title: Creating a minimap for the canvas
 codepen: true
 ---
+This tutorial is still a work in progress.
 This tutorial show some concepts on how to build a minimap for a large canvas.
 
-The main thing to take in account is to display the same set of objects on 2 different canvas with 2 different size and zoom level.
+The main thing to take in account is to display the same set of objects on 2 different canvas with 2 different size and zoom level. To do this we will render the whole design as an image and use it as background in the minimap.
+
 This is a cache killer, so we will disable the `objectCaching` for this example, as of today there is not really a codepath that lets you draw object at 2 zoom level and keep the cache alive.
+
+We will add on the minimap a rect that will be our indicator of the viewport.
 
 ### Setting up the idea
 

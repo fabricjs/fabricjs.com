@@ -72,10 +72,10 @@ The inputs on the small one will generate events to manipulate the zoom on the b
 
     design.viewportTransform = [
       designRatio, 0, 0, designRatio,
-      -(design.getWidth() - finalWidth) / 2,
-      -(design.getHeight() - finalHeight) / 2
+      (design.getWidth() - finalWidth) / 2,
+      (design.getHeight() - finalHeight) / 2
     ];
-    var canvas = design.toCanvasElement(minimapRatio);
+    var canvas = design.toCanvasElement(minimapRatio * scaling);
     design.viewportTransform = originalVPT;
     return canvas;
   }
@@ -90,17 +90,20 @@ The inputs on the small one will generate events to manipulate the zoom on the b
     var designSize = { width: 800, height: 600 };
     var rect = minimap.getObjects()[0];
     var designRatio = fabric.util.findScaleToFit(designSize, design);
+    var totalRatio = fabric.util.findScaleToFit(designSize, minimap);
     var finalRatio = designRatio / design.getZoom();
     rect.scaleX = finalRatio;
     rect.scaleY = finalRatio;
-    rect.top = minimap.backgroundImage.top - design.viewportTransform[5] * finalRatio;
-    rect.left = minimap.backgroundImage.left - design.viewportTransform[4] * finalRatio;
+    rect.top = minimap.backgroundImage.top - design.viewportTransform[5] * totalRatio / design.getZoom();
+    rect.left = minimap.backgroundImage.left - design.viewportTransform[4] * totalRatio / design.getZoom();
     minimap.requestRenderAll();
   }
 
   function initMinimap() {
     var canvas = createCanvasEl();
     var backgroundImage = new fabric.Image(canvas);
+    backgroundImage.scaleX = 1 / design.getRetinaScaling();
+    backgroundImage.scaleY = 1 / design.getRetinaScaling();
     minimap.centerObject(backgroundImage);
     minimap.backgroundColor = 'white';
     minimap.backgroundImage = backgroundImage;
@@ -108,10 +111,17 @@ The inputs on the small one will generate events to manipulate the zoom on the b
     var minimapView = new fabric.Rect({
       top: backgroundImage.top,
       left: backgroundImage.left,
-      width: backgroundImage.width,
-      height: backgroundImage.height,
+      width: backgroundImage.width / design.getRetinaScaling(),
+      height: backgroundImage.height/ design.getRetinaScaling(),
       fill: 'rgba(0, 0, 255, 0.3)',
+      cornerSize: 6,
+      transparentCorners: false,
+      cornerColor: 'blue',
+      strokeWidth: 0,
     });
+    minimapView.controls = {
+      br: fabric.Object.prototype.controls.br,
+    };
     minimap.add(minimapView);
   }
 

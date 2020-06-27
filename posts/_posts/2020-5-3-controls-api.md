@@ -15,7 +15,7 @@ FabricJS uses the api internally to define the standard controls set with the sa
 
 ### How does it work.
 
-Now fabric.Object prototype has a control set, and a control set is simply a plan js object that has a set of keys, for each key the value is a `fabric.Control` class. For simplicity in the standard control set the keys are keeping the old names `tl`, `mt`, `tr`, `mr`, `br`, `mb`, `bl`, `ml` and `mtr`.
+Now fabric.Object prototype has a control set, and a control set is simply a plain js object that has a set of keys, for each key the value is a `fabric.Control` class. For simplicity in the standard control set the keys are keeping the old names `tl`, `mt`, `tr`, `mr`, `br`, `mb`, `bl`, `ml` and `mtr`.
 
 The difference is that the code that draws the controls does not know anything anymore about the  controls, but will loop over the keys of this controlset and draw each control.
 

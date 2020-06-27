@@ -40,7 +40,7 @@ objectControls.mr = new fabric.Control({
 });
 ```
 
-The control is completely configurable, either providing handlers or providing values for the default hanflers.
+The control is completely configurable, either providing handlers or providing values for the default handlers.
 
 Default controls are defined here: [standard controls definition](https://github.com/fabricjs/fabric.js/blob/master/src/mixins/default_controls.js).
 

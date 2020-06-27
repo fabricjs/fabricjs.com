@@ -188,7 +188,7 @@ fabricObject.setPositionByOrigin(absolutePoint, newX + 0.5, newY + 0.5);
 				acc['p' + index] = new fabric.Control({
 					positionHandler: polygonPositionHandler,
 					actionHandler: anchorWrapper(index > 0 ? index - 1 : lastControl, actionHandler),
-					actionName: 'modifyPoligon',
+					actionName: 'modifyPolygon',
 					pointIndex: index
 				});
 				return acc;

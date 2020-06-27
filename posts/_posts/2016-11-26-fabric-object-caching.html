@@ -1,22 +1,20 @@
 ---
 layout: articlead
-title: Fabric.js. release highlights.
+title: Fabric.js. release highlights
 ---
 
-<style>h2 { margin-bottom: 15px } h3 { margin-bottom: 10px; } h4 { margin-bottom: 7px; }
-.show-borders {
-  border:1px solid black;
-}
+<style>
+  h2 { margin-bottom: 15px } h3 { margin-bottom: 10px } h4 { margin-bottom: 7px }
+  .show-borders { border:1px solid black }
 </style>
 
 <div class="container" style="margin:30px auto">
   <h2 id="introduction_object_caching">Fabric.js Object caching</h2>
   <h3>How does it works?</h3>
-  <p>When fabric object caching is active, the objects you paint on canvas are actually pre painted on another smaller offscren canvas,
-  as big as the object pixel dimension itself. During the `render` method this pre painted canvas gets copied on the main canvas with a `drawImage` operation.</p>
-  <p>That means that during <code>drag</code> <code>rotate</code> <code>skew</code> <code>scale</code> operations the object is not redrawn on canvas, but just its copied
-  cached image gets drawn over the canvas.</p>
-  <h3>How can I tweak/customize it?</h3>
+  <p>When fabric object caching is active, the objects you paint on canvas are actually pre-painted on another smaller offscren canvas,
+  as big as the object pixel dimension itself. During the `render` method this pre-painted canvas gets copied on the main canvas with a `drawImage` operation.</p>
+  <p>This means that during <code>drag</code>, <code>rotate</code>, <code>skew</code> and <code>scale</code> operations the object is not redrawn on canvas, but just its copied cached image gets drawn over the canvas.</p>
+  <h3>How can i tweak/customize it?</h3>
   <p>This feature comes with 3 properties to use it in different ways:</p>
   <pre>
 /**
@@ -108,30 +106,30 @@ fabric.minCacheSideLimit = 256;
 
 </pre>
 <p>
-  <code>objectCaching</code> is the main properties, default to true for browsers, false for node, it enables objectCaching at object level.<br />
-  <code>statefullCache</code> This property rule if fabric should autocheck if is time to redraw the cached copy or if the dev shoud manually invalidate it.
-  this property is default to false. More on this later.<br />
-  <code>noScaleCache</code> default to true, disable cache regeneration for scale operation. It can be enabled to avoid blurry effects for big scaling.<br />
-  <code>cacheProperties</code> Every time Object.set(key, value) is called, key is searched in this array of properties. If found it mark the object as needing a re render. StatefullCache set to true instead exentesively compare all the keys with a copy of the old values at each render. <br />
-  <code>dirty</code> is a simple flag that force a cache rerender at next render method, and is set to false automatically after cache regeneration.
-  <code>fabric.perfLimitSizeTotal</code> Max size in pixel area of generated cache canvases.<br />
-  <code>fabric.maxCacheSideLimit</code> Max size in pixel of the largest side of the cache canvas. ( numbers bigger than 5000 breaks IE )<br />
-  <code>fabric.minCacheSideLimit</code> Max size in pixel of the minimal side of the cache canvas. ( numbers smaller than 256 can disable gpu compositing. to be verified )<br />
+  <code>objectCaching</code>: is the main property, defaults to true for browsers, false for node. It enables objectCaching at object level.<br/>
+  <code>statefullCache</code>: This property rule if fabric should autocheck if it's time to redraw the cached copy or if the dev shoud manually invalidate it. this property defaults to false. More on this later.<br/>
+  <code>noScaleCache</code>: Defaults to true. Disables cache regeneration for scale operation. It can be enabled to avoid blurry effects for big scaling.<br/>
+  <code>cacheProperties</code>: Every time Object.set(key, value) is called, key is searched in this array of properties. If found, it marks the object as needing a rerender. StatefullCache set to true instead extensively compares all the keys with a copy of the old values at each render.<br/>
+  <code>dirty</code>: is a simple flag that forces a cache rerender at next render method, and is set to false automatically after cache regeneration.
+  <code>fabric.perfLimitSizeTotal</code>: Max size in pixel area of generated cache canvases.<br/>
+  <code>fabric.maxCacheSideLimit</code>: Max size in pixel of the largest side of the cache canvas. (numbers bigger than 5000 breaks IE)<br/>
+  <code>fabric.minCacheSideLimit</code>: Max size in pixel of the minimal side of the cache canvas. (numbers smaller than 256 can disable gpu compositing. To be verified)<br/>
 </p>
 
-<p>Example of a cache canvas that is bigger than the drawn object (256x256 is the minimum by default): </p><img class="show-borders" src="../article_assets/carMinCache.png" />
-<p>Example of the biggest size cache canvas at default values ( 2 Mega pixels ). Scroll to see something: </p><iframe class="show-borders" width=256 height=256 src="../article_assets/carMaxCache.png" ></iframe>
+<p>Example of a cache canvas that is bigger than the drawn object (256x256 is the minimum by default): </p><img class="show-borders" src="../article_assets/carMinCache.png"/>
+<p>Example of the biggest size cache canvas at default values (2 Mega pixels). Scroll to see something: </p><iframe class="show-borders" width=256 height=256 src="../article_assets/carMaxCache.png" ></iframe>
 
-<h3>How much performance gain I get, are there any problems?</h3>
-<p>It depends on what your project looks like. Are you drawing just a bunch of circles, rects and simple plygons? Maybe you will not gain that much performance.<br />
-  Are you importing and displaying large and complex svgs? well you will move from possibly shuttering to smooth.
-  Is there any glich I should be aware of? Well you may not like the <code>noScaleCache</code> feature and that is why there is a flag to disable it.
+<h3>How much performance gain do i get? Are there any problems?</h3>
+<p>
+  It depends on what your project looks like. Are you drawing just a bunch of circles, rects and simple polygons? Maybe you will not gain that much performance.<br/>
+  Are you importing and displaying large and complex svgs? Well you will move from possibly shuttering to smooth.<br/>
+  Is there any glitch I should be aware of? Well you may not like the <code>noScaleCache</code> feature and that is why there is a flag to disable it.
 </p>
 <h3>What about compatibility problem with my current project? Should I update? Can I disable caching?</h3>
-<p>I would say yes, switch to 1.7.0, check if everything is fine. If not report any visual problem to issue tracker, you can still completly disable the feature everywhere doing:</p>
-<pre>fabric.Object.prototype.objectCaching = false;</pre> to ovveride the standard value and cache will be disabled for your project.
+<p>I would say yes, switch to 1.7.0, check if everything is fine. If not, report any visual problem to issue tracker. You can still completely disable the feature everywhere by doing:</p>
+<pre>fabric.Object.prototype.objectCaching = false;</pre> to override the standard value and cache will be disabled for your project.
 <h3>Live samples</h3>
-<p>Below you can see 2 fabric canvases. The left one is the default cached one, while the right one is drawn with cache disabled as it was on previous versions.<br />
+<p>Below you can see 2 fabric canvases. The left one is the default cached one, while the right one is drawn with cache disabled as it was on previous versions.<br/>
 The canvases are loaded with heavy pathgroups, the snowwhite, the heaviest I could find is in 3 copies and makes the render speed cripple down.
 Try to drag around one of the shapes on the left or right canvas and notice the speed difference.
 </p>
@@ -187,9 +185,9 @@ fabric.loadSVGFromURL('../assets/171.svg', function(objects, options) {
   canvas2.add(svg1);
 });
 </script>
-<p>Also spot differences in scaling between <code>noScaleCache</code> with values true or false.<br />In canvases below
-Left canvas is <code>false</code>, that mean that during the scaling tasnformation the obect is not regenerated.
-if you scale an object more than 3 times the original size you will notice blurring that then gets fixed with a new cached copy
+<p>Also spot differences in scaling between <code>noScaleCache</code> with values true or false.<br/>In canvases below
+Left canvas is <code>false</code>, which means that during the scaling transformation, the object is not regenerated.
+If you scale an object more than 3 times the original size, you will notice blurring that then gets fixed with a new cached copy
 as soon as you perform a mouse up. Try it by yourself:</p>
 <canvas id="normal2" width="450" height="400" ></canvas>
 <script type="text/javascript">
@@ -200,20 +198,16 @@ fabric.loadSVGFromURL('../assets/171.svg', function(objects, options) {
   canvas3.add(svg1);
 });
 </script>
-<h3>When does the cache gets updated with a new version?</h3>
-<p>Fabric has an hardcoded trigger to update cache during the built in functions where the developer has no an easy way to insert code.<br />
-Those situations are: <code>scaling</code>, <code>typing text</code>, <code>canvas global zoom</code>.<br />In all other cases is the developer
-that is changing some property of an object to detect trigger a change and so he will also set the object to dirty manipulating the <code>dirty</code> flag.
-Using the object method <code>set</code> will do this for you. So calling <code>object.set('fill', 'red')</code> require no other actions. If for some reason
-you are not using the set method ( for example in situation of text objects in wich setting some properties trigger expensive functions ) you will use the flag.<br />
-There is also a way to ask fabric to check at render time a change for properties. This is not expensive most of the time but I decided to leave it off because in crowded
-situations ( like spray brush or 1000+ svg paths ) it was expensive.<br />
-Groups and PathGroups are taken care of in this way:<br />
+<h3>When does the cache get updated with a new version?</h3>
+<p>Fabric has a hardcoded trigger to update cache during the built-in functions where the developer has no easy way to insert code.<br/>
+Those situations are: <code>scaling</code>, <code>typing text</code>, <code>canvas global zoom</code>.<br/> In all other cases is the developer that is changing some property of an object to detect trigger a change and so he will also set the object to dirty manipulating the <code>dirty</code> flag.
+Using the object method <code>set</code> will do this for you. So calling <code>object.set('fill', 'red')</code> requires no other actions. If for some reason you are not using the set method (for example in situation of text objects in which setting some properties trigger expensive functions), you should use the flag.<br/>
+There is also a way to ask fabric to check, at render time, a change for properties. This is not expensive most of the time, but I decided to leave it off because in crowded situations (like spray brush or 1000+ svg paths), it was expensive.<br/>
+Groups and PathGroups are taken care of in this way:<br/>
 When an object gets set a property, the property is checked, if it is in the <code>cacheProperties</code> array, the object and the group are set as dirty.
 If the property is in the <code>stateProperties</code> array, only the group is set as dirty.</p>
 <h3>How does fabric check for changes in custom subclasses with custom properties?</h3>
-<p>Custom subclassing is one of the fabric strongest features in my opinion and object caching has been built with that in mind.. So there is an array defined called <code>cacheProperties</code>
-that contains a list of properties that get checked at every render when the property <code>statefullCache</code> is set true. (defaults to false).</br>
+<p>Custom subclassing is one of the fabric's strongest features in my opinion and object caching has been built with that in mind... So there is an array defined, called <code>cacheProperties</code> that contains a list of properties that get checked at every render when the property <code>statefullCache</code> is set to true. (defaults to false).</br>
 The array looks like this:</p>
 <pre>
   cacheProperties: (
@@ -222,19 +216,18 @@ The array looks like this:</p>
   ).split(' '),
 </pre>
 <p>and gets more properties in different sublcasses, for example rect adds <code>rx</code> and <code>ry</code> and so on.
-The properties are checked recursively, that means that at every change detected a copy of the property is saved, and at next render
-is compared deeply. Normally properties that need deep checks are gradients, patterns, path array, strokeDash. If your application make no use of some properties at all you can remove them from the cacheProperties array and make the check faster,
-or you can add your custom properties that influence rendering to have them checked.</p>
+The properties are checked recursively, which means that at every change detected, a copy of the property is saved, and at next render,
+is compared deeply. Normally properties that need deep checks are gradients, patterns, path array and strokeDash. If your application makes no use of some properties at all, you can remove them from the cacheProperties array and make the check faster, or you can add your custom properties that influence rendering to have them checked.</p>
 <h3>Gotchas</h3>
-<p>Image is cut of of object bounding box: <strong>YES</strong>. There is an invisible canvas that keep a copy of the object. This canvas is sized with objects width/height.
-If width and height are not correct for the object we are trying to display, the image will be cut off. There is no other solution than disable the caching for the object or fix the problem.<br />
-Currently affected uses case:
+<p>Image is cut off of object bounding box: <strong>YES</strong>. There is an invisible canvas that keep a copy of the object. This canvas is sized with objects width/height.
+If width and height are not correct for the object we are trying to display, the image will be cut off. There is no other solution than disabling the caching for the object or fix the problem.<br/>
+Currently affected use cases:
 <pre>
-- (mainly solved since 1.7.7) sometimes things can look blurry
-- (mainly solved since 1.7.8) paths with wrongly parsed command sequence (very few)
-- (mainly solved since 1.7.3) Text using custom fonts with very big ascender/descender and of wich canvas is not able to measure extension.
-- Groups not initialized correctly ( created empty and not updated after using the .add method, please use addWithUpdate)
-- Scaling events that reset scale and modify width/height, disable <code>noScaleCache</code>, set it to false
+- (mainly solved since 1.7.7) Sometimes things can look blurry
+- (mainly solved since 1.7.8) Paths with wrongly parsed command sequence (very few)
+- (mainly solved since 1.7.3) Text using custom fonts with very big ascender/descender and of which canvas is not able to measure extension.
+- Groups not initialized correctly (created empty and not updated after using the <code>add</code> method, please use <code>addWithUpdate</code>)
+- Scaling events that reset scale and modify width/height, disable <code>noScaleCache</code>, set it to false.
 </pre>
 </p>
 </div>

@@ -33,7 +33,7 @@ That means that a top value of `3.454534413123` is saved as `3.45`, same for sca
 situation where precision matter.<br />
 To make an example, a very large image, can be scaled down to a small size using a scale of `0.0151`.<br />
 In this case a serialization would save it as `0.02` changing meaningully the scale.
-If you are facing such situations, in your project se the constant higher:
+If you are facing such situations, in your project set the constant higher:
 `fabric.Object.NUM_FRACTION_DIGITS = 8` to have 8 decimals on properties.<br />
 This affects SVG export too.
 </p>

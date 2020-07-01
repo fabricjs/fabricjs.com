@@ -149,8 +149,8 @@ fabric.Image.filters.Redify = fabric.util.createClass(fabric.Image.filters.BaseF
     'varying vec2 vTexCoord;\n' +
     'void main() {\n' +
       'vec4 color = texture2D(uTexture, vTexCoord);\n' +
-      'color.g = 0;\n' +
-      'color.b = 0;\n' +
+      'color.g = 0.0;\n' +
+      'color.b = 0.0;\n' +
       'gl_FragColor = color;\n' +
     '}',
 

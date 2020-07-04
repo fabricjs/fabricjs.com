@@ -12,7 +12,7 @@ title: Fabric.js. release highlights.
 <div class="container" style="margin:30px auto">
   <h2 id="introduction_object_caching">Fabric.js Object caching</h2>
   <h3>How does it works?</h3>
-  <p>When fabric object caching is active, the objects you paint on canvas are actually pre painted on another smaller offscren canvas,
+  <p>When fabric object caching is active, the objects you paint on canvas are actually pre painted on another smaller offscreen canvas,
   as big as the object pixel dimension itself. During the `render` method this pre painted canvas gets copied on the main canvas with a `drawImage` operation.</p>
   <p>That means that during <code>drag</code> <code>rotate</code> <code>skew</code> <code>scale</code> operations the object is not redrawn on canvas, but just its copied
   cached image gets drawn over the canvas.</p>
@@ -123,13 +123,13 @@ fabric.minCacheSideLimit = 256;
 <p>Example of the biggest size cache canvas at default values ( 2 Mega pixels ). Scroll to see something: </p><iframe class="show-borders" width=256 height=256 src="../article_assets/carMaxCache.png" ></iframe>
 
 <h3>How much performance gain I get, are there any problems?</h3>
-<p>It depends on what your project looks like. Are you drawing just a bunch of circles, rects and simple plygons? Maybe you will not gain that much performance.<br />
+<p>It depends on what your project looks like. Are you drawing just a bunch of circles, rects and simple polygons? Maybe you will not gain that much performance.<br />
   Are you importing and displaying large and complex svgs? well you will move from possibly shuttering to smooth.
   Is there any glich I should be aware of? Well you may not like the <code>noScaleCache</code> feature and that is why there is a flag to disable it.
 </p>
 <h3>What about compatibility problem with my current project? Should I update? Can I disable caching?</h3>
 <p>I would say yes, switch to 1.7.0, check if everything is fine. If not report any visual problem to issue tracker, you can still completly disable the feature everywhere doing:</p>
-<pre>fabric.Object.prototype.objectCaching = false;</pre> to ovveride the standard value and cache will be disabled for your project.
+<pre>fabric.Object.prototype.objectCaching = false;</pre> to override the standard value and cache will be disabled for your project.
 <h3>Live samples</h3>
 <p>Below you can see 2 fabric canvases. The left one is the default cached one, while the right one is drawn with cache disabled as it was on previous versions.<br />
 The canvases are loaded with heavy pathgroups, the snowwhite, the heaviest I could find is in 3 copies and makes the render speed cripple down.
@@ -188,7 +188,7 @@ fabric.loadSVGFromURL('../assets/171.svg', function(objects, options) {
 });
 </script>
 <p>Also spot differences in scaling between <code>noScaleCache</code> with values true or false.<br />In canvases below
-Left canvas is <code>false</code>, that mean that during the scaling tasnformation the obect is not regenerated.
+Left canvas is <code>false</code>, that means that during the scaling tasnformation the obect is not regenerated.
 if you scale an object more than 3 times the original size you will notice blurring that then gets fixed with a new cached copy
 as soon as you perform a mouse up. Try it by yourself:</p>
 <canvas id="normal2" width="450" height="400" ></canvas>
@@ -204,7 +204,7 @@ fabric.loadSVGFromURL('../assets/171.svg', function(objects, options) {
 <p>Fabric has an hardcoded trigger to update cache during the built in functions where the developer has no an easy way to insert code.<br />
 Those situations are: <code>scaling</code>, <code>typing text</code>, <code>canvas global zoom</code>.<br />In all other cases is the developer
 that is changing some property of an object to detect trigger a change and so he will also set the object to dirty manipulating the <code>dirty</code> flag.
-Using the object method <code>set</code> will do this for you. So calling <code>object.set('fill', 'red')</code> require no other actions. If for some reason
+Using the object method <code>set</code> will do this for you. So calling <code>object.set('fill', 'red')</code> require no other actions. If for some reasons
 you are not using the set method ( for example in situation of text objects in wich setting some properties trigger expensive functions ) you will use the flag.<br />
 There is also a way to ask fabric to check at render time a change for properties. This is not expensive most of the time but I decided to leave it off because in crowded
 situations ( like spray brush or 1000+ svg paths ) it was expensive.<br />

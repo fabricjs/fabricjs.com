@@ -32,8 +32,8 @@ Let's see how fabricJS controls are defined in the library itself, let's take fo
 
 ```js
 objectControls.mr = new fabric.Control({
-  name: 'mr',
-  position: { x: 0.5, y: 0 },
+  x: 0.5,
+  y: 0,
   cursorStyleHandler: scaleSkewStyleHandler,
   actionHandler: scalingXOrSkewingY,
   getActionName: scaleOrSkewActionName,
@@ -56,7 +56,11 @@ Controls are generally shared among instances, so setting a control to `.visible
 #### actioname and getActionName
 
 The property actionName gives the name of the action that the controll will likely execute.
-This is optional, FabricJS uses to identify what the user is doing for some extra optimizations. If you are writing a custom control and you want to know somewhere else in the code what is going on, you can use this string here.
+This is used to fire the event during the action, and also FabricJS uses to identify what the user is doing for some extra optimizations. If you are writing a custom control and you want to know somewhere else in the code what is going on, you can use this string here and listen to the resulting event.
+
+The old naming convention of events is still respected. So a scale action will still fire the event `scaling` and `object:scaling`. But will also fire an extra event `scale` or `scaleX` because that is the action name. So when creating your custom action handler ( if needed ) you can choose if explicitly fire an event with the name you want in your action handler or let fabric fire an event with the same name of the action name.
+
+Be careful of not namig actions with default fabricJS event you are using.
 
 You can also provide a custom getActionName if your control run multiple actions depending on some external state.
 
@@ -66,10 +70,11 @@ For example the old `mr` control can be used for 2 actions, `scale` or `skew` an
 
 Angle is not used from the standard fabricJS functions, is here as an option in case you need a control that has a direction, and you want to reuse your drawing function for different orientations, write it so that it can look up the control angle.
 
+Don't use it for something different, in future version we may decide to use it to rotate controls.
 
-#### position
+#### x and y
 
-position is used by the default positionHandler, that is good for most of the controls placed on the object bounding box. The value of `x` and `y` represent the size of the bounding box, including padding.
+X and y represent the position that is used by the default positionHandler. The default position handler is good enough for most of the controls placed on the object bounding box. The value of `x` and `y` represent the size of the bounding box, including padding.
 
 Those values range from -0.5 to 0.5 for the full bounding box, but can extend further if you need to postion them far away. `{x: 0.5, y: 0}` will align the control in the vertical center, on the right side of the bounding box.
 
@@ -77,7 +82,7 @@ Those values range from -0.5 to 0.5 for the full bounding box, but can extend fu
 
 offsetX and offsetY let you offset the control position in screen pixels.
 A typical example is the standard rotation control, that is offseted from the bounding box by about 30px.
-Offsets are in place of the `rotatingPointOffset` of fabric 3.x and can now be applied to all controls.
+Offsets are in place of the `rotatingPointOffset` of fabric 3.x and can now be applied to all controls. `rotatingPointOffset` is gone.
 
 #### withConnection
 

@@ -141,3 +141,8 @@ This function handles the side controls of the textbox, but can be also used on 
 Another easy extension is to make it change the rx,ry of an ellipse or the radius of a circle.
 
 Moving into scaling and skewing the calculations are way more complex.
+Please note that while the api provide full freedom, writing actions for controls is not easy.
+When geometry comes into play knowing fabricJS internals is very important.
+The actual actions serve as an example but the code is way more complicated of how it could be since it has to support: `scalingFlip`, `lockScaling`, `centerTransfrom`, `freeformScaling` and other fabricJS properties.
+
+If you think a portion of the code is reusable for your own action ( like it is `wrapWithFixedAnchor`) open an issue asking it to be separate and put it in its own function.

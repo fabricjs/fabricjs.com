@@ -24,7 +24,7 @@ The inputs on the small one will generate events to manipulate the zoom on the b
   class="codepen-later"
   data-editable="true"
   data-height="500"
-  data-default-tab="js,result"
+  data-default-tab="result"
   data-prefill='{
     "scripts": ["https://unpkg.com/fabric@4.0.0-rc.1/dist/fabric.js", "https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.15/lodash.js"]
   }'

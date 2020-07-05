@@ -33,7 +33,7 @@ We build a function following the mouseUpHandler signature and we use there `can
   class="codepen-later"
   data-editable="true"
   data-height="500"
-  data-default-tab="js,result"
+  data-default-tab="result"
   data-prefill='{
     "scripts": "https://unpkg.com/fabric@4.0.0-rc.1/dist/fabric.js"
   }'
@@ -122,7 +122,7 @@ For the clone functionality we will simply do
   class="codepen-later"
   data-editable="true"
   data-height="500"
-  data-default-tab="js,result"
+  data-default-tab="result"
   data-prefill='{
     "scripts": "https://unpkg.com/fabric@4.0.0-beta.11/dist/fabric.js"
   }'

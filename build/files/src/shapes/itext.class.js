@@ -114,11 +114,14 @@
     cursorWidth: 2,
 
     /**
-     * Color of default cursor (when not overwritten by character style)
+     * Color of text cursor color in editing mode.
+     * if not set (default) will take color from the text.
+     * if set to a color value that fabric can understand, it will
+     * be used instead of the color of the text at the current position.
      * @type String
      * @default
      */
-    cursorColor: '#333',
+    cursorColor: '',
 
     /**
      * Delay between cursor blink (in ms)
@@ -268,11 +271,9 @@
       ctx.save();
       ctx.transform(v[0], v[1], v[2], v[3], v[4], v[5]);
       this.transform(ctx);
-      this.transformMatrix && ctx.transform.apply(ctx, this.transformMatrix);
       this._clearTextArea(ctx);
       skipRestore || ctx.restore();
     },
-
     /**
      * Renders cursor or selection (depending on what exists)
      * it does on the contextTop. If contextTop is not available, do nothing.
@@ -381,7 +382,7 @@
         this.renderSelection(boundaries, ctx);
       }
 
-      ctx.fillStyle = this.getValueOfPropertyAt(lineIndex, charIndex, 'fill');
+      ctx.fillStyle = this.cursorColor || this.getValueOfPropertyAt(lineIndex, charIndex, 'fill');
       ctx.globalAlpha = this.__isMousedown ? 1 : this._currentCursorOpacity;
       ctx.fillRect(
         boundaries.left + boundaries.leftOffset - cursorWidth / 2,
@@ -458,6 +459,7 @@
      * High level function to know the height of the cursor.
      * the currentChar is the one that precedes the cursor
      * Returns fontSize of char at the current cursor
+     * Unused from the library, is for the end user
      * @return {Number} Character font size
      */
     getCurrentCharFontSize: function() {
@@ -469,6 +471,7 @@
      * High level function to know the color of the cursor.
      * the currentChar is the one that precedes the cursor
      * Returns color (fill) of char at the current cursor
+     * Unused from the library, is for the end user
      * @return {String} Character color (fill)
      */
     getCurrentCharColor: function() {

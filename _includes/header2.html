@@ -25,7 +25,6 @@
   if (document.location.hostname === 'localhost') {
     var links = document.getElementById('header').getElementsByTagName('a');
     for (var i = 0, len = links.length; i < len; i++) {
-      // very retarted fix but fuck it
       links[i].href = links[i].href.replace('fabricjs.com', 'localhost:4000');
     }
   }

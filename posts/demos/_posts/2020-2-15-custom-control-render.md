@@ -3,14 +3,14 @@ layout: demoV4
 title: Custom controls, render and actions
 codepen: true
 ---
-This demo show how to start using the custom controls api.
-This first example show how to write a custom render method for your control and how to define a custom action to run on the control mouseup.
+This demo shows how to start using the custom controls api.
+The first example shows how to write a custom render method for your control and how to define a custom action to run on the control mouseup.
 The new api offers the ability to run custom actions on:
 - mousedown
 - mouseup
 - mousemove
 
-And to run custom code for
+And to run custom code for:
 - positioning
 - rendering
 - cursor style
@@ -19,7 +19,7 @@ And to run custom code for
 
 We create a new control and we add it to the object.
 To create a control we use `new fabric.Control(options)`
-In this case we want the corner to be near the top right classic control, so we give it a position of x of 0.5 that is the extreme right of the bounding box of the object.
+In this case we want the corner to be near the top right classic control, so we give it a position of x of 0.5 which is the extreme right of the bounding box of the object.
 Same for y at -0.5. We do not want it to overlap with the current top right corner, so we add an `offsetY` with a positive number that will make it render a bit more down.
 
 We want our control to render an icon rather than a fabric supported circle or square.

@@ -1,6 +1,6 @@
 /*! Fabric.js Copyright 2008-2015, Printio (Juriy Zaytsev, Maxim Chernyak) */
 
-var fabric = fabric || { version: '4.0.0-rc.1' };
+var fabric = fabric || { version: '3.6.4' };
 if (typeof exports !== 'undefined') {
   exports.fabric = fabric;
 }
@@ -64,7 +64,7 @@ fabric.SHARED_ATTRIBUTES = [
   'stroke-linejoin', 'stroke-miterlimit',
   'stroke-opacity', 'stroke-width',
   'id', 'paint-order', 'vector-effect',
-  'instantiated_by_use', 'clip-path',
+  'instantiated_by_use', 'clip-path'
 ];
 /* _FROM_SVG_END_ */
 

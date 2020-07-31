@@ -1,7 +1,6 @@
 (function () {
-  // since ie11 can use addEventListener but they do not support options, i need to check
-  var couldUseAttachEvent = !!fabric.document.createElement('div').attachEvent,
-      touchEvents = ['touchstart', 'touchmove', 'touchend'];
+  // since ie10 or ie9 can use addEventListener but they do not support options, i need to check
+  var couldUseAttachEvent = !!fabric.document.createElement('div').attachEvent;
   /**
    * Adds an event listener to an element
    * @function
@@ -42,9 +41,5 @@
       x: _evt.clientX + scroll.left,
       y: _evt.clientY + scroll.top
     };
-  };
-
-  fabric.util.isTouchEvent = function(event) {
-    return touchEvents.indexOf(event.type) > -1 || event.pointerType === 'touch';
   };
 })();

@@ -107,9 +107,9 @@
      * @param {Boolean} [skipCoordsChange] if true, coordinates of objects enclosed in a group do not change
      */
     _updateObjectsACoords: function() {
-      var skipControls = true;
+      var ignoreZoom = true, skipAbsolute = true;
       for (var i = this._objects.length; i--; ){
-        this._objects[i].setCoords(skipControls);
+        this._objects[i].setCoords(ignoreZoom, skipAbsolute);
       }
     },
 
@@ -132,14 +132,14 @@
     _updateObjectCoords: function(object, center) {
       var objectLeft = object.left,
           objectTop = object.top,
-          skipControls = true;
+          ignoreZoom = true, skipAbsolute = true;
 
       object.set({
         left: objectLeft - center.x,
         top: objectTop - center.y
       });
       object.group = this;
-      object.setCoords(skipControls);
+      object.setCoords(ignoreZoom, skipAbsolute);
     },
 
     /**
@@ -462,9 +462,9 @@
      * @chainable
      */
     setObjectsCoords: function() {
-      var skipControls = true;
+      var ignoreZoom = true, skipAbsolute = true;
       this.forEachObject(function(object) {
-        object.setCoords(skipControls);
+        object.setCoords(ignoreZoom, skipAbsolute);
       });
       return this;
     },
@@ -478,15 +478,16 @@
           o, prop,
           props = ['tr', 'br', 'bl', 'tl'],
           i = 0, iLen = this._objects.length,
-          j, jLen = props.length;
+          j, jLen = props.length,
+          ignoreZoom = true;
 
       for ( ; i < iLen; ++i) {
         o = this._objects[i];
-        o.aCoords = o.calcACoords();
+        o.setCoords(ignoreZoom);
         for (j = 0; j < jLen; j++) {
           prop = props[j];
-          aX.push(o.aCoords[prop].x);
-          aY.push(o.aCoords[prop].y);
+          aX.push(o.oCoords[prop].x);
+          aY.push(o.oCoords[prop].y);
         }
       }
 

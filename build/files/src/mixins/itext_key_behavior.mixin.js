@@ -80,12 +80,11 @@ fabric.util.object.extend(fabric.IText.prototype, /** @lends fabric.IText.protot
   },
 
   /**
-   * Handles keydown event
-   * only used for arrows and combination of modifier keys.
+   * Handles keyup event
    * @param {Event} e Event object
    */
   onKeyDown: function(e) {
-    if (!this.isEditing) {
+    if (!this.isEditing || this.inCompositionMode) {
       return;
     }
     if (e.keyCode in this.keysMap) {
@@ -101,7 +100,6 @@ fabric.util.object.extend(fabric.IText.prototype, /** @lends fabric.IText.protot
     e.preventDefault();
     if (e.keyCode >= 33 && e.keyCode <= 40) {
       // if i press an arrow key just update selection
-      this.inCompositionMode = false;
       this.clearContextTop();
       this.renderCursorOrSelection();
     }
@@ -182,14 +180,14 @@ fabric.util.object.extend(fabric.IText.prototype, /** @lends fabric.IText.protot
         removedText = this._text.slice(selectionStart, selectionStart - charDiff);
       }
     }
+    var copiedStyle;
     insertedText = nextText.slice(textareaSelection.selectionEnd - charDiff, textareaSelection.selectionEnd);
     if (removedText && removedText.length) {
       if (insertedText.length) {
         // let's copy some style before deleting.
         // we want to copy the style before the cursor OR the style at the cursor if selection
         // is bigger than 0.
-        copiedStyle = this.getSelectionStyles(selectionStart, selectionStart + 1, false);
-        console.log(copiedStyle)
+        copiedStyle = this.getSelectionStyles(selectionStart, selectionStart + 1, true);
         // now duplicate the style one for each inserted text.
         copiedStyle = insertedText.map(function() {
           // this return an array of references, but that is fine since we are

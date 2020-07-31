@@ -11,7 +11,6 @@
     props.forEach(function(prop) {
       tmpObj[prop] = origin[prop];
     });
-
     extend(origin[destination], tmpObj, deep);
   }
 
@@ -43,8 +42,7 @@
         key = keys[i];
         // since clipPath is in the statefull cache list and the clipPath objects
         // would be iterated as an object, this would lead to possible infinite recursion
-        // we do not want to compare those.
-        if (key === 'canvas' || key === 'group') {
+        if (key === 'canvas') {
           continue;
         }
         if (!_isEqual(origValue[key], currentValue[key])) {

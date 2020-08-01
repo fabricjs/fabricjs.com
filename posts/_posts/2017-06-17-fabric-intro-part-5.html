@@ -29,7 +29,6 @@ canvas.on('mouse:wheel', function(opt) {
 })
     </pre>
     <script type="text/javascript">
-    fabric.Object.prototype.selectable = false;
       var canvas = new fabric.Canvas('step1');
       canvas.add(new fabric.Rect({ width: 50, height: 50, fill: 'blue', angle: 10 }))
       canvas.add(new fabric.Circle({ radius: 50, fill: 'red', top: 44, left: 80 }))
@@ -76,6 +75,9 @@ canvas.on('mouse:move', function(opt) {
   }
 });
 canvas.on('mouse:up', function(opt) {
+  // on mouse up we want to recalculate new interaction
+  // for all objects, so we call setViewportTransform
+  this.setViewportTransform(this.viewportTransform);
   this.isDragging = false;
   this.selection = true;
 });
@@ -120,6 +122,7 @@ canvas.on('mouse:up', function(opt) {
         }
       });
       canvas.on('mouse:up', function(opt) {
+        this.setViewportTransform(this.viewportTransform);
         this.isDragging = false;
         this.selection = true;
       });
@@ -182,6 +185,7 @@ canvas.on('mouse:wheel', function(opt) {
         }
       });
       canvas.on('mouse:up', function(opt) {
+        this.setViewportTransform(this.viewportTransform);
         this.isDragging = false;
         this.selection = true;
       });
@@ -224,10 +228,11 @@ if (zoom < 400 / 1000) {
     <script type="text/javascript">
     (function(){
       var canvas = new fabric.Canvas('step4');
-      var bg = new fabric.Rect({ width: 990, height: 990, stroke: 'pink', strokeWidth: 10, fill: '' });
+      var bg = new fabric.Rect({ width: 990, height: 990, stroke: 'pink', strokeWidth: 10, fill: '', evented: false, selectable: false });
       bg.fill = new fabric.Pattern({ source: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAASElEQVQ4y2NkYGD4z0A6+M3AwMBKrGJWBgYGZiibEQ0zIInDaCaoelYyHYcX/GeitomjBo4aOGrgQBj4b7RwGFwGsjAwMDAAAD2/BjgezgsZAAAAAElFTkSuQmCC' },
        function() { bg.dirty = true; canvas.requestRenderAll() });
-      canvas.add(bg)
+       bg.canvas = canvas;
+      canvas.backgroundImage = bg;
       canvas.add(new fabric.Rect({ width: 50, height: 50, fill: 'blue', angle: 10 }))
       canvas.add(new fabric.Circle({ radius: 50, fill: 'red', top: 44, left: 80 }))
       canvas.add(new fabric.Ellipse({ rx: 50, ry: 10, fill: 'yellow', top: 80, left: 35 }))
@@ -297,6 +302,7 @@ if (zoom < 400 / 1000) {
         }
       });
       canvas.on('mouse:up', function(opt) {
+        this.setViewportTransform(this.viewportTransform);
         this.isDragging = false;
         this.selection = true;
       });

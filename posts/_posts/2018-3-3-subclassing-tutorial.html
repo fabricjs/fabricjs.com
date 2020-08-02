@@ -7,8 +7,9 @@ title: Subclassing tutorial FabricJS
 
 <div class="container" style="margin:30px auto">
   <h2 id="introduction_to_fabricjs">Subclassing Text class to make a bitmap text - unfinished</h2>
-  <p>This tutorial has been created for a stackoveflow question where a user needed to do a text object in fabricJS that works with bitmap instead of fonts.</p>
-  <h3>Starting</h3>
+  <p>This tutorial has been created for a stackoveflow question where a user needed to do a text object in fabricJS that works with bitmap instead of fonts.
+  The code example contains everything you need to know to start a subclass. Consider that subclassing is a sort of last resource when you can't obtain the
+  needed functionality with other apis ( events, custom controls ).
   <div style="display: inline-block;">
     <canvas id="c" width="350" height="400" />
   </div>
@@ -16,6 +17,7 @@ title: Subclassing tutorial FabricJS
 <script type="text/javascript">
 (function() {
   fabric.BitmapText = fabric.util.createClass(fabric.Textbox, {
+    // important! type has to be the same of the className, but with first letter lowercase.
     type: 'bitmapText',
     bitmap: '/article_assets/font.png',
     readyToRender: false,
@@ -28,6 +30,9 @@ title: Subclassing tutorial FabricJS
         acc[char] = index + 31;
         return acc;
       }, {}),
+
+    // initialize can only be of the kind function(options) or function(arg, options)
+    // no other signatures.
     initialize: function(text, options) {
       this.callSuper('initialize', text, options);
       var image = fabric.document.createElement('img');
@@ -49,7 +54,7 @@ title: Subclassing tutorial FabricJS
     _measureChar: function(_char, charStyle, previousChar, prevCharStyle) {
       return { width: 6, kernedWidth: 6 };
     },
-
+    // ovveride, just draw the bitmpa we have.
     _renderChar: function(method, ctx, lineIndex, charIndex, _char, left, top) {
       if (!this.readyToRender) return;
       var charMap = this.charMap, res = this.bitmapResource;
@@ -59,6 +64,12 @@ title: Subclassing tutorial FabricJS
       });
     },
   });
+
+  // in order for your subclass to work with loadFromJSON you have to define this Static
+  // methd `fromObject`.
+  fabric.BitmapText.fromObject = function(object, callback) {
+    return fabric.Object._fromObject('BitmapText', object, callback, 'text');
+  };
 
 
   var canvas = new fabric.Canvas('c');

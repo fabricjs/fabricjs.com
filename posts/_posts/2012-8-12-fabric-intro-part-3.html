@@ -493,7 +493,8 @@ redPoint.toString(); "15/33 (color: #f55)"
 var LabeledRect = fabric.util.createClass(fabric.Rect, {
 
   type: 'labeledRect',
-
+  // initialize can be of type function(options) or function(property, options), like for text.
+  // no other signatures allowed.
   initialize: function(options) {
     options || (options = { });
 
@@ -577,6 +578,23 @@ _render: function(ctx) {
   ctx.fillText(this.label, -this.width/2, -this.height/2 + 20);
 }
 ...
+</pre>
+
+<p>In order for this class to be cloned and saved/restore, you need to add a `fromObject` static method and on top of that, the subclass
+ to be added to the main fabricObject:</p>
+
+<pre>
+// standard options type:
+fabric.labeledRect.fromObject = function(object, callback) {
+  return fabric.Object._fromObject('LabeledRect', object, callback);
+}
+...
+// argument + options type:
+// in this example aProp is the property in the object that contains the value
+// that goes in someValue in `new fabric.MyClass(someValue, options)`
+fabric.labeledRect.fromObject = function(object, callback) {
+  return fabric.Object._fromObject('LabeledRect', object, callback, 'aProp');
+}
 </pre>
 
 <p>On this note, I'm wrapping up the 3rd installment of this series, in which we dived into some of the more advanced aspects of Fabric. With help of groups, classes and (de)serialization you can take your app to a whole new level.</p>

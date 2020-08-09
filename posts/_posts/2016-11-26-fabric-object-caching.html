@@ -201,7 +201,7 @@ fabric.loadSVGFromURL('../assets/171.svg', function(objects, options) {
 });
 </script>
 <h3>When does the cache gets updated with a new version?</h3>
-<p>Fabric has an hardcoded trigger to update cache during the built in functions where the developer has no an easy way to insert code.<br />
+<p>Fabric has an hardcoded trigger to update cache during the built in functions where the developer has no an easy way to insert codes.<br />
 Those situations are: <code>scaling</code>, <code>typing text</code>, <code>canvas global zoom</code>.<br />In all other cases is the developer
 that is changing some property of an object to detect trigger a change and so he will also set the object to dirty manipulating the <code>dirty</code> flag.
 Using the object method <code>set</code> will do this for you. So calling <code>object.set('fill', 'red')</code> require no other actions. If for some reasons

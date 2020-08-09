@@ -11,7 +11,7 @@ title: Fabric.js. release highlights.
 
 <div class="container" style="margin:30px auto">
   <h2 id="introduction_object_caching">Fabric.js Object caching</h2>
-  <h3>How does it works?</h3>
+  <h3>How does it work?</h3>
   <p>When fabric object caching is active, the objects you paint on canvas are actually pre painted on another smaller offscreen canvas,
   as big as the object pixel dimension itself. During the `render` method this pre painted canvas gets copied on the main canvas with a `drawImage` operation.</p>
   <p>That means that during <code>drag</code> <code>rotate</code> <code>skew</code> <code>scale</code> operations the object is not redrawn on canvas, but just its copied

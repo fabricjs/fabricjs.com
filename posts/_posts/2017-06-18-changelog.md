@@ -12,15 +12,80 @@ title: Fabric.js. release changelog.
 </style>
 
 ## Fabric.js release highlights
-  <p> Find general v2 changes <a href="changes-introduction">here</a></p>
-  <h3>Version 4.0.0</h3>
-  <p>Added a new api to handle controls customizations. Read more here <a href="/controls-api">controls api</a>
-  <h3>Version 3.6.3</h3>
+  <p>Find general upgrades notes here <a href="/upgrade-guide">here</a></p>
+### Version 4.1.0
+Added a `before:path:created` event, as a user request, in order to handle brushes objects before they get added to canvas.
+Generic Path change of logic. Now complex SVG paths get simplified in an absolute only command version. On top of that, A, S, T, V and H commands gets converted to C, Q and L. With this done, is simpler to connect custom controls to path properties, and also it made possible to add a path measure utility that we will need to implement the long requested text on a path feature.
+<pre>
+- feat(Brushes): add beforePathCreated event #6492;
+- feat(fabric.Path): Change the way path is parsed and drawn. simplify path at parsing time #6504;
+- feat(fabric.Path): Simplify S and T command in C and Q. #6507;
+- fix(fabric.Textbox): ISSUE-6518 Textbox and centering scaling #6524;
+- fix(fabric.Text): Ensure the shortcut text render the passed argument and not the entire line #6526;
+- feat(fabric.util): Add a function to work with path measurements #6525;
+- fix(fabric.Image): rendering pixel outside canvas size #6326;
+- fix(fabric.controlsUtils): stabilize scaleObject function #6540;
+- fix(fabric.Object): when in groups or active groups, fix the ability to shift deselect #6541;
+</pre>
+### Version 4.0.0</h3>
+Added a new api to handle controls customizations. Read more here [controls api](/controls-api)
+
+Several breaking changes. Read more here [V4 breaking changes](/v4-breaking-changes">)
+### Version 3.6.4 - 3.6.6
+Just backporting some generic fix from the 4.0 work.
+<pre>
+- fix(fabric.Image): fix safari drawing bug for using drawImage outside element boundaries #6326
+- fix(fabric.Itext): fix copy paste of text with style #6418
+- fix(fabric.Itext): carry over style of selected test when replacing by typing (cherry-pick) #6172
+</pre>
+### Version 3.6.3
+Mostly backporting work happened after 4 beta to version 3 branch
+<pre>
+- fix(Object): ISSUE 6196 use set('canvas') to restore canvas #6216
+- fix(fabric.IText): exitEditing won't error on missing hiddenTextarea. #6138
+- fix(fabric.Object): getObjectScaling takes in account rotation of objects inside groups. #6118
+- fix(fabric.Group): will draw shadow will call parent method. #6116
+- fix(svg_parsers): Add support for empty <style/> tags (#6169)
+- fix(SVG_export, text): Check font faces markup for objects within groups (#6195)
+- fix(svg_export): remove extra space from svg export (#6209)
+- fix(svg_import): ISSUE-6170 do not try to create missing clippath (#6210)
+- fix(fabric.Object) Adding existence check for this.canvas on object stacking mixins (#6207)
+</pre>
   <h3>Version 3.6.2</h3>
+<pre>
+- fix fabric.Object.toDataURL blurriness on images with odd pixel number [#6131](https://github.com/fabricjs/fabric.js/pull/6131)
+</pre>
   <h3>Version 3.6.1</h3>
+<pre>
+- fix(gradient, text): ISSUE-6014 ISSUE-6077 support percentage gradient in text [#6090](https://github.com/fabricjs/fabric.js/pull/6090)
+- fix(filters): ISSUE-6072 convolution filter is off by one [#6088](https://github.com/fabricjs/fabric.js/pull/6088)
+- fix(transform): Fix a bug in the skewing logic [#6082](https://github.com/fabricjs/fabric.js/pull/6088)
+</pre>
   <h3>Version 3.6.0</h3>
+<pre>
+- fix: ISSUE-5512 better Clippath transform parsing in SVG [#5983](https://github.com/fabricjs/fabric.js/pull/5983)
+- fix: ISSUE-5984 Avoid enter editing in non selectable object [#5989](https://github.com/fabricjs/fabric.js/pull/5989)
+- Tweak to object._setLineDash to avoid cycles when nothing in array [#6000](https://github.com/fabricjs/fabric.js/pull/6000)
+- fix: ISSUE-5867 Fix the extra new line selection with empty line [#6011](https://github.com/fabricjs/fabric.js/pull/6011)
+- Improvement: Use SVG Namespace for SVG Elements [#5957](https://github.com/fabricjs/fabric.js/pull/5957)
+- Improvement: ISSUE-4115 - triggers in/out events for sub targets [#6013](https://github.com/fabricjs/fabric.js/pull/6013)
+- Improvement: Upper canvas retina scaling [#5938](https://github.com/fabricjs/fabric.js/pull/5938)
+</pre>
   <h3>Version 3.5.1</h3>
+<pre>
+- Fix for textbox non defined in scaleObject [#5896](https://github.com/fabricjs/fabric.js/pull/5896)
+- Fix canvas pattern as background and exports [#5973](https://github.com/fabricjs/fabric.js/pull/5973)
+- Fix for type error if style is null when checking if is empty [#5971](https://github.com/fabricjs/fabric.js/pull/5971)
+- Fix for load from datalessJSON for svg groups with sourcePath [#5970](https://github.com/fabricjs/fabric.js/pull/5970)
+</pre>
   <h3>Version 3.5.0</h3>
+<pre>
+- Deprecation: deprecated 3 method of the api that will disappear in fabric 4: setPatternFill, setColor, setShadow.
+- Fix: remove line dash modification for strokeUniform [#5953](https://github.com/fabricjs/fabric.js/pull/5953)
+- Improvement: ISSUE-5955 parse svg clip-path recursively [#5960](https://github.com/fabricjs/fabric.js/pull/5960)
+- Fix: object.toCanvasElement of objects in groups [#5962](https://github.com/fabricjs/fabric.js/pull/5962)
+- change pencil brush finalize to be in line with other brushes [#5866](https://github.com/fabricjs/fabric.js/pull/5866)
+</pre>
   <h3>Version 3.4.0</h3>
   <p>Huge rewrite of gradient parsing! Now gradients have a property more called `gradientUnits` and allow to specify gradients with percetages.<br />
   A couple of deprecation for <code>Object.setGradient</code>. A new doc page explaining gradients from top to bottom coming soon.</p>

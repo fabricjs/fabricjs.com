@@ -105,7 +105,7 @@ function scaleSkewStyleHandler(eventData, corner, fabricObject) {
 }
 ```
 
-The function gets the mouse event data, so it can determin whether some hotkey is pressed, then run some specfic logics for one action or the other.
+The function gets the mouse event data, so it can determine whether some hotkey is pressed, then run some specfic logics for one action or the other.
 `skewCursorStyleHandler` or `scaleCursorStyleHandler` will then take care of the specific logic for one action or the other.
 All the style handling for the existing fabricJS functionalities are written and do serve as an example in case you need to write a different cursor logic.
 

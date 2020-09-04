@@ -10,7 +10,7 @@ There are a number of breaking changes to be aware of when upgrading your Fabric
 
 Fabric.js v4.x left beta in August of 2020, and with it came quite a few breaking changes that mostly involve the removal of old methods. Rejoice because most of the breaking changes are small and of simple solution.
 
-One big change is that the `clipTo` method which was depreciated in v2.4.0 was finally been removed, so if you're still using  `clipTo`  you will need to make the move to using  `clipPath`.
+One big change is that the `clipTo` method which was deprecated in v2.4.0 has finally been removed, so if you're still using  `clipTo`  you will need to make the move to using  `clipPath`.
 
 The biggest improvement in v4.x is a new custom control interface. With this system, you'll be able to customize the function of each control, add icons, and even create new controls for your objects. See the following demos for help with the new system.
 

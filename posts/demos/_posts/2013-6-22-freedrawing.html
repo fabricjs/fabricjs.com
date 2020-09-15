@@ -204,9 +204,13 @@ label {
     }
 
     if (canvas.freeDrawingBrush) {
-      canvas.freeDrawingBrush.color = drawingColorEl.value;
-      canvas.freeDrawingBrush.width = parseInt(drawingLineWidthEl.value, 10) || 1;
-      canvas.freeDrawingBrush.shadow = new fabric.Shadow({
+      var brush = canvas.freeDrawingBrush;
+      brush.color = drawingColorEl.value;
+      if (brush.getPatternSrc) {
+        brush.source = brush.getPatternSrc.call(brush);
+      }
+      brush.width = parseInt(drawingLineWidthEl.value, 10) || 1;
+      brush.shadow = new fabric.Shadow({
         blur: parseInt(drawingShadowWidth.value, 10) || 0,
         offsetX: 0,
         offsetY: 0,
@@ -217,7 +221,11 @@ label {
   };
 
   drawingColorEl.onchange = function() {
-    canvas.freeDrawingBrush.color = this.value;
+    var brush = canvas.freeDrawingBrush;
+    brush.color = this.value;
+    if (brush.getPatternSrc) {
+      brush.source = brush.getPatternSrc.call(brush);
+    }
   };
   drawingShadowColorEl.onchange = function() {
     canvas.freeDrawingBrush.shadow.color = this.value;
@@ -238,6 +246,7 @@ label {
 
   if (canvas.freeDrawingBrush) {
     canvas.freeDrawingBrush.color = drawingColorEl.value;
+    canvas.freeDrawingBrush.source = canvas.freeDrawingBrush.getPatternSrc.call(this);
     canvas.freeDrawingBrush.width = parseInt(drawingLineWidthEl.value, 10) || 1;
     canvas.freeDrawingBrush.shadow = new fabric.Shadow({
       blur: parseInt(drawingShadowWidth.value, 10) || 0,

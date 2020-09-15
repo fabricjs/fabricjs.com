@@ -105,11 +105,11 @@ function scaleSkewStyleHandler(eventData, corner, fabricObject) {
 }
 ```
 
-The function gets the mouse event data, so it can determin if some combiner key is pressed, and run the logic specific for one action or the other.
-`skewCursorStyleHandler` or `scaleCursorStyleHandler` will then take care of the specifi logic for one action or the other.
+The function gets the mouse event data, so it can determine whether some hotkey is pressed, then run some specfic logics for one action or the other.
+`skewCursorStyleHandler` or `scaleCursorStyleHandler` will then take care of the specific logic for one action or the other.
 All the style handling for the existing fabricJS functionalities are written and do serve as an example in case you need to write a different cursor logic.
 
-If your custom control shows always the same cursor, you can just keep the default handler and change control by control the property `cursorStyle`.
+If your custom control always shows the same cursor, you can just keep the default handler and change that control by setting the property `cursorStyle`.
 
 #### mouseUpHandler and mouseDownHandler
 

@@ -213,6 +213,7 @@ var text = new fabric.Text('Hello world', {
   angle: 15
 });
 canvas.add(text);
+canvas.renderAll();
 
 var stream = canvas.createPNGStream();
 stream.on('data', function(chunk) {

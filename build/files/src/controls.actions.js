@@ -12,6 +12,7 @@
         bottom: TOP,
         left: RIGHT,
         right: LEFT,
+        center: CENTER,
       }, radiansToDegrees = fabric.util.radiansToDegrees,
       sign = (Math.sign || function(x) { return ((x > 0) - (x < 0)) || +x; });
 
@@ -46,6 +47,15 @@
         uniformIsToggled = eventData[uniScaleKey];
     return (canvas.uniformScaling && !uniformIsToggled) ||
     (!canvas.uniformScaling && uniformIsToggled);
+  }
+
+  /**
+   * Checks if transform is centered
+   * @param {Object} transform transform data
+   * @return {Boolean} true if transform is centered
+   */
+  function isTransformCentered(transform) {
+    return transform.originX === CENTER && transform.originY === CENTER;
   }
 
   /**
@@ -218,11 +228,8 @@
     if (localPoint.y <= padding) {
       localPoint.y += padding;
     }
-    // we check if control exist, to handle usage of those functions with gestures.
-    if (control) {
-      localPoint.x -= control.offsetX;
-      localPoint.y -= control.offsetY;
-    }
+    localPoint.x -= control.offsetX;
+    localPoint.y -= control.offsetY;
     return localPoint;
   }
 
@@ -517,8 +524,13 @@
     }
     else {
       newPoint = getLocalPoint(transform, transform.originX, transform.originY, x, y);
-      signX = sign(newPoint.x);
-      signY = sign(newPoint.y);
+      // use of sign: We use sign to detect change of direction of an action. sign usually change when
+      // we cross the origin point with the mouse. So a scale flip for example. There is an issue when scaling
+      // by center and scaling using one middle control ( default: mr, mt, ml, mb), the mouse movement can easily
+      // cross many time the origin point and flip the object. so we need a way to filter out the noise.
+      // This ternary here should be ok to filter out X scaling when we want Y only and vice versa.
+      signX = by !== 'y' ? sign(newPoint.x) : 1;
+      signY = by !== 'x' ? sign(newPoint.y) : 1;
       if (!transform.signX) {
         transform.signX = signX;
       }
@@ -549,16 +561,16 @@
         scaleY = Math.abs(newPoint.y * target.scaleY / dim.y);
       }
       // if we are scaling by center, we need to double the scale
-      if (transform.originX === CENTER && transform.originY === CENTER) {
+      if (isTransformCentered(transform)) {
         scaleX *= 2;
         scaleY *= 2;
       }
-      if (transform.signX !== signX) {
+      if (transform.signX !== signX && by !== 'y') {
         transform.originX = opposite[transform.originX];
         scaleX *= -1;
         transform.signX = signX;
       }
-      if (transform.signY !== signY) {
+      if (transform.signY !== signY && by !== 'x') {
         transform.originY = opposite[transform.originY];
         scaleY *= -1;
         transform.signY = signY;
@@ -591,8 +603,8 @@
    * @param {number} y current mouse y position, canvas normalized
    * @return {Boolean} true if some change happened
    */
-  function scaleObjectFromCorner(eventData, transform, x, y, options) {
-    return scaleObject(eventData, transform, x, y, options);
+  function scaleObjectFromCorner(eventData, transform, x, y) {
+    return scaleObject(eventData, transform, x, y);
   }
 
   /**
@@ -667,7 +679,8 @@
   function changeWidth(eventData, transform, x, y) {
     var target = transform.target, localPoint = getLocalPoint(transform, transform.originX, transform.originY, x, y),
         strokePadding = target.strokeWidth / (target.strokeUniform ? target.scaleX : 1),
-        newWidth = Math.abs(localPoint.x / target.scaleX) - strokePadding;
+        multiplier = isTransformCentered(transform) ? 2 : 1,
+        newWidth = Math.abs(localPoint.x * multiplier / target.scaleX) - strokePadding;
     target.set('width', Math.max(newWidth, 0));
     return true;
   }
@@ -689,7 +702,6 @@
   controls.fireEvent = fireEvent;
   controls.wrapWithFixedAnchor = wrapWithFixedAnchor;
   controls.getLocalPoint = getLocalPoint;
-  controls.scalingIsForbidden = scalingIsForbidden;
   fabric.controlsUtils = controls;
 
 })(typeof exports !== 'undefined' ? exports : this);

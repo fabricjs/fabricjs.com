@@ -181,17 +181,19 @@
   QUnit.test('toLive linearGradient', function(assert) {
     var canvas = new fabric.StaticCanvas(null, {enableRetinaScaling: false});
     var gradient = createLinearGradient();
+    var gradientHTML = canvas.contextContainer.createLinearGradient(0, 0, 1, 1);
     assert.ok(typeof gradient.toLive === 'function');
     var gradientCtx = gradient.toLive(canvas.contextContainer);
-    assert.equal(gradientCtx.toString(), '[object CanvasGradient]', 'is a gradient for canvas radial');
+    assert.equal(gradientCtx.toString(), gradientHTML.toString(), 'is a gradient for canvas radial');
   });
 
   QUnit.test('toLive radialGradient', function(assert) {
     var canvas = new fabric.StaticCanvas(null, {enableRetinaScaling: false });
     var gradient = createRadialGradient();
+    var gradientHTML = canvas.contextContainer.createRadialGradient(0, 0, 1, 1, 2, 2);
     assert.ok(typeof gradient.toLive === 'function');
     var gradientCtx = gradient.toLive(canvas.contextContainer);
-    assert.equal(gradientCtx.toString(), '[object CanvasGradient]', 'is a gradient for canvas radial');
+    assert.equal(gradientCtx.toString(), gradientHTML.toString(), 'is a gradient for canvas radial');
   });
 
   QUnit.test('fromElement linearGradient', function(assert) {
@@ -655,100 +657,6 @@
     assert.equal(gradient.colorStops[1].opacity, 0.9);
     assert.equal(gradient.colorStops[2].opacity, 1);
     assert.equal(gradient.colorStops[3].opacity, 1);
-  });
-
-  QUnit.test('forObject linearGradient', function(assert) {
-    assert.ok(typeof fabric.Gradient.forObject === 'function');
-
-    var object = new fabric.Object({ width: 50, height: 50 });
-
-    var gradient = fabric.Gradient.forObject(object, {
-      coords: {
-        x1: 10,
-        y1: 10,
-        x2: 20,
-        y2: 20,
-      },
-      colorStops: [
-        { offset: 0, color: 'red', opacity: 1 },
-        { offset: 0.5, color: 'green', opacity: 0},
-        { offset: 1, color: 'blue', opacity: 0.5 }
-      ]
-    });
-
-    assert.ok(gradient instanceof fabric.Gradient);
-
-    assert.equal(gradient.type, 'linear');
-
-    // TODO: need to double check these values
-
-    assert.equal(gradient.coords.x1, 10);
-    assert.equal(gradient.coords.y1, 10);
-
-    assert.equal(gradient.coords.x2, 20);
-    assert.equal(gradient.coords.y2, 20);
-
-    assert.equal(gradient.colorStops[0].offset, 0);
-    assert.equal(gradient.colorStops[1].offset, 0.5);
-    assert.equal(gradient.colorStops[2].offset, 1);
-
-    assert.equal(gradient.colorStops[0].color, 'red');
-    assert.equal(gradient.colorStops[1].color, 'green');
-    assert.equal(gradient.colorStops[2].color, 'blue');
-
-    assert.equal(gradient.colorStops[0].opacity, 1);
-    assert.equal(gradient.colorStops[1].opacity, 0);
-    assert.equal(gradient.colorStops[2].opacity, 0.5);
-  });
-
-  QUnit.test('forObject radialGradient', function(assert) {
-    assert.ok(typeof fabric.Gradient.forObject === 'function');
-
-    var object = new fabric.Object({ width: 50, height: 50 });
-
-    var gradient = fabric.Gradient.forObject(object, {
-      type: 'radial',
-      coords: {
-        x1: 10,
-        y1: 10,
-        x2: 20,
-        y2: 20,
-        r1: 0,
-        r2: 10
-      },
-      colorStops: [
-        { offset: 0, color: 'red', opacity: 1 },
-        { offset: 0.5, color: 'green', opacity: 0},
-        { offset: 1, color: 'blue', opacity: 0.5 }
-      ]
-    });
-
-    assert.ok(gradient instanceof fabric.Gradient);
-
-    assert.equal(gradient.type, 'radial');
-
-    // TODO: need to double check these values
-
-    assert.equal(gradient.coords.x1, 10);
-    assert.equal(gradient.coords.y1, 10);
-
-    assert.equal(gradient.coords.x2, 20);
-    assert.equal(gradient.coords.y2, 20);
-
-    assert.equal(gradient.coords.r1, 0);
-    assert.equal(gradient.coords.r2, 10);
-
-    assert.equal(gradient.colorStops[0].offset, 0);
-    assert.equal(gradient.colorStops[1].offset, 0.5);
-    assert.equal(gradient.colorStops[2].offset, 1);
-
-    assert.equal(gradient.colorStops[0].color, 'red');
-    assert.equal(gradient.colorStops[1].color, 'green');
-    assert.equal(gradient.colorStops[2].color, 'blue');
-
-    assert.equal(gradient.colorStops[0].opacity, 1);
-    assert.equal(gradient.colorStops[1].opacity, 0);
-    assert.equal(gradient.colorStops[2].opacity, 0.5);
   });
 
   QUnit.test('toSVG', function(assert) {

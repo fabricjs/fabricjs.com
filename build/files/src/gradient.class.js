@@ -317,34 +317,28 @@
     /**
      * Returns an instance of CanvasGradient
      * @param {CanvasRenderingContext2D} ctx Context to render on
-     * @param {fabric.Object} object the fabric.Object for which the gradient is
      * @return {CanvasGradient}
      */
-    toLive: function(ctx, object) {
-      var gradient, coords = fabric.util.object.clone(this.coords), i, len,
-          x1 = coords.x1, y1 = coords.y1, x2 = coords.x2, y2 = coords.y2,
-          stops = this.colorStops;
+    toLive: function(ctx) {
+      var gradient, coords = fabric.util.object.clone(this.coords), i, len;
 
       if (!this.type) {
         return;
       }
 
-      if (object instanceof fabric.Text && this.gradientUnits === 'percentage') {
-        x1 *= object.width;
-        y1 *= object.height;
-        x2 *= object.width;
-        y2 *= object.height;
-      }
       if (this.type === 'linear') {
-        gradient = ctx.createLinearGradient(x1, y1, x2, y2);
+        gradient = ctx.createLinearGradient(
+          coords.x1, coords.y1, coords.x2, coords.y2);
       }
       else if (this.type === 'radial') {
-        gradient = ctx.createRadialGradient(x1, y1, coords.r1, x2, y2, coords.r2);
+        gradient = ctx.createRadialGradient(
+          coords.x1, coords.y1, coords.r1, coords.x2, coords.y2, coords.r2);
       }
-      for (i = 0, len = stops.length; i < len; i++) {
-        var color = stops[i].color,
-            opacity = stops[i].opacity,
-            offset = stops[i].offset;
+
+      for (i = 0, len = this.colorStops.length; i < len; i++) {
+        var color = this.colorStops[i].color,
+            opacity = this.colorStops[i].opacity,
+            offset = this.colorStops[i].offset;
 
         if (typeof opacity !== 'undefined') {
           color = new fabric.Color(color).setAlpha(opacity).toRgba();
@@ -458,27 +452,8 @@
       });
 
       return gradient;
-    },
-    /* _FROM_SVG_END_ */
-
-    /**
-     * Returns {@link fabric.Gradient} instance from its object representation
-     * this function is uniquely used by Object.setGradient and is deprecated with it.
-     * @static
-     * @deprecated since 3.4.0
-     * @memberOf fabric.Gradient
-     * @param {Object} obj
-     * @param {Object} [options] Options object
-     */
-    forObject: function(obj, options) {
-      options || (options = { });
-      __convertPercentUnitsToValues(obj, options.coords, options.gradientUnits, {
-        // those values are to avoid errors. this function is uniquely used by
-        viewBoxWidth: 100,
-        viewBoxHeight: 100,
-      });
-      return new fabric.Gradient(options);
     }
+    /* _FROM_SVG_END_ */
   });
 
   /**

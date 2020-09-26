@@ -70,9 +70,9 @@
     obj.set({
       width: 10, height: 10, scaleX: 12, scaleY: 3, top: 10, left: 5, fill: '#f55',
     });
-    obj.setShadow({
+    obj.set('shadow', new fabric.Shadow({
       color: 'rgba(0,100,0,0.9)', blur: 5, offsetX: 8, offsetY: 8, nonScaling: true
-    });
+    }));
     canvas.add(obj);
     canvas.renderAll();
     callback(canvas.lowerCanvasEl);
@@ -309,6 +309,27 @@
     percentage: 0.09,
     width: 500,
     height: 500,
+  });
+
+  function imageSmoothing(fabricCanvas, callback) {
+    getFixture('greyfloral.png', false, function(img2) {
+      var fImg = new fabric.Image(img2, { imageSmoothing: false, scaleX: 10, scaleY: 10 });
+      var fImg2 = new fabric.Image(img2, { left: 400, scaleX: 10, scaleY: 10 });
+      fabricCanvas.add(fImg);
+      fabricCanvas.add(fImg2);
+      fabricCanvas.renderAll();
+      callback(fabricCanvas.lowerCanvasEl);
+    });
+  }
+
+  tests.push({
+    test: 'fabric.Image with imageSmoothing false',
+    code: imageSmoothing,
+    // use the same golden on purpose
+    golden: 'imageSoothingOnObject.png',
+    percentage: 0.09,
+    width: 800,
+    height: 400,
   });
 
   tests.forEach(visualTestLoop(QUnit));

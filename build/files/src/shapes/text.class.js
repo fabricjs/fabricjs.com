@@ -820,24 +820,6 @@
     /**
      * @private
      * @param {CanvasRenderingContext2D} ctx Context to render on
-     * @param {Object} filler fabric.Pattern or fabric.Gradient
-     * @return {Object} offset.offsetX offset for text rendering
-     * @return {Object} offset.offsetY offset for text rendering
-     */
-    _applyPatternGradientTransform: function(ctx, filler) {
-      if (!filler || !filler.toLive) {
-        return { offsetX: 0, offsetY: 0 };
-      }
-      var offsetX = -this.width / 2 + filler.offsetX || 0,
-          offsetY = -this.height / 2 + filler.offsetY || 0;
-
-      ctx.transform(1, 0, 0, 1, offsetX, offsetY);
-      return { offsetX: offsetX, offsetY: offsetY };
-    },
-
-    /**
-     * @private
-     * @param {CanvasRenderingContext2D} ctx Context to render on
      * @param {String} method Method name ("fillText" or "strokeText")
      */
     _renderTextCommon: function(ctx, method) {
@@ -896,13 +878,12 @@
 
     /**
      * @private
-     * @param {String} method
+     * @param {String} method fillText or strokeText.
      * @param {CanvasRenderingContext2D} ctx Context to render on
-     * @param {String} line Content of the line
+     * @param {Array} line Content of the line, splitted in an array by grapheme
      * @param {Number} left
      * @param {Number} top
      * @param {Number} lineIndex
-     * @param {Number} charOffset
      */
     _renderChars: function(method, ctx, line, left, top, lineIndex) {
       // set proper line offset
@@ -920,7 +901,7 @@
       top -= lineHeight * this._fontSizeFraction / this.lineHeight;
       if (shortCut) {
         // render all the line in one pass without checking
-        this._renderChar(method, ctx, lineIndex, 0, this.textLines[lineIndex], left, top, lineHeight);
+        this._renderChar(method, ctx, lineIndex, 0, line.join(''), left, top, lineHeight);
         ctx.restore();
         return;
       }

@@ -227,7 +227,7 @@
       });
       if (this.shadow) {
         this.shadow.affectStroke = true;
-        path.setShadow(this.shadow);
+        path.shadow = new fabric.Shadow(this.shadow);
       }
 
       return path;
@@ -279,6 +279,7 @@
 
       var path = this.createPath(pathData);
       this.canvas.clearContext(this.canvas.contextTop);
+      this.canvas.fire('before:path:created', { path: path });
       this.canvas.add(path);
       this.canvas.requestRenderAll();
       path.setCoords();

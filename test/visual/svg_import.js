@@ -14,13 +14,13 @@
   }
 
   function createTestFromSVG(svgName) {
+    if (!svgName) {
+      return null;
+    }
     var test = function(canvas, callback) {
       getAsset(svgName, function(err, string) {
         fabric.loadSVGFromString(string, function(objects, options) {
           // something is disabling objectCaching and i cannot find where it is.
-          objects.forEach(function(o) {
-            o.objectCaching = true;
-          });
           var group = fabric.util.groupSVGElements(objects, options);
           group.includeDefaultValues = false;
           canvas.includeDefaultValues = false;
@@ -82,7 +82,18 @@
     // 'clippath-8',
     'emoji-b',
     'gold-logo',
-    'svg_missing_clippath'
+    'svg_missing_clippath',
+    'image-rendering-attr',
+    'svg-missing-images',
+    // this svg below here is not correct. but we do not want additional regressions
+    'nested-svgs',
+    'arc1',
+    'arc2',
+    'arc3',
+    'cs',
+    'qt',
+    'generic-path',
+    '177'
   ].map(createTestFromSVG);
 
   tests.forEach(visualTestLoop(QUnit));

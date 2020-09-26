@@ -287,6 +287,20 @@
     assert.equal(cObj.oCoords.br.y, 350);
     assert.equal(cObj.oCoords.mtr.x, 300);
     assert.equal(cObj.oCoords.mtr.y, 210);
+
+    cObj.set('padding', 25);
+    cObj.setCoords();
+    // coords should still correspond to initial one, even after invoking `set`
+    assert.equal(cObj.oCoords.tl.x, 225, 'setCoords tl.x padding');
+    assert.equal(cObj.oCoords.tl.y, 225, 'setCoords tl.y padding');
+    assert.equal(cObj.oCoords.tr.x, 375, 'setCoords tr.x padding');
+    assert.equal(cObj.oCoords.tr.y, 225, 'setCoords tr.y padding');
+    assert.equal(cObj.oCoords.bl.x, 225, 'setCoords bl.x padding');
+    assert.equal(cObj.oCoords.bl.y, 375, 'setCoords bl.y padding');
+    assert.equal(cObj.oCoords.br.x, 375, 'setCoords br.x padding');
+    assert.equal(cObj.oCoords.br.y, 375, 'setCoords br.y padding');
+    assert.equal(cObj.oCoords.mtr.x, 300, 'setCoords mtr.x padding');
+    assert.equal(cObj.oCoords.mtr.y, 185, 'setCoords mtr.y padding');
   });
 
   QUnit.test('setCoords and aCoords', function(assert) {
@@ -296,16 +310,16 @@
     };
     cObj.setCoords();
 
-    assert.equal(cObj.oCoords.tl.x, 300, 'oCoords are modified by viewportTransform');
-    assert.equal(cObj.oCoords.tl.y, 300, 'oCoords are modified by viewportTransform');
-    assert.equal(cObj.oCoords.tr.x, 500, 'oCoords are modified by viewportTransform');
-    assert.equal(cObj.oCoords.tr.y, 300, 'oCoords are modified by viewportTransform');
-    assert.equal(cObj.oCoords.bl.x, 300, 'oCoords are modified by viewportTransform');
-    assert.equal(cObj.oCoords.bl.y, 500, 'oCoords are modified by viewportTransform');
-    assert.equal(cObj.oCoords.br.x, 500, 'oCoords are modified by viewportTransform');
-    assert.equal(cObj.oCoords.br.y, 500, 'oCoords are modified by viewportTransform');
-    assert.equal(cObj.oCoords.mtr.x, 400, 'oCoords are modified by viewportTransform');
-    assert.equal(cObj.oCoords.mtr.y, 260, 'oCoords are modified by viewportTransform');
+    assert.equal(cObj.oCoords.tl.x, 300, 'oCoords are modified by viewportTransform tl.x');
+    assert.equal(cObj.oCoords.tl.y, 300, 'oCoords are modified by viewportTransform tl.y');
+    assert.equal(cObj.oCoords.tr.x, 500, 'oCoords are modified by viewportTransform tr.x');
+    assert.equal(cObj.oCoords.tr.y, 300, 'oCoords are modified by viewportTransform tr.y');
+    assert.equal(cObj.oCoords.bl.x, 300, 'oCoords are modified by viewportTransform bl.x');
+    assert.equal(cObj.oCoords.bl.y, 500, 'oCoords are modified by viewportTransform bl.y');
+    assert.equal(cObj.oCoords.br.x, 500, 'oCoords are modified by viewportTransform br.x');
+    assert.equal(cObj.oCoords.br.y, 500, 'oCoords are modified by viewportTransform br.y');
+    assert.equal(cObj.oCoords.mtr.x, 400, 'oCoords are modified by viewportTransform mtr.x');
+    assert.equal(cObj.oCoords.mtr.y, 260, 'oCoords are modified by viewportTransform mtr.y');
 
     assert.equal(cObj.aCoords.tl.x, 150, 'aCoords do not interfere with viewportTransform');
     assert.equal(cObj.aCoords.tl.y, 150, 'aCoords do not interfere with viewportTransform');
@@ -882,16 +896,16 @@
     assert.equal(cObj.isPartiallyOnScreen(true), true, 'after zooming object is partially onScreen and offScreen');
   });
 
-  QUnit.test('_getTransformedDimensions', function(assert) {
-    var cObj = new fabric.Object({
-      left: 50, top: 50, width: 100, height: 100, strokeWidth: 2,
-      scaleX: 3, scaleY: 4, skewX: 45, skewY: 45,
-    });
-    var dim = cObj._getTransformedDimensions();
-    assert.equal(Math.round(dim.x), 918, 'width is 918');
-    assert.equal(dim.y, 816, 'height is 816');
-    var dim2 = cObj._getTransformedDimensions(0, 0);
-    assert.equal(dim2.x, 306, 'width without skew is 306');
-    assert.equal(dim2.y, 408, 'height without skew is 408');
+  QUnit.test('isPartiallyOnScreen with object inside and outside of canvas', function(assert) {
+    var cObj = new fabric.Object({ left: 5, top: 5, width: 100, height: 100, strokeWidth: 0});
+    cObj.canvas = new fabric.StaticCanvas(null, { width: 120, height: 120, enableRetinaScaling: false});
+    cObj.canvas.calcViewportBoundaries();
+    assert.equal(cObj.isPartiallyOnScreen(true), false,'object is completely onScreen');
+    cObj.left = -20;
+    cObj.top = -20;
+    cObj.scaleX = 2;
+    cObj.scaleY = 2;
+    cObj.setCoords();
+    assert.equal(cObj.isPartiallyOnScreen(true), true, 'object has all corners outside screen but contains canvas');
   });
 })();

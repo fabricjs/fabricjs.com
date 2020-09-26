@@ -13,7 +13,6 @@
       assert.ok(brush instanceof fabric.BaseBrush, 'should inherit from fabric.BaseBrush');
       assert.equal(brush.color, 'rgb(0, 0, 0)', 'default color is black');
       assert.equal(brush.width, 1, 'default width is 1');
-      assert.ok(typeof brush.setShadow === 'function', 'setShadow is a method');
     });
     QUnit.test('fabric pencil brush constructor', function(assert) {
       assert.ok(fabric.PencilBrush);
@@ -61,10 +60,14 @@
           assert.equal(brush._points.length, 6, 'concident points are discarded');
         });
         QUnit.test('fabric pencil brush multiple points not discarded', function(assert) {
-          var fired = false;
+          var fireBeforePathCreatedEvent = false;
+          var firePathCreatedEvent = false;
           var added = null;
+          canvas.on('before:path:created', function() {
+            fireBeforePathCreatedEvent = true;
+          });
           canvas.on('path:created', function(opt) {
-            fired = true;
+            firePathCreatedEvent = true;
             added = opt.path;
           });
           var brush = new fabric.PencilBrush(canvas);
@@ -77,7 +80,8 @@
           brush.onMouseMove(pointer2, { e: {} });
           brush.onMouseMove(pointer3, { e: {} });
           brush.onMouseUp({ e: {} });
-          assert.equal(fired, true, 'event is fired');
+          assert.equal(fireBeforePathCreatedEvent, true, 'before:path:created event is fired');
+          assert.equal(firePathCreatedEvent, true, 'path:created event is fired');
           assert.ok(added instanceof fabric.Path, 'a path is added');
           assert.ok(added.path.length, 6, 'path has 6 steps');
           canvas.off();

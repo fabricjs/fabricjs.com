@@ -102,7 +102,7 @@
             <pre class="prettyprint source linenums"><code>/* build: `node build.js modules=ALL exclude=gestures,accessors requirejs minifier=uglifyjs` */
 /*! Fabric.js Copyright 2008-2015, Printio (Juriy Zaytsev, Maxim Chernyak) */
 
-var fabric = fabric || { version: '4.1.0' };
+var fabric = fabric || { version: '4.2.0' };
 if (typeof exports !== 'undefined') {
   exports.fabric = fabric;
 }
@@ -6301,8 +6301,8 @@ fabric.ElementsParser = function(elements, callback, options, reviver, parsingOp
   function fireEvent(eventName, options) {
     var target = options.transform.target,
         canvas = target.canvas,
-        canasOptions = Object.assign({}, options, { target: target });
-    canvas &amp;&amp; canvas.fire('object:' + eventName, canasOptions);
+        canvasOptions = Object.assign({}, options, { target: target });
+    canvas &amp;&amp; canvas.fire('object:' + eventName, canvasOptions);
     target.fire(eventName, options);
   }
 
@@ -6410,7 +6410,7 @@ fabric.ElementsParser = function(elements, callback, options, reviver, parsingOp
   }
 
   /**
-   * Inspect event , control and fabricObject to return the correct action name
+   * Inspect event, control and fabricObject to return the correct action name
    * @param {Event} eventData the javascript event that is causing the scale
    * @param {fabric.Control} control the control that is interested in the action
    * @param {fabric.Object} fabricObject the fabric object that is interested in the action
@@ -6456,7 +6456,7 @@ fabric.ElementsParser = function(elements, callback, options, reviver, parsingOp
 
   /**
    * Wrap an action handler with saving/restoring object position on the transform.
-   * this is the code that permits to obects to keep their position while transforming.
+   * this is the code that permits to objects to keep their position while transforming.
    * @param {Function} actionHandler the function to wrap
    * @return {Function} a function with an action handler signature
    */
@@ -6513,14 +6513,14 @@ fabric.ElementsParser = function(elements, callback, options, reviver, parsingOp
   }
 
   /**
-   * Utility function to componsate the scale factor when skew is applied on both axes
+   * Utility function to compensate the scale factor when skew is applied on both axes
    * @private
    */
-  function compensateScaleForSkew(target, oppositeSkew, scaleToCompoensate, axis, reference) {
+  function compensateScaleForSkew(target, oppositeSkew, scaleToCompensate, axis, reference) {
     if (target[oppositeSkew] !== 0) {
       var newDim = target._getTransformedDimensions()[axis];
-      var newValue = reference / newDim * target[scaleToCompoensate];
-      target.set(scaleToCompoensate, newValue);
+      var newValue = reference / newDim * target[scaleToCompensate];
+      target.set(scaleToCompensate, newValue);
     }
   }
 
@@ -6765,7 +6765,7 @@ fabric.ElementsParser = function(elements, callback, options, reviver, parsingOp
   }
 
   /**
-   * Basic scaling logic, reused with differnt constrain for scaling X,Y, freely or equally.
+   * Basic scaling logic, reused with different constrain for scaling X,Y, freely or equally.
    * Needs to be wrapped with `wrapWithFixedAnchor` to be effective
    * @param {Event} eventData javascript event that is doing the transform
    * @param {Object} transform javascript object containing a series of information around the current transform
@@ -6950,9 +6950,14 @@ fabric.ElementsParser = function(elements, callback, options, reviver, parsingOp
     var target = transform.target, localPoint = getLocalPoint(transform, transform.originX, transform.originY, x, y),
         strokePadding = target.strokeWidth / (target.strokeUniform ? target.scaleX : 1),
         multiplier = isTransformCentered(transform) ? 2 : 1,
+        oldWidth = target.width, hasResized,
         newWidth = Math.abs(localPoint.x * multiplier / target.scaleX) - strokePadding;
     target.set('width', Math.max(newWidth, 0));
-    return true;
+    hasResized = oldWidth !== newWidth;
+    if (hasResized) {
+      fireEvent('resizing', commonEventInfo(eventData, transform, x, y));
+    }
+    return hasResized;
   }
 
   controls.scaleCursorStyleHandler = scaleCursorStyleHandler;
@@ -11142,7 +11147,11 @@ fabric.PatternBrush = fabric.util.createClass(fabric.PencilBrush, /** @lends fab
     targetFindTolerance:    0,
 
     /**
-     * When true, target detection is skipped when hovering over canvas. This can be used to improve performance.
+     * When true, target detection is skipped. Target detection will return always undefined.
+     * click selection won't work anymore, events will fire with no targets.
+     * if something is selected before setting it to true, it will be deselected at the first click.
+     * area selection will still work. check the `selection` property too.
+     * if you deactivate both, you should look into staticCanvas.
      * @type Boolean
      * @default
      */
@@ -30086,7 +30095,7 @@ fabric.util.object.extend(fabric.IText.prototype, /** @lends fabric.IText.protot
 
 
 </div>
-<footer><input id="toggle" type="checkbox" onclick="toggle(this.checked);"  /><label for="toggle" >Hide inherited properties and method from the page</label><br />Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a> on Sat Sep 26 2020 14:22:35 GMT+0200 (Central European Summer Time)
+<footer><input id="toggle" type="checkbox" onclick="toggle(this.checked);"  /><label for="toggle" >Hide inherited properties and method from the page</label><br />Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a> on Sat Sep 26 2020 18:12:07 GMT+0200 (Central European Summer Time)
 </footer>
 <script> prettyPrint(); </script>
 <script src="scripts/linenumber.js"> </script>

@@ -98,7 +98,7 @@
 
     
 
-    <h3>fabric 3.6.3</h3>
+    <h3>fabric 4.1.0</h3>
 
 
 
@@ -112,22 +112,29 @@
 
 
     <section>
-        <article><h3>Running this repo locally</h3><p>This repo uses <a href="http://jekyllrb.com/">Jekyll</a> to serve pages, which can be installed <a href="http://jekyllrb.com/docs/installation/#install-with-rubygems">here</a>.</p>
+        <article><h3>Running this repo locally</h3>
+<p>This repo uses <a href="http://jekyllrb.com/">Jekyll</a> to serve pages, which can be installed <a href="http://jekyllrb.com/docs/installation/#install-with-rubygems">here</a>.</p>
 <p>Once installed just run the command <code>jekyll serve</code> in your terminal in the root directory of this repo. In the output in your console from this command you will see <code>Server address: &lt;base_url&gt;</code>, visit this <code>base_url</code> in your browser and you will see the content on <code>fabricjs.com</code> with your local changes applied.</p>
-<h3>Not familiar with Fabric?</h3><p>Best place to start is by going through <strong><a href="/articles">4-part tutorial</a></strong></p>
-<h3>How to navigate the docs?</h3><p>Here's a hierarchy of Fabric's <strong>object model</strong>, to make it easier:</p>
-<h4>Main rendering surface</h4><ul>
+<h3>Not familiar with Fabric?</h3>
+<p>Best place to start is by going through <strong><a href="/articles">4-part tutorial</a></strong></p>
+<h3>How to navigate the docs?</h3>
+<p>Here's a hierarchy of Fabric's <strong>object model</strong>, to make it easier:</p>
+<h4>Main rendering surface</h4>
+<ul>
 <li><a href="/docs/fabric.Canvas.html">fabric.Canvas</a></li>
 <li><a href="/docs/fabric.StaticCanvas.html">fabric.StaticCanvas</a></li>
 </ul>
-<h4>Things to fill objects with</h4><ul>
+<h4>Things to fill objects with</h4>
+<ul>
 <li><a href="/docs/fabric.Color.html">fabric.Color</a></li>
 <li><a href="/docs/fabric.Gradient.html">fabric.Gradient</a></li>
 <li><a href="/docs/fabric.Pattern.html">fabric.Pattern</a></li>
 <li><a href="/docs/fabric.Shadow.html">fabric.Shadow</a></li>
 </ul>
-<h4>2D shapes inheriting from fabric.Object</h4><ul>
-<li><a href="/docs/fabric.Object.html">fabric.Object</a><ul>
+<h4>2D shapes inheriting from fabric.Object</h4>
+<ul>
+<li><a href="/docs/fabric.Object.html">fabric.Object</a>
+<ul>
 <li><a href="/docs/fabric.Line.html">fabric.Line</a></li>
 <li><a href="/docs/fabric.Circle.html">fabric.Circle</a></li>
 <li><a href="/docs/fabric.Triangle.html">fabric.Triangle</a></li>
@@ -136,12 +143,15 @@
 <li><a href="/docs/fabric.Polyline.html">fabric.Polyline</a></li>
 <li><a href="/docs/fabric.Polygon.html">fabric.Polygon</a></li>
 <li><a href="/docs/fabric.Group.html">fabric.Group</a></li>
-<li><a href="/docs/fabric.Text.html">fabric.Text</a><ul>
+<li><a href="/docs/fabric.Text.html">fabric.Text</a>
+<ul>
 <li><a href="/docs/fabric.IText.html">fabric.IText</a></li>
 </ul>
 </li>
-<li><a href="/docs/fabric.Image.html">fabric.Image</a><ul>
-<li><a href="/docs/fabric.Image.filters.html">fabric.Image.filters</a><ul>
+<li><a href="/docs/fabric.Image.html">fabric.Image</a>
+<ul>
+<li><a href="/docs/fabric.Image.filters.html">fabric.Image.filters</a>
+<ul>
 <li><a href="/docs/fabric.Image.filters.BaseFilter.html">BaseFilter</a></li>
 <li><a href="/docs/fabric.Image.filters.Brightness.html">Brightness</a></li>
 <li><a href="/docs/fabric.Image.filters.Convolute.html">Convolute</a></li>
@@ -159,26 +169,32 @@
 </li>
 </ul>
 </li>
-<li><a href="/docs/fabric.Path.html">fabric.Path</a><ul>
+<li><a href="/docs/fabric.Path.html">fabric.Path</a>
+<ul>
 <li><a href="/docs/fabric.PathGroup.html">fabric.PathGroup</a></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
-<h4>2D entities NOT inheriting from fabric.Object</h4><ul>
+<h4>2D entities NOT inheriting from fabric.Object</h4>
+<ul>
 <li><a href="/docs/fabric.Point.html">fabric.Point</a></li>
 <li><a href="/docs/fabric.Intersection.html">fabric.Intersection</a></li>
 </ul>
-<h4>Main fabric namespace</h4><ul>
-<li><a href="/docs/fabric.html">fabric</a><ul>
+<h4>Main fabric namespace</h4>
+<ul>
+<li><a href="/docs/fabric.html">fabric</a>
+<ul>
 <li><a href="/docs/fabric.Observable.html">fabric.Observable</a></li>
 <li><a href="/docs/fabric.Collection.html">fabric.Collection</a></li>
 </ul>
 </li>
 </ul>
-<h4>Fabric utilities and helpers</h4><ul>
-<li><a href="/docs/fabric.util.html">fabric.util</a><ul>
+<h4>Fabric utilities and helpers</h4>
+<ul>
+<li><a href="/docs/fabric.util.html">fabric.util</a>
+<ul>
 <li><a href="/docs/fabric.util.object.html">fabric.util.object</a></li>
 <li><a href="/docs/fabric.util.array.html">fabric.util.array</a></li>
 <li><a href="/docs/fabric.util.string.html">fabric.util.string</a></li>
@@ -186,8 +202,10 @@
 </ul>
 </li>
 </ul>
-<h4>Fabric freedrawing brushes</h4><ul>
-<li><a href="/docs/fabric.BaseBrush.html">fabric.BaseBrush</a><ul>
+<h4>Fabric freedrawing brushes</h4>
+<ul>
+<li><a href="/docs/fabric.BaseBrush.html">fabric.BaseBrush</a>
+<ul>
 <li><a href="/docs/fabric.PencilBrush.html">fabric.PencilBrush</a></li>
 <li><a href="/docs/fabric.CircleBrush.html">fabric.CircleBrush</a></li>
 <li><a href="/docs/fabric.SprayBrush.html">fabric.SprayBrush</a></li>
@@ -203,7 +221,7 @@
 
 
 </div>
-<footer><input id="toggle" type="checkbox" onclick="toggle(this.checked);"  /><label for="toggle" >Hide inherited properties and method from the page</label><br />Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sat Apr 25 2020 18:22:33 GMT+0200 (Central European Summer Time)
+<footer><input id="toggle" type="checkbox" onclick="toggle(this.checked);"  /><label for="toggle" >Hide inherited properties and method from the page</label><br />Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a> on Sat Sep 26 2020 14:22:35 GMT+0200 (Central European Summer Time)
 </footer>
 <script> prettyPrint(); </script>
 <script src="scripts/linenumber.js"> </script>

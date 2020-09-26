@@ -144,7 +144,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line324">line 324</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line321">line 321</a>
     </li></ul></dd>
     
 
@@ -188,6 +188,189 @@
 
     
         <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+
+    
+    <h4 class="name" id=".fire"><a href="#.fire" ><span class="type-signature">(static) </span>fire<span class="signature">(eventName, options<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Self}</span></a></h4>
+    
+
+
+<div class="description">
+    Fires event with an optional options object
+</div>
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>eventName</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">Event name to fire</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">Options object</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line302">line 302</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    thisArg
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Self</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
 
         
             
@@ -302,8 +485,6 @@ without arguments removes all handlers for all events
     
 
     
-        <dt class="important tag-deprecated">Deprecated:</dt><dd><ul class="dummy"><li>`stopObserving` deprecated since 0.8.34 (use `off` instead)</li></ul></dd>
-    
 
     
 
@@ -316,7 +497,7 @@ without arguments removes all handlers for all events
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line272">line 272</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line271">line 271</a>
     </li></ul></dd>
     
 
@@ -470,8 +651,6 @@ without arguments removes all handlers for all events
     
 
     
-        <dt class="important tag-deprecated">Deprecated:</dt><dd><ul class="dummy"><li>`observe` deprecated since 0.8.34 (use `on` instead)</li></ul></dd>
-    
 
     
 
@@ -527,191 +706,6 @@ without arguments removes all handlers for all events
 
 
         
-            
-
-
-    
-    <h4 class="name" id="trigger"><a href="#trigger" ><span class="type-signature"></span>trigger<span class="signature">(eventName, options<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Self}</span></a></h4>
-    
-
-
-<div class="description">
-    Fires event with an optional options object
-</div>
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-        <th>Attributes</th>
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>eventName</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last">Event name to fire</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>options</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last">Options object</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <dt class="important tag-deprecated">Deprecated:</dt><dd><ul class="dummy"><li>`fire` deprecated since 1.0.7 (use `trigger` instead)</li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line305">line 305</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    thisArg
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Self</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-        
     
 
     
@@ -725,7 +719,7 @@ without arguments removes all handlers for all events
 
 
 </div>
-<footer><input id="toggle" type="checkbox" onclick="toggle(this.checked);"  /><label for="toggle" >Hide inherited properties and method from the page</label><br />Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sat Apr 25 2020 18:22:34 GMT+0200 (Central European Summer Time)
+<footer><input id="toggle" type="checkbox" onclick="toggle(this.checked);"  /><label for="toggle" >Hide inherited properties and method from the page</label><br />Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a> on Sat Sep 26 2020 14:22:36 GMT+0200 (Central European Summer Time)
 </footer>
 <script> prettyPrint(); </script>
 <script src="scripts/linenumber.js"> </script>

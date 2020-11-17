@@ -21,7 +21,7 @@ title: Custom Fabric build
   }
 </style>
 
-<div class="version">Fabric version: <b>4.1.0</b></div>
+<div class="version">Fabric version: <b>4.2.0</b></div>
 <h1>FabricJS builder</h1>
 <div style="margin-top: 10px">
   <button id="select-all">Select all</button>
@@ -216,7 +216,7 @@ title: Custom Fabric build
         'src/mixins/shared_methods.mixin.js',
         'src/util/misc.js',
         ifSpecifiedInclude('accessors', 'src/util/named_accessors.mixin.js'),
-        ifSpecifiedInclude('path', 'src/util/path.js'),
+        'src/util/path.js',
         'src/util/lang_array.js',
         'src/util/lang_object.js',
         'src/util/lang_string.js',
@@ -230,7 +230,6 @@ title: Custom Fabric build
 
         ifSpecifiedInclude('animation', 'src/util/animate.js'),
         ifSpecifiedInclude('animation', 'src/util/animate_color.js'),
-
         ifSpecifiedInclude('easing', 'src/util/anim_ease.js'),
 
         ifSpecifiedInclude('parser', 'src/parser.js'),
@@ -276,20 +275,19 @@ title: Custom Fabric build
 
         ifSpecifiedInclude('animation', 'src/mixins/animation.mixin.js'),
 
-        ifSpecifiedInclude('line', 'src/shapes/line.class.js'),
-        ifSpecifiedInclude('circle', 'src/shapes/circle.class.js'),
-        ifSpecifiedInclude('triangle', 'src/shapes/triangle.class.js'),
-        ifSpecifiedInclude('ellipse', 'src/shapes/ellipse.class.js'),
-        ifSpecifiedInclude('rect', 'src/shapes/rect.class.js'),
-        ifSpecifiedInclude('polyline', 'src/shapes/polyline.class.js'),
-        ifSpecifiedInclude('polygon', 'src/shapes/polygon.class.js'),
-        ifSpecifiedInclude('path', 'src/shapes/path.class.js'),
+        'src/shapes/line.class.js',
+        'src/shapes/circle.class.js',
+        'src/shapes/triangle.class.js',
+        'src/shapes/ellipse.class.js',
+        'src/shapes/rect.class.js',
+        'src/shapes/polyline.class.js',
+        'src/shapes/polygon.class.js',
+        'src/shapes/path.class.js',
         'src/shapes/group.class.js',
         ifSpecifiedInclude('interaction', 'src/shapes/active_selection.class.js'),
-        ifSpecifiedInclude('image', 'src/shapes/image.class.js'),
+        'src/shapes/image.class.js',
 
         ifSpecifiedInclude('object_straightening', 'src/mixins/object_straightening.mixin.js'),
-
         ifSpecifiedInclude('image_filters', 'src/filters/webgl_backend.class.js'),
         ifSpecifiedInclude('image_filters', 'src/filters/2d_backend.class.js'),
         ifSpecifiedInclude('image_filters', 'src/filters/base_filter.class.js'),
@@ -321,10 +319,8 @@ title: Custom Fabric build
         ifSpecifiedInclude('itext', 'src/mixins/itext_key_behavior.mixin.js'),
         ifSpecifiedInclude('itext', 'src/mixins/itext.svg_export.js'),
 
-        ifSpecifiedInclude('itext', 'src/shapes/textbox.class.js'),
-        ifSpecifiedInclude('itext', 'src/mixins/textbox_behavior.mixin.js'),
-
-        // ifSpecifiedAMDInclude(amdLib)
+        ifSpecifiedInclude('textbox', 'src/shapes/textbox.class.js'),
+        ifSpecifiedInclude('interaction', 'src/mixins/default_controls.js'),
       ];
       return filesToInclude.filter(function(fname) { return fname !== ''; });
     }

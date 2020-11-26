@@ -1,0 +1,26 @@
+{
+  "name": "fabricjs.com",
+  "version": "1.0.0",
+  "description": "Documentation to be used in Dash",
+  "directories": {
+    "doc": "docs",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docset": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cksachdev/fabricjs.com.git"
+  },
+  "author": "Chetan Sachdev <cksachdev@gmail.com> (http://chetansachdev.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cksachdev/fabricjs.com/issues"
+  },
+  "homepage": "https://github.com/cksachdev/fabricjs.com#readme",
+  "devDependencies": {
+    "jsdoc-dash-template": "2.0.1"
+  }
+}

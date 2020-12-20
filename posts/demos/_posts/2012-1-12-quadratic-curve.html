@@ -14,7 +14,7 @@ title: Quadratic Curve
   canvas.on({
     'object:selected': onObjectSelected,
     'object:moving': onObjectMoving,
-    'before:selection:cleared': onBeforeSelectionCleared
+    'selection:cleared': onSelectionCleared
   });
 
   (function drawQuadratic() {
@@ -97,7 +97,7 @@ title: Quadratic Curve
     }
   }
 
-  function onBeforeSelectionCleared(e) {
+  function onSelectionCleared(e) {
     var activeObject = e.target;
     if (activeObject.name == "p0" || activeObject.name == "p2") {
       activeObject.line2.animate('opacity', '0', {

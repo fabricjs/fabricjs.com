@@ -15,8 +15,42 @@ title: Fabric.js. release changelog.
 Find general upgrades notes <a href="/upgrade-guide">here</a>
 
 ### Version 4.3.0
+New feature: Text on a path!
+This was a long time requested feature, with the name of curved text. We decided to go to path support, and leave developers figure out how to do a path that looks like a curve.
+This feature is still in BETA, meaning that it renders correctly, with most features of static text.
+It does not account for text editing or wrapping or multiline.
+(check pr [#6543](https://github.com/fabricjs/fabric.js/pull/6543))
+
+Another new feature of this release is the ability to specify control size per control rather than per obejct.
+fabric.Control.sizeX and fabric.Control.sizeY will take precedence on cornerSize.
+(check pr [#6562](https://github.com/fabricjs/fabric.js/pull/6562))
+
+A spacial thanks to those people for contributing in this release:
+[Steve Eberhardt](https://github.com/melchiar)
+[Jason Sturges](https://github.com/jasonsturges)
+[Claas Cassens](https://github.com/claas-c)
+[Victor Hagsand](https://github.com/virror)
+[gloriousjob](https://github.com/gloriousjob)
+[SlaneYang](https://github.com/proYang)
+
+<pre>
+- fix(fabric.Textbox): Do not let splitbygrapheme split text previously unwrapped [#6621](https://github.com/fabricjs/fabric.js/pull/6621)
+- feat(fabric.controlsUtils) Move drag to actions to control handlers [#6617](https://github.com/fabricjs/fabric.js/pull/6617)
+- feat(fabric.Control): Add custom control size per control. [#6562](https://github.com/fabricjs/fabric.js/pull/6562)
+- fix(svg_export): svg export in path with gradient and added tests [#6654](https://github.com/fabricjs/fabric.js/pull/6654)
+- fix(fabric.Text): improve compatibility with transformed gradients [#6669](https://github.com/fabricjs/fabric.js/pull/6669)
+- feat(fabric.Text): Add ability to put text on paths BETA [#6543](https://github.com/fabricjs/fabric.js/pull/6543)
+- fix(fabric.Canvas): rotation handle should take origin into account [#6686](https://github.com/fabricjs/fabric.js/pull/6686)
+- fix(fabric.Text): Text on path, fix non linear distance of chars over path  [#6671](https://github.com/fabricjs/fabric.js/pull/6671)
+</pre>
 
 ### Version 4.2.0
+Just minor fixes, mouseup event can again have a different target compared to mousedown, and the textbox controls correctly fire a resize event rather than a scaling one.
+<pre>
+- fix(fabric.utils): ISSUE-6566 Fix SVGs for special Arc lines [#6571](https://github.com/fabricjs/fabric.js/pull/6571)
+- fix(fabric.Canvas): Fix mouse up target when different from action start [#6591](https://github.com/fabricjs/fabric.js/pull/6591)
+- added: feat(fabric.controlsUtils): Fire resizing event for textbox width [#6545](https://github.com/fabricjs/fabric.js/pull/6545)
+</pre>
 
 ### Version 4.1.0
 Added a `before:path:created` event, as a user request, in order to handle brushes objects before they get added to canvas.

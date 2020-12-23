@@ -1,0 +1,33 @@
+{
+  "name": "fabricjs.com",
+  "version": "1.0.0",
+  "description": "Fabricjs website",
+  "main": "/",
+  "directories": {
+    "doc": "docs",
+    "lib": "lib",
+    "test": "test"
+  },
+  "dependencies": {
+    "jsdoc": "^3.6.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "build_docs": "jsdoc lib/fabric.js lib/package.json README.md  -c jsdoc.json",
+    "start": "jekyll serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fabricjs/fabricjs.com.git"
+  },
+  "keywords": [
+    "fabricjs",
+    "website"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fabricjs/fabricjs.com/issues"
+  },
+  "homepage": "https://github.com/fabricjs/fabricjs.com#readme"
+}

@@ -13,6 +13,11 @@ title: Fabric.js. release changelog.
 
 ## Fabric.js release highlights
 Find general upgrades notes <a href="/upgrade-guide">here</a>
+
+### Version 4.3.0
+
+### Version 4.2.0
+
 ### Version 4.1.0
 Added a `before:path:created` event, as a user request, in order to handle brushes objects before they get added to canvas.
 Generic Path change of logic. Now complex SVG paths are simplified into an absolute only command version. On top of that, A, S, T, V and H commands are converted to C, Q and L. With this done, it is simpler to connect custom controls to path properties, and also it made possible to add a path measure utility that we will need to implement the long requested text on a path feature.
@@ -226,7 +231,7 @@ Launched clipPath support, check tutorial for more info <a href="/clippath-part1
 Fixed a regression in spray brush created by the 2.3.5 group fix.
 Make the image class aware of natural dimensions of the image element if available and restored two fingers events that were broken since we improved the normal events.
 The issue of iText interaction fixed in 2.3.5 has been reopened with a less common interaction problem. We are working on automated interaction tests before fixing it.
-  
+
 <pre>
 - Fix: Make image.class aware of naturalWidth and naturalHeight. #5178
 - Fix: Make 2 finger events works again #5177
@@ -235,7 +240,7 @@ The issue of iText interaction fixed in 2.3.5 has been reopened with a less comm
 ### Version 2.3.5
 
 2 notable changes! From now canvas.getObjects() will return a copy of the array of objects. The documentation was never clear about what was given back. Not returning a copy was creating subtle strange bugs that often took hours to debug. Also resize filters and color filters should interact properly with each other now. On top of this minor improvements in svg import export.
-  
+
 <pre>
 - Change: make canvas.getObjects() always return a shallow copy of the array #5162
 - Fix: Improve fabric.Pattern.toSVG to look correct on offsets and no-repeat #5164
@@ -248,7 +253,7 @@ The issue of iText interaction fixed in 2.3.5 has been reopened with a less comm
 Lot of bug fixes and improvement by contributors. A big news: we have an automated visual tests suite that works across browser, node and travis.
 
 Notable changes:
-  
+
 <pre>
 - Fix: ToSVG was ignoring excludeFromExport for backgroundImage and OverlayImage. #5075
 - Fix: ToSVG for circle with start and end angles. #5085
@@ -265,7 +270,7 @@ Notable changes:
 ### Version 2.3.3
 
 Some well reported bugs got easily fixed. Generic fonts like serif, sans-serif, monospace works again. We were quoting the font name for all fonts in order to avoid problem with fonts starting with numbers or with spaces in the family name, but it looks like that you cannot do that for serif, sans-serif, fantasy, monospace and cursive. Those are sort of reserved name and must be used without quotes. Fabric was leaving trails of text selection if a fast zoom would happen when an itext had selected text or blinking cursor. While this is an edge case created by developers, the fix was fairly easy and so we fixed it. Also zero width characters were correctly measured but then wrongly retrieved from measuring cache. That whould mean that text would break and also that there was a performance hit ( very small ) since a 0 width joiner, spacer, non joiner was always measured and never returned from cache. All the fix have been handled in a single PR that you can check here: <br /> <a href="https://github.com/fabricjs/fabric.js/pull/5048" >#5048</a>
-  
+
 ### Version 2.3.2
 Lot of small IText fixes and a group caching bug removed.
 <pre>
@@ -280,7 +285,7 @@ Added new events and a performance improvement for pixel transparency on cached 
 - Add and improve more events for transformations and mouse interaction #4979
 - Improvement: whenever possible use cache for target transparency sampling #4955</pre>
 ### Version 2.2.4
-Just fixes to brushes, filters and events mostly coming from contributors. 
+Just fixes to brushes, filters and events mostly coming from contributors.
 A new method is added isPartiallyOnscreen for objects, helps you identify when the object is crossing your viewport boundaries and an important bug in statefull processing is fixed that was causing type errors when comparing an array with null or an object with null or a string
 <pre>
 - Fix getPointer on touch devices #4866
@@ -342,7 +347,7 @@ New events! now objects and canvas can fire <code>drop</code>, <code>dragover</c
 Refer to our events demo for an introduction, specific demo coming soon: <a href="/events" >Events demo</a>.
 Also an important fix for styled textboxes, and more to come, since some methods are marked as broken in the current JSDOC sources.
 Since it has been requested, the amd footer has been inserted in the standard fabricjs build, removing the need to have 2 files built every time.
-  
+
 <pre>
 -  Added: Drag and drop event binding #4421
 -  Fixed: isEmptyStyle implementation for TextBox #4762
@@ -351,7 +356,7 @@ Since it has been requested, the amd footer has been inserted in the standard fa
 
 This time is contributors time!
 <a href="https://github.com/boomyao">@boomayao</a> noticed that the pencilBrush was doing too much work and wrote a function to draw just the new segment, <a href="https://github.com/stefanhayden">@stefanhayden</a> fixed the clanStyle function for text styles, <a href="https://github.com/scriptspry">@scriptspry</a> fixed a weird interaction between onBeforeScaleRotate and canvasZoom, <a href="https://github.com/blucobalto">@blucobalto</a> reported the exact line and problem of a group subclass problem.
-  
+
 <pre>
 -  Fix: now sub target check can work with subclasses of fabric.Group #4753
 -  Improvement: PencilBrush is now compexity 1 instead of complexity N during draw #4743
@@ -361,11 +366,11 @@ This time is contributors time!
 ### Version 2.0.2
 
 Fix image toSVG export for images with cropping. Improved math around coordinates to avoid long decimals
-  
+
 ### Version 2.0.1
 
 Fix a bad mutation problem for filters in Image restore from JSON, also the interaction between retina and dataURL. Both bugfixes coming from contributors.
-  
+
 <pre>
 - fixed filter for blend image in WEBGL
 - fixed interactions between canvas toDataURL and multiplier + retina

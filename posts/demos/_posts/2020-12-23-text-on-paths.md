@@ -20,9 +20,6 @@ Then are using `path:created` to remove the path from the canvas.
   data-editable="true"
   data-height="500"
   data-default-tab="result"
-  data-prefill='{
-    "scripts": ["https://unpkg.com/fabric@4.3.0/dist/fabric.js"]
-  }'
 >
 <pre data-lang="css" data-options-autoprefixer="true">
   #canvas {

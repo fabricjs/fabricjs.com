@@ -1,4 +1,5 @@
 <script type="text/javascript">
+  var currentScript = 'https://unpkg.com/fabric@4.3.0/dist/fabric.js';
   function codepenLoaded() {
     function escapeHtml(unsafe) {
       return unsafe
@@ -11,6 +12,20 @@
     var preEl = document.querySelectorAll('[data-lang="html"]');
     [].forEach.call(preEl, function(el) {
       el.innerHTML = escapeHtml(el.innerHTML);
+    });
+    var addMainEl = document.querySelectorAll('.codepen-later');
+    [].forEach.call(addMainEl, function(el) {
+      var currentData = el.getAttribute('data-prefill');
+      if (currentData) {
+        currentData = JSON.parse(currentData);
+        if (!currentData.scripts) {
+          currentData.scripts = [];
+        }
+        currentData.scripts.push(currentScript);
+      } else {
+        currentData = { scripts: [currentScript] };
+      }
+      el.setAttribute('data-prefill', JSON.stringify(currentData));
     });
     window.__CPEmbed(".codepen-later");
   }

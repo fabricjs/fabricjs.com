@@ -441,8 +441,8 @@
 
   function getTangentCubicIterator(p1x, p1y, p2x, p2y, p3x, p3y, p4x, p4y) {
     return function (pct) {
-      var invT = 1 - pct;
-      var tangentX = (3 * invT * invT * (p2x - p1x)) + (6 * invT * pct * (p3x - p2x)) +
+      var invT = 1 - pct,
+          tangentX = (3 * invT * invT * (p2x - p1x)) + (6 * invT * pct * (p3x - p2x)) +
           (3 * pct * pct * (p4x - p3x)),
           tangentY = (3 * invT * invT * (p2y - p1y)) + (6 * invT * pct * (p3y - p2y)) +
           (3 * pct * pct * (p4y - p3y));
@@ -623,22 +623,17 @@
     return info;
   }
 
-  function getCurrentSegmentIndex(path, distance, infos) {
+  function getPointOnPath(path, distance, infos) {
+    if (!infos) {
+      infos = getPathSegmentsInfo(path);
+    }
     var i = 0;
     while ((distance - infos[i].length > 0) && i < (infos.length - 2)) {
       distance -= infos[i].length;
       i++;
     }
-    return i;
-  }
-
-  function getPointOnPath(path, distance, infos) {
-    if (!infos) {
-      infos = getPathSegmentsInfo(path);
-    }
     // var distance = infos[infos.length - 1] * perc;
-    var i = getCurrentSegmentIndex(path, distance, infos),
-        segInfo = infos[i], segPercent = distance / segInfo.length,
+    var segInfo = infos[i], segPercent = distance / segInfo.length,
         command = segInfo.command, segment = path[i], info;
 
     switch (command) {

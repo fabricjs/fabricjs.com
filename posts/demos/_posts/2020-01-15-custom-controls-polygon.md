@@ -58,9 +58,6 @@ fabricObject.setPositionByOrigin(absolutePoint, newX + 0.5, newY + 0.5);
   data-editable="true"
   data-height="600"
   data-default-tab="result"
-  data-prefill='{
-    "scripts": "https://unpkg.com/fabric@4.0.0-rc.1/dist/fabric.js"
-  }'
 >
 <pre data-lang="css" data-options-autoprefixer="true">
   .controls {

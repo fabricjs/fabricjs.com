@@ -34,9 +34,6 @@ We build a function following the mouseUpHandler signature and we use there `can
   data-editable="true"
   data-height="500"
   data-default-tab="result"
-  data-prefill='{
-    "scripts": "https://unpkg.com/fabric@4.0.0-rc.1/dist/fabric.js"
-  }'
 >
 <pre data-lang="css" data-options-autoprefixer="true">
   .controls {
@@ -123,9 +120,6 @@ For the clone functionality we will simply do
   data-editable="true"
   data-height="500"
   data-default-tab="result"
-  data-prefill='{
-    "scripts": "https://unpkg.com/fabric@4.0.0-beta.11/dist/fabric.js"
-  }'
 >
 <pre data-lang="css" data-options-autoprefixer="true">
   .controls {

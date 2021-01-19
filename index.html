@@ -268,7 +268,9 @@ title: Features
       btnEl.id = 'to-svg';
       canvas.getElement().parentNode.appendChild(btnEl);
       btnEl.onclick = function() {
-        alert(canvas.toSVG());
+        let svg = canvas.toSVG();
+        console.log(svg);
+        alert(svg)
       };
 
       // to json
@@ -277,7 +279,9 @@ title: Features
       btnEl.id = 'to-json';
       canvas.getElement().parentNode.appendChild(btnEl);
       btnEl.onclick = function() {
-        alert(JSON.stringify(canvas));
+        let json = canvas.toJSON();
+        console.log(json);
+        alert(JSON.stringify(json));
       };
 
       // group

@@ -14,6 +14,23 @@ title: Fabric.js. release changelog.
 ## Fabric.js release highlights
 Find general upgrades notes <a href="/upgrade-guide">here</a>
 
+### Version 4.3.1
+
+Improved feature: Text on a path now as better angles and better spread of chars over the curve.
+Also 3 bugs fixed and small improvements.
+
+A special thanks to those people for contributing in this release:
+[Raj](https://github.com/prog-rajkamal)
+[Kastriot Salihu](https://github.com/KastriotSalihu)
+
+<pre>
+- fix(fabric.Control) implement targetHasOneFlip using shorthand [#6823](https://github.com/fabricjs/fabric.js/pull/6823)
+- fix(fabric.Text) fix typo in cacheProperties preventing cache clear to work [#6775](https://github.com/fabricjs/fabric.js/pull/6775)
+- fix(fabric.Canvas): Update backgroundImage and overlayImage coordinates on zoom change [#6777](https://github.com/fabricjs/fabric.js/pull/6777)
+- fix(fabric.Object): add strokeuniform to object toObject output. [#6772](https://github.com/fabricjs/fabric.js/pull/6772)
+- fix(fabric.Text): Improve path's angle detection for text on a path [#6755](https://github.com/fabricjs/fabric.js/pull/6755)
+</pre>
+
 ### Version 4.3.0
 New feature: Text on a path!
 This was a long time requested feature, with the name of curved text. We decided to go to path support, and leave developers figure out how to do a path that looks like a curve.

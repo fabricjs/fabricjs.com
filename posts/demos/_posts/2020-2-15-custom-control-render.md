@@ -88,7 +88,8 @@ We build a function following the mouseUpHandler signature and we use there `can
 
   Add();
 
-  function deleteObject(eventData, target) {
+  function deleteObject(eventData, transform) {
+		var target = transform.target;
 		var canvas = target.canvas;
 		    canvas.remove(target);
         canvas.requestRenderAll();
@@ -202,13 +203,15 @@ For the clone functionality we will simply do
 
   Add();
 
-  function deleteObject(eventData, target) {
+  function deleteObject(eventData, transform) {
+                var target = transform.target;
 		var canvas = target.canvas;
 		    canvas.remove(target);
         canvas.requestRenderAll();
 	}
 
-  function cloneObject(eventData, target) {
+  function cloneObject(eventData, transform) {
+    var target = transform.target;
     var canvas = target.canvas;
     target.clone(function(cloned) {
       cloned.left += 10;

@@ -36,6 +36,18 @@ Object.set('stroke', new fabric.Gradient(otherOptions));
 // or
 Object.fill = new fabric.Gradient(otherOptions));
 Object.stroke = new fabric.Gradient(otherOptions));
+
+// the old setGradient function had a different option format.
+// as a recap, let's show the correct gradient options here:
+{
+  type: 'linear',
+  gradientUnits: 'pixels', // or 'percentage'
+  coords: { x1: 0, y1: 0, x2: 50, y2: 0 },
+  colorStops:[
+    { offset: 0, color: 'red' },
+    { offset: 1, color: 'green'}
+  ]
+}
 ```
 
 The options format is slightly different, but since the introduction of percentage values for gradients,

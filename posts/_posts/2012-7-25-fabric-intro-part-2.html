@@ -207,7 +207,7 @@ redish.toGrayscale().toHex(); // "A1A1A1"
 
 <p>An even more expressive way to work with colors is via gradients. Gradients allow us to blend one color into another, creating some stunning graphical effects.</p>
 
-<p>Fabric supports gradients via <code>setGradient</code> method, defined on all objects. Calling <code>setGradient('fill', { ... })</code> is just like setting "fill" value of an object, except that we fill object with gradient, rather than single color.</p>
+<p>Fabric supports gradients setting the fill or stroke property on all objects. In order to set a gradient to an object, first create the gradient and then assign it to fill or stroke.</p>
 
 <pre>
 var circle = new fabric.Circle({
@@ -216,39 +216,59 @@ var circle = new fabric.Circle({
   radius: 50
 });
 
-circle.setGradient('fill', {
-  x1: 0,
-  y1: 0,
-  x2: 0,
-  y2: circle.height,
-  colorStops: {
-    0: '#000',
-    1: '#fff'
-  }
-});
+var gradient = new fabric.Gradient({
+  type: 'linear',
+  gradientUnits: 'pixels', // or 'percentage'
+  coords: { x1: 0, y1: 0, x2: 0, y2: circle.height },
+  colorStops:[
+    { offset: 0, color: '#000' },
+    { offset: 1, color: '#fff'}
+  ]
+})
+
+circle.set('fill', gradient);
 </pre>
 
 <p><img src="/article_assets/2_15.png" style="border:1px solid #eee"></p>
 
-<p>In the above example, we create a circle at 100,100 location, with 50px radius. We then set its fill to a gradient that spans throughout entire height of that circle, from black to white.</p>
+<p>In the above example, we create a circle at 100,100 location, with 50px radius.
+  We then set its fill to a gradient that spans throughout entire height of that circle, from black to white.</p>
 
-<p>The argument passed to a method is an options object, which expects 2 coordinate pairs (x1, y1 and x2, y2), as well as "colorStops" object. Coordinates specify where gradient starts and where it ends. colorStops specify which colors a gradient is made of. You can define as many color stops as you want, as long as they range from 0 to 1 (e.g. 0, 0.1, 0.3, 0.5, 0.75, 1). 0 represents beginning of a gradient, 1 &mdash; its end.</p>
-
-<p>Coordinates are relative to object top left corner, so the highest point of the circle is <code>0</code>, and the lowest point is <code>circle.height</code>. <code>setGradient</code> calculates width coordinates (x1, x2) in the same way.
+<p>Gradient option object has 2 main properties, coords and colorStops. <code>coords</code> expect at least 2 coordinates
+ pairs (x1, y1 and x2, y2) that will define how the gradient extend on the object, while <code>colorStops</code> is an array
+ that defines the gradients colors. Each color in the array is defined by an <code>offset</code> that represents its position
+ on the gradient, a <code>color</code> that defines the color itself and eventually an <code>opacity</code> property.
+ You can define as many color stops as you want, as long as theyr offset range from `0` to `1`. `0` represents beginning of a gradient, `1` its end.
+ Coordinates are relative to object top left corner, so the highest point of the circle is <code>0</code>, and the lowest point is <code>circle.height</code>.
+<br />
+ You can specify type <code>linear</code> or <code>radial</code> to obtain 2 different kind of gradients, and also
+ <code>gradientUnits</code> defaults to pixels but can be specified as `percentage`. `percentage` will allow the gradient
+ size to be specified in percentage of object size, with `1` being 100% of object size.<br />
+ This setting is useful for <code>fabric.Text</code> objects that change the width or height depending on text content.
+</p>
 
 <p>Here's an example of left-to-right red-blue gradient:</p>
 
 <pre>
-circle.setGradient('fill', {
-  x1: 0,
-  y1: 0,
-  x2: circle.width,
-  y2: 0,
-  colorStops: {
-    0: "red",
-    1: "blue"
-  }
-});
+  var gradient = new fabric.Gradient({
+    type: 'linear',
+    gradientUnits: 'pixels', // or 'percentage'
+    coords: { x1: 0, y1: 0, x2: circle.width, y2: 0 },
+    colorStops:[
+      { offset: 0, color: 'red' },
+      { offset: 1, color: 'blue'}
+    ]
+  })
+ // or in percentage
+  var gradient = new fabric.Gradient({
+    type: 'linear',
+    gradientUnits: 'percentage',
+    coords: { x1: 0, y1: 0, x2: 1, y2: 0 },
+    colorStops:[
+      { offset: 0, color: 'red' },
+      { offset: 1, color: 'blue'}
+    ]
+  })
 </pre>
 
 <p><img src="/article_assets/2_16.png" style="border:1px solid #eee"></p>
@@ -256,25 +276,22 @@ circle.setGradient('fill', {
 <p>And here's a 5-stops rainbow gradient, with colors spanning at even 20% intervals:</p>
 
 <pre>
-circle.setGradient('fill', {
-  x1: 0,
-  y1: 0,
-  x2: circle.width,
-  y2: 0,
-  colorStops: {
-    0: "red",
-    0.2: "orange",
-    0.4: "yellow",
-    0.6: "green",
-    0.8: "blue",
-    1: "purple"
-  }
+var gradient = new fabric.Gradient({
+  type: 'linear',
+  gradientUnits: 'pixels', // or 'percentage'
+  coords: { x1: 0, y1: 0, x2: circle.width, y2: 0 },
+  colorStops:[
+    { offset: 0, color: 'red' },
+    { offset: 0.2, color: 'orange' },
+    { offset: 0.4, color: 'yellow' },
+    { offset: 0.6, color: 'green' },
+    { offset: 0.8, color: 'blue' },
+    { offset: 1, color: 'purple' }
+  ]
 });
 </pre>
 
 <p><img src="/article_assets/2_17.png" style="border:1px solid #eee"></p>
-
-<p>Which cool versions can you come up with?</p>
 
 <h3 id="text">Text</h3>
 

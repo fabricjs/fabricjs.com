@@ -164,6 +164,10 @@ canvas.add(new fabric.Circle({ radius: 30, fill: '#f55', top: 100, left: 100 }))
 canvas.setBackgroundImage('../assets/pug.jpg', canvas.renderAll.bind(canvas));
 </pre>
 
+<p>Is important to note that while the property is called `backgroundImage` it can host any fabric object type. You can set a
+ `fabric.Rect` to represent an artboard, or you can set a group of objects. Same goes for the below `overlayImage` or for the
+ `backgroundColor` that can host any filler, like gradients or patterns.</p>
+
 <p><img src="/article_assets/4_6.png" style="border:1px solid #eee"></p>
 
 <p>Finally, you can also set overlay image, in which case it will always appear on top of any objects rendered on canvas. Just use <code>setOverlayImage</code>, passing url and an optional completion callback.</p>

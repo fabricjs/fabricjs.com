@@ -83,4 +83,15 @@ title: Fabric.js. release 2.0.0 highlights.
   if we have some charspacing ( positive or negative ) that number get added to both width and kernedWith in
   the glyph bounding box.
 </p>
+<h4>text decoration</h4>
+<p>
+  Before <code>textDecoration</code> was a string containing a list of space separated values of `underline` `overline` and `strikethorugh`<br />
+  Each of this options now got a boolean and textDecoration property is gone.
+</p>
+<pre>
+  var myText = new fabric.Text('fabric 2.0', {
+    underline: true,
+    overline: true
+  });
+</pre>
 </div>

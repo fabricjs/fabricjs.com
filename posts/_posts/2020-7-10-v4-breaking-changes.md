@@ -10,6 +10,10 @@ If `uniformScaling` is true, objects get scaled proportionally, if uniscaleKey i
 
 `Object.lockUniScaling` has been removed. It was unclear how it should have been interacted with the old `Canvas.uniformScaling` and the `uniscaleKey`.
 
+`Object.hasRotatingPoint` has been removed. If you do not want an object to have the rotating control, set it to invisible or make a control set that does not have the control at all.
+
+`Object.rotatingPointOffset` has been removed. You can now tweak the `offsetY` property of the `mtr` control of the standard control set, or of any other control.
+
 The function `Canvas.onBeforeScaleRotate` has been removed. Please subscribe to `Canvas.on('before:transform')` and move your code in the callback.
 
 `Object.setShadow` and `BaseBrush.setShadow` have been removed. Please use:

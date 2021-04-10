@@ -235,7 +235,7 @@ Will be removed in fabric 5.0
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2394">line 2394</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2447">line 2447</a>
     </li></ul></dd>
     
 
@@ -293,7 +293,7 @@ Will be removed in fabric 5.0
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3109">line 3109</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3162">line 3162</a>
     </li></ul></dd>
     
 
@@ -355,7 +355,7 @@ Used by canvas and by ImageObject.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3214">line 3214</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3267">line 3267</a>
     </li></ul></dd>
     
 
@@ -497,7 +497,7 @@ Used by canvas and by ImageObject.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2995">line 2995</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3048">line 3048</a>
     </li></ul></dd>
     
 
@@ -661,7 +661,151 @@ Used by canvas and by ImageObject.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2814">line 2814</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2867">line 2867</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+
+    
+    <h4 class="name" id=".addTransformToObject"><a href="#.addTransformToObject" ><span class="type-signature">(static) </span>addTransformToObject<span class="signature">(object, transform)</span><span class="type-signature"></span></a></h4>
+    
+
+
+<div class="description">
+    given an object and a transform, apply the transform to the object.
+this is equivalent to change the space where the object is drawn.
+Adding to an object a transform that scale by 2 is like scaling it by 2.
+This is used when removing an object from an active selection for example.
+</div>
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>object</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="fabric.Object.html">fabric.Object</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the object you want to transform</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>transform</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the destination transform</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1591">line 1591</a>
     </li></ul></dd>
     
 
@@ -1125,7 +1269,7 @@ Used by canvas and by ImageObject.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3320">line 3320</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3373">line 3373</a>
     </li></ul></dd>
     
 
@@ -1510,7 +1654,148 @@ Used by canvas and by ImageObject.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3422">line 3422</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3475">line 3475</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+
+    
+    <h4 class="name" id=".applyTransformToObject"><a href="#.applyTransformToObject" ><span class="type-signature">(static) </span>applyTransformToObject<span class="signature">(object, transform)</span><span class="type-signature"></span></a></h4>
+    
+
+
+<div class="description">
+    discard an object transform state and apply the one from the matrix.
+</div>
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>object</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="fabric.Object.html">fabric.Object</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the object you want to transform</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>transform</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the destination transform</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1604">line 1604</a>
     </li></ul></dd>
     
 
@@ -3218,7 +3503,7 @@ transformations from an object that is not enlived yet
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2768">line 2768</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2821">line 2821</a>
     </li></ul></dd>
     
 
@@ -4853,7 +5138,7 @@ respect the total allowed area for the cache.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2936">line 2936</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2989">line 2989</a>
     </li></ul></dd>
     
 
@@ -4992,7 +5277,7 @@ respect the total allowed area for the cache.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3068">line 3068</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3121">line 3121</a>
     </li></ul></dd>
     
 
@@ -5458,7 +5743,7 @@ respect the total allowed area for the cache.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3026">line 3026</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3079">line 3079</a>
     </li></ul></dd>
     
 
@@ -7077,7 +7362,7 @@ respect the total allowed area for the cache.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2973">line 2973</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3026">line 3026</a>
     </li></ul></dd>
     
 
@@ -7217,7 +7502,7 @@ respect the total allowed area for the cache.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3163">line 3163</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3216">line 3216</a>
     </li></ul></dd>
     
 
@@ -7357,7 +7642,7 @@ respect the total allowed area for the cache.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3144">line 3144</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3197">line 3197</a>
     </li></ul></dd>
     
 
@@ -8802,7 +9087,154 @@ Presence of value (and its position in an array) is determined via `Array.protot
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2826">line 2826</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2879">line 2879</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+
+    
+    <h4 class="name" id=".removeTransformFromObject"><a href="#.removeTransformFromObject" ><span class="type-signature">(static) </span>removeTransformFromObject<span class="signature">(object, transform)</span><span class="type-signature"></span></a></h4>
+    
+
+
+<div class="description">
+    given an object and a transform, apply the inverse transform to the object,
+this is equivalent to remove from that object that transformation, so that
+added in a space with the removed transform, the object will be the same as before.
+Removing from an object a transform that scale by 2 is like scaling it by 1/2.
+Removing from an object a transfrom that rotate by 30deg is like rotating by 30deg
+in the opposite direction.
+This util is used to add objects inside transformed groups or nested groups.
+</div>
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>object</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="fabric.Object.html">fabric.Object</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the object you want to transform</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>transform</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the destination transform</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1576">line 1576</a>
     </li></ul></dd>
     
 
@@ -9141,7 +9573,7 @@ Presence of value (and its position in an array) is determined via `Array.protot
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3247">line 3247</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3300">line 3300</a>
     </li></ul></dd>
     
 
@@ -9305,7 +9737,7 @@ In order to get a precise start time, `requestAnimFrame` should be called as an 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3381">line 3381</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3434">line 3434</a>
     </li></ul></dd>
     
 
@@ -10193,7 +10625,7 @@ In order to get a precise start time, `requestAnimFrame` should be called as an 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2863">line 2863</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2916">line 2916</a>
     </li></ul></dd>
     
 
@@ -10636,7 +11068,7 @@ Use to calculate the boxes around objects for controls.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1580">line 1580</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line1633">line 1633</a>
     </li></ul></dd>
     
 
@@ -10796,7 +11228,7 @@ Use to calculate the boxes around objects for controls.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2947">line 2947</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3000">line 3000</a>
     </li></ul></dd>
     
 
@@ -11571,7 +12003,7 @@ Use to calculate the boxes around objects for controls.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3009">line 3009</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line3062">line 3062</a>
     </li></ul></dd>
     
 
@@ -11627,7 +12059,7 @@ Use to calculate the boxes around objects for controls.
 
 
 </div>
-<footer><input id="toggle" type="checkbox" onclick="toggle(this.checked);"  /><label for="toggle" >Hide inherited properties and method from the page</label><br />Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a> on Sat Jan 30 2021 08:33:56 GMT+0100 (Central European Standard Time)
+<footer><input id="toggle" type="checkbox" onclick="toggle(this.checked);"  /><label for="toggle" >Hide inherited properties and method from the page</label><br />Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a> on Sat Apr 10 2021 09:32:10 GMT+0200 (Central European Summer Time)
 </footer>
 <script> prettyPrint(); </script>
 <script src="scripts/linenumber.js"> </script>

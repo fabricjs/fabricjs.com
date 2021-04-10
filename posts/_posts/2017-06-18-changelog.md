@@ -14,6 +14,37 @@ title: Fabric.js. release changelog.
 ## Fabric.js release highlights
 Find general upgrades notes <a href="/upgrade-guide">here</a>
 
+### Version 4.4.0
+
+The highlights of this versions are:
+
+We added target to each selection event, so you can stop using this, and you can use fat arrows function freely for event handling. This is a change of direction, so if you notice some event that can benefit of having the target specified rather than using the `this` keyword, please open an issue we can address it.
+
+A new property on pencil brush, `limitedToCanvasSize` will let you stop drawing outside the canvas.
+
+There is a new property on objects and is currently an experiment.
+We do want to support a more flexible way to select objects, so we added a property, called activeOn, that will let you specify `up` or `down` and this will let you select the object either on mouse down or mouse up, to account for interactions with dragging for example.
+Now this is an *experiment* meaning that we want to add more flavours of it, like for example, can it be multi selected? can it be shift selected, can it be drag selected.
+You can experiment with this value, but you have to consider the behaviour my slightly change and you have to correct your app later on.
+Consider it a beta feature. We marked it as @private in the docs, and we clarified is experimental.
+
+There are an handful of fixes, some of them found and contributed back from developers outside the project.
+Thank you @zhangshine, @rileygowan @CharlesRA.
+
+<pre>
+- fix(fabric.Object) wrong variable name `cornerStrokeColor ` [#6981](https://github.com/fabricjs/fabric.js/pull/6981)
+- fix(fabric.Text): underline color with text style ( regression from text on a path) [#6974](https://github.com/fabricjs/fabric.js/pull/6974)
+- fix(fabric.Image): Cache CropX and CropY cache properties [#6924](https://github.com/fabricjs/fabric.js/pull/6924)
+- fix(fabric.Canvas): Add target to each selection event [#6858](https://github.com/fabricjs/fabric.js/pull/6858)
+- fix(fabric.Image): fix wrong scaling value for the y axis in renderFill [#6778](https://github.com/fabricjs/fabric.js/pull/6778)
+- fix(fabric.Canvas): set isMoving on real movement only  [#6856](https://github.com/fabricjs/fabric.js/pull/6856)
+- fix(fabric.Group) make addWithUpdate compatible with nested groups [#6774](https://github.com/fabricjs/fabric.js/pull/6774)
+- fix(Fabric.Text): Add path to text export and import [#6844](https://github.com/fabricjs/fabric.js/pull/6844)
+- fix(fabric.Canvas) Remove controls check in the pixel accuracy target [#6798](https://github.com/fabricjs/fabric.js/pull/6798)
+- feat(fabric.Canvas): Added activeOn 'up/down' property [#6807](https://github.com/fabricjs/fabric.js/pull/6807)
+- feat(fabric.BaseBrush): limitedToCanvasSize property to brush [#6719](https://github.com/fabricjs/fabric.js/pull/6719)
+</pre>
+
 ### Version 4.3.1
 
 Improved feature: Text on a path now as better angles and better spread of chars over the curve.

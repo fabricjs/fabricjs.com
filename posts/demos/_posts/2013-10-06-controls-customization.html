@@ -29,12 +29,6 @@ title: Controls customization
   </p>
   <p>
     <label>
-      <input type="checkbox" id="hasRotatingPoint" checked>
-      <code>hasRotatingPoint</code>
-    </label>
-  </p>
-  <p>
-    <label>
       <input type="checkbox" id="visible" checked>
       <code>visible</code>
     </label>
@@ -98,31 +92,32 @@ title: Controls customization
     <code>setControlVisible</code>
     <p id="setControlVisible">
       <label>
-        <input type="checkbox" title="top-left control" name="tl" checked>
+        TL<input type="checkbox" title="top-left control" name="tl" checked />
       </label>
       <label>
-        <input type="checkbox" title="middle-left control" name="ml" checked>
+        BL<input type="checkbox" title="bottom-left control" name="bl" checked/>
       </label>
       <label>
-        <input type="checkbox" title="bottom-left control" name="bl" checked>
+        TR<input type="checkbox" title="top-right control" name="tr" checked/>
       </label>
       <label>
-        <input type="checkbox" title="middle-bottom control" name="mb" checked>
+        BR<input type="checkbox" title="bottom-right control" name="br" checked/>
+      </label>
+      <br />
+      <label>
+        ML<input type="checkbox" title="middle-left control" name="ml" checked/>
       </label>
       <label>
-        <input type="checkbox" title="bottom-right control" name="br" checked>
+        MB<input type="checkbox" title="middle-bottom control" name="mb" checked/>
       </label>
       <label>
-        <input type="checkbox" title="middle-right control" name="mr" checked>
+        MR<input type="checkbox" title="middle-right control" name="mr" checked/>
       </label>
       <label>
-        <input type="checkbox" title="top-right control" name="tr" checked>
+        MT<input type="checkbox" title="middle-top control" name="mt" checked/>
       </label>
       <label>
-        <input type="checkbox" title="middle-top control" name="mt" checked>
-      </label>
-      <label>
-        <input type="checkbox" title="middle-top-rotate control" name="mtr" checked>
+        MTR<input type="checkbox" title="middle-top-rotate control" name="mtr" checked/>
       </label>
     </p>
   </p>
@@ -162,6 +157,11 @@ title: Controls customization
   });
 
   canvas.add(rect).setActiveObject(rect);
+
+  document.getElementById('rotatingPointOffset').oninput = function() {
+    canvas.item(0).controls.mtr.offsetY = -parseFloat(this.value);
+    canvas.requestRenderAll();
+  };
 
   function observeBoolean(property) {
     document.getElementById(property).onclick = function() {
@@ -208,7 +208,6 @@ title: Controls customization
 
   observeBoolean('hasControls');
   observeBoolean('hasBorders');
-  observeBoolean('hasRotatingPoint');
   observeBoolean('visible');
   observeBoolean('selectable');
   observeBoolean('evented');
@@ -218,7 +217,6 @@ title: Controls customization
 
   observeNumeric('padding');
   observeNumeric('cornerSize');
-  observeNumeric('rotatingPointOffset');
   observeValue('borderColor');
   observeValue('cornerColor');
   observeValue('cornerStrokeColor');

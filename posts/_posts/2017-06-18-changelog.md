@@ -117,7 +117,7 @@ Generic Path change of logic. Now complex SVG paths are simplified into an absol
 ### Version 4.0.0
 Added a new api to handle controls customizations. Read more here [controls api](/controls-api)
 
-Several breaking changes. Read more here [V4 breaking changes](/v4-breaking-changes">)
+Several breaking changes. Read more here [V4 breaking changes](/v4-breaking-changes)
 ### Version 3.6.4 - 3.6.6
 Just backporting some generic fixes from the 4.0 work.
 <pre>

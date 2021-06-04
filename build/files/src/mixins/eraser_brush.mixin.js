@@ -124,7 +124,11 @@
   fabric.util.object.extend(fabric.Object.prototype, {
     /**
      * Indicates whether this object can be erased by {@link fabric.EraserBrush}
-     * @type boolean
+     * The `deep` option introduces fine grained control over a group's `erasable` property.
+     * When set to `deep` the eraser will erase nested objects if they are erasable, leaving the group and the other objects untouched.
+     * When set to `true` the eraser will erase the entire group. Once the group changes the eraser is propagated to its children for proper functionality.
+     * When set to `false` the eraser will leave all objects including the group untouched.
+     * @type boolean | 'deep'
      * @default true
      */
     erasable: true,
@@ -193,8 +197,60 @@
     }
   });
 
+  var __restoreObjectsState = fabric.Group.prototype._restoreObjectsState;
   var _groupToObject = fabric.Group.prototype.toObject;
   fabric.util.object.extend(fabric.Group.prototype, {
+    /**
+     * Applies the eraser of the group to the given object
+     * @param {fabric.Object} object an object that is part of this group
+     */
+    applyEraserToObject: function(object) {
+      var transform = this.calcTransformMatrix();
+      var eraser = this.getEraser();
+      if (!eraser) {
+        return;
+      }
+      eraser.getObjects('path').forEach(function (path) {
+        if (object.intersectsWithObject(path)) {
+          var t = path.calcTransformMatrix();
+          path.clone(function (_path) {
+            var originalTransform = fabric.util.multiplyTransformMatrices(
+              transform,
+              t
+            );
+            fabric.util.applyTransformToObject(_path, originalTransform);
+            fabric.EraserBrush.prototype._addPathToObjectEraser.call(
+              fabric.EraserBrush.prototype,
+              object,
+              _path
+            );
+          });
+        }
+      });
+    },
+
+    /**
+     * Applies the group's eraser to its objects
+     */
+    applyEraserToObjects: function () {
+      var _this = this;
+      if (this.erasable === true && this.getEraser()) {
+        this.forEachObject(function (object) {
+          _this.applyEraserToObject(object);
+        });
+        delete this.clipPath;
+      }
+    },
+
+    /**
+     * Propagate the group's eraser to its objects, crucial for proper functionality of the eraser within the group and nested objects.
+     * @private
+     */
+    _restoreObjectsState: function () {
+      this.applyEraserToObjects();
+      return __restoreObjectsState.call(this);
+    },
+
     /**
      * Returns an object representation of an instance
      * @param {Array} [propertiesToInclude] Any properties that you might want to additionally include in the output
@@ -301,7 +357,7 @@
 
       /**
        * Restores hiding an object
-       * {@link favric.EraserBrush#hideObject}
+       * {@link fabric.EraserBrush#hideObject}
        * @param {fabric.Object} object
        */
       restoreObjectVisibility: function (object) {
@@ -309,6 +365,16 @@
           object.set({ opacity: object._originalOpacity });
           object._originalOpacity = undefined;
         }
+      },
+
+      /**
+       * 
+       * @private
+       * @param {fabric.Object} object 
+       * @returns boolean
+       */
+      _isErasable: function (object) {
+        return object.erasable !== false;
       },
 
       /**
@@ -327,10 +393,10 @@
         var image = canvas.get('backgroundImage');
         var color = canvas.get('backgroundColor');
         var erasablesOnLayer = layer === 'top';
-        if (image && image.erasable === !erasablesOnLayer) {
+        if (image && this._isErasable(image) === !erasablesOnLayer) {
           this.hideObject(image);
         }
-        if (color && color.erasable === !erasablesOnLayer) {
+        if (color && this._isErasable(color) === !erasablesOnLayer) {
           this.hideObject(color);
         }
       },
@@ -357,11 +423,11 @@
           return false;
         };
         var erasablesOnLayer = layer === 'top';
-        var renderOverlayOnTop = (image && !image.erasable) || (color && !color.erasable);
-        if (image && image.erasable === !erasablesOnLayer) {
+        var renderOverlayOnTop = (image && !this._isErasable(image)) || (color && !this._isErasable(color));
+        if (image && this._isErasable(image) === !erasablesOnLayer) {
           this.hideObject(image);
         }
-        if (color && color.erasable === !erasablesOnLayer) {
+        if (color && this._isErasable(color) === !erasablesOnLayer) {
           this.hideObject(color);
         }
         return renderOverlayOnTop;
@@ -390,13 +456,11 @@
       prepareCollectionTraversal: function (collection) {
         var _this = this;
         collection.forEachObject(function (obj) {
-          if (obj.forEachObject) {
+          if (obj.forEachObject && obj.erasable === 'deep') {
             _this.prepareCollectionTraversal(obj);
           }
-          else {
-            if (obj.erasable) {
-              _this.hideObject(obj);
-            }
+          else if (obj.erasable) {
+            _this.hideObject(obj);
           }
         });
       },
@@ -411,7 +475,7 @@
       restoreCollectionTraversal: function (collection) {
         var _this = this;
         collection.forEachObject(function (obj) {
-          if (obj.forEachObject) {
+          if (obj.forEachObject && obj.erasable === 'deep') {
             _this.restoreCollectionTraversal(obj);
           }
           else {
@@ -589,7 +653,7 @@
         var clipObject;
         var _this = this;
         //  object is collection, i.e group
-        if (obj.forEachObject) {
+        if (obj.forEachObject && obj.erasable === 'deep') {
           obj.forEachObject(function (_obj) {
             if (_obj.erasable) {
               _this._addPathToObjectEraser(_obj, path);

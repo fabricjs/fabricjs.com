@@ -70,6 +70,15 @@ title: Custom Fabric build
     <p>Adds support for free drawing. Depends on "Interaction"</p>
   </li>
   <li>
+    <input type="checkbox" id="erasing">
+    <label for="erasing">Erasing</label><br>
+    <p>
+      Adds support for <a href="/erasing">erasing</a>.<br />
+      Depends on "Free drawing" (<code>fabric.PencilBrush</code>) and <code>fabric.Rect</code>.<br />
+      Extends <code>fabric.StaticCanvas, fabric.Canvas, fabric.Object.</code>
+    </p>
+  </li>
+  <li>
     <input checked type="checkbox" id="interaction">
     <label for="interaction">Interaction</label><br>
     <p>Adds support for interactive features of fabric — selecting/transforming objects/groups via mouse/touch devices</p>
@@ -324,6 +333,8 @@ title: Custom Fabric build
         ifSpecifiedInclude('itext', 'src/shapes/textbox.class.js'),	
         ifSpecifiedInclude('interaction', 'src/mixins/default_controls.js'),
 
+        ifSpecifiedInclude('erasing', 'src/mixins/eraser_brush.mixin.js'),
+
         // ifSpecifiedAMDInclude(amdLib)
       ];
       return filesToInclude.filter(function(fname) { return fname !== ''; });
@@ -427,8 +438,22 @@ title: Custom Fabric build
     document.getElementById('freedrawing').onclick = function() {
       if (this.checked) {
         document.getElementById('interaction').checked = true;
+      } else {
+        document.getElementById('erasing').checked = false;
       }
     }
+    document.getElementById('erasing').onclick = function () {
+      if (this.checked) {
+        document.getElementById('rect').checked = true;
+        document.getElementById('freedrawing').checked = true;
+        document.getElementById('interaction').checked = true;
+      }
+    };
+    document.getElementById('rect').onclick = function () {
+      if (!this.checked) {
+        document.getElementById('erasing').checked = false;
+      }
+    };
     document.getElementById('animation').onclick = function() {
       if (!this.checked) {
         document.getElementById('itext').checked = false;

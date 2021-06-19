@@ -1,5 +1,5 @@
 <script type="text/javascript">
-  var currentScript = 'https://unpkg.com/fabric@4.3.0/dist/fabric.js';
+  var currentScript = 'https://unpkg.com/fabric@latest/dist/fabric.js';
   function codepenLoaded() {
     function escapeHtml(unsafe) {
       return unsafe
@@ -21,7 +21,7 @@
         if (!currentData.scripts) {
           currentData.scripts = [];
         }
-        currentData.scripts.push(currentScript);
+        currentData.scripts.unshift(currentScript);
       } else {
         currentData = { scripts: [currentScript] };
       }

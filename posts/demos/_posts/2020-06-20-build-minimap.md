@@ -14,7 +14,7 @@ We will add on the minimap a rect that will be our indicator of the viewport.
 
 ### Setting up the idea
 
-We are going to create to canvases, on purposes both with a different aspect ratio and both different from the design aspect ratio.
+We are going to create two canvases with different aspect and design ratios.
 
 The small one for the minimap will be positioned on top of the bigger one.
 

@@ -3,30 +3,31 @@ layout: demoV4
 title: Custom controls, polygon
 codepen: true
 ---
-This demo show how to use the controls api to do something like changing the shape of a polygon.
-This is generally harder to grasp because require understanding the internal polygon logic,
-anchor points and transformations.
+This demo shows how to use the controls api to modify the shape of a polygon.
 
-In the demo the canvas has zoom and translation, so we are sure our code is generic enough.
-The polygon is given some big strokeWidth for the same reason.
+This may be difficult to grasp because it requires understanding internal polygon logic,
+along with anchor points and transformations.
 
-We have a function that trigger the `edit mode`.
-When we enter in edit mode we create one new control for each polygon point.
-To those controls we attach a property, called point index, to remember to which point they are bound to.
+In this demo, we've applied both zoom and translation to the canvas in order to be sure the code is generic enough for many applications.
+The polygon is given a large strokeWidth for the same reason.
 
-Those controls use their own custom position handler: `polygonPositionHandler`. This function
-look at the pointIndex of the control and return the current canvas position for that particular point.
-In this way interaction and rendering are done.
+We have a function that triggers the `edit mode`.
+When we enter edit mode, we create one new control for each polygon point.
+To each control we attach a property called `pointIndex` to remember which point the control is bound to.
 
-To make the actual control change the current point, we need to write a custom action handler.
+These controls use their own custom position handler: `polygonPositionHandler`. This function
+looks at the pointIndex of the control and returns the current canvas position for that particular point.
+In this way interaction and rendering are performed.
+
+In order for each control to modify its associated point, we need to write a custom action handler.
 
 Changing a point position is actually easy:
 `fabricObject.points[index].x = number; fabricObject.points[index].y = number;`
-The hard part is handling the object that change dimensions while mantaining the correct position.
+The difficult part is making sure that the object remains in the correct position while the dimensions are changed.
 
-We need an anchor point. We choose to fix the polygon position on the actual position of any point of the points array that is not the one that we are dragging.
+To do this we need an anchor point. We choose to fix the polygon position to the actual position of any point in the points array that is not the one being dragged.
 
-So chosen the point we calculate its actual absolute position:
+Having chosen the point, we calculate its actual absolute position:
 ```
 var absolutePoint = fabric.util.transformPoint({
     x: (fabricObject.points[anchorIndex].x - fabricObject.pathOffset.x),
@@ -35,16 +36,16 @@ var absolutePoint = fabric.util.transformPoint({
 ```
 We will use this absolute position after we have modified the polygon.
 
-Then we swap the dragged point with the new one, we recalculate the width/height and pathOffset of the polygon ( basically we reinitialize its dimensions ).
+We then swap the dragged point with the new one, and recalculate the width, height, and pathOffset of the polygon (basically reinitializing its dimensions).
 
-Now to keep its position steady, we want to know the point that represent the anchor point, in what position is now relative to polygon size.
+Now to keep its position steady, we want to know the point that represents the anchor point, and in what position it is now relative to the polygon's size.
 
 ```
 var newX = (fabricObject.points[anchorIndex].x - fabricObject.pathOffset.x) / fabricObject.width,
     newY = (fabricObject.points[anchorIndex].y - fabricObject.pathOffset.y) / fabricObject.height;
 ```
-Now newX and newY represent the point position with a range from -0.5 to 0.5 for X and Y.
-Fabric supports numeric origins for objects with a range from 0 to 1. This let us use the relative position as an origin to translate the old absolutePoint we find before.
+The newX and newY variables now represent the point position with a range from -0.5 to 0.5 for X and Y.
+Fabric supports numeric origins for objects with a range from 0 to 1. This let us use the relative position as an origin to translate the old absolutePoint we found before.
 
 ```
 fabricObject.setPositionByOrigin(absolutePoint, newX + 0.5, newY + 0.5);

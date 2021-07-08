@@ -59,7 +59,7 @@ Tip: In the JS part of the codepen, try to swap the `Grayscale` filter with a `B
       new fabric.Image.filters.BlendColor({ color: '#23278a', mode: 'lighten' }), // apply a darker color
     ]
   });
-  fabric.Image.fromURL('http://fabricjs.com/assets/pug.jpg', function(image) {
+  fabric.Image.fromURL('https://ip.webmasterapi.com/api/imageproxy/http://fabricjs.com/assets/pug.jpg', function(image) {
     globalImage = image;
     image.filters = [duotoneFilter];
     image.scaleToWidth(480);

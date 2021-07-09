@@ -700,7 +700,7 @@ function addAccessors($scope) {
       obj.shadow = null;
     }
     else {
-      obj.setShadow({
+      obj.set('shadow', new fabric.Shadow({
         color: 'rgba(0,0,0,0.3)',
         blur: 10,
         offsetX: 10,
@@ -713,8 +713,7 @@ function addAccessors($scope) {
   $scope.gradientify = function() {
     var obj = canvas.getActiveObject();
     if (!obj) return;
-
-    obj.setGradient('fill', {
+    obj.set('fill', new fabric.Gradient({
       x1: 0,
       y1: 0,
       x2: (getRandomInt(0, 1) ? 0 : obj.width),
@@ -723,7 +722,7 @@ function addAccessors($scope) {
         0: '#' + getRandomColor(),
         1: '#' + getRandomColor()
       }
-    });
+    }));
     canvas.renderAll();
   };
 

@@ -256,8 +256,8 @@ title: Features
           hoverCursor: 'pointer',
           originX: 'center',
           originY: 'center',
-        })
-        .setShadow({ color: 'rgba(0,0,0,0.5)', offsetX: 10, offsetY: 10, blur: 10 });
+          shadow: new fabric.Shadow({ color: 'rgba(0,0,0,0.5)', offsetX: 10, offsetY: 10, blur: 10 })
+        });
 
         canvas.add(shape);
       });

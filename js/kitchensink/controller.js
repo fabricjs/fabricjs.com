@@ -714,14 +714,18 @@ function addAccessors($scope) {
     var obj = canvas.getActiveObject();
     if (!obj) return;
     obj.set('fill', new fabric.Gradient({
-      x1: 0,
-      y1: 0,
-      x2: (getRandomInt(0, 1) ? 0 : obj.width),
-      y2: (getRandomInt(0, 1) ? 0 : obj.height),
-      colorStops: {
-        0: '#' + getRandomColor(),
-        1: '#' + getRandomColor()
-      }
+      type: 'linear',
+      gradientUnits: 'pixels',
+      coords: { 
+          x1: 0,
+          y1: 0,
+          x2: (getRandomInt(0, 1) ? 0 : obj.width),
+          y2: (getRandomInt(0, 1) ? 0 : obj.height),
+       },
+       colorStops: [
+            { offset: 0, color: '#' + getRandomColor() },
+            { offset: 1, color: '#' + getRandomColor() }
+       ]
     }));
     canvas.renderAll();
   };

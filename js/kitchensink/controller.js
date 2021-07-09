@@ -705,7 +705,7 @@ function addAccessors($scope) {
         blur: 10,
         offsetX: 10,
         offsetY: 10
-      });
+      }));
     }
     canvas.renderAll();
   };

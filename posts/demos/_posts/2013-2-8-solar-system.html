@@ -191,7 +191,7 @@ title: Solar system
       orbit.strokeWidth = 1;
       orbit.stroke = 'rgba(0,192,255,0.5)';
     });
-    if (hoverTarget && !hoverTarget.text) {
+    if (hoverTarget && !hoverTarget.text && hoverTarget.index) {
       var hoveredPlanet = planets[hoverTarget.index];
       var hoveredOrbit = orbits[hoveredPlanet.index];
 

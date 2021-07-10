@@ -391,9 +391,11 @@ window.ooo = text;
         image.set({
           left: 250,
           top: 1450,
-          clipTo: function(ctx) {
-            ctx.arc(0, 0, 220, 0, Math.PI * 2, true);
-          }
+          clipPath: new fabric.Circle({
+            radius: 220,
+            originX: 'center',
+            originY: 'center',
+          })
         })
         .scale(0.3);
         canvas.add(image).calcOffset();

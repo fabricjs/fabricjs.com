@@ -180,7 +180,7 @@
 
 
     
-    <h4 class="name" id=".extend"><a href="#.extend" ><span class="type-signature">(static) </span>extend<span class="signature">(destination, source)</span><span class="type-signature"> &rarr; {Object}</span></a></h4>
+    <h4 class="name" id=".extend"><a href="#.extend" ><span class="type-signature">(static) </span>extend<span class="signature">(destination, source, deep)</span><span class="type-signature"> &rarr; {Object}</span></a></h4>
     
 
 
@@ -209,7 +209,7 @@ it skips the canvas and group properties in deep cloning.
         <th>Type</th>
 
         
-
+        <th>Attributes</th>
         
 
         <th class="last">Description</th>
@@ -235,7 +235,7 @@ it skips the canvas and group properties in deep cloning.
 
             
 
-            
+            <td class="attributes"></td>
 
             <td class="description last">Where to copy to</td>
         </tr>
@@ -257,13 +257,22 @@ it skips the canvas and group properties in deep cloning.
             </td>
 
             
-
+            <td class="attributes"></td>
             
 
             <td class="description last">Where to copy from</td>
         </tr>
 
-    
+        <tr>
+            <td class="name"><code>deep</code></td>
+            <td class="type">
+                <span class="param-type">Boolean</span>
+            </td>
+            <td class="attributes">&lt;optional&gt;</td>
+            <td class="description last">Whether to extend nested objects</td>
+        </tr>
+
+
     </tbody>
 </table>
 
@@ -335,13 +344,78 @@ it skips the canvas and group properties in deep cloning.
 </dl>
 
     
-
-
-
-        
+<h4 class="name" id=".clone"><a href="#.clone" ><span class="type-signature">(static) </span>clone<span class="signature">(source, deep)</span><span class="type-signature"> &rarr; {Object}</span></a></h4>
     
+<div class="description">
+    Creates an empty object and copies all enumerable properties of another object to it. 
+    This method internaly uses extend method with an empty object as destination parameter. 
+    This method is mostly for internal use, and not intended for duplicating shapes in canvas. 
+</div>
 
+<h5>Parameters:</h5>
     
+<table class="params">
+
+    <thead>
+
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Attributes</th>
+            <th class="last">Description</th>
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        <tr>   
+            <td class="name"><code>source</code></td>            
+            <td class="type">             
+                <span class="param-type">Object</span>
+            </td>
+            <td class="attributes"></td>
+            <td class="description last">Where to copy from</td>
+        </tr>
+
+        <tr>
+            <td class="name"><code>deep</code></td>
+            <td class="type">
+                <span class="param-type">boolean</span>
+            </td>
+            <td class="attributes">&lt;optional&gt;</td>
+            <td class="description last">Whether to clone nested objects</td>
+        </tr>
+
+    </tbody>
+
+</table>
+
+<dl class="details">
+
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source">
+        <ul class="dummy">
+            <li>
+              <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line2613">line 2613</a>
+            </li>
+        </ul>
+    </dd>
+    
+</dl>
+
+<h5>Returns:</h5>
+
+<dl>
+
+    <dt>
+        Type
+    </dt>
+    <dd>
+        <span class="param-type">Object</span>
+    </dd>
+
+</dl>
 
     
 </article>

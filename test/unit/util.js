@@ -30,7 +30,7 @@
       assert.equal(fabric.util.toFixed(what, 5), 166.66667, 'should leave 5 fractional digits');
       assert.equal(fabric.util.toFixed(what, 0), 167, 'should leave 0 fractional digits');
 
-      var fractionless = (typeof what == 'number')
+      var fractionless = (typeof what === 'number')
         ? parseInt(what)
         : what.substring(0, what.indexOf('.'));
 
@@ -834,7 +834,7 @@
     assert.equal(Math.round(rotated.y), 0);
     var rotated = fabric.util.rotatePoint(point, origin, Math.PI / 2);
     assert.equal(Math.round(rotated.x), 3);
-    assert.equal(Math.round(rotated.y), -2);
+    assert.equal(Math.round(rotated.y), 1);
   });
 
   QUnit.test('transformPoint', function(assert) {
@@ -1089,5 +1089,21 @@
     assert.ok(fabric.util.isTouchEvent({ pointerType: 'touch' }));
     assert.notOk(fabric.util.isTouchEvent({ type: 'mousedown' }));
     assert.notOk(fabric.util.isTouchEvent({ pointerType: 'mouse' }));
+  });
+
+  QUnit.test('fabric.util.transformPath can scale a path by 2', function(assert) {
+    assert.ok(typeof fabric.util.transformPath === 'function');
+    var path = new fabric.Path('M 100 100 L 200 100 L 170 200 z');
+    var oldPath = path.path;
+    var newPath = fabric.util.transformPath(path.path, [2, 0, 0, 2, 0, 0]);
+    assert.equal(fabric.util.joinPath(oldPath), 'M 100 100 L 200 100 L 170 200 z');
+    assert.equal(fabric.util.joinPath(newPath), 'M 200 200 L 400 200 L 340 400 z');
+  });
+  QUnit.test('fabric.util.transformPath can apply a generic transform', function(assert) {
+    var path = new fabric.Path('M 100 100 L 200 100 L 170 200 z');
+    var oldPath = path.path;
+    var newPath = fabric.util.transformPath(path.path, [1, 2, 3, 4, 5, 6], path.pathOffset);
+    assert.equal(fabric.util.joinPath(oldPath), 'M 100 100 L 200 100 L 170 200 z');
+    assert.equal(fabric.util.joinPath(newPath), 'M -195 -294 L -95 -94 L 175 246 z');
   });
 })();

@@ -5,26 +5,25 @@ codepen: true
 ---
 ### Use the Composed filter to create a duotone effect in fabric.js
 
-Fabric has a `Composed` filter that can be used to mix together different effects in a single one.
+Fabric has a `Composed` filter that can be used to mix together different effects into a single one.
 This is not much different than adding more than one filter in the `.filters` property of an image, but it comes handy when you want to define those 3 effects as a single block of effects with a meaning.
 
 ### The duotone effect
 
-The duotone effect is obtained reducing an image to two main tones, that contrast each other.
-A sort of black and white, but  moving from color A to color B rather than from black to white.
+The duotone effect is obtained by reducing an image to two main tones that contrast with each other. This is similar to a black and white image, but mixing color A and color B rather than black to white.
 
-In some tutorials like this [one](https://codeburst.io/build-spotifys-colorizer-effect-with-javascript-35cb75fc638c) is shown how to create it with the standard canvas api.
+Some tutorials such as this [one](https://codeburst.io/build-spotifys-colorizer-effect-with-javascript-35cb75fc638c) demonstrate how to create this effect with the standard canvas api.
 
 The logic is as follow:
-- take a picture
-- make it black and white
-- blend a light color with multiply mode
-- blend a dark color with lighten mode
+1. take a picture
+2. make it black and white
+3. blend a light color with multiply mode
+4. blend a dark color with lighten mode
 
-What follow is a simple fabricJS implementation.
-On top of the canvas we placed 2 color pickers, to change the implementation values to play with different outputs.
+What follows is a simple FabricJS implementation of this technique.
+Above the canvas we place two color pickers in order to change the input values to obtain different outputs.
 
-In the JS part of the codepen, try to swap the `Grayscale` filter with a `BlackWhite` filter for a stronger effect.
+Tip: In the JS part of the codepen, try to swap the `Grayscale` filter with a `BlackWhite` filter for a stronger effect.
 
 <div
   class="codepen-later"
@@ -60,7 +59,7 @@ In the JS part of the codepen, try to swap the `Grayscale` filter with a `BlackW
       new fabric.Image.filters.BlendColor({ color: '#23278a', mode: 'lighten' }), // apply a darker color
     ]
   });
-  fabric.Image.fromURL('http://fabricjs.com/assets/pug.jpg', function(image) {
+  fabric.Image.fromURL('https://ip.webmasterapi.com/api/imageproxy/http://fabricjs.com/assets/pug.jpg', function(image) {
     globalImage = image;
     image.filters = [duotoneFilter];
     image.scaleToWidth(480);

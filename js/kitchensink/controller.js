@@ -478,13 +478,8 @@ function addAccessors($scope) {
   }
 
   $scope.rasterize = function(multiplier) {
-    if (!fabric.Canvas.supports('toDataURL')) {
-      alert('This browser doesn\'t provide means to serialize canvas to an image');
-    }
-    else {
-      var data = canvas.toDataURL({ multiplier: multiplier, format: 'png' });
-      document.getElementById('canvasRasterizer').src = data;
-    }
+    var data = canvas.toDataURL({ multiplier: multiplier, format: 'png' });
+    document.getElementById('canvasRasterizer').src = data;
   };
 
   $scope.rasterizeSVG = function() {
@@ -590,6 +585,14 @@ function addAccessors($scope) {
     return setActiveProp('noScaleCache', value);
   };
 
+  $scope.getStrokeUniform = function() {
+    return getActiveProp('strokeUniform');
+  };
+
+  $scope.setStrokeUniform = function(value) {
+    return setActiveProp('strokeUniform', value);
+  };
+
   $scope.getTransparentCorners = function() {
     return getActiveProp('transparentCorners');
   };
@@ -669,19 +672,23 @@ function addAccessors($scope) {
     window.requestAnimationFrame(renderLoop);
   }
 
-  $scope.clip = function() {
+  $scope.clip = function(inverted) {
     var obj = canvas.getActiveObject();
     if (!obj) return;
 
-    if (obj.clipTo) {
-      obj.clipTo = null;
+    if (obj.clipPath && obj.clipPath.inverted === inverted) {
+      obj.clipPath = null;
     }
     else {
-      var radius = obj.width < obj.height ? (obj.width / 2) : (obj.height / 2);
-      obj.clipTo = function (ctx) {
-        ctx.arc(0, 0, radius, 0, Math.PI * 2, true);
-      };
+      obj.clipPath = new fabric.Ellipse({
+        top: -obj.height / 2,
+        left: -obj.width / 2,
+        rx: obj.width / 2,
+        ry: obj.height / 2,
+        inverted: inverted
+      });
     }
+    obj.dirty = true;
     canvas.renderAll();
   };
 
@@ -693,12 +700,12 @@ function addAccessors($scope) {
       obj.shadow = null;
     }
     else {
-      obj.setShadow({
+      obj.set('shadow', new fabric.Shadow({
         color: 'rgba(0,0,0,0.3)',
         blur: 10,
         offsetX: 10,
         offsetY: 10
-      });
+      }));
     }
     canvas.renderAll();
   };
@@ -706,17 +713,20 @@ function addAccessors($scope) {
   $scope.gradientify = function() {
     var obj = canvas.getActiveObject();
     if (!obj) return;
-
-    obj.setGradient('fill', {
-      x1: 0,
-      y1: 0,
-      x2: (getRandomInt(0, 1) ? 0 : obj.width),
-      y2: (getRandomInt(0, 1) ? 0 : obj.height),
-      colorStops: {
-        0: '#' + getRandomColor(),
-        1: '#' + getRandomColor()
-      }
-    });
+    obj.set('fill', new fabric.Gradient({
+      type: 'linear',
+      gradientUnits: 'pixels',
+      coords: { 
+          x1: 0,
+          y1: 0,
+          x2: (getRandomInt(0, 1) ? 0 : obj.width),
+          y2: (getRandomInt(0, 1) ? 0 : obj.height),
+       },
+       colorStops: [
+            { offset: 0, color: '#' + getRandomColor() },
+            { offset: 1, color: '#' + getRandomColor() }
+       ]
+    }));
     canvas.renderAll();
   };
 

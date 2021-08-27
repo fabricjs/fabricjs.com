@@ -89,15 +89,15 @@ Introduced fabric RTL support for text/itext and an optional mixin with an erase
 
 The highlights of this versions are:
 
-We added target to each selection event, so you can stop using this, and you can use fat arrows function freely for event handling. This is a change of direction, so if you notice some event that can benefit of having the target specified rather than using the `this` keyword, please open an issue we can address it.
+We added target to each selection event, so you can stop using this, and you can use fat arrows function freely for event handling. This is a change of direction, so if you notice some event that can benefit from having the target specified rather than using the `this` keyword, please open an issue and we can address it.
 
 A new property on pencil brush, `limitedToCanvasSize` will let you stop drawing outside the canvas.
 
-There is a new property on objects and is currently an experiment.
-We do want to support a more flexible way to select objects, so we added a property, called activeOn, that will let you specify `up` or `down` and this will let you select the object either on mouse down or mouse up, to account for interactions with dragging for example.
-Now this is an *experiment* meaning that we want to add more flavours of it, like for example, can it be multi selected? can it be shift selected, can it be drag selected.
-You can experiment with this value, but you have to consider the behaviour my slightly change and you have to correct your app later on.
-Consider it a beta feature. We marked it as @private in the docs, and we clarified is experimental.
+There is a new property on objects that is currently an experiment.
+We do want to support a more flexible way to select objects, so we added a property, called `activeOn`, that will let you specify `up` or `down` and this will let you select the object either on mousedown/touchstart  or mouseup/touchend, to account for interactions with dragging for example.
+Now this is an *experiment*, meaning that we want to add more flavours to it, like for example, can it be multi selected? Can it be shift selected, can it be drag selected?
+You can experiment with this value, but you have to consider the behaviour may slightly change and you will have to correct your app later on.
+Consider it a beta feature. We marked it as @private in the docs, and we clarified it as experimental.
 
 There are an handful of fixes, some of them found and contributed back from developers outside the project.
 Thank you @zhangshine, @rileygowan @CharlesRA.
@@ -144,7 +144,7 @@ Another new feature of this release is the ability to specify control size per c
 fabric.Control.sizeX and fabric.Control.sizeY will take precedence on cornerSize.
 (check pr [#6562](https://github.com/fabricjs/fabric.js/pull/6562))
 
-A spacial thanks to those people for contributing in this release:
+A special thanks to those people for contributing in this release:
 [Steve Eberhardt](https://github.com/melchiar)
 [Jason Sturges](https://github.com/jasonsturges)
 [Claas Cassens](https://github.com/claas-c)
@@ -173,7 +173,7 @@ Just minor fixes, mouseup event can again have a different target compared to mo
 
 ### Version 4.1.0
 Added a `before:path:created` event, as a user request, in order to handle brushes objects before they get added to canvas.
-Generic Path change of logic. Now complex SVG paths are simplified into an absolute only command version. On top of that, A, S, T, V and H commands are converted to C, Q and L. With this done, it is simpler to connect custom controls to path properties, and also it made possible to add a path measure utility that we will need to implement the long requested text on a path feature.
+Generic Path change of logic. Now complex SVG paths are simplified into an absolute only command version. On top of that, A, S, T, V and H commands are converted to C, Q and L. With this done, it is simpler to connect custom controls to path properties, and also it made it possible to add a path measure utility that we will need to implement the long requested text on a path feature.
 <pre>
 - feat(Brushes): add beforePathCreated event #6492;
 - feat(fabric.Path): Change the way path is parsed and drawn. simplify path at parsing time #6504;
@@ -255,14 +255,14 @@ Mostly backporting work that happened after 4 beta to version 3 branch
 ### Version 3.3.0
 Rewrite pointer/touch events! It seems now that pointer events and touch events can work correctly with multi fingers.
 Attention has been made in freedrawing with accidental multi touch usage and ability to work with pencils.
-Also a small fix for the words boundaries in text.
+Also a small fix for the word boundaries in text.
 Some deprecation on old event properties required another minor version bump.
 <pre>
  - Differently support multi mouse events. #5785
  - Word boundary search update. #5788
 </pre>
 ### Version 3.2.0
-This version is mainly a bug fix release for the new feature. It gets a minor bump because of official deprecation of Object.transformatrix.
+This version is mainly a bug fix release for the new feature. It gets a minor bump because of official deprecation of Object.transformMatrix.
 <pre>
  - Fix Group.toSVG export missing opacity and visibility. #5755
  - Pass raw event information to brushes. #5687
@@ -360,14 +360,14 @@ A handful of fixes for group and clipPaths, Image serializations and filters, cl
 - Fix: Group with clipPath restore #5344
 - Fix: Fix shift + click interaction with unselectable objects #5324</pre>
 ### Version 2.4.2
-Clippath to SVG fixed, a couple of nice bugfix for targeting in nested groups and svg loading on ie11
+Clippath to SVG fixed, a couple of nice bugfixes for targeting in nested groups and svg loading in ie11
 <pre>
 - Fix: Better toSVG support to enable clipPath #5284
 - Fix: Per pixel target find and groups and sub targets #5287
 - Fix: Object clone as Image and shadow clipping #5308
 - Fix: IE11 loading SVG #5307</pre>
 ### Version 2.4.1
-First round of feedback for clipPath bugs, plus other bugfixes that piledup while working on clipPaths
+First round of feedback for clipPath bugs, plus other bugfixes that piled up while working on clipPaths
 <pre>
 - Fix: Avoid enterEditing if another object is the activeObject #5261
 - Fix: clipPath enliving for Image fromObject #5279

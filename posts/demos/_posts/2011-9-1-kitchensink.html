@@ -41,6 +41,10 @@ title: Kitchensink
         <input value="100" type="range" bind-value-to="opacity" class="btn-object-action"><br />
         <label for="opacity">Stroke width:</label>
         <input value="1" min="0" max="30" type="range" bind-value-to="strokeWidth" class="btn-object-action"><br />
+        <label>
+          Stroke Uniform:
+          <input type="checkbox" name="stroke-uniform" class="btn-object-action" bind-value-to="strokeUniform">
+        </label>
         <div id="text-wrapper" ng-show="getText()">
           <div id="text-controls">
             <p>Text specific controls</p>
@@ -262,7 +266,7 @@ title: Kitchensink
                 bind-value-to="hasControls">
             </label>
             <label>
-              Trasparent corners:
+              Transparent corners:
               <input type="checkbox" name="transparent-corners" class="btn-object-action"
                 bind-value-to="transparentCorners">
             </label>
@@ -304,8 +308,11 @@ title: Kitchensink
           <button id="patternify" class="btn btn-object-action" ng-click="patternify()">
             Patternify
           </button>
-          <button id="clip" class="btn btn-object-action" ng-click="clip()">
+          <button id="clip" class="btn btn-object-action" ng-click="clip(false)">
             Clip
+          </button>
+          <button id="clip-inverted" class="btn btn-object-action" ng-click="clip(true)">
+            Clip Inverted
           </button>
           <button id="play" class="btn btn-object-action" ng-click="play()">
             Play

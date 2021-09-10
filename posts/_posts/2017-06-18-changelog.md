@@ -21,13 +21,13 @@ A massive changelog for this release.
 A lot of external contribution this release, with improvements on many sides.
 
 - RTL improvements
-- text on path improvements ( align, side of the path, path offset, path rendering)
+- text on path improvements ( align, side of the path, path offset, path rendering) [Steve Eberhardt](https://github.com/melchiar)
 - new utils for path transformations
-- added `once` to the event emitter
-- ability to append the hiddenTextarea on a custom element
-- a new vibrance filter
-- animate will now return a function to stop the animation
-- improvements to the optional eraser brush plugin
+- added `once` to the event emitter [Shachar Nencel](https://github.com/ShaMan123)
+- ability to append the hiddenTextarea on a custom element [Dave Lage](https://github.com/rockerBOO)
+- a new vibrance filter [Steve Eberhardt](https://github.com/melchiar)
+- animate will now return a function to stop the animation [Shachar Nencel](https://github.com/ShaMan123)
+- improvements to the optional eraser brush plugin [Shachar Nencel](https://github.com/ShaMan123)
 
 
 <pre>

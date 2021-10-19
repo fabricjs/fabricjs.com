@@ -42,9 +42,9 @@ title: Event inspector
 
 <div id="non-observing-events-log" class="log">
   <strong>Other available events</strong>
-  <p>"path:created"</p>
-  <p>"object:added"</p>
-  <p>"object:removed"</p>
+  <p>path:created</p>
+  <p>object:added</p>
+  <p>object:removed</p>
 </div>
 
 <div>
@@ -141,6 +141,7 @@ title: Event inspector
   observe('mouse:out');
   addSeparator('observing-events-log');
 
+  observe('drop:before');
   observe('drop');
   observe('dragover');
   observe('dragenter');
@@ -172,6 +173,7 @@ title: Event inspector
   observeObj('mouseout');
   addSeparator('observing-events-log-obj');
 
+  observeObj('drop:before');
   observeObj('drop');
   observeObj('dragover');
   observeObj('dragenter');

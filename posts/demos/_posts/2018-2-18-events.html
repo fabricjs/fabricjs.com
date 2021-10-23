@@ -5,7 +5,7 @@ title: Event inspector
 
 <style>
   p { margin-top: 3px; margin-bottom: 3px; }
-  #log1, #log2 { display: inline-block; width: 620px; height: 260px; overflow-y: scroll; overflow-x: scroll; font-family: monospace; font-size: 11px; }
+  .log-container, #log1, #log2 { display: inline-block; width: 620px; height: 260px; overflow-y: scroll; overflow-x: scroll; font-family: monospace; font-size: 11px; }
   #log1 > p { border-bottom: 1px solid blue; }
   #observing-events-log { position: absolute; top: 70px; left: 650px }
   #non-observing-events-log { position: absolute; top: 70px; left: 840px; }
@@ -31,6 +31,11 @@ title: Event inspector
   }
   label[for="blue"] {
     color: blue;
+  }
+  .log-container {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
   }
 </style>
 <p>
@@ -66,7 +71,10 @@ title: Event inspector
 </div>
 
 <div>
-  <div id="log1">&nbsp;</div>
+  <div class="log-container">
+    <button id="clear_log">clear log</button>
+    <div id="log1">&nbsp;</div>
+  </div>
 </div>
 <script>(function() {
   this.__canvases = [];
@@ -77,6 +85,8 @@ title: Event inspector
   canvas2.add(new fabric.Circle({ radius: 20, fill: 'blue', top: 160, left: 140 }));
 
   var log2 = document.getElementById('log1');
+  var clearButton = document.getElementById('clear_log');
+  clearButton.onclick = function () { log2.innerHTML = '&nbsp;'; }
 
   function log(message, opt, color) {
     if ((message === 'mouse:move' || message === 'mousemove' || message === 'mouse:move:before' || message === 'mousemove:before') && !document.getElementById('move').checked) {

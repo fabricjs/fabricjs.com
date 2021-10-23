@@ -4,9 +4,15 @@ title: Event inspector
 ---
 
 <style>
-  p { margin-top: 3px; margin-bottom: 3px; }
+  p, .log-entry { margin-top: 3px; margin-bottom: 3px; }
+  .log-entry { white-space: pre; border-bottom: 1px solid blue }
+  .bold { font-weight: bold; }
+  .log-entry > code { font-weight: initial; }
+  .log-entry > button { margin: 0 2px; }
+  *[hidden]{
+    display: none;
+  }
   .log-container, #log1, #log2 { display: inline-block; width: 620px; height: 260px; overflow-y: scroll; overflow-x: scroll; font-family: monospace; font-size: 11px; }
-  #log1 > p { border-bottom: 1px solid blue; }
   #observing-events-log { position: absolute; top: 70px; left: 650px }
   #non-observing-events-log { position: absolute; top: 70px; left: 840px; }
   #observing-events-log-obj { position: absolute; top: 190px; left: 840px; }
@@ -72,8 +78,8 @@ title: Event inspector
 
 <div>
   <div class="log-container">
-    <button id="clear_log">clear log</button>
     <div id="log1">&nbsp;</div>
+    <button id="clear_log">clear log</button>
   </div>
 </div>
 <script>(function() {
@@ -98,11 +104,30 @@ title: Event inspector
     if (!document.getElementById(color ? color : 'canvas_events').checked) {
       return;
     }
-    var el = document.createElement('p');
+    var el = document.createElement('div');
+    el.classList.add('log-entry');
     if (color) {
       el.style.color = color;
     }
-    el.appendChild(document.createTextNode(message + ' ' + JSON.stringify(opt)));
+    var code = document.createElement('code');
+    code.innerText = JSON.stringify(opt, null, '\t');
+    code.setAttribute('hidden', true);
+    var button = document.createElement('button');
+    button.innerHTML = '+';
+    button.onclick = function(ev) {
+      if (code.hasAttribute('hidden')) {
+        code.removeAttribute('hidden');
+        button.innerHTML = '-';
+      } else {
+        code.setAttribute('hidden', '');
+        button.innerHTML = '+';
+      }
+    }
+    var m = document.createElement('strong');
+    m.innerHTML = message;
+    var t = document.createElement('small');
+    t.innerHTML ='\n'+ new Date().toISOString();
+    el.append(button, m, document.createElement('br'), code, t);
     log2.insertBefore(el, log2.firstChild);
     var children = log2.children;
     while (children[100]) {

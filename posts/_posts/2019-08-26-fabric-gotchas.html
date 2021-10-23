@@ -77,13 +77,13 @@ To remove the stroke:
 <pre>
 rect.set('strokeWidth', 0);
 </pre>
-<h3>Blurry (Nested) Objects - reference canvas for retinaScaling</h3>
+<h3>Blurry (Nested/Custom) Objects - reference canvas for retinaScaling</h3>
 
 <p>
-All objects need a reference to <pre>fabric.Canvas</pre> for proper rendering. 
+All objects need a reference to <code>fabric.Canvas</code> for proper rendering. 
 Without the reference objects can't access the retina scaling value (<a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API/Window/devicePixelRatio#correcting_resolution_in_a_canvas">device pixel ratio</a>), resulting in bad resolution.
-This usually happens when an object is a child of another object. Fix it by adding a referencing to canvas in the parent's <pre>_set</pre> method.
-Now the object renders nicely but we may encounter another <strong>gotcha</strong>, the <a href="#nested_objects">Nested Objects gotcha</a>.
+This usually happens when an object is a child of another object. Fix it by adding a referencing to canvas in the parent's <code>_set</code> method.<br />
+Now that the object renders nicely we may encounter another <strong>gotcha</strong>. The <a href="#nested_objects">Nested Objects gotcha</a>.
 </p>
 
 To reference canvas:
@@ -100,26 +100,25 @@ fabric.MyCustomObject = fabric.util.createClass(fabric.Object, {
 <h3 id="nested_objects">Nested Objects - transform matrix relative to canvas</h3>
 
 <p>
-Creating custom objects built from other objects is an extremely powerful option, but it takes you closer to fabric's edge. 
-You may experience problems. Let's use an example to explain the problem.
-When an object (a) renders, it transforms the rendering context to it's center point. 
+Creating custom objects built from other objects is an extremely powerful option, but it takes you closer to fabric's edge.<br/>
+You may experience problems. Let's use an example to explain.<br />
+When an object (a) renders, it transforms the rendering context to it's center point.
 In order to render another object (b) as a child of (a) we need to take that into account.
-We can handle (b)'s transform matrix relative to (a)'s center point. This will render (b) correctly.
-However, it will cause many problems.
-Let's take for example one of the simplest and most powerful rendering optimizations. 
+We can handle (b)'s transform matrix relative to (a)'s center point. This will render (b) correctly.<br />
+However, it will cause many problems.<br />
+Let's take, for example, one of the simplest and most powerful rendering optimizations to explain.<br />
 Before an object renders it checks if it's visible on screen. If it isn't it skips the rendering process.
 Checking if it's visible means the object checks it's transform matrix relative to the canvas.
-But we've handled it's transform matrix relative to (a)....
-This will cause (b) to skip renders in some cases and not show at all.
-This gotcha affects almost everything fabric has to offer.
-The solution is simple.
-Handle the transform matrix relative to canvas, <strong>ALWAYS</strong>. 
-When rendering (b), transform the rendering context from (a)'s center point back to canvas.
+But we've handled it's transform matrix relative to (a)....<br />
+This will cause (b) to skip renders in some cases and not show at all.<br />
+This gotcha affects almost everything fabric has to offer.<br />
+The solution is simple.<br />
+Handle the transform matrix relative to canvas, <strong>ALWAYS</strong>. When rendering (b), transform the rendering context from (a)'s center point back to canvas.<br />
 For more information and detailed explanation, check the dedicated pages: <a href="/using-transformations">Using transformations</a>, <a href="/fabric-intro-part-3#subclassing">Subclassing</a>.
 
 </p>
 
-Creating (a) class and rendering (b):
+Creating class (a) and rendering (b):
 <pre>
 fabric.a = fabric.util.createClass(fabric.Object, {
   /**

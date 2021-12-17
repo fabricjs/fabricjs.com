@@ -47,7 +47,7 @@ h3, h4 { margin-top: 1.5em !important; }
 #header li a { display: inline-block; padding: 10px; color: pink; text-decoration: none; }
 #header li a:hover, #header li a:focus { text-decoration: underline; }
 #header li.secondary { float: right; }
-#header li.github.secondary { float: right; margin-right: 10px; }
+#header li.github.secondary { float: right; margin-right: 10px; margin-top: 7px; }
 #header li.secondary a:last-child { padding-left: 0; }
 #demos { padding-left: 0; margin-top: 30px; }
 #demos li { list-style: none; text-align: center; width: 200px; display: inline-block; margin-right: 20px; margin-bottom: 25px !important; vertical-align: top; }

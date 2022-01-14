@@ -4,9 +4,15 @@ title: Event inspector
 ---
 
 <style>
-  p { margin-top: 3px; margin-bottom: 3px; }
-  #log1, #log2 { display: inline-block; width: 620px; height: 260px; overflow-y: scroll; overflow-x: scroll; font-family: monospace; font-size: 11px; }
-  #log1 > p { border-bottom: 1px solid blue; }
+  p, .log-entry { margin-top: 3px; margin-bottom: 3px; }
+  .log-entry { white-space: pre; border-bottom: 1px solid blue }
+  .bold { font-weight: bold; }
+  .log-entry > code { font-weight: initial; }
+  .log-entry > button { margin: 0 2px; }
+  *[hidden]{
+    display: none;
+  }
+  .log-container, #log1, #log2 { display: inline-block; width: 620px; height: 260px; overflow-y: scroll; overflow-x: scroll; font-family: monospace; font-size: 11px; }
   #observing-events-log { position: absolute; top: 70px; left: 650px }
   #non-observing-events-log { position: absolute; top: 70px; left: 840px; }
   #observing-events-log-obj { position: absolute; top: 190px; left: 840px; }
@@ -20,10 +26,33 @@ title: Event inspector
     height: 100px;
   }
   .log strong { margin-bottom: 10px; display: block; }
+  label {
+    font-weight: bold;
+  }
+  label[for="green"] {
+    color: green;
+  }
+  label[for="red"] {
+    color: red;
+  }
+  label[for="blue"] {
+    color: blue;
+  }
+  .log-container {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+  }
 </style>
 <p>
-  To avoid event spamming, you can disable the two checkbox below.<br />
-  <input type="checkbox" id="move" checked /> MouseMove <input type="checkbox" id="dragover" checked /> DragOver.
+  To avoid event spamming, you can disable the checkboxs below.<br />
+  <input type="checkbox" id="move" checked /><label for="move">MouseMove</label>
+  <input type="checkbox" id="dragover" checked /><label for="dragover">DragOver</label>
+  <input type="checkbox" id="canvas_events" checked /><label for="canvas_events">Canvas</label>
+  <br />
+  <input type="checkbox" id="green" checked /><label for="green">Green</label>
+  <input type="checkbox" id="red" checked /><label for="red">Red</label>
+  <input type="checkbox" id="blue" checked /><label for="blue">Blue</label>
 </p>
 <canvas id="c1" width="400" height="250"></canvas>
 
@@ -42,13 +71,16 @@ title: Event inspector
 
 <div id="non-observing-events-log" class="log">
   <strong>Other available events</strong>
-  <p>"path:created"</p>
-  <p>"object:added"</p>
-  <p>"object:removed"</p>
+  <p>path:created</p>
+  <p>object:added</p>
+  <p>object:removed</p>
 </div>
 
 <div>
-  <div id="log1">&nbsp;</div>
+  <div class="log-container">
+    <div id="log1">&nbsp;</div>
+    <button id="clear_log">clear log</button>
+  </div>
 </div>
 <script>(function() {
   this.__canvases = [];
@@ -59,6 +91,8 @@ title: Event inspector
   canvas2.add(new fabric.Circle({ radius: 20, fill: 'blue', top: 160, left: 140 }));
 
   var log2 = document.getElementById('log1');
+  var clearButton = document.getElementById('clear_log');
+  clearButton.onclick = function () { log2.innerHTML = '&nbsp;'; }
 
   function log(message, opt, color) {
     if ((message === 'mouse:move' || message === 'mousemove' || message === 'mouse:move:before' || message === 'mousemove:before') && !document.getElementById('move').checked) {
@@ -67,11 +101,33 @@ title: Event inspector
     if ((message === 'dragover') && !document.getElementById('dragover').checked) {
       return;
     }
-    var el = document.createElement('p');
+    if (!document.getElementById(color ? color : 'canvas_events').checked) {
+      return;
+    }
+    var el = document.createElement('div');
+    el.classList.add('log-entry');
     if (color) {
       el.style.color = color;
     }
-    el.appendChild(document.createTextNode(message + ' ' + JSON.stringify(opt)));
+    var code = document.createElement('code');
+    code.innerText = JSON.stringify(opt, null, '\t');
+    code.setAttribute('hidden', true);
+    var button = document.createElement('button');
+    button.innerHTML = '+';
+    button.onclick = function(ev) {
+      if (code.hasAttribute('hidden')) {
+        code.removeAttribute('hidden');
+        button.innerHTML = '-';
+      } else {
+        code.setAttribute('hidden', '');
+        button.innerHTML = '+';
+      }
+    }
+    var m = document.createElement('strong');
+    m.innerHTML = message;
+    var t = document.createElement('small');
+    t.innerHTML ='\n'+ new Date().toISOString();
+    el.append(button, m, document.createElement('br'), code, t);
     log2.insertBefore(el, log2.firstChild);
     var children = log2.children;
     while (children[100]) {
@@ -141,6 +197,7 @@ title: Event inspector
   observe('mouse:out');
   addSeparator('observing-events-log');
 
+  observe('drop:before');
   observe('drop');
   observe('dragover');
   observe('dragenter');
@@ -172,6 +229,7 @@ title: Event inspector
   observeObj('mouseout');
   addSeparator('observing-events-log-obj');
 
+  observeObj('drop:before');
   observeObj('drop');
   observeObj('dragover');
   observeObj('dragenter');

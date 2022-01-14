@@ -39,7 +39,7 @@ h3, h4 { margin-top: 1.5em !important; }
 .tooltip.serialization { left: -100px; top: 1730px; }
 
 
-#features img { box-shadow: rgba(0,0,0,0.3) 0 0 5px; margin-top: 20px; margin-bottom: 20px; width: 400px }
+#features img:not(.badge) { box-shadow: rgba(0,0,0,0.3) 0 0 5px; margin-top: 20px; margin-bottom: 20px; width: 400px }
 #features img:hover { box-shadow: rgba(0,0,155,0.3) 0 0 5px; }
 
 #header { background: #333; margin: 0; padding: 0; color: #555; overflow: hidden; min-width: 900px; }

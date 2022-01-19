@@ -14,6 +14,10 @@ title: Fabric.js. release changelog.
 ## Fabric.js release highlights
 Find general upgrades notes <a href="/upgrade-guide">here</a>
 
+### Version 5.0.0
+
+- `fabric.runningAnimations`: see [Animations](http://fabricjs.com/fabric-intro-part-2#running_animations)
+
 ### Version 4.6.0
 
 A massive changelog for this release.

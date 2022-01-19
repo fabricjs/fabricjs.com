@@ -73,6 +73,8 @@ rect.animate('left', 500, {
 
 <p>Notice <code>fabric.util.ease.easeOutBounce</code> as an easing option. Other notable ones include <code>easeInCubic</code>, <code>easeOutCubic</code>, <code>easeInElastic</code>, <code>easeOutElastic</code>, <code>easeInBounce</code>, and <code>easeOutExpo</code>.</p>
 
+<p>So this almost covers the animation part of Fabric. Just to give you some ideas of what becomes possible &mdash; you can animate object's angle to make it rotate; animate left/top properties to make it move; animate width/height to make it shrink/grow; animate opacity to make it fade in/out; and so on.</p>
+
 <p><h4 id="running_animations">fabric.runningAnimations</h4></p>
 
 <p>If you need to access the animations that are currently running by fabric, use <code>fabric.runningAnimations</code>. It's an array of objects, each an animation context object.</p>
@@ -80,7 +82,7 @@ rect.animate('left', 500, {
 <p>
   Handy methods:<br/>
   <ul>
-    <li><code>fabric.runningAnimations.findAnimation(signature)</code> - returns the animation context matching <code>signature</code> which is the abort function returned by fabric.util.animate.</li>
+    <li><code>fabric.runningAnimations.findAnimation(signature)</code> - returns the animation context matching <code>signature</code> which is the abort function returned by <code>fabric.util.animate</code>.</li>
     <li><code>fabric.runningAnimations.findAnimationIndex(signature)</code> - same as <code>findAnimation</code>, returns the index.</li>
     <li><code>fabric.runningAnimations.findAnimationsByTarget(target)</code> - returns all animations that have a <code>target</code> property that is equal to target.</li>
     <li><code>fabric.runningAnimations.cancelAll()</code> - cancels all running animations.</li>
@@ -92,7 +94,14 @@ rect.animate('left', 500, {
   </ul>
 </p>
 
-<p>So this covers animation part of Fabric. Just to give you some ideas of what becomes possible &mdash; you can animate object's angle to make it rotate; animate left/top properties to make it move; animate width/height to make it shrink/grow; animate opacity to make it fade in/out; and so on.</p>
+<pre>
+  let cancel = fabric.util.animate({...});
+  let i = fabric.runningAnimations.findAnimationIndex(cancel);
+  let context = fabric.runningAnimations.findAnimation(cancel);
+  let cancelled = fabric.runningAnimations.cancelAll();
+  cancelled[i] === context;
+  cancelled[i].cancel === cancel;
+</pre>
 
 <h3 id="image_filters">Image filters</h3>
 

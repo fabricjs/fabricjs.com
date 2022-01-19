@@ -99,8 +99,11 @@ rect.animate('left', 500, {
   let i = fabric.runningAnimations.findAnimationIndex(cancel);
   let context = fabric.runningAnimations.findAnimation(cancel);
   let cancelled = fabric.runningAnimations.cancelAll();
+  
+  //  the following statements are true
   cancelled[i] === context;
   cancelled[i].cancel === cancel;
+  fabric.runningAnimations.length === 0;
 </pre>
 
 <h3 id="image_filters">Image filters</h3>

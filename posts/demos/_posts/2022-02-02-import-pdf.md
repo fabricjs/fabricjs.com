@@ -3,7 +3,7 @@ layout: demoV4
 title: Importing PDF files
 codepen: true
 ---
-This demo shows how to use import pdf files as `fabric.Image`, it uses [`pdf.js`](https://github.com/mozilla/pdf.js/).
+This demo shows how to use import pdf files (using [`pdf.js`](https://github.com/mozilla/pdf.js/)) as `fabric.Image`.
 
 ### Example
 
@@ -13,7 +13,7 @@ This demo shows how to use import pdf files as `fabric.Image`, it uses [`pdf.js`
   data-height="500"
   data-default-tab="result"
   data-prefill='{
-    "scripts": ["https://unpkg.com/browse/pdfjs-dist@latest/build/pdf.min.js"]
+    "scripts": ["https://unpkg.com/pdfjs-dist@latest/build/pdf.min.js"]
   }'
 >
 <pre data-lang="html">
@@ -25,29 +25,15 @@ This demo shows how to use import pdf files as `fabric.Image`, it uses [`pdf.js`
   </div>
   <canvas id="c" width="500" height="620" />
 </pre>
-<pre data-lang="css">
-  button.active {
-    background: limegreen;
-    font-weight: bold
-  }
-</pre>
-<pre data-lang="css">
-  button.active {
-    background: limegreen;
-    font-weight: bold
-  }
-</pre>
+
 <pre data-lang="js">
+  const Base64Prefix = "data:application/pdf;base64,";
   function getPdfHandler() {
-    return window['pdfjs-dist/build/pdf'];
+      return window['pdfjs-dist/build/pdf'];
   }
-  /**
-  * 
-  * @param {Blob} blob 
-  * @returns {Promise<string>} data url
-  */
+
   function readBlob(blob) {
-      return new Promise<string>((resolve, reject) => {
+      return new Promise((resolve, reject) => {
           const reader = new FileReader();
           reader.addEventListener('load', () => resolve(reader.result));
           reader.addEventListener('error', reject)
@@ -55,12 +41,6 @@ This demo shows how to use import pdf files as `fabric.Image`, it uses [`pdf.js`
       })
   }
 
-  /**
-  * see https://github.com/mozilla/pdf.js
-  * @param {string | File} pdfData base64 raw data of file/blob
-  * @param {number[]} [pages] specify which pages to load for performance
-  * @returns {Promise<Promise<HTMLCanvasElement>[]>} array of base64 data urls of the pdf's pages
-  */
   async function printPDF(pdfData, pages) {
       const pdfjsLib = await getPdfHandler();
       pdfData = pdfData instanceof Blob ? await readBlob(pdfData) : pdfData;
@@ -96,24 +76,22 @@ This demo shows how to use import pdf files as `fabric.Image`, it uses [`pdf.js`
                   });
           });
   }
-  /**
-  * see https://github.com/mozilla/pdf.js
-  * @param {string | File} pdfData base64/blob
-  * @param {fabric.Canvas} canvas 
-  */
+
   async function pdfToImage(pdfData, canvas) {
-    const scale = 1 / window.devicePixelRatio;
-    (await printPDF(pdfData))
-      .map(async c => {
-        canvas.add(new fabric.Image(await c, {
-          scaleX: scale,
-          scaleY: scale,
-        }));
-      });
+      const scale = 1 / window.devicePixelRatio;
+      (await printPDF(pdfData))
+          .map(async c => {
+              canvas.add(new fabric.Image(await c, {
+                  scaleX: scale,
+                  scaleY: scale,
+              }));
+          });
   }
+
   const canvas = this.__canvas = new fabric.Canvas('c');
-  function handleFiles(e) {
-    e.target.files.forEach(file => pdfToImage(file, canvas));
-  }
+  canvas.add(new fabric.Circle({radius:100,fill:'green'}))
+  document.querySelector('input').addEventListener('change', (e) => {
+    pdfToImage(e.target.files[0], canvas);
+  })
 </pre>
 </div>

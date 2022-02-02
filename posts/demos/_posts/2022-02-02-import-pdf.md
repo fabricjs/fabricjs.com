@@ -3,7 +3,7 @@ layout: demoV4
 title: Importing PDF files
 codepen: true
 ---
-This demo shows how to use import pdf files (using [`pdf.js`](https://github.com/mozilla/pdf.js/)) as `fabric.Image`.
+This demo shows how to use [`pdf.js`](https://github.com/mozilla/pdf.js/) to import pdf files into fabric as `fabric.Image`.
 
 ### Example
 

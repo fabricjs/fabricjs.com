@@ -3,7 +3,8 @@ layout: demoV4
 title: Importing PDF files
 codepen: true
 ---
-This demo shows how to use [`pdf.js`](https://github.com/mozilla/pdf.js/) to import pdf files into fabric as `fabric.Image`s.
+This demo shows how to use [`pdf.js`](https://github.com/mozilla/pdf.js/) to import pdf files into fabric as `fabric.Image`s.\
+Upload a file to see it in action.
 
 ### Example
 
@@ -79,7 +80,7 @@ This demo shows how to use [`pdf.js`](https://github.com/mozilla/pdf.js/) to imp
 
   async function pdfToImage(pdfData, canvas) {
       const scale = 1 / window.devicePixelRatio;
-      (await printPDF(pdfData))
+      return (await printPDF(pdfData))
           .map(async c => {
               canvas.add(new fabric.Image(await c, {
                   scaleX: scale,
@@ -89,9 +90,13 @@ This demo shows how to use [`pdf.js`](https://github.com/mozilla/pdf.js/) to imp
   }
 
   const canvas = this.__canvas = new fabric.Canvas('c');
-  canvas.add(new fabric.Circle({radius:100,fill:'green'}))
-  document.querySelector('input').addEventListener('change', (e) => {
-    pdfToImage(e.target.files[0], canvas);
-  })
+  const text = new fabric.Text('Upload PDF');
+  canvas.add(new fabric.Circle({ radius: 100, fill: 'green' }), text);
+  document.querySelector('input').addEventListener('change', async (e) => {
+    text.set('text', 'loading...');
+    canvas.requestRenderAll();
+    await Promise.all(pdfToImage(e.target.files[0], canvas));
+    canvas.remove(text);
+  });
 </pre>
 </div>

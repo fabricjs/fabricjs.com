@@ -6,6 +6,8 @@ title: Fabric.js objects
 
 There are a number of breaking changes to be aware of when upgrading your Fabric.js project through each of the major versions. The following guide includes a basic summary of these changes, and links to resources to assist you with the upgrade process.
 
+**Upgrading from v4.x to v5.x** [(v4-breaking-changes)](v5-breaking-changes)
+
 **Upgrading from v3.x to v4.x** [(v4-breaking-changes)](v4-breaking-changes)
 
 Fabric.js v4.x left beta in August of 2020, and with it came quite a few breaking changes that mostly involve the removal of old methods. Rejoice because most of the breaking changes are small and of simple solution.

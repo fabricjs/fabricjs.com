@@ -23,10 +23,10 @@ There are also many changes from the contributors, especially Sachar and Steve, 
 
 Nice additions:
 - you can now draw a straight line with pencil brush pressing shiftKey
-- fabric will keep now a list of ongoing animations so that developer can cancel them properly when disposing a canvas
-- complete rework of the eraser brush
-- add pathAlign to text on paths
-- first version of correct bounding box for polygons with narrow angles and large strokeWidth
+- it is now possible to access all animations that are currently running, see [`fabric.runningAnimations`](http://fabricjs.com/fabric-intro-part-2#running_animations) [Shachar Nencel](https://github.com/ShaMan123)
+- The Eraser brush (optional) has been rewritten in order to fix some problems and now supports undoing out of the box [Shachar Nencel](https://github.com/ShaMan123)
+- add pathAlign to text on paths [Steve Eberhardt](https://github.com/melchiar)
+- stroke bounding box for objects with acute angles has been fixed almost completely (`miter` is fully supported) [Shachar Nencel](https://github.com/ShaMan123)
 
 Notable fixes:
 - many control box fixes

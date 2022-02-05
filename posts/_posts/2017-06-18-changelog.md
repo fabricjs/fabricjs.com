@@ -14,6 +14,12 @@ title: Fabric.js. release changelog.
 ## Fabric.js release highlights
 Find general upgrades notes <a href="/upgrade-guide">here</a>
 
+### Version 5.0.0
+
+- it is now possible to access all animations that are currently running, see [`fabric.runningAnimations`](http://fabricjs.com/fabric-intro-part-2#running_animations) [Shachar Nencel](https://github.com/ShaMan123)
+- The Eraser brush (optional) has been rewritten in order to fix some problems and now supports undoing out of the box [Shachar Nencel](https://github.com/ShaMan123)
+- stroke bounding box for objects with acute angles has been fixed almost completely (`miter` is fully supported) [Shachar Nencel](https://github.com/ShaMan123)
+
 ### Version 4.6.0
 
 A massive changelog for this release.

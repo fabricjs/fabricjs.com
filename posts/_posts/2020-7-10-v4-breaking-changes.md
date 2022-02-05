@@ -1,6 +1,6 @@
 ---
 layout: articleadmd
-title: Fabric.js objects
+title: Fabric.js 4.0 breaking changes
 ---
 ## Version 4 breaking changes
 

@@ -19,9 +19,6 @@ title: Superscript / subscript
 	<p>
 		<button onclick="remove()">Remove script informations</button>
 	</p>
-	<p>
-		<button onclick="transform()">test</button>
-	</p>
 </div>
 
 <script id="main">
@@ -42,14 +39,6 @@ function superScript() {
 	canvas.requestRenderAll();
 }
 
-function transform() {
-	var newPath = fabric.util.transformPath(sampleText.path.path, sampleText.calcTransformMatrix(), sampleText.path.pathOffset);
-	sampleText.set('path', new fabric.Path(newPath));
-	sampleText.setPathInfo();
-	fabric.util.resetObjectTransform(sampleText);
-	canvas.requestRenderAll();
-}
-
 var canvas = this.__canvas = new fabric.Canvas('c');
 // create a rectangle object
 var itext = new fabric.IText('This is a IText object', {
@@ -66,20 +55,6 @@ var textbox = new fabric.Textbox('This is a Textbox object', {
 	fill: '#880E4F',
 	strokeWidth: 2,
 	stroke: "#D81B60",
-});
-
-
-var path = new fabric.Path('M 10 315 L 110 215 A 30 50 0 0 1 162.55 162.45 L 172.55 152.45 A 30 50 -45 0 1 215.1 109.9 L 315 10');
-var sampleText = new fabric.Text('This is a text sample for changing path This is a text sample for changing path', { path: path, fontSize: 20 });
-canvas.add(sampleText);
-
-sampleText.on('scaling', (opt) => {
-	console.log(opt);
-	var newPath = fabric.util.transformPath(sampleText.path.path, [sampleText.scaleX, 0, 0, sampleText.scaleY, 0, 0], sampleText.path.pathOffset);
-	sampleText.set('path', new fabric.Path(newPath));
-	sampleText.setPathInfo();
-	sampleText.scaleX = 1;
-	sampleText.scaleY = 1;
 });
 
 canvas.add(itext, textbox);

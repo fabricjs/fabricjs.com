@@ -18,7 +18,8 @@ Find general upgrades notes <a href="/upgrade-guide">here</a>
 
 This is last major version of fabricJS written in ES5.
 There aren't big new breaking changes, the main reason for the major increase was a node update that was required to remove a vulnerability in a JSDOM sub dependency, we bumped node to 14 minimum and we removed many deprecated methods.
-There is a full list of changes in order to handle this upgrade at this link:
+There is a full list of changes in order to handle this upgrade at this link: [v5 breaking changes](http://fabricjs.com/v5-breaking-changes).
+
 There are also many changes from the contributors, especially Sachar and Steve, that are officially part of the team now.
 
 Nice additions:

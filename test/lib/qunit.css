@@ -312,6 +312,12 @@
 	word-wrap: break-word;
 }
 
+#qunit-tests pre[hidden] {
+	height: 50px;
+	overflow: auto;
+	margin: 0 0 10px 0;
+}
+
 #qunit-tests del {
 	color: #374E0C;
 	background-color: #E0F2BE;

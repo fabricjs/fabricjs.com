@@ -22,7 +22,7 @@
   var document = window && window.document;
   var navigator = window && window.navigator;
   window.toggleCollapse = function(el) {
-	el.hidden = !el.hidden;
+	  el.classList.toggle('collapsed');
   }
 
   var localSessionStorage = function () {
@@ -4003,11 +4003,11 @@
   			}
 
   			actual = QUnit.dump.parse(details.actual);
-  			message += "<table><tr class='test-expected'><th>Expected: </th><td><pre ondblClick='toggleCollapse(this)' hidden>" + escapeText(expected) + "</pre></td></tr>";
+  			message += "<table><tr class='test-expected'><th>Expected: </th><td><pre ondblClick='toggleCollapse(this)' class='collapsed'>" + escapeText(expected) + "</pre></td></tr>";
 
   			if (actual !== expected) {
 
-  				message += "<tr class='test-actual'><th>Result: </th><td><pre ondblClick='toggleCollapse(this)' hidden>" + escapeText(actual) + "</pre></td></tr>";
+  				message += "<tr class='test-actual'><th>Result: </th><td><pre ondblClick='toggleCollapse(this)' class='collapsed'>" + escapeText(actual) + "</pre></td></tr>";
 
   				if (typeof details.actual === "number" && typeof details.expected === "number") {
   					if (!isNaN(details.actual) && !isNaN(details.expected)) {
@@ -4023,7 +4023,7 @@
   				}
 
   				if (showDiff) {
-  					message += "<tr class='test-diff'><th>Diff: </th><td><pre ondblClick='toggleCollapse(this)' hidden>" + diff + "</pre></td></tr>";
+  					message += "<tr class='test-diff'><th>Diff: </th><td><pre ondblClick='toggleCollapse(this)' class='collapsed'>" + diff + "</pre></td></tr>";
   				}
   			} else if (expected.indexOf("[object Array]") !== -1 || expected.indexOf("[object Object]") !== -1) {
   				message += "<tr class='test-message'><th>Message: </th><td>" + "Diff suppressed as the depth of object is more than current max depth (" + QUnit.config.maxDepth + ").<p>Hint: Use <code>QUnit.dump.maxDepth</code> to " + " run with a higher max depth or <a href='" + escapeText(setUrl({ maxDepth: -1 })) + "'>" + "Rerun</a> without max depth.</p></td></tr>";

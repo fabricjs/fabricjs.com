@@ -96,4 +96,13 @@ fabric.MyCustomObject = fabric.util.createClass(fabric.Object, {
   }
 });
 </pre>
+
+<h3>Object.clone vs util.object.clone</h3>
+<p>`fabric.Object` has a `clone` method for creating copy of an instance. The subclasses of `fabric.Object`
+  inherits this method and it can be used for replicating shapes in canvas.<br />
+  There is also a static method `clone` in `fabric.util.object`, which is for creating copy of any object.
+  It has an extra handling for copying fabricJS objects and is mostly for internal use.
+  This method should be avoided for purpose of duplicating objects in canvas. 
+</p>
+
 </div>

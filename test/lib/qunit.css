@@ -310,6 +310,13 @@
 	margin: 0;
 	white-space: pre-wrap;
 	word-wrap: break-word;
+	cursor: pointer;
+}
+
+#qunit-tests pre.collapsed {
+	height: 50px;
+	overflow: auto;
+	margin: 0 0 10px 0;
 }
 
 #qunit-tests del {

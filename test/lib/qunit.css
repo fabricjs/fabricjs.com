@@ -311,12 +311,12 @@
 	white-space: pre-wrap;
 	word-wrap: break-word;
 	cursor: pointer;
+	margin: 0 0 10px 0;
 }
 
 #qunit-tests pre.collapsed {
-	height: 50px;
+	max-height: 50px;
 	overflow: auto;
-	margin: 0 0 10px 0;
 }
 
 #qunit-tests del {

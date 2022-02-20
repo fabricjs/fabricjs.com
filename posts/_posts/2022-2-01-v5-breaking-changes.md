@@ -96,7 +96,7 @@ _calcDimensionsTransformMatrix: function(skewX, skewY, flipping) {
 }
 ```
 
-Similar situation for `group.realizeTransform`, unused in fabricJS, and not providind any functionality on top of the generic util it was calling
+Similar situation for `group.realizeTransform`, unused in fabricJS, and not providing any functionality on top of the generic util it was calling
 
 ```js
 realizeTransform: function(object, parentMatrix) {

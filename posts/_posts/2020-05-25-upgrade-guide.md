@@ -6,7 +6,23 @@ title: Fabric.js objects
 
 There are a number of breaking changes to be aware of when upgrading your Fabric.js project through each of the major versions. The following guide includes a basic summary of these changes, and links to resources to assist you with the upgrade process.
 
-**Upgrading from v4.x to v5.x** [(v4-breaking-changes)](v5-breaking-changes)
+
+### In Development
+
+**Upgrading from v5.x to v6.x** [(v6-breaking-changes)](v6-breaking-changes)
+
+Fabric.js v6.x (currently in development) will feature significant changes to the current codebase. In addition to a move to ES6, callbacks are being replaced by promises, and the group system is being completely rewritten to improve many of the limitations with the current group code. 
+
+**Important** - Also being considered for this release is a possible migration to Typescript to help streamline the development and debugging process of Fabric.js applications. See https://github.com/fabricjs/fabric.js/issues/7596 if you'd like to participate in this discussion.
+
+### Current Version
+
+**Upgrading from v4.x to v5.x** [(v5-breaking-changes)](v5-breaking-changes)
+
+Fabric.js v5.x is the last major version of Fabric written in ES5. It includes the removal of several deprecated methods and utilities, and a big change to the `Circle` class to use degree units instead of radians. Several object transform events have also been removed. Mostly though, this version contains a lot of bugfixes and minor additions.
+
+
+### Previous Versions
 
 **Upgrading from v3.x to v4.x** [(v4-breaking-changes)](v4-breaking-changes)
 

@@ -728,16 +728,16 @@
       var objectScale = this.getTotalObjectScaling(),
           // caculate dimensions without skewing
           dim = this._getTransformedDimensions(0, 0),
-          neededX = dim.x * objectScale.scaleX / this.scaleX,
-          neededY = dim.y * objectScale.scaleY / this.scaleY;
+          neededX = dim.x * objectScale.x / this.scaleX,
+          neededY = dim.y * objectScale.y / this.scaleY;
       return {
         // for sure this ALIASING_LIMIT is slightly creating problem
         // in situation in which the cache canvas gets an upper limit
         // also objectScale contains already scaleX and scaleY
         width: neededX + ALIASING_LIMIT,
         height: neededY + ALIASING_LIMIT,
-        zoomX: objectScale.scaleX,
-        zoomY: objectScale.scaleY,
+        zoomX: objectScale.x,
+        zoomY: objectScale.y,
         x: neededX,
         y: neededY
       };
@@ -815,10 +815,6 @@
      */
     setOptions: function(options) {
       this._setOptions(options);
-      this._initGradient(options.fill, 'fill');
-      this._initGradient(options.stroke, 'stroke');
-      this._initPattern(options.fill, 'fill');
-      this._initPattern(options.stroke, 'stroke');
     },
 
     /**
@@ -912,11 +908,9 @@
         if (object[prop] === prototype[prop]) {
           delete object[prop];
         }
-        var isArray = Object.prototype.toString.call(object[prop]) === '[object Array]' &&
-                      Object.prototype.toString.call(prototype[prop]) === '[object Array]';
-
         // basically a check for [] === []
-        if (isArray && object[prop].length === 0 && prototype[prop].length === 0) {
+        if (Array.isArray(object[prop]) && Array.isArray(prototype[prop])
+          && object[prop].length === 0 && prototype[prop].length === 0) {
           delete object[prop];
         }
       });
@@ -934,7 +928,7 @@
 
     /**
      * Return the object scale factor counting also the group scaling
-     * @return {Object} object with scaleX and scaleY properties
+     * @return {fabric.Point}
      */
     getObjectScaling: function() {
       // if the object is a top level one, on the canvas, we go for simple aritmetic
@@ -942,14 +936,11 @@
       // and will likely kill the cache when not needed
       // https://github.com/fabricjs/fabric.js/issues/7157
       if (!this.group) {
-        return {
-          scaleX: this.scaleX,
-          scaleY: this.scaleY,
-        };
+        return new fabric.Point(Math.abs(this.scaleX), Math.abs(this.scaleY));
       }
       // if we are inside a group total zoom calculation is complex, we defer to generic matrices
       var options = fabric.util.qrDecompose(this.calcTransformMatrix());
-      return { scaleX: Math.abs(options.scaleX), scaleY: Math.abs(options.scaleY) };
+      return new fabric.Point(Math.abs(options.scaleX), Math.abs(options.scaleY));
     },
 
     /**
@@ -957,14 +948,13 @@
      * @return {Object} object with scaleX and scaleY properties
      */
     getTotalObjectScaling: function() {
-      var scale = this.getObjectScaling(), scaleX = scale.scaleX, scaleY = scale.scaleY;
+      var scale = this.getObjectScaling();
       if (this.canvas) {
         var zoom = this.canvas.getZoom();
         var retina = this.canvas.getRetinaScaling();
-        scaleX *= zoom * retina;
-        scaleY *= zoom * retina;
+        scale.scalarMultiplyEquals(zoom * retina);
       }
-      return { scaleX: scaleX, scaleY: scaleY };
+      return scale;
     },
 
     /**
@@ -977,6 +967,16 @@
         opacity *= this.group.getObjectOpacity();
       }
       return opacity;
+    },
+
+    /**
+     * Returns the object angle relative to canvas counting also the group property
+     * @returns {number}
+     */
+    getTotalAngle: function () {
+      return this.group ?
+        fabric.util.qrDecompose(this.calcTransformMatrix()).angle :
+        this.angle;
     },
 
     /**
@@ -1020,16 +1020,6 @@
         }
       }
       return this;
-    },
-
-    /**
-     * This callback function is called by the parent group of an object every
-     * time a non-delegated property changes on the group. It is passed the key
-     * and value as parameters. Not adding in this function's signature to avoid
-     * Travis build error about unused variables.
-     */
-    setOnGroup: function() {
-      // implemented by sub-classes, as needed.
     },
 
     /**
@@ -1092,7 +1082,7 @@
 
     renderCache: function(options) {
       options = options || {};
-      if (!this._cacheCanvas) {
+      if (!this._cacheCanvas || !this._cacheContext) {
         this._createCacheCanvas();
       }
       if (this.isCacheDirty()) {
@@ -1107,6 +1097,7 @@
      */
     _removeCacheCanvas: function() {
       this._cacheCanvas = null;
+      this._cacheContext = null;
       this.cacheWidth = 0;
       this.cacheHeight = 0;
     },
@@ -1179,6 +1170,7 @@
      * Check if this object or a child object will cast a shadow
      * used by Group.shouldCache to know if child has a shadow recursively
      * @return {Boolean}
+     * @deprecated
      */
     willDrawShadow: function() {
       return !!this.shadow && (this.shadow.offsetX !== 0 || this.shadow.offsetY !== 0);
@@ -1265,7 +1257,7 @@
       if (this.isNotVisible()) {
         return false;
       }
-      if (this._cacheCanvas && !skipCanvas && this._updateCacheCanvas()) {
+      if (this._cacheCanvas && this._cacheContext && !skipCanvas && this._updateCacheCanvas()) {
         // in this case the context is already cleared.
         return true;
       }
@@ -1274,7 +1266,7 @@
           (this.clipPath && this.clipPath.absolutePositioned) ||
           (this.statefullCache && this.hasStateChanged('cacheProperties'))
         ) {
-          if (this._cacheCanvas && !skipCanvas) {
+          if (this._cacheCanvas && this._cacheContext && !skipCanvas) {
             var width = this.cacheWidth / this.zoomX;
             var height = this.cacheHeight / this.zoomY;
             this._cacheContext.clearRect(-width / 2, -height / 2, width, height);
@@ -1430,24 +1422,19 @@
         return;
       }
 
-      var shadow = this.shadow, canvas = this.canvas, scaling,
+      var shadow = this.shadow, canvas = this.canvas,
           multX = (canvas && canvas.viewportTransform[0]) || 1,
-          multY = (canvas && canvas.viewportTransform[3]) || 1;
-      if (shadow.nonScaling) {
-        scaling = { scaleX: 1, scaleY: 1 };
-      }
-      else {
-        scaling = this.getObjectScaling();
-      }
+          multY = (canvas && canvas.viewportTransform[3]) || 1,
+          scaling = shadow.nonScaling ? new fabric.Point(1, 1) : this.getObjectScaling();
       if (canvas && canvas._isRetinaScaling()) {
         multX *= fabric.devicePixelRatio;
         multY *= fabric.devicePixelRatio;
       }
       ctx.shadowColor = shadow.color;
       ctx.shadowBlur = shadow.blur * fabric.browserShadowBlurConstant *
-        (multX + multY) * (scaling.scaleX + scaling.scaleY) / 4;
-      ctx.shadowOffsetX = shadow.offsetX * multX * scaling.scaleX;
-      ctx.shadowOffsetY = shadow.offsetY * multY * scaling.scaleY;
+        (multX + multY) * (scaling.x + scaling.y) / 4;
+      ctx.shadowOffsetX = shadow.offsetX * multX * scaling.x;
+      ctx.shadowOffsetY = shadow.offsetY * multY * scaling.y;
     },
 
     /**
@@ -1550,12 +1537,9 @@
       }
 
       ctx.save();
-      if (this.strokeUniform && this.group) {
+      if (this.strokeUniform) {
         var scaling = this.getObjectScaling();
-        ctx.scale(1 / scaling.scaleX, 1 / scaling.scaleY);
-      }
-      else if (this.strokeUniform) {
-        ctx.scale(1 / this.scaleX, 1 / this.scaleY);
+        ctx.scale(1 / scaling.x, 1 / scaling.y);
       }
       this._setLineDash(ctx, this.strokeDashArray);
       this._setStrokeStyles(ctx, this);
@@ -1657,18 +1641,13 @@
     },
 
     /**
-     * Clones an instance, using a callback method will work for every object.
-     * @param {Function} callback Callback is invoked with a clone as a first argument
+     * Clones an instance.
      * @param {Array} [propertiesToInclude] Any properties that you might want to additionally include in the output
+     * @returns {Promise<fabric.Object>}
      */
-    clone: function(callback, propertiesToInclude) {
+    clone: function(propertiesToInclude) {
       var objectForm = this.toObject(propertiesToInclude);
-      if (this.constructor.fromObject) {
-        this.constructor.fromObject(objectForm, callback);
-      }
-      else {
-        fabric.Object._fromObject('Object', objectForm, callback);
-      }
+      return this.constructor.fromObject(objectForm);
     },
 
     /**
@@ -1678,9 +1657,6 @@
      * and format option. toCanvasElement is faster and produce no loss of quality.
      * If you need to get a real Jpeg or Png from an object, using toDataURL is the right way to do it.
      * toCanvasElement and then toBlob from the obtained canvas is also a good option.
-     * This method is sync now, but still support the callback because we did not want to break.
-     * When fabricJS 5.0 will be planned, this will probably be changed to not have a callback.
-     * @param {Function} callback callback, invoked with an instance as a first argument
      * @param {Object} [options] for clone as image, passed to toDataURL
      * @param {Number} [options.multiplier=1] Multiplier to scale by
      * @param {Number} [options.left] Cropping left offset. Introduced in v1.2.14
@@ -1690,14 +1666,11 @@
      * @param {Boolean} [options.enableRetinaScaling] Enable retina scaling for clone image. Introduce in 1.6.4
      * @param {Boolean} [options.withoutTransform] Remove current object transform ( no scale , no angle, no flip, no skew ). Introduced in 2.3.4
      * @param {Boolean} [options.withoutShadow] Remove current object shadow. Introduced in 2.4.2
-     * @return {fabric.Object} thisArg
+     * @return {fabric.Image} Object cloned as image.
      */
-    cloneAsImage: function(callback, options) {
+    cloneAsImage: function(options) {
       var canvasEl = this.toCanvasElement(options);
-      if (callback) {
-        callback(new fabric.Image(canvasEl));
-      }
-      return this;
+      return new fabric.Image(canvasEl);
     },
 
     /**
@@ -1731,21 +1704,15 @@
       var el = fabric.util.createCanvasElement(),
           // skip canvas zoom and calculate with setCoords now.
           boundingRect = this.getBoundingRect(true, true),
-          shadow = this.shadow, scaling,
-          shadowOffset = { x: 0, y: 0 }, shadowBlur,
+          shadow = this.shadow, shadowOffset = { x: 0, y: 0 },
           width, height;
 
       if (shadow) {
-        shadowBlur = shadow.blur;
-        if (shadow.nonScaling) {
-          scaling = { scaleX: 1, scaleY: 1 };
-        }
-        else {
-          scaling = this.getObjectScaling();
-        }
+        var shadowBlur = shadow.blur;
+        var scaling = shadow.nonScaling ? new fabric.Point(1, 1) : this.getObjectScaling();
         // consider non scaling shadow.
-        shadowOffset.x = 2 * Math.round(abs(shadow.offsetX) + shadowBlur) * (abs(scaling.scaleX));
-        shadowOffset.y = 2 * Math.round(abs(shadow.offsetY) + shadowBlur) * (abs(scaling.scaleY));
+        shadowOffset.x = 2 * Math.round(abs(shadow.offsetX) + shadowBlur) * (abs(scaling.x));
+        shadowOffset.y = 2 * Math.round(abs(shadow.offsetY) + shadowBlur) * (abs(scaling.y));
       }
       width = boundingRect.width + shadowOffset.x;
       height = boundingRect.height + shadowOffset.y;
@@ -1808,7 +1775,7 @@
      * @return {Boolean}
      */
     isType: function(type) {
-      return this.type === type;
+      return arguments.length > 1 ? Array.from(arguments).includes(this.type) : this.type === type;
     },
 
     /**
@@ -1918,23 +1885,13 @@
     },
 
     /**
-     * Returns coordinates of a pointer relative to an object
-     * @param {Event} e Event to operate upon
-     * @param {Object} [pointer] Pointer to operate upon (instead of event)
-     * @return {Object} Coordinates of a pointer (x, y)
+     * This callback function is called by the parent group of an object every
+     * time a non-delegated property changes on the group. It is passed the key
+     * and value as parameters. Not adding in this function's signature to avoid
+     * Travis build error about unused variables.
      */
-    getLocalPointer: function(e, pointer) {
-      pointer = pointer || this.canvas.getPointer(e);
-      var pClicked = new fabric.Point(pointer.x, pointer.y),
-          objectLeftTop = this._getLeftTopCoords();
-      if (this.angle) {
-        pClicked = fabric.util.rotatePoint(
-          pClicked, objectLeftTop, degreesToRadians(-this.angle));
-      }
-      return {
-        x: pClicked.x - objectLeftTop.x,
-        y: pClicked.y - objectLeftTop.y
-      };
+    setOnGroup: function() {
+      // implemented by sub-classes, as needed.
     },
 
     /**
@@ -1950,6 +1907,7 @@
 
     /**
      * cancel instance's running animations
+     * override if necessary to dispose artifacts such as `clipPath`
      */
     dispose: function () {
       if (fabric.runningAnimations) {
@@ -1979,23 +1937,17 @@
    * @constant
    * @type string[]
    */
-  fabric.Object.ENLIVEN_PROPS = ['clipPath'];
 
-  fabric.Object._fromObject = function(className, object, callback, extraParam) {
-    var klass = fabric[className];
-    object = clone(object, true);
-    fabric.util.enlivenPatterns([object.fill, object.stroke], function(patterns) {
-      if (typeof patterns[0] !== 'undefined') {
-        object.fill = patterns[0];
-      }
-      if (typeof patterns[1] !== 'undefined') {
-        object.stroke = patterns[1];
-      }
-      fabric.util.enlivenObjectEnlivables(object, object, function () {
-        var instance = extraParam ? new klass(object[extraParam], object) : new klass(object);
-        callback && callback(instance);
-      });
+  fabric.Object._fromObject = function(klass, object, extraParam) {
+    var serializedObject = clone(object, true);
+    return fabric.util.enlivenObjectEnlivables(serializedObject).then(function(enlivedMap) {
+      var newObject = Object.assign(object, enlivedMap);
+      return extraParam ? new klass(object[extraParam], newObject) : new klass(newObject);
     });
+  };
+
+  fabric.Object.fromObject = function(object) {
+    return fabric.Object._fromObject(fabric.Object, object);
   };
 
   /**

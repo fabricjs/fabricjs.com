@@ -16,6 +16,10 @@
     return src;
   }
 
+  function basename(path) {
+    return path.slice(Math.max(path.lastIndexOf('\\'), path.lastIndexOf('/')) + 1);
+  }
+
   var IMG_URL = fabric.isLikelyNode
     ? 'file://' + require('path').join(__dirname, '../fixtures/', 'very_large_image.jpg')
     : getAbsolutePath('../fixtures/very_large_image.jpg');
@@ -440,11 +444,10 @@
       return;
     }
 
-    fabric.util.loadImage(IMG_URL, function(obj, isError) {
+    fabric.util.loadImage(IMG_URL).then(function(obj) {
       if (obj) {
         var oImg = new fabric.Image(obj);
         assert.ok(/fixtures\/very_large_image\.jpg$/.test(oImg.getSrc()), 'image should have correct src');
-        assert.ok(!isError);
       }
       done();
     });
@@ -459,7 +462,7 @@
       return;
     }
 
-    fabric.util.loadImage('', function() {
+    fabric.util.loadImage('').then(function() {
       assert.ok(1, 'callback should be invoked');
       done();
     });
@@ -474,12 +477,12 @@
       return;
     }
     try {
-      fabric.util.loadImage(IMG_URL, function(img, isError) {
-        assert.equal(img.src, IMG_URL, 'src is set');
+      fabric.util.loadImage(IMG_URL, { crossOrigin: 'anonymous' }).then(function(img, isError) {
+        assert.equal(basename(img.src), basename(IMG_URL), 'src is set');
         assert.equal(img.crossOrigin, 'anonymous', 'crossOrigin is set');
         assert.ok(!isError);
         done();
-      }, null, 'anonymous');
+      });
     }
     catch (e) {
       console.log(e);
@@ -489,13 +492,10 @@
 
   QUnit.test('fabric.util.loadImage with url for a non exsiting image', function(assert) {
     var done = assert.async();
-    try {
-      fabric.util.loadImage(IMG_URL_NON_EXISTING, function(img, error) {
-        assert.equal(error, true, 'callback should be invoked with error set to true');
-        done();
-      }, this);
-    }
-    catch (e) { }
+    fabric.util.loadImage(IMG_URL_NON_EXISTING).catch(function(err) {
+      assert.ok(err instanceof Error, 'callback should be invoked with error set to true');
+      done();
+    });
   });
 
   var SVG_WITH_1_ELEMENT = '<?xml version="1.0"?>\
@@ -968,13 +968,6 @@
     assert.deepEqual(fabric.util.getSvgAttributes('stop'),
       ['instantiated_by_use', 'style', 'id', 'class', 'offset', 'stop-color', 'stop-opacity'],
       'stop attribs');
-  });
-
-  QUnit.test('fabric.util.enlivenPatterns', function(assert) {
-    assert.ok(typeof fabric.util.enlivenPatterns === 'function');
-    fabric.util.enlivenPatterns([], function() {
-      assert.ok(true, 'callBack is called when no patterns are available');
-    });
   });
 
   QUnit.test('fabric.util.copyCanvasElement', function(assert) {

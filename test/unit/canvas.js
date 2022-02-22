@@ -94,6 +94,28 @@
     return new fabric.Triangle(fabric.util.object.extend(defaultOptions, options || { }));
   }
 
+  function basename(path) {
+    return path.slice(Math.max(path.lastIndexOf('\\'), path.lastIndexOf('/')) + 1);
+  }
+
+  /**
+   *
+   * @param {*} actual
+   * @param {*} [expected]
+   */
+  QUnit.assert.sameImageObject = function (actual, expected) {
+    var a = {}, b = {};
+    expected = expected || REFERENCE_IMG_OBJECT;
+    Object.assign(a, actual, { src: basename(actual.src) });
+    Object.assign(b, expected, { src: basename(expected.src) });
+    this.pushResult({
+      result: QUnit.equiv(a, b),
+      actual: actual,
+      expected: expected,
+      message: 'image object equal to ref'
+    })
+  }
+
   QUnit.module('fabric.Canvas', {
     beforeEach: function() {
       upperCanvasEl.style.display = '';
@@ -1270,6 +1292,13 @@
     assert.equal(center.left, upperCanvasEl.width / 2);
     assert.equal(center.top, upperCanvasEl.height / 2);
   });
+  
+  QUnit.test('getCenterPoint', function(assert) {
+    assert.ok(typeof canvas.getCenterPoint === 'function');
+    var center = canvas.getCenterPoint();
+    assert.equal(center.x, upperCanvasEl.width / 2);
+    assert.equal(center.y, upperCanvasEl.height / 2);
+  });
 
   QUnit.test('centerObjectH', function(assert) {
     assert.ok(typeof canvas.centerObjectH === 'function');
@@ -1436,7 +1465,7 @@
   QUnit.test('loadFromJSON with json string Canvas', function(assert) {
     var done = assert.async();
     assert.ok(typeof canvas.loadFromJSON === 'function');
-    canvas.loadFromJSON(PATH_JSON, function() {
+    canvas.loadFromJSON(PATH_JSON).then(function() {
       var obj = canvas.item(0);
 
       assert.ok(!canvas.isEmpty(), 'canvas is not empty');
@@ -1464,7 +1493,7 @@
 
   QUnit.test('loadFromJSON with json object', function(assert) {
     var done = assert.async();
-    canvas.loadFromJSON(JSON.parse(PATH_JSON), function(){
+    canvas.loadFromJSON(JSON.parse(PATH_JSON)).then(function(){
       var obj = canvas.item(0);
 
       assert.ok(!canvas.isEmpty(), 'canvas is not empty');
@@ -1492,7 +1521,7 @@
 
   QUnit.test('loadFromJSON with json object without default values', function(assert) {
     var done = assert.async();
-    canvas.loadFromJSON(JSON.parse(PATH_WITHOUT_DEFAULTS_JSON), function(){
+    canvas.loadFromJSON(JSON.parse(PATH_WITHOUT_DEFAULTS_JSON)).then(function(){
       var obj = canvas.item(0);
 
       assert.ok(!canvas.isEmpty(), 'canvas is not empty');
@@ -1528,9 +1557,8 @@
         instance.customID = 'fabric_1';
       }
     }
-
-    canvas.loadFromJSON(JSON.parse(PATH_JSON), function(){
-      var done = assert.async();
+    var done = assert.async();
+    canvas.loadFromJSON(JSON.parse(PATH_JSON), reviver).then(function(){
       var obj = canvas.item(0);
 
       assert.ok(!canvas.isEmpty(), 'canvas is not empty');
@@ -1554,7 +1582,7 @@
       assert.equal(obj.get('customID'), 'fabric_1');
       assert.ok(obj.get('path').length > 0);
       done();
-    }, reviver);
+    });
   });
 
   QUnit.test('loadFromJSON with no objects', function(assert) {
@@ -1566,7 +1594,7 @@
 
     var json = c1.toJSON();
     var fired = false;
-    c2.loadFromJSON(json, function() {
+    c2.loadFromJSON(json).then(function() {
       fired = true;
 
       assert.ok(fired, 'Callback should be fired even if no objects');
@@ -1588,7 +1616,7 @@
 
     delete json.objects;
 
-    c2.loadFromJSON(json, function() {
+    c2.loadFromJSON(json).then(function() {
       fired = true;
 
       assert.ok(fired, 'Callback should be fired even if no "objects" property exists');
@@ -1611,7 +1639,7 @@
 
     var json = c1.toJSON();
     var fired = false;
-    c2.loadFromJSON(json, function() {
+    c2.loadFromJSON(json).then(function() {
       fired = true;
 
       assert.ok(fired, 'Callback should be fired even if empty fabric.Group exists');
@@ -1634,7 +1662,7 @@
 
     assert.equal(0, canvas.getObjects().length);
 
-    canvas.loadFromJSON(json, function() {
+    canvas.loadFromJSON(json).then(function() {
       assert.equal(3, canvas.getObjects().length);
 
       done();
@@ -1648,7 +1676,7 @@
     serialized.preserveObjectStacking = true;
     assert.equal(canvas.controlsAboveOverlay, fabric.Canvas.prototype.controlsAboveOverlay);
     assert.equal(canvas.preserveObjectStacking, fabric.Canvas.prototype.preserveObjectStacking);
-    canvas.loadFromJSON(serialized, function() {
+    canvas.loadFromJSON(serialized).then(function() {
       assert.ok(!canvas.isEmpty(), 'canvas is not empty');
       assert.equal(canvas.controlsAboveOverlay, true);
       assert.equal(canvas.preserveObjectStacking, true);
@@ -1658,22 +1686,24 @@
 
   QUnit.test('loadFromJSON with custom properties on Canvas with image', function(assert) {
     var done = assert.async();
-    var JSON_STRING = '{"objects":[{"type":"image","originX":"left","originY":"top","left":13.6,"top":-1.4,"width":3000,"height":3351,"fill":"rgb(0,0,0)","stroke":null,"strokeWidth":0,"strokeDashArray":null,"strokeLineCap":"butt","strokeDashOffset":0,"strokeLineJoin":"miter","strokeMiterLimit":4,"scaleX":0.05,"scaleY":0.05,"angle":0,"flipX":false,"flipY":false,"opacity":1,"shadow":null,"visible":true,"backgroundColor":"","fillRule":"nonzero","globalCompositeOperation":"source-over","skewX":0,"skewY":0,"src":"' + IMG_SRC + '","filters":[],"crossOrigin":""}],'
-+ '"background":"green"}';
-    var serialized = JSON.parse(JSON_STRING);
+    var serialized = {
+      "objects": [
+        { "type": "image", "originX": "left", "originY": "top", "left": 13.6, "top": -1.4, "width": 3000, "height": 3351, "fill": "rgb(0,0,0)", "stroke": null, "strokeWidth": 0, "strokeDashArray": null, "strokeLineCap": "butt", "strokeDashOffset": 0, "strokeLineJoin": "miter", "strokeMiterLimit": 4, "scaleX": 0.05, "scaleY": 0.05, "angle": 0, "flipX": false, "flipY": false, "opacity": 1, "shadow": null, "visible": true, "backgroundColor": "", "fillRule": "nonzero", "globalCompositeOperation": "source-over", "skewX": 0, "skewY": 0, "src": IMG_SRC, "filters": [], "crossOrigin": "" }],
+      "background": "green"
+    };
     serialized.controlsAboveOverlay = true;
     serialized.preserveObjectStacking = true;
     assert.equal(canvas.controlsAboveOverlay, fabric.Canvas.prototype.controlsAboveOverlay);
     assert.equal(canvas.preserveObjectStacking, fabric.Canvas.prototype.preserveObjectStacking);
-    canvas.loadFromJSON(serialized, function() {
+    // before callback the properties are still false.
+    assert.equal(canvas.controlsAboveOverlay, false);
+    assert.equal(canvas.preserveObjectStacking, false);
+    canvas.loadFromJSON(serialized).then(function() {
       assert.ok(!canvas.isEmpty(), 'canvas is not empty');
       assert.equal(canvas.controlsAboveOverlay, true);
       assert.equal(canvas.preserveObjectStacking, true);
       done();
     });
-    // before callback the properties are still false.
-    assert.equal(canvas.controlsAboveOverlay, false);
-    assert.equal(canvas.preserveObjectStacking, false);
   });
 
 
@@ -2123,7 +2153,7 @@
     canvas.add(new fabric.Rect({ width: 100, height: 110, top: 120, left: 130, fill: 'rgba(0,1,2,0.3)' }));
     var canvasData = JSON.stringify(canvas);
 
-    canvas.clone(function(clone) {
+    canvas.clone().then(function(clone) {
       assert.ok(clone instanceof fabric.Canvas);
 
       // alert(JSON.stringify(clone));
@@ -2142,7 +2172,7 @@
 
     canvas.add(new fabric.Rect({ width: 100, height: 110, top: 120, left: 130, fill: 'rgba(0,1,2,0.3)' }));
 
-    canvas.cloneWithoutData(function(clone) {
+    canvas.cloneWithoutData().then(function(clone) {
 
       assert.ok(clone instanceof fabric.Canvas);
 
@@ -2496,6 +2526,11 @@
     });
 
     assert.ok(typeof InheritedCanvasClass === 'function');
+  });
+  
+  QUnit.test('canvas getTopContext', function(assert) {
+    assert.ok(typeof canvas.getTopContext === 'function');
+    assert.equal(canvas.getTopContext(), canvas.contextTop, 'it jsut returns contextTop');
   });
 
   QUnit.test('_shouldCenterTransform', function(assert) {

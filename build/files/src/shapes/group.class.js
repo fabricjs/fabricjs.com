@@ -117,7 +117,7 @@
      * @param {Boolean} [skipCoordsChange] if true, coordinates of objects enclosed in a group do not change
      */
     _updateObjectsCoords: function(center) {
-      var center = center || this.getRelativeCenterPoint();
+      var center = center || this.getCenterPoint();
       for (var i = this._objects.length; i--; ){
         this._updateObjectCoords(this._objects[i], center);
       }
@@ -559,15 +559,26 @@
    * @static
    * @memberOf fabric.Group
    * @param {Object} object Object to create a group from
-   * @returns {Promise<fabric.Group>}
+   * @param {Function} [callback] Callback to invoke when an group instance is created
    */
-  fabric.Group.fromObject = function(object) {
-    var objects = object.objects || [],
+  fabric.Group.fromObject = function(object, callback) {
+    var objects = object.objects,
         options = fabric.util.object.clone(object, true);
     delete options.objects;
-    return fabric.util.enlivenObjects(objects).then(function (enlivenedObjects) {
-      return fabric.util.enlivenObjectEnlivables(options).then(function(enlivedProps) {
-        return new fabric.Group(enlivenedObjects, Object.assign(options, enlivedProps), true);
+    if (typeof objects === 'string') {
+      // it has to be an url or something went wrong.
+      fabric.loadSVGFromURL(objects, function (elements) {
+        var group = fabric.util.groupSVGElements(elements, object, objects);
+        group.set(options);
+        callback && callback(group);
+      });
+      return;
+    }
+    fabric.util.enlivenObjects(objects, function (enlivenedObjects) {
+      var options = fabric.util.object.clone(object, true);
+      delete options.objects;
+      fabric.util.enlivenObjectEnlivables(object, options, function () {
+        callback && callback(new fabric.Group(enlivenedObjects, options, true));
       });
     });
   };

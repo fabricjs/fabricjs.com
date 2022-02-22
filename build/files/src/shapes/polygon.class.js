@@ -71,10 +71,11 @@
    * @static
    * @memberOf fabric.Polygon
    * @param {Object} object Object to create an instance from
-   * @returns {Promise<fabric.Polygon>}
+   * @param {Function} [callback] Callback to invoke when an fabric.Path instance is created
+   * @return {void}
    */
-  fabric.Polygon.fromObject = function(object) {
-    return fabric.Object._fromObject(fabric.Polygon, object, 'points');
+  fabric.Polygon.fromObject = function(object, callback) {
+    fabric.Object._fromObject('Polygon', object, callback, 'points');
   };
 
 })(typeof exports !== 'undefined' ? exports : this);

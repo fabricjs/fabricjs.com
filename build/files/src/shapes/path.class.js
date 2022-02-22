@@ -332,10 +332,20 @@
    * @static
    * @memberOf fabric.Path
    * @param {Object} object
-   * @returns {Promise<fabric.Path>}
+   * @param {Function} [callback] Callback to invoke when an fabric.Path instance is created
    */
-  fabric.Path.fromObject = function(object) {
-    return fabric.Object._fromObject(fabric.Path, object, 'path');
+  fabric.Path.fromObject = function(object, callback) {
+    if (typeof object.sourcePath === 'string') {
+      var pathUrl = object.sourcePath;
+      fabric.loadSVGFromURL(pathUrl, function (elements) {
+        var path = elements[0];
+        path.setOptions(object);
+        callback && callback(path);
+      });
+    }
+    else {
+      fabric.Object._fromObject('Path', object, callback, 'path');
+    }
   };
 
   /* _FROM_SVG_START_ */

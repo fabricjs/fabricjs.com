@@ -697,7 +697,6 @@
   });
 
   QUnit.test('Fabric mouseover, mouseout events fire for subTargets when subTargetCheck is enabled', function(assert){
-    var done = assert.async();
     var counterOver = 0, counterOut = 0, canvas = new fabric.Canvas();
     function setSubTargetCheckRecursive(obj) {
       if (obj._objects) {
@@ -711,7 +710,7 @@
         counterOut++;
       });
     }
-    canvas.loadFromJSON(SUB_TARGETS_JSON).then(function() {
+    canvas.loadFromJSON(SUB_TARGETS_JSON, function() {
       var activeSelection = new fabric.ActiveSelection(canvas.getObjects(), {
         canvas: canvas
       });
@@ -738,7 +737,6 @@
       assert.equal(counterOut, 4, 'mouseout fabric event fired 4 times for primary hoveredTarget & subTargets');
       assert.equal(canvas._hoveredTarget, null, '_hoveredTarget has been set to null');
       assert.equal(canvas._hoveredTargets.length, 0, '_hoveredTargets array is empty');
-      done();
     });
   });
 

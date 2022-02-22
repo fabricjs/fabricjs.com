@@ -171,10 +171,11 @@
    * @static
    * @memberOf fabric.Ellipse
    * @param {Object} object Object to create an instance from
-   * @returns {Promise<fabric.Ellipse>}
+   * @param {function} [callback] invoked with new instance as first argument
+   * @return {void}
    */
-  fabric.Ellipse.fromObject = function(object) {
-    return fabric.Object._fromObject(fabric.Ellipse, object);
+  fabric.Ellipse.fromObject = function(object, callback) {
+    fabric.Object._fromObject('Ellipse', object, callback);
   };
 
 })(typeof exports !== 'undefined' ? exports : this);

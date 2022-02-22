@@ -126,10 +126,11 @@
   });
 
   /**
-   * Create filter instance from an object representation
+   * Returns filter instance from an object representation
    * @static
    * @param {Object} object Object to create an instance from
-   * @returns {Promise<fabric.Image.filters.Pixelate>}
+   * @param {Function} [callback] to be invoked after filter creation
+   * @return {fabric.Image.filters.Pixelate} Instance of fabric.Image.filters.Pixelate
    */
   fabric.Image.filters.Pixelate.fromObject = fabric.Image.filters.BaseFilter.fromObject;
 

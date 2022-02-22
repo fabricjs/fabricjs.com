@@ -60,12 +60,13 @@
   /**
    * Deserialize a JSON definition of a ComposedFilter into a concrete instance.
    */
-  fabric.Image.filters.Composed.fromObject = function(object) {
-    var filters = object.subFilters || [];
-    return Promise.all(filters.map(function(filter) {
-      return fabric.Image.filters[filter.type].fromObject(filter);
-    })).then(function(enlivedFilters) {
-      return new fabric.Image.filters.Composed({ subFilters: enlivedFilters });
-    });
+  fabric.Image.filters.Composed.fromObject = function(object, callback) {
+    var filters = object.subFilters || [],
+        subFilters = filters.map(function(filter) {
+          return new fabric.Image.filters[filter.type](filter);
+        }),
+        instance = new fabric.Image.filters.Composed({ subFilters: subFilters });
+    callback && callback(instance);
+    return instance;
   };
 })(typeof exports !== 'undefined' ? exports : this);

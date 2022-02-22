@@ -230,16 +230,17 @@
   });
 
   /**
-   * Create filter instance from an object representation
+   * Returns filter instance from an object representation
    * @static
    * @param {Object} object Object to create an instance from
-   * @returns {Promise<fabric.Image.filters.BlendImage>}
+   * @param {function} callback to be invoked after filter creation
+   * @return {fabric.Image.filters.BlendImage} Instance of fabric.Image.filters.BlendImage
    */
-  fabric.Image.filters.BlendImage.fromObject = function(object) {
-    return fabric.Image.fromObject(object.image).then(function(image) {
+  fabric.Image.filters.BlendImage.fromObject = function(object, callback) {
+    fabric.Image.fromObject(object.image, function(image) {
       var options = fabric.util.object.clone(object);
       options.image = image;
-      return new fabric.Image.filters.BlendImage(options);
+      callback(new fabric.Image.filters.BlendImage(options));
     });
   };
 

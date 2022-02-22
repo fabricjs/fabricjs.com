@@ -200,10 +200,11 @@
    * @static
    * @memberOf fabric.Circle
    * @param {Object} object Object to create an instance from
-   * @returns {Promise<fabric.Circle>}
+   * @param {function} [callback] invoked with new instance as first argument
+   * @return {void}
    */
-  fabric.Circle.fromObject = function(object) {
-    return fabric.Object._fromObject(fabric.Circle, object);
+  fabric.Circle.fromObject = function(object, callback) {
+    fabric.Object._fromObject('Circle', object, callback);
   };
 
 })(typeof exports !== 'undefined' ? exports : this);

@@ -210,10 +210,7 @@
   });
 
   /**
-   * Create filter instance from an object representation
-   * @static
-   * @param {Object} object Object to create an instance from
-   * @returns {Promise<fabric.Image.filters.Blur>}
+   * Deserialize a JSON definition of a BlurFilter into a concrete instance.
    */
   filters.Blur.fromObject = fabric.Image.filters.BaseFilter.fromObject;
 

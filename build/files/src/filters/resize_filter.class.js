@@ -479,10 +479,11 @@
   });
 
   /**
-   * Create filter instance from an object representation
+   * Returns filter instance from an object representation
    * @static
    * @param {Object} object Object to create an instance from
-   * @returns {Promise<fabric.Image.filters.Resize>}
+   * @param {Function} [callback] to be invoked after filter creation
+   * @return {fabric.Image.filters.Resize} Instance of fabric.Image.filters.Resize
    */
   fabric.Image.filters.Resize.fromObject = fabric.Image.filters.BaseFilter.fromObject;
 

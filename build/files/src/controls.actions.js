@@ -24,9 +24,7 @@
    * @return {Number} 0 - 7 a quadrant number
    */
   function findCornerQuadrant(fabricObject, control) {
-    //  angle is relative to canvas plane
-    var angle = fabricObject.getTotalAngle();
-    var cornerAngle = angle + radiansToDegrees(Math.atan2(control.y, control.x)) + 360;
+    var cornerAngle = fabricObject.angle + radiansToDegrees(Math.atan2(control.y, control.x)) + 360;
     return Math.round((cornerAngle % 360) / 45);
   }
 
@@ -195,7 +193,7 @@
    */
   function wrapWithFixedAnchor(actionHandler) {
     return function(eventData, transform, x, y) {
-      var target = transform.target, centerPoint = target.getRelativeCenterPoint(),
+      var target = transform.target, centerPoint = target.getCenterPoint(),
           constraint = target.translateToOriginPoint(centerPoint, transform.originX, transform.originY),
           actionPerformed = actionHandler(eventData, transform, x, y);
       target.setPositionByOrigin(constraint, transform.originX, transform.originY);
@@ -233,7 +231,7 @@
         control = target.controls[transform.corner],
         zoom = target.canvas.getZoom(),
         padding = target.padding / zoom,
-        localPoint = target.normalizePoint(new fabric.Point(x, y), originX, originY);
+        localPoint = target.toLocalPoint(new fabric.Point(x, y), originX, originY);
     if (localPoint.x >= padding) {
       localPoint.x -= padding;
     }
@@ -471,7 +469,7 @@
   function rotationWithSnapping(eventData, transform, x, y) {
     var t = transform,
         target = t.target,
-        pivotPoint = target.translateToOriginPoint(target.getRelativeCenterPoint(), t.originX, t.originY);
+        pivotPoint = target.translateToOriginPoint(target.getCenterPoint(), t.originX, t.originY);
 
     if (target.lockRotation) {
       return false;

@@ -84,10 +84,10 @@
    * @static
    * @memberOf fabric.Triangle
    * @param {Object} object Object to create an instance from
-   * @returns {Promise<fabric.Triangle>}
+   * @param {function} [callback] invoked with new instance as first argument
    */
-  fabric.Triangle.fromObject = function(object) {
-    return fabric.Object._fromObject(fabric.Triangle, object);
+  fabric.Triangle.fromObject = function(object, callback) {
+    return fabric.Object._fromObject('Triangle', object, callback);
   };
 
 })(typeof exports !== 'undefined' ? exports : this);

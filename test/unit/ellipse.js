@@ -171,7 +171,7 @@
 
     fabric.Ellipse.fromObject({
       left: left, top: top, rx: rx, ry: ry, fill: fill
-    }).then(function(ellipse) {
+    }, function(ellipse) {
       assert.ok(ellipse instanceof fabric.Ellipse);
 
       assert.equal(ellipse.get('left'), left);
@@ -181,10 +181,12 @@
       assert.equal(ellipse.get('fill'), fill);
 
       var expected = ellipse.toObject();
-      fabric.Ellipse.fromObject(expected).then(function(actual) {
+      fabric.Ellipse.fromObject(expected, function(actual) {
         assert.deepEqual(actual.toObject(), expected);
         done();
       });
     });
+
+
   });
 })();

@@ -20,7 +20,7 @@ title: Introduction to Fabric.js. Part 4.
 
   <p>If, at any moment, you set <code>isDrawingMode</code> back to <code>false</code>, you'll end up with all of the created path objects still present on canvas. And since they're good old <code>fabric.Path</code> objects, you can modify them any way you want — move, rotate, scale, etc.</p>
 
-  <p>There's also 2 properties available to customize free drawing — <code>freeDrawingBrush.color</code> and <code>freeDrawingBrush.width</code>. Both are available on Fabric canvas instances through <code>freeDrawingBrush</code> instance. <code>freeDrawingBrush.color</code> can be any regular color value and represents the color of a brush. <code>freeDrawingBrush.width</code> is a number in pixels, and represents brush thickness.</p>
+  <p>There are also 2 properties available to customize free drawing — <code>freeDrawingBrush.color</code> and <code>freeDrawingBrush.width</code>. Both are available on Fabric canvas instances through <code>freeDrawingBrush</code> instance. <code>freeDrawingBrush.color</code> can be any regular color value and represents the color of a brush. <code>freeDrawingBrush.width</code> is a number in pixels, and represents brush thickness.</p>
 
   <p><img src="/article_assets/4_1.png" style="border:1px solid #eee"></p>
 
@@ -86,7 +86,7 @@ object.set({
 
   <p>Now, what if you don't want to disable selection, but instead want to change its appearance? No problem.</p>
 
-  <p>There's 4 properties on canvas that control its presentation — "selectionColor", "selectionBorderColor", "selectionLikeWidth", and "selectionDashArray". These should be pretty self-explanatory, so let's take a look at an example:</p>
+  <p>There are 4 properties on canvas that control its presentation — "selectionColor", "selectionBorderColor", "selectionLineWidth", and "selectionDashArray". These should be pretty self-explanatory, so let's take a look at an example:</p>
 
 <pre>
 canvas.add(new fabric.Circle({ radius: 30, fill: '#f55', top: 100, left: 100 }));

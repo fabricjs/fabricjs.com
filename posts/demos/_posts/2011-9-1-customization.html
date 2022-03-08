@@ -161,11 +161,11 @@ title: Customization
   function animate(e, dir) {
     if (e.target) {
       fabric.util.animate({
-        startValue: e.target.get('angle'),
-        endValue: e.target.get('angle') + (dir ? 10 : -10),
+        startValue: e.target.angle,
+        endValue: dir ? 10 : 0,
         duration: 100,
         onChange: function(value) {
-          e.target.setAngle(value);
+          e.target.rotate(value);
           canvas.renderAll();
         },
         onComplete: function() {
@@ -173,8 +173,8 @@ title: Customization
         }
       });
       fabric.util.animate({
-        startValue: e.target.get('scaleX'),
-        endValue: e.target.get('scaleX') + (dir ? 0.2 : -0.2),
+        startValue: e.target.scaleX,
+        endValue: dir ? 1.2 : 1,
         duration: 100,
         onChange: function(value) {
           e.target.scale(value);

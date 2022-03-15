@@ -26,7 +26,7 @@ title: Event inspector
     height: 100px;
   }
   .log strong { margin-bottom: 10px; display: block; }
-  label {
+  .bold label {
     font-weight: bold;
   }
   label[for="green"] {
@@ -43,17 +43,28 @@ title: Event inspector
     flex-direction: column;
     overflow: auto;
   }
+  .hidden {
+    display: none;
+  }
 </style>
 <p>
   To avoid event spamming, you can disable the checkboxs below.<br />
-  <input type="checkbox" id="move" checked /><label for="move">MouseMove</label>
-  <input type="checkbox" id="dragover" checked /><label for="dragover">DragOver</label>
-  <input type="checkbox" id="canvas_events" checked /><label for="canvas_events">Canvas</label>
-  <br />
-  <input type="checkbox" id="green" checked /><label for="green">Green</label>
-  <input type="checkbox" id="red" checked /><label for="red">Red</label>
-  <input type="checkbox" id="blue" checked /><label for="blue">Blue</label>
 </p>
+<table  class="bold">
+  <tr>
+    <td><input type="checkbox" id="toggle" checked/><label for="toggle">All events</label></td>
+  </tr>
+  <tr>
+    <td><input type="checkbox" id="move" checked/><label for="move">Movement events</label></td>
+    <td><input type="checkbox" id="dragover" checked/><label for="dragover">DragOver</label></td>
+    <td><input type="checkbox" id="canvas_events" checked/><label for="canvas_events">Canvas</label></td>
+  </tr>
+  <tr>
+    <td><input type="checkbox" id="green" checked/><label for="green">Green</label></td>
+    <td><input type="checkbox" id="red" checked/><label for="red">Red</label></td>
+    <td><input type="checkbox" id="blue" checked/><label for="blue">Blue</label></td>
+  </tr>
+</table>
 <canvas id="c1" width="400" height="250"></canvas>
 
 <div id="drag-stuff" class="log">
@@ -71,9 +82,6 @@ title: Event inspector
 
 <div id="non-observing-events-log" class="log">
   <strong>Other available events</strong>
-  <p>path:created</p>
-  <p>object:added</p>
-  <p>object:removed</p>
 </div>
 
 <div>
@@ -95,17 +103,17 @@ title: Event inspector
   clearButton.onclick = function () { log2.innerHTML = '&nbsp;'; }
 
   function log(message, opt, color) {
-    if ((message === 'mouse:move' || message === 'mousemove' || message === 'mouse:move:before' || message === 'mousemove:before') && !document.getElementById('move').checked) {
+    if (!getCheckbox(message, !!color)?.checked) {
       return;
     }
-    if ((message === 'dragover') && !document.getElementById('dragover').checked) {
+    if (color && !document.getElementById(color).checked) {
       return;
     }
-    if (!document.getElementById(color ? color : 'canvas_events').checked) {
-      return;
-    }
+    getCheckboxLabel(message, !!color)?.classList.add('bold');
     var el = document.createElement('div');
     el.classList.add('log-entry');
+    el.setAttribute('event', message);
+    el.setAttribute('object', !!color);
     if (color) {
       el.style.color = color;
     }
@@ -135,26 +143,102 @@ title: Event inspector
       log2.removeChild(child);
     }
   }
+
+  function toggleLogs(eventName, obj, value){
+    log2.querySelectorAll('div[event = "' + eventName + '"][object = "' + !!obj + '"]').forEach(el => el.classList.toggle('hidden',!value));
+  }
+  function getEventdescriptor(eventName, obj){
+    return document.querySelector('div[event = "' + eventName + '"][object = "' + !!obj + '"]');
+  }
+  function getCheckbox(eventName, obj){
+    return getEventdescriptor(eventName, obj)?.querySelector('input[type = checkbox]');
+  }  
+  function getCheckboxLabel(eventName, obj){
+    return getEventdescriptor(eventName, obj)?.querySelector('label');
+  }
+
+  function toggleCheckbox(eventName, obj, value){
+    var checkbox = getCheckbox(eventName, obj);
+    if(checkbox){
+      checkbox.checked = value;
+      checkbox.classList.remove('bold');
+    }
+    toggleLogs(eventName, obj, value);
+    return checkbox;
+  }
+
+  function toggleMovementEvents() {
+    var events = [
+      'mouse:move',
+      'mousemove',
+      'mouse:move:before',
+      'mousemove:before',
+      'moving'
+    ];
+    events.forEach((ev) => {
+      toggleCheckbox(ev, true, this.checked);
+      toggleCheckbox(ev, false, this.checked);
+    });
+  }
+  function toggleDragOverEvents() {
+    toggleCheckbox('dragover', true, this.checked);
+    toggleCheckbox('dragover', false, this.checked);
+  }
+  function toggleCanvasEvents() {
+    Object.keys(canvas2.__eventListeners).forEach((ev) => {
+      toggleCheckbox(ev, false, this.checked);
+    });
+  }
+  function toggleAll() {
+    document.querySelectorAll('input[type = checkbox]:not(#toggle)').forEach(checkbox => (checkbox.checked=this.checked));
+  }
+  document.getElementById('move').addEventListener('change', toggleMovementEvents);
+  document.getElementById('dragover').addEventListener('change', toggleDragOverEvents);
+  document.getElementById('canvas_events').addEventListener('change', toggleCanvasEvents);
+  document.getElementById('toggle').addEventListener('change', toggleAll);
+  
+
+  let id=0;
+  function createEventDescriptor(eventName, obj) {
+    var para = document.createElement('div');
+    var checkbox = document.createElement('input');
+    checkbox.id = 'checkbox_'+(++id);
+    checkbox.type = 'checkbox';
+    checkbox.checked = true;
+    checkbox.onchange = () => {
+      checkbox.classList.remove('bold');
+      toggleLogs(eventName, obj, checkbox.checked);
+    };
+    para.setAttribute('event', eventName);
+    para.setAttribute('object', !!obj);
+    var label = document.createElement('label');
+    label.appendChild(document.createTextNode(eventName));
+    label.htmlFor = checkbox.id;
+    para.append(checkbox, label);
+    return para;
+  }
+
   function logObservingEvent(eventName) {
     var el = document.getElementById('observing-events-log');
-    var para = document.createElement('p');
-    para.appendChild(document.createTextNode(eventName));
-    el.appendChild(para);
+    el.appendChild(createEventDescriptor(eventName));
+  }
+
+  function logNonObservingEvent(eventName) {
+    var el = document.getElementById('non-observing-events-log');
+    el.appendChild(createEventDescriptor(eventName));
   }
 
   function logObservingEventObj(eventName) {
     var el = document.getElementById('observing-events-log-obj');
-    var para = document.createElement('p');
-    para.appendChild(document.createTextNode(eventName));
-    el.appendChild(para);
+    el.appendChild(createEventDescriptor(eventName, true));
   }
 
   function addSeparator(id) {
     document.getElementById(id).appendChild(document.createElement('br'));
   }
 
-  function observe(eventName) {
-    logObservingEvent(eventName);
+  function observe(eventName, nonobserving) {
+    nonobserving ? logNonObservingEvent(eventName): logObservingEvent(eventName);
     canvas2.on(eventName, function(opt){ log(eventName, opt) });
   }
 
@@ -205,6 +289,11 @@ title: Event inspector
   addSeparator('observing-events-log');
 
   observe('after:render');
+  addSeparator('observing-events-log');
+
+  observe('path:created', true);
+  observe('object:added', true);
+  observe('object:removed', true);
   addSeparator('observing-events-log');
 
   observeObj('moving');

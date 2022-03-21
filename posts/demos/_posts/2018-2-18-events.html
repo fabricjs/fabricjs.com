@@ -191,7 +191,7 @@ title: Event inspector
     });
   }
   function toggleAll() {
-    document.querySelectorAll('input[type = checkbox]:not(#toggle)').forEach(checkbox => (checkbox.checked=this.checked));
+    document.querySelectorAll('div[event] > input[type = checkbox]').forEach(checkbox => (checkbox.checked=this.checked));
   }
   document.getElementById('move').addEventListener('change', toggleMovementEvents);
   document.getElementById('dragover').addEventListener('change', toggleDragOverEvents);

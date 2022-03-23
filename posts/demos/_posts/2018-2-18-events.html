@@ -64,7 +64,7 @@ title: Event inspector
     <td><input type="checkbox" id="red" checked/><label for="red">Red</label></td>
     <td><input type="checkbox" id="blue" checked/><label for="blue">Blue</label></td>
   <tr>
-    <td><input type="checkbox" id="textbox" checked/><label for="textbox">Textbox</label></td>
+    <td><input type="checkbox" id="black" checked/><label for="black">Black</label></td>
   </tr>
 </table>
 <canvas id="c1" width="400" height="250"></canvas>
@@ -99,7 +99,7 @@ title: Event inspector
   canvas2.add(new fabric.Rect({ width: 50, height: 50, fill: 'red', top: 100, left: 100 }));
   canvas2.add(new fabric.Rect({ width: 30, height: 30, fill: 'green', top: 50, left: 50 }));
   canvas2.add(new fabric.Circle({ radius: 20, fill: 'blue', top: 160, left: 140 }));
-  canvas2.add(new fabric.Textbox('Textbox', { top: 70, left: 200 }));
+  canvas2.add(new fabric.Textbox('Textbox', { fill: 'black', top: 70, left: 200 }));
 
   var log2 = document.getElementById('log1');
   var clearButton = document.getElementById('clear_log');

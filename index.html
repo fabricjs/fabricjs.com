@@ -62,6 +62,7 @@ title: Features
   <script>
     (function(){
       fabric.Object.prototype.originX = fabric.Object.prototype.originY = 'center';
+      fabric.Text.prototype.originX = 'center';
       fabric.Object.prototype.transparentCorners = false;
 
       var canvas = this.__canvas = new fabric.Canvas('intro-canvas');
@@ -187,6 +188,7 @@ title: Features
         left: 250,
         top: 260,
         textAlign: 'center',
+        originX: 'center'
       });
 
       // text

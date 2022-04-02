@@ -17,14 +17,14 @@
 
 <body>
     <ul id="header">
-      <li><a href="http://fabricjs.com/">Home</a></li>
-      <li><a href="http://fabricjs.com/demos">Demos</a></li>
-      <li><a href="http://fabricjs.com/articles">Tutorial</a></li>
-      <li><a href="http://fabricjs.com/docs">Docs</a></li>
-      <li><a href="http://fabricjs.com/build">Custom Build</a></li>
-      <li><a href="http://fabricjs.com/help">Support</a></li>
-      <li><a href="http://fabricjs.com/test">Tests/Benchmarks</a></li>
-      <li><a href="http://fabricjs.com/team">Team</a></li>
+      <li><a href="/">Home</a></li>
+      <li><a href="/demos">Demos</a></li>
+      <li><a href="/articles">Tutorial</a></li>
+      <li><a href="/docs">Docs</a></li>
+      <li><a href="/build">Custom Build</a></li>
+      <li><a href="/help">Support</a></li>
+      <li><a href="/test">Tests/Benchmarks</a></li>
+      <li><a href="/team">Team</a></li>
       <li class="github secondary">
         <iframe src="http://ghbtns.com/github-btn.html?user=kangax&repo=fabric.js&type=watch&count=true"
           allowtransparency="true" frameborder="0" scrolling="0" width="95px" height="20px"></iframe>
@@ -39,14 +39,7 @@
 
     <script>
     (function() {
-      if (document.location.hostname === 'localhost') {
-        var links = document.getElementById('header').getElementsByTagName('a');
-        for (var i = 0, len = links.length; i < len; i++) {
-          // very retarted fix but fuck it
-          links[i].href = links[i].href.replace('fabricjs.com', 'localhost:4000');
-        }
-      }
-      else {
+      if (document.location.hostname !== 'localhost') {
         !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
       }
     })();
@@ -87,7 +80,7 @@
         <gcse:search></gcse:search>
         </div>
         <div class="lowerNav" >
-            <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="fabric.ActiveSelection.html">ActiveSelection</a></li><li><a href="fabric.BaseBrush.html">BaseBrush</a></li><li><a href="fabric.Canvas.html">Canvas</a></li><li><a href="fabric.Circle.html">Circle</a></li><li><a href="fabric.CircleBrush.html">CircleBrush</a></li><li><a href="fabric.Color.html">Color</a></li><li><a href="fabric.Ellipse.html">Ellipse</a></li><li><a href="fabric.Gradient.html">Gradient</a></li><li><a href="fabric.Group.html">Group</a></li><li><a href="fabric.Image.html">Image</a></li><li><a href="fabric.Image.filters.BaseFilter.html">BaseFilter</a></li><li><a href="fabric.Image.filters.Blur.html">Blur</a></li><li><a href="fabric.Image.filters.Brightness.html">Brightness</a></li><li><a href="fabric.Image.filters.ColorMatrix.html">ColorMatrix</a></li><li><a href="fabric.Image.filters.Contrast.html">Contrast</a></li><li><a href="fabric.Image.filters.Convolute.html">Convolute</a></li><li><a href="fabric.Image.filters.fabric.Image.filter.BlendColor.html">BlendColor</a></li><li><a href="fabric.Image.filters.fabric.Image.filter.BlendImage.html">BlendImage</a></li><li><a href="fabric.Image.filters.Gamma.html">Gamma</a></li><li><a href="fabric.Image.filters.Grayscale.html">Grayscale</a></li><li><a href="fabric.Image.filters.HueRotation.html">HueRotation</a></li><li><a href="fabric.Image.filters.Invert.html">Invert</a></li><li><a href="fabric.Image.filters.Noise.html">Noise</a></li><li><a href="fabric.Image.filters.Pixelate.html">Pixelate</a></li><li><a href="fabric.Image.filters.RemoveColor.html">RemoveColor</a></li><li><a href="fabric.Image.filters.Resize.html">Resize</a></li><li><a href="fabric.Image.filters.Saturation.html">Saturation</a></li><li><a href="fabric.Image.filters.Vibrance.html">Vibrance</a></li><li><a href="fabric.Intersection.html">Intersection</a></li><li><a href="fabric.IText.html">IText</a></li><li><a href="fabric.Line.html">Line</a></li><li><a href="fabric.Object.html">Object</a></li><li><a href="fabric.Path.html">Path</a></li><li><a href="fabric.Pattern.html">Pattern</a></li><li><a href="fabric.PatternBrush.html">PatternBrush</a></li><li><a href="fabric.PencilBrush.html">PencilBrush</a></li><li><a href="fabric.Point.html">Point</a></li><li><a href="fabric.Polygon.html">Polygon</a></li><li><a href="fabric.Polyline.html">Polyline</a></li><li><a href="fabric.Rect.html">Rect</a></li><li><a href="fabric.Shadow.html">Shadow</a></li><li><a href="fabric.SprayBrush.html">SprayBrush</a></li><li><a href="fabric.StaticCanvas.html">StaticCanvas</a></li><li><a href="fabric.Text.html">Text</a></li><li><a href="fabric.Textbox.html">Textbox</a></li><li><a href="fabric.Triangle.html">Triangle</a></li></ul><h3>Namespaces</h3><ul><li><a href="fabric.html">fabric</a></li><li><a href="fabric.Collection.html">Collection</a></li><li><a href="fabric.CommonMethods.html">CommonMethods</a></li><li><a href="fabric.Image.filters.html">filters</a></li><li><a href="fabric.Observable.html">Observable</a></li><li><a href="fabric.util.html">util</a></li><li><a href="fabric.util.array.html">array</a></li><li><a href="fabric.util.ease.html">ease</a></li><li><a href="fabric.util.object.html">object</a></li><li><a href="fabric.util.string.html">string</a></li></ul><h3>Global</h3><ul><li><a href="global.html#__cachedLines">__cachedLines</a></li><li><a href="global.html#_splitTextIntoLines">_splitTextIntoLines</a></li><li><a href="global.html#_wrapLine">_wrapLine</a></li><li><a href="global.html#_wrapText">_wrapText</a></li><li><a href="global.html#applyFilters">applyFilters</a></li><li><a href="global.html#cancelAll">cancelAll</a></li><li><a href="global.html#cancelByCanvas">cancelByCanvas</a></li><li><a href="global.html#cancelByTarget">cancelByTarget</a></li><li><a href="global.html#copyGLTo2DDrawImage">copyGLTo2DDrawImage</a></li><li><a href="global.html#copyGLTo2DPutImageData">copyGLTo2DPutImageData</a></li><li><a href="global.html#dynamicMinWidth">dynamicMinWidth</a></li><li><a href="global.html#findAnimation">findAnimation</a></li><li><a href="global.html#findAnimationIndex">findAnimationIndex</a></li><li><a href="global.html#findAnimationsByTarget">findAnimationsByTarget</a></li><li><a href="global.html#isEmptyStyles">isEmptyStyles</a></li><li><a href="global.html#isEndOfWrapping">isEndOfWrapping</a></li><li><a href="global.html#lockScalingFlip">lockScalingFlip</a></li><li><a href="global.html#minWidth">minWidth</a></li><li><a href="global.html#missingNewlineOffset">missingNewlineOffset</a></li><li><a href="global.html#noScaleCache">noScaleCache</a></li><li><a href="global.html#splitByGrapheme">splitByGrapheme</a></li><li><a href="global.html#styleHas">styleHas</a></li><li><a href="global.html#toObject">toObject</a></li><li><a href="global.html#type">type</a></li></ul>
+            <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="fabric.ActiveSelection.html">ActiveSelection</a></li><li><a href="fabric.BaseBrush.html">BaseBrush</a></li><li><a href="fabric.Canvas.html">Canvas</a></li><li><a href="fabric.Circle.html">Circle</a></li><li><a href="fabric.CircleBrush.html">CircleBrush</a></li><li><a href="fabric.Color.html">Color</a></li><li><a href="fabric.Ellipse.html">Ellipse</a></li><li><a href="fabric.Gradient.html">Gradient</a></li><li><a href="fabric.Group.html">Group</a></li><li><a href="fabric.Image.html">Image</a></li><li><a href="fabric.Image.filters.BaseFilter.html">BaseFilter</a></li><li><a href="fabric.Image.filters.Blur.html">Blur</a></li><li><a href="fabric.Image.filters.Brightness.html">Brightness</a></li><li><a href="fabric.Image.filters.ColorMatrix.html">ColorMatrix</a></li><li><a href="fabric.Image.filters.Contrast.html">Contrast</a></li><li><a href="fabric.Image.filters.Convolute.html">Convolute</a></li><li><a href="fabric.Image.filters.fabric.Image.filter.BlendColor.html">BlendColor</a></li><li><a href="fabric.Image.filters.fabric.Image.filter.BlendImage.html">BlendImage</a></li><li><a href="fabric.Image.filters.Gamma.html">Gamma</a></li><li><a href="fabric.Image.filters.Grayscale.html">Grayscale</a></li><li><a href="fabric.Image.filters.HueRotation.html">HueRotation</a></li><li><a href="fabric.Image.filters.Invert.html">Invert</a></li><li><a href="fabric.Image.filters.Noise.html">Noise</a></li><li><a href="fabric.Image.filters.Pixelate.html">Pixelate</a></li><li><a href="fabric.Image.filters.RemoveColor.html">RemoveColor</a></li><li><a href="fabric.Image.filters.Resize.html">Resize</a></li><li><a href="fabric.Image.filters.Saturation.html">Saturation</a></li><li><a href="fabric.Image.filters.Vibrance.html">Vibrance</a></li><li><a href="fabric.Intersection.html">Intersection</a></li><li><a href="fabric.IText.html">IText</a></li><li><a href="fabric.Line.html">Line</a></li><li><a href="fabric.Object.html">Object</a></li><li><a href="fabric.Path.html">Path</a></li><li><a href="fabric.Pattern.html">Pattern</a></li><li><a href="fabric.PatternBrush.html">PatternBrush</a></li><li><a href="fabric.PencilBrush.html">PencilBrush</a></li><li><a href="fabric.Point.html">Point</a></li><li><a href="fabric.Polygon.html">Polygon</a></li><li><a href="fabric.Polyline.html">Polyline</a></li><li><a href="fabric.Rect.html">Rect</a></li><li><a href="fabric.Shadow.html">Shadow</a></li><li><a href="fabric.SprayBrush.html">SprayBrush</a></li><li><a href="fabric.StaticCanvas.html">StaticCanvas</a></li><li><a href="fabric.Text.html">Text</a></li><li><a href="fabric.Textbox.html">Textbox</a></li><li><a href="fabric.Triangle.html">Triangle</a></li></ul><h3>Namespaces</h3><ul><li><a href="fabric.html">fabric</a></li><li><a href="fabric.Collection.html">Collection</a></li><li><a href="fabric.CommonMethods.html">CommonMethods</a></li><li><a href="fabric.Image.filters.html">filters</a></li><li><a href="fabric.Observable.html">Observable</a></li><li><a href="fabric.util.html">util</a></li><li><a href="fabric.util.array.html">array</a></li><li><a href="fabric.util.ease.html">ease</a></li><li><a href="fabric.util.object.html">object</a></li><li><a href="fabric.util.string.html">string</a></li></ul><h3>Global</h3><ul><li><a href="global.html#__cachedLines">__cachedLines</a></li><li><a href="global.html#_measureWord">_measureWord</a></li><li><a href="global.html#_splitTextIntoLines">_splitTextIntoLines</a></li><li><a href="global.html#_wrapLine">_wrapLine</a></li><li><a href="global.html#_wrapText">_wrapText</a></li><li><a href="global.html#applyFilters">applyFilters</a></li><li><a href="global.html#cancelAll">cancelAll</a></li><li><a href="global.html#cancelByCanvas">cancelByCanvas</a></li><li><a href="global.html#cancelByTarget">cancelByTarget</a></li><li><a href="global.html#copyGLTo2DDrawImage">copyGLTo2DDrawImage</a></li><li><a href="global.html#copyGLTo2DPutImageData">copyGLTo2DPutImageData</a></li><li><a href="global.html#dynamicMinWidth">dynamicMinWidth</a></li><li><a href="global.html#findAnimation">findAnimation</a></li><li><a href="global.html#findAnimationIndex">findAnimationIndex</a></li><li><a href="global.html#findAnimationsByTarget">findAnimationsByTarget</a></li><li><a href="global.html#isEmptyStyles">isEmptyStyles</a></li><li><a href="global.html#isEndOfWrapping">isEndOfWrapping</a></li><li><a href="global.html#lockScalingFlip">lockScalingFlip</a></li><li><a href="global.html#minWidth">minWidth</a></li><li><a href="global.html#missingNewlineOffset">missingNewlineOffset</a></li><li><a href="global.html#noScaleCache">noScaleCache</a></li><li><a href="global.html#splitByGrapheme">splitByGrapheme</a></li><li><a href="global.html#styleHas">styleHas</a></li><li><a href="global.html#toObject">toObject</a></li><li><a href="global.html#type">type</a></li><li><a href="global.html#wordSplit">wordSplit</a></li></ul>
         </div>
     </nav>
 <div id="main">
@@ -234,7 +227,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5551">line 5551</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5562">line 5562</a>
     </li></ul></dd>
     
 
@@ -392,7 +385,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5567">line 5567</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5578">line 5578</a>
     </li></ul></dd>
     
 
@@ -532,7 +525,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5577">line 5577</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5588">line 5588</a>
     </li></ul></dd>
     
 
@@ -623,7 +616,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5858">line 5858</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5883">line 5883</a>
     </li></ul></dd>
     
 
@@ -759,7 +752,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5757">line 5757</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5782">line 5782</a>
     </li></ul></dd>
     
 
@@ -802,13 +795,12 @@
 
 
     
-    <h4 class="name" id="divide"><a href="#divide" ><span class="type-signature"></span>divide<span class="signature">(scalar)</span><span class="type-signature"> &rarr; {<a href="fabric.Point.html">fabric.Point</a>}</span></a></h4>
+    <h4 class="name" id="divide"><a href="#divide" ><span class="type-signature"></span>divide<span class="signature">(that)</span><span class="type-signature"> &rarr; {<a href="fabric.Point.html">fabric.Point</a>}</span></a></h4>
     
 
 
 <div class="description">
-    Divides this point by a value and returns a new one
-TODO: rename in scalarDivide in 2.0
+    Divides this point by another and returns a new one
 </div>
 
 
@@ -840,152 +832,15 @@ TODO: rename in scalarDivide in 2.0
 
         <tr>
             
-                <td class="name"><code>scalar</code></td>
+                <td class="name"><code>that</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">Number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5675">line 5675</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
 <span class="param-type"><a href="fabric.Point.html">fabric.Point</a></span>
 
 
-    </dd>
-</dl>
-
-    
-
-
-
-        
-            
-
-
-    
-    <h4 class="name" id="divideEquals"><a href="#divideEquals" ><span class="type-signature"></span>divideEquals<span class="signature">(scalar)</span><span class="type-signature"> &rarr; {<a href="fabric.Point.html">fabric.Point</a>}</span></a></h4>
-    
-
-
-<div class="description">
-    Divides this point by a value
-TODO: rename in scalarDivideEquals in 2.0
-</div>
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>scalar</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Number</span>
-
-
             
             </td>
 
@@ -1033,7 +888,7 @@ TODO: rename in scalarDivideEquals in 2.0
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5686">line 5686</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5692">line 5692</a>
     </li></ul></dd>
     
 
@@ -1053,10 +908,6 @@ TODO: rename in scalarDivideEquals in 2.0
 <h5>Returns:</h5>
 
         
-<div class="param-desc">
-    thisArg
-</div>
-
 
 
 <dl>
@@ -1173,7 +1024,7 @@ TODO: rename in scalarDivideEquals in 2.0
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5697">line 5697</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5722">line 5722</a>
     </li></ul></dd>
     
 
@@ -1309,7 +1160,7 @@ TODO: rename in scalarDivideEquals in 2.0
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5725">line 5725</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5750">line 5750</a>
     </li></ul></dd>
     
 
@@ -1445,7 +1296,7 @@ TODO: rename in scalarDivideEquals in 2.0
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5734">line 5734</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5759">line 5759</a>
     </li></ul></dd>
     
 
@@ -1604,7 +1455,7 @@ TODO: rename in scalarDivideEquals in 2.0
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5744">line 5744</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5769">line 5769</a>
     </li></ul></dd>
     
 
@@ -1740,7 +1591,7 @@ TODO: rename in scalarDivideEquals in 2.0
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5706">line 5706</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5731">line 5731</a>
     </li></ul></dd>
     
 
@@ -1876,7 +1727,7 @@ TODO: rename in scalarDivideEquals in 2.0
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5715">line 5715</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5740">line 5740</a>
     </li></ul></dd>
     
 
@@ -2012,7 +1863,7 @@ TODO: rename in scalarDivideEquals in 2.0
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5786">line 5786</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5811">line 5811</a>
     </li></ul></dd>
     
 
@@ -2148,7 +1999,7 @@ TODO: rename in scalarDivideEquals in 2.0
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5768">line 5768</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5793">line 5793</a>
     </li></ul></dd>
     
 
@@ -2284,7 +2135,7 @@ TODO: rename in scalarDivideEquals in 2.0
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5777">line 5777</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5802">line 5802</a>
     </li></ul></dd>
     
 
@@ -2327,13 +2178,12 @@ TODO: rename in scalarDivideEquals in 2.0
 
 
     
-    <h4 class="name" id="multiply"><a href="#multiply" ><span class="type-signature"></span>multiply<span class="signature">(scalar)</span><span class="type-signature"> &rarr; {<a href="fabric.Point.html">fabric.Point</a>}</span></a></h4>
+    <h4 class="name" id="multiply"><a href="#multiply" ><span class="type-signature"></span>multiply<span class="signature">(that)</span><span class="type-signature"> &rarr; {<a href="fabric.Point.html">fabric.Point</a>}</span></a></h4>
     
 
 
 <div class="description">
-    Multiplies this point by a value and returns a new one
-TODO: rename in scalarMultiply in 2.0
+    Multiplies this point by another value and returns a new one
 </div>
 
 
@@ -2365,13 +2215,13 @@ TODO: rename in scalarMultiply in 2.0
 
         <tr>
             
-                <td class="name"><code>scalar</code></td>
+                <td class="name"><code>that</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">Number</span>
+<span class="param-type"><a href="fabric.Point.html">fabric.Point</a></span>
 
 
             
@@ -2421,7 +2271,7 @@ TODO: rename in scalarMultiply in 2.0
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5652">line 5652</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5662">line 5662</a>
     </li></ul></dd>
     
 
@@ -2441,147 +2291,6 @@ TODO: rename in scalarMultiply in 2.0
 <h5>Returns:</h5>
 
         
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type"><a href="fabric.Point.html">fabric.Point</a></span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-        
-            
-
-
-    
-    <h4 class="name" id="multiplyEquals"><a href="#multiplyEquals" ><span class="type-signature"></span>multiplyEquals<span class="signature">(scalar)</span><span class="type-signature"> &rarr; {<a href="fabric.Point.html">fabric.Point</a>}</span></a></h4>
-    
-
-
-<div class="description">
-    Multiplies this point by a value
-TODO: rename in scalarMultiplyEquals in 2.0
-</div>
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>scalar</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5663">line 5663</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    thisArg
-</div>
-
 
 
 <dl>
@@ -2698,7 +2407,7 @@ TODO: rename in scalarMultiplyEquals in 2.0
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5588">line 5588</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5599">line 5599</a>
     </li></ul></dd>
     
 
@@ -2838,7 +2547,559 @@ TODO: rename in scalarMultiplyEquals in 2.0
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5598">line 5598</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5609">line 5609</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    thisArg
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="fabric.Point.html">fabric.Point</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+
+    
+    <h4 class="name" id="scalarDivide"><a href="#scalarDivide" ><span class="type-signature"></span>scalarDivide<span class="signature">(scalar)</span><span class="type-signature"> &rarr; {<a href="fabric.Point.html">fabric.Point</a>}</span></a></h4>
+    
+
+
+<div class="description">
+    Divides this point by a value and returns a new one
+</div>
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>scalar</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5701">line 5701</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="fabric.Point.html">fabric.Point</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+
+    
+    <h4 class="name" id="scalarDivideEquals"><a href="#scalarDivideEquals" ><span class="type-signature"></span>scalarDivideEquals<span class="signature">(scalar)</span><span class="type-signature"> &rarr; {<a href="fabric.Point.html">fabric.Point</a>}</span></a></h4>
+    
+
+
+<div class="description">
+    Divides this point by a value
+</div>
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>scalar</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5711">line 5711</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    thisArg
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="fabric.Point.html">fabric.Point</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+
+    
+    <h4 class="name" id="scalarMultiply"><a href="#scalarMultiply" ><span class="type-signature"></span>scalarMultiply<span class="signature">(scalar)</span><span class="type-signature"> &rarr; {<a href="fabric.Point.html">fabric.Point</a>}</span></a></h4>
+    
+
+
+<div class="description">
+    Multiplies this point by a value and returns a new one
+</div>
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>scalar</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5671">line 5671</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="fabric.Point.html">fabric.Point</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+
+    
+    <h4 class="name" id="scalarMultiplyEquals"><a href="#scalarMultiplyEquals" ><span class="type-signature"></span>scalarMultiplyEquals<span class="signature">(scalar)</span><span class="type-signature"> &rarr; {<a href="fabric.Point.html">fabric.Point</a>}</span></a></h4>
+    
+
+
+<div class="description">
+    Multiplies this point by a value
+</div>
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>scalar</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5681">line 5681</a>
     </li></ul></dd>
     
 
@@ -2978,7 +3239,7 @@ TODO: rename in scalarMultiplyEquals in 2.0
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5630">line 5630</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5641">line 5641</a>
     </li></ul></dd>
     
 
@@ -3114,7 +3375,7 @@ TODO: rename in scalarMultiplyEquals in 2.0
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5640">line 5640</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5651">line 5651</a>
     </li></ul></dd>
     
 
@@ -3254,7 +3515,7 @@ TODO: rename in scalarMultiplyEquals in 2.0
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5835">line 5835</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5860">line 5860</a>
     </li></ul></dd>
     
 
@@ -3372,7 +3633,7 @@ TODO: rename in scalarMultiplyEquals in 2.0
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5815">line 5815</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5840">line 5840</a>
     </li></ul></dd>
     
 
@@ -3513,7 +3774,7 @@ TODO: rename in scalarMultiplyEquals in 2.0
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5804">line 5804</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5829">line 5829</a>
     </li></ul></dd>
     
 
@@ -3631,7 +3892,7 @@ TODO: rename in scalarMultiplyEquals in 2.0
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5825">line 5825</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5850">line 5850</a>
     </li></ul></dd>
     
 
@@ -3749,7 +4010,7 @@ TODO: rename in scalarMultiplyEquals in 2.0
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5609">line 5609</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5620">line 5620</a>
     </li></ul></dd>
     
 
@@ -3889,7 +4150,7 @@ TODO: rename in scalarMultiplyEquals in 2.0
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5619">line 5619</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5630">line 5630</a>
     </li></ul></dd>
     
 
@@ -4029,7 +4290,7 @@ TODO: rename in scalarMultiplyEquals in 2.0
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5845">line 5845</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5870">line 5870</a>
     </li></ul></dd>
     
 
@@ -4098,7 +4359,7 @@ TODO: rename in scalarMultiplyEquals in 2.0
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5794">line 5794</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line5819">line 5819</a>
     </li></ul></dd>
     
 
@@ -4150,7 +4411,7 @@ TODO: rename in scalarMultiplyEquals in 2.0
 
 
 </div>
-<footer><input id="toggle" type="checkbox" onclick="toggle(this.checked);"  /><label for="toggle" >Hide inherited properties and method from the page</label><br />Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a> on Sun Feb 06 2022 00:57:17 GMT+0100 (Central European Standard Time)
+<footer><input id="toggle" type="checkbox" onclick="toggle(this.checked);"  /><label for="toggle" >Hide inherited properties and method from the page</label><br />Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a> on Sat Apr 02 2022 15:20:10 GMT+0300 (שעון ישראל (קיץ))
 </footer>
 <script> prettyPrint(); </script>
 <script src="scripts/linenumber.js"> </script>

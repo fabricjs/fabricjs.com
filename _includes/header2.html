@@ -22,13 +22,7 @@
 <script>
 (function() {
 
-  if (document.location.hostname === 'localhost') {
-    var links = document.getElementById('header').getElementsByTagName('a');
-    for (var i = 0, len = links.length; i < len; i++) {
-      links[i].href = links[i].href.replace('fabricjs.com', 'localhost:4000');
-    }
-  }
-  else {
+  if (document.location.hostname !== 'localhost') {
     !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
   }
 })();

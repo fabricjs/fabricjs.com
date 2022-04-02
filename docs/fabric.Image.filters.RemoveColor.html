@@ -17,14 +17,14 @@
 
 <body>
     <ul id="header">
-      <li><a href="/">Home</a></li>
-      <li><a href="/demos">Demos</a></li>
-      <li><a href="/articles">Tutorial</a></li>
-      <li><a href="/docs">Docs</a></li>
-      <li><a href="/build">Custom Build</a></li>
-      <li><a href="/help">Support</a></li>
-      <li><a href="/test">Tests/Benchmarks</a></li>
-      <li><a href="/team">Team</a></li>
+      <li><a href="http://fabricjs.com/">Home</a></li>
+      <li><a href="http://fabricjs.com/demos">Demos</a></li>
+      <li><a href="http://fabricjs.com/articles">Tutorial</a></li>
+      <li><a href="http://fabricjs.com/docs">Docs</a></li>
+      <li><a href="http://fabricjs.com/build">Custom Build</a></li>
+      <li><a href="http://fabricjs.com/help">Support</a></li>
+      <li><a href="http://fabricjs.com/test">Tests/Benchmarks</a></li>
+      <li><a href="http://fabricjs.com/team">Team</a></li>
       <li class="github secondary">
         <iframe src="http://ghbtns.com/github-btn.html?user=kangax&repo=fabric.js&type=watch&count=true"
           allowtransparency="true" frameborder="0" scrolling="0" width="95px" height="20px"></iframe>
@@ -39,7 +39,14 @@
 
     <script>
     (function() {
-      if (document.location.hostname !== 'localhost') {
+      if (document.location.hostname === 'localhost') {
+        var links = document.getElementById('header').getElementsByTagName('a');
+        for (var i = 0, len = links.length; i < len; i++) {
+          // very retarted fix but fuck it
+          links[i].href = links[i].href.replace('fabricjs.com', 'localhost:4000');
+        }
+      }
+      else {
         !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
       }
     })();
@@ -80,7 +87,7 @@
         <gcse:search></gcse:search>
         </div>
         <div class="lowerNav" >
-            <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="fabric.ActiveSelection.html">ActiveSelection</a></li><li><a href="fabric.BaseBrush.html">BaseBrush</a></li><li><a href="fabric.Canvas.html">Canvas</a></li><li><a href="fabric.Circle.html">Circle</a></li><li><a href="fabric.CircleBrush.html">CircleBrush</a></li><li><a href="fabric.Color.html">Color</a></li><li><a href="fabric.Ellipse.html">Ellipse</a></li><li><a href="fabric.Gradient.html">Gradient</a></li><li><a href="fabric.Group.html">Group</a></li><li><a href="fabric.Image.html">Image</a></li><li><a href="fabric.Image.filters.BaseFilter.html">BaseFilter</a></li><li><a href="fabric.Image.filters.Blur.html">Blur</a></li><li><a href="fabric.Image.filters.Brightness.html">Brightness</a></li><li><a href="fabric.Image.filters.ColorMatrix.html">ColorMatrix</a></li><li><a href="fabric.Image.filters.Contrast.html">Contrast</a></li><li><a href="fabric.Image.filters.Convolute.html">Convolute</a></li><li><a href="fabric.Image.filters.fabric.Image.filter.BlendColor.html">BlendColor</a></li><li><a href="fabric.Image.filters.fabric.Image.filter.BlendImage.html">BlendImage</a></li><li><a href="fabric.Image.filters.Gamma.html">Gamma</a></li><li><a href="fabric.Image.filters.Grayscale.html">Grayscale</a></li><li><a href="fabric.Image.filters.HueRotation.html">HueRotation</a></li><li><a href="fabric.Image.filters.Invert.html">Invert</a></li><li><a href="fabric.Image.filters.Noise.html">Noise</a></li><li><a href="fabric.Image.filters.Pixelate.html">Pixelate</a></li><li><a href="fabric.Image.filters.RemoveColor.html">RemoveColor</a></li><li><a href="fabric.Image.filters.Resize.html">Resize</a></li><li><a href="fabric.Image.filters.Saturation.html">Saturation</a></li><li><a href="fabric.Image.filters.Vibrance.html">Vibrance</a></li><li><a href="fabric.Intersection.html">Intersection</a></li><li><a href="fabric.IText.html">IText</a></li><li><a href="fabric.Line.html">Line</a></li><li><a href="fabric.Object.html">Object</a></li><li><a href="fabric.Path.html">Path</a></li><li><a href="fabric.Pattern.html">Pattern</a></li><li><a href="fabric.PatternBrush.html">PatternBrush</a></li><li><a href="fabric.PencilBrush.html">PencilBrush</a></li><li><a href="fabric.Point.html">Point</a></li><li><a href="fabric.Polygon.html">Polygon</a></li><li><a href="fabric.Polyline.html">Polyline</a></li><li><a href="fabric.Rect.html">Rect</a></li><li><a href="fabric.Shadow.html">Shadow</a></li><li><a href="fabric.SprayBrush.html">SprayBrush</a></li><li><a href="fabric.StaticCanvas.html">StaticCanvas</a></li><li><a href="fabric.Text.html">Text</a></li><li><a href="fabric.Textbox.html">Textbox</a></li><li><a href="fabric.Triangle.html">Triangle</a></li></ul><h3>Namespaces</h3><ul><li><a href="fabric.html">fabric</a></li><li><a href="fabric.Collection.html">Collection</a></li><li><a href="fabric.CommonMethods.html">CommonMethods</a></li><li><a href="fabric.Image.filters.html">filters</a></li><li><a href="fabric.Observable.html">Observable</a></li><li><a href="fabric.util.html">util</a></li><li><a href="fabric.util.array.html">array</a></li><li><a href="fabric.util.ease.html">ease</a></li><li><a href="fabric.util.object.html">object</a></li><li><a href="fabric.util.string.html">string</a></li></ul><h3>Global</h3><ul><li><a href="global.html#__cachedLines">__cachedLines</a></li><li><a href="global.html#_measureWord">_measureWord</a></li><li><a href="global.html#_splitTextIntoLines">_splitTextIntoLines</a></li><li><a href="global.html#_wrapLine">_wrapLine</a></li><li><a href="global.html#_wrapText">_wrapText</a></li><li><a href="global.html#applyFilters">applyFilters</a></li><li><a href="global.html#cancelAll">cancelAll</a></li><li><a href="global.html#cancelByCanvas">cancelByCanvas</a></li><li><a href="global.html#cancelByTarget">cancelByTarget</a></li><li><a href="global.html#copyGLTo2DDrawImage">copyGLTo2DDrawImage</a></li><li><a href="global.html#copyGLTo2DPutImageData">copyGLTo2DPutImageData</a></li><li><a href="global.html#dynamicMinWidth">dynamicMinWidth</a></li><li><a href="global.html#findAnimation">findAnimation</a></li><li><a href="global.html#findAnimationIndex">findAnimationIndex</a></li><li><a href="global.html#findAnimationsByTarget">findAnimationsByTarget</a></li><li><a href="global.html#isEmptyStyles">isEmptyStyles</a></li><li><a href="global.html#isEndOfWrapping">isEndOfWrapping</a></li><li><a href="global.html#lockScalingFlip">lockScalingFlip</a></li><li><a href="global.html#minWidth">minWidth</a></li><li><a href="global.html#missingNewlineOffset">missingNewlineOffset</a></li><li><a href="global.html#noScaleCache">noScaleCache</a></li><li><a href="global.html#splitByGrapheme">splitByGrapheme</a></li><li><a href="global.html#styleHas">styleHas</a></li><li><a href="global.html#toObject">toObject</a></li><li><a href="global.html#type">type</a></li><li><a href="global.html#wordSplit">wordSplit</a></li></ul>
+            <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="fabric.ActiveSelection.html">ActiveSelection</a></li><li><a href="fabric.BaseBrush.html">BaseBrush</a></li><li><a href="fabric.Canvas.html">Canvas</a></li><li><a href="fabric.Circle.html">Circle</a></li><li><a href="fabric.CircleBrush.html">CircleBrush</a></li><li><a href="fabric.Color.html">Color</a></li><li><a href="fabric.Ellipse.html">Ellipse</a></li><li><a href="fabric.Gradient.html">Gradient</a></li><li><a href="fabric.Group.html">Group</a></li><li><a href="fabric.Image.html">Image</a></li><li><a href="fabric.Image.filters.BaseFilter.html">BaseFilter</a></li><li><a href="fabric.Image.filters.Blur.html">Blur</a></li><li><a href="fabric.Image.filters.Brightness.html">Brightness</a></li><li><a href="fabric.Image.filters.ColorMatrix.html">ColorMatrix</a></li><li><a href="fabric.Image.filters.Contrast.html">Contrast</a></li><li><a href="fabric.Image.filters.Convolute.html">Convolute</a></li><li><a href="fabric.Image.filters.fabric.Image.filter.BlendColor.html">BlendColor</a></li><li><a href="fabric.Image.filters.fabric.Image.filter.BlendImage.html">BlendImage</a></li><li><a href="fabric.Image.filters.Gamma.html">Gamma</a></li><li><a href="fabric.Image.filters.Grayscale.html">Grayscale</a></li><li><a href="fabric.Image.filters.HueRotation.html">HueRotation</a></li><li><a href="fabric.Image.filters.Invert.html">Invert</a></li><li><a href="fabric.Image.filters.Noise.html">Noise</a></li><li><a href="fabric.Image.filters.Pixelate.html">Pixelate</a></li><li><a href="fabric.Image.filters.RemoveColor.html">RemoveColor</a></li><li><a href="fabric.Image.filters.Resize.html">Resize</a></li><li><a href="fabric.Image.filters.Saturation.html">Saturation</a></li><li><a href="fabric.Image.filters.Vibrance.html">Vibrance</a></li><li><a href="fabric.Intersection.html">Intersection</a></li><li><a href="fabric.IText.html">IText</a></li><li><a href="fabric.Line.html">Line</a></li><li><a href="fabric.Object.html">Object</a></li><li><a href="fabric.Path.html">Path</a></li><li><a href="fabric.Pattern.html">Pattern</a></li><li><a href="fabric.PatternBrush.html">PatternBrush</a></li><li><a href="fabric.PencilBrush.html">PencilBrush</a></li><li><a href="fabric.Point.html">Point</a></li><li><a href="fabric.Polygon.html">Polygon</a></li><li><a href="fabric.Polyline.html">Polyline</a></li><li><a href="fabric.Rect.html">Rect</a></li><li><a href="fabric.Shadow.html">Shadow</a></li><li><a href="fabric.SprayBrush.html">SprayBrush</a></li><li><a href="fabric.StaticCanvas.html">StaticCanvas</a></li><li><a href="fabric.Text.html">Text</a></li><li><a href="fabric.Textbox.html">Textbox</a></li><li><a href="fabric.Triangle.html">Triangle</a></li></ul><h3>Namespaces</h3><ul><li><a href="fabric.html">fabric</a></li><li><a href="fabric.Collection.html">Collection</a></li><li><a href="fabric.CommonMethods.html">CommonMethods</a></li><li><a href="fabric.Image.filters.html">filters</a></li><li><a href="fabric.Observable.html">Observable</a></li><li><a href="fabric.util.html">util</a></li><li><a href="fabric.util.array.html">array</a></li><li><a href="fabric.util.ease.html">ease</a></li><li><a href="fabric.util.object.html">object</a></li><li><a href="fabric.util.string.html">string</a></li></ul><h3>Global</h3><ul><li><a href="global.html#__cachedLines">__cachedLines</a></li><li><a href="global.html#_splitTextIntoLines">_splitTextIntoLines</a></li><li><a href="global.html#_wrapLine">_wrapLine</a></li><li><a href="global.html#_wrapText">_wrapText</a></li><li><a href="global.html#applyFilters">applyFilters</a></li><li><a href="global.html#cancelAll">cancelAll</a></li><li><a href="global.html#cancelByCanvas">cancelByCanvas</a></li><li><a href="global.html#cancelByTarget">cancelByTarget</a></li><li><a href="global.html#copyGLTo2DDrawImage">copyGLTo2DDrawImage</a></li><li><a href="global.html#copyGLTo2DPutImageData">copyGLTo2DPutImageData</a></li><li><a href="global.html#dynamicMinWidth">dynamicMinWidth</a></li><li><a href="global.html#findAnimation">findAnimation</a></li><li><a href="global.html#findAnimationIndex">findAnimationIndex</a></li><li><a href="global.html#findAnimationsByTarget">findAnimationsByTarget</a></li><li><a href="global.html#isEmptyStyles">isEmptyStyles</a></li><li><a href="global.html#isEndOfWrapping">isEndOfWrapping</a></li><li><a href="global.html#lockScalingFlip">lockScalingFlip</a></li><li><a href="global.html#minWidth">minWidth</a></li><li><a href="global.html#missingNewlineOffset">missingNewlineOffset</a></li><li><a href="global.html#noScaleCache">noScaleCache</a></li><li><a href="global.html#splitByGrapheme">splitByGrapheme</a></li><li><a href="global.html#styleHas">styleHas</a></li><li><a href="global.html#toObject">toObject</a></li><li><a href="global.html#type">type</a></li></ul>
         </div>
     </nav>
 <div id="main">
@@ -151,7 +158,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line23405">line 23405</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line23597">line 23597</a>
     </li></ul></dd>
     
 
@@ -180,7 +187,12 @@
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>var filter = new fabric.Image.filters.RemoveColor({  threshold: 0.2,});object.filters.push(filter);object.applyFilters();canvas.renderAll();</code></pre>
+    <pre class="prettyprint"><code>var filter = new fabric.Image.filters.RemoveColor({
+  threshold: 0.2,
+});
+object.filters.push(filter);
+object.applyFilters();
+canvas.renderAll();</code></pre>
 
 
 
@@ -260,7 +272,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line23434">line 23434</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line23626">line 23626</a>
     </li></ul></dd>
     
 
@@ -282,7 +294,8 @@
 
 
 <div class="description">
-    distance to actual color, as value up or down from each r,g,bbetween 0 and 1
+    distance to actual color, as value up or down from each r,g,b
+between 0 and 1
 </div>
 
 
@@ -318,7 +331,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line23455">line 23455</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line23647">line 23647</a>
     </li></ul></dd>
     
 
@@ -376,7 +389,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line23439">line 23439</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line23631">line 23631</a>
     </li></ul></dd>
     
 
@@ -444,7 +457,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line23427">line 23427</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line23619">line 23619</a>
     </li></ul></dd>
     
 
@@ -466,7 +479,8 @@
 
 
 <div class="description">
-    For color to remove inside distance, use alpha channel for a smoother deletionNOT IMPLEMENTED YET
+    For color to remove inside distance, use alpha channel for a smoother deletion
+NOT IMPLEMENTED YET
 </div>
 
 
@@ -502,7 +516,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line23461">line 23461</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line23653">line 23653</a>
     </li></ul></dd>
     
 
@@ -535,7 +549,9 @@
 
 
 <div class="description">
-    Apply this filter to the input image data provided.Determines whether to use WebGL or Canvas2D based on the options.webgl flag.
+    Apply this filter to the input image data provided.
+
+Determines whether to use WebGL or Canvas2D based on the options.webgl flag.
 </div>
 
 
@@ -792,7 +808,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line22094">line 22094</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line22285">line 22285</a>
     </li></ul></dd>
     
 
@@ -912,7 +928,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line23475">line 23475</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line23667">line 23667</a>
     </li></ul></dd>
     
 
@@ -1224,7 +1240,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line22130">line 22130</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line22321">line 22321</a>
     </li></ul></dd>
     
 
@@ -1258,7 +1274,8 @@
 
 
 <div class="description">
-    If needed by a 2d filter, this functions can create an helper canvas to be usedremember that options.targetCanvas is available for use till end of chain.
+    If needed by a 2d filter, this functions can create an helper canvas to be used
+remember that options.targetCanvas is available for use till end of chain.
 </div>
 
 
@@ -1302,7 +1319,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line22187">line 22187</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line22378">line 22378</a>
     </li></ul></dd>
     
 
@@ -1475,7 +1492,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line21930">line 21930</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line22121">line 22121</a>
     </li></ul></dd>
     
 
@@ -1625,7 +1642,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line21991">line 21991</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line22182">line 22182</a>
     </li></ul></dd>
     
 
@@ -1795,7 +1812,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line23515">line 23515</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line23707">line 23707</a>
     </li></ul></dd>
     
 
@@ -1932,7 +1949,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line21907">line 21907</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line22098">line 22098</a>
     </li></ul></dd>
     
 
@@ -1966,7 +1983,10 @@
 
 
 <div class="description">
-    Generic isNeutral implementation for one parameter based filters.Used only in image applyFilters to discard filters that will not have an effecton the imageOther filters may need their own version ( ColorMatrix, HueRotation, gamma, ComposedFilter )
+    Generic isNeutral implementation for one parameter based filters.
+Used only in image applyFilters to discard filters that will not have an effect
+on the image
+Other filters may need their own version ( ColorMatrix, HueRotation, gamma, ComposedFilter )
 </div>
 
 
@@ -2059,7 +2079,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line22060">line 22060</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line22251">line 22251</a>
     </li></ul></dd>
     
 
@@ -2258,7 +2278,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line22111">line 22111</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line22302">line 22302</a>
     </li></ul></dd>
     
 
@@ -2408,7 +2428,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line22017">line 22017</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line22208">line 22208</a>
     </li></ul></dd>
     
 
@@ -2556,7 +2576,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line23528">line 23528</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line23720">line 23720</a>
     </li></ul></dd>
     
 
@@ -2693,7 +2713,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line21917">line 21917</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line22108">line 22108</a>
     </li></ul></dd>
     
 
@@ -2771,7 +2791,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line22212">line 22212</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line22403">line 22403</a>
     </li></ul></dd>
     
 
@@ -2869,7 +2889,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line23551">line 23551</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line23743">line 23743</a>
     </li></ul></dd>
     
 
@@ -2925,7 +2945,7 @@
 
 
 </div>
-<footer><input id="toggle" type="checkbox" onclick="toggle(this.checked);"  /><label for="toggle" >Hide inherited properties and method from the page</label><br />Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a> on Sat Apr 02 2022 15:20:08 GMT+0300 (שעון ישראל (קיץ))
+<footer><input id="toggle" type="checkbox" onclick="toggle(this.checked);"  /><label for="toggle" >Hide inherited properties and method from the page</label><br />Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a> on Sun Feb 06 2022 00:57:17 GMT+0100 (Central European Standard Time)
 </footer>
 <script> prettyPrint(); </script>
 <script src="scripts/linenumber.js"> </script>

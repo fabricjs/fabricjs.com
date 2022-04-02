@@ -17,14 +17,14 @@
 
 <body>
     <ul id="header">
-      <li><a href="/">Home</a></li>
-      <li><a href="/demos">Demos</a></li>
-      <li><a href="/articles">Tutorial</a></li>
-      <li><a href="/docs">Docs</a></li>
-      <li><a href="/build">Custom Build</a></li>
-      <li><a href="/help">Support</a></li>
-      <li><a href="/test">Tests/Benchmarks</a></li>
-      <li><a href="/team">Team</a></li>
+      <li><a href="http://fabricjs.com/">Home</a></li>
+      <li><a href="http://fabricjs.com/demos">Demos</a></li>
+      <li><a href="http://fabricjs.com/articles">Tutorial</a></li>
+      <li><a href="http://fabricjs.com/docs">Docs</a></li>
+      <li><a href="http://fabricjs.com/build">Custom Build</a></li>
+      <li><a href="http://fabricjs.com/help">Support</a></li>
+      <li><a href="http://fabricjs.com/test">Tests/Benchmarks</a></li>
+      <li><a href="http://fabricjs.com/team">Team</a></li>
       <li class="github secondary">
         <iframe src="http://ghbtns.com/github-btn.html?user=kangax&repo=fabric.js&type=watch&count=true"
           allowtransparency="true" frameborder="0" scrolling="0" width="95px" height="20px"></iframe>
@@ -39,7 +39,14 @@
 
     <script>
     (function() {
-      if (document.location.hostname !== 'localhost') {
+      if (document.location.hostname === 'localhost') {
+        var links = document.getElementById('header').getElementsByTagName('a');
+        for (var i = 0, len = links.length; i < len; i++) {
+          // very retarted fix but fuck it
+          links[i].href = links[i].href.replace('fabricjs.com', 'localhost:4000');
+        }
+      }
+      else {
         !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
       }
     })();
@@ -80,7 +87,7 @@
         <gcse:search></gcse:search>
         </div>
         <div class="lowerNav" >
-            <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="fabric.ActiveSelection.html">ActiveSelection</a></li><li><a href="fabric.BaseBrush.html">BaseBrush</a></li><li><a href="fabric.Canvas.html">Canvas</a></li><li><a href="fabric.Circle.html">Circle</a></li><li><a href="fabric.CircleBrush.html">CircleBrush</a></li><li><a href="fabric.Color.html">Color</a></li><li><a href="fabric.Ellipse.html">Ellipse</a></li><li><a href="fabric.Gradient.html">Gradient</a></li><li><a href="fabric.Group.html">Group</a></li><li><a href="fabric.Image.html">Image</a></li><li><a href="fabric.Image.filters.BaseFilter.html">BaseFilter</a></li><li><a href="fabric.Image.filters.Blur.html">Blur</a></li><li><a href="fabric.Image.filters.Brightness.html">Brightness</a></li><li><a href="fabric.Image.filters.ColorMatrix.html">ColorMatrix</a></li><li><a href="fabric.Image.filters.Contrast.html">Contrast</a></li><li><a href="fabric.Image.filters.Convolute.html">Convolute</a></li><li><a href="fabric.Image.filters.fabric.Image.filter.BlendColor.html">BlendColor</a></li><li><a href="fabric.Image.filters.fabric.Image.filter.BlendImage.html">BlendImage</a></li><li><a href="fabric.Image.filters.Gamma.html">Gamma</a></li><li><a href="fabric.Image.filters.Grayscale.html">Grayscale</a></li><li><a href="fabric.Image.filters.HueRotation.html">HueRotation</a></li><li><a href="fabric.Image.filters.Invert.html">Invert</a></li><li><a href="fabric.Image.filters.Noise.html">Noise</a></li><li><a href="fabric.Image.filters.Pixelate.html">Pixelate</a></li><li><a href="fabric.Image.filters.RemoveColor.html">RemoveColor</a></li><li><a href="fabric.Image.filters.Resize.html">Resize</a></li><li><a href="fabric.Image.filters.Saturation.html">Saturation</a></li><li><a href="fabric.Image.filters.Vibrance.html">Vibrance</a></li><li><a href="fabric.Intersection.html">Intersection</a></li><li><a href="fabric.IText.html">IText</a></li><li><a href="fabric.Line.html">Line</a></li><li><a href="fabric.Object.html">Object</a></li><li><a href="fabric.Path.html">Path</a></li><li><a href="fabric.Pattern.html">Pattern</a></li><li><a href="fabric.PatternBrush.html">PatternBrush</a></li><li><a href="fabric.PencilBrush.html">PencilBrush</a></li><li><a href="fabric.Point.html">Point</a></li><li><a href="fabric.Polygon.html">Polygon</a></li><li><a href="fabric.Polyline.html">Polyline</a></li><li><a href="fabric.Rect.html">Rect</a></li><li><a href="fabric.Shadow.html">Shadow</a></li><li><a href="fabric.SprayBrush.html">SprayBrush</a></li><li><a href="fabric.StaticCanvas.html">StaticCanvas</a></li><li><a href="fabric.Text.html">Text</a></li><li><a href="fabric.Textbox.html">Textbox</a></li><li><a href="fabric.Triangle.html">Triangle</a></li></ul><h3>Namespaces</h3><ul><li><a href="fabric.html">fabric</a></li><li><a href="fabric.Collection.html">Collection</a></li><li><a href="fabric.CommonMethods.html">CommonMethods</a></li><li><a href="fabric.Image.filters.html">filters</a></li><li><a href="fabric.Observable.html">Observable</a></li><li><a href="fabric.util.html">util</a></li><li><a href="fabric.util.array.html">array</a></li><li><a href="fabric.util.ease.html">ease</a></li><li><a href="fabric.util.object.html">object</a></li><li><a href="fabric.util.string.html">string</a></li></ul><h3>Global</h3><ul><li><a href="global.html#__cachedLines">__cachedLines</a></li><li><a href="global.html#_measureWord">_measureWord</a></li><li><a href="global.html#_splitTextIntoLines">_splitTextIntoLines</a></li><li><a href="global.html#_wrapLine">_wrapLine</a></li><li><a href="global.html#_wrapText">_wrapText</a></li><li><a href="global.html#applyFilters">applyFilters</a></li><li><a href="global.html#cancelAll">cancelAll</a></li><li><a href="global.html#cancelByCanvas">cancelByCanvas</a></li><li><a href="global.html#cancelByTarget">cancelByTarget</a></li><li><a href="global.html#copyGLTo2DDrawImage">copyGLTo2DDrawImage</a></li><li><a href="global.html#copyGLTo2DPutImageData">copyGLTo2DPutImageData</a></li><li><a href="global.html#dynamicMinWidth">dynamicMinWidth</a></li><li><a href="global.html#findAnimation">findAnimation</a></li><li><a href="global.html#findAnimationIndex">findAnimationIndex</a></li><li><a href="global.html#findAnimationsByTarget">findAnimationsByTarget</a></li><li><a href="global.html#isEmptyStyles">isEmptyStyles</a></li><li><a href="global.html#isEndOfWrapping">isEndOfWrapping</a></li><li><a href="global.html#lockScalingFlip">lockScalingFlip</a></li><li><a href="global.html#minWidth">minWidth</a></li><li><a href="global.html#missingNewlineOffset">missingNewlineOffset</a></li><li><a href="global.html#noScaleCache">noScaleCache</a></li><li><a href="global.html#splitByGrapheme">splitByGrapheme</a></li><li><a href="global.html#styleHas">styleHas</a></li><li><a href="global.html#toObject">toObject</a></li><li><a href="global.html#type">type</a></li><li><a href="global.html#wordSplit">wordSplit</a></li></ul>
+            <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="fabric.ActiveSelection.html">ActiveSelection</a></li><li><a href="fabric.BaseBrush.html">BaseBrush</a></li><li><a href="fabric.Canvas.html">Canvas</a></li><li><a href="fabric.Circle.html">Circle</a></li><li><a href="fabric.CircleBrush.html">CircleBrush</a></li><li><a href="fabric.Color.html">Color</a></li><li><a href="fabric.Ellipse.html">Ellipse</a></li><li><a href="fabric.Gradient.html">Gradient</a></li><li><a href="fabric.Group.html">Group</a></li><li><a href="fabric.Image.html">Image</a></li><li><a href="fabric.Image.filters.BaseFilter.html">BaseFilter</a></li><li><a href="fabric.Image.filters.Blur.html">Blur</a></li><li><a href="fabric.Image.filters.Brightness.html">Brightness</a></li><li><a href="fabric.Image.filters.ColorMatrix.html">ColorMatrix</a></li><li><a href="fabric.Image.filters.Contrast.html">Contrast</a></li><li><a href="fabric.Image.filters.Convolute.html">Convolute</a></li><li><a href="fabric.Image.filters.fabric.Image.filter.BlendColor.html">BlendColor</a></li><li><a href="fabric.Image.filters.fabric.Image.filter.BlendImage.html">BlendImage</a></li><li><a href="fabric.Image.filters.Gamma.html">Gamma</a></li><li><a href="fabric.Image.filters.Grayscale.html">Grayscale</a></li><li><a href="fabric.Image.filters.HueRotation.html">HueRotation</a></li><li><a href="fabric.Image.filters.Invert.html">Invert</a></li><li><a href="fabric.Image.filters.Noise.html">Noise</a></li><li><a href="fabric.Image.filters.Pixelate.html">Pixelate</a></li><li><a href="fabric.Image.filters.RemoveColor.html">RemoveColor</a></li><li><a href="fabric.Image.filters.Resize.html">Resize</a></li><li><a href="fabric.Image.filters.Saturation.html">Saturation</a></li><li><a href="fabric.Image.filters.Vibrance.html">Vibrance</a></li><li><a href="fabric.Intersection.html">Intersection</a></li><li><a href="fabric.IText.html">IText</a></li><li><a href="fabric.Line.html">Line</a></li><li><a href="fabric.Object.html">Object</a></li><li><a href="fabric.Path.html">Path</a></li><li><a href="fabric.Pattern.html">Pattern</a></li><li><a href="fabric.PatternBrush.html">PatternBrush</a></li><li><a href="fabric.PencilBrush.html">PencilBrush</a></li><li><a href="fabric.Point.html">Point</a></li><li><a href="fabric.Polygon.html">Polygon</a></li><li><a href="fabric.Polyline.html">Polyline</a></li><li><a href="fabric.Rect.html">Rect</a></li><li><a href="fabric.Shadow.html">Shadow</a></li><li><a href="fabric.SprayBrush.html">SprayBrush</a></li><li><a href="fabric.StaticCanvas.html">StaticCanvas</a></li><li><a href="fabric.Text.html">Text</a></li><li><a href="fabric.Textbox.html">Textbox</a></li><li><a href="fabric.Triangle.html">Triangle</a></li></ul><h3>Namespaces</h3><ul><li><a href="fabric.html">fabric</a></li><li><a href="fabric.Collection.html">Collection</a></li><li><a href="fabric.CommonMethods.html">CommonMethods</a></li><li><a href="fabric.Image.filters.html">filters</a></li><li><a href="fabric.Observable.html">Observable</a></li><li><a href="fabric.util.html">util</a></li><li><a href="fabric.util.array.html">array</a></li><li><a href="fabric.util.ease.html">ease</a></li><li><a href="fabric.util.object.html">object</a></li><li><a href="fabric.util.string.html">string</a></li></ul><h3>Global</h3><ul><li><a href="global.html#__cachedLines">__cachedLines</a></li><li><a href="global.html#_splitTextIntoLines">_splitTextIntoLines</a></li><li><a href="global.html#_wrapLine">_wrapLine</a></li><li><a href="global.html#_wrapText">_wrapText</a></li><li><a href="global.html#applyFilters">applyFilters</a></li><li><a href="global.html#cancelAll">cancelAll</a></li><li><a href="global.html#cancelByCanvas">cancelByCanvas</a></li><li><a href="global.html#cancelByTarget">cancelByTarget</a></li><li><a href="global.html#copyGLTo2DDrawImage">copyGLTo2DDrawImage</a></li><li><a href="global.html#copyGLTo2DPutImageData">copyGLTo2DPutImageData</a></li><li><a href="global.html#dynamicMinWidth">dynamicMinWidth</a></li><li><a href="global.html#findAnimation">findAnimation</a></li><li><a href="global.html#findAnimationIndex">findAnimationIndex</a></li><li><a href="global.html#findAnimationsByTarget">findAnimationsByTarget</a></li><li><a href="global.html#isEmptyStyles">isEmptyStyles</a></li><li><a href="global.html#isEndOfWrapping">isEndOfWrapping</a></li><li><a href="global.html#lockScalingFlip">lockScalingFlip</a></li><li><a href="global.html#minWidth">minWidth</a></li><li><a href="global.html#missingNewlineOffset">missingNewlineOffset</a></li><li><a href="global.html#noScaleCache">noScaleCache</a></li><li><a href="global.html#splitByGrapheme">splitByGrapheme</a></li><li><a href="global.html#styleHas">styleHas</a></li><li><a href="global.html#toObject">toObject</a></li><li><a href="global.html#type">type</a></li></ul>
         </div>
     </nav>
 <div id="main">
@@ -151,7 +158,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14169">line 14169</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14321">line 14321</a>
     </li></ul></dd>
     
 
@@ -305,7 +312,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16111">line 16111</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16310">line 16310</a>
     </li></ul></dd>
     
 
@@ -323,11 +330,11 @@
         
             
 
-<h4 class="name" id="._fromObject"><a href="#._fromObject" ><span class="type-signature">(static, constant) </span>_fromObject<span class="type-signature"> :Array.&lt;string></span></a></h4>
+<h4 class="name" id=".ENLIVEN_PROPS"><a href="#.ENLIVEN_PROPS" ><span class="type-signature">(static, constant) </span>ENLIVEN_PROPS<span class="type-signature"> :Array.&lt;string></span></a></h4>
 
 
 <div class="description">
-    Defines which properties should be enlivened from the object passed to <a href="fabric.Object.html#._fromObject">fabric.Object._fromObject</a>
+    Defines which properties should be enlivened from the object passed to fabric.Object._fromObject
 </div>
 
 
@@ -373,7 +380,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16093">line 16093</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16285">line 16285</a>
     </li></ul></dd>
     
 
@@ -395,7 +402,8 @@
 
 
 <div class="description">
-    Defines the number of fraction digits to use when serializing object values.You can use it to increase/decrease precision of such values like left, top, scaleX, scaleY, etc.
+    Defines the number of fraction digits to use when serializing object values.
+You can use it to increase/decrease precision of such values like left, top, scaleX, scaleY, etc.
 </div>
 
 
@@ -441,7 +449,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16083">line 16083</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16276">line 16276</a>
     </li></ul></dd>
     
 
@@ -463,7 +471,10 @@
 
 
 <div class="description">
-    keeps the value of the last hovered corner during mouse move.0 is no corner, or 'mt', 'ml', 'mtr' etc..It should be private, but there is no harm in using it asa read-only property.
+    keeps the value of the last hovered corner during mouse move.
+0 is no corner, or 'mt', 'ml', 'mtr' etc..
+It should be private, but there is no harm in using it as
+a read-only property.
 </div>
 
 
@@ -520,7 +531,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14716">line 14716</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14868">line 14868</a>
     </li></ul></dd>
     
 
@@ -542,7 +553,12 @@
 
 
 <div class="description">
-    Meaningful ONLY when the object is used as clipPath.if true, the clipPath will have its top and left relative to canvas, and willnot be influenced by the object transform. This will make the clipPath relativeto the canvas, but clipping just a particular object.WARNING this is beta, this feature may change or be renamed.since 2.4.0
+    Meaningful ONLY when the object is used as clipPath.
+if true, the clipPath will have its top and left relative to canvas, and will
+not be influenced by the object transform. This will make the clipPath relative
+to the canvas, but clipping just a particular object.
+WARNING this is beta, this feature may change or be renamed.
+since 2.4.0
 </div>
 
 
@@ -593,7 +609,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14797">line 14797</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14949">line 14949</a>
     </li></ul></dd>
     
 
@@ -615,7 +631,15 @@
 
 
 <div class="description">
-    Describe object's corner position in canvas object absolute coordinatesproperties are tl,tr,bl,br and describe the four main corner.each property is an object with x, y, instance of Fabric.Point.The coordinates depends from this properties: width, height, scaleX, scaleYskewX, skewY, angle, strokeWidth, top, left.Those coordinates are useful to understand where an object is. They get updatedwith oCoords but they do not need to be updated when zoom or panning change.The coordinates get updated with @method setCoords.You can calculate them without updating with @method calcACoords();
+    Describe object's corner position in canvas object absolute coordinates
+properties are tl,tr,bl,br and describe the four main corner.
+each property is an object with x, y, instance of Fabric.Point.
+The coordinates depends from this properties: width, height, scaleX, scaleY
+skewX, skewY, angle, strokeWidth, top, left.
+Those coordinates are useful to understand where an object is. They get updated
+with oCoords but they do not need to be updated when zoom or panning change.
+The coordinates get updated with @method setCoords.
+You can calculate them without updating with @method calcACoords();
 </div>
 
 
@@ -651,7 +675,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16443">line 16443</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16613">line 16613</a>
     </li></ul></dd>
     
 
@@ -719,7 +743,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14299">line 14299</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14451">line 14451</a>
     </li></ul></dd>
     
 
@@ -741,7 +765,8 @@
 
 
 <div class="description">
-    Background color of an object.takes css colors https://www.w3.org/TR/css-color-3/
+    Background color of an object.
+takes css colors https://www.w3.org/TR/css-color-3/
 </div>
 
 
@@ -787,7 +812,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14450">line 14450</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14602">line 14602</a>
     </li></ul></dd>
     
 
@@ -860,7 +885,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14362">line 14362</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14514">line 14514</a>
     </li></ul></dd>
     
 
@@ -931,7 +956,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14369">line 14369</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14521">line 14521</a>
     </li></ul></dd>
     
 
@@ -1004,7 +1029,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14521">line 14521</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14673">line 14673</a>
     </li></ul></dd>
     
 
@@ -1026,7 +1051,10 @@
 
 
 <div class="description">
-    Scale factor of object's controlling bordersbigger number will make a thicker borderborder is 1, so this is basically a border thicknesssince there is no way to change the border itself.
+    Scale factor of object's controlling borders
+bigger number will make a thicker border
+border is 1, so this is basically a border thickness
+since there is no way to change the border itself.
 </div>
 
 
@@ -1077,7 +1105,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14531">line 14531</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14683">line 14683</a>
     </li></ul></dd>
     
 
@@ -1099,7 +1127,10 @@
 
 
 <div class="description">
-    List of properties to consider when checking if cache needs refreshThose properties are checked by statefullCache ON ( or lazy mode if we want ) or from singlecalls to Object.set(key, value). If the key is in this list, the object is marked as dirtyand refreshed at the next render
+    List of properties to consider when checking if cache needs refresh
+Those properties are checked by statefullCache ON ( or lazy mode if we want ) or from single
+calls to Object.set(key, value). If the key is in this list, the object is marked as dirty
+and refreshed at the next render
 </div>
 
 
@@ -1145,7 +1176,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14756">line 14756</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14908">line 14908</a>
     </li></ul></dd>
     
 
@@ -1167,7 +1198,9 @@
 
 
 <div class="description">
-    When true, this object will use center point as the origin of transformationwhen being rotated via the controls.<b>Backwards incompatibility note:</b> This property replaces "centerTransform" (Boolean).
+    When true, this object will use center point as the origin of transformation
+when being rotated via the controls.
+<b>Backwards incompatibility note:</b> This property replaces "centerTransform" (Boolean).
 </div>
 
 
@@ -1221,7 +1254,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14418">line 14418</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14570">line 14570</a>
     </li></ul></dd>
     
 
@@ -1243,7 +1276,9 @@
 
 
 <div class="description">
-    When true, this object will use center point as the origin of transformationwhen being scaled via the controls.<b>Backwards incompatibility note:</b> This property replaces "centerTransform" (Boolean).
+    When true, this object will use center point as the origin of transformation
+when being scaled via the controls.
+<b>Backwards incompatibility note:</b> This property replaces "centerTransform" (Boolean).
 </div>
 
 
@@ -1292,7 +1327,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14408">line 14408</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14560">line 14560</a>
     </li></ul></dd>
     
 
@@ -1314,7 +1349,10 @@
 
 
 <div class="description">
-    a fabricObject that, without stroke define a clipping area with their shape. filled in blackthe clipPath object gets used when the object has rendered, and the context is placed in the centerof the object cacheCanvas.If you want 0,0 of a clipPath to align with an object center, use clipPath.originX/Y to 'center'
+    a fabricObject that, without stroke define a clipping area with their shape. filled in black
+the clipPath object gets used when the object has rendered, and the context is placed in the center
+of the object cacheCanvas.
+If you want 0,0 of a clipPath to align with an object center, use clipPath.originX/Y to 'center'
 </div>
 
 
@@ -1360,7 +1398,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14776">line 14776</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14928">line 14928</a>
     </li></ul></dd>
     
 
@@ -1428,7 +1466,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14765">line 14765</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14917">line 14917</a>
     </li></ul></dd>
     
 
@@ -1450,7 +1488,8 @@
 
 
 <div class="description">
-    custom controls interfacecontrols are added by default_controls.js
+    custom controls interface
+controls are added by default_controls.js
 </div>
 
 
@@ -1486,7 +1525,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16467">line 16467</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16637">line 16637</a>
     </li></ul></dd>
     
 
@@ -1559,7 +1598,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14376">line 14376</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14528">line 14528</a>
     </li></ul></dd>
     
 
@@ -1630,7 +1669,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14398">line 14398</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14550">line 14550</a>
     </li></ul></dd>
     
 
@@ -1703,7 +1742,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14320">line 14320</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14472">line 14472</a>
     </li></ul></dd>
     
 
@@ -1774,7 +1813,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14384">line 14384</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14536">line 14536</a>
     </li></ul></dd>
     
 
@@ -1845,7 +1884,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14391">line 14391</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14543">line 14543</a>
     </li></ul></dd>
     
 
@@ -1867,7 +1906,8 @@
 
 
 <div class="description">
-    When set to `true`, object's cache will be rerendered next render call.since 1.7.0
+    When set to `true`, object's cache will be rerendered next render call.
+since 1.7.0
 </div>
 
 
@@ -1918,7 +1958,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14706">line 14706</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14858">line 14858</a>
     </li></ul></dd>
     
 
@@ -1991,7 +2031,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14553">line 14553</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14705">line 14705</a>
     </li></ul></dd>
     
 
@@ -2062,7 +2102,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14652">line 14652</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14804">line 14804</a>
     </li></ul></dd>
     
 
@@ -2084,7 +2124,8 @@
 
 
 <div class="description">
-    Color of object's filltakes css colors https://www.w3.org/TR/css-color-3/
+    Color of object's fill
+takes css colors https://www.w3.org/TR/css-color-3/
 </div>
 
 
@@ -2135,7 +2176,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14426">line 14426</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14578">line 14578</a>
     </li></ul></dd>
     
 
@@ -2157,7 +2198,9 @@
 
 
 <div class="description">
-    Fill rule used to fill an objectaccepted values are nonzero, evenodd<b>Backwards incompatibility note:</b> This property was used for setting globalCompositeOperation until v1.4.12 (use `fabric.Object#globalCompositeOperation` instead)
+    Fill rule used to fill an object
+accepted values are nonzero, evenodd
+<b>Backwards incompatibility note:</b> This property was used for setting globalCompositeOperation until v1.4.12 (use `fabric.Object#globalCompositeOperation` instead)
 </div>
 
 
@@ -2208,7 +2251,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14435">line 14435</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14587">line 14587</a>
     </li></ul></dd>
     
 
@@ -2276,7 +2319,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14278">line 14278</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14430">line 14430</a>
     </li></ul></dd>
     
 
@@ -2344,7 +2387,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14285">line 14285</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14437">line 14437</a>
     </li></ul></dd>
     
 
@@ -2417,7 +2460,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14442">line 14442</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14594">line 14594</a>
     </li></ul></dd>
     
 
@@ -2490,7 +2533,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14574">line 14574</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14726">line 14726</a>
     </li></ul></dd>
     
 
@@ -2563,7 +2606,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14567">line 14567</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14719">line 14719</a>
     </li></ul></dd>
     
 
@@ -2631,7 +2674,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14257">line 14257</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14409">line 14409</a>
     </li></ul></dd>
     
 
@@ -2699,7 +2742,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14341">line 14341</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14493">line 14493</a>
     </li></ul></dd>
     
 
@@ -2772,7 +2815,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14588">line 14588</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14740">line 14740</a>
     </li></ul></dd>
     
 
@@ -2794,7 +2837,9 @@
 
 
 <div class="description">
-    Meaningful ONLY when the object is used as clipPath.if true, the clipPath will make the object clip to the outside of the clipPathsince 2.4.0
+    Meaningful ONLY when the object is used as clipPath.
+if true, the clipPath will make the object clip to the outside of the clipPath
+since 2.4.0
 </div>
 
 
@@ -2845,7 +2890,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14785">line 14785</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14937">line 14937</a>
     </li></ul></dd>
     
 
@@ -2913,7 +2958,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14243">line 14243</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14395">line 14395</a>
     </li></ul></dd>
     
 
@@ -2935,7 +2980,9 @@
 
 
 <div class="description">
-    Describe object's corner position in canvas element coordinates.includes padding. Used of object detection.set and refreshed with setCoords.
+    Describe object's corner position in canvas element coordinates.
+includes padding. Used of object detection.
+set and refreshed with setCoords.
 </div>
 
 
@@ -2971,7 +3018,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16451">line 16451</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16621">line 16621</a>
     </li></ul></dd>
     
 
@@ -3039,7 +3086,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14595">line 14595</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14747">line 14747</a>
     </li></ul></dd>
     
 
@@ -3107,7 +3154,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14602">line 14602</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14754">line 14754</a>
     </li></ul></dd>
     
 
@@ -3175,7 +3222,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14609">line 14609</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14761">line 14761</a>
     </li></ul></dd>
     
 
@@ -3243,7 +3290,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14644">line 14644</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14796">line 14796</a>
     </li></ul></dd>
     
 
@@ -3311,7 +3358,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14616">line 14616</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14768">line 14768</a>
     </li></ul></dd>
     
 
@@ -3379,7 +3426,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14623">line 14623</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14775">line 14775</a>
     </li></ul></dd>
     
 
@@ -3447,7 +3494,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14630">line 14630</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14782">line 14782</a>
     </li></ul></dd>
     
 
@@ -3515,7 +3562,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14637">line 14637</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14789">line 14789</a>
     </li></ul></dd>
     
 
@@ -3573,7 +3620,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16461">line 16461</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16631">line 16631</a>
     </li></ul></dd>
     
 
@@ -3641,7 +3688,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14538">line 14538</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14690">line 14690</a>
     </li></ul></dd>
     
 
@@ -3709,7 +3756,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14348">line 14348</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14500">line 14500</a>
     </li></ul></dd>
     
 
@@ -3731,7 +3778,11 @@
 
 
 <div class="description">
-    When `true`, cache does not get updated during scaling. The picture will get blocky if scaledtoo much and will be redrawn with correct details at the end of scaling.this setting is performance and application dependant.default to truesince 1.7.0
+    When `true`, cache does not get updated during scaling. The picture will get blocky if scaled
+too much and will be redrawn with correct details at the end of scaling.
+this setting is performance and application dependant.
+default to true
+since 1.7.0
 </div>
 
 
@@ -3782,7 +3833,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14685">line 14685</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14837">line 14837</a>
     </li></ul></dd>
     
 
@@ -3804,7 +3855,9 @@
 
 
 <div class="description">
-    When `true`, object is cached on an additional canvas.When `false`, object is not cached unless necessary ( clipPath )default to true
+    When `true`, object is cached on an additional canvas.
+When `false`, object is not cached unless necessary ( clipPath )
+default to true
 </div>
 
 
@@ -3858,7 +3911,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14662">line 14662</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14814">line 14814</a>
     </li></ul></dd>
     
 
@@ -3880,7 +3933,13 @@
 
 
 <div class="description">
-    Describe object's corner position in canvas element coordinates.properties are depending on control keys and padding the main controls.each property is an object with x, y and corner.The `corner` property contains in a similar manner the 4 points of theinteractive area of the corner.The coordinates depends from the controls positionHandler and are usedto draw and locate controls
+    Describe object's corner position in canvas element coordinates.
+properties are depending on control keys and padding the main controls.
+each property is an object with x, y and corner.
+The `corner` property contains in a similar manner the 4 points of the
+interactive area of the corner.
+The coordinates depends from the controls positionHandler and are used
+to draw and locate controls
 </div>
 
 
@@ -3916,7 +3975,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16429">line 16429</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16599">line 16599</a>
     </li></ul></dd>
     
 
@@ -3989,7 +4048,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14292">line 14292</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14444">line 14444</a>
     </li></ul></dd>
     
 
@@ -4011,7 +4070,8 @@
 
 
 <div class="description">
-    Horizontal origin of transformation of an object (one of "left", "right", "center")See http://jsfiddle.net/1ow02gea/244/ on how originX/originY affect objects in groups
+    Horizontal origin of transformation of an object (one of "left", "right", "center")
+See http://jsfiddle.net/1ow02gea/244/ on how originX/originY affect objects in groups
 </div>
 
 
@@ -4062,7 +4122,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14221">line 14221</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14373">line 14373</a>
     </li></ul></dd>
     
 
@@ -4084,7 +4144,8 @@
 
 
 <div class="description">
-    Vertical origin of transformation of an object (one of "top", "bottom", "center")See http://jsfiddle.net/1ow02gea/244/ on how originX/originY affect objects in groups
+    Vertical origin of transformation of an object (one of "top", "bottom", "center")
+See http://jsfiddle.net/1ow02gea/244/ on how originX/originY affect objects in groups
 </div>
 
 
@@ -4135,7 +4196,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14229">line 14229</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14381">line 14381</a>
     </li></ul></dd>
     
 
@@ -4193,7 +4254,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16456">line 16456</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16626">line 16626</a>
     </li></ul></dd>
     
 
@@ -4261,7 +4322,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14355">line 14355</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14507">line 14507</a>
     </li></ul></dd>
     
 
@@ -4334,7 +4395,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14723">line 14723</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14875">line 14875</a>
     </li></ul></dd>
     
 
@@ -4402,7 +4463,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14581">line 14581</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14733">line 14733</a>
     </li></ul></dd>
     
 
@@ -4475,7 +4536,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14264">line 14264</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14416">line 14416</a>
     </li></ul></dd>
     
 
@@ -4548,7 +4609,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14271">line 14271</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14423">line 14423</a>
     </li></ul></dd>
     
 
@@ -4570,7 +4631,8 @@
 
 
 <div class="description">
-    When set to `false`, an object can not be selected for modification (using either point-click-based or group-based selection).But events still fire on it.
+    When set to `false`, an object can not be selected for modification (using either point-click-based or group-based selection).
+But events still fire on it.
 </div>
 
 
@@ -4621,7 +4683,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14546">line 14546</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14698">line 14698</a>
     </li></ul></dd>
     
 
@@ -4643,7 +4705,8 @@
 
 
 <div class="description">
-    Selection Background color of an object. colored layer behind the object when it is active.does not mix good with globalCompositeOperation methods.
+    Selection Background color of an object. colored layer behind the object when it is active.
+does not mix good with globalCompositeOperation methods.
 </div>
 
 
@@ -4689,7 +4752,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14458">line 14458</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14610">line 14610</a>
     </li></ul></dd>
     
 
@@ -4757,7 +4820,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14514">line 14514</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14666">line 14666</a>
     </li></ul></dd>
     
 
@@ -4825,7 +4888,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14306">line 14306</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14458">line 14458</a>
     </li></ul></dd>
     
 
@@ -4893,7 +4956,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14313">line 14313</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14465">line 14465</a>
     </li></ul></dd>
     
 
@@ -4915,7 +4978,12 @@
 
 
 <div class="description">
-    When `true`, object properties are checked for cache invalidation. In some particularsituation you may want this to be disabled ( spray brush, very big, groups)or if your application does not allow you to modify properties for groups child you wantto disable it for groups.default to falsesince 1.7.0
+    When `true`, object properties are checked for cache invalidation. In some particular
+situation you may want this to be disabled ( spray brush, very big, groups)
+or if your application does not allow you to modify properties for groups child you want
+to disable it for groups.
+default to false
+since 1.7.0
 </div>
 
 
@@ -4966,7 +5034,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14674">line 14674</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14826">line 14826</a>
     </li></ul></dd>
     
 
@@ -4988,7 +5056,9 @@
 
 
 <div class="description">
-    List of properties to consider when checking if stateof an object is changed (fabric.Object#hasStateChanged)as well as for history (undo/redo) purposes
+    List of properties to consider when checking if state
+of an object is changed (fabric.Object#hasStateChanged)
+as well as for history (undo/redo) purposes
 </div>
 
 
@@ -5034,7 +5104,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14742">line 14742</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14894">line 14894</a>
     </li></ul></dd>
     
 
@@ -5056,7 +5126,8 @@
 
 
 <div class="description">
-    When defined, an object is rendered via stroke and this property specifies its colortakes css colors https://www.w3.org/TR/css-color-3/
+    When defined, an object is rendered via stroke and this property specifies its color
+takes css colors https://www.w3.org/TR/css-color-3/
 </div>
 
 
@@ -5102,7 +5173,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14466">line 14466</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14618">line 14618</a>
     </li></ul></dd>
     
 
@@ -5170,7 +5241,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14479">line 14479</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14631">line 14631</a>
     </li></ul></dd>
     
 
@@ -5238,7 +5309,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14486">line 14486</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14638">line 14638</a>
     </li></ul></dd>
     
 
@@ -5311,7 +5382,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14493">line 14493</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14645">line 14645</a>
     </li></ul></dd>
     
 
@@ -5384,7 +5455,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14500">line 14500</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14652">line 14652</a>
     </li></ul></dd>
     
 
@@ -5457,7 +5528,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14507">line 14507</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14659">line 14659</a>
     </li></ul></dd>
     
 
@@ -5479,7 +5550,10 @@
 
 
 <div class="description">
-    When `false`, the stoke width will scale with the object.When `true`, the stroke will always match the exact pixel size entered for stroke width.this Property does not work on Text classes or drawing call that uses strokeText,fillText methodsdefault to false
+    When `false`, the stoke width will scale with the object.
+When `true`, the stroke will always match the exact pixel size entered for stroke width.
+this Property does not work on Text classes or drawing call that uses strokeText,fillText methods
+default to false
 </div>
 
 
@@ -5533,7 +5607,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14698">line 14698</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14850">line 14850</a>
     </li></ul></dd>
     
 
@@ -5606,7 +5680,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14473">line 14473</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14625">line 14625</a>
     </li></ul></dd>
     
 
@@ -5674,7 +5748,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14236">line 14236</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14388">line 14388</a>
     </li></ul></dd>
     
 
@@ -5747,7 +5821,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14327">line 14327</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14479">line 14479</a>
     </li></ul></dd>
     
 
@@ -5820,7 +5894,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14334">line 14334</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14486">line 14486</a>
     </li></ul></dd>
     
 
@@ -5842,7 +5916,9 @@
 
 
 <div class="description">
-    Type of an object (rect, circle, path, etc.).Note that this property is meant to be read-only and not meant to be modified.If you modify, certain parts of Fabric (such as JSON loading) won't work correctly.
+    Type of an object (rect, circle, path, etc.).
+Note that this property is meant to be read-only and not meant to be modified.
+If you modify, certain parts of Fabric (such as JSON loading) won't work correctly.
 </div>
 
 
@@ -5893,7 +5969,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14213">line 14213</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14365">line 14365</a>
     </li></ul></dd>
     
 
@@ -5966,7 +6042,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14560">line 14560</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14712">line 14712</a>
     </li></ul></dd>
     
 
@@ -6034,7 +6110,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14250">line 14250</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14402">line 14402</a>
     </li></ul></dd>
     
 
@@ -6104,7 +6180,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16934">line 16934</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17100">line 17100</a>
     </li></ul></dd>
     
 
@@ -6195,7 +6271,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16942">line 16942</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17108">line 17108</a>
     </li></ul></dd>
     
 
@@ -6358,7 +6434,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line15381">line 15381</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line15541">line 15541</a>
     </li></ul></dd>
     
 
@@ -6388,7 +6464,8 @@
 
 
 <div class="description">
-    return correct set of coordinates for intersectionthis will return either aCoords or lineCoords.
+    return correct set of coordinates for intersection
+this will return either aCoords or lineCoords.
 </div>
 
 
@@ -6476,7 +6553,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16475">line 16475</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16645">line 16645</a>
     </li></ul></dd>
     
 
@@ -6528,7 +6605,10 @@
 
 
 <div class="description">
-    Limit the cache dimensions so that X * Y do not cross fabric.perfLimitSizeTotaland each side do not cross fabric.cacheSideLimitthose numbers are configurable so that you can get as much detail as you wantmaking bargain with performances.
+    Limit the cache dimensions so that X * Y do not cross fabric.perfLimitSizeTotal
+and each side do not cross fabric.cacheSideLimit
+those numbers are configurable so that you can get as much detail as you want
+making bargain with performances.
 </div>
 
 
@@ -6734,7 +6814,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14837">line 14837</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14989">line 14989</a>
     </li></ul></dd>
     
 
@@ -6885,7 +6965,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line15249">line 15249</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line15411">line 15411</a>
     </li></ul></dd>
     
 
@@ -6915,7 +6995,8 @@
 
 
 <div class="description">
-    Renders controls and borders for the objectthe context here is not transformed
+    Renders controls and borders for the object
+the context here is not transformed
 </div>
 
 
@@ -7046,7 +7127,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line15538">line 15538</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line15698">line 15698</a>
     </li></ul></dd>
     
 
@@ -7076,7 +7157,8 @@
 
 
 <div class="description">
-    Sets canvas globalCompositeOperation for specific objectcustom composition operation for the particular object can be specified using globalCompositeOperation property
+    Sets canvas globalCompositeOperation for specific object
+custom composition operation for the particular object can be specified using globalCompositeOperation property
 </div>
 
 
@@ -7164,7 +7246,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16054">line 16054</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16248">line 16248</a>
     </li></ul></dd>
     
 
@@ -7278,7 +7360,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16325">line 16325</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16495">line 16495</a>
     </li></ul></dd>
     
 
@@ -7425,7 +7507,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line18003">line 18003</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line18152">line 18152</a>
     </li></ul></dd>
     
 
@@ -7473,7 +7555,17 @@
     
         <li>
 <div class="param-desc">
-    animation context (or an array if passed multiple properties)As object — multiple propertiesobject.animate({ left: ..., top: ... });object.animate({ left: ..., top: ... }, { duration: ... });As string — one propertyobject.animate('left', ...);object.animate('left', { duration: ... });
+    animation context (or an array if passed multiple properties)
+
+As object — multiple properties
+
+object.animate({ left: ..., top: ... });
+object.animate({ left: ..., top: ... }, { duration: ... });
+
+As string — one property
+
+object.animate('left', ...);
+object.animate('left', { duration: ... });
 </div>
 
 
@@ -7607,7 +7699,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17148">line 17148</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17310">line 17310</a>
     </li></ul></dd>
     
 
@@ -7698,7 +7790,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17116">line 17116</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17278">line 17278</a>
     </li></ul></dd>
     
 
@@ -7750,7 +7842,8 @@
 
 
 <div class="description">
-    calculate transform matrix that represents the current transformations from theobject's properties, this matrix does not include the group transformation
+    calculate transform matrix that represents the current transformations from the
+object's properties, this matrix does not include the group transformation
 </div>
 
 
@@ -7789,7 +7882,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16986">line 16986</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17152">line 17152</a>
     </li></ul></dd>
     
 
@@ -7841,7 +7934,8 @@
 
 
 <div class="description">
-    calculate transform matrix that represents the current transformations from theobject's properties.
+    calculate transform matrix that represents the current transformations from the
+object's properties.
 </div>
 
 
@@ -7901,7 +7995,8 @@
 
             
 
-            <td class="description last">return transform matrix for object not counting parent transformationsThere are some situation in which this is useful to avoid the fake rotation.</td>
+            <td class="description last">return transform matrix for object not counting parent transformations
+There are some situation in which this is useful to avoid the fake rotation.</td>
         </tr>
 
     
@@ -7941,7 +8036,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16964">line 16964</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17130">line 17130</a>
     </li></ul></dd>
     
 
@@ -7988,148 +8083,13 @@
 
 
     
-    <h4 class="name" id="canDrop"><a href="#canDrop" ><span class="type-signature"></span>canDrop<span class="signature">(e)</span><span class="type-signature"> &rarr; {boolean}</span></a></h4>
-    
-
-
-<div class="description">
-    Override to customize drag and drop behavior
-</div>
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>e</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">DragEvent</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17866">line 17866</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">boolean</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-        
-            
-
-
-    
     <h4 class="name" id="center"><a href="#center" ><span class="type-signature"></span>center<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span></a></h4>
     
 
 
 <div class="description">
-    Centers object vertically and horizontally on canvas to which is was added lastYou might need to call `setCoords` on an object after centering, to update controls area.
+    Centers object vertically and horizontally on canvas to which is was added last
+You might need to call `setCoords` on an object after centering, to update controls area.
 </div>
 
 
@@ -8168,7 +8128,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16023">line 16023</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16207">line 16207</a>
     </li></ul></dd>
     
 
@@ -8220,7 +8180,8 @@
 
 
 <div class="description">
-    Centers object horizontally on canvas to which it was added last.You might need to call `setCoords` on an object after centering, to update controls area.
+    Centers object horizontally on canvas to which it was added last.
+You might need to call `setCoords` on an object after centering, to update controls area.
 </div>
 
 
@@ -8259,7 +8220,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line15979">line 15979</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16163">line 16163</a>
     </li></ul></dd>
     
 
@@ -8311,7 +8272,8 @@
 
 
 <div class="description">
-    Centers object vertically on canvas to which it was added last.You might need to call `setCoords` on an object after centering, to update controls area.
+    Centers object vertically on canvas to which it was added last.
+You might need to call `setCoords` on an object after centering, to update controls area.
 </div>
 
 
@@ -8350,7 +8312,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16001">line 16001</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16185">line 16185</a>
     </li></ul></dd>
     
 
@@ -8397,12 +8359,12 @@
 
 
     
-    <h4 class="name" id="clone"><a href="#clone" ><span class="type-signature"></span>clone<span class="signature">(propertiesToInclude<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise.&lt;<a href="fabric.Object.html">fabric.Object</a>>}</span></a></h4>
+    <h4 class="name" id="clone"><a href="#clone" ><span class="type-signature"></span>clone<span class="signature">(callback, propertiesToInclude<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></a></h4>
     
 
 
 <div class="description">
-    Clones an instance.
+    Clones an instance, using a callback method will work for every object.
 </div>
 
 
@@ -8432,6 +8394,37 @@
     </thead>
 
     <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">Callback is invoked with a clone as a first argument</td>
+        </tr>
+
     
 
         <tr>
@@ -8502,7 +8495,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line15799">line 15799</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line15967">line 15967</a>
     </li></ul></dd>
     
 
@@ -8519,24 +8512,6 @@
 
 
 
-<h5>Returns:</h5>
-
-        
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Promise.&lt;<a href="fabric.Object.html">fabric.Object</a>></span>
-
-
-    </dd>
-</dl>
-
-    
 
 
 
@@ -8545,12 +8520,19 @@
 
 
     
-    <h4 class="name" id="cloneAsImage"><a href="#cloneAsImage" ><span class="type-signature"></span>cloneAsImage<span class="signature">(options<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {<a href="fabric.Image.html">fabric.Image</a>}</span></a></h4>
+    <h4 class="name" id="cloneAsImage"><a href="#cloneAsImage" ><span class="type-signature"></span>cloneAsImage<span class="signature">(callback, options<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span></a></h4>
     
 
 
 <div class="description">
-    Creates an instance of fabric.Image out of an objectmakes use of toCanvasElement.Once this method was based on toDataUrl and loadImage, so it also had a qualityand format option. toCanvasElement is faster and produce no loss of quality.If you need to get a real Jpeg or Png from an object, using toDataURL is the right way to do it.toCanvasElement and then toBlob from the obtained canvas is also a good option.
+    Creates an instance of fabric.Image out of an object
+makes use of toCanvasElement.
+Once this method was based on toDataUrl and loadImage, so it also had a quality
+and format option. toCanvasElement is faster and produce no loss of quality.
+If you need to get a real Jpeg or Png from an object, using toDataURL is the right way to do it.
+toCanvasElement and then toBlob from the obtained canvas is also a good option.
+This method is sync now, but still support the callback because we did not want to break.
+When fabricJS 5.0 will be planned, this will probably be changed to not have a callback.
 </div>
 
 
@@ -8580,6 +8562,37 @@
     </thead>
 
     <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">callback, invoked with an instance as a first argument</td>
+        </tr>
+
     
 
         <tr>
@@ -8978,7 +8991,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line15822">line 15822</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line15998">line 15998</a>
     </li></ul></dd>
     
 
@@ -8999,7 +9012,7 @@
 
         
 <div class="param-desc">
-    Object cloned as image.
+    thisArg
 </div>
 
 
@@ -9010,7 +9023,7 @@
     </dt>
     <dd>
         
-<span class="param-type"><a href="fabric.Image.html">fabric.Image</a></span>
+<span class="param-type"><a href="fabric.Object.html">fabric.Object</a></span>
 
 
     </dd>
@@ -9069,7 +9082,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line15937">line 15937</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16121">line 16121</a>
     </li></ul></dd>
     
 
@@ -9318,7 +9331,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16577">line 16577</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16747">line 16747</a>
     </li></ul></dd>
     
 
@@ -9370,7 +9383,7 @@
 
 
 <div class="description">
-    cancel instance's running animationsoverride if necessary to dispose artifacts such as `clipPath`
+    cancel instance's running animations
 </div>
 
 
@@ -9409,7 +9422,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16064">line 16064</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16257">line 16257</a>
     </li></ul></dd>
     
 
@@ -9439,7 +9452,9 @@
 
 
 <div class="description">
-    Draws borders of an object's bounding box.Requires public properties: width, heightRequires public options: padding, borderColor
+    Draws borders of an object's bounding box.
+Requires public properties: width, height
+Requires public options: padding, borderColor
 </div>
 
 
@@ -9550,7 +9565,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17663">line 17663</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17830">line 17830</a>
     </li></ul></dd>
     
 
@@ -9602,7 +9617,9 @@
 
 
 <div class="description">
-    Draws borders of an object's bounding box when it is inside a group.Requires public properties: width, heightRequires public options: padding, borderColor
+    Draws borders of an object's bounding box when it is inside a group.
+Requires public properties: width, height
+Requires public options: padding, borderColor
 </div>
 
 
@@ -9736,7 +9753,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17698">line 17698</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17884">line 17884</a>
     </li></ul></dd>
     
 
@@ -9876,7 +9893,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line15397">line 15397</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line15557">line 15557</a>
     </li></ul></dd>
     
 
@@ -10017,7 +10034,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line15335">line 15335</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line15495">line 15495</a>
     </li></ul></dd>
     
 
@@ -10047,7 +10064,9 @@
 
 
 <div class="description">
-    Draws corners of an object's bounding box.Requires public properties: width, heightRequires public options: cornerSize, padding
+    Draws corners of an object's bounding box.
+Requires public properties: width, height
+Requires public options: cornerSize, padding
 </div>
 
 
@@ -10158,147 +10177,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17768">line 17768</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    thisArg
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type"><a href="fabric.Object.html">fabric.Object</a></span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-        
-            
-
-
-    
-    <h4 class="name" id="drawControlsConnectingLines"><a href="#drawControlsConnectingLines" ><span class="type-signature"></span>drawControlsConnectingLines<span class="signature">(ctx)</span><span class="type-signature"> &rarr; {<a href="fabric.Object.html">fabric.Object</a>}</span></a></h4>
-    
-
-
-<div class="description">
-    Draws lines from a borders of an object's bounding box to controls that have `withConnection` property set.Requires public properties: width, heightRequires public options: padding, borderColor
-</div>
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>ctx</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">CanvasRenderingContext2D</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Context to draw on</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17733">line 17733</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17917">line 17917</a>
     </li></ul></dd>
     
 
@@ -10438,7 +10317,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line15360">line 15360</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line15520">line 15520</a>
     </li></ul></dd>
     
 
@@ -10468,7 +10347,10 @@
 
 
 <div class="description">
-    Draws a colored layer behind the object, inside its selection borders.Requires public options: padding, selectionBackgroundColorthis function is called when the context is transformedhas checks to be skipped when the object is on a staticCanvas
+    Draws a colored layer behind the object, inside its selection borders.
+Requires public options: padding, selectionBackgroundColor
+this function is called when the context is transformed
+has checks to be skipped when the object is on a staticCanvas
 </div>
 
 
@@ -10556,7 +10438,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17635">line 17635</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17802">line 17802</a>
     </li></ul></dd>
     
 
@@ -10608,7 +10490,8 @@
 
 
 <div class="description">
-    Calls a function for each control. The function gets called,with the control, the object that is calling the iterator and the control's key
+    Calls a function for each control. The function gets called,
+with the control, the object that is calling the iterator and the control's key
 </div>
 
 
@@ -10696,7 +10579,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17601">line 17601</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17768">line 17768</a>
     </li></ul></dd>
     
 
@@ -10908,7 +10791,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line21345">line 21345</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line21536">line 21536</a>
     </li></ul></dd>
     
 
@@ -10955,144 +10838,13 @@
 
 
     
-    <h4 class="name" id="getAncestors"><a href="#getAncestors" ><span class="type-signature"></span>getAncestors<span class="signature">(strict<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></a></h4>
-    
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-        <th>Attributes</th>
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>strict</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">boolean</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last">returns only ancestors that are objects (without canvas)</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17082">line 17082</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-
-
-    
-
-
-
-        
-            
-
-
-    
     <h4 class="name" id="getBoundingRect"><a href="#getBoundingRect" ><span class="type-signature"></span>getBoundingRect<span class="signature">(absolute<span class="signature-attributes">opt</span>, calculate<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Object}</span></a></h4>
     
 
 
 <div class="description">
-    Returns coordinates of object's bounding rectangle (left, top, width, height)the box is intended as aligned to axis of canvas.
+    Returns coordinates of object's bounding rectangle (left, top, width, height)
+the box is intended as aligned to axis of canvas.
 </div>
 
 
@@ -11225,7 +10977,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16750">line 16750</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16920">line 16920</a>
     </li></ul></dd>
     
 
@@ -11277,7 +11029,7 @@
 
 
 <div class="description">
-    Returns the center coordinates of the object relative to canvas
+    Returns the real center coordinates of the object
 </div>
 
 
@@ -11316,7 +11068,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16219">line 16219</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16419">line 16419</a>
     </li></ul></dd>
     
 
@@ -11345,100 +11097,6 @@
     <dd>
         
 <span class="param-type"><a href="fabric.Point.html">fabric.Point</a></span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-        
-            
-
-
-    
-    <h4 class="name" id="getCenterPointRelativeToParent"><a href="#getCenterPointRelativeToParent" ><span class="type-signature"></span>getCenterPointRelativeToParent<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="fabric.Point.html">fabric.Point</a>|null}</span></a></h4>
-    
-
-
-<div class="description">
-    Returns the center coordinates of the object relative to it's containing group or null
-</div>
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16230">line 16230</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    point or null of object has no parent group
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type"><a href="fabric.Point.html">fabric.Point</a></span>
-|
-
-<span class="param-type">null</span>
 
 
     </dd>
@@ -11458,7 +11116,9 @@
 
 
 <div class="description">
-    return correct set of coordinates for intersectionthis will return either aCoords or lineCoords.The coords are returned in an array.
+    return correct set of coordinates for intersection
+this will return either aCoords or lineCoords.
+The coords are returned in an array.
 </div>
 
 
@@ -11497,7 +11157,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16491">line 16491</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16661">line 16661</a>
     </li></ul></dd>
     
 
@@ -11549,7 +11209,7 @@
 
 
 <div class="description">
-    Returns coordinates of a pointer relative to object's top left corner in object's plane
+    Returns coordinates of a pointer relative to an object
 </div>
 
 
@@ -11680,7 +11340,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16291">line 16291</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16229">line 16229</a>
     </li></ul></dd>
     
 
@@ -11771,7 +11431,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line15115">line 15115</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line15277">line 15277</a>
     </li></ul></dd>
     
 
@@ -11814,7 +11474,7 @@
 
 
     
-    <h4 class="name" id="getObjectScaling"><a href="#getObjectScaling" ><span class="type-signature"></span>getObjectScaling<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="fabric.Point.html">fabric.Point</a>}</span></a></h4>
+    <h4 class="name" id="getObjectScaling"><a href="#getObjectScaling" ><span class="type-signature"></span>getObjectScaling<span class="signature">()</span><span class="type-signature"> &rarr; {Object}</span></a></h4>
     
 
 
@@ -11858,7 +11518,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line15084">line 15084</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line15242">line 15242</a>
     </li></ul></dd>
     
 
@@ -11878,6 +11538,10 @@
 <h5>Returns:</h5>
 
         
+<div class="param-desc">
+    object with scaleX and scaleY properties
+</div>
+
 
 
 <dl>
@@ -11886,7 +11550,7 @@
     </dt>
     <dd>
         
-<span class="param-type"><a href="fabric.Point.html">fabric.Point</a></span>
+<span class="param-type">Object</span>
 
 
     </dd>
@@ -11944,7 +11608,7 @@
             <td class="type">
             
                 
-<span class="param-type">OriginX</span>
+<span class="param-type">String</span>
 
 
             
@@ -11967,7 +11631,7 @@
             <td class="type">
             
                 
-<span class="param-type"><a href="global.html#OriginY">OriginY</a></span>
+<span class="param-type">String</span>
 
 
             
@@ -12017,94 +11681,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16257">line 16257</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type"><a href="fabric.Point.html">fabric.Point</a></span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-        
-            
-
-
-    
-    <h4 class="name" id="getRelativeCenterPoint"><a href="#getRelativeCenterPoint" ><span class="type-signature"></span>getRelativeCenterPoint<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="fabric.Point.html">fabric.Point</a>}</span></a></h4>
-    
-
-
-<div class="description">
-    Returns the center coordinates of the object relative to it's parent
-</div>
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16238">line 16238</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16439">line 16439</a>
     </li></ul></dd>
     
 
@@ -12152,7 +11729,8 @@
 
 
 <div class="description">
-    Returns height of an object bounding box counting transformationsbefore 2.0 it was named getHeight();
+    Returns height of an object bounding box counting transformations
+before 2.0 it was named getHeight();
 </div>
 
 
@@ -12191,7 +11769,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16769">line 16769</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16939">line 16939</a>
     </li></ul></dd>
     
 
@@ -12243,7 +11821,8 @@
 
 
 <div class="description">
-    Returns width of an object's bounding box counting transformationsbefore 2.0 it was named getWidth();
+    Returns width of an object's bounding box counting transformations
+before 2.0 it was named getWidth();
 </div>
 
 
@@ -12282,7 +11861,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16760">line 16760</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16930">line 16930</a>
     </li></ul></dd>
     
 
@@ -12373,7 +11952,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17297">line 17297</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17459">line 17459</a>
     </li></ul></dd>
     
 
@@ -12460,7 +12039,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17289">line 17289</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17451">line 17451</a>
     </li></ul></dd>
     
 
@@ -12619,7 +12198,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17242">line 17242</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17404">line 17404</a>
     </li></ul></dd>
     
 
@@ -12755,7 +12334,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17205">line 17205</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17367">line 17367</a>
     </li></ul></dd>
     
 
@@ -12891,7 +12470,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17279">line 17279</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17441">line 17441</a>
     </li></ul></dd>
     
 
@@ -13027,7 +12606,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17309">line 17309</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17471">line 17471</a>
     </li></ul></dd>
     
 
@@ -13056,93 +12635,6 @@
     <dd>
         
 <span class="param-type">String</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-        
-            
-
-
-    
-    <h4 class="name" id="getTotalAngle"><a href="#getTotalAngle" ><span class="type-signature"></span>getTotalAngle<span class="signature">()</span><span class="type-signature"> &rarr; {number}</span></a></h4>
-    
-
-
-<div class="description">
-    Returns the object angle relative to canvas counting also the group property
-</div>
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line15127">line 15127</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">number</span>
 
 
     </dd>
@@ -13201,7 +12693,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line15101">line 15101</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line15262">line 15262</a>
     </li></ul></dd>
     
 
@@ -13292,7 +12784,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line15176">line 15176</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line15338">line 15338</a>
     </li></ul></dd>
     
 
@@ -13340,7 +12832,12 @@
 
 
 <div class="description">
-    return true if the object will draw a fillDoes not consider text styles. This is just a shortcut used at rendering timeWe want it to be an approximation and be fast.wrote to avoid extra caching, it has to return true when fill happens,can guess when it will not happen at 100% chance, does not matter if it missessome use case where the fill is invisible.
+    return true if the object will draw a fill
+Does not consider text styles. This is just a shortcut used at rendering time
+We want it to be an approximation and be fast.
+wrote to avoid extra caching, it has to return true when fill happens,
+can guess when it will not happen at 100% chance, does not matter if it misses
+some use case where the fill is invisible.
 </div>
 
 
@@ -13382,7 +12879,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line15280">line 15280</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line15441">line 15441</a>
     </li></ul></dd>
     
 
@@ -13522,7 +13019,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17501">line 17501</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17663">line 17663</a>
     </li></ul></dd>
     
 
@@ -13574,7 +13071,12 @@
 
 
 <div class="description">
-    return true if the object will draw a strokeDoes not consider text styles. This is just a shortcut used at rendering timeWe want it to be an approximation and be fast.wrote to avoid extra caching, it has to return true when stroke happens,can guess when it will not happen at 100% chance, does not matter if it missessome use case where the stroke is invisible.
+    return true if the object will draw a stroke
+Does not consider text styles. This is just a shortcut used at rendering time
+We want it to be an approximation and be fast.
+wrote to avoid extra caching, it has to return true when stroke happens,
+can guess when it will not happen at 100% chance, does not matter if it misses
+some use case where the stroke is invisible.
 </div>
 
 
@@ -13616,7 +13118,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line15266">line 15266</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line15427">line 15427</a>
     </li></ul></dd>
     
 
@@ -13756,7 +13258,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14803">line 14803</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14955">line 14955</a>
     </li></ul></dd>
     
 
@@ -13950,7 +13452,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16520">line 16520</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16690">line 16690</a>
     </li></ul></dd>
     
 
@@ -14197,7 +13699,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16503">line 16503</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16673">line 16673</a>
     </li></ul></dd>
     
 
@@ -14297,7 +13799,8 @@
 
             
 
-            <td class="description last">skip canvas checks because this object is paintedon parent canvas.</td>
+            <td class="description last">skip canvas checks because this object is painted
+on parent canvas.</td>
         </tr>
 
     
@@ -14337,7 +13840,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line15407">line 15407</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line15567">line 15567</a>
     </li></ul></dd>
     
 
@@ -14531,7 +14034,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16538">line 16538</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16708">line 16708</a>
     </li></ul></dd>
     
 
@@ -14778,7 +14281,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16558">line 16558</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16728">line 16728</a>
     </li></ul></dd>
     
 
@@ -14918,7 +14421,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17795">line 17795</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17955">line 17955</a>
     </li></ul></dd>
     
 
@@ -14970,7 +14473,8 @@
 
 
 <div class="description">
-    Checks if object is contained within the canvas with current viewportTransformthe check is done stopping at first point that appears on screen
+    Checks if object is contained within the canvas with current viewportTransform
+the check is done stopping at first point that appears on screen
 </div>
 
 
@@ -15070,7 +14574,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16591">line 16591</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16761">line 16761</a>
     </li></ul></dd>
     
 
@@ -15222,7 +14726,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16634">line 16634</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16804">line 16804</a>
     </li></ul></dd>
     
 
@@ -15362,7 +14866,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line15929">line 15929</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16113">line 16113</a>
     </li></ul></dd>
     
 
@@ -15498,7 +15002,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17164">line 17164</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17326">line 17326</a>
     </li></ul></dd>
     
 
@@ -15550,7 +15054,11 @@
 
 
 <div class="description">
-    When set to `true`, force the object to have its own cache, even if it is inside a groupit may be needed when your object behave in a particular way on the cache and always needsits own isolated canvas to render correctly.Created to be overriddensince 1.7.12
+    When set to `true`, force the object to have its own cache, even if it is inside a group
+it may be needed when your object behave in a particular way on the cache and always needs
+its own isolated canvas to render correctly.
+Created to be overridden
+since 1.7.12
 </div>
 
 
@@ -15589,7 +15097,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line15292">line 15292</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line15453">line 15453</a>
     </li></ul></dd>
     
 
@@ -15624,194 +15132,13 @@
 
 
     
-    <h4 class="name" id="normalizePoint"><a href="#normalizePoint" ><span class="type-signature"></span>normalizePoint<span class="signature">(point, originX, originY)</span><span class="type-signature"> &rarr; {<a href="fabric.Point.html">fabric.Point</a>}</span></a></h4>
-    
-
-
-<div class="description">
-    Returns the normalized point (rotated relative to center) in local coordinates
-</div>
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>point</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="fabric.Point.html">fabric.Point</a></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The point relative to instance coordinate system</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>originX</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">OriginX</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Horizontal origin: 'left', 'center' or 'right'</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>originY</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="global.html#OriginY">OriginY</a></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Vertical origin: 'top', 'center' or 'bottom'</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16269">line 16269</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type"><a href="fabric.Point.html">fabric.Point</a></span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-        
-            
-
-
-    
     <h4 class="name" id="onDeselect"><a href="#onDeselect" ><span class="type-signature"></span>onDeselect<span class="signature">(options<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></a></h4>
     
 
 
 <div class="description">
-    This callback function is called every time _discardActiveObject or _setActiveObjecttry to to deselect this object. If the function returns true, the process is cancelled
+    This callback function is called every time _discardActiveObject or _setActiveObject
+try to to deselect this object. If the function returns true, the process is cancelled
 </div>
 
 
@@ -15972,7 +15299,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17845">line 17845</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line18005">line 18005</a>
     </li></ul></dd>
     
 
@@ -16002,7 +15329,8 @@
 
 
 <div class="description">
-    This callback function is called every time _discardActiveObject or _setActiveObjecttry to to select this object. If the function returns true, the process is cancelled
+    This callback function is called every time _discardActiveObject or _setActiveObject
+try to to select this object. If the function returns true, the process is cancelled
 </div>
 
 
@@ -16163,7 +15491,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17856">line 17856</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line18016">line 18016</a>
     </li></ul></dd>
     
 
@@ -16281,7 +15609,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line15205">line 15205</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line15367">line 15367</a>
     </li></ul></dd>
     
 
@@ -16399,7 +15727,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line15957">line 15957</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16141">line 16141</a>
     </li></ul></dd>
     
 
@@ -16551,7 +15879,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17515">line 17515</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17677">line 17677</a>
     </li></ul></dd>
     
 
@@ -16691,7 +16019,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16800">line 16800</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16970">line 16970</a>
     </li></ul></dd>
     
 
@@ -16854,7 +16182,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16826">line 16826</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16996">line 16996</a>
     </li></ul></dd>
     
 
@@ -17017,7 +16345,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16813">line 16813</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16983">line 16983</a>
     </li></ul></dd>
     
 
@@ -17169,7 +16497,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17132">line 17132</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17294">line 17294</a>
     </li></ul></dd>
     
 
@@ -17260,7 +16588,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17101">line 17101</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17263">line 17263</a>
     </li></ul></dd>
     
 
@@ -17737,7 +17065,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17829">line 17829</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17989">line 17989</a>
     </li></ul></dd>
     
 
@@ -17900,7 +17228,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17806">line 17806</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17966">line 17966</a>
     </li></ul></dd>
     
 
@@ -17952,7 +17280,11 @@
 
 
 <div class="description">
-    Sets corner and controls position coordinates based on current angle, width and height, left and top.oCoords are used to find the cornersaCoords are used to quickly find an object on the canvaslineCoords are used to quickly find object during pointer events.See <a href="https://github.com/fabricjs/fabric.js/wiki/When-to-call-setCoords">https://github.com/fabricjs/fabric.js/wiki/When-to-call-setCoords</a> and <a href="http://fabricjs.com/fabric-gotchas">http://fabricjs.com/fabric-gotchas</a>
+    Sets corner and controls position coordinates based on current angle, width and height, left and top.
+oCoords are used to find the corners
+aCoords are used to quickly find an object on the canvas
+lineCoords are used to quickly find object during pointer events.
+See <a href="https://github.com/fabricjs/fabric.js/wiki/When-to-call-setCoords">https://github.com/fabricjs/fabric.js/wiki/When-to-call-setCoords</a> and <a href="http://fabricjs.com/fabric-gotchas">http://fabricjs.com/fabric-gotchas</a>
 </div>
 
 
@@ -18052,7 +17384,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16916">line 16916</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17082">line 17082</a>
     </li></ul></dd>
     
 
@@ -18104,7 +17436,10 @@
 
 
 <div class="description">
-    This callback function is called by the parent group of an object everytime a non-delegated property changes on the group. It is passed the keyand value as parameters. Not adding in this function's signature to avoidTravis build error about unused variables.
+    This callback function is called by the parent group of an object every
+time a non-delegated property changes on the group. It is passed the key
+and value as parameters. Not adding in this function's signature to avoid
+Travis build error about unused variables.
 </div>
 
 
@@ -18143,7 +17478,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16045">line 16045</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line15334">line 15334</a>
     </li></ul></dd>
     
 
@@ -18273,7 +17608,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14967">line 14967</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line15119">line 15119</a>
     </li></ul></dd>
     
 
@@ -18364,7 +17699,7 @@
             <td class="type">
             
                 
-<span class="param-type">OriginX</span>
+<span class="param-type">String</span>
 
 
             
@@ -18387,7 +17722,7 @@
             <td class="type">
             
                 
-<span class="param-type"><a href="global.html#OriginY">OriginY</a></span>
+<span class="param-type">String</span>
 
 
             
@@ -18437,7 +17772,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16315">line 16315</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16485">line 16485</a>
     </li></ul></dd>
     
 
@@ -18585,7 +17920,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17533">line 17533</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17695">line 17695</a>
     </li></ul></dd>
     
 
@@ -18637,7 +17972,12 @@
 
 
 <div class="description">
-    Decide if the object should cache or not. Create its own cache levelobjectCaching is a global flag, wins over everythingneedsItsOwnCache should be used when the object drawing method requiresa cache step. None of the fabric classes requires it.Generally you do not cache objects in groups because the group outside is cached.Read as: cache if is needed, or if the feature is enabled but we are not already caching.
+    Decide if the object should cache or not. Create its own cache level
+objectCaching is a global flag, wins over everything
+needsItsOwnCache should be used when the object drawing method requires
+a cache step. None of the fabric classes requires it.
+Generally you do not cache objects in groups because the group outside is cached.
+Read as: cache if is needed, or if the feature is enabled but we are not already caching.
 </div>
 
 
@@ -18676,7 +18016,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line15312">line 15312</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line15473">line 15473</a>
     </li></ul></dd>
     
 
@@ -18763,7 +18103,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line21334">line 21334</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line21525">line 21525</a>
     </li></ul></dd>
     
 
@@ -19231,7 +18571,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line15840">line 15840</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16019">line 16019</a>
     </li></ul></dd>
     
 
@@ -19383,7 +18723,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17348">line 17348</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17510">line 17510</a>
     </li></ul></dd>
     
 
@@ -19535,7 +18875,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line15043">line 15043</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line15199">line 15199</a>
     </li></ul></dd>
     
 
@@ -20081,7 +19421,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line15919">line 15919</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16103">line 16103</a>
     </li></ul></dd>
     
 
@@ -20233,7 +19573,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line15946">line 15946</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16130">line 16130</a>
     </li></ul></dd>
     
 
@@ -20266,6 +19606,188 @@
     <dd>
         
 <span class="param-type">Object</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+
+    
+    <h4 class="name" id="toLocalPoint"><a href="#toLocalPoint" ><span class="type-signature"></span>toLocalPoint<span class="signature">(point, originX, originY)</span><span class="type-signature"> &rarr; {<a href="fabric.Point.html">fabric.Point</a>}</span></a></h4>
+    
+
+
+<div class="description">
+    Returns the point in local coordinates
+</div>
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>point</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="fabric.Point.html">fabric.Point</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The point relative to the global coordinate system</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>originX</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Horizontal origin: 'left', 'center' or 'right'</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>originY</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Vertical origin: 'top', 'center' or 'bottom'</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16451">line 16451</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="fabric.Point.html">fabric.Point</a></span>
 
 
     </dd>
@@ -20385,7 +19907,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14987">line 14987</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line15143">line 15143</a>
     </li></ul></dd>
     
 
@@ -20476,7 +19998,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line15076">line 15076</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line15234">line 15234</a>
     </li></ul></dd>
     
 
@@ -20624,7 +20146,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17339">line 17339</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line17501">line 17501</a>
     </li></ul></dd>
     
 
@@ -20764,7 +20286,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line14975">line 14975</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line15131">line 15131</a>
     </li></ul></dd>
     
 
@@ -20855,7 +20377,7 @@
             <td class="type">
             
                 
-<span class="param-type">OriginX</span>
+<span class="param-type">String</span>
 
 
             
@@ -20878,7 +20400,7 @@
             <td class="type">
             
                 
-<span class="param-type"><a href="global.html#OriginY">OriginY</a></span>
+<span class="param-type">String</span>
 
 
             
@@ -20928,7 +20450,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16192">line 16192</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16392">line 16392</a>
     </li></ul></dd>
     
 
@@ -21037,7 +20559,7 @@
             <td class="type">
             
                 
-<span class="param-type">OriginX</span>
+<span class="param-type">String</span>
 
 
             
@@ -21060,7 +20582,7 @@
             <td class="type">
             
                 
-<span class="param-type"><a href="global.html#OriginY">OriginY</a></span>
+<span class="param-type">String</span>
 
 
             
@@ -21083,7 +20605,7 @@
             <td class="type">
             
                 
-<span class="param-type">OriginX</span>
+<span class="param-type">String</span>
 
 
             
@@ -21106,7 +20628,7 @@
             <td class="type">
             
                 
-<span class="param-type"><a href="global.html#OriginY">OriginY</a></span>
+<span class="param-type">String</span>
 
 
             
@@ -21156,7 +20678,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16169">line 16169</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16339">line 16339</a>
     </li></ul></dd>
     
 
@@ -21265,7 +20787,7 @@
             <td class="type">
             
                 
-<span class="param-type">OriginX</span>
+<span class="param-type">String</span>
 
 
             
@@ -21288,7 +20810,7 @@
             <td class="type">
             
                 
-<span class="param-type"><a href="global.html#OriginY">OriginY</a></span>
+<span class="param-type">String</span>
 
 
             
@@ -21338,7 +20860,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16207">line 16207</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16407">line 16407</a>
     </li></ul></dd>
     
 
@@ -21386,7 +20908,8 @@
 
 
 <div class="description">
-    Centers object on current viewport of canvas to which it was added last.You might need to call `setCoords` on an object after centering, to update controls area.
+    Centers object on current viewport of canvas to which it was added last.
+You might need to call `setCoords` on an object after centering, to update controls area.
 </div>
 
 
@@ -21425,7 +20948,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16034">line 16034</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16218">line 16218</a>
     </li></ul></dd>
     
 
@@ -21477,7 +21000,8 @@
 
 
 <div class="description">
-    Centers object horizontally on current viewport of canvas to which it was added last.You might need to call `setCoords` on an object after centering, to update controls area.
+    Centers object horizontally on current viewport of canvas to which it was added last.
+You might need to call `setCoords` on an object after centering, to update controls area.
 </div>
 
 
@@ -21516,7 +21040,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line15990">line 15990</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16174">line 16174</a>
     </li></ul></dd>
     
 
@@ -21568,7 +21092,8 @@
 
 
 <div class="description">
-    Centers object vertically on current viewport of canvas to which it was added last.You might need to call `setCoords` on an object after centering, to update controls area.
+    Centers object vertically on current viewport of canvas to which it was added last.
+You might need to call `setCoords` on an object after centering, to update controls area.
 </div>
 
 
@@ -21607,7 +21132,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16012">line 16012</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line16196">line 16196</a>
     </li></ul></dd>
     
 
@@ -21659,7 +21184,8 @@
 
 
 <div class="description">
-    Check if this object or a child object will cast a shadowused by Group.shouldCache to know if child has a shadow recursively
+    Check if this object or a child object will cast a shadow
+used by Group.shouldCache to know if child has a shadow recursively
 </div>
 
 
@@ -21686,8 +21212,6 @@
     
 
     
-        <dt class="important tag-deprecated">Deprecated:</dt><dd class="yes-def tag-deprecated"><ul class="dummy"><li>Yes</li></ul></dd>
-    
 
     
 
@@ -21700,7 +21224,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line15326">line 15326</a>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line15486">line 15486</a>
     </li></ul></dd>
     
 
@@ -21752,7 +21276,7 @@
 
 
 </div>
-<footer><input id="toggle" type="checkbox" onclick="toggle(this.checked);"  /><label for="toggle" >Hide inherited properties and method from the page</label><br />Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a> on Sat Apr 02 2022 15:20:09 GMT+0300 (שעון ישראל (קיץ))
+<footer><input id="toggle" type="checkbox" onclick="toggle(this.checked);"  /><label for="toggle" >Hide inherited properties and method from the page</label><br />Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a> on Sun Feb 06 2022 00:57:17 GMT+0100 (Central European Standard Time)
 </footer>
 <script> prettyPrint(); </script>
 <script src="scripts/linenumber.js"> </script>

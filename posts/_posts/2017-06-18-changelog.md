@@ -18,13 +18,13 @@ Find general upgrades notes <a href="/upgrade-guide">here</a>
 
 This is last major version of fabricJS written in ES5.
 There aren't big new breaking changes, the main reason for the major increase was a node update that was required to remove a vulnerability in a JSDOM sub dependency, we bumped node to 14 minimum and we removed many deprecated methods.
-There is a full list of changes in order to handle this upgrade at this link: [v5 breaking changes](http://fabricjs.com/v5-breaking-changes).
+There is a full list of changes in order to handle this upgrade at this link: [v5 breaking changes](/v5-breaking-changes).
 
 There are also many changes from the contributors, especially Sachar and Steve, that are officially part of the team now.
 
 Nice additions:
 - you can now draw a straight line with pencil brush pressing shiftKey
-- it is now possible to access all animations that are currently running, see [`fabric.runningAnimations`](http://fabricjs.com/fabric-intro-part-2#running_animations) [Shachar Nencel](https://github.com/ShaMan123)
+- it is now possible to access all animations that are currently running, see [`fabric.runningAnimations`](/fabric-intro-part-2#running_animations) [Shachar Nencel](https://github.com/ShaMan123)
 - The Eraser brush (optional) has been rewritten in order to fix some problems and now supports undoing out of the box [Shachar Nencel](https://github.com/ShaMan123)
 - add pathAlign to text on paths [Steve Eberhardt](https://github.com/melchiar)
 - stroke bounding box for objects with acute angles has been fixed almost completely (`miter` is fully supported) [Shachar Nencel](https://github.com/ShaMan123)

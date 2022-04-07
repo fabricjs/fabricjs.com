@@ -81,15 +81,13 @@ title: vs. Raphael (Simple Shape)
             startTime = new Date(),
             circle, klass;
 
-        canvas.on({
-          'object:selected': function(e) {
-            e.target.set('opacity', 0.75);
-          },
-          'mouse:up': function(e) {
-            if (e.target) {
-              e.target.set('opacity', 1);
-              canvas.renderAll();
-            }
+        canvas.on('mouse:down', function (e) {
+          e.target && e.target.set('opacity', 0.5);
+        });
+        canvas.on('mouse:up', function (e) {
+          if (e.target) {
+            e.target.set('opacity', 1);
+            canvas.requestRenderAll();
           }
         });
 
@@ -100,7 +98,7 @@ title: vs. Raphael (Simple Shape)
               return true;
             },
             isCacheDirty: function () {
-              return false;
+              return this.dirty;
             },
             _createCacheCanvas: function () {
               this._cacheProperties = {};
@@ -121,7 +119,7 @@ title: vs. Raphael (Simple Shape)
                   zoomX: this.zoomX,
                   zoomY: this.zoomY,
                 });
-                this.drawObject(this._cacheContext, false);
+                this.dirty = true;
               }
             },
           })

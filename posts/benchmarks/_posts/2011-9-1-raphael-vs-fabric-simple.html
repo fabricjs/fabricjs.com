@@ -99,6 +99,9 @@ title: vs. Raphael (Simple Shape)
             shouldCache: function () {
               return true;
             },
+            isCacheDirty: function () {
+              return false;
+            },
             _createCacheCanvas: function () {
               this._cacheProperties = {};
               if ('_cacheCanvas' in this.sharedCacheData) {
@@ -118,8 +121,7 @@ title: vs. Raphael (Simple Shape)
                   zoomX: this.zoomX,
                   zoomY: this.zoomY,
                 });
-                // if canvas gets created, is empty, so dirty.
-                this.dirty = true;
+                this.drawObject(this._cacheContext, false);
               }
             },
           })

@@ -30,13 +30,14 @@ title: vs. Raphael (Simple Shape)
       var logEl = document.getElementById('log');
 
       document.getElementById('numshapes').innerHTML = numObjects;
-      var checkbox = document.getElementById('optimize_caching');
-      checkbox.onchange = function () {
-        if(optimizeCaching !== checkbox.checked){
-          document.location.search = createSearchQuery(numObjects, checkbox.checked);
+      var objectStackingCheckbox = document.getElementById('object_stacking');
+      var optimizeCachingCheckbox = document.getElementById('optimize_caching');
+      optimizeCachingCheckbox.onchange = function () {
+        if(optimizeCaching !== optimizeCachingCheckbox.checked){
+          document.location.search = createSearchQuery(numObjects, optimizeCachingCheckbox.checked);
         }
       }      
-      checkbox.checked = optimizeCaching;
+      optimizeCachingCheckbox.checked = optimizeCaching;
 
       (function testRaphael() {
 
@@ -147,6 +148,11 @@ title: vs. Raphael (Simple Shape)
 
         logEl.innerHTML += 'fabric: <b class="bench">' + (new Date() - startTime) + '</b> ms';
 
+        canvas.preserveObjectStacking = objectStackingCheckbox.checked;
+        objectStackingCheckbox.onchange = function () {
+          canvas.preserveObjectStacking = objectStackingCheckbox.checked;
+        }
+
       })();
     };
   })();
@@ -169,6 +175,8 @@ Rendering a large number (<span id="numshapes"></span>) of simple shapes
 <div>
   <input id="optimize_caching" type="checkbox">
   <label for="optimize_caching">Optimize caching</label>
+  <input id="object_stacking" type="checkbox">
+  <label for="object_stacking">Preserve object stacking</label>
 </div>
 <ul>
   <li><a href="#" onclick="return reload(10)">10 shapes</a></li>

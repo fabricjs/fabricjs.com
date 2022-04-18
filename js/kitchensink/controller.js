@@ -744,7 +744,9 @@ function addAccessors($scope) {
     '</svg>'
   );
 
-  var consoleValue = (
+  var consoleKey = 'fabricjs.com/kitchensink/console';
+
+  var consoleValue = localStorage.getItem(consoleKey) || (
     '// clear canvas\n' +
     'canvas.clear();\n\n' +
     '// remove currently selected object\n' +
@@ -788,6 +790,7 @@ function addAccessors($scope) {
   };
   $scope.setConsole = function(value) {
     consoleValue = value;
+    localStorage.setItem(consoleKey, value);
   };
 
   $scope.loadSVGWithoutGrouping = function() {

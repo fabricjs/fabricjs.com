@@ -782,7 +782,7 @@ function addAccessors($scope) {
     try {
       localStorage.setItem(consoleJSONKey, JSON.stringify(JSON.parse(value), null, '  '));
     } catch (error) {
-      
+      localStorage.removeItem(consoleJSONKey);
     }
     consoleJSONValue = value;
   };

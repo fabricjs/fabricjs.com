@@ -827,7 +827,7 @@ function addAccessors($scope) {
 
   $scope.saveJSON = function(withDefaults) {
     canvas.includeDefaultValues = withDefaults;
-    _saveJSON(JSON.stringify(canvas.toJSON()));
+    _saveJSON(JSON.stringify(canvas.toJSON(), null, '  '));
   };
 
   var _saveJSON = function(json) {

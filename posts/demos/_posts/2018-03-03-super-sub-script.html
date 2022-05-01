@@ -39,6 +39,13 @@ function superScript() {
 	canvas.requestRenderAll();
 }
 
+function subScript() {
+	var active = canvas.getActiveObject();
+	if (!active) return;
+	active.setSubscript();
+	canvas.requestRenderAll();
+}
+
 var canvas = this.__canvas = new fabric.Canvas('c');
 // create a rectangle object
 var itext = new fabric.IText('This is a IText object', {

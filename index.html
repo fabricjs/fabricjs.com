@@ -52,7 +52,7 @@ title: Features
       or use <b>pattern</b> to fill its content
     </div>
     <div class="tooltip freedrawing">
-      and, of course, use <b>free drawing</b> to create anything you like
+      and, of course, use <b>free drawing</b> to create anything you like,<br /> <b>erasing</b> is supported as well
     </div>
     <div class="tooltip serialization">
       Canvas can be <b>serialized</b> to JSON or SVG, and <b>restored</b> at any time
@@ -62,6 +62,7 @@ title: Features
   <script>
     (function(){
       fabric.Object.prototype.originX = fabric.Object.prototype.originY = 'center';
+      fabric.Text.prototype.originX = 'center';
       fabric.Object.prototype.transparentCorners = false;
 
       var canvas = this.__canvas = new fabric.Canvas('intro-canvas');
@@ -187,6 +188,7 @@ title: Features
         left: 250,
         top: 260,
         textAlign: 'center',
+        originX: 'center'
       });
 
       // text
@@ -256,8 +258,8 @@ title: Features
           hoverCursor: 'pointer',
           originX: 'center',
           originY: 'center',
-        })
-        .setShadow({ color: 'rgba(0,0,0,0.5)', offsetX: 10, offsetY: 10, blur: 10 });
+          shadow: new fabric.Shadow({ color: 'rgba(0,0,0,0.5)', offsetX: 10, offsetY: 10, blur: 10 })
+        });
 
         canvas.add(shape);
       });
@@ -391,9 +393,11 @@ window.ooo = text;
         image.set({
           left: 250,
           top: 1450,
-          clipTo: function(ctx) {
-            ctx.arc(0, 0, 220, 0, Math.PI * 2, true);
-          }
+          clipPath: new fabric.Circle({
+            radius: 220,
+            originX: 'center',
+            originY: 'center',
+          })
         })
         .scale(0.3);
         canvas.add(image).calcOffset();
@@ -482,7 +486,11 @@ window.ooo = text;
   <p class="next-steps">
     <a href="/demos">Check out <b>demos</b></a>
     <a href="/fabric-intro-part-1">Read <b>introduction</b></a><br />
-    <a href="//cdnjs.cloudflare.com/ajax/libs/fabric.js/4.4.0/fabric.min.js">Download version <b>4.4.0</b></a>
+    <a href="//unpkg.com/fabric/dist/fabric.min.js">Download the <b>latest version</b></a><br/>
+    <a href="https://badge.fury.io/gh/fabricjs%2Ffabric.js"><img class="badge" src="https://badge.fury.io/gh/fabricjs%2Ffabric.js.svg"
+        alt="GitHub version" height="18"></a>
+    <a href="https://badge.fury.io/js/fabric"><img class="badge" src="https://badge.fury.io/js/fabric.svg" alt="npm version"
+        height="18"></a>
   </p>
 
 </div>

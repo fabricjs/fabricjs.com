@@ -498,6 +498,8 @@
     cObj = new fabric.Rect();
     assert.ok(cObj.isType('rect'));
     assert.ok(!cObj.isType('object'));
+    assert.ok(cObj.isType('object', 'rect'));
+    assert.ok(!cObj.isType('object', 'circle'));
   });
 
   QUnit.test('toggle', function(assert) {
@@ -569,13 +571,13 @@
 
     var callbacks = { onComplete: onComplete, onChange: onChange };
     assert.ok(typeof object.fxStraighten === 'function');
-    assert.equal(object.fxStraighten(callbacks), object, 'should be chainable');
+    assert.ok(typeof object.fxStraighten(callbacks) === 'function', 'should return animation abort function');
     assert.equal(fabric.util.toFixed(object.get('angle'), 0), 43);
     setTimeout(function(){
       assert.ok(onCompleteFired);
       assert.ok(onChangeFired);
       assert.equal(object.get('angle'), 0, 'angle should be set to 0 by the end of animation');
-      assert.equal(object.fxStraighten(), object, 'should work without callbacks');
+      assert.ok(typeof object.fxStraighten() === 'function', 'should work without callbacks');
       done();
     }, 1000);
   });
@@ -1204,5 +1206,13 @@
     assert.equal(object.hasFill(), false, 'without a color, hasFill is false');
     object.fill = 'transparent';
     assert.equal(object.hasFill(), false, 'with a color that is transparent, hasFill is true');
+  });
+  QUnit.test('dispose', function (assert) {
+    var object = new fabric.Object({ fill: 'blue', width: 100, height: 100 });
+    assert.ok(typeof object.dispose === 'function');
+    object.animate('fill', 'red');
+    assert.equal(fabric.runningAnimations.findAnimationsByTarget(object).length, 1, 'runningAnimations should include the animation');
+    object.dispose();
+    assert.equal(fabric.runningAnimations.findAnimationsByTarget(object).length, 0, 'runningAnimations should be empty after dispose');
   });
 })();

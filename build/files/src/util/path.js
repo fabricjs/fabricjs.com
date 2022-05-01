@@ -486,8 +486,8 @@
   // with 100 segemnts. This will good enough to calculate the length of the curve
   function pathIterator(iterator, x1, y1) {
     var tempP = { x: x1, y: y1 }, p, tmpLen = 0, perc;
-    for (perc = 0.01; perc <= 1; perc += 0.01) {
-      p = iterator(perc);
+    for (perc = 1; perc <= 100; perc += 1) {
+      p = iterator(perc / 100);
       tmpLen += calcLineLength(tempP.x, tempP.y, p.x, p.y);
       tempP = p;
     }
@@ -507,15 +507,15 @@
         p, nextLen, nextStep = 0.01, angleFinder = segInfo.angleFinder, lastPerc;
     // nextStep > 0.0001 covers 0.00015625 that 1/64th of 1/100
     // the path
-    while (tmpLen < distance && perc <= 1 && nextStep > 0.0001) {
+    while (tmpLen < distance && nextStep > 0.0001) {
       p = iterator(perc);
       lastPerc = perc;
       nextLen = calcLineLength(tempP.x, tempP.y, p.x, p.y);
       // compare tmpLen each cycle with distance, decide next perc to test.
       if ((nextLen + tmpLen) > distance) {
         // we discard this step and we make smaller steps.
-        nextStep /= 2;
         perc -= nextStep;
+        nextStep /= 2;
       }
       else {
         tempP = p;
@@ -661,6 +661,18 @@
     }
   }
 
+  /**
+   *
+   * @param {string} pathString
+   * @return {(string|number)[][]} An array of SVG path commands
+   * @example <caption>Usage</caption>
+   * parsePath('M 3 4 Q 3 5 2 1 4 0 Q 9 12 2 1 4 0') === [
+   *   ['M', 3, 4],
+   *   ['Q', 3, 5, 2, 1, 4, 0],
+   *   ['Q', 9, 12, 2, 1, 4, 0],
+   * ];
+   *
+   */
   function parsePath(pathString) {
     var result = [],
         coords = [],
@@ -730,63 +742,88 @@
   };
 
   /**
-   * Calculate bounding box of a elliptic-arc
-   * @deprecated
-   * @param {Number} fx start point of arc
-   * @param {Number} fy
-   * @param {Number} rx horizontal radius
-   * @param {Number} ry vertical radius
-   * @param {Number} rot angle of horizontal axis
-   * @param {Number} large 1 or 0, whatever the arc is the big or the small on the 2 points
-   * @param {Number} sweep 1 or 0, 1 clockwise or counterclockwise direction
-   * @param {Number} tx end point of arc
-   * @param {Number} ty
+   *
+   * Converts points to a smooth SVG path
+   * @param {{ x: number,y: number }[]} points Array of points
+   * @param {number} [correction] Apply a correction to the path (usually we use `width / 1000`). If value is undefined 0 is used as the correction value.
+   * @return {(string|number)[][]} An array of SVG path commands
    */
-  function getBoundsOfArc(fx, fy, rx, ry, rot, large, sweep, tx, ty) {
+  function getSmoothPathFromPoints(points, correction) {
+    var path = [], i,
+        p1 = new fabric.Point(points[0].x, points[0].y),
+        p2 = new fabric.Point(points[1].x, points[1].y),
+        len = points.length, multSignX = 1, multSignY = 0, manyPoints = len > 2;
+    correction = correction || 0;
 
-    var fromX = 0, fromY = 0, bound, bounds = [],
-        segs = arcToSegments(tx - fx, ty - fy, rx, ry, large, sweep, rot);
-
-    for (var i = 0, len = segs.length; i < len; i++) {
-      bound = getBoundsOfCurve(fromX, fromY, segs[i][1], segs[i][2], segs[i][3], segs[i][4], segs[i][5], segs[i][6]);
-      bounds.push({ x: bound[0].x + fx, y: bound[0].y + fy });
-      bounds.push({ x: bound[1].x + fx, y: bound[1].y + fy });
-      fromX = segs[i][5];
-      fromY = segs[i][6];
+    if (manyPoints) {
+      multSignX = points[2].x < p2.x ? -1 : points[2].x === p2.x ? 0 : 1;
+      multSignY = points[2].y < p2.y ? -1 : points[2].y === p2.y ? 0 : 1;
     }
-    return bounds;
-  };
+    path.push(['M', p1.x - multSignX * correction, p1.y - multSignY * correction]);
+    for (i = 1; i < len; i++) {
+      if (!p1.eq(p2)) {
+        var midPoint = p1.midPointFrom(p2);
+        // p1 is our bezier control point
+        // midpoint is our endpoint
+        // start point is p(i-1) value.
+        path.push(['Q', p1.x, p1.y, midPoint.x, midPoint.y]);
+      }
+      p1 = points[i];
+      if ((i + 1) < points.length) {
+        p2 = points[i + 1];
+      }
+    }
+    if (manyPoints) {
+      multSignX = p1.x > points[i - 2].x ? 1 : p1.x === points[i - 2].x ? 0 : -1;
+      multSignY = p1.y > points[i - 2].y ? 1 : p1.y === points[i - 2].y ? 0 : -1;
+    }
+    path.push(['L', p1.x + multSignX * correction, p1.y + multSignY * correction]);
+    return path;
+  }
+  /**
+   * Transform a path by transforming each segment.
+   * it has to be a simplified path or it won't work.
+   * WARNING: this depends from pathOffset for correct operation
+   * @param {Array} path fabricJS parsed and simplified path commands
+   * @param {Array} transform matrix that represent the transformation
+   * @param {Object} [pathOffset] the fabric.Path pathOffset
+   * @param {Number} pathOffset.x
+   * @param {Number} pathOffset.y
+   * @returns {Array} the transformed path
+   */
+  function transformPath(path, transform, pathOffset) {
+    if (pathOffset) {
+      transform = fabric.util.multiplyTransformMatrices(
+        transform,
+        [1, 0, 0, 1, -pathOffset.x, -pathOffset.y]
+      );
+    }
+    return path.map(function(pathSegment) {
+      var newSegment = pathSegment.slice(0), point = {};
+      for (var i = 1; i < pathSegment.length - 1; i += 2) {
+        point.x = pathSegment[i];
+        point.y = pathSegment[i + 1];
+        point = fabric.util.transformPoint(point, transform);
+        newSegment[i] = point.x;
+        newSegment[i + 1] = point.y;
+      }
+      return newSegment;
+    });
+  }
 
   /**
-   * Draws arc
-   * @deprecated
-   * @param {CanvasRenderingContext2D} ctx
-   * @param {Number} fx
-   * @param {Number} fy
-   * @param {Array} coords coords of the arc, without the front 'A/a'
+   * Join path commands to go back to svg format
+   * @param {Array} pathData fabricJS parsed path commands
+   * @return {String} joined path 'M 0 0 L 20 30'
    */
-  function drawArc(ctx, fx, fy, coords) {
-    coords = coords.slice(0).unshift('X'); // command A or a does not matter
-    var beziers = fromArcToBeziers(fx, fy, coords);
-    beziers.forEach(function(bezier) {
-      ctx.bezierCurveTo.apply(ctx, bezier.slice(1));
-    });
+  fabric.util.joinPath = function(pathData) {
+    return pathData.map(function (segment) { return segment.join(' '); }).join(' ');
   };
-
   fabric.util.parsePath = parsePath;
   fabric.util.makePathSimpler = makePathSimpler;
+  fabric.util.getSmoothPathFromPoints = getSmoothPathFromPoints;
   fabric.util.getPathSegmentsInfo = getPathSegmentsInfo;
-  fabric.util.fromArcToBeziers = fromArcToBeziers;
-  /**
-   * Typo of `fromArcToBeziers` kept for not breaking the api once corrected.
-   * Will be removed in fabric 5.0
-   * @deprecated
-   */
-  fabric.util.fromArcToBeizers = fromArcToBeziers;
   fabric.util.getBoundsOfCurve = getBoundsOfCurve;
   fabric.util.getPointOnPath = getPointOnPath;
-  // kept because we do not want to make breaking changes.
-  // but useless and deprecated.
-  fabric.util.getBoundsOfArc = getBoundsOfArc;
-  fabric.util.drawArc = drawArc;
+  fabric.util.transformPath = transformPath;
 })();

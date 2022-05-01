@@ -79,6 +79,11 @@ title: Image Filters
     <label>Value: <input type="range" id="saturation-value" value="0" min="-1" max="1" step="0.003921" disabled></label>
   </p>
   <p>
+    <label><span>Vibrance:</span> <input type="checkbox" id="vibrance" disabled></label>
+    <br>
+    <label>Value: <input type="range" id="vibrance-value" value="0" min="-1" max="1" step="0.003921" disabled></label>
+  </p>
+  <p>
     <label><span>Hue:</span> <input type="checkbox" id="hue" disabled></label>
     <br>
     <label>Value: <input type="range" id="hue-value" value="0" min="-2" max="2" step="0.002" disabled></label>
@@ -194,7 +199,7 @@ title: Image Filters
                           .forEach(function(el){ el.disabled = false; })
 
       var filters = ['grayscale', 'invert', 'remove-color', 'sepia', 'brownie',
-                      'brightness', 'contrast', 'saturation', 'noise', 'vintage',
+                      'brightness', 'contrast', 'saturation', 'vibrance', 'noise', 'vintage',
                       'pixelate', 'blur', 'sharpen', 'emboss', 'technicolor',
                       'polaroid', 'blend-color', 'gamma', 'kodachrome',
                       'blackwhite', 'blend-image', 'hue', 'resize'];
@@ -333,13 +338,21 @@ title: Image Filters
   $('saturation-value').oninput = function() {
     applyFilterValue(7, 'saturation', parseFloat(this.value));
   };
+  $('vibrance').onclick = function () {
+    applyFilter(8, this.checked && new f.Vibrance({
+      vibrance: parseFloat($('vibrance-value').value)
+    }));
+  };
+  $('vibrance-value').oninput = function() {
+    applyFilterValue(8, 'vibrance', parseFloat(this.value));
+  };
   $('noise').onclick = function () {
-    applyFilter(8, this.checked && new f.Noise({
+    applyFilter(9, this.checked && new f.Noise({
       noise: parseInt($('noise-value').value, 10)
     }));
   };
   $('noise-value').oninput = function() {
-    applyFilterValue(8, 'noise', parseInt(this.value, 10));
+    applyFilterValue(9, 'noise', parseInt(this.value, 10));
   };
   $('pixelate').onclick = function() {
     applyFilter(10, this.checked && new f.Pixelate({

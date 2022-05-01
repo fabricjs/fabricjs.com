@@ -43,11 +43,11 @@ label {
 
   function add() {
     var red = new fabric.Rect({
-      top: 100, left: 0, width: 80, height: 50, fill: 'red' });
+      top: Math.random() * canvas.height, left: Math.random() * canvas.width, width: 80, height: 50, fill: 'red' });
     var blue = new fabric.Rect({
-      top: 0, left: 100, width: 50, height: 70, fill: 'blue' });
+      top: Math.random() * canvas.height, left: Math.random() * canvas.width, width: 50, height: 70, fill: 'blue' });
     var green = new fabric.Rect({
-      top: 100, left: 100, width: 60, height: 60, fill: 'green' });
+      top: Math.random() * canvas.height, left: Math.random() * canvas.width, width: 60, height: 60, fill: 'green' });
     canvas.add(red, blue, green);
   }
 

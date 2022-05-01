@@ -73,7 +73,38 @@ rect.animate('left', 500, {
 
 <p>Notice <code>fabric.util.ease.easeOutBounce</code> as an easing option. Other notable ones include <code>easeInCubic</code>, <code>easeOutCubic</code>, <code>easeInElastic</code>, <code>easeOutElastic</code>, <code>easeInBounce</code>, and <code>easeOutExpo</code>.</p>
 
-<p>So this covers animation part of Fabric. Just to give you some ideas of what becomes possible &mdash; you can animate object's angle to make it rotate; animate left/top properties to make it move; animate width/height to make it shrink/grow; animate opacity to make it fade in/out; and so on.</p>
+<p>So this almost covers the animation part of Fabric. Just to give you some ideas of what becomes possible &mdash; you can animate object's angle to make it rotate; animate left/top properties to make it move; animate width/height to make it shrink/grow; animate opacity to make it fade in/out; and so on.</p>
+
+<p><h4 id="running_animations">fabric.runningAnimations</h4></p>
+
+<p>If you need to access the animations that are currently running by fabric, use <code>fabric.runningAnimations</code>. It's an array of objects, each an animation context object.</p>
+
+<p>
+  Handy methods:<br/>
+  <ul>
+    <li><code>fabric.runningAnimations.findAnimation(signature)</code> - returns the animation context matching <code>signature</code> which is the abort function returned by <code>fabric.util.animate</code>.</li>
+    <li><code>fabric.runningAnimations.findAnimationIndex(signature)</code> - same as <code>findAnimation</code>, returns the index.</li>
+    <li><code>fabric.runningAnimations.findAnimationsByTarget(target)</code> - returns all animations that have a <code>target</code> property that is equal to target.</li>
+    <li><code>fabric.runningAnimations.cancelAll()</code> - cancels all running animations.</li>
+    <li><code>fabric.runningAnimations.cancelByTarget(target)</code> - cancels animations that have a <code>target</code> property that is equal to target.</li>
+    <li><code>object.dispose()</code> - all animations created by the object (<code>object.animate(...)</code>) are cancelled.
+    If you want to add animations using
+    <code>fabric.util.animate</code> instead of <code>object.animate(...)</code> you can attach them to an object by passing the
+    <code>target</code> property. This way the animations will cancel once the object is disposed.</li>
+  </ul>
+</p>
+
+<pre>
+  let cancel = fabric.util.animate({...});
+  let i = fabric.runningAnimations.findAnimationIndex(cancel);
+  let context = fabric.runningAnimations.findAnimation(cancel);
+  let cancelled = fabric.runningAnimations.cancelAll();
+  
+  //  the following statements are true
+  cancelled[i] === context;
+  cancelled[i].cancel === cancel;
+  fabric.runningAnimations.length === 0;
+</pre>
 
 <h3 id="image_filters">Image filters</h3>
 
@@ -171,7 +202,7 @@ fabric.Image.filters.Redify.fromObject = fabric.Image.filters.BaseFilter.fromObj
 
 <p><img src="/article_assets/2_4.png" style="border:1px solid #eee"></p>
 
-<p>Without delving too much into this code, the main action is hapenning in a loop. where we replace green (data[i+1]) and blue (data[i+2]) components of each pixel with 0, essentialy removing them. Red component of standard rgb triple stays untouched, essentially making entire image painted red. As you can see, <code>applyTo</code> method is being passed an option object that contains the imageData of the image at that stage of the filtering pipeline. From there, we can iterate over its pixels (<code>getImageData().data</code>) modifying them in any way we want. If the browsers is WEBGL enabled filters can run on the GPU. To do so you have to provide a fragment shader that describes the operation to do over pixels. There are many filter defined in fabric where you can see example of how to write a fragment or vertex shader</p>
+<p>Without delving too much into this code, the main action is happening in a loop. where we replace green (data[i+1]) and blue (data[i+2]) components of each pixel with 0, essentially removing them. Red component of standard rgb triple stays untouched, essentially making entire image painted red. As you can see, <code>applyTo</code> method is being passed an option object that contains the imageData of the image at that stage of the filtering pipeline. From there, we can iterate over its pixels (<code>getImageData().data</code>) modifying them in any way we want. If the browsers is WEBGL enabled filters can run on the GPU. To do so you have to provide a fragment shader that describes the operation to do over pixels. There are many filter defined in fabric where you can see example of how to write a fragment or vertex shader</p>
 
 <h3 id="colors">Colors</h3>
 
@@ -532,7 +563,7 @@ circle.on('selected', function() {
 
 <p>We're attaching event listeners directly to rectangle and circle instances. Instead of "object:selected", we're using "selected" event. Similarly, we could have used "modified" event ("object:modified" when attaching to canvas), "rotating" event ("object:rotating" when attaching to canvas), and so on.</p>
 
-<p>Check this <a href="http://fabricjs.com/events">events demo</a> for a more extensive exploration of Fabric's event system.</p>
+<p>Check this <a href="/events">events demo</a> for a more extensive exploration of Fabric's event system.</p>
 
 <p>Read <a href="/fabric-intro-part-3">Part 3</a>.</p>
 

@@ -15,7 +15,7 @@ title: vs. Raphael (Complex Shape)
 <script src="../lib/tiger.js"></script>
 <script>
   (function() {
-    fabric.Object.prototype.transparentCorners = false;
+    fabric.Object.prototype.transparentCorners = true;
     window.onload = function() {
 
       var logEl = document.getElementById('log');
@@ -24,7 +24,8 @@ title: vs. Raphael (Complex Shape)
 
         var canvas = this.__canvas = new fabric.Canvas('canvas', {
           renderOnAddRemove: false,
-          stateful: false
+          stateful: false,
+          preserveObjectStacking: true
         });
 
         //console.profile('parsing');
@@ -39,11 +40,24 @@ title: vs. Raphael (Complex Shape)
             left: 65,
             top: 100,
             width: 495,
-            height: 511
+            height: 511,
+            subTargetCheck: true,
+            interactive: true,
+            transparentCorners: false
           });
           var loadTime = new Date() - startTime2;
           canvas.add(group);
           canvas.renderAll();
+          canvas.on('selection:created', opt => {
+            opt.selected.forEach(obj => obj !== group && obj.set({ opacity: 0.5 }));
+          });
+          canvas.on('selection:updated', opt => {
+            opt.selected.forEach(obj => obj !== group && obj.set({ opacity: 0.5 }));
+            opt.deselected.forEach(obj => obj !== group && obj.set({ opacity: 1 }));
+          });
+          canvas.on('selection:cleared', opt => {
+            opt.deselected.forEach(obj => obj !== group && obj.set({ opacity: 1 }));
+          });
 
           var renderingTime = new Date() - startTime;
 

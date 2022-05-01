@@ -1,12 +1,12 @@
 <ul id="header">
-  <li><a href="http://fabricjs.com/">Home</a></li>
-  <li><a href="http://fabricjs.com/demos">Demos</a></li>
-  <li><a href="http://fabricjs.com/articles">Tutorial</a></li>
-  <li><a href="http://fabricjs.com/docs">Docs</a></li>
-  <li><a href="http://fabricjs.com/build">Custom Build</a></li>
-  <li><a href="http://fabricjs.com/help">Support</a></li>
-  <li><a href="http://fabricjs.com/test">Tests/Benchmarks</a></li>
-  <li><a href="http://fabricjs.com/team">Team</a></li>
+  <li><a href="/">Home</a></li>
+  <li><a href="/demos">Demos</a></li>
+  <li><a href="/articles">Tutorial</a></li>
+  <li><a href="/docs">Docs</a></li>
+  <li><a href="/build">Custom Build</a></li>
+  <li><a href="/help">Support</a></li>
+  <li><a href="/test">Tests/Benchmarks</a></li>
+  <li><a href="/team">Team</a></li>
   <li class="github secondary">
     <!-- Place this tag where you want the button to render. -->
     <a class="github-button" href="https://github.com/fabricjs/fabric.js" data-size="large" data-show-count="true" aria-label="Star fabricjs/fabric.js on GitHub">Star</a>
@@ -22,13 +22,7 @@
 <script>
 (function() {
 
-  if (document.location.hostname === 'localhost') {
-    var links = document.getElementById('header').getElementsByTagName('a');
-    for (var i = 0, len = links.length; i < len; i++) {
-      links[i].href = links[i].href.replace('fabricjs.com', 'localhost:4000');
-    }
-  }
-  else {
+  if (document.location.hostname !== 'localhost') {
     !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
   }
 })();

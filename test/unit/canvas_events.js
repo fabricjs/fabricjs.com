@@ -153,9 +153,10 @@
   });
 
   QUnit.test('mouse:down and group selector', function(assert) {
-    var e = { clientX: 30, clientY: 30, which: 1, target: canvas.upperCanvasEl };
-    var rect = new fabric.Rect({ width: 60, height: 60 });
-    var expectedGroupSelector = { ex: 30, ey: 30, top: 0, left: 0 };
+    var e = { clientX: 30, clientY: 40, which: 1, target: canvas.upperCanvasEl };
+    var rect = new fabric.Rect({ width: 150, height: 150 });
+    var expectedGroupSelector = { ex: 80, ey: 120, top: 0, left: 0 };
+    canvas.absolutePan(new fabric.Point(50, 80));
     canvas.__onMouseDown(e);
     assert.deepEqual(canvas._groupSelector, expectedGroupSelector, 'a new groupSelector is created');
     canvas.add(rect);
@@ -346,10 +347,6 @@
       count++;
       opt = _opt;
     });
-    canvas.on('object:moved', function(_opt) {
-      count2++;
-      opt = _opt;
-    });
     canvas.__onMouseDown(e);
     canvas.__onMouseMove(e2);
     canvas.__onMouseUp(e2);
@@ -357,7 +354,6 @@
     assert.equal(opt.e, e2, 'options match model - event');
     assert.equal(opt.target, rect, 'options match model - target');
     assert.equal(opt.transform.action, 'drag', 'options match model - target');
-    assert.equal(count2, 1, 'object:moved fired');
   });
 
   QUnit.test('drag small object when mousemove + drag, not active', function(assert) {
@@ -392,6 +388,84 @@
     assert.equal(rect.scaleX, 3, 'rect scaled X');
     assert.equal(rect.scaleY, 3, 'rect scaled Y');
   });
+
+  QUnit.test('A transform will call mouseup and mousedown on the control', function(assert) {
+    var e = { clientX: 3, clientY: 3, which: 1 };
+    var e1 = { clientX: 6, clientY: 6, which: 1 };
+    var e2 = { clientX: 9, clientY: 9, which: 1 };
+    var rect = new fabric.Rect({ left: 0, top: 0, width: 3, height: 3, strokeWidth: 0 });
+    var mouseUpCalled = false;
+    var mouseDownCalled = false;
+    rect.controls = {
+      br: fabric.Object.prototype.controls.br,
+    };
+    rect.controls.br.mouseUpHandler = function() {
+      mouseUpCalled = true;
+    };
+    rect.controls.br.mouseDownHandler = function() {
+      mouseDownCalled = true;
+    };
+    canvas.add(rect);
+    canvas.setActiveObject(rect);
+    canvas.__onMouseDown(e);
+    canvas.__onMouseMove(e1);
+    canvas.__onMouseMove(e2);
+    canvas.__onMouseUp(e2);
+    assert.equal(mouseUpCalled, true, 'mouse up handler for control has been called');
+    assert.equal(mouseDownCalled, true, 'mouse down handler for control has been called');
+  });
+
+  QUnit.test('A transform than ends outside the object will call mouseup handler', function(assert) {
+    var e = { clientX: 3, clientY: 3, which: 1 };
+    var e1 = { clientX: 6, clientY: 6, which: 1 };
+    var e2 = { clientX: 9, clientY: 9, which: 1 };
+    var e3 = { clientX: 100, clientY: 100, which: 1 };
+    var rect = new fabric.Rect({ left: 0, top: 0, width: 3, height: 3, strokeWidth: 0 });
+    var mouseUpCalled = false;
+    rect.controls = {
+      br: fabric.Object.prototype.controls.br,
+    };
+    rect.controls.br.mouseUpHandler = function() {
+      mouseUpCalled = true;
+    };
+    canvas.add(rect);
+    canvas.setActiveObject(rect);
+    canvas.__onMouseDown(e);
+    canvas.__onMouseMove(e1);
+    canvas.__onMouseMove(e2);
+    canvas.__onMouseUp(e3);
+    assert.equal(mouseUpCalled, true, 'mouse up handler for control has been called anyway');
+  });
+
+  QUnit.test('A transform than ends on a new control, calls both mouseup handler', function(assert) {
+    var e = { clientX: 3, clientY: 3, which: 1 };
+    var e1 = { clientX: 6, clientY: 6, which: 1 };
+    var e2 = { clientX: 9, clientY: 9, which: 1 };
+    var e3 = { clientX: 9, clientY: 3, which: 1 };
+    var rect = new fabric.Rect({ left: 0, top: 0, width: 3, height: 3, strokeWidth: 0 });
+    var mouseUpCalled1 = false;
+    var mouseUpCalled2 = false;
+
+    rect.controls = {
+      br: fabric.Object.prototype.controls.br,
+      tr: fabric.Object.prototype.controls.tr,
+    };
+    rect.controls.br.mouseUpHandler = function() {
+      mouseUpCalled1 = true;
+    };
+    rect.controls.tr.mouseUpHandler = function() {
+      mouseUpCalled2 = true;
+    };
+    canvas.add(rect);
+    canvas.setActiveObject(rect);
+    canvas.__onMouseDown(e);
+    canvas.__onMouseMove(e1);
+    canvas.__onMouseMove(e2);
+    canvas.__onMouseUp(e3);
+    assert.equal(mouseUpCalled1, true, 'mouse up handler for rect has been called anyway');
+    assert.equal(mouseUpCalled2, true, 'mouse up handler for rect2 has been called');
+  });
+
 
   QUnit.test('avoid multiple bindings', function(assert) {
     var c = new fabric.Canvas();
@@ -458,7 +532,7 @@
     });
   });
 
-  ['DragEnter', 'DragLeave', 'DragOver', 'Drop'].forEach(function(eventType) {
+  ['DragEnter', 'DragLeave', 'DragOver'].forEach(function(eventType) {
     QUnit.test('Fabric event fired - ' + eventType, function(assert) {
       var eventName = eventType.toLowerCase();
       var counter = 0;
@@ -473,8 +547,23 @@
     });
   });
 
+  QUnit.test('Fabric event fired - Drop', function (assert) {
+    var eventNames = ['drop:before', 'drop'];
+    var c = new fabric.Canvas();
+    var fired = [];
+    eventNames.forEach(function (eventName) {
+      c.on(eventName, function () {
+        fired.push(eventName);
+      });
+    });
+    var event = fabric.document.createEvent('HTMLEvents');
+    event.initEvent('drop', true, true);
+    c.upperCanvasEl.dispatchEvent(event);
+    assert.deepEqual(fired, eventNames, 'bad drop event fired');
+  });
+
   ['DragEnter', 'DragLeave', 'DragOver', 'Drop'].forEach(function(eventType) {
-    QUnit.test('_simpleEventHandler fires on object and canvas' + eventType, function(assert) {
+    QUnit.test('_simpleEventHandler fires on object and canvas - ' + eventType, function(assert) {
       var eventName = eventType.toLowerCase();
       var counter = 0;
       var target;
@@ -653,6 +742,15 @@
 
   // TODO: QUnit.test('mousemove: subTargetCheck: setCursorFromEvent considers subTargets')
   // TODO: QUnit.test('mousemove: subTargetCheck: setCursorFromEvent considers subTargets in reverse order, so the top-most subTarget's .hoverCursor takes precedence')
+
+  QUnit.test('mouse move and group selector', function(assert){
+    var e = { clientX: 30, clientY: 40, which: 1, target: canvas.upperCanvasEl };
+    var expectedGroupSelector = { ex: 15, ey: 30, left: 65, top: 90};
+    canvas.absolutePan(new fabric.Point(50, 80));
+    canvas._groupSelector = {ex: 15, ey: 30, top: 0, left: 0};
+    canvas.__onMouseMove(e);
+    assert.deepEqual(canvas._groupSelector, expectedGroupSelector, 'groupSelector is updated');
+  });
 
   ['MouseDown', 'MouseMove', 'MouseOut', 'MouseEnter', 'MouseWheel', 'DoubleClick'].forEach(function(eventType) {
     QUnit.test('avoid multiple registration - ' + eventType, function(assert) {
@@ -993,22 +1091,5 @@
     assert.equal(canvas.getCornerCursor('bl', target, e), 'sw-resize', 'lockSkewingX bl action is not disabled');
     assert.equal(canvas.getCornerCursor('br', target, e), 'se-resize', 'lockSkewingX br action is not disabled');
     assert.equal(canvas.getCornerCursor('mtr', target, e), 'crosshair', 'lockSkewingX mtr action is not disabled');
-  });
-  QUnit.test('_addEventOptions return the correct event name', function(assert) {
-    var opt = {};
-    assert.equal(canvas._addEventOptions(opt, { action: 'scaleX' }), 'scaled', 'scaleX => scaled');
-    assert.equal(opt.by, 'x', 'by => x');
-    assert.equal(canvas._addEventOptions(opt, { action: 'scaleY' }), 'scaled', 'scaleY => scaled');
-    assert.equal(opt.by, 'y', 'by => y');
-    assert.equal(canvas._addEventOptions(opt, { action: 'scale' }), 'scaled', 'scale => scaled');
-    assert.equal(opt.by, 'equally', 'by => equally');
-    assert.equal(canvas._addEventOptions(opt, { action: 'skewX' }), 'skewed', 'skewX => skewed');
-    assert.equal(opt.by, 'x', 'by => x');
-    assert.equal(canvas._addEventOptions(opt, { action: 'skewY' }), 'skewed', 'skewY => skewed');
-    assert.equal(opt.by, 'y', 'by => y');
-    assert.equal(canvas._addEventOptions(opt, { action: 'rotate' }), 'rotated', 'rotate => rotated');
-    assert.equal(opt.by, undefined, 'by => undefined');
-    assert.equal(canvas._addEventOptions(opt, { action: 'drag' }), 'moved', 'drag => moved');
-    assert.equal(opt.by, undefined, 'by => undefined');
   });
 })();

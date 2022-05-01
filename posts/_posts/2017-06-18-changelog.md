@@ -14,19 +14,156 @@ title: Fabric.js. release changelog.
 ## Fabric.js release highlights
 Find general upgrades notes <a href="/upgrade-guide">here</a>
 
+### Version 5.0.0
+
+This is last major version of fabricJS written in ES5.
+There aren't big new breaking changes, the main reason for the major increase was a node update that was required to remove a vulnerability in a JSDOM sub dependency, we bumped node to 14 minimum and we removed many deprecated methods.
+There is a full list of changes in order to handle this upgrade at this link: [v5 breaking changes](/v5-breaking-changes).
+
+There are also many changes from the contributors, especially Sachar and Steve, that are officially part of the team now.
+
+Nice additions:
+- you can now draw a straight line with pencil brush pressing shiftKey
+- it is now possible to access all animations that are currently running, see [`fabric.runningAnimations`](/fabric-intro-part-2#running_animations) [Shachar Nencel](https://github.com/ShaMan123)
+- The Eraser brush (optional) has been rewritten in order to fix some problems and now supports undoing out of the box [Shachar Nencel](https://github.com/ShaMan123)
+- add pathAlign to text on paths [Steve Eberhardt](https://github.com/melchiar)
+- stroke bounding box for objects with acute angles has been fixed almost completely (`miter` is fully supported) [Shachar Nencel](https://github.com/ShaMan123)
+
+Notable fixes:
+- many control box fixes
+- performance fix after canvas resize
+- performance fix for rtl/ltr
+- performance fix for 0 width textlines
+
+And:
+- different reported security issues
+- path measurements consistency fixes
+- 2 small fixes in gesture handling
+
+<pre>
+- fix(fabric.Canvas): unflag contextLost after a full re-render [`#7646`](https://github.com/fabricjs/fabric.js/pull/7646)
+- **BREAKING**: remove 4.x deprecated code [`#7630`](https://github.com/fabricjs/fabric.js/pull/7630)
+- feat(fabric.StaticCanvas, fabric.Canvas): limit breaking changes [`#7627`](https://github.com/fabricjs/fabric.js/pull/7627)
+- feat(animation): animations registry [`#7528`](https://github.com/fabricjs/fabric.js/pull/7528)
+- docs(): Remove not working badges [`#7623`](https://github.com/fabricjs/fabric.js/pull/7623)
+- ci(): add auto-changelog package to quickly draft a changelog [`#7615`](https://github.com/fabricjs/fabric.js/pull/7615)
+- feat(fabric.EraserBrush): added `eraser` property to Object instead of attaching to `clipPath`, remove hacky `getClipPath`/`setClipPath` [#7470](https://github.com/fabricjs/fabric.js/pull/7470), see **BREAKING** comments.
+- feat(fabric.EraserBrush): support `inverted` option to undo erasing [#7470](https://github.com/fabricjs/fabric.js/pull/7470)
+- fix(fabric.EraserBrush): fix doubling opacity objects while erasing [#7445](https://github.com/fabricjs/fabric.js/issues/7445) [#7470](https://github.com/fabricjs/fabric.js/pull/7470)
+- **BREAKING**: fabric.EraserBrush: The Eraser object is now a subclass of Group. This means that loading from JSON will break between versions.
+Use this [code](https://gist.github.com/ShaMan123/6c5c4ca2cc720a2700848a2deb6addcd) to transform your json payload to the new version.
+- feat(fabric.Canvas): fire an extra mouse up for the original control of the initial target [`#7612`](https://github.com/fabricjs/fabric.js/pull/7612)
+- fix(fabric.Object) bounding box display with skewY when outside group [`#7611`](https://github.com/fabricjs/fabric.js/pull/7611)
+- fix(fabric.text) fix rtl/ltr performance issues [`#7610`](https://github.com/fabricjs/fabric.js/pull/7610)
+- fix(event.js) Prevent dividing by 0 in for touch gestures [`#7607`](https://github.com/fabricjs/fabric.js/pull/7607)
+- feat(): `drop:before` event [`#7442`](https://github.com/fabricjs/fabric.js/pull/7442)
+- ci(): Add codeql analysis step [`#7588`](https://github.com/fabricjs/fabric.js/pull/7588)
+- security(): update onchange to solve security issue [`#7591`](https://github.com/fabricjs/fabric.js/pull/7591)
+- **BREAKING**: fix(): MAJOR prevent render canvas with quality less than 100% [`#7537`](https://github.com/fabricjs/fabric.js/pull/7537)
+- docs(): fix broken link [`#7579`](https://github.com/fabricjs/fabric.js/pull/7579)
+- **BREAKING**: Deps(): MAJOR update to jsdom 19 node 14 [`#7587`](https://github.com/fabricjs/fabric.js/pull/7587)
+- Fix(): JSDOM transative vulnerability [`#7510`](https://github.com/fabricjs/fabric.js/pull/7510)
+- fix(fabric.parser): attempt to resolve some issues with regexp [`#7520`](https://github.com/fabricjs/fabric.js/pull/7520)
+- fix(fabric.IText)  fix for possible error on copy paste [`#7526`](https://github.com/fabricjs/fabric.js/pull/7526)
+- fix(fabric.Path): Path Distance Measurement Inconsistency [`#7511`](https://github.com/fabricjs/fabric.js/pull/7511)
+- Fix(fabric.Text): Avoid reiterating measurements when width is 0 and measure also empty lines for consistency. [`#7497`](https://github.com/fabricjs/fabric.js/pull/7497)
+- fix(fabric.Object): stroke bounding box [`#7478`](https://github.com/fabricjs/fabric.js/pull/7478)
+- fix(fabric.StaticCanvas): error of changing read-only style field [`#7462`](https://github.com/fabricjs/fabric.js/pull/7462)
+- fix(fabric.Path): setting `path` during runtime [`#7141`](https://github.com/fabricjs/fabric.js/pull/7141)
+- chore() update canvas to 2.8.0 [`#7415`](https://github.com/fabricjs/fabric.js/pull/7415)
+- fix(fabric.Group) realizeTransfrom should be working when called with NO parent transform [`#7413`](https://github.com/fabricjs/fabric.js/pull/7413)
+- fix(fabric.Object) Fix control flip and control box [`#7412`](https://github.com/fabricjs/fabric.js/pull/7412)
+- feat(fabric.Text): added pathAlign property for text on path [`#7362`](https://github.com/fabricjs/fabric.js/pull/7362)
+- docs(): Create SECURITY.md [`#7405`](https://github.com/fabricjs/fabric.js/pull/7405)
+- docs(): Clarify viewport transformations doc [`#7401`](https://github.com/fabricjs/fabric.js/pull/7401)
+- docs(): specify default value and docs for enablePointerEvents [`#7386`](https://github.com/fabricjs/fabric.js/pull/7386)
+- feat(fabric.PencilBrush): add an option to draw a straight line while pressing a key [`#7034`](https://github.com/fabricjs/fabric.js/pull/7034)
+</pre>
+
+### Version 4.6.0
+
+A massive changelog for this release.
+
+A lot of external contribution this release, with improvements on many sides.
+
+- RTL improvements
+- text on path improvements ( align, side of the path, path offset, path rendering) [Steve Eberhardt](https://github.com/melchiar)
+- new utils for path transformations
+- added `once` to the event emitter [Shachar Nencel](https://github.com/ShaMan123)
+- ability to append the hiddenTextarea on a custom element [Dave Lage](https://github.com/rockerBOO)
+- a new vibrance filter [Steve Eberhardt](https://github.com/melchiar)
+- animate will now return a function to stop the animation [Shachar Nencel](https://github.com/ShaMan123)
+- improvements to the optional eraser brush plugin [Shachar Nencel](https://github.com/ShaMan123)
+
+
+<pre>
+- feat(fabric.util): added fabric.util.transformPath to add transformations to path points [#7300](https://github.com/fabricjs/fabric.js/pull/7300)
+- feat(fabric.util): added fabric.util.joinPath, the opposite of fabric.util.parsePath [#7300](https://github.com/fabricjs/fabric.js/pull/7300)
+- fix(fabric.util): use integers iterators [#7233](https://github.com/fabricjs/fabric.js/pull/7233)
+- feat(fabric.Text) add path rendering to text on path [#7328](https://github.com/fabricjs/fabric.js/pull/7328)
+- feat(fabric.iText): Add optional hiddenTextareaContainer to contain hiddenTextarea [#7314](https://github.com/fabricjs/fabric.js/pull/7314)
+- fix(fabric.Text) added pathStartOffset and pathSide to props lists for object export [#7318](https://github.com/fabricjs/fabric.js/pull/7318)
+- feat(animate): add imperative abort option for animations [#7275](https://github.com/fabricjs/fabric.js/pull/7275)
+- fix(Fabric.text): account for fontSize in textpath cache dimensions ( to avoid clipping ) [#7298](https://github.com/fabricjs/fabric.js/pull/7298)
+- feat(Observable.once): Add once event handler [#7317](https://github.com/fabricjs/fabric.js/pull/7317)
+- feat(fabric.Object): Improve drawing of controls in group. [#7119](https://github.com/fabricjs/fabric.js/pull/7119)
+- fix(EraserBrush): intersectsWithObject edge cases [#7290](https://github.com/fabricjs/fabric.js/pull/7290)
+- fix(EraserBrush): dump canvas bg/overlay color support [#7289](https://github.com/fabricjs/fabric.js/pull/7289)
+- feat(fabric.Text) added pathSide property to text on path [#7259](https://github.com/fabricjs/fabric.js/pull/7259)
+- fix(EraserBrush) force fill value [#7269](https://github.com/fabricjs/fabric.js/pull/7269)
+- fix(fabric.StaticCanvas) properly remove objects on canvas.clear [#6937](https://github.com/fabricjs/fabric.js/pull/6937)
+- feat(fabric.EraserBrush): improved erasing:end event [#7258](https://github.com/fabricjs/fabric.js/pull/7258)
+- fix(shapes): fabric.Object._fromObject never should return [#7201](https://github.com/fabricjs/fabric.js/pull/7201)
+- feat(fabric.filters) Added vibrance filter (for increasing saturation of muted colors) [#7189](https://github.com/fabricjs/fabric.js/pull/7189)
+- fix(fabric.StaticCanvas): restore canvas size when disposing [#7181](https://github.com/fabricjs/fabric.js/pull/7181)
+- feat(fabric.util): added `convertPointsToSVGPath` that will convert from a list of points to a smooth curve. [#7140](https://github.com/fabricjs/fabric.js/pull/7140)
+- fix(fabric.Object): fix cache invalidation issue when objects are rotating [#7183](https://github.com/fabricjs/fabric.js/pull/7183)
+- fix(fabric.Canvas): rectangle selection works with changing viewport [#7088](https://github.com/fabricjs/fabric.js/pull/7088)
+- feat(fabric.Text): textPath now support textAlign [#7156](https://github.com/fabricjs/fabric.js/pull/7156)
+- fix(fabric.EraserBrush): test eraser intersection with objects taking into account canvas viewport transform [#7147](https://github.com/fabricjs/fabric.js/pull/7147)
+- fix(fabric.Object): support `excludeFromExport` set on `clipPath` [#7148](https://github.com/fabricjs/fabric.js/pull/7148).
+- fix(fabric.Group): support `excludeFromExport` set on objects [#7148](https://github.com/fabricjs/fabric.js/pull/7148).
+- fix(fabric.StaticCanvas): support `excludeFromExport` set on `backgroundColor`, `overlayColor`, `clipPath` [#7148](https://github.com/fabricjs/fabric.js/pull/7148).
+- fix(fabric.EraserBrush): support object resizing (needed for eraser) [#7100](https://github.com/fabricjs/fabric.js/pull/7100).
+- fix(fabric.EraserBrush): support canvas resizing (overlay/background drawables) [#7100](https://github.com/fabricjs/fabric.js/pull/7100).
+- fix(fabric.EraserBrush): propagate `clipPath` of group to erased objects when necessary so it is correct when ungrouping/removing from group [#7100](https://github.com/fabricjs/fabric.js/pull/7100).
+- fix(fabric.EraserBrush): introduce `erasable = deep` option for `fabric.Group` [#7100](https://github.com/fabricjs/fabric.js/pull/7100).
+- feat(fabric.Collection): the `contains` method now accepts a second boolean parameter `deep`, checking all descendants, `collection.contains(obj, true)` [#7139](https://github.com/fabricjs/fabric.js/pull/7139).
+- fix(fabric.StaticCanvas): disposing canvas now restores canvas size and style to original state.
+</pre>
+
+### Version 4.5.0 and 4.5.1
+
+Introduced fabric RTL support for text/itext and an optional mixin with an eraser brush.
+
+<pre>
+- fix(fabric.Text): fixes decoration rendering when there is a single rendering for full text line [#7104](https://github.com/fabricjs/fabric.js/pull/7104)
+- fix(fabric.Text): spell error which made the gradientTransform not working [#7059](https://github.com/fabricjs/fabric.js/pull/7059)
+- fix(fabric.util): unwanted mutation in fabric.util.rotatePoint [#7117](https://github.com/fabricjs/fabric.js/pull/7117)
+- fix(svg parser): Ensure that applyViewboxTransform returns an object and not undefined/null [#7030](https://github.com/fabricjs/fabric.js/pull/7030)
+- fix(fabric.Text): support firefox with ctx.textAlign for RTL text [#7126](https://github.com/fabricjs/fabric.js/pull/7126)
+- fix(fabric.PencilBrush) decimate deleting end of a freedrawing line [#6966](https://github.com/fabricjs/fabric.js/pull/6966)
+- feat(fabric.Text): Adding support for RTL languages by adding `direction` property [#7046](https://github.com/fabricjs/fabric.js/pull/7046)
+- feat(fabric) Add an eraser brush as optional module [#6994](https://github.com/fabricjs/fabric.js/pull/6994)
+- fix v4: 'scaling' event triggered before object position is adjusted [#6650](https://github.com/fabricjs/fabric.js/pull/6650)
+- Fix(fabric.Object): CircleControls transparentCorners styling [#7015](https://github.com/fabricjs/fabric.js/pull/7015)
+- Fix(svg_import): svg parsing in case it uses empty use tag or use with image href [#7044](https://github.com/fabricjs/fabric.js/pull/7044)
+- fix(fabric.Shadow): `offsetX`, `offsetY` and `blur` supports float [#7019](https://github.com/fabricjs/fabric.js/pull/7019)
+</pre>
+
 ### Version 4.4.0
 
 The highlights of this versions are:
 
-We added target to each selection event, so you can stop using this, and you can use fat arrows function freely for event handling. This is a change of direction, so if you notice some event that can benefit of having the target specified rather than using the `this` keyword, please open an issue we can address it.
+We added target to each selection event, so you can stop using this, and you can use fat arrows function freely for event handling. This is a change of direction, so if you notice some event that can benefit from having the target specified rather than using the `this` keyword, please open an issue and we can address it.
 
 A new property on pencil brush, `limitedToCanvasSize` will let you stop drawing outside the canvas.
 
-There is a new property on objects and is currently an experiment.
-We do want to support a more flexible way to select objects, so we added a property, called activeOn, that will let you specify `up` or `down` and this will let you select the object either on mouse down or mouse up, to account for interactions with dragging for example.
-Now this is an *experiment* meaning that we want to add more flavours of it, like for example, can it be multi selected? can it be shift selected, can it be drag selected.
-You can experiment with this value, but you have to consider the behaviour my slightly change and you have to correct your app later on.
-Consider it a beta feature. We marked it as @private in the docs, and we clarified is experimental.
+There is a new property on objects that is currently an experiment.
+We do want to support a more flexible way to select objects, so we added a property, called `activeOn`, that will let you specify `up` or `down` and this will let you select the object either on mousedown/touchstart  or mouseup/touchend, to account for interactions with dragging for example.
+Now this is an *experiment*, meaning that we want to add more flavours to it, like for example, can it be multi selected? Can it be shift selected, can it be drag selected?
+You can experiment with this value, but you have to consider the behaviour may slightly change and you will have to correct your app later on.
+Consider it a beta feature. We marked it as @private in the docs, and we clarified it as experimental.
 
 There are an handful of fixes, some of them found and contributed back from developers outside the project.
 Thank you @zhangshine, @rileygowan @CharlesRA.
@@ -47,7 +184,7 @@ Thank you @zhangshine, @rileygowan @CharlesRA.
 
 ### Version 4.3.1
 
-Improved feature: Text on a path now as better angles and better spread of chars over the curve.
+Improved feature: Text on a path now has better angles and better spread of chars over the curve.
 Also 3 bugs fixed and small improvements.
 
 A special thanks to those people for contributing in this release:
@@ -73,7 +210,7 @@ Another new feature of this release is the ability to specify control size per c
 fabric.Control.sizeX and fabric.Control.sizeY will take precedence on cornerSize.
 (check pr [#6562](https://github.com/fabricjs/fabric.js/pull/6562))
 
-A spacial thanks to those people for contributing in this release:
+A special thanks to those people for contributing in this release:
 [Steve Eberhardt](https://github.com/melchiar)
 [Jason Sturges](https://github.com/jasonsturges)
 [Claas Cassens](https://github.com/claas-c)
@@ -102,7 +239,7 @@ Just minor fixes, mouseup event can again have a different target compared to mo
 
 ### Version 4.1.0
 Added a `before:path:created` event, as a user request, in order to handle brushes objects before they get added to canvas.
-Generic Path change of logic. Now complex SVG paths are simplified into an absolute only command version. On top of that, A, S, T, V and H commands are converted to C, Q and L. With this done, it is simpler to connect custom controls to path properties, and also it made possible to add a path measure utility that we will need to implement the long requested text on a path feature.
+Generic Path change of logic. Now complex SVG paths are simplified into an absolute only command version. On top of that, A, S, T, V and H commands are converted to C, Q and L. With this done, it is simpler to connect custom controls to path properties, and also it made it possible to add a path measure utility that we will need to implement the long requested text on a path feature.
 <pre>
 - feat(Brushes): add beforePathCreated event #6492;
 - feat(fabric.Path): Change the way path is parsed and drawn. simplify path at parsing time #6504;
@@ -184,14 +321,14 @@ Mostly backporting work that happened after 4 beta to version 3 branch
 ### Version 3.3.0
 Rewrite pointer/touch events! It seems now that pointer events and touch events can work correctly with multi fingers.
 Attention has been made in freedrawing with accidental multi touch usage and ability to work with pencils.
-Also a small fix for the words boundaries in text.
+Also a small fix for the word boundaries in text.
 Some deprecation on old event properties required another minor version bump.
 <pre>
  - Differently support multi mouse events. #5785
  - Word boundary search update. #5788
 </pre>
 ### Version 3.2.0
-This version is mainly a bug fix release for the new feature. It gets a minor bump because of official deprecation of Object.transformatrix.
+This version is mainly a bug fix release for the new feature. It gets a minor bump because of official deprecation of Object.transformMatrix.
 <pre>
  - Fix Group.toSVG export missing opacity and visibility. #5755
  - Pass raw event information to brushes. #5687
@@ -289,14 +426,14 @@ A handful of fixes for group and clipPaths, Image serializations and filters, cl
 - Fix: Group with clipPath restore #5344
 - Fix: Fix shift + click interaction with unselectable objects #5324</pre>
 ### Version 2.4.2
-Clippath to SVG fixed, a couple of nice bugfix for targeting in nested groups and svg loading on ie11
+Clippath to SVG fixed, a couple of nice bugfixes for targeting in nested groups and svg loading in ie11
 <pre>
 - Fix: Better toSVG support to enable clipPath #5284
 - Fix: Per pixel target find and groups and sub targets #5287
 - Fix: Object clone as Image and shadow clipping #5308
 - Fix: IE11 loading SVG #5307</pre>
 ### Version 2.4.1
-First round of feedback for clipPath bugs, plus other bugfixes that piledup while working on clipPaths
+First round of feedback for clipPath bugs, plus other bugfixes that piled up while working on clipPaths
 <pre>
 - Fix: Avoid enterEditing if another object is the activeObject #5261
 - Fix: clipPath enliving for Image fromObject #5279

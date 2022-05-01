@@ -1,0 +1,2835 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Class: Vibrance</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+    <link type="text/css" rel="stylesheet" href="styles/carbonads.css">
+    <link type="text/css" rel="stylesheet" href="../css/master.css">
+</head>
+
+<body>
+    <ul id="header">
+      <li><a href="http://fabricjs.com/">Home</a></li>
+      <li><a href="http://fabricjs.com/demos">Demos</a></li>
+      <li><a href="http://fabricjs.com/articles">Tutorial</a></li>
+      <li><a href="http://fabricjs.com/docs">Docs</a></li>
+      <li><a href="http://fabricjs.com/build">Custom Build</a></li>
+      <li><a href="http://fabricjs.com/help">Support</a></li>
+      <li><a href="http://fabricjs.com/test">Tests/Benchmarks</a></li>
+      <li><a href="http://fabricjs.com/team">Team</a></li>
+      <li class="github secondary">
+        <iframe src="http://ghbtns.com/github-btn.html?user=kangax&repo=fabric.js&type=watch&count=true"
+          allowtransparency="true" frameborder="0" scrolling="0" width="95px" height="20px"></iframe>
+      </li>
+      <li class="twitter secondary">
+        <a href="https://twitter.com/fabricjs" class="twitter-follow-button" data-show-count="true">Follow @fabricjs</a>
+      </li>
+      <li id="carbonads-container">
+        <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=fabricjscom" id="_carbonads_js"></script>
+      </li>
+    </ul>
+
+    <script>
+    (function() {
+      if (document.location.hostname === 'localhost') {
+        var links = document.getElementById('header').getElementsByTagName('a');
+        for (var i = 0, len = links.length; i < len; i++) {
+          // very retarted fix but fuck it
+          links[i].href = links[i].href.replace('fabricjs.com', 'localhost:4000');
+        }
+      }
+      else {
+        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+      }
+    })();
+    (function() {
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          var ads = document.getElementById('carbonads');
+          var ads2 = document.getElementById('carbonads-container');
+          var style = window.getComputedStyle(ads2);
+          if (!ads || style.display === 'none') {
+            var nag = document.getElementById('nag');
+            if (!nag) {
+              var newDiv = document.createElement('div');
+              newDiv.id = 'gentle-reminder-docs';
+              newDiv.className = 'reminder';
+              newDiv.innerHTML = 'Do you like fabricJS?<br />If you want it continue running and you do not mind tech related ads, please allow this website in your adblocker.<br /><br />❤️ Thank You!';
+              document.body.appendChild(newDiv)
+            }
+          }
+        }, 4000);
+      });
+    })();
+    </script>
+    <nav>
+        <div class="upperNav" >
+        <script>
+          (function() {
+            var cx = '001658083293066718026:dbxamnxeuku';
+            var gcse = document.createElement('script');
+            gcse.type = 'text/javascript';
+            gcse.async = true;
+            gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+              '//www.google.com/cse/cse.js?cx=' + cx;
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(gcse, s);
+          })();
+        </script>
+        <gcse:search></gcse:search>
+        </div>
+        <div class="lowerNav" >
+            <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="fabric.ActiveSelection.html">ActiveSelection</a></li><li><a href="fabric.BaseBrush.html">BaseBrush</a></li><li><a href="fabric.Canvas.html">Canvas</a></li><li><a href="fabric.Circle.html">Circle</a></li><li><a href="fabric.CircleBrush.html">CircleBrush</a></li><li><a href="fabric.Color.html">Color</a></li><li><a href="fabric.Ellipse.html">Ellipse</a></li><li><a href="fabric.Gradient.html">Gradient</a></li><li><a href="fabric.Group.html">Group</a></li><li><a href="fabric.Image.html">Image</a></li><li><a href="fabric.Image.filters.BaseFilter.html">BaseFilter</a></li><li><a href="fabric.Image.filters.Blur.html">Blur</a></li><li><a href="fabric.Image.filters.Brightness.html">Brightness</a></li><li><a href="fabric.Image.filters.ColorMatrix.html">ColorMatrix</a></li><li><a href="fabric.Image.filters.Contrast.html">Contrast</a></li><li><a href="fabric.Image.filters.Convolute.html">Convolute</a></li><li><a href="fabric.Image.filters.fabric.Image.filter.BlendColor.html">BlendColor</a></li><li><a href="fabric.Image.filters.fabric.Image.filter.BlendImage.html">BlendImage</a></li><li><a href="fabric.Image.filters.Gamma.html">Gamma</a></li><li><a href="fabric.Image.filters.Grayscale.html">Grayscale</a></li><li><a href="fabric.Image.filters.HueRotation.html">HueRotation</a></li><li><a href="fabric.Image.filters.Invert.html">Invert</a></li><li><a href="fabric.Image.filters.Noise.html">Noise</a></li><li><a href="fabric.Image.filters.Pixelate.html">Pixelate</a></li><li><a href="fabric.Image.filters.RemoveColor.html">RemoveColor</a></li><li><a href="fabric.Image.filters.Resize.html">Resize</a></li><li><a href="fabric.Image.filters.Saturation.html">Saturation</a></li><li><a href="fabric.Image.filters.Vibrance.html">Vibrance</a></li><li><a href="fabric.Intersection.html">Intersection</a></li><li><a href="fabric.IText.html">IText</a></li><li><a href="fabric.Line.html">Line</a></li><li><a href="fabric.Object.html">Object</a></li><li><a href="fabric.Path.html">Path</a></li><li><a href="fabric.Pattern.html">Pattern</a></li><li><a href="fabric.PatternBrush.html">PatternBrush</a></li><li><a href="fabric.PencilBrush.html">PencilBrush</a></li><li><a href="fabric.Point.html">Point</a></li><li><a href="fabric.Polygon.html">Polygon</a></li><li><a href="fabric.Polyline.html">Polyline</a></li><li><a href="fabric.Rect.html">Rect</a></li><li><a href="fabric.Shadow.html">Shadow</a></li><li><a href="fabric.SprayBrush.html">SprayBrush</a></li><li><a href="fabric.StaticCanvas.html">StaticCanvas</a></li><li><a href="fabric.Text.html">Text</a></li><li><a href="fabric.Textbox.html">Textbox</a></li><li><a href="fabric.Triangle.html">Triangle</a></li></ul><h3>Namespaces</h3><ul><li><a href="fabric.html">fabric</a></li><li><a href="fabric.Collection.html">Collection</a></li><li><a href="fabric.CommonMethods.html">CommonMethods</a></li><li><a href="fabric.Image.filters.html">filters</a></li><li><a href="fabric.Observable.html">Observable</a></li><li><a href="fabric.util.html">util</a></li><li><a href="fabric.util.array.html">array</a></li><li><a href="fabric.util.ease.html">ease</a></li><li><a href="fabric.util.object.html">object</a></li><li><a href="fabric.util.string.html">string</a></li></ul><h3>Global</h3><ul><li><a href="global.html#__cachedLines">__cachedLines</a></li><li><a href="global.html#_splitTextIntoLines">_splitTextIntoLines</a></li><li><a href="global.html#_wrapLine">_wrapLine</a></li><li><a href="global.html#_wrapText">_wrapText</a></li><li><a href="global.html#applyFilters">applyFilters</a></li><li><a href="global.html#cancelAll">cancelAll</a></li><li><a href="global.html#cancelByCanvas">cancelByCanvas</a></li><li><a href="global.html#cancelByTarget">cancelByTarget</a></li><li><a href="global.html#copyGLTo2DDrawImage">copyGLTo2DDrawImage</a></li><li><a href="global.html#copyGLTo2DPutImageData">copyGLTo2DPutImageData</a></li><li><a href="global.html#dynamicMinWidth">dynamicMinWidth</a></li><li><a href="global.html#findAnimation">findAnimation</a></li><li><a href="global.html#findAnimationIndex">findAnimationIndex</a></li><li><a href="global.html#findAnimationsByTarget">findAnimationsByTarget</a></li><li><a href="global.html#isEmptyStyles">isEmptyStyles</a></li><li><a href="global.html#isEndOfWrapping">isEndOfWrapping</a></li><li><a href="global.html#lockScalingFlip">lockScalingFlip</a></li><li><a href="global.html#minWidth">minWidth</a></li><li><a href="global.html#missingNewlineOffset">missingNewlineOffset</a></li><li><a href="global.html#noScaleCache">noScaleCache</a></li><li><a href="global.html#splitByGrapheme">splitByGrapheme</a></li><li><a href="global.html#styleHas">styleHas</a></li><li><a href="global.html#toObject">toObject</a></li><li><a href="global.html#type">type</a></li></ul>
+        </div>
+    </nav>
+<div id="main">
+    <h1 class="page-title">Class: Vibrance</h1>
+    
+
+
+
+
+<section>
+
+<header>
+    
+        <h2>
+            <span class="ancestors"><a href="fabric.html">fabric</a><a href="fabric.Image.html">.Image</a><a href="fabric.Image.filters.html">.filters</a>.</span>Vibrance</h2>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+
+
+    
+    <h4 class="name" id="Vibrance"><a href="#Vibrance" ><span class="type-signature"></span>new Vibrance<span class="signature">()</span><span class="type-signature"></span></a></h4>
+    
+
+
+<div class="description">
+    Vibrance filter class
+</div>
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line25081">line 25081</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="fabric.Image.filters.Vibrance.html#initialize">fabric.Image.filters.Vibrance#initialize</a> for constructor definition</li>
+        
+            <li><a href="http://fabricjs.com/image-filters">ImageFilters demo</a></li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>var filter = new fabric.Image.filters.Vibrance({
+  vibrance: 1
+});
+object.filters.push(filter);
+object.applyFilters();</code></pre>
+
+
+
+
+    
+    </div>
+
+    
+        <h3 class="subsection-title">Extends</h3>
+
+        
+
+
+    <ul>
+        <li><a href="fabric.Image.filters.BaseFilter.html">fabric.Image.filters.BaseFilter</a></li>
+    </ul>
+
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+        <h3 class="subsection-title">Members</h3>
+
+        
+            
+
+<h4 class="name" id="type"><a href="#type" ><span class="type-signature"></span>type<span class="type-signature"></span></a></h4>
+
+
+<div class="description">
+    Filter type
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-overrides">Overrides:</dt>
+    <dd class="tag-overrides"><ul class="dummy"><li>
+        <a href="fabric.Image.filters.BaseFilter.html#type">fabric.Image.filters.BaseFilter#type</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-default">Default Value:</dt>
+    <dd class="tag-default"><ul class="dummy">
+            <li>Vibrance</li>
+        </ul></dd>
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line25102">line 25102</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+        
+            
+
+<h4 class="name" id="vibrance"><a href="#vibrance" ><span class="type-signature"></span>vibrance<span class="type-signature"></span></a></h4>
+
+
+<div class="description">
+    Vibrance value, from -1 to 1.
+Increases/decreases the saturation of more muted colors with less effect on saturated colors.
+A value of 0 has no effect.
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line25127">line 25127</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+        
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+<div class="inherited">
+
+
+    
+    <h4 class="name" id="applyTo"><a href="#applyTo" ><span class="type-signature"></span>applyTo<span class="signature">(options)</span><span class="type-signature"></span></a></h4>
+    
+
+
+<div class="description">
+    Apply this filter to the input image data provided.
+
+Determines whether to use WebGL or Canvas2D based on the options.webgl flag.
+</div>
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>passes</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The number of filters remaining to be executed</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>webgl</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Whether to use webgl to render the filter.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>sourceTexture</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">WebGLTexture</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The texture setup as the source to be filtered.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>targetTexture</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">WebGLTexture</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The texture where filtered output should be drawn.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>context</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">WebGLRenderingContext</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The GL context used for rendering.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>programCache</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">A map of compiled shader programs, keyed by filter type.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Image.filters.BaseFilter.html#applyTo">fabric.Image.filters.BaseFilter#applyTo</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line22285">line 22285</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+</div>
+
+
+        
+            
+
+
+    
+    <h4 class="name" id="applyTo2d"><a href="#applyTo2d" ><span class="type-signature"></span>applyTo2d<span class="signature">(options)</span><span class="type-signature"></span></a></h4>
+    
+
+
+<div class="description">
+    Apply the Vibrance operation to a Uint8ClampedArray representing the pixels of an image.
+</div>
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>imageData</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">ImageData</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The Uint8ClampedArray to be filtered.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line25144">line 25144</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+<div class="inherited">
+
+
+    
+    <h4 class="name" id="applyToWebGL"><a href="#applyToWebGL" ><span class="type-signature"></span>applyToWebGL<span class="signature">(options)</span><span class="type-signature"></span></a></h4>
+    
+
+
+<div class="description">
+    Apply this filter using webgl.
+</div>
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>passes</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The number of filters remaining to be executed</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>webgl</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Whether to use webgl to render the filter.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>originalTexture</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">WebGLTexture</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The texture of the original input image.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>sourceTexture</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">WebGLTexture</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The texture setup as the source to be filtered.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>targetTexture</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">WebGLTexture</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The texture where filtered output should be drawn.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>context</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">WebGLRenderingContext</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The GL context used for rendering.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>programCache</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">A map of compiled shader programs, keyed by filter type.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Image.filters.BaseFilter.html#applyToWebGL">fabric.Image.filters.BaseFilter#applyToWebGL</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line22321">line 22321</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+</div>
+
+
+        
+            
+
+<div class="inherited">
+
+
+    
+    <h4 class="name" id="createHelpLayer"><a href="#createHelpLayer" ><span class="type-signature"></span>createHelpLayer<span class="signature">()</span><span class="type-signature"></span></a></h4>
+    
+
+
+<div class="description">
+    If needed by a 2d filter, this functions can create an helper canvas to be used
+remember that options.targetCanvas is available for use till end of chain.
+</div>
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Image.filters.BaseFilter.html#createHelpLayer">fabric.Image.filters.BaseFilter#createHelpLayer</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line22378">line 22378</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+</div>
+
+
+        
+            
+
+<div class="inherited">
+
+
+    
+    <h4 class="name" id="createProgram"><a href="#createProgram" ><span class="type-signature"></span>createProgram<span class="signature">(gl, fragmentSource, vertexSource)</span><span class="type-signature"></span></a></h4>
+    
+
+
+<div class="description">
+    Compile this filter's shader program.
+</div>
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>gl</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">WebGLRenderingContext</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The GL canvas context to use for shader compilation.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>fragmentSource</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">fragmentShader source for compilation</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>vertexSource</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">vertexShader source for compilation</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Image.filters.BaseFilter.html#createProgram">fabric.Image.filters.BaseFilter#createProgram</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line22121">line 22121</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+</div>
+
+
+        
+            
+
+<div class="inherited">
+
+
+    
+    <h4 class="name" id="getAttributeLocations"><a href="#getAttributeLocations" ><span class="type-signature"></span>getAttributeLocations<span class="signature">(gl, program)</span><span class="type-signature"> &rarr; {Object}</span></a></h4>
+    
+
+
+<div class="description">
+    Return a map of attribute names to WebGLAttributeLocation objects.
+</div>
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>gl</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">WebGLRenderingContext</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The canvas context used to compile the shader program.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>program</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">WebGLShaderProgram</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The shader program from which to take attribute locations.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Image.filters.BaseFilter.html#getAttributeLocations">fabric.Image.filters.BaseFilter#getAttributeLocations</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line22182">line 22182</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    A map of attribute names to attribute locations.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+</div>
+
+
+        
+            
+
+
+    
+    <h4 class="name" id="getUniformLocations"><a href="#getUniformLocations" ><span class="type-signature"></span>getUniformLocations<span class="signature">(gl, program)</span><span class="type-signature"></span></a></h4>
+    
+
+
+<div class="description">
+    Return WebGL uniform locations for this filter's shader.
+</div>
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>gl</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">WebGLRenderingContext</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The GL canvas context used to compile this filter's shader.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>program</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">WebGLShaderProgram</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">This filter's compiled shader program.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-overrides">Overrides:</dt>
+    <dd class="tag-overrides"><ul class="dummy"><li>
+        <a href="fabric.Image.filters.BaseFilter.html#getUniformLocations">fabric.Image.filters.BaseFilter#getUniformLocations</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line25168">line 25168</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+<div class="inherited">
+
+
+    
+    <h4 class="name" id="initialize"><a href="#initialize" ><span class="type-signature"></span>initialize<span class="signature">(options<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></a></h4>
+    
+
+
+<div class="description">
+    Constructor
+</div>
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">Options object</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Image.filters.BaseFilter.html#initialize">fabric.Image.filters.BaseFilter#initialize</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line22098">line 22098</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+</div>
+
+
+        
+            
+
+<div class="inherited">
+
+
+    
+    <h4 class="name" id="isNeutralState"><a href="#isNeutralState" ><span class="type-signature"></span>isNeutralState<span class="signature">(options)</span><span class="type-signature"></span></a></h4>
+    
+
+
+<div class="description">
+    Generic isNeutral implementation for one parameter based filters.
+Used only in image applyFilters to discard filters that will not have an effect
+on the image
+Other filters may need their own version ( ColorMatrix, HueRotation, gamma, ComposedFilter )
+</div>
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Image.filters.BaseFilter.html#isNeutralState">fabric.Image.filters.BaseFilter#isNeutralState</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line22251">line 22251</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+</div>
+
+
+        
+            
+
+<div class="inherited">
+
+
+    
+    <h4 class="name" id="retrieveShader"><a href="#retrieveShader" ><span class="type-signature"></span>retrieveShader<span class="signature">(options)</span><span class="type-signature"></span></a></h4>
+    
+
+
+<div class="description">
+    Retrieves the cached shader.
+</div>
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>context</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">WebGLRenderingContext</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The GL context used for rendering.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>programCache</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">A map of compiled shader programs, keyed by filter type.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Image.filters.BaseFilter.html#retrieveShader">fabric.Image.filters.BaseFilter#retrieveShader</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line22302">line 22302</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+</div>
+
+
+        
+            
+
+<div class="inherited">
+
+
+    
+    <h4 class="name" id="sendAttributeData"><a href="#sendAttributeData" ><span class="type-signature"></span>sendAttributeData<span class="signature">(gl, attributeLocations)</span><span class="type-signature"></span></a></h4>
+    
+
+
+<div class="description">
+    Send attribute data from this filter to its shader program on the GPU.
+</div>
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>gl</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">WebGLRenderingContext</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The canvas context used to compile the shader program.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>attributeLocations</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">A map of shader attribute names to their locations.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Image.filters.BaseFilter.html#sendAttributeData">fabric.Image.filters.BaseFilter#sendAttributeData</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line22208">line 22208</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+</div>
+
+
+        
+            
+
+
+    
+    <h4 class="name" id="sendUniformData"><a href="#sendUniformData" ><span class="type-signature"></span>sendUniformData<span class="signature">(gl, uniformLocations)</span><span class="type-signature"></span></a></h4>
+    
+
+
+<div class="description">
+    Send data from this filter to its shader program's uniforms.
+</div>
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>gl</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">WebGLRenderingContext</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The GL canvas context used to compile this filter's shader.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>uniformLocations</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">A map of string uniform names to WebGLUniformLocation objects</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-overrides">Overrides:</dt>
+    <dd class="tag-overrides"><ul class="dummy"><li>
+        <a href="fabric.Image.filters.BaseFilter.html#sendUniformData">fabric.Image.filters.BaseFilter#sendUniformData</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line25180">line 25180</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+<div class="inherited">
+
+
+    
+    <h4 class="name" id="setOptions"><a href="#setOptions" ><span class="type-signature"></span>setOptions<span class="signature">(options<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></a></h4>
+    
+
+
+<div class="description">
+    Sets filter's properties from options
+</div>
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">Options object</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Image.filters.BaseFilter.html#setOptions">fabric.Image.filters.BaseFilter#setOptions</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line22108">line 22108</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+</div>
+
+
+        
+            
+
+<div class="inherited">
+
+
+    
+    <h4 class="name" id="toJSON"><a href="#toJSON" ><span class="type-signature"></span>toJSON<span class="signature">()</span><span class="type-signature"> &rarr; {Object}</span></a></h4>
+    
+
+
+<div class="description">
+    Returns a JSON representation of an instance
+</div>
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Image.filters.BaseFilter.html#toJSON">fabric.Image.filters.BaseFilter#toJSON</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line22403">line 22403</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    JSON
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+</div>
+
+
+        
+            
+
+<div class="inherited">
+
+
+    
+    <h4 class="name" id="toObject"><a href="#toObject" ><span class="type-signature"></span>toObject<span class="signature">()</span><span class="type-signature"> &rarr; {Object}</span></a></h4>
+    
+
+
+<div class="description">
+    Returns object representation of an instance
+</div>
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+    <dt class="inherited-from">Inherited From:</dt>
+    <dd class="inherited-from"><ul class="dummy"><li>
+        <a href="fabric.Image.filters.BaseFilter.html#toObject">fabric.Image.filters.BaseFilter#toObject</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="fabric.js.html">fabric.js</a>, <a href="fabric.js.html#line22391">line 22391</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Object representation of an instance
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+</div>
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+<footer><input id="toggle" type="checkbox" onclick="toggle(this.checked);"  /><label for="toggle" >Hide inherited properties and method from the page</label><br />Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a> on Sun Feb 06 2022 00:57:17 GMT+0100 (Central European Standard Time)
+</footer>
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+<script>
+function toggle(displayState) {
+    var value =  displayState ? 'none' : 'block';
+    var elements = document.getElementsByClassName('inherited');
+    for (var i = 0; i < elements.length; i++) {
+        elements[i].style.display = value;
+    }
+}
+</script>
+</body>
+</html>

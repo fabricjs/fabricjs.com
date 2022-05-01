@@ -64,10 +64,7 @@
   function getImage(filename, original, callback) {
     if (fabric.isLikelyNode && original) {
       var plainFileName = filename.replace('file://', '');
-      try {
-        fs.statSync(plainFileName);
-      }
-      catch (err) {
+      if (!fs.existsSync(plainFileName) || QUnit.debug) {
         var dataUrl = original.toDataURL().split(',')[1];
         console.log('creating original for ', filename);
         fs.writeFileSync(plainFileName, dataUrl, { encoding: 'base64' });
@@ -132,16 +129,20 @@
           var totalPixels = width * height;
           var imageDataCanvas = renderedCanvas.getContext('2d').getImageData(0, 0, width, height).data;
           var canvas = fabric.document.createElement('canvas');
+          var canvas2 = fabric.document.createElement('canvas');
           canvas.width = width;
           canvas.height = height;
+          canvas2.width = width;
+          canvas2.height = height;
           var ctx = canvas.getContext('2d');
           var output = ctx.getImageData(0, 0, width, height);
+          canvas2.getContext('2d').drawImage(renderedCanvas, 0, 0, width, height);
           getImage(getGoldeName(golden), renderedCanvas, function(goldenImage) {
             ctx.drawImage(goldenImage, 0, 0);
             visualCallback.addArguments({
               enabled: true,
               golden: canvas,
-              fabric: renderedCanvas,
+              fabric: canvas2,
               diff: output
             });
             var imageDataGolden = ctx.getImageData(0, 0, width, height).data;

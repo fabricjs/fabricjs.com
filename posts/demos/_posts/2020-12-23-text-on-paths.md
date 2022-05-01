@@ -7,9 +7,9 @@ This is a new beta feature in Fabric.js.
 You can specify a fabric.Path property for the text, called path, that will make the text render curved, following the path.
 The feature is new, and has a lot of edge cases to be solved and improved.
 
-In this demo we are using free drawing to draw a path, and then we inspect the path ad we try to understand the best font font size to adapt the text on the path.
+In this demo we are using free drawing to draw a path, and then we inspect the path and try to calculate the best font size to fit the text to the path.
 
-We are using the event `before:path:created` to access the path before it gets added to the canvas, calculate an approximate fontSize that will work on that path length, add this text to the canvas.
+We are using the event `before:path:created` to access the path before it gets added to the canvas, calculate an approximate fontSize that will work on that path length, then add the text to the canvas.
 
 Then are using `path:created` to remove the path from the canvas.
 

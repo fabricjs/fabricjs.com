@@ -77,4 +77,32 @@ To remove the stroke:
 <pre>
 rect.set('strokeWidth', 0);
 </pre>
+<h3>Blurry Objects - retinaScaling</h3>
+
+<p>
+All objects need a reference of <code>fabric.Canvas</code> for proper rendering. 
+Without the reference objects can't access the retina scaling value (<a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API/Window/devicePixelRatio#correcting_resolution_in_a_canvas">device pixel ratio</a>), resulting in bad resolution.
+This usually happens when an object is a child of a custom object. Fix it by using the parent's <code>_set</code> method.<br />
+</p>
+
+To reference canvas:
+<pre>
+fabric.MyCustomObject = fabric.util.createClass(fabric.Object, {
+  _set(key, value){
+    // this is a good place to pass down options to children
+    this.callSuper('_set', key, value);
+    //  set canvas on nested object
+    key === 'canvas' && this._nestedObject._set(key, value);
+  }
+});
+</pre>
+
+<h3>Object.clone vs util.object.clone</h3>
+<p>`fabric.Object` has a `clone` method for creating copy of an instance. The subclasses of `fabric.Object`
+  inherits this method and it can be used for replicating shapes in canvas.<br />
+  There is also a static method `clone` in `fabric.util.object`, which is for creating copy of any object.
+  It has an extra handling for copying fabricJS objects and is mostly for internal use.
+  This method should be avoided for purpose of duplicating objects in canvas. 
+</p>
+
 </div>

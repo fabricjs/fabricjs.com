@@ -4,3 +4,7 @@
   top: 0; 
   display: none;
 }
+
+.text-center {
+  text-align: center !important;
+}

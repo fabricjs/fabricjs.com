@@ -34,3 +34,22 @@ QUnit.testDone(visualCallback.testDone.bind(visualCallback));
 <script src="control_rendering.js"></script>
 <script src="freedraw.js"></script>
 <script src="generic_rendering.js"></script>
+
+<template id="error_output">
+    <table>
+        <thead>
+            <row>
+                <th class="text-center">expected</th>
+                <th class="text-center">actual</th>
+                <th class="text-center">diff</th>
+            </row>
+        </thead>
+        <tbody>
+            <row>
+                <td data-canvas-type="expected"></td>
+                <td data-canvas-type="actual"></td>
+                <td data-canvas-type="diff"></td>
+            </row>
+        </tbody>
+    </table>
+</template>

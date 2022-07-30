@@ -108,12 +108,11 @@ var CanvasController = Backbone.Model.extend({
   },
 
   initChangeEvents: function() {
-    this.canvas
-      .on('object:selected', this.triggerChange)
-      .on('group:selected', this.triggerChange)
-      .on('path:created', this.triggerChange)
-      .on('object:added', this.triggerChange)
-      .on('selection:cleared', this.triggerChange);
+    this.canvas.on('object:selected', this.triggerChange)
+    this.canvas.on('group:selected', this.triggerChange)
+    this.canvas.on('path:created', this.triggerChange)
+    this.canvas.on('object:added', this.triggerChange)
+    this.canvas.on('selection:cleared', this.triggerChange);
   },
 
   triggerChange: function() {

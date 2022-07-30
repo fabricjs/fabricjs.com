@@ -1150,10 +1150,9 @@ function watchCanvas($scope) {
     canvas.renderAll();
   }
 
-  canvas
-    .on('object:selected', updateScope)
-    .on('path:created', updateScope)
-    .on('selection:cleared', updateScope);
+  canvas.on('object:selected', updateScope)
+  canvas.on('path:created', updateScope)
+  canvas.on('selection:cleared', updateScope);
 }
 
 kitchensink.controller('CanvasControls', function($scope) {

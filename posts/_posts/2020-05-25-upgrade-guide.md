@@ -9,11 +9,9 @@ There are a number of breaking changes to be aware of when upgrading your Fabric
 
 ### In Development
 
-**Upgrading from v5.x to v6.x** [(v6-breaking-changes)](v6-breaking-changes)
+**Upgrading from v5.x to v6.x**
 
-Fabric.js v6.x (currently in development) will feature significant changes to the current codebase. In addition to a move to ES6, callbacks are being replaced by promises, and the group system is being completely rewritten to improve many of the limitations with the current group code. 
-
-**Important** - Also being considered for this release is a possible migration to Typescript to help streamline the development and debugging process of Fabric.js applications. See [https://github.com/fabricjs/fabric.js/issues/7596](https://github.com/fabricjs/fabric.js/issues/7596) if you'd like to participate in this discussion.
+Fabric.js v6.x (currently in development) will feature significant changes to the current codebase. Fabric.js is getting migrated to Typescript which will help to streamline the development and debugging process of Fabric.js applications. Other notable changes are include that Fabric.js is moving to ES6, callbacks are being replaced by promises, and the group system is being completely rewritten to improve many of the limitations with the current group code. See ([https://github.com/fabricjs/fabric.js/issues/8299)](v6-breaking-changes) for a work-in-progress list of the changes coming with v6.
 
 ### Current Version
 

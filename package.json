@@ -1,0 +1,24 @@
+{
+  "name": "fabric-astro-7",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.5.9",
+    "@astrojs/react": "^3.1.0",
+    "@types/react": "^18.2.65",
+    "@types/react-dom": "^18.2.22",
+    "astro": "^4.5.3",
+    "fabric": "^6.0.0-beta19",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-load-script": "^0.0.6",
+    "typescript": "^5.4.2"
+  }
+}

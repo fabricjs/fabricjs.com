@@ -25,10 +25,11 @@ export const setupCanvasBanner = ({ canvasEl, container }) => {
         canvas.setDimensions({
           width,
           height,
-        });
+        }, {});
       }
     }
   });
+
   const canvas = new Canvas(canvasEl, {
     containerClass: 'canvas-banner',
   });

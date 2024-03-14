@@ -1,0 +1,11 @@
+---
+date: '2018-02-18'
+title: 'Events inspector'
+description: 'Inspect interaction events being logged to the console'
+thumbnail: 'events-inspector.png'
+tags: ['events', 'log']
+---
+
+import { EventInspectorUI } from './EventInspectorUI';
+
+<EventInspectorUI />

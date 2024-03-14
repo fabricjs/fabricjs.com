@@ -1,0 +1,43 @@
+#features {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#features h2 {
+  display: block;
+  font-size: 40px;
+}
+
+#features .features-list {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+#features .column-left li {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+#features .column-left {
+  display: flex;
+
+  flex-direction: column;
+  width: 50%;
+  padding-right: 25px;
+  padding-left: 0;
+  list-style: none;
+}
+
+#features .column-right {
+  align-items: flex-start;
+  flex-direction: column;
+  display: flex;
+  width: 50%;
+  padding-left: 25px;
+  padding-right: 0;
+  list-style: none;
+}

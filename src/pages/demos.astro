@@ -3,29 +3,27 @@ import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import ThumbnailList from '../components/ThumbnailList/index.astro';
 import ThumbnailCard from '../components/ThumbnailCard/index.astro';
-
-const demoEntries = await getCollection('demo');
+const collectionName = 'demo';
+const demoEntries = await getCollection(collectionName);
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/content/demo/**/*.{jpeg,jpg,png,gif}');
+console.log(images)
 ---
-<Layout>
+<Layout title="FabricJS Demos">
     <main>
         <h1>FabricJS Demos</h1>
         <ThumbnailList>
-            {demoEntries.map((entry) => (
-                <li>
+            {demoEntries.map(({ data, id }) => {
+                const imgFullPath = `/src/content/${collectionName}/${id.replace(/index\.mdx?/, data.thumbnail)}`;
+                console.log(imgFullPath);
+                return (<li>
                     <ThumbnailCard
-                        title={frontmatter.title}
-                        description={frontmatter.description}
-                        linkToUrlSlug={fields.slug}
-                        buttonText="View demo"
-                        gatsbyImgFluid={
-                            frontmatter.thumbnail
-                            ? frontmatter.thumbnail.childImageSharp.gatsbyImageData
-                            : null
-                        }
+                        title={data.title}
+                        description={data.description}
+                        linkToUrlSlug={data.slug}
+                        imgSrc={images[imgFullPath]()}
                     />
-                </li>
-                )
-            )}
+                </li>);
+            })}
         </ThumbnailList>
     </main>
 </Layout>

@@ -5,7 +5,7 @@
     padding-bottom: 60%; /*50*/
     overflow: hidden;
   }
-  .thumbCntnr > .gatsby-image-wrapper {
+  .thumbCntnr > .img-wrapper {
     /*margin-top:-20%;/*-25*/
     width: 100%;
     height: auto;
@@ -15,6 +15,7 @@
     transform: translate(0, -50%);
     /*transition: transform 0.5s ease;*/
   }
+
   .card h4 {
     padding: 0;
     margin: 0;

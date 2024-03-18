@@ -9,6 +9,6 @@ tags: ['subclassing', 'animation']
 import { CodeEditor } from '../../../components/CodeEditor';
 import { code } from './code';
 
-<CodeEditor code={code} canvasId="animating-crosses" >
+<CodeEditor code={code} canvasId="animating-crosses" client:idle>
     <canvas  width="600" height="500" id="animating-crosses"></canvas>
 </CodeEditor>

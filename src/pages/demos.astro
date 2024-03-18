@@ -6,20 +6,19 @@ import ThumbnailCard from '../components/ThumbnailCard/index.astro';
 const collectionName = 'demo';
 const demoEntries = await getCollection(collectionName);
 const images = import.meta.glob<{ default: ImageMetadata }>('/src/content/demo/**/*.{jpeg,jpg,png,gif}');
-console.log(images)
+console.log(demoEntries)
 ---
 <Layout title="FabricJS Demos">
     <main>
         <h1>FabricJS Demos</h1>
         <ThumbnailList>
-            {demoEntries.map(({ data, id }) => {
+            {demoEntries.map(({ data, id, slug }) => {
                 const imgFullPath = `/src/content/${collectionName}/${id.replace(/index\.mdx?/, data.thumbnail)}`;
-                console.log(imgFullPath);
                 return (<li>
                     <ThumbnailCard
                         title={data.title}
                         description={data.description}
-                        linkToUrlSlug={data.slug}
+                        linkToUrlSlug={`/demos/${slug}`}
                         imgSrc={images[imgFullPath]()}
                     />
                 </li>);

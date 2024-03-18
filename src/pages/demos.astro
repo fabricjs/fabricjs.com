@@ -1,0 +1,31 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import ThumbnailList from '../components/ThumbnailList/index.astro';
+import ThumbnailCard from '../components/ThumbnailCard/index.astro';
+
+const demoEntries = await getCollection('demo');
+---
+<Layout>
+    <main>
+        <h1>FabricJS Demos</h1>
+        <ThumbnailList>
+            {demoEntries.map((entry) => (
+                <li>
+                    <ThumbnailCard
+                        title={frontmatter.title}
+                        description={frontmatter.description}
+                        linkToUrlSlug={fields.slug}
+                        buttonText="View demo"
+                        gatsbyImgFluid={
+                            frontmatter.thumbnail
+                            ? frontmatter.thumbnail.childImageSharp.gatsbyImageData
+                            : null
+                        }
+                    />
+                </li>
+                )
+            )}
+        </ThumbnailList>
+    </main>
+</Layout>

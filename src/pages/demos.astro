@@ -9,7 +9,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>('/src/content/demo/*
 console.log(demoEntries)
 ---
 <Layout title="FabricJS Demos">
-    <main>
+    <main class="darkBg">
         <h1>FabricJS Demos</h1>
         <ThumbnailList>
             {demoEntries.map(({ data, id, slug }) => {

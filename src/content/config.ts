@@ -14,9 +14,10 @@ const demosCollection = defineCollection({
 const guidesCollection = defineCollection({
     type: 'content',
     schema: z.object({
+      date: z.string(),
       title: z.string(),
-      tags: z.array(z.string()),
-      image: z.string().optional(),
+      tags: z.array(z.string()).optional(),
+      description: z.string(),
     }),
   });
 

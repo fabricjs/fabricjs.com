@@ -6,8 +6,8 @@ import './index.css';
 interface Props {
     title: string;
     linkToUrlSlug: string;
-    description: string;
-    imgSrc: ImageMetadata;
+    description?: string;
+    imgSrc: Promise<{ default: ImageMetadata }>;
 }
 
 const { title, linkToUrlSlug, description, imgSrc } = Astro.props;

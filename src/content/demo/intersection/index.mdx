@@ -11,6 +11,6 @@ import { code } from './code';
 
 <p>Intersection is checked against <b>bounding boxes</b>, not actual shapes</p>
 
-<CodeEditor code={code} canvasId="canvas" >
+<CodeEditor code={code} canvasId="canvas" client:idle>
   <canvas id="canvas" width="500" height="500"></canvas>
 </CodeEditor>

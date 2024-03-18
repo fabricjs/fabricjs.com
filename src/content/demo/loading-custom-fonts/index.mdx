@@ -21,6 +21,6 @@ When dealing with fonts with multiple weights and styles is easier to assign a d
 import { CodeEditor } from '../../../components/CodeEditor';
 import { code } from './code';
 
-<CodeEditor code={code} canvasId="c" >
+<CodeEditor code={code} canvasId="c" client:idle>
     <canvas  width="600" height="600" id="c"></canvas>
 </CodeEditor>

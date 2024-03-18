@@ -11,7 +11,7 @@ import { code } from './code';
 import { CodeEditor } from '../../../components/CodeEditor';
 import { FreeDrawingUI } from './FreeDrawingUI';
 
-<CodeEditor code={code} canvasId="c" >
+<CodeEditor code={code} canvasId="c" client:idle>
 <div className="demo-body">
 	<canvas id="c" width="500" height="500"></canvas>
 

@@ -69,6 +69,6 @@ fabricObject.setPositionByOrigin(absolutePoint, newX + 0.5, newY + 0.5);
 
 In the below canvas, use the classic controls to scale and rotate the polygon, use a double click to switch back and forth in polygon editing mode. Once in polygon editing mode, you can drag point of the polygon around with an orchestrated user experience that feels correct.
 
-<CodeEditor code={code} canvasId="canvas" >
+<CodeEditor code={code} canvasId="canvas" client:idle>
   <canvas id="canvas" width="500" height="500"></canvas>
 </CodeEditor>

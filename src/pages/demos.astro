@@ -6,7 +6,6 @@ import ThumbnailCard from '../components/ThumbnailCard/index.astro';
 const collectionName = 'demo';
 const demoEntries = await getCollection(collectionName);
 const images = import.meta.glob<{ default: ImageMetadata }>('/src/content/demo/**/*.{jpeg,jpg,png,gif}');
-console.log(demoEntries)
 ---
 <Layout title="FabricJS Demos">
     <main class="darkBg">

@@ -16,6 +16,11 @@
     /*transition: transform 0.5s ease;*/
   }
 
+  .img-wrapper > img {
+    width: 100%;
+    height: auto;
+  }
+
   .card h4 {
     padding: 0;
     margin: 0;

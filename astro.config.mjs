@@ -13,6 +13,9 @@ export default defineConfig({
       starlightTypeDoc({
         entryPoints: ['./node_modules/fabric/fabric.ts'],
         tsconfig: './node_modules/fabric/typedoc.config.json',
+        typeDoc: {
+          plugin: ['typedoc-plugin-no-inherit'],
+        },
       }),
     ],
   }), react()]

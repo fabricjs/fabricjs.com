@@ -18,13 +18,18 @@
     "@codemirror/state": "^6.4.1",
     "@types/react": "^18.2.65",
     "@types/react-dom": "^18.2.22",
+    "add": "^2.0.6",
     "astro": "^4.5.3",
     "codemirror": "^6.0.1",
-    "fabric": "^6.0.0-beta19",
+    "fabric": "^6.0.0-beta20",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
     "react-load-script": "^0.0.6",
-    "typescript": "^5.4.2"
+    "starlight-typedoc": "^0.9.0",
+    "typedoc": "^0.25.12",
+    "typedoc-plugin-markdown": "^4.0.0-next.54",
+    "typescript": "^5.4.2",
+    "yarn": "^1.22.22"
   }
 }

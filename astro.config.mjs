@@ -1,6 +1,5 @@
 import { defineConfig } from 'astro/config';
 import react from "@astrojs/react";
-import mdx from "@astrojs/mdx";
 import starlight from "@astrojs/starlight";
 import starlightTypeDoc, { typeDocSidebarGroup } from 'starlight-typedoc';
 
@@ -12,6 +11,10 @@ export default defineConfig({
     disable404Route: true,
     logo: {
       src: './src/assets/fabricjs-logo.png',
+    },
+    components: {
+      // Override the default `SocialIcons` component.
+      Header: './src/components/Header/Header.astro',
     },
     sidebar: [
       {

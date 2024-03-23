@@ -89,3 +89,25 @@
       margin-bottom: 0;
     }
   }
+
+  a {
+    text-decoration: none;
+    color: var(--primary-color); /*#0b9,05a;font-style:italic*/
+  }
+
+  a:active,
+  *:active {
+    outline: none;
+  }
+
+  a:focus,
+  *:focus {
+    outline: 0; /*-moz-outline-style:none;*/
+    outline-style: none;
+  }
+  
+  ul {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+  }

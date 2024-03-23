@@ -7,6 +7,7 @@ import starlightTypeDoc, { typeDocSidebarGroup } from 'starlight-typedoc';
 // https://astro.build/config
 export default defineConfig({
   integrations: [starlight({
+    favicon: '/favicon.ico',
     title: 'Docs and Guides',
     disable404Route: true,
     logo: {
@@ -25,6 +26,10 @@ export default defineConfig({
         collapsed: true,
         autogenerate: { directory: 'api' },
       },
+    ],
+    customCss: [
+      // Relative path to your custom CSS file
+      './src/layouts/colorvars.css',
     ],
     plugins: [
       // Generate the documentation.

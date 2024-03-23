@@ -1,18 +1,12 @@
 ---
-import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import TeamMember from '../components/TeamMember/index.astro';
 import TeamMemberName from '../components/TeamMemberName/index.astro';
-const collectionName = 'demo';
-const demoEntries = await getCollection(collectionName);
-const images = import.meta.glob<{ default: ImageMetadata }>('/src/content/demo/**/*.{jpeg,jpg,png,gif}');
 ---
 <Layout title="Fabric.JS Team">
     <main class="darkBg">
         <h1>Fabric.JS Team</h1>
         <TeamMember
-          name="Andrea Bogazzi"
-          githubName="asturur"
           imgSrc="/andrea.png"
           withSponsor
         >
@@ -34,8 +28,6 @@ const images = import.meta.glob<{ default: ImageMetadata }>('/src/content/demo/*
         </p>
       </TeamMember>
       <TeamMember
-        name="Shachar Nencel"
-        githubName="ShaMan123"
         imgSrc="/shachar.jpg"
         withSponsor
       >
@@ -61,8 +53,6 @@ const images = import.meta.glob<{ default: ImageMetadata }>('/src/content/demo/*
         </p>
       </TeamMember>
       <TeamMember
-        name="Steve Eberhardt"
-        githubName="melchiar"
         imgSrc="/steve-eberhardt.jpg"
         withSponsor
       >
@@ -85,9 +75,9 @@ const images = import.meta.glob<{ default: ImageMetadata }>('/src/content/demo/*
         </p>
       </TeamMember>
       <h3>Original team members and honorable mentions</h3>
-      <TeamMember name="Juriy Zaytsev" imgSrc="/juriy.png">
+      <TeamMember imgSrc="/juriy.png">
         <p>
-          Juriy (also known as{' '}
+          <TeamMemberName name="Juriy" githubName="kangax" /> (also known as{' '}
           <a href="https://twitter.com/kangax">&quot;kangax&quot;</a>) is a
           front-end web developer based in New York.
           <br />
@@ -106,9 +96,9 @@ const images = import.meta.glob<{ default: ImageMetadata }>('/src/content/demo/*
           <br />
         </p>
       </TeamMember>
-      <TeamMember name="Stefan Kienzle" imgSrc="/stefan.png">
+      <TeamMember imgSrc="/stefan.png">
         <p>
-          Stefan (<a href="https://twitter.com/kienzle_s">kienzle_s</a>) is 29
+          <TeamMemberName name="Stefan Kienzle" githubName="Kienz" /> (<a href="https://twitter.com/kienzle_s">kienzle_s</a>) is 29
           years old, from Stuttgart, Germany.
           <br />
           Between 2005 and 2008 he studied business informatics at the{' '}

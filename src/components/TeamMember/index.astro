@@ -1,10 +1,11 @@
 ---
 import './index.css';
 
-interface Props {
-    withSponsor: boolean;
-    githubName: string;
+export interface Props {
+    withSponsor?: boolean;
+    githubName?: typeof withSponsor extends true ? string : never;
     imgSrc: string;
+    children: any;
 }
 
 const { withSponsor, githubName, imgSrc } = Astro.props;

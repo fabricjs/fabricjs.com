@@ -33,6 +33,10 @@ export default defineConfig({
         tsconfig: './node_modules/fabric/typedoc.config.json',
         typeDoc: {
           plugin: ['typedoc-plugin-no-inherit'],
+          readme: 'none',
+          gitRemote: 'https://github.com/fabricjs/fabric.js/blob',
+          gitRevision: 'v6.0.0-beta20',
+          entryFileName: 'index.md'
         },
       }),
     ],

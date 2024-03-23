@@ -7,9 +7,9 @@ title: "fabric"
 
 ## Namespaces
 
-- [controlsUtils](namespaces/controlsUtils/README.md)
-- [filters](namespaces/filters/README.md)
-- [util](namespaces/util/README.md)
+- [controlsUtils](namespaces/controlsUtils/index.md)
+- [filters](namespaces/filters/index.md)
+- [util](namespaces/util/index.md)
 
 ## Classes
 

@@ -44,7 +44,10 @@ export default defineConfig({
           readme: 'none',
           gitRemote: 'https://github.com/fabricjs/fabric.js/blob',
           gitRevision: 'v6.0.0-beta20',
-          entryFileName: 'index.md'
+          entryFileName: 'index.md',
+          includeVersion: true,
+          sourceLinkExternal: true,
+          sourceLinkTemplate: 'https://github.com/fabricjs/fabric.js/blob/{gitRevision}/{path}#L{line}',
         },
       }),
     ],

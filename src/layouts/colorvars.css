@@ -22,10 +22,10 @@
     /*--left-sidebar-width:85%;*/
   }
 
-  :root[data-theme='light'] {
+:root[data-theme='light'] {
     /* for STARLIGHT */
-    --sl-color-white:  var(--font-color-dark2);
-    --sl-color-accent-high: var(--primary-color);
+  --sl-color-white:  var(--font-color-dark2);
+  --sl-color-accent-high: var(--primary-color);
 	--sl-color-accent: var(--primary-color);
 	--sl-color-accent-low: var(--primary-color-tint);
 
@@ -92,7 +92,11 @@
 
   a {
     text-decoration: none;
-    color: var(--primary-color); /*#0b9,05a;font-style:italic*/
+    color: var(--primary-color);
+  }
+
+  .sidebar-content a {
+    color: var(--font-color-normal);
   }
 
   a:active,

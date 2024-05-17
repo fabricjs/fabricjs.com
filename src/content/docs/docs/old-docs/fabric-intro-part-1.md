@@ -1,7 +1,7 @@
 ---
 date: '2012-06-25'
 description: 'Understanding what FabricJS is in order to better use it in your projects'
-title: Introduction to Fabric.js. Part 1.
+title: Introduction to Fabric.js. Part 1
 ---
 
 ## Introduction to Fabric.js. Part 1.

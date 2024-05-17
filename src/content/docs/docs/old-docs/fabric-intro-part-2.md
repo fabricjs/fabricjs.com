@@ -1,7 +1,7 @@
 ---
 date: '2012-07-25'
 description: 'Understanding what FabricJS is in order to better use it in your projects'
-title: Introduction to Fabric.js. Part 2.
+title: Introduction to Fabric.js. Part 2
 ---
 
 In the [first part of this series](/fabric-intro-part-1), we only started to get familiar with Fabric.js. We looked at the reasons to use Fabric, at its object model and object hierarchy, at different kind of entities available in Fabric — simple shapes, images, and complex paths. We also learned how to perform simple operations with Fabric objects on canvas.

@@ -46,7 +46,7 @@ During this process, we populate the `fabric.charsWidthCache` with a set of sub 
 
 ```
 - charsWidthCache
-  - arial\_normal\_normal
+  - arial_normal_normal
     - F: 100
     - a: 90
     - Fa: 185

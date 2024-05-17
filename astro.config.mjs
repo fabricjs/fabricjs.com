@@ -51,5 +51,10 @@ export default defineConfig({
         },
       }),
     ],
-  }), react()]
+  }), react()],
+  vite: {
+    build: {
+      minify: false,
+    }
+  },
 });

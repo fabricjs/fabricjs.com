@@ -21,7 +21,7 @@ export const EventInspectorUI = () => {
   });
 
   useEffect(() => {
-    fabric.Object.prototype.transparentCorners = false;
+    fabric.FabricObject.ownDefaults.transparentCorners = false;
     var canvas2 = new fabric.Canvas('c1');
     canvas2.add(
       new fabric.Rect({

@@ -21,7 +21,7 @@ title: "Control"
 
 #### Defined in
 
-src/controls/Control.ts:141
+[src/controls/Control.ts:141](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/controls/Control.ts#L141)
 
 ## Properties
 
@@ -49,7 +49,7 @@ y position of the cursor
 
 #### Defined in
 
-src/controls/Control.ts:153
+[src/controls/Control.ts:153](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/controls/Control.ts#L153)
 
 ***
 
@@ -73,7 +73,7 @@ default to scale since is the most common, used on 4 corners by default
 
 #### Defined in
 
-src/controls/Control.ts:42
+[src/controls/Control.ts:42](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/controls/Control.ts#L42)
 
 ***
 
@@ -93,7 +93,7 @@ example: to reuse the same drawing function for different rotated controls
 
 #### Defined in
 
-src/controls/Control.ts:51
+[src/controls/Control.ts:51](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/controls/Control.ts#L51)
 
 ***
 
@@ -112,7 +112,7 @@ if the method `cursorStyleHandler` is provided, this property is ignored.
 
 #### Defined in
 
-src/controls/Control.ts:131
+[src/controls/Control.ts:131](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/controls/Control.ts#L131)
 
 ***
 
@@ -140,7 +140,7 @@ y position of the cursor
 
 #### Defined in
 
-src/controls/Control.ts:163
+[src/controls/Control.ts:163](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/controls/Control.ts#L163)
 
 ***
 
@@ -168,7 +168,7 @@ y position of the cursor
 
 #### Defined in
 
-src/controls/Control.ts:173
+[src/controls/Control.ts:173](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/controls/Control.ts#L173)
 
 ***
 
@@ -193,7 +193,7 @@ of the bounding box.
 
 #### Defined in
 
-src/controls/Control.ts:83
+[src/controls/Control.ts:83](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/controls/Control.ts#L83)
 
 ***
 
@@ -212,7 +212,7 @@ Positive offset moves the control to the bottom, negative to the top.
 
 #### Defined in
 
-src/controls/Control.ts:91
+[src/controls/Control.ts:91](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/controls/Control.ts#L91)
 
 ***
 
@@ -231,7 +231,7 @@ null
 
 #### Defined in
 
-src/controls/Control.ts:99
+[src/controls/Control.ts:99](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/controls/Control.ts#L99)
 
 ***
 
@@ -250,7 +250,7 @@ null
 
 #### Defined in
 
-src/controls/Control.ts:107
+[src/controls/Control.ts:107](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/controls/Control.ts#L107)
 
 ***
 
@@ -269,7 +269,7 @@ null
 
 #### Defined in
 
-src/controls/Control.ts:115
+[src/controls/Control.ts:115](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/controls/Control.ts#L115)
 
 ***
 
@@ -288,7 +288,7 @@ null
 
 #### Defined in
 
-src/controls/Control.ts:123
+[src/controls/Control.ts:123](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/controls/Control.ts#L123)
 
 ***
 
@@ -309,7 +309,7 @@ true
 
 #### Defined in
 
-src/controls/Control.ts:29
+[src/controls/Control.ts:29](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/controls/Control.ts#L29)
 
 ***
 
@@ -328,7 +328,7 @@ false
 
 #### Defined in
 
-src/controls/Control.ts:139
+[src/controls/Control.ts:139](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/controls/Control.ts#L139)
 
 ***
 
@@ -348,7 +348,7 @@ of the bounding box.
 
 #### Defined in
 
-src/controls/Control.ts:60
+[src/controls/Control.ts:60](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/controls/Control.ts#L60)
 
 ***
 
@@ -368,7 +368,7 @@ of the bounding box.
 
 #### Defined in
 
-src/controls/Control.ts:69
+[src/controls/Control.ts:69](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/controls/Control.ts#L69)
 
 ## Methods
 
@@ -423,7 +423,7 @@ true if touch corner, false if normal corner
 
 #### Defined in
 
-src/controls/Control.ts:311
+[src/controls/Control.ts:311](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/controls/Control.ts#L311)
 
 ***
 
@@ -453,7 +453,7 @@ the current control ( likely this)
 
 #### Defined in
 
-src/controls/Control.ts:244
+[src/controls/Control.ts:244](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/controls/Control.ts#L244)
 
 ***
 
@@ -485,7 +485,7 @@ the action handler
 
 #### Defined in
 
-src/controls/Control.ts:196
+[src/controls/Control.ts:196](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/controls/Control.ts#L196)
 
 ***
 
@@ -513,7 +513,7 @@ the current control ( likely this)
 
 #### Defined in
 
-src/controls/Control.ts:259
+[src/controls/Control.ts:259](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/controls/Control.ts#L259)
 
 ***
 
@@ -545,7 +545,7 @@ the action handler
 
 #### Defined in
 
-src/controls/Control.ts:211
+[src/controls/Control.ts:211](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/controls/Control.ts#L211)
 
 ***
 
@@ -578,7 +578,7 @@ the action handler
 
 #### Defined in
 
-src/controls/Control.ts:227
+[src/controls/Control.ts:227](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/controls/Control.ts#L227)
 
 ***
 
@@ -602,7 +602,7 @@ key where the control is memorized on the
 
 #### Defined in
 
-src/controls/Control.ts:273
+[src/controls/Control.ts:273](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/controls/Control.ts#L273)
 
 ***
 
@@ -626,7 +626,7 @@ src/controls/Control.ts:273
 
 #### Defined in
 
-src/controls/Control.ts:290
+[src/controls/Control.ts:290](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/controls/Control.ts#L290)
 
 ***
 
@@ -666,7 +666,7 @@ the object where the control is about to be rendered
 
 #### Defined in
 
-src/controls/Control.ts:347
+[src/controls/Control.ts:347](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/controls/Control.ts#L347)
 
 ***
 
@@ -692,7 +692,7 @@ for the object
 
 #### Defined in
 
-src/controls/Control.ts:282
+[src/controls/Control.ts:282](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/controls/Control.ts#L282)
 
 ***
 
@@ -716,4 +716,4 @@ src/controls/Control.ts:282
 
 #### Defined in
 
-src/controls/Control.ts:175
+[src/controls/Control.ts:175](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/controls/Control.ts#L175)

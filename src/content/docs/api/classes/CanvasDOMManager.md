@@ -39,7 +39,7 @@ here only for backward compatibility
 
 #### Defined in
 
-src/canvas/DOMManagers/CanvasDOMManager.ts:18
+[src/canvas/DOMManagers/CanvasDOMManager.ts:18](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/canvas/DOMManagers/CanvasDOMManager.ts#L18)
 
 ## Properties
 
@@ -49,7 +49,7 @@ src/canvas/DOMManagers/CanvasDOMManager.ts:18
 
 #### Defined in
 
-src/canvas/DOMManagers/CanvasDOMManager.ts:16
+[src/canvas/DOMManagers/CanvasDOMManager.ts:16](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/canvas/DOMManagers/CanvasDOMManager.ts#L16)
 
 ***
 
@@ -63,7 +63,7 @@ src/canvas/DOMManagers/CanvasDOMManager.ts:16
 
 #### Defined in
 
-src/canvas/DOMManagers/StaticCanvasDOMManager.ts:22
+[src/canvas/DOMManagers/StaticCanvasDOMManager.ts:22](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/canvas/DOMManagers/StaticCanvasDOMManager.ts#L22)
 
 ***
 
@@ -73,7 +73,7 @@ src/canvas/DOMManagers/StaticCanvasDOMManager.ts:22
 
 #### Defined in
 
-src/canvas/DOMManagers/CanvasDOMManager.ts:15
+[src/canvas/DOMManagers/CanvasDOMManager.ts:15](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/canvas/DOMManagers/CanvasDOMManager.ts#L15)
 
 ## Methods
 
@@ -101,7 +101,7 @@ Calculates canvas element offset relative to the document
 
 #### Defined in
 
-src/canvas/DOMManagers/StaticCanvasDOMManager.ts:71
+[src/canvas/DOMManagers/StaticCanvasDOMManager.ts:71](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/canvas/DOMManagers/StaticCanvasDOMManager.ts#L71)
 
 ***
 
@@ -123,7 +123,7 @@ src/canvas/DOMManagers/StaticCanvasDOMManager.ts:71
 
 #### Defined in
 
-src/canvas/DOMManagers/CanvasDOMManager.ts:104
+[src/canvas/DOMManagers/CanvasDOMManager.ts:104](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/canvas/DOMManagers/CanvasDOMManager.ts#L104)
 
 ***
 
@@ -141,7 +141,7 @@ src/canvas/DOMManagers/CanvasDOMManager.ts:104
 
 #### Defined in
 
-src/canvas/DOMManagers/CanvasDOMManager.ts:116
+[src/canvas/DOMManagers/CanvasDOMManager.ts:116](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/canvas/DOMManagers/CanvasDOMManager.ts#L116)
 
 ***
 
@@ -163,7 +163,7 @@ src/canvas/DOMManagers/CanvasDOMManager.ts:116
 
 #### Defined in
 
-src/canvas/DOMManagers/CanvasDOMManager.ts:98
+[src/canvas/DOMManagers/CanvasDOMManager.ts:98](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/canvas/DOMManagers/CanvasDOMManager.ts#L98)
 
 ***
 
@@ -187,4 +187,4 @@ src/canvas/DOMManagers/CanvasDOMManager.ts:98
 
 #### Defined in
 
-src/canvas/DOMManagers/CanvasDOMManager.ts:92
+[src/canvas/DOMManagers/CanvasDOMManager.ts:92](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/canvas/DOMManagers/CanvasDOMManager.ts#L92)

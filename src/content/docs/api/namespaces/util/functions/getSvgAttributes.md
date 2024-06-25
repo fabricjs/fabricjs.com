@@ -21,4 +21,4 @@ string names of supported attributes
 
 ## Defined in
 
-src/util/misc/svgParsing.ts:17
+[src/util/misc/svgParsing.ts:17](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/util/misc/svgParsing.ts#L17)

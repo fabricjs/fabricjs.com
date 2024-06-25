@@ -49,4 +49,4 @@ title: "createTextboxDefaultControls"
 
 ## Defined in
 
-src/controls/commonControls.ts:102
+[src/controls/commonControls.ts:102](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/controls/commonControls.ts#L102)

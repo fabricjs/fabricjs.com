@@ -36,7 +36,7 @@ override by subclass for persistence (TS does not support `static abstract`)
 
 #### Defined in
 
-src/LayoutManager/LayoutStrategies/LayoutStrategy.ts:25
+[src/LayoutManager/LayoutStrategies/LayoutStrategy.ts:25](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/LayoutManager/LayoutStrategies/LayoutStrategy.ts#L25)
 
 ## Methods
 
@@ -58,7 +58,7 @@ Override this method to customize layout.
 
 #### Defined in
 
-src/LayoutManager/LayoutStrategies/LayoutStrategy.ts:68
+[src/LayoutManager/LayoutStrategies/LayoutStrategy.ts:68](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/LayoutManager/LayoutStrategies/LayoutStrategy.ts#L68)
 
 ***
 
@@ -84,7 +84,7 @@ layout result **OR** `undefined` to skip layout
 
 #### Defined in
 
-src/LayoutManager/LayoutStrategies/LayoutStrategy.ts:33
+[src/LayoutManager/LayoutStrategies/LayoutStrategy.ts:33](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/LayoutManager/LayoutStrategies/LayoutStrategy.ts#L33)
 
 ***
 
@@ -104,7 +104,7 @@ src/LayoutManager/LayoutStrategies/LayoutStrategy.ts:33
 
 #### Defined in
 
-src/LayoutManager/LayoutStrategies/LayoutStrategy.ts:58
+[src/LayoutManager/LayoutStrategies/LayoutStrategy.ts:58](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/LayoutManager/LayoutStrategies/LayoutStrategy.ts#L58)
 
 ***
 
@@ -122,7 +122,7 @@ src/LayoutManager/LayoutStrategies/LayoutStrategy.ts:58
 
 #### Defined in
 
-src/LayoutManager/LayoutStrategies/LayoutStrategy.ts:50
+[src/LayoutManager/LayoutStrategies/LayoutStrategy.ts:50](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/LayoutManager/LayoutStrategies/LayoutStrategy.ts#L50)
 
 ***
 
@@ -140,4 +140,4 @@ src/LayoutManager/LayoutStrategies/LayoutStrategy.ts:50
 
 #### Defined in
 
-src/LayoutManager/LayoutStrategies/LayoutStrategy.ts:42
+[src/LayoutManager/LayoutStrategies/LayoutStrategy.ts:42](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/LayoutManager/LayoutStrategies/LayoutStrategy.ts#L42)

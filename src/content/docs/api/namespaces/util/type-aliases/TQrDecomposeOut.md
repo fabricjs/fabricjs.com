@@ -9,4 +9,4 @@ title: "TQrDecomposeOut"
 
 ## Defined in
 
-src/util/misc/matrix.ts:31
+[src/util/misc/matrix.ts:31](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/util/misc/matrix.ts#L31)

@@ -29,4 +29,4 @@ fabric
 
 ## Defined in
 
-src/parser/parsePointsAttribute.ts:10
+[src/parser/parsePointsAttribute.ts:10](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/parser/parsePointsAttribute.ts#L10)

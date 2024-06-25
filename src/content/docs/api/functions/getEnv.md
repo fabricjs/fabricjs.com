@@ -15,4 +15,4 @@ In order to support SSR we **MUST** access the browser env only after the window
 
 ## Defined in
 
-src/env/index.ts:36
+[src/env/index.ts:36](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/env/index.ts#L36)

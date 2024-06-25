@@ -19,4 +19,4 @@ title: "CollectionChangeLayoutContext"
 
 ## Defined in
 
-src/LayoutManager/types.ts:91
+[src/LayoutManager/types.ts:91](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/LayoutManager/types.ts#L91)

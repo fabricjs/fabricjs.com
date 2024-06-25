@@ -43,7 +43,7 @@ Options object
 
 #### Defined in
 
-src/filters/BaseFilter.ts:56
+[src/filters/BaseFilter.ts:56](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BaseFilter.ts#L56)
 
 ## Properties
 
@@ -53,7 +53,7 @@ src/filters/BaseFilter.ts:56
 
 #### Defined in
 
-src/filters/Grayscale.ts:24
+[src/filters/Grayscale.ts:24](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/Grayscale.ts#L24)
 
 ***
 
@@ -67,7 +67,7 @@ src/filters/Grayscale.ts:24
 
 #### Defined in
 
-src/filters/Grayscale.ts:28
+[src/filters/Grayscale.ts:28](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/Grayscale.ts#L28)
 
 ***
 
@@ -87,7 +87,7 @@ to avoid doing that.
 
 #### Defined in
 
-src/filters/Grayscale.ts:26
+[src/filters/Grayscale.ts:26](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/Grayscale.ts#L26)
 
 ***
 
@@ -105,7 +105,7 @@ needs to specify all the one that are needed
 
 #### Defined in
 
-src/filters/Grayscale.ts:30
+[src/filters/Grayscale.ts:30](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/Grayscale.ts#L30)
 
 ## Accessors
 
@@ -131,7 +131,7 @@ Filter type
 
 #### Defined in
 
-src/filters/BaseFilter.ts:30
+[src/filters/BaseFilter.ts:30](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BaseFilter.ts#L30)
 
 ## Methods
 
@@ -153,7 +153,7 @@ src/filters/BaseFilter.ts:30
 
 #### Defined in
 
-src/filters/BaseFilter.ts:204
+[src/filters/BaseFilter.ts:204](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BaseFilter.ts#L204)
 
 ***
 
@@ -175,7 +175,7 @@ src/filters/BaseFilter.ts:204
 
 #### Defined in
 
-src/filters/BaseFilter.ts:231
+[src/filters/BaseFilter.ts:231](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BaseFilter.ts#L231)
 
 ***
 
@@ -201,7 +201,7 @@ Determines whether to use WebGL or Canvas2D based on the options.webgl flag.
 
 #### Defined in
 
-src/filters/BaseFilter.ts:264
+[src/filters/BaseFilter.ts:264](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BaseFilter.ts#L264)
 
 ***
 
@@ -225,7 +225,7 @@ Apply the Grayscale operation to a Uint8Array representing the pixels of an imag
 
 #### Defined in
 
-src/filters/Grayscale.ts:38
+[src/filters/Grayscale.ts:38](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/Grayscale.ts#L38)
 
 ***
 
@@ -249,7 +249,7 @@ Apply this filter using webgl.
 
 #### Defined in
 
-src/filters/BaseFilter.ts:314
+[src/filters/BaseFilter.ts:314](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BaseFilter.ts#L314)
 
 ***
 
@@ -275,7 +275,7 @@ src/filters/BaseFilter.ts:314
 
 #### Defined in
 
-src/filters/BaseFilter.ts:333
+[src/filters/BaseFilter.ts:333](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BaseFilter.ts#L333)
 
 ***
 
@@ -300,7 +300,7 @@ remember that options.targetCanvas is available for use till end of chain.
 
 #### Defined in
 
-src/filters/BaseFilter.ts:369
+[src/filters/BaseFilter.ts:369](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BaseFilter.ts#L369)
 
 ***
 
@@ -346,7 +346,7 @@ vertexShader source for compilation
 
 #### Defined in
 
-src/filters/BaseFilter.ts:82
+[src/filters/BaseFilter.ts:82](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BaseFilter.ts#L82)
 
 ***
 
@@ -378,7 +378,7 @@ A map of attribute names to attribute locations.
 
 #### Defined in
 
-src/filters/BaseFilter.ts:152
+[src/filters/BaseFilter.ts:152](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BaseFilter.ts#L152)
 
 ***
 
@@ -399,7 +399,7 @@ Used to force recompilation when parameters change or to retrieve the shader fro
 
 #### Defined in
 
-src/filters/Grayscale.ts:61
+[src/filters/Grayscale.ts:61](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/Grayscale.ts#L61)
 
 ***
 
@@ -417,7 +417,7 @@ src/filters/Grayscale.ts:61
 
 #### Defined in
 
-src/filters/Grayscale.ts:65
+[src/filters/Grayscale.ts:65](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/Grayscale.ts#L65)
 
 ***
 
@@ -449,7 +449,7 @@ A map of uniform names to uniform locations.
 
 #### Defined in
 
-src/filters/BaseFilter.ts:168
+[src/filters/BaseFilter.ts:168](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BaseFilter.ts#L168)
 
 ***
 
@@ -467,7 +467,7 @@ src/filters/BaseFilter.ts:168
 
 #### Defined in
 
-src/filters/BaseFilter.ts:71
+[src/filters/BaseFilter.ts:71](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BaseFilter.ts#L71)
 
 ***
 
@@ -489,7 +489,7 @@ on the image
 
 #### Defined in
 
-src/filters/Grayscale.ts:88
+[src/filters/Grayscale.ts:88](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/Grayscale.ts#L88)
 
 ***
 
@@ -515,7 +515,7 @@ the compiled program shader
 
 #### Defined in
 
-src/filters/BaseFilter.ts:294
+[src/filters/BaseFilter.ts:294](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BaseFilter.ts#L294)
 
 ***
 
@@ -547,7 +547,7 @@ A map of shader attribute names to their locations.
 
 #### Defined in
 
-src/filters/BaseFilter.ts:191
+[src/filters/BaseFilter.ts:191](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BaseFilter.ts#L191)
 
 ***
 
@@ -577,7 +577,7 @@ A map of string uniform names to WebGLUniformLocation objects
 
 #### Defined in
 
-src/filters/Grayscale.ts:75
+[src/filters/Grayscale.ts:75](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/Grayscale.ts#L75)
 
 ***
 
@@ -599,7 +599,7 @@ JSON
 
 #### Defined in
 
-src/filters/BaseFilter.ts:401
+[src/filters/BaseFilter.ts:401](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BaseFilter.ts#L401)
 
 ***
 
@@ -621,7 +621,7 @@ Object representation of an instance
 
 #### Defined in
 
-src/filters/BaseFilter.ts:382
+[src/filters/BaseFilter.ts:382](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BaseFilter.ts#L382)
 
 ***
 
@@ -645,7 +645,7 @@ src/filters/BaseFilter.ts:382
 
 #### Defined in
 
-src/filters/BaseFilter.ts:344
+[src/filters/BaseFilter.ts:344](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BaseFilter.ts#L344)
 
 ***
 
@@ -669,4 +669,4 @@ src/filters/BaseFilter.ts:344
 
 #### Defined in
 
-src/filters/BaseFilter.ts:406
+[src/filters/BaseFilter.ts:406](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BaseFilter.ts#L406)

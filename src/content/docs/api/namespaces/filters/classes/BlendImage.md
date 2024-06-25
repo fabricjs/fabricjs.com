@@ -52,7 +52,7 @@ Options object
 
 #### Defined in
 
-src/filters/BaseFilter.ts:56
+[src/filters/BaseFilter.ts:56](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BaseFilter.ts#L56)
 
 ## Properties
 
@@ -65,7 +65,7 @@ not implemented.
 
 #### Defined in
 
-src/filters/BlendImage.ts:62
+[src/filters/BlendImage.ts:62](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BlendImage.ts#L62)
 
 ***
 
@@ -77,7 +77,7 @@ Image to make the blend operation with.
 
 #### Defined in
 
-src/filters/BlendImage.ts:45
+[src/filters/BlendImage.ts:45](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BlendImage.ts#L45)
 
 ***
 
@@ -99,7 +99,7 @@ image's alpha channel.
 
 #### Defined in
 
-src/filters/BlendImage.ts:56
+[src/filters/BlendImage.ts:56](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BlendImage.ts#L56)
 
 ***
 
@@ -113,7 +113,7 @@ src/filters/BlendImage.ts:56
 
 #### Defined in
 
-src/filters/BlendImage.ts:66
+[src/filters/BlendImage.ts:66](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BlendImage.ts#L66)
 
 ***
 
@@ -133,7 +133,7 @@ to avoid doing that.
 
 #### Defined in
 
-src/filters/BlendImage.ts:64
+[src/filters/BlendImage.ts:64](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BlendImage.ts#L64)
 
 ***
 
@@ -151,7 +151,7 @@ needs to specify all the one that are needed
 
 #### Defined in
 
-src/filters/BlendImage.ts:68
+[src/filters/BlendImage.ts:68](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BlendImage.ts#L68)
 
 ## Accessors
 
@@ -177,7 +177,7 @@ Filter type
 
 #### Defined in
 
-src/filters/BaseFilter.ts:30
+[src/filters/BaseFilter.ts:30](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BaseFilter.ts#L30)
 
 ## Methods
 
@@ -199,7 +199,7 @@ src/filters/BaseFilter.ts:30
 
 #### Defined in
 
-src/filters/BaseFilter.ts:204
+[src/filters/BaseFilter.ts:204](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BaseFilter.ts#L204)
 
 ***
 
@@ -221,7 +221,7 @@ src/filters/BaseFilter.ts:204
 
 #### Defined in
 
-src/filters/BaseFilter.ts:231
+[src/filters/BaseFilter.ts:231](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BaseFilter.ts#L231)
 
 ***
 
@@ -247,7 +247,7 @@ Determines whether to use WebGL or Canvas2D based on the options.webgl flag.
 
 #### Defined in
 
-src/filters/BaseFilter.ts:264
+[src/filters/BaseFilter.ts:264](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BaseFilter.ts#L264)
 
 ***
 
@@ -271,7 +271,7 @@ Apply the Blend operation to a Uint8ClampedArray representing the pixels of an i
 
 #### Defined in
 
-src/filters/BlendImage.ts:122
+[src/filters/BlendImage.ts:122](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BlendImage.ts#L122)
 
 ***
 
@@ -295,7 +295,7 @@ Apply this filter using webgl.
 
 #### Defined in
 
-src/filters/BlendImage.ts:82
+[src/filters/BlendImage.ts:82](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BlendImage.ts#L82)
 
 ***
 
@@ -321,7 +321,7 @@ src/filters/BlendImage.ts:82
 
 #### Defined in
 
-src/filters/BaseFilter.ts:333
+[src/filters/BaseFilter.ts:333](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BaseFilter.ts#L333)
 
 ***
 
@@ -337,7 +337,7 @@ Calculate a transformMatrix to adapt the image to blend over
 
 #### Defined in
 
-src/filters/BlendImage.ts:100
+[src/filters/BlendImage.ts:100](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BlendImage.ts#L100)
 
 ***
 
@@ -362,7 +362,7 @@ remember that options.targetCanvas is available for use till end of chain.
 
 #### Defined in
 
-src/filters/BaseFilter.ts:369
+[src/filters/BaseFilter.ts:369](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BaseFilter.ts#L369)
 
 ***
 
@@ -408,7 +408,7 @@ vertexShader source for compilation
 
 #### Defined in
 
-src/filters/BaseFilter.ts:82
+[src/filters/BaseFilter.ts:82](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BaseFilter.ts#L82)
 
 ***
 
@@ -428,7 +428,7 @@ src/filters/BaseFilter.ts:82
 
 #### Defined in
 
-src/filters/BlendImage.ts:90
+[src/filters/BlendImage.ts:90](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BlendImage.ts#L90)
 
 ***
 
@@ -460,7 +460,7 @@ A map of attribute names to attribute locations.
 
 #### Defined in
 
-src/filters/BaseFilter.ts:152
+[src/filters/BaseFilter.ts:152](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BaseFilter.ts#L152)
 
 ***
 
@@ -481,7 +481,7 @@ Used to force recompilation when parameters change or to retrieve the shader fro
 
 #### Defined in
 
-src/filters/BlendImage.ts:70
+[src/filters/BlendImage.ts:70](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BlendImage.ts#L70)
 
 ***
 
@@ -499,7 +499,7 @@ src/filters/BlendImage.ts:70
 
 #### Defined in
 
-src/filters/BlendImage.ts:74
+[src/filters/BlendImage.ts:74](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BlendImage.ts#L74)
 
 ***
 
@@ -531,7 +531,7 @@ A map of uniform names to uniform locations.
 
 #### Defined in
 
-src/filters/BaseFilter.ts:168
+[src/filters/BaseFilter.ts:168](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BaseFilter.ts#L168)
 
 ***
 
@@ -549,7 +549,7 @@ src/filters/BaseFilter.ts:168
 
 #### Defined in
 
-src/filters/BlendImage.ts:78
+[src/filters/BlendImage.ts:78](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BlendImage.ts#L78)
 
 ***
 
@@ -576,7 +576,7 @@ Other filters may need their own version ( ColorMatrix, HueRotation, gamma, Comp
 
 #### Defined in
 
-src/filters/BaseFilter.ts:247
+[src/filters/BaseFilter.ts:247](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BaseFilter.ts#L247)
 
 ***
 
@@ -602,7 +602,7 @@ the compiled program shader
 
 #### Defined in
 
-src/filters/BaseFilter.ts:294
+[src/filters/BaseFilter.ts:294](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BaseFilter.ts#L294)
 
 ***
 
@@ -634,7 +634,7 @@ A map of shader attribute names to their locations.
 
 #### Defined in
 
-src/filters/BaseFilter.ts:191
+[src/filters/BaseFilter.ts:191](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BaseFilter.ts#L191)
 
 ***
 
@@ -664,7 +664,7 @@ A map of string uniform names to WebGLUniformLocation objects
 
 #### Defined in
 
-src/filters/BlendImage.ts:179
+[src/filters/BlendImage.ts:179](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BlendImage.ts#L179)
 
 ***
 
@@ -686,7 +686,7 @@ JSON
 
 #### Defined in
 
-src/filters/BaseFilter.ts:401
+[src/filters/BaseFilter.ts:401](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BaseFilter.ts#L401)
 
 ***
 
@@ -710,7 +710,7 @@ Object representation of an instance
 
 #### Defined in
 
-src/filters/BlendImage.ts:194
+[src/filters/BlendImage.ts:194](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BlendImage.ts#L194)
 
 ***
 
@@ -734,7 +734,7 @@ src/filters/BlendImage.ts:194
 
 #### Defined in
 
-src/filters/BaseFilter.ts:344
+[src/filters/BaseFilter.ts:344](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BaseFilter.ts#L344)
 
 ***
 
@@ -768,4 +768,4 @@ handle aborting image loading, see https://developer.mozilla.org/en-US/docs/Web/
 
 #### Defined in
 
-src/filters/BlendImage.ts:212
+[src/filters/BlendImage.ts:212](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BlendImage.ts#L212)

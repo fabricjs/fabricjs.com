@@ -21,7 +21,7 @@ title: "LayoutManager"
 
 #### Defined in
 
-src/LayoutManager/LayoutManager.ts:39
+[src/LayoutManager/LayoutManager.ts:39](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/LayoutManager/LayoutManager.ts#L39)
 
 ## Properties
 
@@ -31,7 +31,7 @@ src/LayoutManager/LayoutManager.ts:39
 
 #### Defined in
 
-src/LayoutManager/LayoutManager.ts:37
+[src/LayoutManager/LayoutManager.ts:37](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/LayoutManager/LayoutManager.ts#L37)
 
 ## Methods
 
@@ -45,7 +45,7 @@ src/LayoutManager/LayoutManager.ts:37
 
 #### Defined in
 
-src/LayoutManager/LayoutManager.ts:330
+[src/LayoutManager/LayoutManager.ts:330](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/LayoutManager/LayoutManager.ts#L330)
 
 ***
 
@@ -63,7 +63,7 @@ src/LayoutManager/LayoutManager.ts:330
 
 #### Defined in
 
-src/LayoutManager/LayoutManager.ts:44
+[src/LayoutManager/LayoutManager.ts:44](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/LayoutManager/LayoutManager.ts#L44)
 
 ***
 
@@ -81,7 +81,7 @@ src/LayoutManager/LayoutManager.ts:44
 
 #### Defined in
 
-src/LayoutManager/LayoutManager.ts:143
+[src/LayoutManager/LayoutManager.ts:143](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/LayoutManager/LayoutManager.ts#L143)
 
 ***
 
@@ -103,7 +103,7 @@ src/LayoutManager/LayoutManager.ts:143
 
 #### Defined in
 
-src/LayoutManager/LayoutManager.ts:342
+[src/LayoutManager/LayoutManager.ts:342](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/LayoutManager/LayoutManager.ts#L342)
 
 ***
 
@@ -125,7 +125,7 @@ src/LayoutManager/LayoutManager.ts:342
 
 #### Defined in
 
-src/LayoutManager/LayoutManager.ts:335
+[src/LayoutManager/LayoutManager.ts:335](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/LayoutManager/LayoutManager.ts#L335)
 
 ***
 
@@ -143,4 +143,4 @@ src/LayoutManager/LayoutManager.ts:335
 
 #### Defined in
 
-src/LayoutManager/LayoutManager.ts:137
+[src/LayoutManager/LayoutManager.ts:137](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/LayoutManager/LayoutManager.ts#L137)

@@ -39,4 +39,4 @@ width part of the svg tag if viewBox is not specified
 
 ## Defined in
 
-src/gradient/typedefs.ts:85
+[src/gradient/typedefs.ts:85](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/gradient/typedefs.ts#L85)

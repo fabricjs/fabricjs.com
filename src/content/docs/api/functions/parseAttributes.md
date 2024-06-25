@@ -30,4 +30,4 @@ object containing parsed attributes' names/values
 
 ## Defined in
 
-src/parser/parseAttributes.ts:19
+[src/parser/parseAttributes.ts:19](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/parser/parseAttributes.ts#L19)

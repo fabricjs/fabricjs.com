@@ -21,4 +21,4 @@ FabricObject(s) parsed from svg, to group
 
 ## Defined in
 
-src/util/misc/groupSVGElements.ts:12
+[src/util/misc/groupSVGElements.ts:12](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/util/misc/groupSVGElements.ts#L12)

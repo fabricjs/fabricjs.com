@@ -29,4 +29,4 @@ data url
 
 ## Defined in
 
-src/util/misc/dom.ts:46
+[src/util/misc/dom.ts:46](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/util/misc/dom.ts#L46)

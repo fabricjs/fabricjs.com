@@ -18,7 +18,7 @@ title: "GroupOwnProps"
 
 #### Defined in
 
-src/shapes/Group.ts:56
+[src/shapes/Group.ts:56](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/shapes/Group.ts#L56)
 
 ***
 
@@ -28,4 +28,4 @@ src/shapes/Group.ts:56
 
 #### Defined in
 
-src/shapes/Group.ts:55
+[src/shapes/Group.ts:55](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/shapes/Group.ts#L55)

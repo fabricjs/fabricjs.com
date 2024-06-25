@@ -19,4 +19,4 @@ title: "dotProduct"
 
 ## Defined in
 
-src/util/misc/vectors.ts:83
+[src/util/misc/vectors.ts:83](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/util/misc/vectors.ts#L83)

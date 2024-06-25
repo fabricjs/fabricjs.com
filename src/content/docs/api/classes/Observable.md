@@ -55,7 +55,7 @@ Options object
 
 #### Defined in
 
-src/Observable.ts:159
+[src/Observable.ts:159](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/Observable.ts#L159)
 
 ***
 
@@ -87,7 +87,7 @@ event listener to unsubscribe
 
 ##### Defined in
 
-src/Observable.ts:120
+[src/Observable.ts:120](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/Observable.ts#L120)
 
 #### off(handlers)
 
@@ -107,7 +107,7 @@ handlers key/value pairs (eg. {'after:render': handler, 'selection:cleared': han
 
 ##### Defined in
 
-src/Observable.ts:125
+[src/Observable.ts:125](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/Observable.ts#L125)
 
 #### off()
 
@@ -121,7 +121,7 @@ unsubscribe all event listeners
 
 ##### Defined in
 
-src/Observable.ts:129
+[src/Observable.ts:129](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/Observable.ts#L129)
 
 ***
 
@@ -161,7 +161,7 @@ on
 
 ##### Defined in
 
-src/Observable.ts:23
+[src/Observable.ts:23](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/Observable.ts#L23)
 
 #### on(handlers)
 
@@ -177,7 +177,7 @@ src/Observable.ts:23
 
 ##### Defined in
 
-src/Observable.ts:27
+[src/Observable.ts:27](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/Observable.ts#L27)
 
 ***
 
@@ -217,7 +217,7 @@ once
 
 ##### Defined in
 
-src/Observable.ts:62
+[src/Observable.ts:62](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/Observable.ts#L62)
 
 #### once(handlers)
 
@@ -233,4 +233,4 @@ src/Observable.ts:62
 
 ##### Defined in
 
-src/Observable.ts:66
+[src/Observable.ts:66](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/Observable.ts#L66)

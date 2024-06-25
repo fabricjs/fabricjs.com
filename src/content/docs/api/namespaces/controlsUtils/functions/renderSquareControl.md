@@ -42,4 +42,4 @@ the fabric object for which we are rendering controls
 
 ## Defined in
 
-src/controls/controlRendering.ts:98
+[src/controls/controlRendering.ts:98](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/controls/controlRendering.ts#L98)

@@ -21,4 +21,4 @@ the angle in radians from `a` to `b`
 
 ## Defined in
 
-src/util/misc/vectors.ts:39
+[src/util/misc/vectors.ts:39](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/util/misc/vectors.ts#L39)

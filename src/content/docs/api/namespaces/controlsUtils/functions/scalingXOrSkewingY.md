@@ -33,4 +33,4 @@ true if some change happened
 
 ## Defined in
 
-src/controls/scaleSkew.ts:63
+[src/controls/scaleSkew.ts:63](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/controls/scaleSkew.ts#L63)

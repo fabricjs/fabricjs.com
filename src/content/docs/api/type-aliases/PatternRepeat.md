@@ -9,4 +9,4 @@ title: "PatternRepeat"
 
 ## Defined in
 
-src/Pattern/types.ts:3
+[src/Pattern/types.ts:3](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/Pattern/types.ts#L3)

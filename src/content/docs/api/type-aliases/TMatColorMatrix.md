@@ -9,4 +9,4 @@ title: "TMatColorMatrix"
 
 ## Defined in
 
-src/filters/typedefs.ts:62
+[src/filters/typedefs.ts:62](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/typedefs.ts#L62)

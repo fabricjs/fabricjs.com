@@ -37,13 +37,13 @@ export default defineConfig({
     plugins: [
       // Generate the documentation.
       starlightTypeDoc({
-        entryPoints: ['./node_modules/fabric/fabric.ts'],
-        tsconfig: './node_modules/fabric/typedoc.config.json',
+        entryPoints: ['./fabric.js/fabric.ts'],
+        tsconfig: './fabric.js/typedoc.config.json',
         typeDoc: {
           plugin: ['typedoc-plugin-no-inherit'],
           readme: 'none',
           gitRemote: 'https://github.com/fabricjs/fabric.js/blob',
-          gitRevision: 'v6.0.0-beta20',
+          gitRevision: 'v6.0.0-rc4',
           entryFileName: 'index.md',
           includeVersion: true,
           sourceLinkExternal: true,

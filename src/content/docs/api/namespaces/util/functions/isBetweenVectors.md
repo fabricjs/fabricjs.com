@@ -29,4 +29,4 @@ true if the vector is among the others
 
 ## Defined in
 
-src/util/misc/vectors.ts:94
+[src/util/misc/vectors.ts:94](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/util/misc/vectors.ts#L94)

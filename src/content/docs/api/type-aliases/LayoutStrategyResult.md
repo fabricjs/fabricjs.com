@@ -39,4 +39,4 @@ new width and height of the layout target
 
 ## Defined in
 
-src/LayoutManager/types.ts:28
+[src/LayoutManager/types.ts:28](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/LayoutManager/types.ts#L28)

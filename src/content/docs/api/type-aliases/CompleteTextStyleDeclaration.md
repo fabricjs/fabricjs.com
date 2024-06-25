@@ -9,4 +9,4 @@ title: "CompleteTextStyleDeclaration"
 
 ## Defined in
 
-src/shapes/Text/StyledText.ts:11
+[src/shapes/Text/StyledText.ts:11](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/shapes/Text/StyledText.ts#L11)

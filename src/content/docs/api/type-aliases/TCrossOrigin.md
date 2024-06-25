@@ -15,4 +15,4 @@ https://developer.mozilla.org/en-US/docs/HTML/CORS_settings_attributes
 
 ## Defined in
 
-src/typedefs.ts:73
+[src/typedefs.ts:73](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/typedefs.ts#L73)

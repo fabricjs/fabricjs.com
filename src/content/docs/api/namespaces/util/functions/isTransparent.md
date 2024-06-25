@@ -33,4 +33,4 @@ true if transparent
 
 ## Defined in
 
-src/util/misc/isTransparent.ts:10
+[src/util/misc/isTransparent.ts:10](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/util/misc/isTransparent.ts#L10)

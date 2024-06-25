@@ -21,4 +21,4 @@ merged clip path
 
 ## Defined in
 
-src/util/misc/mergeClipPaths.ts:23
+[src/util/misc/mergeClipPaths.ts:23](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/util/misc/mergeClipPaths.ts#L23)

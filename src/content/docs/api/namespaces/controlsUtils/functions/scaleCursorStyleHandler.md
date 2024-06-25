@@ -29,4 +29,4 @@ a valid css string for the cursor
 
 ## Defined in
 
-src/controls/scale.ts:94
+[src/controls/scale.ts:94](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/controls/scale.ts#L94)

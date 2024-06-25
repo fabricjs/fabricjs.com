@@ -18,7 +18,7 @@ title: "MiscEvents"
 
 #### Defined in
 
-src/EventTypeDefs.ts:268
+[src/EventTypeDefs.ts:268](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/EventTypeDefs.ts#L268)
 
 ***
 
@@ -28,4 +28,4 @@ src/EventTypeDefs.ts:268
 
 #### Defined in
 
-src/EventTypeDefs.ts:267
+[src/EventTypeDefs.ts:267](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/EventTypeDefs.ts#L267)

@@ -19,4 +19,4 @@ title: "TTranslateMatrixArgs"
 
 ## Defined in
 
-src/util/misc/matrix.ts:13
+[src/util/misc/matrix.ts:13](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/util/misc/matrix.ts#L13)

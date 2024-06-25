@@ -17,4 +17,4 @@ title: "animateColor"
 
 ## Defined in
 
-src/util/animation/animate.ts:70
+[src/util/animation/animate.ts:70](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/util/animation/animate.ts#L70)

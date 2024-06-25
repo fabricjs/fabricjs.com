@@ -57,4 +57,4 @@ The object this animation is being performed on
 
 ## Defined in
 
-src/util/animation/types.ts:50
+[src/util/animation/types.ts:50](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/util/animation/types.ts#L50)

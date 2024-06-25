@@ -27,4 +27,4 @@ title: "TPipelineResources"
 
 ## Defined in
 
-src/filters/typedefs.ts:8
+[src/filters/typedefs.ts:8](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/typedefs.ts#L8)

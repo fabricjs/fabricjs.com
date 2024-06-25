@@ -21,4 +21,4 @@ will be undefined if layout was skipped
 
 ## Defined in
 
-src/LayoutManager/types.ts:144
+[src/LayoutManager/types.ts:144](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/LayoutManager/types.ts#L144)

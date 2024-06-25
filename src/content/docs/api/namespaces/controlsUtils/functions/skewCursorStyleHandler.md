@@ -29,4 +29,4 @@ a valid css string for the cursor
 
 ## Defined in
 
-src/controls/skew.ts:64
+[src/controls/skew.ts:64](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/controls/skew.ts#L64)

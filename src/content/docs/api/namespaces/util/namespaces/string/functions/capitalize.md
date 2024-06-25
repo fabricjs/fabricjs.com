@@ -27,4 +27,4 @@ Capitalized version of a string
 
 ## Defined in
 
-src/util/lang\_string.ts:9
+[src/util/lang\_string.ts:9](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/util/lang_string.ts#L9)

@@ -25,4 +25,4 @@ The new rotated point
 
 ## Defined in
 
-src/util/misc/vectors.ts:14
+[src/util/misc/vectors.ts:14](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/util/misc/vectors.ts#L14)

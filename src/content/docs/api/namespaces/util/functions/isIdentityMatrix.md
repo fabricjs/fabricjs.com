@@ -17,4 +17,4 @@ title: "isIdentityMatrix"
 
 ## Defined in
 
-src/util/misc/matrix.ts:35
+[src/util/misc/matrix.ts:35](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/util/misc/matrix.ts#L35)

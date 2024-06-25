@@ -25,4 +25,4 @@ scale factor to apply to source to cover destination
 
 ## Defined in
 
-src/util/misc/findScaleTo.ts:25
+[src/util/misc/findScaleTo.ts:25](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/util/misc/findScaleTo.ts#L25)

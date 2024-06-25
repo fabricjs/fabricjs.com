@@ -116,4 +116,4 @@ both agree on every point
 
 ## Defined in
 
-src/EventTypeDefs.ts:56
+[src/EventTypeDefs.ts:56](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/EventTypeDefs.ts#L56)

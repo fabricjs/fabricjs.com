@@ -22,4 +22,4 @@ This is exposed for special cases, such as configuring a test environment, and s
 
 ## Defined in
 
-src/env/index.ts:29
+[src/env/index.ts:29](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/env/index.ts#L29)

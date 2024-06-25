@@ -13,4 +13,4 @@ title: "TextStyle"
 
 ## Defined in
 
-src/shapes/Text/StyledText.ts:18
+[src/shapes/Text/StyledText.ts:18](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/shapes/Text/StyledText.ts#L18)

@@ -25,4 +25,4 @@ Sinusoidal easing in
 
 ## Defined in
 
-src/util/animation/easing.ts:111
+[src/util/animation/easing.ts:111](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/util/animation/easing.ts#L111)

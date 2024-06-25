@@ -23,4 +23,4 @@ CSS rules of this document
 
 ## Defined in
 
-src/parser/getCSSRules.ts:8
+[src/parser/getCSSRules.ts:8](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/parser/getCSSRules.ts#L8)

@@ -31,4 +31,4 @@ title: "TPathSegmentInfoCommon"
 
 ## Defined in
 
-src/util/path/typedefs.ts:4
+[src/util/path/typedefs.ts:4](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/util/path/typedefs.ts#L4)

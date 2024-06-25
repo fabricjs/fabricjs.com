@@ -9,4 +9,4 @@ title: "TBlendMode"
 
 ## Defined in
 
-src/filters/BlendColor.ts:7
+[src/filters/BlendColor.ts:7](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BlendColor.ts#L7)

@@ -51,4 +51,4 @@ title: "TSVGExportOptions"
 
 ## Defined in
 
-src/canvas/StaticCanvas.ts:62
+[src/canvas/StaticCanvas.ts:62](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/canvas/StaticCanvas.ts#L62)

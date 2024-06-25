@@ -9,4 +9,4 @@ title: "TColorArg"
 
 ## Defined in
 
-src/color/typedefs.ts:18
+[src/color/typedefs.ts:18](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/color/typedefs.ts#L18)

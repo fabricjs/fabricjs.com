@@ -29,4 +29,4 @@ true if the style changed
 
 ## Defined in
 
-src/util/misc/textStyles.ts:21
+[src/util/misc/textStyles.ts:21](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/util/misc/textStyles.ts#L21)

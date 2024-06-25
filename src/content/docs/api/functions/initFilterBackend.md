@@ -15,4 +15,4 @@ Verifies if it is possible to initialize webgl or fallback on a canvas2d filteri
 
 ## Defined in
 
-src/filters/FilterBackend.ts:14
+[src/filters/FilterBackend.ts:14](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/FilterBackend.ts#L14)

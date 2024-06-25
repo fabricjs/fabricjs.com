@@ -29,4 +29,4 @@ The product of the two transform matrices
 
 ## Defined in
 
-src/util/misc/matrix.ts:73
+[src/util/misc/matrix.ts:73](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/util/misc/matrix.ts#L73)

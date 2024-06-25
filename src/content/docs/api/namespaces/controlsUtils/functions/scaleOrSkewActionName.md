@@ -29,4 +29,4 @@ an action name
 
 ## Defined in
 
-src/controls/scaleSkew.ts:23
+[src/controls/scaleSkew.ts:23](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/controls/scaleSkew.ts#L23)

@@ -27,4 +27,4 @@ the transform matrix that was applied to `object`
 
 ## Defined in
 
-src/util/misc/planeChange.ts:81
+[src/util/misc/planeChange.ts:81](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/util/misc/planeChange.ts#L81)

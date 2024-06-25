@@ -27,4 +27,4 @@ title: "SprayBrushPoint"
 
 ## Defined in
 
-src/brushes/typedefs.ts:13
+[src/brushes/typedefs.ts:13](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/brushes/typedefs.ts#L13)

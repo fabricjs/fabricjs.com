@@ -9,4 +9,4 @@ title: "Brownie"
 
 ## Defined in
 
-src/filters/ColorMatrixFilters.ts:27
+[src/filters/ColorMatrixFilters.ts:27](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/ColorMatrixFilters.ts#L27)

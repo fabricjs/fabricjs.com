@@ -28,4 +28,4 @@ the destination transform
 
 ## Defined in
 
-src/util/misc/objectTransforms.ts:43
+[src/util/misc/objectTransforms.ts:43](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/util/misc/objectTransforms.ts#L43)

@@ -29,7 +29,7 @@ optional in hex or rgb(a) or hsl format or from known color list
 
 #### Defined in
 
-src/color/Color.ts:25
+[src/color/Color.ts:25](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/color/Color.ts#L25)
 
 ## Properties
 
@@ -39,7 +39,7 @@ src/color/Color.ts:25
 
 #### Defined in
 
-src/color/Color.ts:19
+[src/color/Color.ts:19](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/color/Color.ts#L19)
 
 ## Methods
 
@@ -57,7 +57,7 @@ Gets value of alpha channel for this color
 
 #### Defined in
 
-src/color/Color.ts:131
+[src/color/Color.ts:131](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/color/Color.ts#L131)
 
 ***
 
@@ -73,7 +73,7 @@ Returns source of this color (where source is an array representation; ex: [200,
 
 #### Defined in
 
-src/color/Color.ts:62
+[src/color/Color.ts:62](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/color/Color.ts#L62)
 
 ***
 
@@ -95,7 +95,7 @@ thisArg
 
 #### Defined in
 
-src/color/Color.ts:171
+[src/color/Color.ts:171](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/color/Color.ts#L171)
 
 ***
 
@@ -119,7 +119,7 @@ thisArg
 
 #### Defined in
 
-src/color/Color.ts:140
+[src/color/Color.ts:140](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/color/Color.ts#L140)
 
 ***
 
@@ -139,7 +139,7 @@ Sets source of this color (where source is an array representation; ex: [200, 20
 
 #### Defined in
 
-src/color/Color.ts:70
+[src/color/Color.ts:70](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/color/Color.ts#L70)
 
 ***
 
@@ -161,7 +161,7 @@ thisArg
 
 #### Defined in
 
-src/color/Color.ts:159
+[src/color/Color.ts:159](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/color/Color.ts#L159)
 
 ***
 
@@ -179,7 +179,7 @@ thisArg
 
 #### Defined in
 
-src/color/Color.ts:149
+[src/color/Color.ts:149](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/color/Color.ts#L149)
 
 ***
 
@@ -197,7 +197,7 @@ ex: FF5555
 
 #### Defined in
 
-src/color/Color.ts:113
+[src/color/Color.ts:113](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/color/Color.ts#L113)
 
 ***
 
@@ -215,7 +215,7 @@ ex: FF5555CC
 
 #### Defined in
 
-src/color/Color.ts:122
+[src/color/Color.ts:122](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/color/Color.ts#L122)
 
 ***
 
@@ -233,7 +233,7 @@ ex: hsl(0-360,0%-100%,0%-100%)
 
 #### Defined in
 
-src/color/Color.ts:95
+[src/color/Color.ts:95](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/color/Color.ts#L95)
 
 ***
 
@@ -251,7 +251,7 @@ ex: hsla(0-360,0%-100%,0%-100%,0-1)
 
 #### Defined in
 
-src/color/Color.ts:104
+[src/color/Color.ts:104](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/color/Color.ts#L104)
 
 ***
 
@@ -269,7 +269,7 @@ ex: rgb(0-255,0-255,0-255)
 
 #### Defined in
 
-src/color/Color.ts:78
+[src/color/Color.ts:78](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/color/Color.ts#L78)
 
 ***
 
@@ -287,7 +287,7 @@ ex: rgba(0-255,0-255,0-255,0-1)
 
 #### Defined in
 
-src/color/Color.ts:87
+[src/color/Color.ts:87](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/color/Color.ts#L87)
 
 ***
 
@@ -315,7 +315,7 @@ Color
 
 #### Defined in
 
-src/color/Color.ts:296
+[src/color/Color.ts:296](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/color/Color.ts#L296)
 
 ***
 
@@ -341,7 +341,7 @@ Color
 
 #### Defined in
 
-src/color/Color.ts:234
+[src/color/Color.ts:234](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/color/Color.ts#L234)
 
 ***
 
@@ -369,7 +369,7 @@ Color
 
 #### Defined in
 
-src/color/Color.ts:246
+[src/color/Color.ts:246](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/color/Color.ts#L246)
 
 ***
 
@@ -395,7 +395,7 @@ Color
 
 #### Defined in
 
-src/color/Color.ts:193
+[src/color/Color.ts:193](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/color/Color.ts#L193)
 
 ***
 
@@ -423,7 +423,7 @@ Color
 
 #### Defined in
 
-src/color/Color.ts:205
+[src/color/Color.ts:205](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/color/Color.ts#L205)
 
 ***
 
@@ -454,7 +454,7 @@ Color
 
 #### Defined in
 
-src/color/Color.ts:332
+[src/color/Color.ts:332](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/color/Color.ts#L332)
 
 ***
 
@@ -484,7 +484,7 @@ Color
 
 #### Defined in
 
-src/color/Color.ts:307
+[src/color/Color.ts:307](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/color/Color.ts#L307)
 
 ***
 
@@ -517,7 +517,7 @@ http://http://www.w3.org/TR/css3-color/#hsl-color
 
 #### Defined in
 
-src/color/Color.ts:258
+[src/color/Color.ts:258](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/color/Color.ts#L258)
 
 ***
 
@@ -545,4 +545,4 @@ Color
 
 #### Defined in
 
-src/color/Color.ts:215
+[src/color/Color.ts:215](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/color/Color.ts#L215)

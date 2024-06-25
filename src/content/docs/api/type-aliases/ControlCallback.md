@@ -25,4 +25,4 @@ title: "ControlCallback"
 
 ## Defined in
 
-src/EventTypeDefs.ts:44
+[src/EventTypeDefs.ts:44](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/EventTypeDefs.ts#L44)

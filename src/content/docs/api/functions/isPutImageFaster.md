@@ -24,4 +24,4 @@ putImageData is faster than drawImage for that specific operation.
 
 ## Defined in
 
-src/filters/utils.ts:18
+[src/filters/utils.ts:18](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/utils.ts#L18)

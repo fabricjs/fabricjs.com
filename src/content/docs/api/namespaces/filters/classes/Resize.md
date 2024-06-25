@@ -43,7 +43,7 @@ Options object
 
 #### Defined in
 
-src/filters/BaseFilter.ts:56
+[src/filters/BaseFilter.ts:56](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BaseFilter.ts#L56)
 
 ## Properties
 
@@ -63,7 +63,7 @@ LanczosLobes parameter for lanczos filter, valid for resizeType lanczos
 
 #### Defined in
 
-src/filters/Resize.ts:80
+[src/filters/Resize.ts:80](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/Resize.ts#L80)
 
 ***
 
@@ -83,7 +83,7 @@ bilinear, hermite, sliceHack, lanczos.
 
 #### Defined in
 
-src/filters/Resize.ts:59
+[src/filters/Resize.ts:59](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/Resize.ts#L59)
 
 ***
 
@@ -103,7 +103,7 @@ Scale factor for resizing, x axis
 
 #### Defined in
 
-src/filters/Resize.ts:66
+[src/filters/Resize.ts:66](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/Resize.ts#L66)
 
 ***
 
@@ -123,7 +123,7 @@ Scale factor for resizing, y axis
 
 #### Defined in
 
-src/filters/Resize.ts:73
+[src/filters/Resize.ts:73](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/Resize.ts#L73)
 
 ***
 
@@ -137,7 +137,7 @@ src/filters/Resize.ts:73
 
 #### Defined in
 
-src/filters/Resize.ts:84
+[src/filters/Resize.ts:84](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/Resize.ts#L84)
 
 ***
 
@@ -157,7 +157,7 @@ to avoid doing that.
 
 #### Defined in
 
-src/filters/Resize.ts:82
+[src/filters/Resize.ts:82](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/Resize.ts#L82)
 
 ***
 
@@ -175,7 +175,7 @@ needs to specify all the one that are needed
 
 #### Defined in
 
-src/filters/Resize.ts:86
+[src/filters/Resize.ts:86](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/Resize.ts#L86)
 
 ## Accessors
 
@@ -201,7 +201,7 @@ Filter type
 
 #### Defined in
 
-src/filters/BaseFilter.ts:30
+[src/filters/BaseFilter.ts:30](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BaseFilter.ts#L30)
 
 ## Methods
 
@@ -223,7 +223,7 @@ src/filters/BaseFilter.ts:30
 
 #### Defined in
 
-src/filters/BaseFilter.ts:204
+[src/filters/BaseFilter.ts:204](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BaseFilter.ts#L204)
 
 ***
 
@@ -245,7 +245,7 @@ src/filters/BaseFilter.ts:204
 
 #### Defined in
 
-src/filters/BaseFilter.ts:231
+[src/filters/BaseFilter.ts:231](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BaseFilter.ts#L231)
 
 ***
 
@@ -270,7 +270,7 @@ Determines whether to use WebGL or Canvas2D based on the options.webgl flag.
 
 #### Defined in
 
-src/filters/Resize.ts:197
+[src/filters/Resize.ts:197](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/Resize.ts#L197)
 
 ***
 
@@ -294,7 +294,7 @@ src/filters/Resize.ts:197
 
 #### Defined in
 
-src/filters/Resize.ts:223
+[src/filters/Resize.ts:223](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/Resize.ts#L223)
 
 ***
 
@@ -314,7 +314,7 @@ src/filters/Resize.ts:223
 
 #### Defined in
 
-src/filters/Resize.ts:163
+[src/filters/Resize.ts:163](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/Resize.ts#L163)
 
 ***
 
@@ -338,7 +338,7 @@ Apply this filter using webgl.
 
 #### Defined in
 
-src/filters/BaseFilter.ts:314
+[src/filters/BaseFilter.ts:314](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BaseFilter.ts#L314)
 
 ***
 
@@ -376,7 +376,7 @@ Destination Height
 
 #### Defined in
 
-src/filters/Resize.ts:417
+[src/filters/Resize.ts:417](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/Resize.ts#L417)
 
 ***
 
@@ -402,7 +402,7 @@ src/filters/Resize.ts:417
 
 #### Defined in
 
-src/filters/BaseFilter.ts:333
+[src/filters/BaseFilter.ts:333](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BaseFilter.ts#L333)
 
 ***
 
@@ -427,7 +427,7 @@ remember that options.targetCanvas is available for use till end of chain.
 
 #### Defined in
 
-src/filters/BaseFilter.ts:369
+[src/filters/BaseFilter.ts:369](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BaseFilter.ts#L369)
 
 ***
 
@@ -473,7 +473,7 @@ vertexShader source for compilation
 
 #### Defined in
 
-src/filters/BaseFilter.ts:82
+[src/filters/BaseFilter.ts:82](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BaseFilter.ts#L82)
 
 ***
 
@@ -493,7 +493,7 @@ Generate vertex and shader sources from the necessary steps numbers
 
 #### Defined in
 
-src/filters/Resize.ts:136
+[src/filters/Resize.ts:136](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/Resize.ts#L136)
 
 ***
 
@@ -525,7 +525,7 @@ A map of attribute names to attribute locations.
 
 #### Defined in
 
-src/filters/BaseFilter.ts:152
+[src/filters/BaseFilter.ts:152](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BaseFilter.ts#L152)
 
 ***
 
@@ -550,7 +550,7 @@ Used to force recompilation when parameters change or to retrieve the shader fro
 
 #### Defined in
 
-src/filters/Resize.ts:111
+[src/filters/Resize.ts:111](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/Resize.ts#L111)
 
 ***
 
@@ -568,7 +568,7 @@ src/filters/Resize.ts:111
 
 #### Defined in
 
-src/filters/Resize.ts:106
+[src/filters/Resize.ts:106](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/Resize.ts#L106)
 
 ***
 
@@ -590,7 +590,7 @@ src/filters/Resize.ts:106
 
 #### Defined in
 
-src/filters/Resize.ts:116
+[src/filters/Resize.ts:116](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/Resize.ts#L116)
 
 ***
 
@@ -608,7 +608,7 @@ src/filters/Resize.ts:116
 
 #### Defined in
 
-src/filters/Resize.ts:121
+[src/filters/Resize.ts:121](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/Resize.ts#L121)
 
 ***
 
@@ -640,7 +640,7 @@ A map of uniform names to uniform locations.
 
 #### Defined in
 
-src/filters/BaseFilter.ts:168
+[src/filters/BaseFilter.ts:168](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BaseFilter.ts#L168)
 
 ***
 
@@ -658,7 +658,7 @@ src/filters/BaseFilter.ts:168
 
 #### Defined in
 
-src/filters/BaseFilter.ts:71
+[src/filters/BaseFilter.ts:71](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BaseFilter.ts#L71)
 
 ***
 
@@ -696,7 +696,7 @@ Destination Height
 
 #### Defined in
 
-src/filters/Resize.ts:480
+[src/filters/Resize.ts:480](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/Resize.ts#L480)
 
 ***
 
@@ -719,7 +719,7 @@ Other filters may need their own version ( ColorMatrix, HueRotation, gamma, Comp
 
 #### Defined in
 
-src/filters/Resize.ts:205
+[src/filters/Resize.ts:205](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/Resize.ts#L205)
 
 ***
 
@@ -745,7 +745,7 @@ src/filters/Resize.ts:205
 
 #### Defined in
 
-src/filters/Resize.ts:209
+[src/filters/Resize.ts:209](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/Resize.ts#L209)
 
 ***
 
@@ -783,7 +783,7 @@ Destination Height
 
 #### Defined in
 
-src/filters/Resize.ts:326
+[src/filters/Resize.ts:326](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/Resize.ts#L326)
 
 ***
 
@@ -809,7 +809,7 @@ the compiled program shader
 
 #### Defined in
 
-src/filters/BaseFilter.ts:294
+[src/filters/BaseFilter.ts:294](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BaseFilter.ts#L294)
 
 ***
 
@@ -841,7 +841,7 @@ A map of shader attribute names to their locations.
 
 #### Defined in
 
-src/filters/BaseFilter.ts:191
+[src/filters/BaseFilter.ts:191](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BaseFilter.ts#L191)
 
 ***
 
@@ -873,7 +873,7 @@ A map of string uniform names to WebGLUniformLocation objects
 
 #### Defined in
 
-src/filters/Resize.ts:94
+[src/filters/Resize.ts:94](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/Resize.ts#L94)
 
 ***
 
@@ -909,7 +909,7 @@ Destination Height
 
 #### Defined in
 
-src/filters/Resize.ts:261
+[src/filters/Resize.ts:261](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/Resize.ts#L261)
 
 ***
 
@@ -931,7 +931,7 @@ JSON
 
 #### Defined in
 
-src/filters/BaseFilter.ts:401
+[src/filters/BaseFilter.ts:401](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BaseFilter.ts#L401)
 
 ***
 
@@ -953,7 +953,7 @@ Object representation of an instance
 
 #### Defined in
 
-src/filters/BaseFilter.ts:382
+[src/filters/BaseFilter.ts:382](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BaseFilter.ts#L382)
 
 ***
 
@@ -977,7 +977,7 @@ src/filters/BaseFilter.ts:382
 
 #### Defined in
 
-src/filters/BaseFilter.ts:344
+[src/filters/BaseFilter.ts:344](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BaseFilter.ts#L344)
 
 ***
 
@@ -1001,4 +1001,4 @@ src/filters/BaseFilter.ts:344
 
 #### Defined in
 
-src/filters/BaseFilter.ts:406
+[src/filters/BaseFilter.ts:406](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BaseFilter.ts#L406)

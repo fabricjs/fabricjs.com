@@ -16,4 +16,4 @@ Those handlers run when the user starts a transform and during a transform
 
 ## Defined in
 
-src/EventTypeDefs.ts:35
+[src/EventTypeDefs.ts:35](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/EventTypeDefs.ts#L35)

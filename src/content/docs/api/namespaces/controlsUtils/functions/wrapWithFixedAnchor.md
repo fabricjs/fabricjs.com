@@ -28,4 +28,4 @@ a function with an action handler signature
 
 ## Defined in
 
-src/controls/wrapWithFixedAnchor.ts:9
+[src/controls/wrapWithFixedAnchor.ts:9](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/controls/wrapWithFixedAnchor.ts#L9)

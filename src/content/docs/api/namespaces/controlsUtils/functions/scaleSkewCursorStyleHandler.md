@@ -29,4 +29,4 @@ a valid css string for the cursor
 
 ## Defined in
 
-src/controls/scaleSkew.ts:45
+[src/controls/scaleSkew.ts:45](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/controls/scaleSkew.ts#L45)

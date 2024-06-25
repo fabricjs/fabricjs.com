@@ -15,4 +15,4 @@ title: "TBrushEventData"
 
 ## Defined in
 
-src/brushes/typedefs.ts:4
+[src/brushes/typedefs.ts:4](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/brushes/typedefs.ts#L4)

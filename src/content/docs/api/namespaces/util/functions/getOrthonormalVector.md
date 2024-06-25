@@ -23,4 +23,4 @@ the unit orthogonal vector
 
 ## Defined in
 
-src/util/misc/vectors.ts:62
+[src/util/misc/vectors.ts:62](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/util/misc/vectors.ts#L62)

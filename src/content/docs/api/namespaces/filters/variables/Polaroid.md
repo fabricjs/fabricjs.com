@@ -9,4 +9,4 @@ title: "Polaroid"
 
 ## Defined in
 
-src/filters/ColorMatrixFilters.ts:59
+[src/filters/ColorMatrixFilters.ts:59](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/ColorMatrixFilters.ts#L59)

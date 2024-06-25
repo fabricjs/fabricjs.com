@@ -31,4 +31,4 @@ title: "TDataUrlOptions"
 
 ## Defined in
 
-src/typedefs.ts:110
+[src/typedefs.ts:110](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/typedefs.ts#L110)

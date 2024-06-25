@@ -23,4 +23,4 @@ title: "scalingY"
 
 ## Defined in
 
-src/controls/scale.ts:283
+[src/controls/scale.ts:283](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/controls/scale.ts#L283)

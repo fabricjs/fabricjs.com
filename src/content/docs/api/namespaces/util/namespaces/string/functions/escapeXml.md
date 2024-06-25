@@ -21,4 +21,4 @@ Escaped version of a string
 
 ## Defined in
 
-src/util/lang\_string.ts:19
+[src/util/lang\_string.ts:19](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/util/lang_string.ts#L19)

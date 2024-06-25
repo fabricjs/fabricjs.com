@@ -48,7 +48,7 @@ animate({
 
 ### Defined in
 
-src/util/animation/animate.ts:50
+[src/util/animation/animate.ts:50](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/util/animation/animate.ts#L50)
 
 ## animate(options)
 
@@ -64,7 +64,7 @@ src/util/animation/animate.ts:50
 
 ### Defined in
 
-src/util/animation/animate.ts:51
+[src/util/animation/animate.ts:51](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/util/animation/animate.ts#L51)
 
 ## animate(options)
 
@@ -84,4 +84,4 @@ src/util/animation/animate.ts:51
 
 ### Defined in
 
-src/util/animation/animate.ts:52
+[src/util/animation/animate.ts:52](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/util/animation/animate.ts#L52)

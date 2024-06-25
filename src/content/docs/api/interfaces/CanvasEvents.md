@@ -25,7 +25,7 @@ title: "CanvasEvents"
 
 #### Defined in
 
-src/EventTypeDefs.ts:298
+[src/EventTypeDefs.ts:298](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/EventTypeDefs.ts#L298)
 
 ***
 
@@ -39,7 +39,7 @@ src/EventTypeDefs.ts:298
 
 #### Defined in
 
-src/EventTypeDefs.ts:311
+[src/EventTypeDefs.ts:311](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/EventTypeDefs.ts#L311)
 
 ***
 
@@ -57,7 +57,7 @@ src/EventTypeDefs.ts:311
 
 #### Defined in
 
-src/EventTypeDefs.ts:297
+[src/EventTypeDefs.ts:297](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/EventTypeDefs.ts#L297)
 
 ***
 
@@ -77,7 +77,7 @@ src/EventTypeDefs.ts:297
 
 #### Defined in
 
-src/EventTypeDefs.ts:221
+[src/EventTypeDefs.ts:221](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/EventTypeDefs.ts#L221)
 
 ***
 
@@ -97,7 +97,7 @@ src/EventTypeDefs.ts:221
 
 #### Defined in
 
-src/EventTypeDefs.ts:125
+[src/EventTypeDefs.ts:125](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/EventTypeDefs.ts#L125)
 
 ***
 
@@ -111,7 +111,7 @@ src/EventTypeDefs.ts:125
 
 #### Defined in
 
-src/EventTypeDefs.ts:294
+[src/EventTypeDefs.ts:294](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/EventTypeDefs.ts#L294)
 
 ***
 
@@ -125,7 +125,7 @@ src/EventTypeDefs.ts:294
 
 #### Defined in
 
-src/EventTypeDefs.ts:268
+[src/EventTypeDefs.ts:268](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/EventTypeDefs.ts#L268)
 
 ***
 
@@ -139,7 +139,7 @@ src/EventTypeDefs.ts:268
 
 #### Defined in
 
-src/EventTypeDefs.ts:267
+[src/EventTypeDefs.ts:267](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/EventTypeDefs.ts#L267)
 
 ***
 
@@ -153,7 +153,7 @@ src/EventTypeDefs.ts:267
 
 #### Defined in
 
-src/EventTypeDefs.ts:198
+[src/EventTypeDefs.ts:198](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/EventTypeDefs.ts#L198)
 
 ***
 
@@ -167,7 +167,7 @@ src/EventTypeDefs.ts:198
 
 #### Defined in
 
-src/EventTypeDefs.ts:209
+[src/EventTypeDefs.ts:209](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/EventTypeDefs.ts#L209)
 
 ***
 
@@ -181,7 +181,7 @@ src/EventTypeDefs.ts:209
 
 #### Defined in
 
-src/EventTypeDefs.ts:210
+[src/EventTypeDefs.ts:210](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/EventTypeDefs.ts#L210)
 
 ***
 
@@ -195,7 +195,7 @@ src/EventTypeDefs.ts:210
 
 #### Defined in
 
-src/EventTypeDefs.ts:202
+[src/EventTypeDefs.ts:202](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/EventTypeDefs.ts#L202)
 
 ***
 
@@ -209,7 +209,7 @@ src/EventTypeDefs.ts:202
 
 #### Defined in
 
-src/EventTypeDefs.ts:200
+[src/EventTypeDefs.ts:200](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/EventTypeDefs.ts#L200)
 
 ***
 
@@ -223,7 +223,7 @@ src/EventTypeDefs.ts:200
 
 #### Defined in
 
-src/EventTypeDefs.ts:201
+[src/EventTypeDefs.ts:201](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/EventTypeDefs.ts#L201)
 
 ***
 
@@ -237,7 +237,7 @@ src/EventTypeDefs.ts:201
 
 #### Defined in
 
-src/EventTypeDefs.ts:199
+[src/EventTypeDefs.ts:199](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/EventTypeDefs.ts#L199)
 
 ***
 
@@ -251,7 +251,7 @@ src/EventTypeDefs.ts:199
 
 #### Defined in
 
-src/EventTypeDefs.ts:197
+[src/EventTypeDefs.ts:197](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/EventTypeDefs.ts#L197)
 
 ***
 
@@ -265,7 +265,7 @@ src/EventTypeDefs.ts:197
 
 #### Defined in
 
-src/EventTypeDefs.ts:204
+[src/EventTypeDefs.ts:204](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/EventTypeDefs.ts#L204)
 
 ***
 
@@ -279,7 +279,7 @@ src/EventTypeDefs.ts:204
 
 #### Defined in
 
-src/EventTypeDefs.ts:205
+[src/EventTypeDefs.ts:205](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/EventTypeDefs.ts#L205)
 
 ***
 
@@ -293,7 +293,7 @@ src/EventTypeDefs.ts:205
 
 #### Defined in
 
-src/EventTypeDefs.ts:203
+[src/EventTypeDefs.ts:203](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/EventTypeDefs.ts#L203)
 
 ***
 
@@ -327,7 +327,7 @@ src/EventTypeDefs.ts:203
 
 #### Defined in
 
-src/EventTypeDefs.ts:316
+[src/EventTypeDefs.ts:316](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/EventTypeDefs.ts#L316)
 
 ***
 
@@ -337,7 +337,7 @@ src/EventTypeDefs.ts:316
 
 #### Defined in
 
-src/EventTypeDefs.ts:315
+[src/EventTypeDefs.ts:315](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/EventTypeDefs.ts#L315)
 
 ***
 
@@ -483,7 +483,7 @@ src/EventTypeDefs.ts:315
 
 #### Defined in
 
-src/EventTypeDefs.ts:230
+[src/EventTypeDefs.ts:230](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/EventTypeDefs.ts#L230)
 
 ***
 
@@ -503,7 +503,7 @@ src/EventTypeDefs.ts:230
 
 #### Defined in
 
-src/EventTypeDefs.ts:300
+[src/EventTypeDefs.ts:300](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/EventTypeDefs.ts#L300)
 
 ***
 
@@ -523,7 +523,7 @@ src/EventTypeDefs.ts:300
 
 #### Defined in
 
-src/EventTypeDefs.ts:299
+[src/EventTypeDefs.ts:299](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/EventTypeDefs.ts#L299)
 
 ***
 
@@ -537,7 +537,7 @@ src/EventTypeDefs.ts:299
 
 #### Defined in
 
-src/EventTypeDefs.ts:132
+[src/EventTypeDefs.ts:132](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/EventTypeDefs.ts#L132)
 
 ***
 
@@ -557,7 +557,7 @@ src/EventTypeDefs.ts:132
 
 #### Defined in
 
-src/EventTypeDefs.ts:131
+[src/EventTypeDefs.ts:131](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/EventTypeDefs.ts#L131)
 
 ***
 
@@ -577,7 +577,7 @@ src/EventTypeDefs.ts:131
 
 #### Defined in
 
-src/EventTypeDefs.ts:126
+[src/EventTypeDefs.ts:126](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/EventTypeDefs.ts#L126)
 
 ***
 
@@ -595,7 +595,7 @@ src/EventTypeDefs.ts:126
 
 #### Defined in
 
-src/EventTypeDefs.ts:231
+[src/EventTypeDefs.ts:231](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/EventTypeDefs.ts#L231)
 
 ***
 
@@ -615,7 +615,7 @@ src/EventTypeDefs.ts:231
 
 #### Defined in
 
-src/EventTypeDefs.ts:130
+[src/EventTypeDefs.ts:130](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/EventTypeDefs.ts#L130)
 
 ***
 
@@ -635,7 +635,7 @@ src/EventTypeDefs.ts:130
 
 #### Defined in
 
-src/EventTypeDefs.ts:128
+[src/EventTypeDefs.ts:128](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/EventTypeDefs.ts#L128)
 
 ***
 
@@ -655,7 +655,7 @@ src/EventTypeDefs.ts:128
 
 #### Defined in
 
-src/EventTypeDefs.ts:127
+[src/EventTypeDefs.ts:127](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/EventTypeDefs.ts#L127)
 
 ***
 
@@ -675,7 +675,7 @@ src/EventTypeDefs.ts:127
 
 #### Defined in
 
-src/EventTypeDefs.ts:129
+[src/EventTypeDefs.ts:129](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/EventTypeDefs.ts#L129)
 
 ***
 
@@ -689,7 +689,7 @@ src/EventTypeDefs.ts:129
 
 #### Defined in
 
-src/EventTypeDefs.ts:312
+[src/EventTypeDefs.ts:312](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/EventTypeDefs.ts#L312)
 
 ***
 
@@ -709,7 +709,7 @@ src/EventTypeDefs.ts:312
 
 #### Defined in
 
-src/EventTypeDefs.ts:224
+[src/EventTypeDefs.ts:224](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/EventTypeDefs.ts#L224)
 
 ***
 
@@ -729,7 +729,7 @@ src/EventTypeDefs.ts:224
 
 #### Defined in
 
-src/EventTypeDefs.ts:214
+[src/EventTypeDefs.ts:214](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/EventTypeDefs.ts#L214)
 
 ***
 
@@ -753,7 +753,7 @@ src/EventTypeDefs.ts:214
 
 #### Defined in
 
-src/EventTypeDefs.ts:217
+[src/EventTypeDefs.ts:217](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/EventTypeDefs.ts#L217)
 
 ***
 
@@ -767,7 +767,7 @@ src/EventTypeDefs.ts:217
 
 #### Defined in
 
-src/EventTypeDefs.ts:330
+[src/EventTypeDefs.ts:330](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/EventTypeDefs.ts#L330)
 
 ***
 
@@ -781,7 +781,7 @@ src/EventTypeDefs.ts:330
 
 #### Defined in
 
-src/EventTypeDefs.ts:331
+[src/EventTypeDefs.ts:331](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/EventTypeDefs.ts#L331)
 
 ***
 
@@ -795,7 +795,7 @@ src/EventTypeDefs.ts:331
 
 #### Defined in
 
-src/EventTypeDefs.ts:332
+[src/EventTypeDefs.ts:332](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/EventTypeDefs.ts#L332)
 
 ***
 
@@ -809,4 +809,4 @@ src/EventTypeDefs.ts:332
 
 #### Defined in
 
-src/EventTypeDefs.ts:329
+[src/EventTypeDefs.ts:329](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/EventTypeDefs.ts#L329)

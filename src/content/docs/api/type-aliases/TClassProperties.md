@@ -13,4 +13,4 @@ title: "TClassProperties"
 
 ## Defined in
 
-src/typedefs.ts:17
+[src/typedefs.ts:17](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/typedefs.ts#L17)

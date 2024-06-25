@@ -25,7 +25,7 @@ title: "StaticCanvasEvents"
 
 #### Defined in
 
-src/EventTypeDefs.ts:298
+[src/EventTypeDefs.ts:298](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/EventTypeDefs.ts#L298)
 
 ***
 
@@ -39,7 +39,7 @@ src/EventTypeDefs.ts:298
 
 #### Defined in
 
-src/EventTypeDefs.ts:297
+[src/EventTypeDefs.ts:297](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/EventTypeDefs.ts#L297)
 
 ***
 
@@ -49,7 +49,7 @@ src/EventTypeDefs.ts:297
 
 #### Defined in
 
-src/EventTypeDefs.ts:294
+[src/EventTypeDefs.ts:294](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/EventTypeDefs.ts#L294)
 
 ***
 
@@ -67,7 +67,7 @@ src/EventTypeDefs.ts:294
 
 #### Defined in
 
-src/EventTypeDefs.ts:230
+[src/EventTypeDefs.ts:230](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/EventTypeDefs.ts#L230)
 
 ***
 
@@ -83,7 +83,7 @@ src/EventTypeDefs.ts:230
 
 #### Defined in
 
-src/EventTypeDefs.ts:300
+[src/EventTypeDefs.ts:300](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/EventTypeDefs.ts#L300)
 
 ***
 
@@ -99,7 +99,7 @@ src/EventTypeDefs.ts:300
 
 #### Defined in
 
-src/EventTypeDefs.ts:299
+[src/EventTypeDefs.ts:299](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/EventTypeDefs.ts#L299)
 
 ***
 
@@ -117,4 +117,4 @@ src/EventTypeDefs.ts:299
 
 #### Defined in
 
-src/EventTypeDefs.ts:231
+[src/EventTypeDefs.ts:231](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/EventTypeDefs.ts#L231)

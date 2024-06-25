@@ -30,7 +30,7 @@ Options object
 
 #### Defined in
 
-src/Pattern/Pattern.ts:95
+[src/Pattern/Pattern.ts:95](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/Pattern/Pattern.ts#L95)
 
 ## Properties
 
@@ -46,7 +46,7 @@ src/Pattern/Pattern.ts:95
 
 #### Defined in
 
-src/Pattern/Pattern.ts:63
+[src/Pattern/Pattern.ts:63](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/Pattern/Pattern.ts#L63)
 
 ***
 
@@ -58,7 +58,7 @@ If true, this object will not be exported during the serialization of a canvas
 
 #### Defined in
 
-src/Pattern/Pattern.ts:82
+[src/Pattern/Pattern.ts:82](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/Pattern/Pattern.ts#L82)
 
 ***
 
@@ -70,7 +70,7 @@ ID used for SVG export functionalities
 
 #### Defined in
 
-src/Pattern/Pattern.ts:88
+[src/Pattern/Pattern.ts:88](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/Pattern/Pattern.ts#L88)
 
 ***
 
@@ -88,7 +88,7 @@ Pattern horizontal offset from object's left/top corner
 
 #### Defined in
 
-src/Pattern/Pattern.ts:50
+[src/Pattern/Pattern.ts:50](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/Pattern/Pattern.ts#L50)
 
 ***
 
@@ -106,7 +106,7 @@ Pattern vertical offset from object's left/top corner
 
 #### Defined in
 
-src/Pattern/Pattern.ts:57
+[src/Pattern/Pattern.ts:57](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/Pattern/Pattern.ts#L57)
 
 ***
 
@@ -128,7 +128,7 @@ verify if using the identity matrix as default makes the rest of the code more e
 
 #### Defined in
 
-src/Pattern/Pattern.ts:71
+[src/Pattern/Pattern.ts:71](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/Pattern/Pattern.ts#L71)
 
 ***
 
@@ -140,7 +140,7 @@ src/Pattern/Pattern.ts:71
 
 #### Defined in
 
-src/Pattern/Pattern.ts:43
+[src/Pattern/Pattern.ts:43](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/Pattern/Pattern.ts#L43)
 
 ***
 
@@ -152,7 +152,7 @@ The actual pixel source of the pattern
 
 #### Defined in
 
-src/Pattern/Pattern.ts:76
+[src/Pattern/Pattern.ts:76](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/Pattern/Pattern.ts#L76)
 
 ***
 
@@ -162,7 +162,7 @@ src/Pattern/Pattern.ts:76
 
 #### Defined in
 
-src/Pattern/Pattern.ts:21
+[src/Pattern/Pattern.ts:21](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/Pattern/Pattern.ts#L21)
 
 ## Accessors
 
@@ -194,7 +194,7 @@ This API is no longer supported and may be removed in a future release.
 
 #### Defined in
 
-src/Pattern/Pattern.ts:31
+[src/Pattern/Pattern.ts:31](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/Pattern/Pattern.ts#L31)
 
 ## Methods
 
@@ -210,7 +210,7 @@ true if [source](/api/api/classes/pattern/source/#source) is a <canvas> element
 
 #### Defined in
 
-src/Pattern/Pattern.ts:112
+[src/Pattern/Pattern.ts:112](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/Pattern/Pattern.ts#L112)
 
 ***
 
@@ -226,7 +226,7 @@ true if [source](/api/api/classes/pattern/source/#source) is an <img> element
 
 #### Defined in
 
-src/Pattern/Pattern.ts:103
+[src/Pattern/Pattern.ts:103](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/Pattern/Pattern.ts#L103)
 
 ***
 
@@ -240,7 +240,7 @@ src/Pattern/Pattern.ts:103
 
 #### Defined in
 
-src/Pattern/Pattern.ts:116
+[src/Pattern/Pattern.ts:116](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/Pattern/Pattern.ts#L116)
 
 ***
 
@@ -262,7 +262,7 @@ Context to create pattern
 
 #### Defined in
 
-src/Pattern/Pattern.ts:129
+[src/Pattern/Pattern.ts:129](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/Pattern/Pattern.ts#L129)
 
 ***
 
@@ -286,7 +286,7 @@ Object representation of a pattern instance
 
 #### Defined in
 
-src/Pattern/Pattern.ts:150
+[src/Pattern/Pattern.ts:150](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/Pattern/Pattern.ts#L150)
 
 ***
 
@@ -306,7 +306,7 @@ Returns SVG representation of a pattern
 
 #### Defined in
 
-src/Pattern/Pattern.ts:170
+[src/Pattern/Pattern.ts:170](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/Pattern/Pattern.ts#L170)
 
 ***
 
@@ -326,4 +326,4 @@ src/Pattern/Pattern.ts:170
 
 #### Defined in
 
-src/Pattern/Pattern.ts:202
+[src/Pattern/Pattern.ts:202](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/Pattern/Pattern.ts#L202)

@@ -17,4 +17,4 @@ title: "setFilterBackend"
 
 ## Defined in
 
-src/filters/FilterBackend.ts:36
+[src/filters/FilterBackend.ts:36](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/FilterBackend.ts#L36)

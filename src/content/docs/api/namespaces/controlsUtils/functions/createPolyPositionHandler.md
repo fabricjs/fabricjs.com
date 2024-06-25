@@ -32,4 +32,4 @@ It'll be used both for drawing and for interaction.
 
 ## Defined in
 
-src/controls/polyControl.ts:23
+[src/controls/polyControl.ts:23](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/controls/polyControl.ts#L23)

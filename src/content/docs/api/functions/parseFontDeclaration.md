@@ -33,4 +33,4 @@ fabric
 
 ## Defined in
 
-src/parser/parseFontDeclaration.ts:12
+[src/parser/parseFontDeclaration.ts:12](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/parser/parseFontDeclaration.ts#L12)

@@ -39,7 +39,7 @@ override by subclass for persistence (TS does not support `static abstract`)
 
 #### Defined in
 
-src/LayoutManager/LayoutStrategies/ClipPathLayout.ts:14
+[src/LayoutManager/LayoutStrategies/ClipPathLayout.ts:14](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/LayoutManager/LayoutStrategies/ClipPathLayout.ts#L14)
 
 ## Methods
 
@@ -65,7 +65,7 @@ Override this method to customize layout.
 
 #### Defined in
 
-src/LayoutManager/LayoutStrategies/LayoutStrategy.ts:68
+[src/LayoutManager/LayoutStrategies/LayoutStrategy.ts:68](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/LayoutManager/LayoutStrategies/LayoutStrategy.ts#L68)
 
 ***
 
@@ -95,7 +95,7 @@ layout result **OR** `undefined` to skip layout
 
 #### Defined in
 
-src/LayoutManager/LayoutStrategies/ClipPathLayout.ts:24
+[src/LayoutManager/LayoutStrategies/ClipPathLayout.ts:24](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/LayoutManager/LayoutStrategies/ClipPathLayout.ts#L24)
 
 ***
 
@@ -119,7 +119,7 @@ src/LayoutManager/LayoutStrategies/ClipPathLayout.ts:24
 
 #### Defined in
 
-src/LayoutManager/LayoutStrategies/LayoutStrategy.ts:58
+[src/LayoutManager/LayoutStrategies/LayoutStrategy.ts:58](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/LayoutManager/LayoutStrategies/LayoutStrategy.ts#L58)
 
 ***
 
@@ -137,7 +137,7 @@ src/LayoutManager/LayoutStrategies/LayoutStrategy.ts:58
 
 #### Defined in
 
-src/LayoutManager/LayoutStrategies/ClipPathLayout.ts:20
+[src/LayoutManager/LayoutStrategies/ClipPathLayout.ts:20](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/LayoutManager/LayoutStrategies/ClipPathLayout.ts#L20)
 
 ***
 
@@ -159,4 +159,4 @@ src/LayoutManager/LayoutStrategies/ClipPathLayout.ts:20
 
 #### Defined in
 
-src/LayoutManager/LayoutStrategies/ClipPathLayout.ts:16
+[src/LayoutManager/LayoutStrategies/ClipPathLayout.ts:16](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/LayoutManager/LayoutStrategies/ClipPathLayout.ts#L16)

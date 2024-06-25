@@ -23,4 +23,4 @@ title: "scalingEqually"
 
 ## Defined in
 
-src/controls/scale.ts:273
+[src/controls/scale.ts:273](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/controls/scale.ts#L273)

@@ -25,7 +25,7 @@ title: "StaticCanvasDOMManager"
 
 #### Defined in
 
-src/canvas/DOMManagers/StaticCanvasDOMManager.ts:24
+[src/canvas/DOMManagers/StaticCanvasDOMManager.ts:24](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/canvas/DOMManagers/StaticCanvasDOMManager.ts#L24)
 
 ## Properties
 
@@ -35,7 +35,7 @@ src/canvas/DOMManagers/StaticCanvasDOMManager.ts:24
 
 #### Defined in
 
-src/canvas/DOMManagers/StaticCanvasDOMManager.ts:22
+[src/canvas/DOMManagers/StaticCanvasDOMManager.ts:22](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/canvas/DOMManagers/StaticCanvasDOMManager.ts#L22)
 
 ## Methods
 
@@ -59,7 +59,7 @@ Calculates canvas element offset relative to the document
 
 #### Defined in
 
-src/canvas/DOMManagers/StaticCanvasDOMManager.ts:71
+[src/canvas/DOMManagers/StaticCanvasDOMManager.ts:71](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/canvas/DOMManagers/StaticCanvasDOMManager.ts#L71)
 
 ***
 
@@ -77,7 +77,7 @@ src/canvas/DOMManagers/StaticCanvasDOMManager.ts:71
 
 #### Defined in
 
-src/canvas/DOMManagers/StaticCanvasDOMManager.ts:47
+[src/canvas/DOMManagers/StaticCanvasDOMManager.ts:47](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/canvas/DOMManagers/StaticCanvasDOMManager.ts#L47)
 
 ***
 
@@ -91,7 +91,7 @@ src/canvas/DOMManagers/StaticCanvasDOMManager.ts:47
 
 #### Defined in
 
-src/canvas/DOMManagers/StaticCanvasDOMManager.ts:75
+[src/canvas/DOMManagers/StaticCanvasDOMManager.ts:75](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/canvas/DOMManagers/StaticCanvasDOMManager.ts#L75)
 
 ***
 
@@ -109,7 +109,7 @@ src/canvas/DOMManagers/StaticCanvasDOMManager.ts:75
 
 #### Defined in
 
-src/canvas/DOMManagers/StaticCanvasDOMManager.ts:64
+[src/canvas/DOMManagers/StaticCanvasDOMManager.ts:64](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/canvas/DOMManagers/StaticCanvasDOMManager.ts#L64)
 
 ***
 
@@ -129,4 +129,4 @@ src/canvas/DOMManagers/StaticCanvasDOMManager.ts:64
 
 #### Defined in
 
-src/canvas/DOMManagers/StaticCanvasDOMManager.ts:59
+[src/canvas/DOMManagers/StaticCanvasDOMManager.ts:59](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/canvas/DOMManagers/StaticCanvasDOMManager.ts#L59)

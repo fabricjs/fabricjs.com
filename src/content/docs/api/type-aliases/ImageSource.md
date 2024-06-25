@@ -9,4 +9,4 @@ title: "ImageSource"
 
 ## Defined in
 
-src/shapes/Image.ts:37
+[src/shapes/Image.ts:37](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/shapes/Image.ts#L37)

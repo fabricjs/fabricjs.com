@@ -23,4 +23,4 @@ Get the point on the path that is distance along the path
 
 ## Defined in
 
-src/util/path/index.ts:790
+[src/util/path/index.ts:790](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/util/path/index.ts#L790)

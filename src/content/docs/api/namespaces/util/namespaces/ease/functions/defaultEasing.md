@@ -25,4 +25,4 @@ Default sinusoidal easing
 
 ## Defined in
 
-src/util/animation/easing.ts:36
+[src/util/animation/easing.ts:36](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/util/animation/easing.ts#L36)

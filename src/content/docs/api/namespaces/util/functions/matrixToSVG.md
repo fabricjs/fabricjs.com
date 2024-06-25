@@ -21,4 +21,4 @@ transform matrix for svg
 
 ## Defined in
 
-src/util/misc/svgParsing.ts:128
+[src/util/misc/svgParsing.ts:128](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/util/misc/svgParsing.ts#L128)

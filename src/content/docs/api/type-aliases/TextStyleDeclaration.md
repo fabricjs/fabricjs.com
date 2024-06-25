@@ -9,4 +9,4 @@ title: "TextStyleDeclaration"
 
 ## Defined in
 
-src/shapes/Text/StyledText.ts:16
+[src/shapes/Text/StyledText.ts:16](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/shapes/Text/StyledText.ts#L16)

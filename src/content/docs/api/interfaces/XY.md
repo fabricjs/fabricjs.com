@@ -13,7 +13,7 @@ title: "XY"
 
 #### Defined in
 
-src/Point.ts:6
+[src/Point.ts:6](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/Point.ts#L6)
 
 ***
 
@@ -23,4 +23,4 @@ src/Point.ts:6
 
 #### Defined in
 
-src/Point.ts:7
+[src/Point.ts:7](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/Point.ts#L7)

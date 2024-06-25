@@ -23,4 +23,4 @@ title: "scalingX"
 
 ## Defined in
 
-src/controls/scale.ts:278
+[src/controls/scale.ts:278](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/controls/scale.ts#L278)

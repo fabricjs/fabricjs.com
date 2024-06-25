@@ -9,4 +9,4 @@ title: "LayoutContext"
 
 ## Defined in
 
-src/LayoutManager/types.ts:121
+[src/LayoutManager/types.ts:121](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/LayoutManager/types.ts#L121)

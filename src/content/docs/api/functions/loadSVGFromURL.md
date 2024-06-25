@@ -36,4 +36,4 @@ fabric
 
 ## Defined in
 
-src/parser/loadSVGFromURL.ts:21
+[src/parser/loadSVGFromURL.ts:21](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/parser/loadSVGFromURL.ts#L21)

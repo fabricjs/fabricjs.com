@@ -19,4 +19,4 @@ title: "GraphemeData"
 
 ## Defined in
 
-src/shapes/Textbox.ts:24
+[src/shapes/Textbox.ts:24](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/shapes/Textbox.ts#L24)

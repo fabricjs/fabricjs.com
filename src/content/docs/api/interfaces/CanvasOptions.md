@@ -33,7 +33,7 @@ move to Canvas
 
 #### Defined in
 
-src/canvas/StaticCanvasOptions.ts:161
+[src/canvas/StaticCanvasOptions.ts:161](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/canvas/StaticCanvasOptions.ts#L161)
 
 ***
 
@@ -62,7 +62,7 @@ feature is disabled feature disabled.
 
 #### Defined in
 
-src/canvas/CanvasOptions.ts:67
+[src/canvas/CanvasOptions.ts:67](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/canvas/CanvasOptions.ts#L67)
 
 ***
 
@@ -94,7 +94,7 @@ feature is disabled.
 
 #### Defined in
 
-src/canvas/CanvasOptions.ts:102
+[src/canvas/CanvasOptions.ts:102](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/canvas/CanvasOptions.ts#L102)
 
 ***
 
@@ -116,7 +116,7 @@ Background color of canvas instance.
 
 #### Defined in
 
-src/canvas/StaticCanvasOptions.ts:21
+[src/canvas/StaticCanvasOptions.ts:21](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/canvas/StaticCanvasOptions.ts#L21)
 
 ***
 
@@ -141,7 +141,7 @@ vale. As an alternative you can disable image objectCaching
 
 #### Defined in
 
-src/canvas/StaticCanvasOptions.ts:31
+[src/canvas/StaticCanvasOptions.ts:31](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/canvas/StaticCanvasOptions.ts#L31)
 
 ***
 
@@ -171,7 +171,7 @@ we should really find a different way to do this
 
 #### Defined in
 
-src/canvas/StaticCanvasOptions.ts:14
+[src/canvas/StaticCanvasOptions.ts:14](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/canvas/StaticCanvasOptions.ts#L14)
 
 ***
 
@@ -200,7 +200,7 @@ feature is disabled feature disabled.
 
 #### Defined in
 
-src/canvas/CanvasOptions.ts:56
+[src/canvas/CanvasOptions.ts:56](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/canvas/CanvasOptions.ts#L56)
 
 ***
 
@@ -227,7 +227,7 @@ When true, objects use center point as the origin of rotate transformation.
 
 #### Defined in
 
-src/canvas/CanvasOptions.ts:45
+[src/canvas/CanvasOptions.ts:45](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/canvas/CanvasOptions.ts#L45)
 
 ***
 
@@ -254,7 +254,7 @@ When true, objects use center point as the origin of scale transformation.
 
 #### Defined in
 
-src/canvas/CanvasOptions.ts:36
+[src/canvas/CanvasOptions.ts:36](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/canvas/CanvasOptions.ts#L36)
 
 ***
 
@@ -273,7 +273,7 @@ clipPath will clip away controls, if you do not want this to happen use controls
 
 #### Defined in
 
-src/canvas/StaticCanvasOptions.ts:106
+[src/canvas/StaticCanvasOptions.ts:106](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/canvas/StaticCanvasOptions.ts#L106)
 
 ***
 
@@ -295,7 +295,7 @@ customize [CanvasDOMManager](/api/classes/canvasdommanager/) instead or access e
 
 #### Defined in
 
-src/canvas/CanvasOptions.ts:251
+[src/canvas/CanvasOptions.ts:251](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/canvas/CanvasOptions.ts#L251)
 
 ***
 
@@ -321,7 +321,7 @@ move to Canvas
 
 #### Defined in
 
-src/canvas/StaticCanvasOptions.ts:152
+[src/canvas/StaticCanvasOptions.ts:152](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/canvas/StaticCanvasOptions.ts#L152)
 
 ***
 
@@ -343,7 +343,7 @@ default
 
 #### Defined in
 
-src/canvas/CanvasOptions.ts:160
+[src/canvas/CanvasOptions.ts:160](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/canvas/CanvasOptions.ts#L160)
 
 ***
 
@@ -365,7 +365,7 @@ When the option is enabled, PointerEvent is used instead of TPointerEvent.
 
 #### Defined in
 
-src/canvas/CanvasOptions.ts:235
+[src/canvas/CanvasOptions.ts:235](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/canvas/CanvasOptions.ts#L235)
 
 ***
 
@@ -387,7 +387,7 @@ When true, canvas is scaled by devicePixelRatio for better rendering on retina s
 
 #### Defined in
 
-src/canvas/StaticCanvasOptions.ts:90
+[src/canvas/StaticCanvasOptions.ts:90](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/canvas/StaticCanvasOptions.ts#L90)
 
 ***
 
@@ -413,7 +413,7 @@ Indicates if the canvas can fire middle click events
 
 #### Defined in
 
-src/canvas/CanvasOptions.ts:228
+[src/canvas/CanvasOptions.ts:228](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/canvas/CanvasOptions.ts#L228)
 
 ***
 
@@ -439,7 +439,7 @@ Indicates if the canvas can fire right click events
 
 #### Defined in
 
-src/canvas/CanvasOptions.ts:220
+[src/canvas/CanvasOptions.ts:220](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/canvas/CanvasOptions.ts#L220)
 
 ***
 
@@ -461,7 +461,7 @@ crosshair
 
 #### Defined in
 
-src/canvas/CanvasOptions.ts:167
+[src/canvas/CanvasOptions.ts:167](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/canvas/CanvasOptions.ts#L167)
 
 ***
 
@@ -478,7 +478,7 @@ The canvas can be taller than width if retina scaling is active
 
 #### Defined in
 
-src/canvas/StaticCanvasOptions.ts:143
+[src/canvas/StaticCanvasOptions.ts:143](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/canvas/StaticCanvasOptions.ts#L143)
 
 ***
 
@@ -500,7 +500,7 @@ move
 
 #### Defined in
 
-src/canvas/CanvasOptions.ts:146
+[src/canvas/CanvasOptions.ts:146](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/canvas/CanvasOptions.ts#L146)
 
 ***
 
@@ -522,7 +522,7 @@ Indicates whether this canvas will use image smoothing, this is on by default in
 
 #### Defined in
 
-src/canvas/StaticCanvasOptions.ts:97
+[src/canvas/StaticCanvasOptions.ts:97](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/canvas/StaticCanvasOptions.ts#L97)
 
 ***
 
@@ -545,7 +545,7 @@ if set to false, takes precedence over the object value.
 
 #### Defined in
 
-src/canvas/StaticCanvasOptions.ts:116
+[src/canvas/StaticCanvasOptions.ts:116](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/canvas/StaticCanvasOptions.ts#L116)
 
 ***
 
@@ -567,7 +567,7 @@ move
 
 #### Defined in
 
-src/canvas/CanvasOptions.ts:153
+[src/canvas/CanvasOptions.ts:153](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/canvas/CanvasOptions.ts#L153)
 
 ***
 
@@ -593,7 +593,7 @@ not-allowed
 
 #### Defined in
 
-src/canvas/CanvasOptions.ts:175
+[src/canvas/CanvasOptions.ts:175](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/canvas/CanvasOptions.ts#L175)
 
 ***
 
@@ -619,7 +619,7 @@ Overlay color of canvas instance.
 
 #### Defined in
 
-src/canvas/StaticCanvasOptions.ts:48
+[src/canvas/StaticCanvasOptions.ts:48](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/canvas/StaticCanvasOptions.ts#L48)
 
 ***
 
@@ -644,7 +644,7 @@ vale. As an alternative you can disable image objectCaching
 
 #### Defined in
 
-src/canvas/StaticCanvasOptions.ts:58
+[src/canvas/StaticCanvasOptions.ts:58](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/canvas/StaticCanvasOptions.ts#L58)
 
 ***
 
@@ -674,7 +674,7 @@ we should really find a different way to do this
 
 #### Defined in
 
-src/canvas/StaticCanvasOptions.ts:40
+[src/canvas/StaticCanvasOptions.ts:40](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/canvas/StaticCanvasOptions.ts#L40)
 
 ***
 
@@ -696,7 +696,7 @@ When true, object detection happens on per-pixel basis rather than on per-boundi
 
 #### Defined in
 
-src/canvas/CanvasOptions.ts:184
+[src/canvas/CanvasOptions.ts:184](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/canvas/CanvasOptions.ts#L184)
 
 ***
 
@@ -715,7 +715,7 @@ When false objects are brought to top and rendered as part of the selection grou
 
 #### Defined in
 
-src/canvas/CanvasOptions.ts:259
+[src/canvas/CanvasOptions.ts:259](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/canvas/CanvasOptions.ts#L259)
 
 ***
 
@@ -742,7 +742,7 @@ Left default to true to do not break documentation and old app, fiddles.
 
 #### Defined in
 
-src/canvas/StaticCanvasOptions.ts:72
+[src/canvas/StaticCanvasOptions.ts:72](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/canvas/StaticCanvasOptions.ts#L72)
 
 ***
 
@@ -764,7 +764,7 @@ Indicates whether group selection should be enabled
 
 #### Defined in
 
-src/canvas/CanvasOptions.ts:76
+[src/canvas/CanvasOptions.ts:76](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/canvas/CanvasOptions.ts#L76)
 
 ***
 
@@ -786,7 +786,7 @@ Color of the border of selection (usually slightly darker than color of selectio
 
 #### Defined in
 
-src/canvas/CanvasOptions.ts:123
+[src/canvas/CanvasOptions.ts:123](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/canvas/CanvasOptions.ts#L123)
 
 ***
 
@@ -808,7 +808,7 @@ Color of selection
 
 #### Defined in
 
-src/canvas/CanvasOptions.ts:109
+[src/canvas/CanvasOptions.ts:109](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/canvas/CanvasOptions.ts#L109)
 
 ***
 
@@ -825,7 +825,7 @@ If not empty the selection border is dashed
 
 #### Defined in
 
-src/canvas/CanvasOptions.ts:116
+[src/canvas/CanvasOptions.ts:116](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/canvas/CanvasOptions.ts#L116)
 
 ***
 
@@ -847,7 +847,7 @@ Select only shapes that are fully contained in the dragged selection rectangle.
 
 #### Defined in
 
-src/canvas/CanvasOptions.ts:137
+[src/canvas/CanvasOptions.ts:137](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/canvas/CanvasOptions.ts#L137)
 
 ***
 
@@ -877,7 +877,7 @@ feature is disabled.
 
 #### Defined in
 
-src/canvas/CanvasOptions.ts:88
+[src/canvas/CanvasOptions.ts:88](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/canvas/CanvasOptions.ts#L88)
 
 ***
 
@@ -899,7 +899,7 @@ Width of a line used in object/group selection
 
 #### Defined in
 
-src/canvas/CanvasOptions.ts:130
+[src/canvas/CanvasOptions.ts:130](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/canvas/CanvasOptions.ts#L130)
 
 ***
 
@@ -925,7 +925,7 @@ true
 
 #### Defined in
 
-src/canvas/StaticCanvasOptions.ts:83
+[src/canvas/StaticCanvasOptions.ts:83](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/canvas/StaticCanvasOptions.ts#L83)
 
 ***
 
@@ -951,7 +951,7 @@ if you deactivate both, you should look into staticCanvas.
 
 #### Defined in
 
-src/canvas/CanvasOptions.ts:202
+[src/canvas/CanvasOptions.ts:202](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/canvas/CanvasOptions.ts#L202)
 
 ***
 
@@ -977,7 +977,7 @@ Indicates if the right click on canvas can output the context menu or not
 
 #### Defined in
 
-src/canvas/CanvasOptions.ts:212
+[src/canvas/CanvasOptions.ts:212](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/canvas/CanvasOptions.ts#L212)
 
 ***
 
@@ -1000,7 +1000,7 @@ a zoomed canvas will then produce zoomed SVG output.
 
 #### Defined in
 
-src/canvas/StaticCanvasOptions.ts:124
+[src/canvas/StaticCanvasOptions.ts:124](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/canvas/StaticCanvasOptions.ts#L124)
 
 ***
 
@@ -1022,7 +1022,7 @@ Number of pixels around target pixel to tolerate (consider active) during object
 
 #### Defined in
 
-src/canvas/CanvasOptions.ts:191
+[src/canvas/CanvasOptions.ts:191](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/canvas/CanvasOptions.ts#L191)
 
 ***
 
@@ -1054,7 +1054,7 @@ and viceversa.
 
 #### Defined in
 
-src/canvas/CanvasOptions.ts:27
+[src/canvas/CanvasOptions.ts:27](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/canvas/CanvasOptions.ts#L27)
 
 ***
 
@@ -1081,7 +1081,7 @@ fabric 4.0 // changed name and default value
 
 #### Defined in
 
-src/canvas/CanvasOptions.ts:13
+[src/canvas/CanvasOptions.ts:13](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/canvas/CanvasOptions.ts#L13)
 
 ***
 
@@ -1113,7 +1113,7 @@ canvas.viewportTransform = [0.7, 0, 0, 0.7, 50, 50];
 
 #### Defined in
 
-src/canvas/StaticCanvasOptions.ts:172
+[src/canvas/StaticCanvasOptions.ts:172](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/canvas/StaticCanvasOptions.ts#L172)
 
 ***
 
@@ -1130,4 +1130,4 @@ The canvas can be larger than width if retina scaling is active
 
 #### Defined in
 
-src/canvas/StaticCanvasOptions.ts:136
+[src/canvas/StaticCanvasOptions.ts:136](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/canvas/StaticCanvasOptions.ts#L136)

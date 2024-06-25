@@ -39,4 +39,4 @@ title: "SerializedShadowOptions"
 
 ## Defined in
 
-src/Shadow.ts:53
+[src/Shadow.ts:53](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/Shadow.ts#L53)

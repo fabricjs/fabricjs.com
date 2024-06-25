@@ -45,4 +45,4 @@ the rectangular bounds
 
 ## Defined in
 
-src/util/path/index.ts:221
+[src/util/path/index.ts:221](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/util/path/index.ts#L221)

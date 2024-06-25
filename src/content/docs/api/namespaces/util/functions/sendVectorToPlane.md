@@ -23,4 +23,4 @@ See [sendPointToPlane](../../../../../../api/namespaces/util/functions/sendpoint
 
 ## Defined in
 
-src/util/misc/planeChange.ts:45
+[src/util/misc/planeChange.ts:45](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/util/misc/planeChange.ts#L45)

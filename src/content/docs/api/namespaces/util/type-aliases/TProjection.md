@@ -27,4 +27,4 @@ title: "TProjection"
 
 ## Defined in
 
-src/util/misc/projectStroke/types.ts:19
+[src/util/misc/projectStroke/types.ts:19](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/util/misc/projectStroke/types.ts#L19)

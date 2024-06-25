@@ -21,4 +21,4 @@ value in degrees
 
 ## Defined in
 
-src/util/misc/radiansDegreesConversion.ts:17
+[src/util/misc/radiansDegreesConversion.ts:17](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/util/misc/radiansDegreesConversion.ts#L17)

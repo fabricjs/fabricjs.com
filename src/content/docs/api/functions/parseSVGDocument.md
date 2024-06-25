@@ -40,4 +40,4 @@ fabric
 
 ## Defined in
 
-src/parser/parseSVGDocument.ts:38
+[src/parser/parseSVGDocument.ts:38](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/parser/parseSVGDocument.ts#L38)

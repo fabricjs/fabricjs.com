@@ -12,4 +12,4 @@ Read about commands at [https://developer.mozilla.org/en-US/docs/Web/SVG/Tutoria
 
 ## Defined in
 
-src/util/path/typedefs.ts:105
+[src/util/path/typedefs.ts:105](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/util/path/typedefs.ts#L105)

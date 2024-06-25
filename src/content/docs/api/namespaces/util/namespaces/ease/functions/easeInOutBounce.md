@@ -25,4 +25,4 @@ Bouncing easing in and out
 
 ## Defined in
 
-src/util/animation/easing.ts:302
+[src/util/animation/easing.ts:302](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/util/animation/easing.ts#L302)

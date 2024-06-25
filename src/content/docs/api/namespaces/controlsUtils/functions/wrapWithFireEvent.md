@@ -27,4 +27,4 @@ a function with an action handler signature
 
 ## Defined in
 
-src/controls/wrapWithFireEvent.ts:14
+[src/controls/wrapWithFireEvent.ts:14](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/controls/wrapWithFireEvent.ts#L14)

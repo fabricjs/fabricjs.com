@@ -9,4 +9,4 @@ title: "Sepia"
 
 ## Defined in
 
-src/filters/ColorMatrixFilters.ts:67
+[src/filters/ColorMatrixFilters.ts:67](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/ColorMatrixFilters.ts#L67)

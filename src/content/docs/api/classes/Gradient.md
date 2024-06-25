@@ -34,7 +34,7 @@ Gradient class
 
 #### Defined in
 
-src/gradient/Gradient.ts:102
+[src/gradient/Gradient.ts:102](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/gradient/Gradient.ts#L102)
 
 ## Properties
 
@@ -47,7 +47,7 @@ defined by coords
 
 #### Defined in
 
-src/gradient/Gradient.ts:86
+[src/gradient/Gradient.ts:86](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/gradient/Gradient.ts#L86)
 
 ***
 
@@ -59,7 +59,7 @@ Defines how the gradient is located in space and spread
 
 #### Defined in
 
-src/gradient/Gradient.ts:79
+[src/gradient/Gradient.ts:79](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/gradient/Gradient.ts#L79)
 
 ***
 
@@ -71,7 +71,7 @@ If true, this object will not be exported during the serialization of a canvas
 
 #### Defined in
 
-src/gradient/Gradient.ts:92
+[src/gradient/Gradient.ts:92](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/gradient/Gradient.ts#L92)
 
 ***
 
@@ -92,7 +92,7 @@ null
 
 #### Defined in
 
-src/gradient/Gradient.ts:55
+[src/gradient/Gradient.ts:55](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/gradient/Gradient.ts#L55)
 
 ***
 
@@ -114,7 +114,7 @@ allowed values pixels or percentage.
 
 #### Defined in
 
-src/gradient/Gradient.ts:66
+[src/gradient/Gradient.ts:66](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/gradient/Gradient.ts#L66)
 
 ***
 
@@ -126,7 +126,7 @@ ID used for SVG export functionalities
 
 #### Defined in
 
-src/gradient/Gradient.ts:98
+[src/gradient/Gradient.ts:98](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/gradient/Gradient.ts#L98)
 
 ***
 
@@ -144,7 +144,7 @@ Horizontal offset for aligning gradients coming from SVG when outside pathgroups
 
 #### Defined in
 
-src/gradient/Gradient.ts:38
+[src/gradient/Gradient.ts:38](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/gradient/Gradient.ts#L38)
 
 ***
 
@@ -162,7 +162,7 @@ Vertical offset for aligning gradients coming from SVG when outside pathgroups
 
 #### Defined in
 
-src/gradient/Gradient.ts:45
+[src/gradient/Gradient.ts:45](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/gradient/Gradient.ts#L45)
 
 ***
 
@@ -180,7 +180,7 @@ Gradient type linear or radial
 
 #### Defined in
 
-src/gradient/Gradient.ts:73
+[src/gradient/Gradient.ts:73](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/gradient/Gradient.ts#L73)
 
 ***
 
@@ -190,7 +190,7 @@ src/gradient/Gradient.ts:73
 
 #### Defined in
 
-src/gradient/Gradient.ts:100
+[src/gradient/Gradient.ts:100](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/gradient/Gradient.ts#L100)
 
 ## Methods
 
@@ -212,7 +212,7 @@ thisArg
 
 #### Defined in
 
-src/gradient/Gradient.ts:134
+[src/gradient/Gradient.ts:134](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/gradient/Gradient.ts#L134)
 
 ***
 
@@ -234,7 +234,7 @@ Context to render on
 
 #### Defined in
 
-src/gradient/Gradient.ts:298
+[src/gradient/Gradient.ts:298](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/gradient/Gradient.ts#L298)
 
 ***
 
@@ -256,7 +256,7 @@ Any properties that you might want to additionally include in the output
 
 #### Defined in
 
-src/gradient/Gradient.ts:151
+[src/gradient/Gradient.ts:151](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/gradient/Gradient.ts#L151)
 
 ***
 
@@ -284,7 +284,7 @@ SVG representation of an gradient (linear/radial)
 
 #### Defined in
 
-src/gradient/Gradient.ts:172
+[src/gradient/Gradient.ts:172](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/gradient/Gradient.ts#L172)
 
 ***
 
@@ -358,7 +358,7 @@ Gradient
 
 #### Defined in
 
-src/gradient/Gradient.ts:381
+[src/gradient/Gradient.ts:381](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/gradient/Gradient.ts#L381)
 
 ***
 
@@ -378,7 +378,7 @@ src/gradient/Gradient.ts:381
 
 ##### Defined in
 
-src/gradient/Gradient.ts:324
+[src/gradient/Gradient.ts:324](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/gradient/Gradient.ts#L324)
 
 #### fromObject(options)
 
@@ -394,4 +394,4 @@ src/gradient/Gradient.ts:324
 
 ##### Defined in
 
-src/gradient/Gradient.ts:327
+[src/gradient/Gradient.ts:327](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/gradient/Gradient.ts#L327)

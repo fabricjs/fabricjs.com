@@ -37,7 +37,7 @@ add type
 
 #### Defined in
 
-src/brushes/PatternBrush.ts:10
+[src/brushes/PatternBrush.ts:10](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/brushes/PatternBrush.ts#L10)
 
 ## Properties
 
@@ -55,7 +55,7 @@ add type
 
 #### Defined in
 
-src/brushes/BaseBrush.ts:73
+[src/brushes/BaseBrush.ts:73](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/brushes/BaseBrush.ts#L73)
 
 ***
 
@@ -77,7 +77,7 @@ Color of a brush
 
 #### Defined in
 
-src/brushes/BaseBrush.ts:16
+[src/brushes/BaseBrush.ts:16](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/brushes/BaseBrush.ts#L16)
 
 ***
 
@@ -99,7 +99,7 @@ Discard points that are less than `decimate` pixel distant from each other
 
 #### Defined in
 
-src/brushes/PencilBrush.ts:25
+[src/brushes/PencilBrush.ts:25](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/brushes/PencilBrush.ts#L25)
 
 ***
 
@@ -122,7 +122,7 @@ false
 
 #### Defined in
 
-src/brushes/PencilBrush.ts:34
+[src/brushes/PencilBrush.ts:34](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/brushes/PencilBrush.ts#L34)
 
 ***
 
@@ -144,7 +144,7 @@ false
 
 #### Defined in
 
-src/brushes/BaseBrush.ts:68
+[src/brushes/BaseBrush.ts:68](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/brushes/BaseBrush.ts#L68)
 
 ***
 
@@ -168,7 +168,7 @@ Shadow object representing shadow of this shape.
 
 #### Defined in
 
-src/brushes/BaseBrush.ts:32
+[src/brushes/BaseBrush.ts:32](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/brushes/BaseBrush.ts#L32)
 
 ***
 
@@ -178,7 +178,7 @@ src/brushes/BaseBrush.ts:32
 
 #### Defined in
 
-src/brushes/PatternBrush.ts:8
+[src/brushes/PatternBrush.ts:8](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/brushes/PatternBrush.ts#L8)
 
 ***
 
@@ -195,7 +195,7 @@ If `null` or 'none' or any other string that is not a modifier key the feature i
 
 #### Defined in
 
-src/brushes/PencilBrush.ts:41
+[src/brushes/PencilBrush.ts:41](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/brushes/PencilBrush.ts#L41)
 
 ***
 
@@ -217,7 +217,7 @@ Stroke Dash Array.
 
 #### Defined in
 
-src/brushes/BaseBrush.ts:60
+[src/brushes/BaseBrush.ts:60](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/brushes/BaseBrush.ts#L60)
 
 ***
 
@@ -239,7 +239,7 @@ Line endings style of a brush (one of "butt", "round", "square")
 
 #### Defined in
 
-src/brushes/BaseBrush.ts:39
+[src/brushes/BaseBrush.ts:39](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/brushes/BaseBrush.ts#L39)
 
 ***
 
@@ -261,7 +261,7 @@ Corner style of a brush (one of "bevel", "round", "miter")
 
 #### Defined in
 
-src/brushes/BaseBrush.ts:46
+[src/brushes/BaseBrush.ts:46](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/brushes/BaseBrush.ts#L46)
 
 ***
 
@@ -283,7 +283,7 @@ Maximum miter length (used for strokeLineJoin = "miter") of a brush's
 
 #### Defined in
 
-src/brushes/BaseBrush.ts:53
+[src/brushes/BaseBrush.ts:53](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/brushes/BaseBrush.ts#L53)
 
 ***
 
@@ -305,7 +305,7 @@ Width of a brush, has to be a Number, no string literals
 
 #### Defined in
 
-src/brushes/BaseBrush.ts:23
+[src/brushes/BaseBrush.ts:23](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/brushes/BaseBrush.ts#L23)
 
 ## Methods
 
@@ -327,7 +327,7 @@ and add it to the canvas.
 
 #### Defined in
 
-src/brushes/PencilBrush.ts:273
+[src/brushes/PencilBrush.ts:273](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/brushes/PencilBrush.ts#L273)
 
 ***
 
@@ -351,7 +351,7 @@ Sets brush styles
 
 #### Defined in
 
-src/brushes/PatternBrush.ts:50
+[src/brushes/PatternBrush.ts:50](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/brushes/PatternBrush.ts#L50)
 
 ***
 
@@ -379,7 +379,7 @@ SVG path commands
 
 #### Defined in
 
-src/brushes/PencilBrush.ts:212
+[src/brushes/PencilBrush.ts:212](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/brushes/PencilBrush.ts#L212)
 
 ***
 
@@ -403,7 +403,7 @@ Creates path
 
 #### Defined in
 
-src/brushes/PatternBrush.ts:59
+[src/brushes/PatternBrush.ts:59](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/brushes/PatternBrush.ts#L59)
 
 ***
 
@@ -429,7 +429,7 @@ Decimate points array with the decimate value
 
 #### Defined in
 
-src/brushes/PencilBrush.ts:243
+[src/brushes/PencilBrush.ts:243](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/brushes/PencilBrush.ts#L243)
 
 ***
 
@@ -449,7 +449,7 @@ Creates "pattern" instance property
 
 #### Defined in
 
-src/brushes/PatternBrush.ts:42
+[src/brushes/PatternBrush.ts:42](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/brushes/PatternBrush.ts#L42)
 
 ***
 
@@ -463,7 +463,7 @@ src/brushes/PatternBrush.ts:42
 
 #### Defined in
 
-src/brushes/PatternBrush.ts:14
+[src/brushes/PatternBrush.ts:14](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/brushes/PatternBrush.ts#L14)
 
 ***
 
@@ -481,7 +481,7 @@ src/brushes/PatternBrush.ts:14
 
 #### Defined in
 
-src/brushes/PencilBrush.ts:53
+[src/brushes/PencilBrush.ts:53](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/brushes/PencilBrush.ts#L53)
 
 ***
 
@@ -507,7 +507,7 @@ Invoked on mouse down
 
 #### Defined in
 
-src/brushes/PencilBrush.ts:67
+[src/brushes/PencilBrush.ts:67](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/brushes/PencilBrush.ts#L67)
 
 ***
 
@@ -533,7 +533,7 @@ Invoked on mouse move
 
 #### Defined in
 
-src/brushes/PencilBrush.ts:83
+[src/brushes/PencilBrush.ts:83](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/brushes/PencilBrush.ts#L83)
 
 ***
 
@@ -557,7 +557,7 @@ Invoked on mouse up
 
 #### Defined in
 
-src/brushes/PencilBrush.ts:121
+[src/brushes/PencilBrush.ts:121](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/brushes/PencilBrush.ts#L121)
 
 ***
 
@@ -583,4 +583,4 @@ src/brushes/PencilBrush.ts:121
 
 #### Defined in
 
-src/brushes/PencilBrush.ts:57
+[src/brushes/PencilBrush.ts:57](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/brushes/PencilBrush.ts#L57)

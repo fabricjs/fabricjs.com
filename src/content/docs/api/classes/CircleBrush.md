@@ -37,7 +37,7 @@ add type
 
 #### Defined in
 
-src/brushes/CircleBrush.ts:22
+[src/brushes/CircleBrush.ts:22](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/brushes/CircleBrush.ts#L22)
 
 ## Properties
 
@@ -55,7 +55,7 @@ add type
 
 #### Defined in
 
-src/brushes/BaseBrush.ts:73
+[src/brushes/BaseBrush.ts:73](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/brushes/BaseBrush.ts#L73)
 
 ***
 
@@ -77,7 +77,7 @@ Color of a brush
 
 #### Defined in
 
-src/brushes/BaseBrush.ts:16
+[src/brushes/BaseBrush.ts:16](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/brushes/BaseBrush.ts#L16)
 
 ***
 
@@ -99,7 +99,7 @@ false
 
 #### Defined in
 
-src/brushes/BaseBrush.ts:68
+[src/brushes/BaseBrush.ts:68](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/brushes/BaseBrush.ts#L68)
 
 ***
 
@@ -109,7 +109,7 @@ src/brushes/BaseBrush.ts:68
 
 #### Defined in
 
-src/brushes/CircleBrush.ts:20
+[src/brushes/CircleBrush.ts:20](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/brushes/CircleBrush.ts#L20)
 
 ***
 
@@ -133,7 +133,7 @@ Shadow object representing shadow of this shape.
 
 #### Defined in
 
-src/brushes/BaseBrush.ts:32
+[src/brushes/BaseBrush.ts:32](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/brushes/BaseBrush.ts#L32)
 
 ***
 
@@ -155,7 +155,7 @@ Stroke Dash Array.
 
 #### Defined in
 
-src/brushes/BaseBrush.ts:60
+[src/brushes/BaseBrush.ts:60](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/brushes/BaseBrush.ts#L60)
 
 ***
 
@@ -177,7 +177,7 @@ Line endings style of a brush (one of "butt", "round", "square")
 
 #### Defined in
 
-src/brushes/BaseBrush.ts:39
+[src/brushes/BaseBrush.ts:39](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/brushes/BaseBrush.ts#L39)
 
 ***
 
@@ -199,7 +199,7 @@ Corner style of a brush (one of "bevel", "round", "miter")
 
 #### Defined in
 
-src/brushes/BaseBrush.ts:46
+[src/brushes/BaseBrush.ts:46](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/brushes/BaseBrush.ts#L46)
 
 ***
 
@@ -221,7 +221,7 @@ Maximum miter length (used for strokeLineJoin = "miter") of a brush's
 
 #### Defined in
 
-src/brushes/BaseBrush.ts:53
+[src/brushes/BaseBrush.ts:53](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/brushes/BaseBrush.ts#L53)
 
 ***
 
@@ -243,7 +243,7 @@ Width of a brush
 
 #### Defined in
 
-src/brushes/CircleBrush.ts:18
+[src/brushes/CircleBrush.ts:18](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/brushes/CircleBrush.ts#L18)
 
 ## Methods
 
@@ -263,7 +263,7 @@ Just added pointer point
 
 #### Defined in
 
-src/brushes/CircleBrush.ts:128
+[src/brushes/CircleBrush.ts:128](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/brushes/CircleBrush.ts#L128)
 
 ***
 
@@ -283,7 +283,7 @@ src/brushes/CircleBrush.ts:128
 
 #### Defined in
 
-src/brushes/CircleBrush.ts:39
+[src/brushes/CircleBrush.ts:39](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/brushes/CircleBrush.ts#L39)
 
 ***
 
@@ -303,7 +303,7 @@ Invoked inside on mouse down and mouse move
 
 #### Defined in
 
-src/brushes/CircleBrush.ts:31
+[src/brushes/CircleBrush.ts:31](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/brushes/CircleBrush.ts#L31)
 
 ***
 
@@ -327,7 +327,7 @@ Invoked on mouse down
 
 #### Defined in
 
-src/brushes/CircleBrush.ts:50
+[src/brushes/CircleBrush.ts:50](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/brushes/CircleBrush.ts#L50)
 
 ***
 
@@ -351,7 +351,7 @@ Invoked on mouse move
 
 #### Defined in
 
-src/brushes/CircleBrush.ts:75
+[src/brushes/CircleBrush.ts:75](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/brushes/CircleBrush.ts#L75)
 
 ***
 
@@ -371,4 +371,4 @@ Invoked on mouse up
 
 #### Defined in
 
-src/brushes/CircleBrush.ts:91
+[src/brushes/CircleBrush.ts:91](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/brushes/CircleBrush.ts#L91)

@@ -15,4 +15,4 @@ title: "ImperativeLayoutContext"
 
 ## Defined in
 
-src/LayoutManager/types.ts:116
+[src/LayoutManager/types.ts:116](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/LayoutManager/types.ts#L116)

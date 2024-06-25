@@ -29,4 +29,4 @@ a valid css string for the cursor
 
 ## Defined in
 
-src/controls/rotate.ts:18
+[src/controls/rotate.ts:18](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/controls/rotate.ts#L18)

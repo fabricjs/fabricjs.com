@@ -22,4 +22,4 @@ TODO: figure out how to remove the type assertions in a nice way
 
 ## Defined in
 
-src/util/path/index.ts:351
+[src/util/path/index.ts:351](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/util/path/index.ts#L351)

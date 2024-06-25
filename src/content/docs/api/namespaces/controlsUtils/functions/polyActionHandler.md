@@ -29,4 +29,4 @@ current object being transformed.
 
 ## Defined in
 
-src/controls/polyControl.ts:44
+[src/controls/polyControl.ts:44](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/controls/polyControl.ts#L44)

@@ -29,4 +29,4 @@ the normalized point
 
 ## Defined in
 
-src/controls/util.ts:132
+[src/controls/util.ts:132](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/controls/util.ts#L132)

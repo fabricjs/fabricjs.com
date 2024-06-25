@@ -46,7 +46,7 @@ Options object
 
 #### Defined in
 
-src/filters/BaseFilter.ts:56
+[src/filters/BaseFilter.ts:56](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BaseFilter.ts#L56)
 
 ## Properties
 
@@ -66,7 +66,7 @@ Color to remove, in any format understood by [Color](../../../../../../api/class
 
 #### Defined in
 
-src/filters/RemoveColor.ts:38
+[src/filters/RemoveColor.ts:38](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/RemoveColor.ts#L38)
 
 ***
 
@@ -79,7 +79,7 @@ between 0 and 1
 
 #### Defined in
 
-src/filters/RemoveColor.ts:44
+[src/filters/RemoveColor.ts:44](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/RemoveColor.ts#L44)
 
 ***
 
@@ -92,7 +92,7 @@ NOT IMPLEMENTED YET
 
 #### Defined in
 
-src/filters/RemoveColor.ts:50
+[src/filters/RemoveColor.ts:50](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/RemoveColor.ts#L50)
 
 ***
 
@@ -106,7 +106,7 @@ src/filters/RemoveColor.ts:50
 
 #### Defined in
 
-src/filters/RemoveColor.ts:54
+[src/filters/RemoveColor.ts:54](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/RemoveColor.ts#L54)
 
 ***
 
@@ -126,7 +126,7 @@ to avoid doing that.
 
 #### Defined in
 
-src/filters/RemoveColor.ts:52
+[src/filters/RemoveColor.ts:52](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/RemoveColor.ts#L52)
 
 ***
 
@@ -144,7 +144,7 @@ needs to specify all the one that are needed
 
 #### Defined in
 
-src/filters/RemoveColor.ts:56
+[src/filters/RemoveColor.ts:56](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/RemoveColor.ts#L56)
 
 ## Accessors
 
@@ -170,7 +170,7 @@ Filter type
 
 #### Defined in
 
-src/filters/BaseFilter.ts:30
+[src/filters/BaseFilter.ts:30](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BaseFilter.ts#L30)
 
 ## Methods
 
@@ -192,7 +192,7 @@ src/filters/BaseFilter.ts:30
 
 #### Defined in
 
-src/filters/BaseFilter.ts:204
+[src/filters/BaseFilter.ts:204](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BaseFilter.ts#L204)
 
 ***
 
@@ -214,7 +214,7 @@ src/filters/BaseFilter.ts:204
 
 #### Defined in
 
-src/filters/BaseFilter.ts:231
+[src/filters/BaseFilter.ts:231](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BaseFilter.ts#L231)
 
 ***
 
@@ -240,7 +240,7 @@ Determines whether to use WebGL or Canvas2D based on the options.webgl flag.
 
 #### Defined in
 
-src/filters/BaseFilter.ts:264
+[src/filters/BaseFilter.ts:264](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BaseFilter.ts#L264)
 
 ***
 
@@ -266,7 +266,7 @@ Canvas element to apply filter to
 
 #### Defined in
 
-src/filters/RemoveColor.ts:66
+[src/filters/RemoveColor.ts:66](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/RemoveColor.ts#L66)
 
 ***
 
@@ -290,7 +290,7 @@ Apply this filter using webgl.
 
 #### Defined in
 
-src/filters/BaseFilter.ts:314
+[src/filters/BaseFilter.ts:314](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BaseFilter.ts#L314)
 
 ***
 
@@ -316,7 +316,7 @@ src/filters/BaseFilter.ts:314
 
 #### Defined in
 
-src/filters/BaseFilter.ts:333
+[src/filters/BaseFilter.ts:333](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BaseFilter.ts#L333)
 
 ***
 
@@ -341,7 +341,7 @@ remember that options.targetCanvas is available for use till end of chain.
 
 #### Defined in
 
-src/filters/BaseFilter.ts:369
+[src/filters/BaseFilter.ts:369](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BaseFilter.ts#L369)
 
 ***
 
@@ -387,7 +387,7 @@ vertexShader source for compilation
 
 #### Defined in
 
-src/filters/BaseFilter.ts:82
+[src/filters/BaseFilter.ts:82](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BaseFilter.ts#L82)
 
 ***
 
@@ -419,7 +419,7 @@ A map of attribute names to attribute locations.
 
 #### Defined in
 
-src/filters/BaseFilter.ts:152
+[src/filters/BaseFilter.ts:152](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BaseFilter.ts#L152)
 
 ***
 
@@ -440,7 +440,7 @@ Used to force recompilation when parameters change or to retrieve the shader fro
 
 #### Defined in
 
-src/filters/BaseFilter.ts:283
+[src/filters/BaseFilter.ts:283](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BaseFilter.ts#L283)
 
 ***
 
@@ -458,7 +458,7 @@ src/filters/BaseFilter.ts:283
 
 #### Defined in
 
-src/filters/RemoveColor.ts:58
+[src/filters/RemoveColor.ts:58](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/RemoveColor.ts#L58)
 
 ***
 
@@ -490,7 +490,7 @@ A map of uniform names to uniform locations.
 
 #### Defined in
 
-src/filters/BaseFilter.ts:168
+[src/filters/BaseFilter.ts:168](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BaseFilter.ts#L168)
 
 ***
 
@@ -508,7 +508,7 @@ src/filters/BaseFilter.ts:168
 
 #### Defined in
 
-src/filters/BaseFilter.ts:71
+[src/filters/BaseFilter.ts:71](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BaseFilter.ts#L71)
 
 ***
 
@@ -535,7 +535,7 @@ Other filters may need their own version ( ColorMatrix, HueRotation, gamma, Comp
 
 #### Defined in
 
-src/filters/BaseFilter.ts:247
+[src/filters/BaseFilter.ts:247](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BaseFilter.ts#L247)
 
 ***
 
@@ -561,7 +561,7 @@ the compiled program shader
 
 #### Defined in
 
-src/filters/BaseFilter.ts:294
+[src/filters/BaseFilter.ts:294](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BaseFilter.ts#L294)
 
 ***
 
@@ -593,7 +593,7 @@ A map of shader attribute names to their locations.
 
 #### Defined in
 
-src/filters/BaseFilter.ts:191
+[src/filters/BaseFilter.ts:191](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BaseFilter.ts#L191)
 
 ***
 
@@ -623,7 +623,7 @@ A map of string uniform names to WebGLUniformLocation objects
 
 #### Defined in
 
-src/filters/RemoveColor.ts:100
+[src/filters/RemoveColor.ts:100](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/RemoveColor.ts#L100)
 
 ***
 
@@ -645,7 +645,7 @@ JSON
 
 #### Defined in
 
-src/filters/BaseFilter.ts:401
+[src/filters/BaseFilter.ts:401](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BaseFilter.ts#L401)
 
 ***
 
@@ -667,7 +667,7 @@ Object representation of an instance
 
 #### Defined in
 
-src/filters/BaseFilter.ts:382
+[src/filters/BaseFilter.ts:382](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BaseFilter.ts#L382)
 
 ***
 
@@ -691,7 +691,7 @@ src/filters/BaseFilter.ts:382
 
 #### Defined in
 
-src/filters/BaseFilter.ts:344
+[src/filters/BaseFilter.ts:344](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BaseFilter.ts#L344)
 
 ***
 
@@ -715,4 +715,4 @@ src/filters/BaseFilter.ts:344
 
 #### Defined in
 
-src/filters/BaseFilter.ts:406
+[src/filters/BaseFilter.ts:406](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/filters/BaseFilter.ts#L406)

@@ -21,7 +21,7 @@ title: "Intersection"
 
 #### Defined in
 
-src/Intersection.ts:13
+[src/Intersection.ts:13](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/Intersection.ts#L13)
 
 ## Properties
 
@@ -31,7 +31,7 @@ src/Intersection.ts:13
 
 #### Defined in
 
-src/Intersection.ts:9
+[src/Intersection.ts:9](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/Intersection.ts#L9)
 
 ***
 
@@ -41,7 +41,7 @@ src/Intersection.ts:9
 
 #### Defined in
 
-src/Intersection.ts:11
+[src/Intersection.ts:11](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/Intersection.ts#L11)
 
 ## Methods
 
@@ -82,7 +82,7 @@ check segment intersection by passing `false`
 
 #### Defined in
 
-src/Intersection.ts:127
+[src/Intersection.ts:127](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/Intersection.ts#L127)
 
 ***
 
@@ -126,7 +126,7 @@ account for stroke
 
 #### Defined in
 
-src/Intersection.ts:224
+[src/Intersection.ts:224](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/Intersection.ts#L224)
 
 ***
 
@@ -154,7 +154,7 @@ account for stroke
 
 #### Defined in
 
-src/Intersection.ts:277
+[src/Intersection.ts:277](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/Intersection.ts#L277)
 
 ***
 
@@ -190,7 +190,7 @@ bottom right point of rect
 
 #### Defined in
 
-src/Intersection.ts:315
+[src/Intersection.ts:315](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/Intersection.ts#L315)
 
 ***
 
@@ -230,7 +230,7 @@ other point on line
 
 #### Defined in
 
-src/Intersection.ts:183
+[src/Intersection.ts:183](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/Intersection.ts#L183)
 
 ***
 
@@ -266,7 +266,7 @@ polygon points
 
 #### Defined in
 
-src/Intersection.ts:259
+[src/Intersection.ts:259](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/Intersection.ts#L259)
 
 ***
 
@@ -306,7 +306,7 @@ other boundary point of segment
 
 #### Defined in
 
-src/Intersection.ts:202
+[src/Intersection.ts:202](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/Intersection.ts#L202)
 
 ***
 
@@ -342,7 +342,7 @@ true if `T` is contained
 
 #### Defined in
 
-src/Intersection.ts:51
+[src/Intersection.ts:51](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/Intersection.ts#L51)
 
 ***
 
@@ -370,4 +370,4 @@ https://en.wikipedia.org/wiki/Point_in_polygon
 
 #### Defined in
 
-src/Intersection.ts:91
+[src/Intersection.ts:91](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/Intersection.ts#L91)

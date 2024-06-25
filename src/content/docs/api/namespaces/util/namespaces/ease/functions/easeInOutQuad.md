@@ -25,4 +25,4 @@ Quadratic easing in and out
 
 ## Defined in
 
-src/util/animation/easing.ts:321
+[src/util/animation/easing.ts:321](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/util/animation/easing.ts#L321)

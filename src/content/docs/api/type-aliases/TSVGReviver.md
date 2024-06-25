@@ -17,4 +17,4 @@ title: "TSVGReviver"
 
 ## Defined in
 
-src/typedefs.ts:85
+[src/typedefs.ts:85](https://github.com/fabricjs/fabric.js/blob/v6.0.0-rc4/src/typedefs.ts#L85)

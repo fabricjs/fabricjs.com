@@ -15,6 +15,6 @@ title: "cancelAnimFrame"
 
 `void`
 
-## Source
+## Defined in
 
 src/util/animation/AnimationFrameProvider.ts:7

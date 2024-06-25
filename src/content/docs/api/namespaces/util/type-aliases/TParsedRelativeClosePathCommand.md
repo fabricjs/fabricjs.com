@@ -7,6 +7,6 @@ title: "TParsedRelativeClosePathCommand"
 
 > **TParsedRelativeClosePathCommand**: [`"z"`]
 
-## Source
+## Defined in
 
 src/util/path/typedefs.ts:142

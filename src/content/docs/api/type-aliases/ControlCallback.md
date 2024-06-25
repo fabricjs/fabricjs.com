@@ -7,22 +7,22 @@ title: "ControlCallback"
 
 > **ControlCallback**\<`R`\>: (`eventData`, `control`, `fabricObject`) => `R`
 
-## Type parameters
+## Type Parameters
 
 • **R** = `void`
 
 ## Parameters
 
-• **eventData**: [`TPointerEvent`](TPointerEvent.md)
+• **eventData**: [`TPointerEvent`](/api/type-aliases/tpointerevent/)
 
-• **control**: [`Control`](../classes/Control.md)
+• **control**: [`Control`](/api/classes/control/)
 
-• **fabricObject**: [`FabricObject`](../classes/FabricObject.md)
+• **fabricObject**: [`FabricObject`](/api/classes/fabricobject/)
 
 ## Returns
 
 `R`
 
-## Source
+## Defined in
 
 src/EventTypeDefs.ts:44

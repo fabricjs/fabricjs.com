@@ -9,6 +9,6 @@ title: "TRGBAColorSource"
 
 RGBA format
 
-## Source
+## Defined in
 
 src/color/typedefs.ts:11

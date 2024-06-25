@@ -20,15 +20,6 @@ This is exposed for special cases, such as configuring a test environment, and s
 
 `void`
 
-## Example
-
-```ts
-import { getEnv, setEnv } from 'fabric';
-// we want fabric to use the `window` and `document` objects exposed by the environment we are running in.
-setEnv({ ...getEnv(), window, document });
-// done with setup, using fabric is now safe
-```
-
-## Source
+## Defined in
 
 src/env/index.ts:29

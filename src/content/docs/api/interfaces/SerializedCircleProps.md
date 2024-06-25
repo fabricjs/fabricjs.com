@@ -7,13 +7,13 @@ title: "SerializedCircleProps"
 
 ## Extends
 
-- [`SerializedObjectProps`](SerializedObjectProps.md).`UniqueCircleProps`
+- [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/).`UniqueCircleProps`
 
 ## Properties
 
 ### angle
 
-> **angle**: [`TDegree`](../type-aliases/TDegree.md)
+> **angle**: [`TDegree`](/api/type-aliases/tdegree/)
 
 Angle of rotation of an object (in degrees)
 
@@ -25,9 +25,9 @@ Angle of rotation of an object (in degrees)
 
 #### Inherited from
 
-[`SerializedObjectProps`](SerializedObjectProps.md).[`angle`](SerializedObjectProps.md#angle)
+[`SerializedObjectProps`](/api/interfaces/serializedobjectprops/).[`angle`](/api/interfaces/serializedobjectprops/#angle)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:57
 
@@ -48,9 +48,9 @@ takes css colors https://www.w3.org/TR/css-color-3/
 
 #### Inherited from
 
-[`SerializedObjectProps`](SerializedObjectProps.md).[`backgroundColor`](SerializedObjectProps.md#backgroundcolor)
+[`SerializedObjectProps`](/api/interfaces/serializedobjectprops/).[`backgroundColor`](/api/interfaces/serializedobjectprops/#backgroundcolor)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/SerializedObjectProps.ts:26
 
@@ -58,7 +58,7 @@ src/shapes/Object/types/SerializedObjectProps.ts:26
 
 ### clipPath?
 
-> **`optional`** **clipPath**: `Partial`\<[`SerializedObjectProps`](SerializedObjectProps.md) & `ClipPathProps`\>
+> `optional` **clipPath**: `Partial`\<[`SerializedObjectProps`](/api/interfaces/serializedobjectprops/) & `ClipPathProps`\>
 
 a fabricObject that, without stroke define a clipping area with their shape. filled in black
 the clipPath object gets used when the object has rendered, and the context is placed in the center
@@ -67,9 +67,9 @@ If you want 0,0 of a clipPath to align with an object center, use clipPath.origi
 
 #### Inherited from
 
-[`SerializedObjectProps`](SerializedObjectProps.md).[`clipPath`](SerializedObjectProps.md#clippath)
+[`SerializedObjectProps`](/api/interfaces/serializedobjectprops/).[`clipPath`](/api/interfaces/serializedobjectprops/#clippath)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/SerializedObjectProps.ts:49
 
@@ -93,7 +93,7 @@ false
 
 `UniqueCircleProps.counterClockwise`
 
-#### Source
+#### Defined in
 
 src/shapes/Circle.ts:41
 
@@ -115,7 +115,7 @@ Angle for the end of the circle, in degrees
 
 `UniqueCircleProps.endAngle`
 
-#### Source
+#### Defined in
 
 src/shapes/Circle.ts:33
 
@@ -123,7 +123,7 @@ src/shapes/Circle.ts:33
 
 ### fill
 
-> **fill**: `null` \| `string` \| `Record`\<`string`, `any`\> \| `Partial`\<[`Gradient`](../classes/Gradient.md)\<`"linear"`, `"linear"`\>\> & `Object` \| `Partial`\<[`Gradient`](../classes/Gradient.md)\<`"radial"`, `"radial"`\>\> & `Object`
+> **fill**: `null` \| `string` \| `Record`\<`string`, `any`\> \| `Partial`\<[`Gradient`](/api/classes/gradient/)\<`"linear"`, `"linear"`\>\> & `object` \| `Partial`\<[`Gradient`](/api/classes/gradient/)\<`"radial"`, `"radial"`\>\> & `object`
 
 Color of object's fill
 takes css colors https://www.w3.org/TR/css-color-3/
@@ -136,9 +136,9 @@ rgb(0,0,0)
 
 #### Inherited from
 
-[`SerializedObjectProps`](SerializedObjectProps.md).[`fill`](SerializedObjectProps.md#fill)
+[`SerializedObjectProps`](/api/interfaces/serializedobjectprops/).[`fill`](/api/interfaces/serializedobjectprops/#fill)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FillStrokeProps.ts:17
 
@@ -160,9 +160,9 @@ nonzero
 
 #### Inherited from
 
-[`SerializedObjectProps`](SerializedObjectProps.md).[`fillRule`](SerializedObjectProps.md#fillrule)
+[`SerializedObjectProps`](/api/interfaces/serializedobjectprops/).[`fillRule`](/api/interfaces/serializedobjectprops/#fillrule)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FillStrokeProps.ts:26
 
@@ -182,9 +182,9 @@ false
 
 #### Inherited from
 
-[`SerializedObjectProps`](SerializedObjectProps.md).[`flipX`](SerializedObjectProps.md#flipx)
+[`SerializedObjectProps`](/api/interfaces/serializedobjectprops/).[`flipX`](/api/interfaces/serializedobjectprops/#flipx)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:64
 
@@ -204,9 +204,9 @@ false
 
 #### Inherited from
 
-[`SerializedObjectProps`](SerializedObjectProps.md).[`flipY`](SerializedObjectProps.md#flipy)
+[`SerializedObjectProps`](/api/interfaces/serializedobjectprops/).[`flipY`](/api/interfaces/serializedobjectprops/#flipy)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:71
 
@@ -226,9 +226,9 @@ Composite rule used for canvas globalCompositeOperation
 
 #### Inherited from
 
-[`SerializedObjectProps`](SerializedObjectProps.md).[`globalCompositeOperation`](SerializedObjectProps.md#globalcompositeoperation)
+[`SerializedObjectProps`](/api/interfaces/serializedobjectprops/).[`globalCompositeOperation`](/api/interfaces/serializedobjectprops/#globalcompositeoperation)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/SerializedObjectProps.ts:18
 
@@ -248,9 +248,9 @@ Object height
 
 #### Inherited from
 
-[`SerializedObjectProps`](SerializedObjectProps.md).[`height`](SerializedObjectProps.md#height)
+[`SerializedObjectProps`](/api/interfaces/serializedobjectprops/).[`height`](/api/interfaces/serializedobjectprops/#height)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:34
 
@@ -272,9 +272,9 @@ You can change this by setting [originX](../../../../api/interfaces/fabricobject
 
 #### Inherited from
 
-[`SerializedObjectProps`](SerializedObjectProps.md).[`left`](SerializedObjectProps.md#left)
+[`SerializedObjectProps`](/api/interfaces/serializedobjectprops/).[`left`](/api/interfaces/serializedobjectprops/#left)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:11
 
@@ -294,9 +294,9 @@ Opacity of an object
 
 #### Inherited from
 
-[`SerializedObjectProps`](SerializedObjectProps.md).[`opacity`](SerializedObjectProps.md#opacity)
+[`SerializedObjectProps`](/api/interfaces/serializedobjectprops/).[`opacity`](/api/interfaces/serializedobjectprops/#opacity)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/SerializedObjectProps.ts:11
 
@@ -304,7 +304,7 @@ src/shapes/Object/types/SerializedObjectProps.ts:11
 
 ### originX
 
-> **originX**: [`TOriginX`](../type-aliases/TOriginX.md)
+> **originX**: [`TOriginX`](/api/type-aliases/toriginx/)
 
 Horizontal origin of transformation of an object (`left`, `center`, `right`  or `[0, 1]`)
 See http://jsfiddle.net/1ow02gea/244/ on how originX/originY affect objects in groups
@@ -317,9 +317,9 @@ See http://jsfiddle.net/1ow02gea/244/ on how originX/originY affect objects in g
 
 #### Inherited from
 
-[`SerializedObjectProps`](SerializedObjectProps.md).[`originX`](SerializedObjectProps.md#originx)
+[`SerializedObjectProps`](/api/interfaces/serializedobjectprops/).[`originX`](/api/interfaces/serializedobjectprops/#originx)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:42
 
@@ -327,7 +327,7 @@ src/shapes/Object/types/BaseProps.ts:42
 
 ### originY
 
-> **originY**: [`TOriginY`](../type-aliases/TOriginY.md)
+> **originY**: [`TOriginY`](/api/type-aliases/toriginy/)
 
 Vertical origin of transformation of an object (`top`, `center`, `bottom` or `[0, 1]`)
 See http://jsfiddle.net/1ow02gea/244/ on how originX/originY affect objects in groups
@@ -340,9 +340,9 @@ See http://jsfiddle.net/1ow02gea/244/ on how originX/originY affect objects in g
 
 #### Inherited from
 
-[`SerializedObjectProps`](SerializedObjectProps.md).[`originY`](SerializedObjectProps.md#originy)
+[`SerializedObjectProps`](/api/interfaces/serializedobjectprops/).[`originY`](/api/interfaces/serializedobjectprops/#originy)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:50
 
@@ -362,9 +362,9 @@ Determines if the fill or the stroke is drawn first (one of "fill" or "stroke")
 
 #### Inherited from
 
-[`SerializedObjectProps`](SerializedObjectProps.md).[`paintFirst`](SerializedObjectProps.md#paintfirst)
+[`SerializedObjectProps`](/api/interfaces/serializedobjectprops/).[`paintFirst`](/api/interfaces/serializedobjectprops/#paintfirst)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FillStrokeProps.ts:9
 
@@ -386,7 +386,7 @@ Radius of this circle
 
 `UniqueCircleProps.radius`
 
-#### Source
+#### Defined in
 
 src/shapes/Circle.ts:19
 
@@ -406,9 +406,9 @@ Object scale factor (horizontal)
 
 #### Inherited from
 
-[`SerializedObjectProps`](SerializedObjectProps.md).[`scaleX`](SerializedObjectProps.md#scalex)
+[`SerializedObjectProps`](/api/interfaces/serializedobjectprops/).[`scaleX`](/api/interfaces/serializedobjectprops/#scalex)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:78
 
@@ -428,9 +428,9 @@ Object scale factor (vertical)
 
 #### Inherited from
 
-[`SerializedObjectProps`](SerializedObjectProps.md).[`scaleY`](SerializedObjectProps.md#scaley)
+[`SerializedObjectProps`](/api/interfaces/serializedobjectprops/).[`scaleY`](/api/interfaces/serializedobjectprops/#scaley)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:85
 
@@ -438,7 +438,7 @@ src/shapes/Object/types/BaseProps.ts:85
 
 ### shadow
 
-> **shadow**: `null` \| `Partial`\<[`SerializedShadowOptions`](../type-aliases/SerializedShadowOptions.md)\>
+> **shadow**: `null` \| `Partial`\<[`SerializedShadowOptions`](/api/type-aliases/serializedshadowoptions/)\>
 
 Shadow object representing shadow of this shape
 
@@ -450,9 +450,9 @@ null
 
 #### Inherited from
 
-[`SerializedObjectProps`](SerializedObjectProps.md).[`shadow`](SerializedObjectProps.md#shadow)
+[`SerializedObjectProps`](/api/interfaces/serializedobjectprops/).[`shadow`](/api/interfaces/serializedobjectprops/#shadow)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/SerializedObjectProps.ts:33
 
@@ -460,7 +460,7 @@ src/shapes/Object/types/SerializedObjectProps.ts:33
 
 ### skewX
 
-> **skewX**: [`TDegree`](../type-aliases/TDegree.md)
+> **skewX**: [`TDegree`](/api/type-aliases/tdegree/)
 
 Angle of skew on x axes of an object (in degrees)
 
@@ -472,9 +472,9 @@ Angle of skew on x axes of an object (in degrees)
 
 #### Inherited from
 
-[`SerializedObjectProps`](SerializedObjectProps.md).[`skewX`](SerializedObjectProps.md#skewx)
+[`SerializedObjectProps`](/api/interfaces/serializedobjectprops/).[`skewX`](/api/interfaces/serializedobjectprops/#skewx)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:92
 
@@ -482,7 +482,7 @@ src/shapes/Object/types/BaseProps.ts:92
 
 ### skewY
 
-> **skewY**: [`TDegree`](../type-aliases/TDegree.md)
+> **skewY**: [`TDegree`](/api/type-aliases/tdegree/)
 
 Angle of skew on y axes of an object (in degrees)
 
@@ -494,9 +494,9 @@ Angle of skew on y axes of an object (in degrees)
 
 #### Inherited from
 
-[`SerializedObjectProps`](SerializedObjectProps.md).[`skewY`](SerializedObjectProps.md#skewy)
+[`SerializedObjectProps`](/api/interfaces/serializedobjectprops/).[`skewY`](/api/interfaces/serializedobjectprops/#skewy)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:99
 
@@ -518,7 +518,7 @@ Angle for the start of the circle, in degrees.
 
 `UniqueCircleProps.startAngle`
 
-#### Source
+#### Defined in
 
 src/shapes/Circle.ts:26
 
@@ -526,7 +526,7 @@ src/shapes/Circle.ts:26
 
 ### stroke
 
-> **stroke**: `null` \| `string` \| `Record`\<`string`, `any`\> \| `Partial`\<[`Gradient`](../classes/Gradient.md)\<`"linear"`, `"linear"`\>\> & `Object` \| `Partial`\<[`Gradient`](../classes/Gradient.md)\<`"radial"`, `"radial"`\>\> & `Object`
+> **stroke**: `null` \| `string` \| `Record`\<`string`, `any`\> \| `Partial`\<[`Gradient`](/api/classes/gradient/)\<`"linear"`, `"linear"`\>\> & `object` \| `Partial`\<[`Gradient`](/api/classes/gradient/)\<`"radial"`, `"radial"`\>\> & `object`
 
 When defined, an object is rendered via stroke and this property specifies its color
 takes css colors https://www.w3.org/TR/css-color-3/
@@ -539,9 +539,9 @@ null
 
 #### Inherited from
 
-[`SerializedObjectProps`](SerializedObjectProps.md).[`stroke`](SerializedObjectProps.md#stroke)
+[`SerializedObjectProps`](/api/interfaces/serializedobjectprops/).[`stroke`](/api/interfaces/serializedobjectprops/#stroke)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FillStrokeProps.ts:34
 
@@ -561,9 +561,9 @@ null;
 
 #### Inherited from
 
-[`SerializedObjectProps`](SerializedObjectProps.md).[`strokeDashArray`](SerializedObjectProps.md#strokedasharray)
+[`SerializedObjectProps`](/api/interfaces/serializedobjectprops/).[`strokeDashArray`](/api/interfaces/serializedobjectprops/#strokedasharray)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FillStrokeProps.ts:48
 
@@ -583,9 +583,9 @@ Line offset of an object's stroke
 
 #### Inherited from
 
-[`SerializedObjectProps`](SerializedObjectProps.md).[`strokeDashOffset`](SerializedObjectProps.md#strokedashoffset)
+[`SerializedObjectProps`](/api/interfaces/serializedobjectprops/).[`strokeDashOffset`](/api/interfaces/serializedobjectprops/#strokedashoffset)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FillStrokeProps.ts:55
 
@@ -605,9 +605,9 @@ butt
 
 #### Inherited from
 
-[`SerializedObjectProps`](SerializedObjectProps.md).[`strokeLineCap`](SerializedObjectProps.md#strokelinecap)
+[`SerializedObjectProps`](/api/interfaces/serializedobjectprops/).[`strokeLineCap`](/api/interfaces/serializedobjectprops/#strokelinecap)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FillStrokeProps.ts:62
 
@@ -627,9 +627,9 @@ Corner style of an object's stroke (one of "bevel", "round", "miter")
 
 #### Inherited from
 
-[`SerializedObjectProps`](SerializedObjectProps.md).[`strokeLineJoin`](SerializedObjectProps.md#strokelinejoin)
+[`SerializedObjectProps`](/api/interfaces/serializedobjectprops/).[`strokeLineJoin`](/api/interfaces/serializedobjectprops/#strokelinejoin)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FillStrokeProps.ts:69
 
@@ -649,9 +649,9 @@ Maximum miter length (used for strokeLineJoin = "miter") of an object's stroke
 
 #### Inherited from
 
-[`SerializedObjectProps`](SerializedObjectProps.md).[`strokeMiterLimit`](SerializedObjectProps.md#strokemiterlimit)
+[`SerializedObjectProps`](/api/interfaces/serializedobjectprops/).[`strokeMiterLimit`](/api/interfaces/serializedobjectprops/#strokemiterlimit)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FillStrokeProps.ts:76
 
@@ -684,9 +684,9 @@ false
 
 #### Inherited from
 
-[`SerializedObjectProps`](SerializedObjectProps.md).[`strokeUniform`](SerializedObjectProps.md#strokeuniform)
+[`SerializedObjectProps`](/api/interfaces/serializedobjectprops/).[`strokeUniform`](/api/interfaces/serializedobjectprops/#strokeuniform)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FillStrokeProps.ts:89
 
@@ -706,9 +706,9 @@ Width of a stroke used to render this object
 
 #### Inherited from
 
-[`SerializedObjectProps`](SerializedObjectProps.md).[`strokeWidth`](SerializedObjectProps.md#strokewidth)
+[`SerializedObjectProps`](/api/interfaces/serializedobjectprops/).[`strokeWidth`](/api/interfaces/serializedobjectprops/#strokewidth)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FillStrokeProps.ts:41
 
@@ -730,9 +730,9 @@ You can change this by setting [originY](../../../../api/interfaces/fabricobject
 
 #### Inherited from
 
-[`SerializedObjectProps`](SerializedObjectProps.md).[`top`](SerializedObjectProps.md#top)
+[`SerializedObjectProps`](/api/interfaces/serializedobjectprops/).[`top`](/api/interfaces/serializedobjectprops/#top)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:20
 
@@ -752,9 +752,9 @@ When set to `false`, an object is not rendered on canvas
 
 #### Inherited from
 
-[`SerializedObjectProps`](SerializedObjectProps.md).[`visible`](SerializedObjectProps.md#visible)
+[`SerializedObjectProps`](/api/interfaces/serializedobjectprops/).[`visible`](/api/interfaces/serializedobjectprops/#visible)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/SerializedObjectProps.ts:40
 
@@ -774,8 +774,8 @@ Object width
 
 #### Inherited from
 
-[`SerializedObjectProps`](SerializedObjectProps.md).[`width`](SerializedObjectProps.md#width)
+[`SerializedObjectProps`](/api/interfaces/serializedobjectprops/).[`width`](/api/interfaces/serializedobjectprops/#width)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:27

@@ -7,6 +7,6 @@ title: "TParsedAbsoluteClosePathCommand"
 
 > **TParsedAbsoluteClosePathCommand**: [`"Z"`]
 
-## Source
+## Defined in
 
 src/util/path/typedefs.ts:141

@@ -5,22 +5,18 @@ prev: false
 title: "composeMatrix"
 ---
 
-> **composeMatrix**(`options`): [`TMat2D`](../../../type-aliases/TMat2D.md)
-
-Returns a transform matrix starting from an object of the same kind of
-the one returned from qrDecompose, useful also if you want to calculate some
-transformations from an object that is not enlived yet
+> **composeMatrix**(`options`): [`TMat2D`](/api/type-aliases/tmat2d/)
 
 ## Parameters
 
-• **options**: [`TComposeMatrixArgs`](../type-aliases/TComposeMatrixArgs.md)
+• **options**: [`TComposeMatrixArgs`](/api/namespaces/util/type-aliases/tcomposematrixargs/)
 
 ## Returns
 
-[`TMat2D`](../../../type-aliases/TMat2D.md)
+[`TMat2D`](/api/type-aliases/tmat2d/)
 
 transform matrix
 
-## Source
+## Defined in
 
 src/util/misc/matrix.ts:306

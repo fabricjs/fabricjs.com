@@ -5,7 +5,7 @@ prev: false
 title: "TCurveInfo"
 ---
 
-> **TCurveInfo**\<`C`\>: [`TPathSegmentInfoCommon`](TPathSegmentInfoCommon.md)\<`C`\> & `Object`
+> **TCurveInfo**\<`C`\>: [`TPathSegmentInfoCommon`](/api/namespaces/util/type-aliases/tpathsegmentinfocommon/)\<`C`\> & `object`
 
 ## Type declaration
 
@@ -25,7 +25,7 @@ Get the angle to a percent
 
 ### iterator()
 
-> **iterator**: (`pct`) => [`Point`](../../../classes/Point.md)
+> **iterator**: (`pct`) => [`Point`](/api/classes/point/)
 
 Get the Point a certain percent distance along the curve
 
@@ -35,7 +35,7 @@ Get the Point a certain percent distance along the curve
 
 #### Returns
 
-[`Point`](../../../classes/Point.md)
+[`Point`](/api/classes/point/)
 
 ### length
 
@@ -43,10 +43,10 @@ Get the Point a certain percent distance along the curve
 
 Total length of the curve
 
-## Type parameters
+## Type Parameters
 
-• **C** extends `string`
+• **C** *extends* `string`
 
-## Source
+## Defined in
 
 src/util/path/typedefs.ts:11

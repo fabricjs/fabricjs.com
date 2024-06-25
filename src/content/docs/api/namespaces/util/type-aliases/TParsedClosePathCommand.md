@@ -5,8 +5,8 @@ prev: false
 title: "TParsedClosePathCommand"
 ---
 
-> **TParsedClosePathCommand**: [`TParsedAbsoluteClosePathCommand`](TParsedAbsoluteClosePathCommand.md) \| [`TParsedRelativeClosePathCommand`](TParsedRelativeClosePathCommand.md)
+> **TParsedClosePathCommand**: [`TParsedAbsoluteClosePathCommand`](/api/namespaces/util/type-aliases/tparsedabsoluteclosepathcommand/) \| [`TParsedRelativeClosePathCommand`](/api/namespaces/util/type-aliases/tparsedrelativeclosepathcommand/)
 
-## Source
+## Defined in
 
 src/util/path/typedefs.ts:143

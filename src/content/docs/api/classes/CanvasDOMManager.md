@@ -7,23 +7,23 @@ title: "CanvasDOMManager"
 
 ## Extends
 
-- [`StaticCanvasDOMManager`](StaticCanvasDOMManager.md)
+- [`StaticCanvasDOMManager`](/api/classes/staticcanvasdommanager/)
 
 ## Constructors
 
-### new CanvasDOMManager(arg0, __namedParameters)
+### new CanvasDOMManager()
 
-> **new CanvasDOMManager**(`arg0`?, `__namedParameters`?): [`CanvasDOMManager`](CanvasDOMManager.md)
+> **new CanvasDOMManager**(`arg0`?, `__namedParameters`?): [`CanvasDOMManager`](/api/classes/canvasdommanager/)
 
 #### Parameters
 
 • **arg0?**: `string` \| `HTMLCanvasElement`
 
-• **\_\_namedParameters?**= `{}`
+• **\_\_namedParameters?** = `{}`
 
-• **\_\_namedParameters\.allowTouchScrolling?**: `boolean`= `false`
+• **\_\_namedParameters.allowTouchScrolling?**: `boolean` = `false`
 
-• **\_\_namedParameters\.containerClass?**: `string`= `''`
+• **\_\_namedParameters.containerClass?**: `string` = `''`
 
 :::caution[Deprecated]
 here only for backward compatibility
@@ -31,13 +31,13 @@ here only for backward compatibility
 
 #### Returns
 
-[`CanvasDOMManager`](CanvasDOMManager.md)
+[`CanvasDOMManager`](/api/classes/canvasdommanager/)
 
 #### Overrides
 
-[`StaticCanvasDOMManager`](StaticCanvasDOMManager.md).[`constructor`](StaticCanvasDOMManager.md#constructors)
+[`StaticCanvasDOMManager`](/api/classes/staticcanvasdommanager/).[`constructor`](/api/classes/staticcanvasdommanager/#constructors)
 
-#### Source
+#### Defined in
 
 src/canvas/DOMManagers/CanvasDOMManager.ts:18
 
@@ -47,7 +47,7 @@ src/canvas/DOMManagers/CanvasDOMManager.ts:18
 
 > **container**: `HTMLDivElement`
 
-#### Source
+#### Defined in
 
 src/canvas/DOMManagers/CanvasDOMManager.ts:16
 
@@ -59,9 +59,9 @@ src/canvas/DOMManagers/CanvasDOMManager.ts:16
 
 #### Inherited from
 
-[`StaticCanvasDOMManager`](StaticCanvasDOMManager.md).[`lower`](StaticCanvasDOMManager.md#lower)
+[`StaticCanvasDOMManager`](/api/classes/staticcanvasdommanager/).[`lower`](/api/classes/staticcanvasdommanager/#lower)
 
-#### Source
+#### Defined in
 
 src/canvas/DOMManagers/StaticCanvasDOMManager.ts:22
 
@@ -71,7 +71,7 @@ src/canvas/DOMManagers/StaticCanvasDOMManager.ts:22
 
 > **upper**: `CanvasItem`
 
-#### Source
+#### Defined in
 
 src/canvas/DOMManagers/CanvasDOMManager.ts:15
 
@@ -79,13 +79,13 @@ src/canvas/DOMManagers/CanvasDOMManager.ts:15
 
 ### calcOffset()
 
-> **calcOffset**(): `Object`
+> **calcOffset**(): `object`
 
 Calculates canvas element offset relative to the document
 
 #### Returns
 
-`Object`
+`object`
 
 ##### left
 
@@ -97,9 +97,9 @@ Calculates canvas element offset relative to the document
 
 #### Inherited from
 
-[`StaticCanvasDOMManager`](StaticCanvasDOMManager.md).[`calcOffset`](StaticCanvasDOMManager.md#calcoffset)
+[`StaticCanvasDOMManager`](/api/classes/staticcanvasdommanager/).[`calcOffset`](/api/classes/staticcanvasdommanager/#calcoffset)
 
-#### Source
+#### Defined in
 
 src/canvas/DOMManagers/StaticCanvasDOMManager.ts:71
 
@@ -111,7 +111,7 @@ src/canvas/DOMManagers/StaticCanvasDOMManager.ts:71
 
 #### Parameters
 
-• **size**: [`TSize`](../type-aliases/TSize.md)
+• **size**: [`TSize`](/api/type-aliases/tsize/)
 
 #### Returns
 
@@ -119,9 +119,9 @@ src/canvas/DOMManagers/StaticCanvasDOMManager.ts:71
 
 #### Overrides
 
-[`StaticCanvasDOMManager`](StaticCanvasDOMManager.md).[`cleanupDOM`](StaticCanvasDOMManager.md#cleanupdom)
+[`StaticCanvasDOMManager`](/api/classes/staticcanvasdommanager/).[`cleanupDOM`](/api/classes/staticcanvasdommanager/#cleanupdom)
 
-#### Source
+#### Defined in
 
 src/canvas/DOMManagers/CanvasDOMManager.ts:104
 
@@ -137,9 +137,9 @@ src/canvas/DOMManagers/CanvasDOMManager.ts:104
 
 #### Overrides
 
-[`StaticCanvasDOMManager`](StaticCanvasDOMManager.md).[`dispose`](StaticCanvasDOMManager.md#dispose)
+[`StaticCanvasDOMManager`](/api/classes/staticcanvasdommanager/).[`dispose`](/api/classes/staticcanvasdommanager/#dispose)
 
-#### Source
+#### Defined in
 
 src/canvas/DOMManagers/CanvasDOMManager.ts:116
 
@@ -159,9 +159,9 @@ src/canvas/DOMManagers/CanvasDOMManager.ts:116
 
 #### Overrides
 
-[`StaticCanvasDOMManager`](StaticCanvasDOMManager.md).[`setCSSDimensions`](StaticCanvasDOMManager.md#setcssdimensions)
+[`StaticCanvasDOMManager`](/api/classes/staticcanvasdommanager/).[`setCSSDimensions`](/api/classes/staticcanvasdommanager/#setcssdimensions)
 
-#### Source
+#### Defined in
 
 src/canvas/DOMManagers/CanvasDOMManager.ts:98
 
@@ -173,7 +173,7 @@ src/canvas/DOMManagers/CanvasDOMManager.ts:98
 
 #### Parameters
 
-• **size**: [`TSize`](../type-aliases/TSize.md)
+• **size**: [`TSize`](/api/type-aliases/tsize/)
 
 • **retinaScaling**: `number`
 
@@ -183,8 +183,8 @@ src/canvas/DOMManagers/CanvasDOMManager.ts:98
 
 #### Overrides
 
-[`StaticCanvasDOMManager`](StaticCanvasDOMManager.md).[`setDimensions`](StaticCanvasDOMManager.md#setdimensions)
+[`StaticCanvasDOMManager`](/api/classes/staticcanvasdommanager/).[`setDimensions`](/api/classes/staticcanvasdommanager/#setdimensions)
 
-#### Source
+#### Defined in
 
 src/canvas/DOMManagers/CanvasDOMManager.ts:92

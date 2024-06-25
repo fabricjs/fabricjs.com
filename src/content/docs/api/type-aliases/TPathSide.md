@@ -7,6 +7,6 @@ title: "TPathSide"
 
 > **TPathSide**: `"left"` \| `"right"`
 
-## Source
+## Defined in
 
 src/shapes/Text/Text.ts:65

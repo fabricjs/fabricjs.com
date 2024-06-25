@@ -7,6 +7,6 @@ title: "TWebGLAttributeLocationMap"
 
 > **TWebGLAttributeLocationMap**: `Record`\<`string`, `number`\>
 
-## Source
+## Defined in
 
 src/filters/typedefs.ts:52

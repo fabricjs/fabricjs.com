@@ -7,9 +7,6 @@ title: "isTransparent"
 
 > **isTransparent**(`ctx`, `x`, `y`, `tolerance`): `boolean`
 
-Returns true if context has transparent pixel
-at specified location (taking tolerance into account)
-
 ## Parameters
 
 • **ctx**: `CanvasRenderingContext2D`
@@ -34,6 +31,6 @@ Tolerance pixels around the point, not alpha tolerance, integer
 
 true if transparent
 
-## Source
+## Defined in
 
 src/util/misc/isTransparent.ts:10

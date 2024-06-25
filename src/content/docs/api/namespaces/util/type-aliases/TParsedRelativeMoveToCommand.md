@@ -7,6 +7,6 @@ title: "TParsedRelativeMoveToCommand"
 
 > **TParsedRelativeMoveToCommand**: [`"m"`, `number`, `number`]
 
-## Source
+## Defined in
 
 src/util/path/typedefs.ts:106

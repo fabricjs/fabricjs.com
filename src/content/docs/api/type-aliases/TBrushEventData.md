@@ -5,14 +5,14 @@ prev: false
 title: "TBrushEventData"
 ---
 
-> **TBrushEventData**: [`TEvent`](../interfaces/TEvent.md) & `Object`
+> **TBrushEventData**: [`TEvent`](/api/interfaces/tevent/) & `object`
 
 ## Type declaration
 
 ### pointer
 
-> **pointer**: [`Point`](../classes/Point.md)
+> **pointer**: [`Point`](/api/classes/point/)
 
-## Source
+## Defined in
 
 src/brushes/typedefs.ts:4

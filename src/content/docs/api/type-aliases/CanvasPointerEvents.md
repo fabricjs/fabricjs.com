@@ -7,6 +7,6 @@ title: "CanvasPointerEvents"
 
 > **CanvasPointerEvents**: `TPointerEvents`\<`"mouse:"`\>
 
-## Source
+## Defined in
 
 src/EventTypeDefs.ts:262

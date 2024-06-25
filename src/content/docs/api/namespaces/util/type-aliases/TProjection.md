@@ -5,26 +5,26 @@ prev: false
 title: "TProjection"
 ---
 
-> **TProjection**: `Object`
+> **TProjection**: `object`
 
 ## Type declaration
 
 ### angle?
 
-> **`optional`** **angle**: [`TRadian`](../../../type-aliases/TRadian.md)
+> `optional` **angle**: [`TRadian`](/api/type-aliases/tradian/)
 
 ### bisector?
 
-> **`optional`** **bisector**: [`Point`](../../../classes/Point.md)
+> `optional` **bisector**: [`Point`](/api/classes/point/)
 
 ### originPoint
 
-> **originPoint**: [`Point`](../../../classes/Point.md)
+> **originPoint**: [`Point`](/api/classes/point/)
 
 ### projectedPoint
 
-> **projectedPoint**: [`Point`](../../../classes/Point.md)
+> **projectedPoint**: [`Point`](/api/classes/point/)
 
-## Source
+## Defined in
 
 src/util/misc/projectStroke/types.ts:19

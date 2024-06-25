@@ -7,6 +7,6 @@ title: "TWebGLUniformLocationMap"
 
 > **TWebGLUniformLocationMap**: `Record`\<`string`, `WebGLUniformLocation` \| `null`\>
 
-## Source
+## Defined in
 
 src/filters/typedefs.ts:47

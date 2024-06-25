@@ -5,7 +5,7 @@ prev: false
 title: "SerializedLayoutManager"
 ---
 
-> **SerializedLayoutManager**: `Object`
+> **SerializedLayoutManager**: `object`
 
 ## Type declaration
 
@@ -17,6 +17,6 @@ title: "SerializedLayoutManager"
 
 > **type**: `string`
 
-## Source
+## Defined in
 
 src/LayoutManager/LayoutManager.ts:28

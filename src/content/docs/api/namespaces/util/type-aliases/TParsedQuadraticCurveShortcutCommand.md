@@ -5,8 +5,8 @@ prev: false
 title: "TParsedQuadraticCurveShortcutCommand"
 ---
 
-> **TParsedQuadraticCurveShortcutCommand**: [`TParsedAbsoluteQuadraticCurveShortcutCommand`](TParsedAbsoluteQuadraticCurveShortcutCommand.md) \| [`TParsedRelativeQuadraticCurveShortcutCommand`](TParsedRelativeQuadraticCurveShortcutCommand.md)
+> **TParsedQuadraticCurveShortcutCommand**: [`TParsedAbsoluteQuadraticCurveShortcutCommand`](/api/namespaces/util/type-aliases/tparsedabsolutequadraticcurveshortcutcommand/) \| [`TParsedRelativeQuadraticCurveShortcutCommand`](/api/namespaces/util/type-aliases/tparsedrelativequadraticcurveshortcutcommand/)
 
-## Source
+## Defined in
 
 src/util/path/typedefs.ts:224

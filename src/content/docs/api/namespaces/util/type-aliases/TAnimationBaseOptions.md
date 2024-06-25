@@ -5,9 +5,9 @@ prev: false
 title: "TAnimationBaseOptions"
 ---
 
-> **TAnimationBaseOptions**\<`T`\>: `Object`
+> **TAnimationBaseOptions**\<`T`\>: `object`
 
-## Type parameters
+## Type Parameters
 
 • **T**
 
@@ -39,7 +39,7 @@ Duration of the animation in ms
 
 ### easing
 
-> **easing**: [`TEasingFunction`](TEasingFunction.md)\<`T`\>
+> **easing**: [`TEasingFunction`](/api/namespaces/util/type-aliases/teasingfunction/)\<`T`\>
 
 Easing function
 
@@ -55,6 +55,6 @@ Easing function
 
 The object this animation is being performed on
 
-## Source
+## Defined in
 
 src/util/animation/types.ts:50

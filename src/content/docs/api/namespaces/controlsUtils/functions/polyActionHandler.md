@@ -15,7 +15,7 @@ current object being transformed.
 
 ## Parameters
 
-• **eventData**: [`TPointerEvent`](../../../type-aliases/TPointerEvent.md)
+• **eventData**: [`TPointerEvent`](/api/type-aliases/tpointerevent/)
 
 • **transform**: `TTransformAnchor`
 
@@ -27,6 +27,6 @@ current object being transformed.
 
 `boolean`
 
-## Source
+## Defined in
 
 src/controls/polyControl.ts:44

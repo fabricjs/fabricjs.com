@@ -7,8 +7,6 @@ title: "getRandomInt"
 
 > **getRandomInt**(`min`, `max`): `number`
 
-Returns random number between 2 specified ones.
-
 ## Parameters
 
 • **min**: `number`
@@ -25,6 +23,6 @@ upper limit
 
 random value (between min and max)
 
-## Source
+## Defined in
 
 src/util/internals/getRandomInt.ts:7

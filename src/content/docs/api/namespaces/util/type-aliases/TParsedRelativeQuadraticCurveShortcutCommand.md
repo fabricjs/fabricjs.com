@@ -7,6 +7,6 @@ title: "TParsedRelativeQuadraticCurveShortcutCommand"
 
 > **TParsedRelativeQuadraticCurveShortcutCommand**: [`"t"`, `number`, `number`]
 
-## Source
+## Defined in
 
 src/util/path/typedefs.ts:219

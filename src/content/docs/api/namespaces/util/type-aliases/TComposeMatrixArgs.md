@@ -5,8 +5,8 @@ prev: false
 title: "TComposeMatrixArgs"
 ---
 
-> **TComposeMatrixArgs**: [`TTranslateMatrixArgs`](TTranslateMatrixArgs.md) & [`TRotateMatrixArgs`](TRotateMatrixArgs.md) & [`TScaleMatrixArgs`](TScaleMatrixArgs.md)
+> **TComposeMatrixArgs**: [`TTranslateMatrixArgs`](/api/namespaces/util/type-aliases/ttranslatematrixargs/) & [`TRotateMatrixArgs`](/api/namespaces/util/type-aliases/trotatematrixargs/) & [`TScaleMatrixArgs`](/api/namespaces/util/type-aliases/tscalematrixargs/)
 
-## Source
+## Defined in
 
 src/util/misc/matrix.ts:27

@@ -7,7 +7,7 @@ title: "EllipseProps"
 
 ## Extends
 
-- [`FabricObjectProps`](FabricObjectProps.md).`UniqueEllipseProps`
+- [`FabricObjectProps`](/api/interfaces/fabricobjectprops/).`UniqueEllipseProps`
 
 ## Properties
 
@@ -30,9 +30,9 @@ false
 
 #### Inherited from
 
-[`FabricObjectProps`](FabricObjectProps.md).[`absolutePositioned`](FabricObjectProps.md#absolutepositioned)
+[`FabricObjectProps`](/api/interfaces/fabricobjectprops/).[`absolutePositioned`](/api/interfaces/fabricobjectprops/#absolutepositioned)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/SerializedObjectProps.ts:72
 
@@ -40,7 +40,7 @@ src/shapes/Object/types/SerializedObjectProps.ts:72
 
 ### angle
 
-> **angle**: [`TDegree`](../type-aliases/TDegree.md)
+> **angle**: [`TDegree`](/api/type-aliases/tdegree/)
 
 Angle of rotation of an object (in degrees)
 
@@ -52,9 +52,9 @@ Angle of rotation of an object (in degrees)
 
 #### Inherited from
 
-[`FabricObjectProps`](FabricObjectProps.md).[`angle`](FabricObjectProps.md#angle)
+[`FabricObjectProps`](/api/interfaces/fabricobjectprops/).[`angle`](/api/interfaces/fabricobjectprops/#angle)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:57
 
@@ -75,9 +75,9 @@ takes css colors https://www.w3.org/TR/css-color-3/
 
 #### Inherited from
 
-[`FabricObjectProps`](FabricObjectProps.md).[`backgroundColor`](FabricObjectProps.md#backgroundcolor)
+[`FabricObjectProps`](/api/interfaces/fabricobjectprops/).[`backgroundColor`](/api/interfaces/fabricobjectprops/#backgroundcolor)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/SerializedObjectProps.ts:26
 
@@ -97,9 +97,9 @@ rgb(178,204,255)
 
 #### Inherited from
 
-[`FabricObjectProps`](FabricObjectProps.md).[`borderColor`](FabricObjectProps.md#bordercolor)
+[`FabricObjectProps`](/api/interfaces/fabricobjectprops/).[`borderColor`](/api/interfaces/fabricobjectprops/#bordercolor)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BorderProps.ts:7
 
@@ -117,9 +117,9 @@ Array specifying dash pattern of an object's borders (hasBorder must be true)
 
 #### Inherited from
 
-[`FabricObjectProps`](FabricObjectProps.md).[`borderDashArray`](FabricObjectProps.md#borderdasharray)
+[`FabricObjectProps`](/api/interfaces/fabricobjectprops/).[`borderDashArray`](/api/interfaces/fabricobjectprops/#borderdasharray)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BorderProps.ts:15
 
@@ -139,9 +139,9 @@ Opacity of object's controlling borders when object is active and moving
 
 #### Inherited from
 
-[`FabricObjectProps`](FabricObjectProps.md).[`borderOpacityWhenMoving`](FabricObjectProps.md#borderopacitywhenmoving)
+[`FabricObjectProps`](/api/interfaces/fabricobjectprops/).[`borderOpacityWhenMoving`](/api/interfaces/fabricobjectprops/#borderopacitywhenmoving)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BorderProps.ts:29
 
@@ -164,9 +164,9 @@ since there is no way to change the border itself.
 
 #### Inherited from
 
-[`FabricObjectProps`](FabricObjectProps.md).[`borderScaleFactor`](FabricObjectProps.md#borderscalefactor)
+[`FabricObjectProps`](/api/interfaces/fabricobjectprops/).[`borderScaleFactor`](/api/interfaces/fabricobjectprops/#borderscalefactor)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BorderProps.ts:39
 
@@ -174,13 +174,13 @@ src/shapes/Object/types/BorderProps.ts:39
 
 ### canvas?
 
-> **`optional`** **canvas**: [`Canvas`](../classes/Canvas.md) \| [`StaticCanvas`](../classes/StaticCanvas.md)\<[`StaticCanvasEvents`](StaticCanvasEvents.md)\>
+> `optional` **canvas**: [`Canvas`](/api/classes/canvas/) \| [`StaticCanvas`](/api/classes/staticcanvas/)\<[`StaticCanvasEvents`](/api/interfaces/staticcanvasevents/)\>
 
 #### Inherited from
 
-[`FabricObjectProps`](FabricObjectProps.md).[`canvas`](FabricObjectProps.md#canvas)
+[`FabricObjectProps`](/api/interfaces/fabricobjectprops/).[`canvas`](/api/interfaces/fabricobjectprops/#canvas)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ObjectProps.ts:20
 
@@ -208,9 +208,9 @@ The object method `rotate` will always consider this property and never the canv
 
 #### Inherited from
 
-[`FabricObjectProps`](FabricObjectProps.md).[`centeredRotation`](FabricObjectProps.md#centeredrotation)
+[`FabricObjectProps`](/api/interfaces/fabricobjectprops/).[`centeredRotation`](/api/interfaces/fabricobjectprops/#centeredrotation)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ObjectTransformProps.ts:27
 
@@ -235,9 +235,9 @@ when being scaled via the controls.
 
 #### Inherited from
 
-[`FabricObjectProps`](FabricObjectProps.md).[`centeredScaling`](FabricObjectProps.md#centeredscaling)
+[`FabricObjectProps`](/api/interfaces/fabricobjectprops/).[`centeredScaling`](/api/interfaces/fabricobjectprops/#centeredscaling)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ObjectTransformProps.ts:36
 
@@ -245,13 +245,18 @@ src/shapes/Object/types/ObjectTransformProps.ts:36
 
 ### clipPath?
 
-> **`optional`** **clipPath**: `FabricObject`\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](SerializedObjectProps.md), [`ObjectEvents`](ObjectEvents.md)\>
+> `optional` **clipPath**: `FabricObject`\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
+
+a fabricObject that, without stroke define a clipping area with their shape. filled in black
+the clipPath object gets used when the object has rendered, and the context is placed in the center
+of the object cacheCanvas.
+If you want 0,0 of a clipPath to align with an object center, use clipPath.originX/Y to 'center'
 
 #### Inherited from
 
-[`FabricObjectProps`](FabricObjectProps.md).[`clipPath`](FabricObjectProps.md#clippath)
+[`FabricObjectProps`](/api/interfaces/fabricobjectprops/).[`clipPath`](/api/interfaces/fabricobjectprops/#clippath)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ObjectProps.ts:16
 
@@ -271,9 +276,9 @@ rgb(178,204,255)
 
 #### Inherited from
 
-[`FabricObjectProps`](FabricObjectProps.md).[`cornerColor`](FabricObjectProps.md#cornercolor)
+[`FabricObjectProps`](/api/interfaces/fabricobjectprops/).[`cornerColor`](/api/interfaces/fabricobjectprops/#cornercolor)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ControlProps.ts:28
 
@@ -291,9 +296,9 @@ Array specifying dash pattern of an object's control (hasBorder must be true)
 
 #### Inherited from
 
-[`FabricObjectProps`](FabricObjectProps.md).[`cornerDashArray`](FabricObjectProps.md#cornerdasharray)
+[`FabricObjectProps`](/api/interfaces/fabricobjectprops/).[`cornerDashArray`](/api/interfaces/fabricobjectprops/#cornerdasharray)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ControlProps.ts:54
 
@@ -313,9 +318,9 @@ Size of object's controlling corners (in pixels)
 
 #### Inherited from
 
-[`FabricObjectProps`](FabricObjectProps.md).[`cornerSize`](FabricObjectProps.md#cornersize)
+[`FabricObjectProps`](/api/interfaces/fabricobjectprops/).[`cornerSize`](/api/interfaces/fabricobjectprops/#cornersize)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ControlProps.ts:7
 
@@ -339,9 +344,9 @@ null
 
 #### Inherited from
 
-[`FabricObjectProps`](FabricObjectProps.md).[`cornerStrokeColor`](FabricObjectProps.md#cornerstrokecolor)
+[`FabricObjectProps`](/api/interfaces/fabricobjectprops/).[`cornerStrokeColor`](/api/interfaces/fabricobjectprops/#cornerstrokecolor)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ControlProps.ts:36
 
@@ -371,9 +376,9 @@ This API is no longer supported and may be removed in a future release.
 
 #### Inherited from
 
-[`FabricObjectProps`](FabricObjectProps.md).[`cornerStyle`](FabricObjectProps.md#cornerstyle)
+[`FabricObjectProps`](/api/interfaces/fabricobjectprops/).[`cornerStyle`](/api/interfaces/fabricobjectprops/#cornerstyle)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ControlProps.ts:47
 
@@ -393,9 +398,9 @@ When set to `false`, an object can not be a target of events. All events propaga
 
 #### Inherited from
 
-[`FabricObjectProps`](FabricObjectProps.md).[`evented`](FabricObjectProps.md#evented)
+[`FabricObjectProps`](/api/interfaces/fabricobjectprops/).[`evented`](/api/interfaces/fabricobjectprops/#evented)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FabricObjectProps.ts:65
 
@@ -419,9 +424,9 @@ When `true`, object is not exported in OBJECT/JSON
 
 #### Inherited from
 
-[`FabricObjectProps`](FabricObjectProps.md).[`excludeFromExport`](FabricObjectProps.md#excludefromexport)
+[`FabricObjectProps`](/api/interfaces/fabricobjectprops/).[`excludeFromExport`](/api/interfaces/fabricobjectprops/#excludefromexport)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ObjectProps.ts:52
 
@@ -429,13 +434,22 @@ src/shapes/Object/types/ObjectProps.ts:52
 
 ### fill
 
-> **fill**: `null` \| `string` \| [`TFiller`](../type-aliases/TFiller.md)
+> **fill**: `null` \| `string` \| [`TFiller`](/api/type-aliases/tfiller/)
+
+Color of object's fill
+takes css colors https://www.w3.org/TR/css-color-3/
+
+#### Default
+
+```ts
+rgb(0,0,0)
+```
 
 #### Inherited from
 
-[`FabricObjectProps`](FabricObjectProps.md).[`fill`](FabricObjectProps.md#fill)
+[`FabricObjectProps`](/api/interfaces/fabricobjectprops/).[`fill`](/api/interfaces/fabricobjectprops/#fill)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ObjectProps.ts:17
 
@@ -457,9 +471,9 @@ nonzero
 
 #### Inherited from
 
-[`FabricObjectProps`](FabricObjectProps.md).[`fillRule`](FabricObjectProps.md#fillrule)
+[`FabricObjectProps`](/api/interfaces/fabricobjectprops/).[`fillRule`](/api/interfaces/fabricobjectprops/#fillrule)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FillStrokeProps.ts:26
 
@@ -479,9 +493,9 @@ false
 
 #### Inherited from
 
-[`FabricObjectProps`](FabricObjectProps.md).[`flipX`](FabricObjectProps.md#flipx)
+[`FabricObjectProps`](/api/interfaces/fabricobjectprops/).[`flipX`](/api/interfaces/fabricobjectprops/#flipx)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:64
 
@@ -501,9 +515,9 @@ false
 
 #### Inherited from
 
-[`FabricObjectProps`](FabricObjectProps.md).[`flipY`](FabricObjectProps.md#flipy)
+[`FabricObjectProps`](/api/interfaces/fabricobjectprops/).[`flipY`](/api/interfaces/fabricobjectprops/#flipy)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:71
 
@@ -523,9 +537,9 @@ Composite rule used for canvas globalCompositeOperation
 
 #### Inherited from
 
-[`FabricObjectProps`](FabricObjectProps.md).[`globalCompositeOperation`](FabricObjectProps.md#globalcompositeoperation)
+[`FabricObjectProps`](/api/interfaces/fabricobjectprops/).[`globalCompositeOperation`](/api/interfaces/fabricobjectprops/#globalcompositeoperation)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/SerializedObjectProps.ts:18
 
@@ -545,9 +559,9 @@ When set to `false`, object's controlling borders are not rendered
 
 #### Inherited from
 
-[`FabricObjectProps`](FabricObjectProps.md).[`hasBorders`](FabricObjectProps.md#hasborders)
+[`FabricObjectProps`](/api/interfaces/fabricobjectprops/).[`hasBorders`](/api/interfaces/fabricobjectprops/#hasborders)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BorderProps.ts:22
 
@@ -567,9 +581,9 @@ When set to `false`, object's controls are not displayed and can not be used to 
 
 #### Inherited from
 
-[`FabricObjectProps`](FabricObjectProps.md).[`hasControls`](FabricObjectProps.md#hascontrols)
+[`FabricObjectProps`](/api/interfaces/fabricobjectprops/).[`hasControls`](/api/interfaces/fabricobjectprops/#hascontrols)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ControlProps.ts:68
 
@@ -589,9 +603,9 @@ Object height
 
 #### Inherited from
 
-[`FabricObjectProps`](FabricObjectProps.md).[`height`](FabricObjectProps.md#height)
+[`FabricObjectProps`](/api/interfaces/fabricobjectprops/).[`height`](/api/interfaces/fabricobjectprops/#height)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:34
 
@@ -611,9 +625,9 @@ null
 
 #### Inherited from
 
-[`FabricObjectProps`](FabricObjectProps.md).[`hoverCursor`](FabricObjectProps.md#hovercursor)
+[`FabricObjectProps`](/api/interfaces/fabricobjectprops/).[`hoverCursor`](/api/interfaces/fabricobjectprops/#hovercursor)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FabricObjectProps.ts:27
 
@@ -633,9 +647,9 @@ When `false`, default object's values are not included in its serialization
 
 #### Inherited from
 
-[`FabricObjectProps`](FabricObjectProps.md).[`includeDefaultValues`](FabricObjectProps.md#includedefaultvalues)
+[`FabricObjectProps`](/api/interfaces/fabricobjectprops/).[`includeDefaultValues`](/api/interfaces/fabricobjectprops/#includedefaultvalues)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ObjectProps.ts:44
 
@@ -657,9 +671,9 @@ false
 
 #### Inherited from
 
-[`FabricObjectProps`](FabricObjectProps.md).[`inverted`](FabricObjectProps.md#inverted)
+[`FabricObjectProps`](/api/interfaces/fabricobjectprops/).[`inverted`](/api/interfaces/fabricobjectprops/#inverted)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/SerializedObjectProps.ts:60
 
@@ -681,9 +695,9 @@ You can change this by setting [originX](../../../../api/interfaces/fabricobject
 
 #### Inherited from
 
-[`FabricObjectProps`](FabricObjectProps.md).[`left`](FabricObjectProps.md#left)
+[`FabricObjectProps`](/api/interfaces/fabricobjectprops/).[`left`](/api/interfaces/fabricobjectprops/#left)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:11
 
@@ -703,9 +717,9 @@ When `true`, object horizontal movement is locked
 
 #### Inherited from
 
-[`FabricObjectProps`](FabricObjectProps.md).[`lockMovementX`](FabricObjectProps.md#lockmovementx)
+[`FabricObjectProps`](/api/interfaces/fabricobjectprops/).[`lockMovementX`](/api/interfaces/fabricobjectprops/#lockmovementx)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/LockInteractionProps.ts:7
 
@@ -725,9 +739,9 @@ When `true`, object vertical movement is locked
 
 #### Inherited from
 
-[`FabricObjectProps`](FabricObjectProps.md).[`lockMovementY`](FabricObjectProps.md#lockmovementy)
+[`FabricObjectProps`](/api/interfaces/fabricobjectprops/).[`lockMovementY`](/api/interfaces/fabricobjectprops/#lockmovementy)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/LockInteractionProps.ts:14
 
@@ -747,9 +761,9 @@ When `true`, object rotation is locked
 
 #### Inherited from
 
-[`FabricObjectProps`](FabricObjectProps.md).[`lockRotation`](FabricObjectProps.md#lockrotation)
+[`FabricObjectProps`](/api/interfaces/fabricobjectprops/).[`lockRotation`](/api/interfaces/fabricobjectprops/#lockrotation)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/LockInteractionProps.ts:21
 
@@ -769,9 +783,9 @@ When `true`, object cannot be flipped by scaling into negative values
 
 #### Inherited from
 
-[`FabricObjectProps`](FabricObjectProps.md).[`lockScalingFlip`](FabricObjectProps.md#lockscalingflip)
+[`FabricObjectProps`](/api/interfaces/fabricobjectprops/).[`lockScalingFlip`](/api/interfaces/fabricobjectprops/#lockscalingflip)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/LockInteractionProps.ts:56
 
@@ -791,9 +805,9 @@ When `true`, object horizontal scaling is locked
 
 #### Inherited from
 
-[`FabricObjectProps`](FabricObjectProps.md).[`lockScalingX`](FabricObjectProps.md#lockscalingx)
+[`FabricObjectProps`](/api/interfaces/fabricobjectprops/).[`lockScalingX`](/api/interfaces/fabricobjectprops/#lockscalingx)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/LockInteractionProps.ts:28
 
@@ -813,9 +827,9 @@ When `true`, object vertical scaling is locked
 
 #### Inherited from
 
-[`FabricObjectProps`](FabricObjectProps.md).[`lockScalingY`](FabricObjectProps.md#lockscalingy)
+[`FabricObjectProps`](/api/interfaces/fabricobjectprops/).[`lockScalingY`](/api/interfaces/fabricobjectprops/#lockscalingy)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/LockInteractionProps.ts:35
 
@@ -835,9 +849,9 @@ When `true`, object horizontal skewing is locked
 
 #### Inherited from
 
-[`FabricObjectProps`](FabricObjectProps.md).[`lockSkewingX`](FabricObjectProps.md#lockskewingx)
+[`FabricObjectProps`](/api/interfaces/fabricobjectprops/).[`lockSkewingX`](/api/interfaces/fabricobjectprops/#lockskewingx)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/LockInteractionProps.ts:42
 
@@ -857,9 +871,9 @@ When `true`, object vertical skewing is locked
 
 #### Inherited from
 
-[`FabricObjectProps`](FabricObjectProps.md).[`lockSkewingY`](FabricObjectProps.md#lockskewingy)
+[`FabricObjectProps`](/api/interfaces/fabricobjectprops/).[`lockSkewingY`](/api/interfaces/fabricobjectprops/#lockskewingy)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/LockInteractionProps.ts:49
 
@@ -879,9 +893,9 @@ Minimum allowed scale value of an object
 
 #### Inherited from
 
-[`FabricObjectProps`](FabricObjectProps.md).[`minScaleLimit`](FabricObjectProps.md#minscalelimit)
+[`FabricObjectProps`](/api/interfaces/fabricobjectprops/).[`minScaleLimit`](/api/interfaces/fabricobjectprops/#minscalelimit)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ObjectProps.ts:27
 
@@ -901,9 +915,9 @@ null
 
 #### Inherited from
 
-[`FabricObjectProps`](FabricObjectProps.md).[`moveCursor`](FabricObjectProps.md#movecursor)
+[`FabricObjectProps`](/api/interfaces/fabricobjectprops/).[`moveCursor`](/api/interfaces/fabricobjectprops/#movecursor)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FabricObjectProps.ts:34
 
@@ -911,7 +925,7 @@ src/shapes/Object/types/FabricObjectProps.ts:34
 
 ### noScaleCache?
 
-> **`optional`** **noScaleCache**: `boolean`
+> `optional` **noScaleCache**: `boolean`
 
 When `true`, cache does not get updated during scaling. The picture will get blocky if scaled
 too much and will be redrawn with correct details at the end of scaling.
@@ -927,9 +941,9 @@ true
 
 #### Inherited from
 
-[`FabricObjectProps`](FabricObjectProps.md).[`noScaleCache`](FabricObjectProps.md#noscalecache)
+[`FabricObjectProps`](/api/interfaces/fabricobjectprops/).[`noScaleCache`](/api/interfaces/fabricobjectprops/#noscalecache)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FabricObjectProps.ts:20
 
@@ -955,9 +969,9 @@ true
 
 #### Inherited from
 
-[`FabricObjectProps`](FabricObjectProps.md).[`objectCaching`](FabricObjectProps.md#objectcaching)
+[`FabricObjectProps`](/api/interfaces/fabricobjectprops/).[`objectCaching`](/api/interfaces/fabricobjectprops/#objectcaching)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ObjectProps.ts:37
 
@@ -977,9 +991,9 @@ Opacity of an object
 
 #### Inherited from
 
-[`FabricObjectProps`](FabricObjectProps.md).[`opacity`](FabricObjectProps.md#opacity)
+[`FabricObjectProps`](/api/interfaces/fabricobjectprops/).[`opacity`](/api/interfaces/fabricobjectprops/#opacity)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/SerializedObjectProps.ts:11
 
@@ -987,7 +1001,7 @@ src/shapes/Object/types/SerializedObjectProps.ts:11
 
 ### originX
 
-> **originX**: [`TOriginX`](../type-aliases/TOriginX.md)
+> **originX**: [`TOriginX`](/api/type-aliases/toriginx/)
 
 Horizontal origin of transformation of an object (`left`, `center`, `right`  or `[0, 1]`)
 See http://jsfiddle.net/1ow02gea/244/ on how originX/originY affect objects in groups
@@ -1000,9 +1014,9 @@ See http://jsfiddle.net/1ow02gea/244/ on how originX/originY affect objects in g
 
 #### Inherited from
 
-[`FabricObjectProps`](FabricObjectProps.md).[`originX`](FabricObjectProps.md#originx)
+[`FabricObjectProps`](/api/interfaces/fabricobjectprops/).[`originX`](/api/interfaces/fabricobjectprops/#originx)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:42
 
@@ -1010,7 +1024,7 @@ src/shapes/Object/types/BaseProps.ts:42
 
 ### originY
 
-> **originY**: [`TOriginY`](../type-aliases/TOriginY.md)
+> **originY**: [`TOriginY`](/api/type-aliases/toriginy/)
 
 Vertical origin of transformation of an object (`top`, `center`, `bottom` or `[0, 1]`)
 See http://jsfiddle.net/1ow02gea/244/ on how originX/originY affect objects in groups
@@ -1023,9 +1037,9 @@ See http://jsfiddle.net/1ow02gea/244/ on how originX/originY affect objects in g
 
 #### Inherited from
 
-[`FabricObjectProps`](FabricObjectProps.md).[`originY`](FabricObjectProps.md#originy)
+[`FabricObjectProps`](/api/interfaces/fabricobjectprops/).[`originY`](/api/interfaces/fabricobjectprops/#originy)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:50
 
@@ -1045,9 +1059,9 @@ Padding between object and its controlling borders (in pixels)
 
 #### Inherited from
 
-[`FabricObjectProps`](FabricObjectProps.md).[`padding`](FabricObjectProps.md#padding)
+[`FabricObjectProps`](/api/interfaces/fabricobjectprops/).[`padding`](/api/interfaces/fabricobjectprops/#padding)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ControlProps.ts:61
 
@@ -1067,9 +1081,9 @@ Determines if the fill or the stroke is drawn first (one of "fill" or "stroke")
 
 #### Inherited from
 
-[`FabricObjectProps`](FabricObjectProps.md).[`paintFirst`](FabricObjectProps.md#paintfirst)
+[`FabricObjectProps`](/api/interfaces/fabricobjectprops/).[`paintFirst`](/api/interfaces/fabricobjectprops/#paintfirst)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FillStrokeProps.ts:9
 
@@ -1089,9 +1103,9 @@ When set to `true`, objects are "found" on canvas on per-pixel basis rather than
 
 #### Inherited from
 
-[`FabricObjectProps`](FabricObjectProps.md).[`perPixelTargetFind`](FabricObjectProps.md#perpixeltargetfind)
+[`FabricObjectProps`](/api/interfaces/fabricobjectprops/).[`perPixelTargetFind`](/api/interfaces/fabricobjectprops/#perpixeltargetfind)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FabricObjectProps.ts:50
 
@@ -1105,7 +1119,7 @@ src/shapes/Object/types/FabricObjectProps.ts:50
 
 `UniqueEllipseProps.rx`
 
-#### Source
+#### Defined in
 
 src/shapes/Ellipse.ts:17
 
@@ -1119,7 +1133,7 @@ src/shapes/Ellipse.ts:17
 
 `UniqueEllipseProps.ry`
 
-#### Source
+#### Defined in
 
 src/shapes/Ellipse.ts:18
 
@@ -1139,9 +1153,9 @@ Object scale factor (horizontal)
 
 #### Inherited from
 
-[`FabricObjectProps`](FabricObjectProps.md).[`scaleX`](FabricObjectProps.md#scalex)
+[`FabricObjectProps`](/api/interfaces/fabricobjectprops/).[`scaleX`](/api/interfaces/fabricobjectprops/#scalex)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:78
 
@@ -1161,9 +1175,9 @@ Object scale factor (vertical)
 
 #### Inherited from
 
-[`FabricObjectProps`](FabricObjectProps.md).[`scaleY`](FabricObjectProps.md#scaley)
+[`FabricObjectProps`](/api/interfaces/fabricobjectprops/).[`scaleY`](/api/interfaces/fabricobjectprops/#scaley)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:85
 
@@ -1184,9 +1198,9 @@ But events still fire on it.
 
 #### Inherited from
 
-[`FabricObjectProps`](FabricObjectProps.md).[`selectable`](FabricObjectProps.md#selectable)
+[`FabricObjectProps`](/api/interfaces/fabricobjectprops/).[`selectable`](/api/interfaces/fabricobjectprops/#selectable)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FabricObjectProps.ts:58
 
@@ -1211,9 +1225,9 @@ This API is no longer supported and may be removed in a future release.
 
 #### Inherited from
 
-[`FabricObjectProps`](FabricObjectProps.md).[`selectionBackgroundColor`](FabricObjectProps.md#selectionbackgroundcolor)
+[`FabricObjectProps`](/api/interfaces/fabricobjectprops/).[`selectionBackgroundColor`](/api/interfaces/fabricobjectprops/#selectionbackgroundcolor)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FabricObjectProps.ts:43
 
@@ -1221,13 +1235,21 @@ src/shapes/Object/types/FabricObjectProps.ts:43
 
 ### shadow
 
-> **shadow**: `null` \| [`Shadow`](../classes/Shadow.md)
+> **shadow**: `null` \| [`Shadow`](/api/classes/shadow/)
+
+Shadow object representing shadow of this shape
+
+#### Default
+
+```ts
+null
+```
 
 #### Inherited from
 
-[`FabricObjectProps`](FabricObjectProps.md).[`shadow`](FabricObjectProps.md#shadow)
+[`FabricObjectProps`](/api/interfaces/fabricobjectprops/).[`shadow`](/api/interfaces/fabricobjectprops/#shadow)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ObjectProps.ts:19
 
@@ -1235,7 +1257,7 @@ src/shapes/Object/types/ObjectProps.ts:19
 
 ### skewX
 
-> **skewX**: [`TDegree`](../type-aliases/TDegree.md)
+> **skewX**: [`TDegree`](/api/type-aliases/tdegree/)
 
 Angle of skew on x axes of an object (in degrees)
 
@@ -1247,9 +1269,9 @@ Angle of skew on x axes of an object (in degrees)
 
 #### Inherited from
 
-[`FabricObjectProps`](FabricObjectProps.md).[`skewX`](FabricObjectProps.md#skewx)
+[`FabricObjectProps`](/api/interfaces/fabricobjectprops/).[`skewX`](/api/interfaces/fabricobjectprops/#skewx)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:92
 
@@ -1257,7 +1279,7 @@ src/shapes/Object/types/BaseProps.ts:92
 
 ### skewY
 
-> **skewY**: [`TDegree`](../type-aliases/TDegree.md)
+> **skewY**: [`TDegree`](/api/type-aliases/tdegree/)
 
 Angle of skew on y axes of an object (in degrees)
 
@@ -1269,9 +1291,9 @@ Angle of skew on y axes of an object (in degrees)
 
 #### Inherited from
 
-[`FabricObjectProps`](FabricObjectProps.md).[`skewY`](FabricObjectProps.md#skewy)
+[`FabricObjectProps`](/api/interfaces/fabricobjectprops/).[`skewY`](/api/interfaces/fabricobjectprops/#skewy)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:99
 
@@ -1279,15 +1301,15 @@ src/shapes/Object/types/BaseProps.ts:99
 
 ### snapAngle?
 
-> **`optional`** **snapAngle**: [`TDegree`](../type-aliases/TDegree.md)
+> `optional` **snapAngle**: [`TDegree`](/api/type-aliases/tdegree/)
 
 The angle that an object will lock to while rotating.
 
 #### Inherited from
 
-[`FabricObjectProps`](FabricObjectProps.md).[`snapAngle`](FabricObjectProps.md#snapangle)
+[`FabricObjectProps`](/api/interfaces/fabricobjectprops/).[`snapAngle`](/api/interfaces/fabricobjectprops/#snapangle)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ObjectTransformProps.ts:8
 
@@ -1295,16 +1317,16 @@ src/shapes/Object/types/ObjectTransformProps.ts:8
 
 ### snapThreshold?
 
-> **`optional`** **snapThreshold**: [`TDegree`](../type-aliases/TDegree.md)
+> `optional` **snapThreshold**: [`TDegree`](/api/type-aliases/tdegree/)
 
 The angle difference from the current snapped angle in which snapping should occur.
 When undefined, the snapThreshold will default to the snapAngle.
 
 #### Inherited from
 
-[`FabricObjectProps`](FabricObjectProps.md).[`snapThreshold`](FabricObjectProps.md#snapthreshold)
+[`FabricObjectProps`](/api/interfaces/fabricobjectprops/).[`snapThreshold`](/api/interfaces/fabricobjectprops/#snapthreshold)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ObjectTransformProps.ts:15
 
@@ -1312,13 +1334,22 @@ src/shapes/Object/types/ObjectTransformProps.ts:15
 
 ### stroke
 
-> **stroke**: `null` \| `string` \| [`TFiller`](../type-aliases/TFiller.md)
+> **stroke**: `null` \| `string` \| [`TFiller`](/api/type-aliases/tfiller/)
+
+When defined, an object is rendered via stroke and this property specifies its color
+takes css colors https://www.w3.org/TR/css-color-3/
+
+#### Default
+
+```ts
+null
+```
 
 #### Inherited from
 
-[`FabricObjectProps`](FabricObjectProps.md).[`stroke`](FabricObjectProps.md#stroke)
+[`FabricObjectProps`](/api/interfaces/fabricobjectprops/).[`stroke`](/api/interfaces/fabricobjectprops/#stroke)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ObjectProps.ts:18
 
@@ -1338,9 +1369,9 @@ null;
 
 #### Inherited from
 
-[`FabricObjectProps`](FabricObjectProps.md).[`strokeDashArray`](FabricObjectProps.md#strokedasharray)
+[`FabricObjectProps`](/api/interfaces/fabricobjectprops/).[`strokeDashArray`](/api/interfaces/fabricobjectprops/#strokedasharray)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FillStrokeProps.ts:48
 
@@ -1360,9 +1391,9 @@ Line offset of an object's stroke
 
 #### Inherited from
 
-[`FabricObjectProps`](FabricObjectProps.md).[`strokeDashOffset`](FabricObjectProps.md#strokedashoffset)
+[`FabricObjectProps`](/api/interfaces/fabricobjectprops/).[`strokeDashOffset`](/api/interfaces/fabricobjectprops/#strokedashoffset)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FillStrokeProps.ts:55
 
@@ -1382,9 +1413,9 @@ butt
 
 #### Inherited from
 
-[`FabricObjectProps`](FabricObjectProps.md).[`strokeLineCap`](FabricObjectProps.md#strokelinecap)
+[`FabricObjectProps`](/api/interfaces/fabricobjectprops/).[`strokeLineCap`](/api/interfaces/fabricobjectprops/#strokelinecap)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FillStrokeProps.ts:62
 
@@ -1404,9 +1435,9 @@ Corner style of an object's stroke (one of "bevel", "round", "miter")
 
 #### Inherited from
 
-[`FabricObjectProps`](FabricObjectProps.md).[`strokeLineJoin`](FabricObjectProps.md#strokelinejoin)
+[`FabricObjectProps`](/api/interfaces/fabricobjectprops/).[`strokeLineJoin`](/api/interfaces/fabricobjectprops/#strokelinejoin)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FillStrokeProps.ts:69
 
@@ -1426,9 +1457,9 @@ Maximum miter length (used for strokeLineJoin = "miter") of an object's stroke
 
 #### Inherited from
 
-[`FabricObjectProps`](FabricObjectProps.md).[`strokeMiterLimit`](FabricObjectProps.md#strokemiterlimit)
+[`FabricObjectProps`](/api/interfaces/fabricobjectprops/).[`strokeMiterLimit`](/api/interfaces/fabricobjectprops/#strokemiterlimit)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FillStrokeProps.ts:76
 
@@ -1461,9 +1492,9 @@ false
 
 #### Inherited from
 
-[`FabricObjectProps`](FabricObjectProps.md).[`strokeUniform`](FabricObjectProps.md#strokeuniform)
+[`FabricObjectProps`](/api/interfaces/fabricobjectprops/).[`strokeUniform`](/api/interfaces/fabricobjectprops/#strokeuniform)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FillStrokeProps.ts:89
 
@@ -1483,9 +1514,9 @@ Width of a stroke used to render this object
 
 #### Inherited from
 
-[`FabricObjectProps`](FabricObjectProps.md).[`strokeWidth`](FabricObjectProps.md#strokewidth)
+[`FabricObjectProps`](/api/interfaces/fabricobjectprops/).[`strokeWidth`](/api/interfaces/fabricobjectprops/#strokewidth)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FillStrokeProps.ts:41
 
@@ -1507,9 +1538,9 @@ You can change this by setting [originY](../../../../api/interfaces/fabricobject
 
 #### Inherited from
 
-[`FabricObjectProps`](FabricObjectProps.md).[`top`](FabricObjectProps.md#top)
+[`FabricObjectProps`](/api/interfaces/fabricobjectprops/).[`top`](/api/interfaces/fabricobjectprops/#top)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:20
 
@@ -1529,9 +1560,9 @@ Size of object's controlling corners when touch interaction is detected
 
 #### Inherited from
 
-[`FabricObjectProps`](FabricObjectProps.md).[`touchCornerSize`](FabricObjectProps.md#touchcornersize)
+[`FabricObjectProps`](/api/interfaces/fabricobjectprops/).[`touchCornerSize`](/api/interfaces/fabricobjectprops/#touchcornersize)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ControlProps.ts:14
 
@@ -1551,9 +1582,9 @@ true
 
 #### Inherited from
 
-[`FabricObjectProps`](FabricObjectProps.md).[`transparentCorners`](FabricObjectProps.md#transparentcorners)
+[`FabricObjectProps`](/api/interfaces/fabricobjectprops/).[`transparentCorners`](/api/interfaces/fabricobjectprops/#transparentcorners)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ControlProps.ts:21
 
@@ -1573,9 +1604,9 @@ When set to `false`, an object is not rendered on canvas
 
 #### Inherited from
 
-[`FabricObjectProps`](FabricObjectProps.md).[`visible`](FabricObjectProps.md#visible)
+[`FabricObjectProps`](/api/interfaces/fabricobjectprops/).[`visible`](/api/interfaces/fabricobjectprops/#visible)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/SerializedObjectProps.ts:40
 
@@ -1595,8 +1626,8 @@ Object width
 
 #### Inherited from
 
-[`FabricObjectProps`](FabricObjectProps.md).[`width`](FabricObjectProps.md#width)
+[`FabricObjectProps`](/api/interfaces/fabricobjectprops/).[`width`](/api/interfaces/fabricobjectprops/#width)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:27

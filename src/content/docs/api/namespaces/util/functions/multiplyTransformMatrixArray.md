@@ -5,15 +5,11 @@ prev: false
 title: "multiplyTransformMatrixArray"
 ---
 
-> **multiplyTransformMatrixArray**(`matrices`, `is2x2`?): [`TMat2D`](../../../type-aliases/TMat2D.md)
-
-Multiplies matrices such that a matrix defines the plane for the rest of the matrices **after** it
-
-`multiplyTransformMatrixArray([A, B, C, D])` is equivalent to `A(B(C(D)))`
+> **multiplyTransformMatrixArray**(`matrices`, `is2x2`?): [`TMat2D`](/api/type-aliases/tmat2d/)
 
 ## Parameters
 
-• **matrices**: (`undefined` \| `null` \| `false` \| [`TMat2D`](../../../type-aliases/TMat2D.md))[]
+• **matrices**: (`undefined` \| `null` \| `false` \| [`TMat2D`](/api/type-aliases/tmat2d/))[]
 
 an array of matrices
 
@@ -23,10 +19,10 @@ flag to multiply matrices as 2x2 matrices
 
 ## Returns
 
-[`TMat2D`](../../../type-aliases/TMat2D.md)
+[`TMat2D`](/api/type-aliases/tmat2d/)
 
 the multiplication product
 
-## Source
+## Defined in
 
 src/util/misc/matrix.ts:96

@@ -5,8 +5,8 @@ prev: false
 title: "ObjectModifyingLayoutContext"
 ---
 
-> **ObjectModifyingLayoutContext**: [`CommonLayoutContext`](CommonLayoutContext.md) & `Object` & `Object` \| `Object`
+> **ObjectModifyingLayoutContext**: [`CommonLayoutContext`](/api/type-aliases/commonlayoutcontext/) & `object` & `object` \| `object`
 
-## Source
+## Defined in
 
 src/LayoutManager/types.ts:102

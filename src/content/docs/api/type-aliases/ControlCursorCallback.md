@@ -5,8 +5,8 @@ prev: false
 title: "ControlCursorCallback"
 ---
 
-> **ControlCursorCallback**: [`ControlCallback`](ControlCallback.md)\<`string`\>
+> **ControlCursorCallback**: [`ControlCallback`](/api/type-aliases/controlcallback/)\<`string`\>
 
-## Source
+## Defined in
 
 src/EventTypeDefs.ts:50

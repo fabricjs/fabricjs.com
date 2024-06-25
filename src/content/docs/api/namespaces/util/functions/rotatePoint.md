@@ -5,36 +5,26 @@ prev: false
 title: "rotatePoint"
 ---
 
-> **rotatePoint**(`point`, `origin`, `radians`): [`Point`](../../../classes/Point.md)
-
-Rotates `point` around `origin` with `radians`
-
-:::caution[Deprecated]
-use the Point.rotate
-:::
+> **rotatePoint**(`point`, `origin`, `radians`): [`Point`](/api/classes/point/)
 
 ## Parameters
 
-• **point**: [`Point`](../../../classes/Point.md)
+• **point**: [`Point`](/api/classes/point/)
 
-• **origin**: [`Point`](../../../classes/Point.md)
+• **origin**: [`Point`](/api/classes/point/)
 
 The origin of the rotation
 
-• **radians**: [`TRadian`](../../../type-aliases/TRadian.md)
+• **radians**: [`TRadian`](/api/type-aliases/tradian/)
 
 The radians of the angle for the rotation
 
 ## Returns
 
-[`Point`](../../../classes/Point.md)
+[`Point`](/api/classes/point/)
 
 The new rotated point
 
-:::caution[Deprecated]
-use the Point.rotate
-:::
-
-## Source
+## Defined in
 
 src/util/misc/rotatePoint.ts:11

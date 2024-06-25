@@ -12,29 +12,29 @@ In charge of calculating the bounding box of the passed objects.
 
 ## Extended by
 
-- [`ClipPathLayout`](ClipPathLayout.md)
-- [`FitContentLayout`](FitContentLayout.md)
-- [`FixedLayout`](FixedLayout.md)
+- [`ClipPathLayout`](/api/classes/clippathlayout/)
+- [`FitContentLayout`](/api/classes/fitcontentlayout/)
+- [`FixedLayout`](/api/classes/fixedlayout/)
 
 ## Constructors
 
 ### new LayoutStrategy()
 
-> **new LayoutStrategy**(): [`LayoutStrategy`](LayoutStrategy.md)
+> **new LayoutStrategy**(): [`LayoutStrategy`](/api/classes/layoutstrategy/)
 
 #### Returns
 
-[`LayoutStrategy`](LayoutStrategy.md)
+[`LayoutStrategy`](/api/classes/layoutstrategy/)
 
 ## Properties
 
 ### type
 
-> **`static`** **type**: `string` = `'strategy'`
+> `static` **type**: `string` = `'strategy'`
 
 override by subclass for persistence (TS does not support `static abstract`)
 
-#### Source
+#### Defined in
 
 src/LayoutManager/LayoutStrategies/LayoutStrategy.ts:25
 
@@ -42,21 +42,21 @@ src/LayoutManager/LayoutStrategies/LayoutStrategy.ts:25
 
 ### calcBoundingBox()
 
-> **calcBoundingBox**(`objects`, `context`): `undefined` \| [`LayoutStrategyResult`](../type-aliases/LayoutStrategyResult.md)
+> **calcBoundingBox**(`objects`, `context`): `undefined` \| [`LayoutStrategyResult`](/api/type-aliases/layoutstrategyresult/)
 
 Override this method to customize layout.
 
 #### Parameters
 
-• **objects**: [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>[]
+• **objects**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>[]
 
-• **context**: [`StrictLayoutContext`](../type-aliases/StrictLayoutContext.md)
+• **context**: [`StrictLayoutContext`](/api/type-aliases/strictlayoutcontext/)
 
 #### Returns
 
-`undefined` \| [`LayoutStrategyResult`](../type-aliases/LayoutStrategyResult.md)
+`undefined` \| [`LayoutStrategyResult`](/api/type-aliases/layoutstrategyresult/)
 
-#### Source
+#### Defined in
 
 src/LayoutManager/LayoutStrategies/LayoutStrategy.ts:66
 
@@ -64,23 +64,23 @@ src/LayoutManager/LayoutStrategies/LayoutStrategy.ts:66
 
 ### calcLayoutResult()
 
-> **calcLayoutResult**(`context`, `objects`): `undefined` \| [`LayoutStrategyResult`](../type-aliases/LayoutStrategyResult.md)
+> **calcLayoutResult**(`context`, `objects`): `undefined` \| [`LayoutStrategyResult`](/api/type-aliases/layoutstrategyresult/)
 
 Used by the `LayoutManager` to perform layout
 
 #### Parameters
 
-• **context**: [`StrictLayoutContext`](../type-aliases/StrictLayoutContext.md)
+• **context**: [`StrictLayoutContext`](/api/type-aliases/strictlayoutcontext/)
 
-• **objects**: [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>[]
+• **objects**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>[]
 
 #### Returns
 
-`undefined` \| [`LayoutStrategyResult`](../type-aliases/LayoutStrategyResult.md)
+`undefined` \| [`LayoutStrategyResult`](/api/type-aliases/layoutstrategyresult/)
 
 layout result **OR** `undefined` to skip layout
 
-#### Source
+#### Defined in
 
 src/LayoutManager/LayoutStrategies/LayoutStrategy.ts:31
 
@@ -88,19 +88,19 @@ src/LayoutManager/LayoutStrategies/LayoutStrategy.ts:31
 
 ### getInitialSize()
 
-> **getInitialSize**(`context`, `result`): [`Point`](Point.md)
+> **getInitialSize**(`context`, `result`): [`Point`](/api/classes/point/)
 
 #### Parameters
 
-• **context**: [`StrictLayoutContext`](../type-aliases/StrictLayoutContext.md) & [`CommonLayoutContext`](../type-aliases/CommonLayoutContext.md) & `Object`
+• **context**: [`StrictLayoutContext`](/api/type-aliases/strictlayoutcontext/) & [`CommonLayoutContext`](/api/type-aliases/commonlayoutcontext/) & `object`
 
-• **result**: `Pick`\<[`LayoutStrategyResult`](../type-aliases/LayoutStrategyResult.md), `"center"` \| `"size"`\>
+• **result**: `Pick`\<[`LayoutStrategyResult`](/api/type-aliases/layoutstrategyresult/), `"center"` \| `"size"`\>
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
-#### Source
+#### Defined in
 
 src/LayoutManager/LayoutStrategies/LayoutStrategy.ts:56
 
@@ -112,13 +112,13 @@ src/LayoutManager/LayoutStrategies/LayoutStrategy.ts:56
 
 #### Parameters
 
-• **\_\_namedParameters**: [`StrictLayoutContext`](../type-aliases/StrictLayoutContext.md)
+• **\_\_namedParameters**: [`StrictLayoutContext`](/api/type-aliases/strictlayoutcontext/)
 
 #### Returns
 
 `undefined` \| `boolean`
 
-#### Source
+#### Defined in
 
 src/LayoutManager/LayoutStrategies/LayoutStrategy.ts:48
 
@@ -130,12 +130,12 @@ src/LayoutManager/LayoutStrategies/LayoutStrategy.ts:48
 
 #### Parameters
 
-• **context**: [`StrictLayoutContext`](../type-aliases/StrictLayoutContext.md)
+• **context**: [`StrictLayoutContext`](/api/type-aliases/strictlayoutcontext/)
 
 #### Returns
 
 `boolean`
 
-#### Source
+#### Defined in
 
 src/LayoutManager/LayoutStrategies/LayoutStrategy.ts:40

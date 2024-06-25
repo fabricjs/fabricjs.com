@@ -9,12 +9,12 @@ title: "isIdentityMatrix"
 
 ## Parameters
 
-• **mat**: [`TMat2D`](../../../type-aliases/TMat2D.md)
+• **mat**: [`TMat2D`](/api/type-aliases/tmat2d/)
 
 ## Returns
 
 `boolean`
 
-## Source
+## Defined in
 
 src/util/misc/matrix.ts:35

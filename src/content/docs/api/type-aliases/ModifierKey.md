@@ -7,6 +7,6 @@ title: "ModifierKey"
 
 > **ModifierKey**: keyof `Pick`\<`MouseEvent` \| `PointerEvent` \| `TouchEvent`, `"altKey"` \| `"shiftKey"` \| `"ctrlKey"` \| `"metaKey"`\>
 
-## Source
+## Defined in
 
 src/EventTypeDefs.ts:15

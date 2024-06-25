@@ -7,15 +7,15 @@ title: "TransformAction"
 
 > **TransformAction**\<`T`, `R`\>: (`eventData`, `transform`, `x`, `y`) => `R`
 
-## Type parameters
+## Type Parameters
 
-• **T** extends [`Transform`](Transform.md) = [`Transform`](Transform.md)
+• **T** *extends* [`Transform`](/api/type-aliases/transform/) = [`Transform`](/api/type-aliases/transform/)
 
 • **R** = `void`
 
 ## Parameters
 
-• **eventData**: [`TPointerEvent`](TPointerEvent.md)
+• **eventData**: [`TPointerEvent`](/api/type-aliases/tpointerevent/)
 
 • **transform**: `T`
 
@@ -27,6 +27,6 @@ title: "TransformAction"
 
 `R`
 
-## Source
+## Defined in
 
 src/EventTypeDefs.ts:24

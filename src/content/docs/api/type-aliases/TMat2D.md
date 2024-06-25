@@ -18,6 +18,6 @@ For more details, see
 
 https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/transform#matrix
 
-## Source
+## Defined in
 
 src/typedefs.ts:60

@@ -22,6 +22,6 @@ putImageData is faster than drawImage for that specific operation.
 
 `boolean`
 
-## Source
+## Defined in
 
 src/filters/utils.ts:18

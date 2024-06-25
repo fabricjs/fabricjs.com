@@ -7,6 +7,6 @@ title: "TParsedRelativeCubicCurveShortcutCommand"
 
 > **TParsedRelativeCubicCurveShortcutCommand**: [`"s"`, `number`, `number`, `number`, `number`]
 
-## Source
+## Defined in
 
 src/util/path/typedefs.ts:180

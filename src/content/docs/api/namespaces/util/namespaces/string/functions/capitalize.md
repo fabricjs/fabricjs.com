@@ -7,15 +7,13 @@ title: "capitalize"
 
 > **capitalize**(`string`, `firstLetterOnly`?): `string`
 
-Capitalizes a string
-
 ## Parameters
 
 • **string**: `string`
 
 String to capitalize
 
-• **firstLetterOnly?**: `boolean`= `false`
+• **firstLetterOnly?**: `boolean` = `false`
 
 If true only first letter is capitalized
 and other letters stay untouched, if false first letter is capitalized
@@ -27,6 +25,6 @@ and other letters are converted to lowercase.
 
 Capitalized version of a string
 
-## Source
+## Defined in
 
 src/util/lang\_string.ts:9

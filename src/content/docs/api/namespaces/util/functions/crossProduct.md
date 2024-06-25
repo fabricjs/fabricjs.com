@@ -7,13 +7,11 @@ title: "crossProduct"
 
 > **crossProduct**(`a`, `b`): `number`
 
-Cross product of two vectors in 2D
-
 ## Parameters
 
-• **a**: [`Point`](../../../classes/Point.md)
+• **a**: [`Point`](/api/classes/point/)
 
-• **b**: [`Point`](../../../classes/Point.md)
+• **b**: [`Point`](/api/classes/point/)
 
 ## Returns
 
@@ -21,6 +19,6 @@ Cross product of two vectors in 2D
 
 the magnitude of Z vector
 
-## Source
+## Defined in
 
 src/util/misc/vectors.ts:74

@@ -7,6 +7,6 @@ title: "TParsedAbsoluteCubicCurveShortcutCommand"
 
 > **TParsedAbsoluteCubicCurveShortcutCommand**: [`"S"`, `number`, `number`, `number`, `number`]
 
-## Source
+## Defined in
 
 src/util/path/typedefs.ts:173

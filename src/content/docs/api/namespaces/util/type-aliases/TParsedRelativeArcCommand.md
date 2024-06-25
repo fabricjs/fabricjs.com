@@ -5,8 +5,8 @@ prev: false
 title: "TParsedRelativeArcCommand"
 ---
 
-> **TParsedRelativeArcCommand**: [`"a"`, `number`, `number`, [`TRadian`](../../../type-aliases/TRadian.md), `0` \| `1`, `0` \| `1`, `number`, `number`]
+> **TParsedRelativeArcCommand**: [`"a"`, `number`, `number`, [`TRadian`](/api/type-aliases/tradian/), `0` \| `1`, `0` \| `1`, `number`, `number`]
 
-## Source
+## Defined in
 
 src/util/path/typedefs.ts:241

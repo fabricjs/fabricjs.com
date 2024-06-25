@@ -5,8 +5,8 @@ prev: false
 title: "TQuadraticCurveShortcutCommand"
 ---
 
-> **TQuadraticCurveShortcutCommand**: `TCommand3`\<[`TParsedQuadraticCurveShortcutCommand`](TParsedQuadraticCurveShortcutCommand.md)\>
+> **TQuadraticCurveShortcutCommand**: `TCommand3`\<[`TParsedQuadraticCurveShortcutCommand`](/api/namespaces/util/type-aliases/tparsedquadraticcurveshortcutcommand/)\>
 
-## Source
+## Defined in
 
 src/util/path/typedefs.ts:228

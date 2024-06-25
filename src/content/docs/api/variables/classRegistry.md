@@ -5,8 +5,8 @@ prev: false
 title: "classRegistry"
 ---
 
-> **`const`** **classRegistry**: `ClassRegistry`
+> `const` **classRegistry**: `ClassRegistry`
 
-## Source
+## Defined in
 
 src/ClassRegistry.ts:58

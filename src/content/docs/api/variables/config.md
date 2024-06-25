@@ -5,8 +5,8 @@ prev: false
 title: "config"
 ---
 
-> **`const`** **config**: `Configuration`
+> `const` **config**: `Configuration`
 
-## Source
+## Defined in
 
 src/config.ts:160

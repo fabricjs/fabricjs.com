@@ -5,11 +5,11 @@ prev: false
 title: "RadialGradientCoords"
 ---
 
-> **RadialGradientCoords**\<`T`\>: `Object`
+> **RadialGradientCoords**\<`T`\>: `object`
 
-## Type parameters
+## Type Parameters
 
-• **T** extends [`GradientCoordValue`](GradientCoordValue.md)
+• **T** *extends* [`GradientCoordValue`](/api/type-aliases/gradientcoordvalue/)
 
 ## Type declaration
 
@@ -49,6 +49,6 @@ Y coordiante of the first focal point
 
 Y coordiante of the second focal point
 
-## Source
+## Defined in
 
 src/gradient/typedefs.ts:34

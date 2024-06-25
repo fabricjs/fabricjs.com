@@ -5,18 +5,18 @@ prev: false
 title: "RegistrationContext"
 ---
 
-> **RegistrationContext**: `Object`
+> **RegistrationContext**: `object`
 
 ## Type declaration
 
 ### target
 
-> **target**: [`Group`](../classes/Group.md)
+> **target**: [`Group`](/api/classes/group/)
 
 ### targets
 
-> **targets**: [`FabricObject`](../classes/FabricObject.md)[]
+> **targets**: [`FabricObject`](/api/classes/fabricobject/)[]
 
-## Source
+## Defined in
 
 src/LayoutManager/types.ts:135

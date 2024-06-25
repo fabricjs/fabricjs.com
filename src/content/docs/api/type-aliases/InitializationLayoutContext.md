@@ -5,13 +5,13 @@ prev: false
 title: "InitializationLayoutContext"
 ---
 
-> **InitializationLayoutContext**: [`CommonLayoutContext`](CommonLayoutContext.md) & `Object`
+> **InitializationLayoutContext**: [`CommonLayoutContext`](/api/type-aliases/commonlayoutcontext/) & `object`
 
 ## Type declaration
 
 ### targets
 
-> **targets**: [`FabricObject`](../classes/FabricObject.md)[]
+> **targets**: [`FabricObject`](/api/classes/fabricobject/)[]
 
 ### type
 
@@ -19,12 +19,12 @@ title: "InitializationLayoutContext"
 
 ### x?
 
-> **`optional`** **x**: `number`
+> `optional` **x**: `number`
 
 ### y?
 
-> **`optional`** **y**: `number`
+> `optional` **y**: `number`
 
-## Source
+## Defined in
 
 src/LayoutManager/types.ts:84

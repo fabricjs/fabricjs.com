@@ -5,7 +5,7 @@ prev: false
 title: "PatternOptions"
 ---
 
-> **PatternOptions**: `Partial`\<`Pick`\<[`Pattern`](../classes/Pattern.md), `ExportedKeys`\>\> & `Object`
+> **PatternOptions**: `Partial`\<`Pick`\<[`Pattern`](/api/classes/pattern/), `ExportedKeys`\>\> & `object`
 
 ## Type declaration
 
@@ -13,6 +13,6 @@ title: "PatternOptions"
 
 > **source**: `CanvasImageSource`
 
-## Source
+## Defined in
 
 src/Pattern/types.ts:13

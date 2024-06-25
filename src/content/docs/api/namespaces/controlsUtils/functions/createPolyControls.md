@@ -7,36 +7,36 @@ title: "createPolyControls"
 
 ## createPolyControls(poly, options)
 
-> **createPolyControls**(`poly`, `options`?): `Record`\<`string`, [`Control`](../../../classes/Control.md)\>
+> **createPolyControls**(`poly`, `options`?): `Record`\<`string`, [`Control`](/api/classes/control/)\>
 
 ### Parameters
 
-• **poly**: [`Polyline`](../../../classes/Polyline.md)\<`Partial`\<[`FabricObjectProps`](../../../interfaces/FabricObjectProps.md)\>, [`SerializedPolylineProps`](../../../interfaces/SerializedPolylineProps.md), [`ObjectEvents`](../../../interfaces/ObjectEvents.md)\>
+• **poly**: [`Polyline`](/api/classes/polyline/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedPolylineProps`](/api/interfaces/serializedpolylineprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
-• **options?**: `Partial`\<[`Control`](../../../classes/Control.md)\>
+• **options?**: `Partial`\<[`Control`](/api/classes/control/)\>
 
 ### Returns
 
-`Record`\<`string`, [`Control`](../../../classes/Control.md)\>
+`Record`\<`string`, [`Control`](/api/classes/control/)\>
 
-### Source
+### Defined in
 
 src/controls/polyControl.ts:104
 
 ## createPolyControls(numOfControls, options)
 
-> **createPolyControls**(`numOfControls`, `options`?): `Record`\<`string`, [`Control`](../../../classes/Control.md)\>
+> **createPolyControls**(`numOfControls`, `options`?): `Record`\<`string`, [`Control`](/api/classes/control/)\>
 
 ### Parameters
 
 • **numOfControls**: `number`
 
-• **options?**: `Partial`\<[`Control`](../../../classes/Control.md)\>
+• **options?**: `Partial`\<[`Control`](/api/classes/control/)\>
 
 ### Returns
 
-`Record`\<`string`, [`Control`](../../../classes/Control.md)\>
+`Record`\<`string`, [`Control`](/api/classes/control/)\>
 
-### Source
+### Defined in
 
 src/controls/polyControl.ts:108

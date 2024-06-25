@@ -11,29 +11,29 @@ title: "Canvas"
 
 ## Implements
 
-- [`CanvasOptions`](../interfaces/CanvasOptions.md)
+- [`CanvasOptions`](/api/interfaces/canvasoptions/)
 
 ## Constructors
 
-### new Canvas(el, options)
+### new Canvas()
 
-> **new Canvas**(`el`?, `options`?): [`Canvas`](Canvas.md)
+> **new Canvas**(`el`?, `options`?): [`Canvas`](/api/classes/canvas/)
 
 #### Parameters
 
 • **el?**: `string` \| `HTMLCanvasElement`
 
-• **options?**: `TCanvasOptions`= `{}`
+• **options?**: `TCanvasOptions` = `{}`
 
 #### Returns
 
-[`Canvas`](Canvas.md)
+[`Canvas`](/api/classes/canvas/)
 
 #### Overrides
 
 `SelectableCanvas.constructor`
 
-#### Source
+#### Defined in
 
 src/canvas/Canvas.ts:117
 
@@ -41,13 +41,13 @@ src/canvas/Canvas.ts:117
 
 ### \_activeObject?
 
-> **`optional`** **\_activeObject**: [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+> `optional` **\_activeObject**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 #### Inherited from
 
 `SelectableCanvas._activeObject`
 
-#### Source
+#### Defined in
 
 src/canvas/SelectableCanvas.ts:295
 
@@ -55,13 +55,17 @@ src/canvas/SelectableCanvas.ts:295
 
 ### \_objects
 
-> **\_objects**: [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>[]
+> **\_objects**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>[]
+
+#### TODO
+
+needs to end up in the constructor too
 
 #### Inherited from
 
 `SelectableCanvas._objects`
 
-#### Source
+#### Defined in
 
 src/canvas/SelectableCanvas.ts:139
 
@@ -69,7 +73,7 @@ src/canvas/SelectableCanvas.ts:139
 
 ### \_offset
 
-> **\_offset**: `Object`
+> **\_offset**: `object`
 
 #### left
 
@@ -83,7 +87,7 @@ src/canvas/SelectableCanvas.ts:139
 
 `SelectableCanvas._offset`
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvas.ts:158
 
@@ -99,13 +103,13 @@ move to Canvas
 
 #### Implementation of
 
-[`CanvasOptions`](../interfaces/CanvasOptions.md).[`allowTouchScrolling`](../interfaces/CanvasOptions.md#allowtouchscrolling)
+[`CanvasOptions`](/api/interfaces/canvasoptions/).[`allowTouchScrolling`](/api/interfaces/canvasoptions/#allowtouchscrolling)
 
 #### Inherited from
 
 `SelectableCanvas.allowTouchScrolling`
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvas.ts:122
 
@@ -113,7 +117,7 @@ src/canvas/StaticCanvas.ts:122
 
 ### altActionKey
 
-> **altActionKey**: [`TOptionalModifierKey`](../type-aliases/TOptionalModifierKey.md)
+> **altActionKey**: [`TOptionalModifierKey`](/api/type-aliases/toptionalmodifierkey/)
 
 Indicates which key enable alternate action on corner
 values: 'altKey', 'shiftKey', 'ctrlKey'.
@@ -132,13 +136,13 @@ feature is disabled feature disabled.
 
 #### Implementation of
 
-[`CanvasOptions`](../interfaces/CanvasOptions.md).[`altActionKey`](../interfaces/CanvasOptions.md#altactionkey)
+[`CanvasOptions`](/api/interfaces/canvasoptions/).[`altActionKey`](/api/interfaces/canvasoptions/#altactionkey)
 
 #### Inherited from
 
 `SelectableCanvas.altActionKey`
 
-#### Source
+#### Defined in
 
 src/canvas/SelectableCanvas.ts:147
 
@@ -146,7 +150,7 @@ src/canvas/SelectableCanvas.ts:147
 
 ### altSelectionKey
 
-> **altSelectionKey**: [`TOptionalModifierKey`](../type-aliases/TOptionalModifierKey.md)
+> **altSelectionKey**: [`TOptionalModifierKey`](/api/type-aliases/toptionalmodifierkey/)
 
 Indicates which key enable alternative selection
 in case of target overlapping with active object
@@ -168,13 +172,13 @@ feature is disabled.
 
 #### Implementation of
 
-[`CanvasOptions`](../interfaces/CanvasOptions.md).[`altSelectionKey`](../interfaces/CanvasOptions.md#altselectionkey)
+[`CanvasOptions`](/api/interfaces/canvasoptions/).[`altSelectionKey`](/api/interfaces/canvasoptions/#altselectionkey)
 
 #### Inherited from
 
 `SelectableCanvas.altSelectionKey`
 
-#### Source
+#### Defined in
 
 src/canvas/SelectableCanvas.ts:152
 
@@ -182,7 +186,7 @@ src/canvas/SelectableCanvas.ts:152
 
 ### backgroundColor
 
-> **backgroundColor**: `string` \| [`TFiller`](../type-aliases/TFiller.md)
+> **backgroundColor**: `string` \| [`TFiller`](/api/type-aliases/tfiller/)
 
 Background color of canvas instance.
 
@@ -194,13 +198,13 @@ Background color of canvas instance.
 
 #### Implementation of
 
-[`CanvasOptions`](../interfaces/CanvasOptions.md).[`backgroundColor`](../interfaces/CanvasOptions.md#backgroundcolor)
+[`CanvasOptions`](/api/interfaces/canvasoptions/).[`backgroundColor`](/api/interfaces/canvasoptions/#backgroundcolor)
 
 #### Inherited from
 
 `SelectableCanvas.backgroundColor`
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvas.ts:97
 
@@ -208,7 +212,7 @@ src/canvas/StaticCanvas.ts:97
 
 ### backgroundImage?
 
-> **`optional`** **backgroundImage**: [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+> `optional` **backgroundImage**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 Background image of canvas instance.
 since 2.4.0 image caching is active, please when putting an image as background, add to the
@@ -223,13 +227,13 @@ vale. As an alternative you can disable image objectCaching
 
 #### Implementation of
 
-[`CanvasOptions`](../interfaces/CanvasOptions.md).[`backgroundImage`](../interfaces/CanvasOptions.md#backgroundimage)
+[`CanvasOptions`](/api/interfaces/canvasoptions/).[`backgroundImage`](/api/interfaces/canvasoptions/#backgroundimage)
 
 #### Inherited from
 
 `SelectableCanvas.backgroundImage`
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvas.ts:98
 
@@ -257,13 +261,13 @@ we should really find a different way to do this
 
 #### Implementation of
 
-[`CanvasOptions`](../interfaces/CanvasOptions.md).[`backgroundVpt`](../interfaces/CanvasOptions.md#backgroundvpt)
+[`CanvasOptions`](/api/interfaces/canvasoptions/).[`backgroundVpt`](/api/interfaces/canvasoptions/#backgroundvpt)
 
 #### Inherited from
 
 `SelectableCanvas.backgroundVpt`
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvas.ts:96
 
@@ -271,7 +275,7 @@ src/canvas/StaticCanvas.ts:96
 
 ### centeredKey
 
-> **centeredKey**: [`TOptionalModifierKey`](../type-aliases/TOptionalModifierKey.md)
+> **centeredKey**: [`TOptionalModifierKey`](/api/type-aliases/toptionalmodifierkey/)
 
 Indicates which key enable centered Transform
 values: 'altKey', 'shiftKey', 'ctrlKey'.
@@ -290,13 +294,13 @@ feature is disabled feature disabled.
 
 #### Implementation of
 
-[`CanvasOptions`](../interfaces/CanvasOptions.md).[`centeredKey`](../interfaces/CanvasOptions.md#centeredkey)
+[`CanvasOptions`](/api/interfaces/canvasoptions/).[`centeredKey`](/api/interfaces/canvasoptions/#centeredkey)
 
 #### Inherited from
 
 `SelectableCanvas.centeredKey`
 
-#### Source
+#### Defined in
 
 src/canvas/SelectableCanvas.ts:146
 
@@ -321,13 +325,13 @@ When true, objects use center point as the origin of rotate transformation.
 
 #### Implementation of
 
-[`CanvasOptions`](../interfaces/CanvasOptions.md).[`centeredRotation`](../interfaces/CanvasOptions.md#centeredrotation)
+[`CanvasOptions`](/api/interfaces/canvasoptions/).[`centeredRotation`](/api/interfaces/canvasoptions/#centeredrotation)
 
 #### Inherited from
 
 `SelectableCanvas.centeredRotation`
 
-#### Source
+#### Defined in
 
 src/canvas/SelectableCanvas.ts:145
 
@@ -352,13 +356,13 @@ When true, objects use center point as the origin of scale transformation.
 
 #### Implementation of
 
-[`CanvasOptions`](../interfaces/CanvasOptions.md).[`centeredScaling`](../interfaces/CanvasOptions.md#centeredscaling)
+[`CanvasOptions`](/api/interfaces/canvasoptions/).[`centeredScaling`](/api/interfaces/canvasoptions/#centeredscaling)
 
 #### Inherited from
 
 `SelectableCanvas.centeredScaling`
 
-#### Source
+#### Defined in
 
 src/canvas/SelectableCanvas.ts:144
 
@@ -366,7 +370,7 @@ src/canvas/SelectableCanvas.ts:144
 
 ### clipPath?
 
-> **`optional`** **clipPath**: [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+> `optional` **clipPath**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 a fabricObject that, without stroke define a clipping area with their shape. filled in black
 the clipPath object gets used when the canvas has rendered, and the context is placed in the
@@ -375,13 +379,13 @@ clipPath will clip away controls, if you do not want this to happen use controls
 
 #### Implementation of
 
-[`CanvasOptions`](../interfaces/CanvasOptions.md).[`clipPath`](../interfaces/CanvasOptions.md#clippath)
+[`CanvasOptions`](/api/interfaces/canvasoptions/).[`clipPath`](/api/interfaces/canvasoptions/#clippath)
 
 #### Inherited from
 
 `SelectableCanvas.clipPath`
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvas.ts:104
 
@@ -400,18 +404,18 @@ Default element class that's given to wrapper (div) element of canvas
 ```
 
 :::caution[Deprecated]
-customize [CanvasDOMManager](CanvasDOMManager.md) instead or access [elements](Canvas.md#elements) directly
+customize [CanvasDOMManager](/api/classes/canvasdommanager/) instead or access [elements](/api/classes/canvas/#elements) directly
 :::
 
 #### Implementation of
 
-[`CanvasOptions`](../interfaces/CanvasOptions.md).[`containerClass`](../interfaces/CanvasOptions.md#containerclass)
+[`CanvasOptions`](/api/interfaces/canvasoptions/).[`containerClass`](/api/interfaces/canvasoptions/#containerclass)
 
 #### Inherited from
 
 `SelectableCanvas.containerClass`
 
-#### Source
+#### Defined in
 
 src/canvas/SelectableCanvas.ts:166
 
@@ -427,13 +431,13 @@ move to Canvas
 
 #### Implementation of
 
-[`CanvasOptions`](../interfaces/CanvasOptions.md).[`controlsAboveOverlay`](../interfaces/CanvasOptions.md#controlsaboveoverlay)
+[`CanvasOptions`](/api/interfaces/canvasoptions/).[`controlsAboveOverlay`](/api/interfaces/canvasoptions/#controlsaboveoverlay)
 
 #### Inherited from
 
 `SelectableCanvas.controlsAboveOverlay`
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvas.ts:117
 
@@ -453,13 +457,13 @@ default
 
 #### Implementation of
 
-[`CanvasOptions`](../interfaces/CanvasOptions.md).[`defaultCursor`](../interfaces/CanvasOptions.md#defaultcursor)
+[`CanvasOptions`](/api/interfaces/canvasoptions/).[`defaultCursor`](/api/interfaces/canvasoptions/#defaultcursor)
 
 #### Inherited from
 
 `SelectableCanvas.defaultCursor`
 
-#### Source
+#### Defined in
 
 src/canvas/SelectableCanvas.ts:162
 
@@ -467,7 +471,7 @@ src/canvas/SelectableCanvas.ts:162
 
 ### destroyed?
 
-> **`optional`** **destroyed**: `boolean`
+> `optional` **destroyed**: `boolean`
 
 If true the Canvas is in the process or has been disposed/destroyed.
 No more rendering operation will be executed on this canvas.
@@ -476,7 +480,7 @@ No more rendering operation will be executed on this canvas.
 
 `SelectableCanvas.destroyed`
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvas.ts:149
 
@@ -484,7 +488,7 @@ src/canvas/StaticCanvas.ts:149
 
 ### disposed?
 
-> **`optional`** **disposed**: `boolean`
+> `optional` **disposed**: `boolean`
 
 Started the process of disposing but not done yet.
 WIll likely complete the render cycle already scheduled but stopping adding more.
@@ -493,7 +497,7 @@ WIll likely complete the render cycle already scheduled but stopping adding more
 
 `SelectableCanvas.disposed`
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvas.ts:156
 
@@ -501,13 +505,13 @@ src/canvas/StaticCanvas.ts:156
 
 ### elements
 
-> **elements**: [`CanvasDOMManager`](CanvasDOMManager.md)
+> **elements**: [`CanvasDOMManager`](/api/classes/canvasdommanager/)
 
 #### Inherited from
 
 `SelectableCanvas.elements`
 
-#### Source
+#### Defined in
 
 src/canvas/SelectableCanvas.ts:280
 
@@ -527,9 +531,9 @@ When the option is enabled, PointerEvent is used instead of TPointerEvent.
 
 #### Implementation of
 
-[`CanvasOptions`](../interfaces/CanvasOptions.md).[`enablePointerEvents`](../interfaces/CanvasOptions.md#enablepointerevents)
+[`CanvasOptions`](/api/interfaces/canvasoptions/).[`enablePointerEvents`](/api/interfaces/canvasoptions/#enablepointerevents)
 
-#### Source
+#### Defined in
 
 src/canvas/Canvas.ts:81
 
@@ -549,13 +553,13 @@ When true, canvas is scaled by devicePixelRatio for better rendering on retina s
 
 #### Implementation of
 
-[`CanvasOptions`](../interfaces/CanvasOptions.md).[`enableRetinaScaling`](../interfaces/CanvasOptions.md#enableretinascaling)
+[`CanvasOptions`](/api/interfaces/canvasoptions/).[`enableRetinaScaling`](/api/interfaces/canvasoptions/#enableretinascaling)
 
 #### Inherited from
 
 `SelectableCanvas.enableRetinaScaling`
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvas.ts:111
 
@@ -579,13 +583,13 @@ Indicates if the canvas can fire middle click events
 
 #### Implementation of
 
-[`CanvasOptions`](../interfaces/CanvasOptions.md).[`fireMiddleClick`](../interfaces/CanvasOptions.md#firemiddleclick)
+[`CanvasOptions`](/api/interfaces/canvasoptions/).[`fireMiddleClick`](/api/interfaces/canvasoptions/#firemiddleclick)
 
 #### Inherited from
 
 `SelectableCanvas.fireMiddleClick`
 
-#### Source
+#### Defined in
 
 src/canvas/SelectableCanvas.ts:188
 
@@ -609,13 +613,13 @@ Indicates if the canvas can fire right click events
 
 #### Implementation of
 
-[`CanvasOptions`](../interfaces/CanvasOptions.md).[`fireRightClick`](../interfaces/CanvasOptions.md#firerightclick)
+[`CanvasOptions`](/api/interfaces/canvasoptions/).[`fireRightClick`](/api/interfaces/canvasoptions/#firerightclick)
 
 #### Inherited from
 
 `SelectableCanvas.fireRightClick`
 
-#### Source
+#### Defined in
 
 src/canvas/SelectableCanvas.ts:187
 
@@ -623,13 +627,13 @@ src/canvas/SelectableCanvas.ts:187
 
 ### freeDrawingBrush?
 
-> **`optional`** **freeDrawingBrush**: [`BaseBrush`](BaseBrush.md)
+> `optional` **freeDrawingBrush**: [`BaseBrush`](/api/classes/basebrush/)
 
 #### Inherited from
 
 `SelectableCanvas.freeDrawingBrush`
 
-#### Source
+#### Defined in
 
 src/canvas/SelectableCanvas.ts:294
 
@@ -649,13 +653,13 @@ crosshair
 
 #### Implementation of
 
-[`CanvasOptions`](../interfaces/CanvasOptions.md).[`freeDrawingCursor`](../interfaces/CanvasOptions.md#freedrawingcursor)
+[`CanvasOptions`](/api/interfaces/canvasoptions/).[`freeDrawingCursor`](/api/interfaces/canvasoptions/#freedrawingcursor)
 
 #### Inherited from
 
 `SelectableCanvas.freeDrawingCursor`
 
-#### Source
+#### Defined in
 
 src/canvas/SelectableCanvas.ts:163
 
@@ -670,13 +674,13 @@ The canvas can be taller than width if retina scaling is active
 
 #### Implementation of
 
-[`CanvasOptions`](../interfaces/CanvasOptions.md).[`height`](../interfaces/CanvasOptions.md#height)
+[`CanvasOptions`](/api/interfaces/canvasoptions/).[`height`](/api/interfaces/canvasoptions/#height)
 
 #### Inherited from
 
 `SelectableCanvas.height`
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvas.ts:93
 
@@ -696,13 +700,13 @@ move
 
 #### Implementation of
 
-[`CanvasOptions`](../interfaces/CanvasOptions.md).[`hoverCursor`](../interfaces/CanvasOptions.md#hovercursor)
+[`CanvasOptions`](/api/interfaces/canvasoptions/).[`hoverCursor`](/api/interfaces/canvasoptions/#hovercursor)
 
 #### Inherited from
 
 `SelectableCanvas.hoverCursor`
 
-#### Source
+#### Defined in
 
 src/canvas/SelectableCanvas.ts:160
 
@@ -722,13 +726,13 @@ Indicates whether this canvas will use image smoothing, this is on by default in
 
 #### Implementation of
 
-[`CanvasOptions`](../interfaces/CanvasOptions.md).[`imageSmoothingEnabled`](../interfaces/CanvasOptions.md#imagesmoothingenabled)
+[`CanvasOptions`](/api/interfaces/canvasoptions/).[`imageSmoothingEnabled`](/api/interfaces/canvasoptions/#imagesmoothingenabled)
 
 #### Inherited from
 
 `SelectableCanvas.imageSmoothingEnabled`
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvas.ts:112
 
@@ -749,13 +753,13 @@ if set to false, takes precedence over the object value.
 
 #### Implementation of
 
-[`CanvasOptions`](../interfaces/CanvasOptions.md).[`includeDefaultValues`](../interfaces/CanvasOptions.md#includedefaultvalues)
+[`CanvasOptions`](/api/interfaces/canvasoptions/).[`includeDefaultValues`](/api/interfaces/canvasoptions/#includedefaultvalues)
 
 #### Inherited from
 
 `SelectableCanvas.includeDefaultValues`
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvas.ts:106
 
@@ -783,7 +787,7 @@ and then mouseup finalizes it and adds an instance of `fabric.Path` onto canvas.
 
 `SelectableCanvas.isDrawingMode`
 
-#### Source
+#### Defined in
 
 src/canvas/SelectableCanvas.ts:181
 
@@ -803,13 +807,13 @@ move
 
 #### Implementation of
 
-[`CanvasOptions`](../interfaces/CanvasOptions.md).[`moveCursor`](../interfaces/CanvasOptions.md#movecursor)
+[`CanvasOptions`](/api/interfaces/canvasoptions/).[`moveCursor`](/api/interfaces/canvasoptions/#movecursor)
 
 #### Inherited from
 
 `SelectableCanvas.moveCursor`
 
-#### Source
+#### Defined in
 
 src/canvas/SelectableCanvas.ts:161
 
@@ -833,13 +837,13 @@ not-allowed
 
 #### Implementation of
 
-[`CanvasOptions`](../interfaces/CanvasOptions.md).[`notAllowedCursor`](../interfaces/CanvasOptions.md#notallowedcursor)
+[`CanvasOptions`](/api/interfaces/canvasoptions/).[`notAllowedCursor`](/api/interfaces/canvasoptions/#notallowedcursor)
 
 #### Inherited from
 
 `SelectableCanvas.notAllowedCursor`
 
-#### Source
+#### Defined in
 
 src/canvas/SelectableCanvas.ts:164
 
@@ -847,7 +851,7 @@ src/canvas/SelectableCanvas.ts:164
 
 ### overlayColor
 
-> **overlayColor**: `string` \| [`TFiller`](../type-aliases/TFiller.md)
+> **overlayColor**: `string` \| [`TFiller`](/api/type-aliases/tfiller/)
 
 Overlay color of canvas instance.
 
@@ -863,13 +867,13 @@ Overlay color of canvas instance.
 
 #### Implementation of
 
-[`CanvasOptions`](../interfaces/CanvasOptions.md).[`overlayColor`](../interfaces/CanvasOptions.md#overlaycolor)
+[`CanvasOptions`](/api/interfaces/canvasoptions/).[`overlayColor`](/api/interfaces/canvasoptions/#overlaycolor)
 
 #### Inherited from
 
 `SelectableCanvas.overlayColor`
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvas.ts:101
 
@@ -877,7 +881,7 @@ src/canvas/StaticCanvas.ts:101
 
 ### overlayImage?
 
-> **`optional`** **overlayImage**: [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+> `optional` **overlayImage**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 Overlay image of canvas instance.
 since 2.4.0 image caching is active, please when putting an image as overlay, add to the
@@ -892,13 +896,13 @@ vale. As an alternative you can disable image objectCaching
 
 #### Implementation of
 
-[`CanvasOptions`](../interfaces/CanvasOptions.md).[`overlayImage`](../interfaces/CanvasOptions.md#overlayimage)
+[`CanvasOptions`](/api/interfaces/canvasoptions/).[`overlayImage`](/api/interfaces/canvasoptions/#overlayimage)
 
 #### Inherited from
 
 `SelectableCanvas.overlayImage`
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvas.ts:102
 
@@ -926,13 +930,13 @@ we should really find a different way to do this
 
 #### Implementation of
 
-[`CanvasOptions`](../interfaces/CanvasOptions.md).[`overlayVpt`](../interfaces/CanvasOptions.md#overlayvpt)
+[`CanvasOptions`](/api/interfaces/canvasoptions/).[`overlayVpt`](/api/interfaces/canvasoptions/#overlayvpt)
 
 #### Inherited from
 
 `SelectableCanvas.overlayVpt`
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvas.ts:100
 
@@ -952,13 +956,13 @@ When true, object detection happens on per-pixel basis rather than on per-boundi
 
 #### Implementation of
 
-[`CanvasOptions`](../interfaces/CanvasOptions.md).[`perPixelTargetFind`](../interfaces/CanvasOptions.md#perpixeltargetfind)
+[`CanvasOptions`](/api/interfaces/canvasoptions/).[`perPixelTargetFind`](/api/interfaces/canvasoptions/#perpixeltargetfind)
 
 #### Inherited from
 
 `SelectableCanvas.perPixelTargetFind`
 
-#### Source
+#### Defined in
 
 src/canvas/SelectableCanvas.ts:169
 
@@ -979,13 +983,13 @@ When false objects are brought to top and rendered as part of the selection grou
 
 #### Implementation of
 
-[`CanvasOptions`](../interfaces/CanvasOptions.md).[`preserveObjectStacking`](../interfaces/CanvasOptions.md#preserveobjectstacking)
+[`CanvasOptions`](/api/interfaces/canvasoptions/).[`preserveObjectStacking`](/api/interfaces/canvasoptions/#preserveobjectstacking)
 
 #### Inherited from
 
 `SelectableCanvas.preserveObjectStacking`
 
-#### Source
+#### Defined in
 
 src/canvas/SelectableCanvas.ts:183
 
@@ -995,7 +999,7 @@ src/canvas/SelectableCanvas.ts:183
 
 > **renderOnAddRemove**: `boolean`
 
-Indicates whether [StaticCanvas#add](../../../../api/classes/staticcanvas/#add), [StaticCanvas#insertAt](../../../../api/classes/staticcanvas/#insertat) and [StaticCanvas#remove](../../../../api/classes/staticcanvas/#remove),
+Indicates whether [StaticCanvas#add](../../../../api/classes/staticcanvas/#add), [StaticCanvas#insertAt](../../../../api/classes/staticcanvas/#insertat) and StaticCanvas#remove,
 StaticCanvas#moveTo, [StaticCanvas#clear](../../../../api/classes/staticcanvas/#clear) and many more, should also re-render canvas.
 Disabling this option will not give a performance boost when adding/removing a lot of objects to/from canvas at once
 since the renders are queued and executed one per frame.
@@ -1010,13 +1014,13 @@ Left default to true to do not break documentation and old app, fiddles.
 
 #### Implementation of
 
-[`CanvasOptions`](../interfaces/CanvasOptions.md).[`renderOnAddRemove`](../interfaces/CanvasOptions.md#renderonaddremove)
+[`CanvasOptions`](/api/interfaces/canvasoptions/).[`renderOnAddRemove`](/api/interfaces/canvasoptions/#renderonaddremove)
 
 #### Inherited from
 
 `SelectableCanvas.renderOnAddRemove`
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvas.ts:109
 
@@ -1036,13 +1040,13 @@ Indicates whether group selection should be enabled
 
 #### Implementation of
 
-[`CanvasOptions`](../interfaces/CanvasOptions.md).[`selection`](../interfaces/CanvasOptions.md#selection)
+[`CanvasOptions`](/api/interfaces/canvasoptions/).[`selection`](/api/interfaces/canvasoptions/#selection)
 
 #### Inherited from
 
 `SelectableCanvas.selection`
 
-#### Source
+#### Defined in
 
 src/canvas/SelectableCanvas.ts:150
 
@@ -1062,13 +1066,13 @@ Color of the border of selection (usually slightly darker than color of selectio
 
 #### Implementation of
 
-[`CanvasOptions`](../interfaces/CanvasOptions.md).[`selectionBorderColor`](../interfaces/CanvasOptions.md#selectionbordercolor)
+[`CanvasOptions`](/api/interfaces/canvasoptions/).[`selectionBorderColor`](/api/interfaces/canvasoptions/#selectionbordercolor)
 
 #### Inherited from
 
 `SelectableCanvas.selectionBorderColor`
 
-#### Source
+#### Defined in
 
 src/canvas/SelectableCanvas.ts:155
 
@@ -1088,13 +1092,13 @@ Color of selection
 
 #### Implementation of
 
-[`CanvasOptions`](../interfaces/CanvasOptions.md).[`selectionColor`](../interfaces/CanvasOptions.md#selectioncolor)
+[`CanvasOptions`](/api/interfaces/canvasoptions/).[`selectionColor`](/api/interfaces/canvasoptions/#selectioncolor)
 
 #### Inherited from
 
 `SelectableCanvas.selectionColor`
 
-#### Source
+#### Defined in
 
 src/canvas/SelectableCanvas.ts:153
 
@@ -1109,13 +1113,13 @@ If not empty the selection border is dashed
 
 #### Implementation of
 
-[`CanvasOptions`](../interfaces/CanvasOptions.md).[`selectionDashArray`](../interfaces/CanvasOptions.md#selectiondasharray)
+[`CanvasOptions`](/api/interfaces/canvasoptions/).[`selectionDashArray`](/api/interfaces/canvasoptions/#selectiondasharray)
 
 #### Inherited from
 
 `SelectableCanvas.selectionDashArray`
 
-#### Source
+#### Defined in
 
 src/canvas/SelectableCanvas.ts:154
 
@@ -1135,13 +1139,13 @@ Select only shapes that are fully contained in the dragged selection rectangle.
 
 #### Implementation of
 
-[`CanvasOptions`](../interfaces/CanvasOptions.md).[`selectionFullyContained`](../interfaces/CanvasOptions.md#selectionfullycontained)
+[`CanvasOptions`](/api/interfaces/canvasoptions/).[`selectionFullyContained`](/api/interfaces/canvasoptions/#selectionfullycontained)
 
 #### Inherited from
 
 `SelectableCanvas.selectionFullyContained`
 
-#### Source
+#### Defined in
 
 src/canvas/SelectableCanvas.ts:157
 
@@ -1149,7 +1153,7 @@ src/canvas/SelectableCanvas.ts:157
 
 ### selectionKey
 
-> **selectionKey**: [`TOptionalModifierKey`](../type-aliases/TOptionalModifierKey.md) \| (`"altKey"` \| `"shiftKey"` \| `"ctrlKey"` \| `"metaKey"`)[]
+> **selectionKey**: [`TOptionalModifierKey`](/api/type-aliases/toptionalmodifierkey/) \| (`"altKey"` \| `"shiftKey"` \| `"ctrlKey"` \| `"metaKey"`)[]
 
 Indicates which key or keys enable multiple click selection
 Pass value as a string or array of strings
@@ -1169,13 +1173,13 @@ feature is disabled.
 
 #### Implementation of
 
-[`CanvasOptions`](../interfaces/CanvasOptions.md).[`selectionKey`](../interfaces/CanvasOptions.md#selectionkey)
+[`CanvasOptions`](/api/interfaces/canvasoptions/).[`selectionKey`](/api/interfaces/canvasoptions/#selectionkey)
 
 #### Inherited from
 
 `SelectableCanvas.selectionKey`
 
-#### Source
+#### Defined in
 
 src/canvas/SelectableCanvas.ts:151
 
@@ -1195,13 +1199,13 @@ Width of a line used in object/group selection
 
 #### Implementation of
 
-[`CanvasOptions`](../interfaces/CanvasOptions.md).[`selectionLineWidth`](../interfaces/CanvasOptions.md#selectionlinewidth)
+[`CanvasOptions`](/api/interfaces/canvasoptions/).[`selectionLineWidth`](/api/interfaces/canvasoptions/#selectionlinewidth)
 
 #### Inherited from
 
 `SelectableCanvas.selectionLineWidth`
 
-#### Source
+#### Defined in
 
 src/canvas/SelectableCanvas.ts:156
 
@@ -1225,13 +1229,13 @@ true
 
 #### Implementation of
 
-[`CanvasOptions`](../interfaces/CanvasOptions.md).[`skipOffscreen`](../interfaces/CanvasOptions.md#skipoffscreen)
+[`CanvasOptions`](/api/interfaces/canvasoptions/).[`skipOffscreen`](/api/interfaces/canvasoptions/#skipoffscreen)
 
 #### Inherited from
 
 `SelectableCanvas.skipOffscreen`
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvas.ts:110
 
@@ -1255,13 +1259,13 @@ if you deactivate both, you should look into staticCanvas.
 
 #### Implementation of
 
-[`CanvasOptions`](../interfaces/CanvasOptions.md).[`skipTargetFind`](../interfaces/CanvasOptions.md#skiptargetfind)
+[`CanvasOptions`](/api/interfaces/canvasoptions/).[`skipTargetFind`](/api/interfaces/canvasoptions/#skiptargetfind)
 
 #### Inherited from
 
 `SelectableCanvas.skipTargetFind`
 
-#### Source
+#### Defined in
 
 src/canvas/SelectableCanvas.ts:171
 
@@ -1285,13 +1289,13 @@ Indicates if the right click on canvas can output the context menu or not
 
 #### Implementation of
 
-[`CanvasOptions`](../interfaces/CanvasOptions.md).[`stopContextMenu`](../interfaces/CanvasOptions.md#stopcontextmenu)
+[`CanvasOptions`](/api/interfaces/canvasoptions/).[`stopContextMenu`](/api/interfaces/canvasoptions/#stopcontextmenu)
 
 #### Inherited from
 
 `SelectableCanvas.stopContextMenu`
 
-#### Source
+#### Defined in
 
 src/canvas/SelectableCanvas.ts:186
 
@@ -1312,13 +1316,13 @@ a zoomed canvas will then produce zoomed SVG output.
 
 #### Implementation of
 
-[`CanvasOptions`](../interfaces/CanvasOptions.md).[`svgViewportTransformation`](../interfaces/CanvasOptions.md#svgviewporttransformation)
+[`CanvasOptions`](/api/interfaces/canvasoptions/).[`svgViewportTransformation`](/api/interfaces/canvasoptions/#svgviewporttransformation)
 
 #### Inherited from
 
 `SelectableCanvas.svgViewportTransformation`
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvas.ts:956
 
@@ -1338,13 +1342,13 @@ Number of pixels around target pixel to tolerate (consider active) during object
 
 #### Implementation of
 
-[`CanvasOptions`](../interfaces/CanvasOptions.md).[`targetFindTolerance`](../interfaces/CanvasOptions.md#targetfindtolerance)
+[`CanvasOptions`](/api/interfaces/canvasoptions/).[`targetFindTolerance`](/api/interfaces/canvasoptions/#targetfindtolerance)
 
 #### Inherited from
 
 `SelectableCanvas.targetFindTolerance`
 
-#### Source
+#### Defined in
 
 src/canvas/SelectableCanvas.ts:170
 
@@ -1352,7 +1356,7 @@ src/canvas/SelectableCanvas.ts:170
 
 ### targets
 
-> **targets**: [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>[] = `[]`
+> **targets**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>[] = `[]`
 
 Keep track of the subTargets for Mouse Events
 
@@ -1360,7 +1364,7 @@ Keep track of the subTargets for Mouse Events
 
 `SelectableCanvas.targets`
 
-#### Source
+#### Defined in
 
 src/canvas/SelectableCanvas.ts:194
 
@@ -1370,7 +1374,7 @@ src/canvas/SelectableCanvas.ts:194
 
 > **textEditingManager**: `TextEditingManager`
 
-#### Source
+#### Defined in
 
 src/canvas/Canvas.ts:115
 
@@ -1378,7 +1382,7 @@ src/canvas/Canvas.ts:115
 
 ### uniScaleKey
 
-> **uniScaleKey**: [`TOptionalModifierKey`](../type-aliases/TOptionalModifierKey.md)
+> **uniScaleKey**: [`TOptionalModifierKey`](/api/type-aliases/toptionalmodifierkey/)
 
 Indicates which key switches uniform scaling.
 values: 'altKey', 'shiftKey', 'ctrlKey'.
@@ -1400,13 +1404,13 @@ and viceversa.
 
 #### Implementation of
 
-[`CanvasOptions`](../interfaces/CanvasOptions.md).[`uniScaleKey`](../interfaces/CanvasOptions.md#uniscalekey)
+[`CanvasOptions`](/api/interfaces/canvasoptions/).[`uniScaleKey`](/api/interfaces/canvasoptions/#uniscalekey)
 
 #### Inherited from
 
 `SelectableCanvas.uniScaleKey`
 
-#### Source
+#### Defined in
 
 src/canvas/SelectableCanvas.ts:143
 
@@ -1431,13 +1435,13 @@ fabric 4.0 // changed name and default value
 
 #### Implementation of
 
-[`CanvasOptions`](../interfaces/CanvasOptions.md).[`uniformScaling`](../interfaces/CanvasOptions.md#uniformscaling)
+[`CanvasOptions`](/api/interfaces/canvasoptions/).[`uniformScaling`](/api/interfaces/canvasoptions/#uniformscaling)
 
 #### Inherited from
 
 `SelectableCanvas.uniformScaling`
 
-#### Source
+#### Defined in
 
 src/canvas/SelectableCanvas.ts:142
 
@@ -1445,17 +1449,15 @@ src/canvas/SelectableCanvas.ts:142
 
 ### viewportTransform
 
-> **viewportTransform**: [`TMat2D`](../type-aliases/TMat2D.md)
+> **viewportTransform**: [`TMat2D`](/api/type-aliases/tmat2d/)
 
 The transformation (a Canvas 2D API transform matrix) which focuses the viewport
 
-#### Example
+#### Examples
 
 ```ts
 canvas.viewportTransform = [1, 0, 0, 1, 0, 0];
 ```
-
-#### Example
 
 ```ts
 canvas.viewportTransform = [0.7, 0, 0, 0.7, 50, 50];
@@ -1469,13 +1471,13 @@ canvas.viewportTransform = [0.7, 0, 0, 0.7, 50, 50];
 
 #### Implementation of
 
-[`CanvasOptions`](../interfaces/CanvasOptions.md).[`viewportTransform`](../interfaces/CanvasOptions.md#viewporttransform)
+[`CanvasOptions`](/api/interfaces/canvasoptions/).[`viewportTransform`](/api/interfaces/canvasoptions/#viewporttransform)
 
 #### Inherited from
 
 `SelectableCanvas.viewportTransform`
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvas.ts:124
 
@@ -1483,7 +1485,7 @@ src/canvas/StaticCanvas.ts:124
 
 ### vptCoords
 
-> **vptCoords**: [`TCornerPoint`](../type-aliases/TCornerPoint.md)
+> **vptCoords**: [`TCornerPoint`](/api/type-aliases/tcornerpoint/)
 
 The viewport bounding box in scene plane coordinates, see [calcViewportBoundaries](../../../../api/classes/canvas/#calcviewportboundaries)
 
@@ -1491,7 +1493,7 @@ The viewport bounding box in scene plane coordinates, see [calcViewportBoundarie
 
 `SelectableCanvas.vptCoords`
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvas.ts:129
 
@@ -1506,13 +1508,13 @@ The canvas can be larger than width if retina scaling is active
 
 #### Implementation of
 
-[`CanvasOptions`](../interfaces/CanvasOptions.md).[`width`](../interfaces/CanvasOptions.md#width)
+[`CanvasOptions`](/api/interfaces/canvasoptions/).[`width`](/api/interfaces/canvasoptions/#width)
 
 #### Inherited from
 
 `SelectableCanvas.width`
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvas.ts:92
 
@@ -1520,13 +1522,13 @@ src/canvas/StaticCanvas.ts:92
 
 ### ownDefaults
 
-> **`static`** **ownDefaults**: [`TOptions`](../type-aliases/TOptions.md)\<[`CanvasOptions`](../interfaces/CanvasOptions.md)\> = `canvasDefaults`
+> `static` **ownDefaults**: [`TOptions`](/api/type-aliases/toptions/)\<[`CanvasOptions`](/api/interfaces/canvasoptions/)\> = `canvasDefaults`
 
 #### Inherited from
 
 `SelectableCanvas.ownDefaults`
 
-#### Source
+#### Defined in
 
 src/canvas/SelectableCanvas.ts:274
 
@@ -1534,13 +1536,17 @@ src/canvas/SelectableCanvas.ts:274
 
 ### contextContainer
 
-> **`get`** **contextContainer**(): `CanvasRenderingContext2D`
+> `get` **contextContainer**(): `CanvasRenderingContext2D`
 
 #### Returns
 
 `CanvasRenderingContext2D`
 
-#### Source
+#### Inherited from
+
+`SelectableCanvas.contextContainer`
+
+#### Defined in
 
 src/canvas/StaticCanvas.ts:140
 
@@ -1548,13 +1554,17 @@ src/canvas/StaticCanvas.ts:140
 
 ### contextTop
 
-> **`get`** **contextTop**(): `CanvasRenderingContext2D`
+> `get` **contextTop**(): `CanvasRenderingContext2D`
 
 #### Returns
 
 `CanvasRenderingContext2D`
 
-#### Source
+#### Inherited from
+
+`SelectableCanvas.contextTop`
+
+#### Defined in
 
 src/canvas/SelectableCanvas.ts:284
 
@@ -1562,7 +1572,7 @@ src/canvas/SelectableCanvas.ts:284
 
 ### lowerCanvasEl
 
-> **`get`** **lowerCanvasEl**(): `HTMLCanvasElement`
+> `get` **lowerCanvasEl**(): `HTMLCanvasElement`
 
 A reference to the canvas actual HTMLCanvasElement.
 Can be use to read the raw pixels, but never write or manipulate
@@ -1571,7 +1581,11 @@ Can be use to read the raw pixels, but never write or manipulate
 
 `HTMLCanvasElement`
 
-#### Source
+#### Inherited from
+
+`SelectableCanvas.lowerCanvasEl`
+
+#### Defined in
 
 src/canvas/StaticCanvas.ts:136
 
@@ -1579,13 +1593,17 @@ src/canvas/StaticCanvas.ts:136
 
 ### upperCanvasEl
 
-> **`get`** **upperCanvasEl**(): `HTMLCanvasElement`
+> `get` **upperCanvasEl**(): `HTMLCanvasElement`
 
 #### Returns
 
 `HTMLCanvasElement`
 
-#### Source
+#### Inherited from
+
+`SelectableCanvas.upperCanvasEl`
+
+#### Defined in
 
 src/canvas/SelectableCanvas.ts:281
 
@@ -1593,13 +1611,17 @@ src/canvas/SelectableCanvas.ts:281
 
 ### wrapperEl
 
-> **`get`** **wrapperEl**(): `HTMLDivElement`
+> `get` **wrapperEl**(): `HTMLDivElement`
 
 #### Returns
 
 `HTMLDivElement`
 
-#### Source
+#### Inherited from
+
+`SelectableCanvas.wrapperEl`
+
+#### Defined in
 
 src/canvas/SelectableCanvas.ts:287
 
@@ -1613,7 +1635,7 @@ Method that defines actions when an Event Mouse Wheel
 
 #### Parameters
 
-• **e**: [`TPointerEvent`](../type-aliases/TPointerEvent.md)
+• **e**: [`TPointerEvent`](/api/type-aliases/tpointerevent/)
 
 Event object fired on mouseup
 
@@ -1621,7 +1643,7 @@ Event object fired on mouseup
 
 `void`
 
-#### Source
+#### Defined in
 
 src/canvas/Canvas.ts:1269
 
@@ -1629,23 +1651,23 @@ src/canvas/Canvas.ts:1269
 
 ### \_basicEventHandler()
 
-> **\_basicEventHandler**\<`T`\>(`eventType`, `options`): [`CanvasEvents`](../interfaces/CanvasEvents.md) & [`ObjectEvents`](../interfaces/ObjectEvents.md)\[`T`\]
+> **\_basicEventHandler**\<`T`\>(`eventType`, `options`): [`CanvasEvents`](/api/interfaces/canvasevents/) & [`ObjectEvents`](/api/interfaces/objectevents/)\[`T`\]
 
-#### Type parameters
+#### Type Parameters
 
-• **T** extends `"erasing:end"` \| `"dragstart"` \| `"drag"` \| `"dragover"` \| `"dragenter"` \| `"dragleave"` \| `"dragend"` \| `"drop:before"` \| `"drop"` \| `"drop:after"` \| `"contextmenu:before"` \| `"contextmenu"`
+• **T** *extends* `"erasing:end"` \| `"dragstart"` \| `"drag"` \| `"dragover"` \| `"dragenter"` \| `"dragleave"` \| `"dragend"` \| `"drop:before"` \| `"drop"` \| `"drop:after"` \| `"contextmenu:before"` \| `"contextmenu"`
 
 #### Parameters
 
 • **eventType**: `T`
 
-• **options**: [`CanvasEvents`](../interfaces/CanvasEvents.md) & [`ObjectEvents`](../interfaces/ObjectEvents.md)\[`T`\]
+• **options**: [`CanvasEvents`](/api/interfaces/canvasevents/) & [`ObjectEvents`](/api/interfaces/objectevents/)\[`T`\]
 
 #### Returns
 
-[`CanvasEvents`](../interfaces/CanvasEvents.md) & [`ObjectEvents`](../interfaces/ObjectEvents.md)\[`T`\]
+[`CanvasEvents`](/api/interfaces/canvasevents/) & [`ObjectEvents`](/api/interfaces/objectevents/)\[`T`\]
 
-#### Source
+#### Defined in
 
 src/canvas/Canvas.ts:875
 
@@ -1653,14 +1675,14 @@ src/canvas/Canvas.ts:875
 
 ### \_chooseObjectsToRender()
 
-> **\_chooseObjectsToRender**(): [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>[]
+> **\_chooseObjectsToRender**(): [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>[]
 
 Divides objects in two groups, one to render immediately
 and one to render as activeGroup.
 
 #### Returns
 
-[`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>[]
+[`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>[]
 
 objects to render immediately and pushes the other in the activeGroup.
 
@@ -1668,7 +1690,7 @@ objects to render immediately and pushes the other in the activeGroup.
 
 `SelectableCanvas._chooseObjectsToRender`
 
-#### Source
+#### Defined in
 
 src/canvas/SelectableCanvas.ts:346
 
@@ -1684,11 +1706,11 @@ This is the functional part of discardActiveObject.
 
 #### Parameters
 
-• **e?**: [`TPointerEvent`](../type-aliases/TPointerEvent.md)
+• **e?**: [`TPointerEvent`](/api/type-aliases/tpointerevent/)
 
 Event (passed along when firing "object:deselected")
 
-• **object?**: [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **object?**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 the next object to set as active, reason why we are discarding this
 
@@ -1702,7 +1724,7 @@ true if the active object has been discarded
 
 `SelectableCanvas._discardActiveObject`
 
-#### Source
+#### Defined in
 
 src/canvas/SelectableCanvas.ts:1149
 
@@ -1720,7 +1742,7 @@ src/canvas/SelectableCanvas.ts:1149
 
 `SelectableCanvas._onStackOrderChanged`
 
-#### Source
+#### Defined in
 
 src/canvas/SelectableCanvas.ts:336
 
@@ -1744,7 +1766,7 @@ src/canvas/SelectableCanvas.ts:336
 
 `SelectableCanvas._set`
 
-#### Source
+#### Defined in
 
 src/CommonMethods.ts:38
 
@@ -1760,11 +1782,11 @@ This is the functional part of setActiveObject.
 
 #### Parameters
 
-• **object**: [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **object**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 to set as active
 
-• **e?**: [`TPointerEvent`](../type-aliases/TPointerEvent.md)
+• **e?**: [`TPointerEvent`](/api/type-aliases/tpointerevent/)
 
 Event (passed along when firing "object:selected")
 
@@ -1778,7 +1800,7 @@ true if the object has been selected
 
 `SelectableCanvas._setActiveObject`
 
-#### Source
+#### Defined in
 
 src/canvas/SelectableCanvas.ts:1117
 
@@ -1793,11 +1815,11 @@ Note: very buggy in Opera
 
 #### Parameters
 
-• **e**: [`TPointerEvent`](../type-aliases/TPointerEvent.md)
+• **e**: [`TPointerEvent`](/api/type-aliases/tpointerevent/)
 
 Event object
 
-• **target?**: [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **target?**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 Object that the mouse is hovering, if so.
 
@@ -1805,7 +1827,7 @@ Object that the mouse is hovering, if so.
 
 `void`
 
-#### Source
+#### Defined in
 
 src/canvas/Canvas.ts:1330
 
@@ -1819,7 +1841,7 @@ Pan viewport so as to place point at top left corner of canvas
 
 #### Parameters
 
-• **point**: [`Point`](Point.md)
+• **point**: [`Point`](/api/classes/point/)
 
 to move to
 
@@ -1831,7 +1853,7 @@ to move to
 
 `SelectableCanvas.absolutePan`
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvas.ts:434
 
@@ -1841,19 +1863,26 @@ src/canvas/StaticCanvas.ts:434
 
 > **add**(...`objects`): `number`
 
+Adds objects to collection
+Objects should be instances of (or inherit from) FabricObject
+
 #### Parameters
 
-• ...**objects**: [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>[]
+• ...**objects**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>[]
+
+to add
 
 #### Returns
 
 `number`
 
+new array length
+
 #### Inherited from
 
 `SelectableCanvas.add`
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvas.ts:199
 
@@ -1873,7 +1902,7 @@ src/canvas/StaticCanvas.ts:199
 
 `void`
 
-#### Source
+#### Defined in
 
 src/canvas/Canvas.ts:161
 
@@ -1891,7 +1920,7 @@ stack.
 
 #### Parameters
 
-• **object**: [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **object**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 Object to send
 
@@ -1909,7 +1938,7 @@ true if change occurred
 
 `SelectableCanvas.bringObjectForward`
 
-#### Source
+#### Defined in
 
 src/Collection.ts:240
 
@@ -1924,7 +1953,7 @@ to the top of the stack of drawn objects
 
 #### Parameters
 
-• **object**: [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **object**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 Object to send
 
@@ -1938,7 +1967,7 @@ true if change occurred
 
 `SelectableCanvas.bringObjectToFront`
 
-#### Source
+#### Defined in
 
 src/Collection.ts:194
 
@@ -1946,14 +1975,14 @@ src/Collection.ts:194
 
 ### calcOffset()
 
-> **calcOffset**(): `Object`
+> **calcOffset**(): `object`
 
 Calculates canvas element offset relative to the document
 This method is also attached as "resize" event handler of window
 
 #### Returns
 
-`Object`
+`object`
 
 ##### left
 
@@ -1967,7 +1996,7 @@ This method is also attached as "resize" event handler of window
 
 `SelectableCanvas.calcOffset`
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvas.ts:255
 
@@ -1975,20 +2004,20 @@ src/canvas/StaticCanvas.ts:255
 
 ### calcViewportBoundaries()
 
-> **calcViewportBoundaries**(): [`TCornerPoint`](../type-aliases/TCornerPoint.md)
+> **calcViewportBoundaries**(): [`TCornerPoint`](/api/type-aliases/tcornerpoint/)
 
 Calculate the position of the 4 corner of canvas with current viewportTransform.
 helps to determinate when an object is in the current rendering viewport
 
 #### Returns
 
-[`TCornerPoint`](../type-aliases/TCornerPoint.md)
+[`TCornerPoint`](/api/type-aliases/tcornerpoint/)
 
 #### Inherited from
 
 `SelectableCanvas.calcViewportBoundaries`
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvas.ts:531
 
@@ -2006,7 +2035,7 @@ src/canvas/StaticCanvas.ts:531
 
 `SelectableCanvas.cancelRequestedRender`
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvas.ts:549
 
@@ -2020,7 +2049,7 @@ Centers object vertically and horizontally in the canvas
 
 #### Parameters
 
-• **object**: [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **object**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 Object to center vertically and horizontally
 
@@ -2032,7 +2061,7 @@ Object to center vertically and horizontally
 
 `SelectableCanvas.centerObject`
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvas.ts:758
 
@@ -2046,7 +2075,7 @@ Centers object horizontally in the canvas
 
 #### Parameters
 
-• **object**: [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **object**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 #### Returns
 
@@ -2056,7 +2085,7 @@ Centers object horizontally in the canvas
 
 `SelectableCanvas.centerObjectH`
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvas.ts:736
 
@@ -2070,7 +2099,7 @@ Centers object vertically in the canvas
 
 #### Parameters
 
-• **object**: [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **object**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 Object to center vertically
 
@@ -2082,7 +2111,7 @@ Object to center vertically
 
 `SelectableCanvas.centerObjectV`
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvas.ts:747
 
@@ -2102,7 +2131,7 @@ clear [textEditingManager](../../../../api/classes/canvas/#texteditingmanager)
 
 `SelectableCanvas.clear`
 
-#### Source
+#### Defined in
 
 src/canvas/Canvas.ts:1519
 
@@ -2128,7 +2157,7 @@ Context to clear
 
 `SelectableCanvas.clearContext`
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvas.ts:466
 
@@ -2136,7 +2165,7 @@ src/canvas/StaticCanvas.ts:466
 
 ### clone()
 
-> **clone**(`properties`?): `Promise`\<[`Canvas`](Canvas.md)\>
+> **clone**(`properties`?): `Promise`\<[`Canvas`](/api/classes/canvas/)\>
 
 Clones canvas instance
 
@@ -2148,13 +2177,13 @@ Array of properties to include in the cloned canvas and children
 
 #### Returns
 
-`Promise`\<[`Canvas`](Canvas.md)\>
+`Promise`\<[`Canvas`](/api/classes/canvas/)\>
 
 #### Inherited from
 
 `SelectableCanvas.clone`
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvas.ts:1329
 
@@ -2162,20 +2191,20 @@ src/canvas/StaticCanvas.ts:1329
 
 ### cloneWithoutData()
 
-> **cloneWithoutData**(): [`Canvas`](Canvas.md)
+> **cloneWithoutData**(): [`Canvas`](/api/classes/canvas/)
 
 Clones canvas instance without cloning existing data.
 This essentially copies canvas dimensions since loadFromJSON does not affect canvas size.
 
 #### Returns
 
-[`Canvas`](Canvas.md)
+[`Canvas`](/api/classes/canvas/)
 
 #### Inherited from
 
 `SelectableCanvas.cloneWithoutData`
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvas.ts:1339
 
@@ -2183,7 +2212,7 @@ src/canvas/StaticCanvas.ts:1339
 
 ### collectObjects()
 
-> **collectObjects**(`bbox`, `options`): `InteractiveFabricObject`\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>[]
+> **collectObjects**(`bbox`, `options`): `InteractiveFabricObject`\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>[]
 
 Given a bounding box, return all the objects of the collection that are contained in the bounding box.
 If `includeIntersecting` is true, return also the objects that intersect the bounding box as well.
@@ -2191,19 +2220,19 @@ This is meant to work with selection. Is not a generic method.
 
 #### Parameters
 
-• **bbox**: [`TBBox`](../type-aliases/TBBox.md)
+• **bbox**: [`TBBox`](/api/type-aliases/tbbox/)
 
 a bounding box in scene coordinates
 
-• **options**= `{}`
+• **options** = `{}`
 
 an object with includeIntersecting
 
-• **options\.includeIntersecting?**: `boolean`= `true`
+• **options.includeIntersecting?**: `boolean` = `true`
 
 #### Returns
 
-`InteractiveFabricObject`\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>[]
+`InteractiveFabricObject`\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>[]
 
 array of objects contained in the bounding box, ordered from top to bottom stacking wise
 
@@ -2211,7 +2240,7 @@ array of objects contained in the bounding box, ordered from top to bottom stack
 
 `SelectableCanvas.collectObjects`
 
-#### Source
+#### Defined in
 
 src/Collection.ts:326
 
@@ -2233,7 +2262,7 @@ complexity
 
 `SelectableCanvas.complexity`
 
-#### Source
+#### Defined in
 
 src/Collection.ts:165
 
@@ -2249,7 +2278,7 @@ instead of `a.contains(b)` use `b.isDescendantOf(a)`
 
 #### Parameters
 
-• **object**: [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **object**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 Object to check against
 
@@ -2267,7 +2296,7 @@ Object to check against
 
 `SelectableCanvas.contains`
 
-#### Source
+#### Defined in
 
 src/Collection.ts:148
 
@@ -2279,7 +2308,7 @@ src/Collection.ts:148
 
 #### Parameters
 
-• **options**: [`TSVGExportOptions`](../type-aliases/TSVGExportOptions.md)
+• **options**: [`TSVGExportOptions`](/api/type-aliases/tsvgexportoptions/)
 
 #### Returns
 
@@ -2289,7 +2318,7 @@ src/Collection.ts:148
 
 `SelectableCanvas.createSVGClipPathMarkup`
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvas.ts:1082
 
@@ -2311,7 +2340,7 @@ and are not extracted from the DOM by fabricjs
 
 `SelectableCanvas.createSVGFontFacesMarkup`
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvas.ts:1125
 
@@ -2331,7 +2360,7 @@ Creates markup containing SVG referenced elements like patterns, gradients etc.
 
 `SelectableCanvas.createSVGRefElementsMarkup`
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvas.ts:1097
 
@@ -2351,7 +2380,7 @@ clear [textEditingManager](../../../../api/classes/canvas/#texteditingmanager)
 
 `SelectableCanvas.destroy`
 
-#### Source
+#### Defined in
 
 src/canvas/Canvas.ts:1527
 
@@ -2368,7 +2397,7 @@ e param does not have any application.
 
 #### Parameters
 
-• **e?**: [`TPointerEvent`](../type-aliases/TPointerEvent.md)
+• **e?**: [`TPointerEvent`](/api/type-aliases/tpointerevent/)
 
 #### Returns
 
@@ -2380,7 +2409,7 @@ true if the active object has been discarded
 
 `SelectableCanvas.discardActiveObject`
 
-#### Source
+#### Defined in
 
 src/canvas/SelectableCanvas.ts:1176
 
@@ -2406,7 +2435,7 @@ a promise resolving to `true` once the canvas has been destroyed or to `false` i
 
 if aborted by a consequent call
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvas.ts:1455
 
@@ -2434,7 +2463,7 @@ Context to render on
 
 `SelectableCanvas.drawClipPathOnCanvas`
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvas.ts:612
 
@@ -2460,7 +2489,7 @@ Context to render controls on
 
 `SelectableCanvas.drawControls`
 
-#### Source
+#### Defined in
 
 src/canvas/SelectableCanvas.ts:1284
 
@@ -2476,7 +2505,7 @@ because of some other event ( a press of key combination, or something that bloc
 
 #### Parameters
 
-• **e?**: [`TPointerEvent`](../type-aliases/TPointerEvent.md)
+• **e?**: [`TPointerEvent`](/api/type-aliases/tpointerevent/)
 
 send the mouse event that generate the finalize down, so it can be used in the event
 
@@ -2488,7 +2517,7 @@ send the mouse event that generate the finalize down, so it can be used in the e
 
 `SelectableCanvas.endCurrentTransform`
 
-#### Source
+#### Defined in
 
 src/canvas/SelectableCanvas.ts:1196
 
@@ -2500,7 +2529,7 @@ src/canvas/SelectableCanvas.ts:1196
 
 #### Parameters
 
-• **object**: [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **object**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 • **idx**: `number`
 
@@ -2514,7 +2543,7 @@ src/canvas/SelectableCanvas.ts:1196
 
 `SelectableCanvas.findNewLowerIndex`
 
-#### Source
+#### Defined in
 
 src/Collection.ts:272
 
@@ -2526,7 +2555,7 @@ src/Collection.ts:272
 
 #### Parameters
 
-• **object**: [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **object**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 • **idx**: `number`
 
@@ -2540,7 +2569,7 @@ src/Collection.ts:272
 
 `SelectableCanvas.findNewUpperIndex`
 
-#### Source
+#### Defined in
 
 src/Collection.ts:295
 
@@ -2548,7 +2577,7 @@ src/Collection.ts:295
 
 ### findTarget()
 
-> **findTarget**(`e`): `undefined` \| [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+> **findTarget**(`e`): `undefined` \| [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 Method that determines what object we are clicking on
 11/09/2018 TODO: would be cool if findTarget could discern between being a full target
@@ -2556,13 +2585,13 @@ or the outside part of the corner.
 
 #### Parameters
 
-• **e**: [`TPointerEvent`](../type-aliases/TPointerEvent.md)
+• **e**: [`TPointerEvent`](/api/type-aliases/tpointerevent/)
 
 mouse event
 
 #### Returns
 
-`undefined` \| [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+`undefined` \| [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 the target found
 
@@ -2570,7 +2599,7 @@ the target found
 
 `SelectableCanvas.findTarget`
 
-#### Source
+#### Defined in
 
 src/canvas/SelectableCanvas.ts:698
 
@@ -2582,9 +2611,9 @@ src/canvas/SelectableCanvas.ts:698
 
 Fires event with an optional options object
 
-#### Type parameters
+#### Type Parameters
 
-• **K** extends keyof [`CanvasEvents`](../interfaces/CanvasEvents.md)
+• **K** *extends* keyof [`CanvasEvents`](/api/interfaces/canvasevents/)
 
 #### Parameters
 
@@ -2592,7 +2621,7 @@ Fires event with an optional options object
 
 Event name to fire
 
-• **options?**: [`CanvasEvents`](../interfaces/CanvasEvents.md)\[`K`\]
+• **options?**: [`CanvasEvents`](/api/interfaces/canvasevents/)\[`K`\]
 
 Options object
 
@@ -2604,7 +2633,7 @@ Options object
 
 `SelectableCanvas.fire`
 
-#### Source
+#### Defined in
 
 src/Observable.ts:159
 
@@ -2633,7 +2662,7 @@ Callback invoked with current object as first argument,
 
 `SelectableCanvas.forEachObject`
 
-#### Source
+#### Defined in
 
 src/Collection.ts:91
 
@@ -2661,7 +2690,7 @@ value of a property
 
 `SelectableCanvas.get`
 
-#### Source
+#### Defined in
 
 src/CommonMethods.ts:59
 
@@ -2669,13 +2698,13 @@ src/CommonMethods.ts:59
 
 ### getActiveObject()
 
-> **getActiveObject**(): `undefined` \| [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+> **getActiveObject**(): `undefined` \| [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 Returns currently active object
 
 #### Returns
 
-`undefined` \| [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+`undefined` \| [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 active object
 
@@ -2683,7 +2712,7 @@ active object
 
 `SelectableCanvas.getActiveObject`
 
-#### Source
+#### Defined in
 
 src/canvas/SelectableCanvas.ts:1019
 
@@ -2691,13 +2720,13 @@ src/canvas/SelectableCanvas.ts:1019
 
 ### getActiveObjects()
 
-> **getActiveObjects**(): [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>[]
+> **getActiveObjects**(): [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>[]
 
 Returns an array with the current selected objects
 
 #### Returns
 
-[`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>[]
+[`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>[]
 
 active objects array
 
@@ -2705,7 +2734,7 @@ active objects array
 
 `SelectableCanvas.getActiveObjects`
 
-#### Source
+#### Defined in
 
 src/canvas/SelectableCanvas.ts:1027
 
@@ -2713,7 +2742,7 @@ src/canvas/SelectableCanvas.ts:1027
 
 ### ~~getCenter()~~
 
-> **getCenter**(): `Object`
+> **getCenter**(): `object`
 
 Returns coordinates of a center of canvas.
 Returned value is an object with top and left properties
@@ -2724,7 +2753,7 @@ migrate to `getCenterPoint`
 
 #### Returns
 
-`Object`
+`object`
 
 object with "top" and "left" number values
 
@@ -2740,11 +2769,7 @@ object with "top" and "left" number values
 
 `SelectableCanvas.getCenter`
 
-:::caution[Deprecated]
-migrate to `getCenterPoint`
-:::
-
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvas.ts:718
 
@@ -2752,19 +2777,19 @@ src/canvas/StaticCanvas.ts:718
 
 ### getCenterPoint()
 
-> **getCenterPoint**(): [`Point`](Point.md)
+> **getCenterPoint**(): [`Point`](/api/classes/point/)
 
 Returns coordinates of a center of canvas.
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
 #### Inherited from
 
 `SelectableCanvas.getCenterPoint`
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvas.ts:729
 
@@ -2784,7 +2809,7 @@ Returns context of canvas where objects are drawn
 
 `SelectableCanvas.getContext`
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvas.ts:474
 
@@ -2804,7 +2829,7 @@ Returns &lt;canvas> element corresponding to this instance
 
 `SelectableCanvas.getElement`
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvas.ts:458
 
@@ -2824,7 +2849,7 @@ Returns canvas height (in px)
 
 `SelectableCanvas.getHeight`
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvas.ts:271
 
@@ -2832,7 +2857,7 @@ src/canvas/StaticCanvas.ts:271
 
 ### getObjects()
 
-> **getObjects**(...`types`?): [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>[]
+> **getObjects**(...`types`?): [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>[]
 
 Returns an array of children objects of this instance
 
@@ -2844,13 +2869,13 @@ When specified, only objects of these types are returned
 
 #### Returns
 
-[`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>[]
+[`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>[]
 
 #### Inherited from
 
 `SelectableCanvas.getObjects`
 
-#### Source
+#### Defined in
 
 src/Collection.ts:108
 
@@ -2858,37 +2883,32 @@ src/Collection.ts:108
 
 ### ~~getPointer()~~
 
-> **getPointer**(`e`, `fromViewport`?): [`Point`](Point.md)
+> **getPointer**(`e`, `fromViewport`?): [`Point`](/api/classes/point/)
 
 Returns pointer relative to canvas.
 
 :::caution[Deprecated]
 This method is deprecated since v6 to protect you from misuse.
-Use [getViewportPoint](Canvas.md#getviewportpoint) or [getScenePoint](Canvas.md#getscenepoint) instead.
+Use [getViewportPoint](/api/classes/canvas/#getviewportpoint) or [getScenePoint](/api/classes/canvas/#getscenepoint) instead.
 :::
 
 #### Parameters
 
-• **e**: [`TPointerEvent`](../type-aliases/TPointerEvent.md)
+• **e**: [`TPointerEvent`](/api/type-aliases/tpointerevent/)
 
-• **fromViewport?**: `boolean`= `false`
+• **fromViewport?**: `boolean` = `false`
 
 whether to return the point from the viewport or in the scene
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
 #### Inherited from
 
 `SelectableCanvas.getPointer`
 
-:::caution[Deprecated]
-This method is deprecated since v6 to protect you from misuse.
-Use [getViewportPoint](Canvas.md#getviewportpoint) or [getScenePoint](Canvas.md#getscenepoint) instead.
-:::
-
-#### Source
+#### Defined in
 
 src/canvas/SelectableCanvas.ts:924
 
@@ -2896,18 +2916,18 @@ src/canvas/SelectableCanvas.ts:924
 
 ### getScenePoint()
 
-> **getScenePoint**(`e`): [`Point`](Point.md)
+> **getScenePoint**(`e`): [`Point`](/api/classes/point/)
 
 #### Parameters
 
-• **e**: [`TPointerEvent`](../type-aliases/TPointerEvent.md)
+• **e**: [`TPointerEvent`](/api/type-aliases/tpointerevent/)
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
-point existing in the scene (the same plane as the plane [FabricObject#getCenterPoint](FabricObject.md#getcenterpoint) exists in).
-This means that changes to the [viewportTransform](StaticCanvas.md#viewporttransform) do not change the values of the point,
+point existing in the scene (the same plane as the plane [FabricObject#getCenterPoint](/api/api/classes/fabricobject/getcenterpoint/#getcenterpoint) exists in).
+This means that changes to the [viewportTransform](/api/api/classes/staticcanvas/viewporttransform/#viewporttransform) do not change the values of the point,
 however, from the viewer's perspective, the point is changed.
 
 #### Inherited from
@@ -2923,7 +2943,7 @@ const viewportPoint = sendPointToPlane(
 );
 ```
 
-#### Source
+#### Defined in
 
 src/canvas/SelectableCanvas.ts:907
 
@@ -2945,7 +2965,7 @@ Returns context of canvas where object selection is drawn
 
 #### Alias
 
-#### Source
+#### Defined in
 
 src/canvas/SelectableCanvas.ts:1003
 
@@ -2965,7 +2985,7 @@ Returns &lt;canvas> element on which object selection is drawn
 
 `SelectableCanvas.getSelectionElement`
 
-#### Source
+#### Defined in
 
 src/canvas/SelectableCanvas.ts:1011
 
@@ -2985,7 +3005,7 @@ Returns context of top canvas where interactions are drawn
 
 `SelectableCanvas.getTopContext`
 
-#### Source
+#### Defined in
 
 src/canvas/SelectableCanvas.ts:994
 
@@ -2993,19 +3013,19 @@ src/canvas/SelectableCanvas.ts:994
 
 ### getViewportPoint()
 
-> **getViewportPoint**(`e`): [`Point`](Point.md)
+> **getViewportPoint**(`e`): [`Point`](/api/classes/point/)
 
 #### Parameters
 
-• **e**: [`TPointerEvent`](../type-aliases/TPointerEvent.md)
+• **e**: [`TPointerEvent`](/api/type-aliases/tpointerevent/)
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
 point existing in the same plane as the HTMLCanvasElement,
 `(0, 0)` being the top left corner of the HTMLCanvasElement.
-This means that changes to the [viewportTransform](StaticCanvas.md#viewporttransform) do not change the values of the point
+This means that changes to the [viewportTransform](/api/api/classes/staticcanvas/viewporttransform/#viewporttransform) do not change the values of the point
 and it remains unchanged from the viewer's perspective.
 
 #### Inherited from
@@ -3022,7 +3042,7 @@ const scenePoint = sendPointToPlane(
 );
 ```
 
-#### Source
+#### Defined in
 
 src/canvas/SelectableCanvas.ts:888
 
@@ -3030,13 +3050,13 @@ src/canvas/SelectableCanvas.ts:888
 
 ### getVpCenter()
 
-> **getVpCenter**(): [`Point`](Point.md)
+> **getVpCenter**(): [`Point`](/api/classes/point/)
 
 Calculate the point in canvas that correspond to the center of actual viewport.
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
 vpCenter, viewport center
 
@@ -3044,7 +3064,7 @@ vpCenter, viewport center
 
 `SelectableCanvas.getVpCenter`
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvas.ts:796
 
@@ -3064,7 +3084,7 @@ Returns canvas width (in px)
 
 `SelectableCanvas.getWidth`
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvas.ts:263
 
@@ -3084,7 +3104,7 @@ Returns canvas zoom level
 
 `SelectableCanvas.getZoom`
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvas.ts:373
 
@@ -3094,21 +3114,29 @@ src/canvas/StaticCanvas.ts:373
 
 > **insertAt**(`index`, ...`objects`): `number`
 
+Inserts an object into collection at specified index
+
 #### Parameters
 
 • **index**: `number`
 
-• ...**objects**: [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>[]
+Index to insert object at
+
+• ...**objects**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>[]
+
+Object(s) to insert
 
 #### Returns
 
 `number`
 
+new array length
+
 #### Inherited from
 
 `SelectableCanvas.insertAt`
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvas.ts:205
 
@@ -3130,7 +3158,7 @@ true if collection is empty
 
 `SelectableCanvas.isEmpty`
 
-#### Source
+#### Defined in
 
 src/Collection.ts:128
 
@@ -3145,7 +3173,7 @@ Clarification: this is `is target transparent at location X or are controls ther
 
 #### Parameters
 
-• **target**: [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **target**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 Object to check
 
@@ -3170,7 +3198,7 @@ Top coordinate in viewport space
 this seems dumb that we treat controls with transparency. we can find controls
 programmatically without painting them, the cache canvas optimization is always valid
 
-#### Source
+#### Defined in
 
 src/canvas/SelectableCanvas.ts:430
 
@@ -3178,7 +3206,7 @@ src/canvas/SelectableCanvas.ts:430
 
 ### item()
 
-> **item**(`index`): [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+> **item**(`index`): [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 Returns object at specified index
 
@@ -3188,7 +3216,7 @@ Returns object at specified index
 
 #### Returns
 
-[`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+[`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 object at index
 
@@ -3196,7 +3224,7 @@ object at index
 
 `SelectableCanvas.item`
 
-#### Source
+#### Defined in
 
 src/Collection.ts:120
 
@@ -3204,7 +3232,7 @@ src/Collection.ts:120
 
 ### loadFromJSON()
 
-> **loadFromJSON**(`json`, `reviver`?, `options`?): `Promise`\<[`Canvas`](Canvas.md)\>
+> **loadFromJSON**(`json`, `reviver`?, `options`?): `Promise`\<[`Canvas`](/api/classes/canvas/)\>
 
 Populates canvas with data from the specified JSON.
 JSON format must conform to the one of fabric.Canvas#toJSON
@@ -3221,13 +3249,13 @@ JSON string or object
 
 Method for further parsing of JSON elements, called after each fabric object created.
 
-• **options?**: [`Abortable`](../type-aliases/Abortable.md)= `{}`
+• **options?**: [`Abortable`](/api/type-aliases/abortable/) = `{}`
 
 options
 
 #### Returns
 
-`Promise`\<[`Canvas`](Canvas.md)\>
+`Promise`\<[`Canvas`](/api/classes/canvas/)\>
 
 instance
 
@@ -3243,13 +3271,11 @@ instance
 
 [demo](http://jsfiddle.net/fabricjs/fmgXt/|jsFiddle)
 
-#### Example
+#### Examples
 
 ```ts
 canvas.loadFromJSON(json).then((canvas) => canvas.requestRenderAll());
 ```
-
-#### Example
 
 ```ts
 canvas.loadFromJSON(json, function(o, object) {
@@ -3261,7 +3287,7 @@ canvas.loadFromJSON(json, function(o, object) {
 });
 ```
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvas.ts:1278
 
@@ -3275,7 +3301,7 @@ Moves an object to specified level in stack of drawn objects
 
 #### Parameters
 
-• **object**: [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **object**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 Object to send
 
@@ -3293,7 +3319,7 @@ true if change occurred
 
 `SelectableCanvas.moveObjectTo`
 
-#### Source
+#### Defined in
 
 src/Collection.ts:262
 
@@ -3307,9 +3333,9 @@ src/Collection.ts:262
 
 unsubscribe an event listener
 
-##### Type parameters
+##### Type Parameters
 
-• **K** extends keyof [`CanvasEvents`](../interfaces/CanvasEvents.md)
+• **K** *extends* keyof [`CanvasEvents`](/api/interfaces/canvasevents/)
 
 ##### Parameters
 
@@ -3329,7 +3355,7 @@ event listener to unsubscribe
 
 `SelectableCanvas.off`
 
-##### Source
+##### Defined in
 
 src/Observable.ts:120
 
@@ -3341,9 +3367,9 @@ unsubscribe event listeners
 
 ##### Parameters
 
-• **handlers**: `EventRegistryObject`\<[`CanvasEvents`](../interfaces/CanvasEvents.md)\>
+• **handlers**: `EventRegistryObject`\<[`CanvasEvents`](/api/interfaces/canvasevents/)\>
 
-handlers key/value pairs (eg. \{'after:render': handler, 'selection:cleared': handler\})
+handlers key/value pairs (eg. {'after:render': handler, 'selection:cleared': handler})
 
 ##### Returns
 
@@ -3353,7 +3379,7 @@ handlers key/value pairs (eg. \{'after:render': handler, 'selection:cleared': ha
 
 `SelectableCanvas.off`
 
-##### Source
+##### Defined in
 
 src/Observable.ts:125
 
@@ -3371,7 +3397,7 @@ unsubscribe all event listeners
 
 `SelectableCanvas.off`
 
-##### Source
+##### Defined in
 
 src/Observable.ts:129
 
@@ -3385,11 +3411,11 @@ src/Observable.ts:129
 
 Observes specified event
 
-##### Type parameters
+##### Type Parameters
 
-• **K** extends keyof [`CanvasEvents`](../interfaces/CanvasEvents.md)
+• **K** *extends* keyof [`CanvasEvents`](/api/interfaces/canvasevents/)
 
-• **E** extends [`TPointerEventInfo`](../interfaces/TPointerEventInfo.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\> \| [`TPointerEventInfo`](../interfaces/TPointerEventInfo.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\> & `Object` \| [`TPointerEventInfo`](../interfaces/TPointerEventInfo.md)\<`WheelEvent`\> \| [`TPointerEventInfo`](../interfaces/TPointerEventInfo.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\> & `InEvent` \| [`TPointerEventInfo`](../interfaces/TPointerEventInfo.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\> & `OutEvent` \| `TEventWithTarget`\<`DragEvent`\> \| [`DragEventData`](../interfaces/DragEventData.md) \| [`DragEventData`](../interfaces/DragEventData.md) & `InEvent` \| [`DragEventData`](../interfaces/DragEventData.md) & `OutEvent` \| [`DropEventData`](../interfaces/DropEventData.md) \| `SimpleEventHandler`\<`Event`\> \| [`BasicTransformEvent`](../interfaces/BasicTransformEvent.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\> & `Object` \| [`ModifiedEvent`](../interfaces/ModifiedEvent.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\> \| `Object` \| `Object` \| `Object` \| `Object` \| `Object` \| `Object` \| `Object` \| `Object` \| `Object` \| `Object` \| `Object` \| `Object` \| [`LayoutBeforeEvent`](../type-aliases/LayoutBeforeEvent.md) & `Object` \| [`LayoutAfterEvent`](../type-aliases/LayoutAfterEvent.md) & `Object` \| [`TEvent`](../interfaces/TEvent.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\> & `Object` \| `Partial`\<[`TEvent`](../interfaces/TEvent.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\>\> & `Object` \| `Partial`\<[`TEvent`](../interfaces/TEvent.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\>\> & `Object` \| `Partial`\<[`TEvent`](../interfaces/TEvent.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\>\> & `Object` \| `Partial`\<[`TEvent`](../interfaces/TEvent.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\>\> & `Object`
+• **E** *extends* [`TPointerEventInfo`](/api/interfaces/tpointereventinfo/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> \| [`TPointerEventInfo`](/api/interfaces/tpointereventinfo/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> & `object` \| [`TPointerEventInfo`](/api/interfaces/tpointereventinfo/)\<`WheelEvent`\> \| [`TPointerEventInfo`](/api/interfaces/tpointereventinfo/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> & `InEvent` \| [`TPointerEventInfo`](/api/interfaces/tpointereventinfo/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> & `OutEvent` \| `TEventWithTarget`\<`DragEvent`\> \| [`DragEventData`](/api/interfaces/drageventdata/) \| [`DragEventData`](/api/interfaces/drageventdata/) & `InEvent` \| [`DragEventData`](/api/interfaces/drageventdata/) & `OutEvent` \| [`DropEventData`](/api/interfaces/dropeventdata/) \| `SimpleEventHandler`\<`Event`\> \| [`BasicTransformEvent`](/api/interfaces/basictransformevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> & `object` \| [`ModifiedEvent`](/api/interfaces/modifiedevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> \| `object` \| `object` \| `object` \| `object` \| `object` \| `object` \| `object` \| `object` \| `object` \| `object` \| `object` \| `object` \| [`LayoutBeforeEvent`](/api/type-aliases/layoutbeforeevent/) & `object` \| [`LayoutAfterEvent`](/api/type-aliases/layoutafterevent/) & `object` \| [`TEvent`](/api/interfaces/tevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> & `object` \| `Partial`\<[`TEvent`](/api/interfaces/tevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\>\> & `object` \| `Partial`\<[`TEvent`](/api/interfaces/tevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\>\> & `object` \| `Partial`\<[`TEvent`](/api/interfaces/tevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\>\> & `object` \| `Partial`\<[`TEvent`](/api/interfaces/tevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\>\> & `object`
 
 ##### Parameters
 
@@ -3415,7 +3441,7 @@ disposer
 
 on
 
-##### Source
+##### Defined in
 
 src/Observable.ts:23
 
@@ -3425,7 +3451,7 @@ src/Observable.ts:23
 
 ##### Parameters
 
-• **handlers**: `EventRegistryObject`\<[`CanvasEvents`](../interfaces/CanvasEvents.md)\>
+• **handlers**: `EventRegistryObject`\<[`CanvasEvents`](/api/interfaces/canvasevents/)\>
 
 ##### Returns
 
@@ -3435,7 +3461,7 @@ src/Observable.ts:23
 
 `SelectableCanvas.on`
 
-##### Source
+##### Defined in
 
 src/Observable.ts:27
 
@@ -3449,11 +3475,11 @@ src/Observable.ts:27
 
 Observes specified event **once**
 
-##### Type parameters
+##### Type Parameters
 
-• **K** extends keyof [`CanvasEvents`](../interfaces/CanvasEvents.md)
+• **K** *extends* keyof [`CanvasEvents`](/api/interfaces/canvasevents/)
 
-• **E** extends [`TPointerEventInfo`](../interfaces/TPointerEventInfo.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\> \| [`TPointerEventInfo`](../interfaces/TPointerEventInfo.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\> & `Object` \| [`TPointerEventInfo`](../interfaces/TPointerEventInfo.md)\<`WheelEvent`\> \| [`TPointerEventInfo`](../interfaces/TPointerEventInfo.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\> & `InEvent` \| [`TPointerEventInfo`](../interfaces/TPointerEventInfo.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\> & `OutEvent` \| `TEventWithTarget`\<`DragEvent`\> \| [`DragEventData`](../interfaces/DragEventData.md) \| [`DragEventData`](../interfaces/DragEventData.md) & `InEvent` \| [`DragEventData`](../interfaces/DragEventData.md) & `OutEvent` \| [`DropEventData`](../interfaces/DropEventData.md) \| `SimpleEventHandler`\<`Event`\> \| [`BasicTransformEvent`](../interfaces/BasicTransformEvent.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\> & `Object` \| [`ModifiedEvent`](../interfaces/ModifiedEvent.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\> \| `Object` \| `Object` \| `Object` \| `Object` \| `Object` \| `Object` \| `Object` \| `Object` \| `Object` \| `Object` \| `Object` \| `Object` \| [`LayoutBeforeEvent`](../type-aliases/LayoutBeforeEvent.md) & `Object` \| [`LayoutAfterEvent`](../type-aliases/LayoutAfterEvent.md) & `Object` \| [`TEvent`](../interfaces/TEvent.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\> & `Object` \| `Partial`\<[`TEvent`](../interfaces/TEvent.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\>\> & `Object` \| `Partial`\<[`TEvent`](../interfaces/TEvent.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\>\> & `Object` \| `Partial`\<[`TEvent`](../interfaces/TEvent.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\>\> & `Object` \| `Partial`\<[`TEvent`](../interfaces/TEvent.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\>\> & `Object`
+• **E** *extends* [`TPointerEventInfo`](/api/interfaces/tpointereventinfo/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> \| [`TPointerEventInfo`](/api/interfaces/tpointereventinfo/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> & `object` \| [`TPointerEventInfo`](/api/interfaces/tpointereventinfo/)\<`WheelEvent`\> \| [`TPointerEventInfo`](/api/interfaces/tpointereventinfo/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> & `InEvent` \| [`TPointerEventInfo`](/api/interfaces/tpointereventinfo/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> & `OutEvent` \| `TEventWithTarget`\<`DragEvent`\> \| [`DragEventData`](/api/interfaces/drageventdata/) \| [`DragEventData`](/api/interfaces/drageventdata/) & `InEvent` \| [`DragEventData`](/api/interfaces/drageventdata/) & `OutEvent` \| [`DropEventData`](/api/interfaces/dropeventdata/) \| `SimpleEventHandler`\<`Event`\> \| [`BasicTransformEvent`](/api/interfaces/basictransformevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> & `object` \| [`ModifiedEvent`](/api/interfaces/modifiedevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> \| `object` \| `object` \| `object` \| `object` \| `object` \| `object` \| `object` \| `object` \| `object` \| `object` \| `object` \| `object` \| [`LayoutBeforeEvent`](/api/type-aliases/layoutbeforeevent/) & `object` \| [`LayoutAfterEvent`](/api/type-aliases/layoutafterevent/) & `object` \| [`TEvent`](/api/interfaces/tevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> & `object` \| `Partial`\<[`TEvent`](/api/interfaces/tevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\>\> & `object` \| `Partial`\<[`TEvent`](/api/interfaces/tevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\>\> & `object` \| `Partial`\<[`TEvent`](/api/interfaces/tevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\>\> & `object` \| `Partial`\<[`TEvent`](/api/interfaces/tevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\>\> & `object`
 
 ##### Parameters
 
@@ -3479,7 +3505,7 @@ disposer
 
 once
 
-##### Source
+##### Defined in
 
 src/Observable.ts:62
 
@@ -3489,7 +3515,7 @@ src/Observable.ts:62
 
 ##### Parameters
 
-• **handlers**: `EventRegistryObject`\<[`CanvasEvents`](../interfaces/CanvasEvents.md)\>
+• **handlers**: `EventRegistryObject`\<[`CanvasEvents`](/api/interfaces/canvasevents/)\>
 
 ##### Returns
 
@@ -3499,7 +3525,7 @@ src/Observable.ts:62
 
 `SelectableCanvas.once`
 
-##### Source
+##### Defined in
 
 src/Observable.ts:66
 
@@ -3513,7 +3539,7 @@ Pans viewpoint relatively
 
 #### Parameters
 
-• **point**: [`Point`](Point.md)
+• **point**: [`Point`](/api/classes/point/)
 
 (position vector) to move by
 
@@ -3525,31 +3551,9 @@ Pans viewpoint relatively
 
 `SelectableCanvas.relativePan`
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvas.ts:445
-
-***
-
-### remove()
-
-> **remove**(...`objects`): [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>[]
-
-#### Parameters
-
-• ...**objects**: [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>[]
-
-#### Returns
-
-[`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>[]
-
-#### Inherited from
-
-`SelectableCanvas.remove`
-
-#### Source
-
-src/canvas/StaticCanvas.ts:211
 
 ***
 
@@ -3563,7 +3567,7 @@ Removes all event listeners
 
 `void`
 
-#### Source
+#### Defined in
 
 src/canvas/Canvas.ts:202
 
@@ -3583,7 +3587,7 @@ Renders both the top canvas and the secondary container canvas.
 
 `SelectableCanvas.renderAll`
 
-#### Source
+#### Defined in
 
 src/canvas/SelectableCanvas.ts:358
 
@@ -3599,7 +3603,7 @@ Renders background, objects, overlay and controls.
 
 • **ctx**: `CanvasRenderingContext2D`
 
-• **objects**: [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>[]
+• **objects**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>[]
 
 to render
 
@@ -3611,7 +3615,7 @@ to render
 
 `SelectableCanvas.renderCanvas`
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvas.ts:565
 
@@ -3633,7 +3637,7 @@ Does not render text selection.
 
 `SelectableCanvas.renderTop`
 
-#### Source
+#### Defined in
 
 src/canvas/SelectableCanvas.ts:398
 
@@ -3657,7 +3661,7 @@ text selection is rendered by the active text instance during the rendering cycl
 
 `SelectableCanvas.renderTopLayer`
 
-#### Source
+#### Defined in
 
 src/canvas/SelectableCanvas.ts:379
 
@@ -3679,7 +3683,7 @@ a boolean flag will avoid appending more.
 
 `SelectableCanvas.requestRenderAll`
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvas.ts:521
 
@@ -3687,23 +3691,23 @@ src/canvas/StaticCanvas.ts:521
 
 ### searchPossibleTargets()
 
-> **searchPossibleTargets**(`objects`?, `pointer`?): `undefined` \| [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+> **searchPossibleTargets**(`objects`?, `pointer`?): `undefined` \| [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 Function used to search inside objects an object that contains pointer in bounding box or that contains pointerOnCanvas when painted
 
 #### Parameters
 
-• **objects?**: [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>[]
+• **objects?**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>[]
 
 objects array to look into
 
-• **pointer?**: [`Point`](Point.md)
+• **pointer?**: [`Point`](/api/classes/point/)
 
 coordinates from viewport to check.
 
 #### Returns
 
-`undefined` \| [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+`undefined` \| [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 **top most object on screen** that contains pointer
 
@@ -3715,7 +3719,7 @@ coordinates from viewport to check.
 
 _searchPossibleTargets
 
-#### Source
+#### Defined in
 
 src/canvas/SelectableCanvas.ts:858
 
@@ -3733,7 +3737,7 @@ stack.
 
 #### Parameters
 
-• **object**: [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **object**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 Object to send
 
@@ -3751,7 +3755,7 @@ true if change occurred
 
 `SelectableCanvas.sendObjectBackwards`
 
-#### Source
+#### Defined in
 
 src/Collection.ts:214
 
@@ -3766,7 +3770,7 @@ to the bottom of the stack of drawn objects
 
 #### Parameters
 
-• **object**: [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **object**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 Object to send to back
 
@@ -3780,7 +3784,7 @@ true if change occurred
 
 `SelectableCanvas.sendObjectToBack`
 
-#### Source
+#### Defined in
 
 src/Collection.ts:178
 
@@ -3788,7 +3792,7 @@ src/Collection.ts:178
 
 ### set()
 
-> **set**(`key`, `value`?): [`Canvas`](Canvas.md)
+> **set**(`key`, `value`?): [`Canvas`](/api/classes/canvas/)
 
 Sets property to a given value. When changing position/dimension -related properties (left, top, scale, angle, etc.) `set` does not update position of object's borders/controls. If you need to update those, call `setCoords()`.
 
@@ -3804,13 +3808,13 @@ Property value (if function, the value is passed into it and its return value is
 
 #### Returns
 
-[`Canvas`](Canvas.md)
+[`Canvas`](/api/classes/canvas/)
 
 #### Inherited from
 
 `SelectableCanvas.set`
 
-#### Source
+#### Defined in
 
 src/CommonMethods.ts:29
 
@@ -3824,11 +3828,11 @@ Sets given object as the only active object on canvas
 
 #### Parameters
 
-• **object**: [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **object**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 Object to set as an active one
 
-• **e?**: [`TPointerEvent`](../type-aliases/TPointerEvent.md)
+• **e?**: [`TPointerEvent`](/api/type-aliases/tpointerevent/)
 
 Event (passed along when firing "object:selected")
 
@@ -3842,7 +3846,7 @@ true if the object has been selected
 
 `SelectableCanvas.setActiveObject`
 
-#### Source
+#### Defined in
 
 src/canvas/SelectableCanvas.ts:1101
 
@@ -3872,7 +3876,7 @@ Cursor type of the canvas element.
 
 http://www.w3.org/TR/css3-ui/#cursor
 
-#### Source
+#### Defined in
 
 src/canvas/SelectableCanvas.ts:646
 
@@ -3896,11 +3900,11 @@ Object with width/height properties
 
 Options object
 
-• **options\.backstoreOnly?**: `false`
+• **options.backstoreOnly?**: `false`
 
 Set the given dimensions only as canvas backstore dimensions
 
-• **options\.cssOnly?**: `true`
+• **options.cssOnly?**: `true`
 
 Set the given dimensions only as css dimensions
 
@@ -3912,7 +3916,7 @@ Set the given dimensions only as css dimensions
 
 `SelectableCanvas.setDimensions`
 
-##### Source
+##### Defined in
 
 src/canvas/StaticCanvas.ts:350
 
@@ -3922,13 +3926,13 @@ src/canvas/StaticCanvas.ts:350
 
 ##### Parameters
 
-• **dimensions**: `Partial`\<[`TSize`](../type-aliases/TSize.md)\>
+• **dimensions**: `Partial`\<[`TSize`](/api/type-aliases/tsize/)\>
 
 • **options?**
 
-• **options\.backstoreOnly?**: `true`
+• **options.backstoreOnly?**: `true`
 
-• **options\.cssOnly?**: `false`
+• **options.cssOnly?**: `false`
 
 ##### Returns
 
@@ -3938,7 +3942,7 @@ src/canvas/StaticCanvas.ts:350
 
 `SelectableCanvas.setDimensions`
 
-##### Source
+##### Defined in
 
 src/canvas/StaticCanvas.ts:354
 
@@ -3948,7 +3952,7 @@ src/canvas/StaticCanvas.ts:354
 
 ##### Parameters
 
-• **dimensions**: `Partial`\<[`TSize`](../type-aliases/TSize.md)\>
+• **dimensions**: `Partial`\<[`TSize`](/api/type-aliases/tsize/)\>
 
 • **options?**: `undefined`
 
@@ -3960,7 +3964,7 @@ src/canvas/StaticCanvas.ts:354
 
 `SelectableCanvas.setDimensions`
 
-##### Source
+##### Defined in
 
 src/canvas/StaticCanvas.ts:358
 
@@ -3989,11 +3993,11 @@ Value to set height to
 
 Options object
 
-• **options\.backstoreOnly?**: `true`
+• **options.backstoreOnly?**: `true`
 
 Set the given dimensions only as canvas backstore dimensions
 
-• **options\.cssOnly?**: `false`
+• **options.cssOnly?**: `false`
 
 Set the given dimensions only as css dimensions
 
@@ -4005,11 +4009,7 @@ Set the given dimensions only as css dimensions
 
 `SelectableCanvas.setHeight`
 
-:::caution[Deprecated]
-will be removed in 7.0
-:::
-
-##### Source
+##### Defined in
 
 src/canvas/StaticCanvas.ts:303
 
@@ -4023,9 +4023,9 @@ src/canvas/StaticCanvas.ts:303
 
 • **options?**
 
-• **options\.backstoreOnly?**: `false`
+• **options.backstoreOnly?**: `false`
 
-• **options\.cssOnly?**: `true`
+• **options.cssOnly?**: `true`
 
 ##### Returns
 
@@ -4035,7 +4035,7 @@ src/canvas/StaticCanvas.ts:303
 
 `SelectableCanvas.setHeight`
 
-##### Source
+##### Defined in
 
 src/canvas/StaticCanvas.ts:307
 
@@ -4049,7 +4049,7 @@ Sets viewport transformation of this canvas instance
 
 #### Parameters
 
-• **vpt**: [`TMat2D`](../type-aliases/TMat2D.md)
+• **vpt**: [`TMat2D`](/api/type-aliases/tmat2d/)
 
 a Canvas 2D API transform matrix
 
@@ -4061,7 +4061,7 @@ a Canvas 2D API transform matrix
 
 `SelectableCanvas.setViewportTransform`
 
-#### Source
+#### Defined in
 
 src/canvas/SelectableCanvas.ts:1236
 
@@ -4089,11 +4089,11 @@ Value to set width to
 
 Options object
 
-• **options\.backstoreOnly?**: `true`
+• **options.backstoreOnly?**: `true`
 
 Set the given dimensions only as canvas backstore dimensions
 
-• **options\.cssOnly?**: `false`
+• **options.cssOnly?**: `false`
 
 Set the given dimensions only as css dimensions
 
@@ -4105,11 +4105,7 @@ Set the given dimensions only as css dimensions
 
 `SelectableCanvas.setWidth`
 
-:::caution[Deprecated]
-will be removed in 7.0
-:::
-
-##### Source
+##### Defined in
 
 src/canvas/StaticCanvas.ts:283
 
@@ -4123,9 +4119,9 @@ src/canvas/StaticCanvas.ts:283
 
 • **options?**
 
-• **options\.backstoreOnly?**: `false`
+• **options.backstoreOnly?**: `false`
 
-• **options\.cssOnly?**: `true`
+• **options.cssOnly?**: `true`
 
 ##### Returns
 
@@ -4135,7 +4131,7 @@ src/canvas/StaticCanvas.ts:283
 
 `SelectableCanvas.setWidth`
 
-##### Source
+##### Defined in
 
 src/canvas/StaticCanvas.ts:287
 
@@ -4161,7 +4157,7 @@ to set zoom to, less than 1 zooms out
 
 `SelectableCanvas.setZoom`
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvas.ts:426
 
@@ -4183,7 +4179,7 @@ Collection size
 
 `SelectableCanvas.size`
 
-#### Source
+#### Defined in
 
 src/Collection.ts:136
 
@@ -4201,11 +4197,11 @@ create quick image copies of a canvas without passing for the dataUrl string
 
 #### Parameters
 
-• **multiplier?**: `number`= `1`
+• **multiplier?**: `number` = `1`
 
 a zoom factor.
 
-• **options?**: [`TToCanvasElementOptions`](../type-aliases/TToCanvasElementOptions.md)= `undefined`
+• **options?**: [`TToCanvasElementOptions`](/api/type-aliases/ttocanvaselementoptions/) = `...`
 
 Cropping informations
 
@@ -4217,7 +4213,7 @@ Cropping informations
 
 `SelectableCanvas.toCanvasElement`
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvas.ts:1415
 
@@ -4231,7 +4227,7 @@ Exports canvas element to a dataurl image. Note that when multiplier is used, cr
 
 #### Parameters
 
-• **options?**: [`TDataUrlOptions`](../type-aliases/TDataUrlOptions.md)= `undefined`
+• **options?**: [`TDataUrlOptions`](/api/type-aliases/tdataurloptions/) = `...`
 
 Options object
 
@@ -4249,7 +4245,7 @@ Returns a data: URL containing a representation of the object in the format spec
 
 [demo](https://jsfiddle.net/xsjua1rd/)
 
-#### Example
+#### Examples
 
 ```ts
 var dataURL = canvas.toDataURL({
@@ -4257,8 +4253,6 @@ var dataURL = canvas.toDataURL({
   quality: 0.8
 });
 ```
-
-#### Example
 
 ```ts
 var dataURL = canvas.toDataURL({
@@ -4270,16 +4264,12 @@ var dataURL = canvas.toDataURL({
 });
 ```
 
-#### Example
-
 ```ts
 var dataURL = canvas.toDataURL({
   format: 'png',
   multiplier: 2
 });
 ```
-
-#### Example
 
 ```ts
 var myObject;
@@ -4288,7 +4278,7 @@ var dataURL = canvas.toDataURL({
 });
 ```
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvas.ts:1384
 
@@ -4316,7 +4306,7 @@ json string
 
 `SelectableCanvas.toDatalessJSON`
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvas.ts:819
 
@@ -4344,7 +4334,7 @@ object representation of an instance
 
 `SelectableCanvas.toDatalessObject`
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvas.ts:856
 
@@ -4377,25 +4367,21 @@ JSON compatible object
 
 [demo](http://jsfiddle.net/fabricjs/pec86/|jsFiddle)
 
-#### Example
+#### Examples
 
 ```ts
 var json = canvas.toJSON();
 ```
-
-#### Example
 
 ```ts
 var json = canvas.toJSON(['lockMovementX', 'lockMovementY', 'lockRotation', 'lockScalingX', 'lockScalingY']);
 ```
 
-#### Example
-
 ```ts
 var json = canvas.toJSON();
 ```
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvas.ts:847
 
@@ -4423,7 +4409,7 @@ object representation of an instance
 
 `SelectableCanvas.toObject`
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvas.ts:828
 
@@ -4437,11 +4423,11 @@ Returns SVG representation of canvas
 
 #### Parameters
 
-• **options?**: [`TSVGExportOptions`](../type-aliases/TSVGExportOptions.md)= `{}`
+• **options?**: [`TSVGExportOptions`](/api/type-aliases/tsvgexportoptions/) = `{}`
 
 Options object for SVG output
 
-• **reviver?**: [`TSVGReviver`](../type-aliases/TSVGReviver.md)
+• **reviver?**: [`TSVGReviver`](/api/type-aliases/tsvgreviver/)
 
 Method for further parsing of svg elements, called after each fabric object converted into svg representation.
 
@@ -4465,19 +4451,15 @@ SVG string
 
 [demo](http://jsfiddle.net/fabricjs/jQ3ZZ/|jsFiddle)
 
-#### Example
+#### Examples
 
 ```ts
 var svg = canvas.toSVG();
 ```
 
-#### Example
-
 ```ts
 var svg = canvas.toSVG({suppressPreamble: true});
 ```
-
-#### Example
 
 ```ts
 var svg = canvas.toSVG({
@@ -4490,13 +4472,9 @@ var svg = canvas.toSVG({
 });
 ```
 
-#### Example
-
 ```ts
 var svg = canvas.toSVG({encoding: 'ISO-8859-1'});
 ```
-
-#### Example
 
 ```ts
 var svg = canvas.toSVG(null, function(svg) {
@@ -4504,7 +4482,7 @@ var svg = canvas.toSVG(null, function(svg) {
 });
 ```
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvas.ts:995
 
@@ -4526,7 +4504,7 @@ string representation of an instance
 
 `SelectableCanvas.toString`
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvas.ts:1514
 
@@ -4534,7 +4512,7 @@ src/canvas/StaticCanvas.ts:1514
 
 ### toggle()
 
-> **toggle**(`property`): [`Canvas`](Canvas.md)
+> **toggle**(`property`): [`Canvas`](/api/classes/canvas/)
 
 Toggles specified property from `true` to `false` or from `false` to `true`
 
@@ -4546,13 +4524,13 @@ Property to toggle
 
 #### Returns
 
-[`Canvas`](Canvas.md)
+[`Canvas`](/api/classes/canvas/)
 
 #### Inherited from
 
 `SelectableCanvas.toggle`
 
-#### Source
+#### Defined in
 
 src/CommonMethods.ts:46
 
@@ -4566,7 +4544,7 @@ Centers object vertically and horizontally in the viewport
 
 #### Parameters
 
-• **object**: [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **object**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 Object to center vertically and horizontally
 
@@ -4578,7 +4556,7 @@ Object to center vertically and horizontally
 
 `SelectableCanvas.viewportCenterObject`
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvas.ts:766
 
@@ -4592,7 +4570,7 @@ Centers object horizontally in the viewport, object.top is unchanged
 
 #### Parameters
 
-• **object**: [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **object**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 Object to center vertically and horizontally
 
@@ -4604,7 +4582,7 @@ Object to center vertically and horizontally
 
 `SelectableCanvas.viewportCenterObjectH`
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvas.ts:774
 
@@ -4618,7 +4596,7 @@ Centers object Vertically in the viewport, object.top is unchanged
 
 #### Parameters
 
-• **object**: [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **object**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 Object to center vertically and horizontally
 
@@ -4630,7 +4608,7 @@ Object to center vertically and horizontally
 
 `SelectableCanvas.viewportCenterObjectV`
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvas.ts:785
 
@@ -4647,7 +4625,7 @@ It has nothing to do with canvas center or visual center of the viewport.
 
 #### Parameters
 
-• **point**: [`Point`](Point.md)
+• **point**: [`Point`](/api/classes/point/)
 
 to zoom with respect to
 
@@ -4663,7 +4641,7 @@ to set zoom to, less than 1 zooms out
 
 `SelectableCanvas.zoomToPoint`
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvas.ts:409
 
@@ -4671,7 +4649,7 @@ src/canvas/StaticCanvas.ts:409
 
 ### getDefaults()
 
-> **`static`** **getDefaults**(): `Record`\<`string`, `any`\>
+> `static` **getDefaults**(): `Record`\<`string`, `any`\>
 
 #### Returns
 
@@ -4681,6 +4659,6 @@ src/canvas/StaticCanvas.ts:409
 
 `SelectableCanvas.getDefaults`
 
-#### Source
+#### Defined in
 
 src/canvas/SelectableCanvas.ts:276

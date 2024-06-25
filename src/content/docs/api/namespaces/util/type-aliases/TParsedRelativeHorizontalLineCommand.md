@@ -7,6 +7,6 @@ title: "TParsedRelativeHorizontalLineCommand"
 
 > **TParsedRelativeHorizontalLineCommand**: [`"h"`, `number`]
 
-## Source
+## Defined in
 
 src/util/path/typedefs.ts:126

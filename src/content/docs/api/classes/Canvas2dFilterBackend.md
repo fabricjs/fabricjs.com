@@ -9,17 +9,17 @@ title: "Canvas2dFilterBackend"
 
 ### new Canvas2dFilterBackend()
 
-> **new Canvas2dFilterBackend**(): [`Canvas2dFilterBackend`](Canvas2dFilterBackend.md)
+> **new Canvas2dFilterBackend**(): [`Canvas2dFilterBackend`](/api/classes/canvas2dfilterbackend/)
 
 #### Returns
 
-[`Canvas2dFilterBackend`](Canvas2dFilterBackend.md)
+[`Canvas2dFilterBackend`](/api/classes/canvas2dfilterbackend/)
 
 ## Properties
 
 ### resources
 
-> **resources**: [`TPipelineResources`](../type-aliases/TPipelineResources.md) = `{}`
+> **resources**: [`TPipelineResources`](/api/type-aliases/tpipelineresources/) = `{}`
 
 Experimental. This object is a sort of repository of help layers used to avoid
 of recreating them during frequent filtering. If you are previewing a filter with
@@ -27,7 +27,7 @@ a slider you probably do not want to create help layers every filter step.
 in this object there will be appended some canvases, created once, resized sometimes
 cleared never. Clearing is left to the developer.
 
-#### Source
+#### Defined in
 
 src/filters/Canvas2dFilterBackend.ts:15
 
@@ -35,14 +35,14 @@ src/filters/Canvas2dFilterBackend.ts:15
 
 ### applyFilters()
 
-> **applyFilters**(`filters`, `sourceElement`, `sourceWidth`, `sourceHeight`, `targetCanvas`): `void` \| [`T2DPipelineState`](../type-aliases/T2DPipelineState.md)
+> **applyFilters**(`filters`, `sourceElement`, `sourceWidth`, `sourceHeight`, `targetCanvas`): `void` \| [`T2DPipelineState`](/api/type-aliases/t2dpipelinestate/)
 
 Apply a set of filters against a source image and draw the filtered output
 to the provided destination canvas.
 
 #### Parameters
 
-• **filters**: [`BaseFilter`](../namespaces/filters/classes/BaseFilter.md)[]
+• **filters**: [`BaseFilter`](/api/namespaces/filters/classes/basefilter/)[]
 
 The filter to apply.
 
@@ -64,8 +64,8 @@ The destination for filtered output to be drawn.
 
 #### Returns
 
-`void` \| [`T2DPipelineState`](../type-aliases/T2DPipelineState.md)
+`void` \| [`T2DPipelineState`](/api/type-aliases/t2dpipelinestate/)
 
-#### Source
+#### Defined in
 
 src/filters/Canvas2dFilterBackend.ts:27

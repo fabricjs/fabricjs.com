@@ -11,6 +11,6 @@ title: "getFabricWindow"
 
 `Window` & *typeof* `globalThis` \| `DOMWindow`
 
-## Source
+## Defined in
 
 src/env/index.ts:40

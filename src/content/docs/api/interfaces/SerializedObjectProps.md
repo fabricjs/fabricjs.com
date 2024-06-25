@@ -9,11 +9,23 @@ title: "SerializedObjectProps"
 
 - `BaseProps`.`FillStrokeProps`
 
+## Extended by
+
+- [`SerializedLineProps`](/api/interfaces/serializedlineprops/)
+- [`SerializedCircleProps`](/api/interfaces/serializedcircleprops/)
+- [`SerializedEllipseProps`](/api/interfaces/serializedellipseprops/)
+- [`SerializedRectProps`](/api/interfaces/serializedrectprops/)
+- [`SerializedPathProps`](/api/interfaces/serializedpathprops/)
+- [`SerializedPolylineProps`](/api/interfaces/serializedpolylineprops/)
+- [`SerializedTextProps`](/api/interfaces/serializedtextprops/)
+- [`SerializedGroupProps`](/api/interfaces/serializedgroupprops/)
+- [`SerializedImageProps`](/api/interfaces/serializedimageprops/)
+
 ## Properties
 
 ### angle
 
-> **angle**: [`TDegree`](../type-aliases/TDegree.md)
+> **angle**: [`TDegree`](/api/type-aliases/tdegree/)
 
 Angle of rotation of an object (in degrees)
 
@@ -27,7 +39,7 @@ Angle of rotation of an object (in degrees)
 
 `BaseProps.angle`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:57
 
@@ -46,7 +58,7 @@ takes css colors https://www.w3.org/TR/css-color-3/
 
 ```
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/SerializedObjectProps.ts:26
 
@@ -54,14 +66,14 @@ src/shapes/Object/types/SerializedObjectProps.ts:26
 
 ### clipPath?
 
-> **`optional`** **clipPath**: `Partial`\<[`SerializedObjectProps`](SerializedObjectProps.md) & `ClipPathProps`\>
+> `optional` **clipPath**: `Partial`\<[`SerializedObjectProps`](/api/interfaces/serializedobjectprops/) & `ClipPathProps`\>
 
 a fabricObject that, without stroke define a clipping area with their shape. filled in black
 the clipPath object gets used when the object has rendered, and the context is placed in the center
 of the object cacheCanvas.
 If you want 0,0 of a clipPath to align with an object center, use clipPath.originX/Y to 'center'
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/SerializedObjectProps.ts:49
 
@@ -69,7 +81,7 @@ src/shapes/Object/types/SerializedObjectProps.ts:49
 
 ### fill
 
-> **fill**: `null` \| `string` \| `Record`\<`string`, `any`\> \| `Partial`\<[`Gradient`](../classes/Gradient.md)\<`"linear"`, `"linear"`\>\> & `Object` \| `Partial`\<[`Gradient`](../classes/Gradient.md)\<`"radial"`, `"radial"`\>\> & `Object`
+> **fill**: `null` \| `string` \| `Record`\<`string`, `any`\> \| `Partial`\<[`Gradient`](/api/classes/gradient/)\<`"linear"`, `"linear"`\>\> & `object` \| `Partial`\<[`Gradient`](/api/classes/gradient/)\<`"radial"`, `"radial"`\>\> & `object`
 
 Color of object's fill
 takes css colors https://www.w3.org/TR/css-color-3/
@@ -84,7 +96,7 @@ rgb(0,0,0)
 
 `FillStrokeProps.fill`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FillStrokeProps.ts:17
 
@@ -108,7 +120,7 @@ nonzero
 
 `FillStrokeProps.fillRule`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FillStrokeProps.ts:26
 
@@ -130,7 +142,7 @@ false
 
 `BaseProps.flipX`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:64
 
@@ -152,7 +164,7 @@ false
 
 `BaseProps.flipY`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:71
 
@@ -170,7 +182,7 @@ Composite rule used for canvas globalCompositeOperation
 
 ```
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/SerializedObjectProps.ts:18
 
@@ -192,7 +204,7 @@ Object height
 
 `BaseProps.height`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:34
 
@@ -216,7 +228,7 @@ You can change this by setting [originX](../../../../api/interfaces/fabricobject
 
 `BaseProps.left`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:11
 
@@ -234,7 +246,7 @@ Opacity of an object
 1
 ```
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/SerializedObjectProps.ts:11
 
@@ -242,7 +254,7 @@ src/shapes/Object/types/SerializedObjectProps.ts:11
 
 ### originX
 
-> **originX**: [`TOriginX`](../type-aliases/TOriginX.md)
+> **originX**: [`TOriginX`](/api/type-aliases/toriginx/)
 
 Horizontal origin of transformation of an object (`left`, `center`, `right`  or `[0, 1]`)
 See http://jsfiddle.net/1ow02gea/244/ on how originX/originY affect objects in groups
@@ -257,7 +269,7 @@ See http://jsfiddle.net/1ow02gea/244/ on how originX/originY affect objects in g
 
 `BaseProps.originX`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:42
 
@@ -265,7 +277,7 @@ src/shapes/Object/types/BaseProps.ts:42
 
 ### originY
 
-> **originY**: [`TOriginY`](../type-aliases/TOriginY.md)
+> **originY**: [`TOriginY`](/api/type-aliases/toriginy/)
 
 Vertical origin of transformation of an object (`top`, `center`, `bottom` or `[0, 1]`)
 See http://jsfiddle.net/1ow02gea/244/ on how originX/originY affect objects in groups
@@ -280,7 +292,7 @@ See http://jsfiddle.net/1ow02gea/244/ on how originX/originY affect objects in g
 
 `BaseProps.originY`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:50
 
@@ -302,7 +314,7 @@ Determines if the fill or the stroke is drawn first (one of "fill" or "stroke")
 
 `FillStrokeProps.paintFirst`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FillStrokeProps.ts:9
 
@@ -324,7 +336,7 @@ Object scale factor (horizontal)
 
 `BaseProps.scaleX`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:78
 
@@ -346,7 +358,7 @@ Object scale factor (vertical)
 
 `BaseProps.scaleY`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:85
 
@@ -354,7 +366,7 @@ src/shapes/Object/types/BaseProps.ts:85
 
 ### shadow
 
-> **shadow**: `null` \| `Partial`\<[`SerializedShadowOptions`](../type-aliases/SerializedShadowOptions.md)\>
+> **shadow**: `null` \| `Partial`\<[`SerializedShadowOptions`](/api/type-aliases/serializedshadowoptions/)\>
 
 Shadow object representing shadow of this shape
 
@@ -364,7 +376,7 @@ Shadow object representing shadow of this shape
 null
 ```
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/SerializedObjectProps.ts:33
 
@@ -372,7 +384,7 @@ src/shapes/Object/types/SerializedObjectProps.ts:33
 
 ### skewX
 
-> **skewX**: [`TDegree`](../type-aliases/TDegree.md)
+> **skewX**: [`TDegree`](/api/type-aliases/tdegree/)
 
 Angle of skew on x axes of an object (in degrees)
 
@@ -386,7 +398,7 @@ Angle of skew on x axes of an object (in degrees)
 
 `BaseProps.skewX`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:92
 
@@ -394,7 +406,7 @@ src/shapes/Object/types/BaseProps.ts:92
 
 ### skewY
 
-> **skewY**: [`TDegree`](../type-aliases/TDegree.md)
+> **skewY**: [`TDegree`](/api/type-aliases/tdegree/)
 
 Angle of skew on y axes of an object (in degrees)
 
@@ -408,7 +420,7 @@ Angle of skew on y axes of an object (in degrees)
 
 `BaseProps.skewY`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:99
 
@@ -416,7 +428,7 @@ src/shapes/Object/types/BaseProps.ts:99
 
 ### stroke
 
-> **stroke**: `null` \| `string` \| `Record`\<`string`, `any`\> \| `Partial`\<[`Gradient`](../classes/Gradient.md)\<`"linear"`, `"linear"`\>\> & `Object` \| `Partial`\<[`Gradient`](../classes/Gradient.md)\<`"radial"`, `"radial"`\>\> & `Object`
+> **stroke**: `null` \| `string` \| `Record`\<`string`, `any`\> \| `Partial`\<[`Gradient`](/api/classes/gradient/)\<`"linear"`, `"linear"`\>\> & `object` \| `Partial`\<[`Gradient`](/api/classes/gradient/)\<`"radial"`, `"radial"`\>\> & `object`
 
 When defined, an object is rendered via stroke and this property specifies its color
 takes css colors https://www.w3.org/TR/css-color-3/
@@ -431,7 +443,7 @@ null
 
 `FillStrokeProps.stroke`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FillStrokeProps.ts:34
 
@@ -453,7 +465,7 @@ null;
 
 `FillStrokeProps.strokeDashArray`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FillStrokeProps.ts:48
 
@@ -475,7 +487,7 @@ Line offset of an object's stroke
 
 `FillStrokeProps.strokeDashOffset`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FillStrokeProps.ts:55
 
@@ -497,7 +509,7 @@ butt
 
 `FillStrokeProps.strokeLineCap`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FillStrokeProps.ts:62
 
@@ -519,7 +531,7 @@ Corner style of an object's stroke (one of "bevel", "round", "miter")
 
 `FillStrokeProps.strokeLineJoin`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FillStrokeProps.ts:69
 
@@ -541,7 +553,7 @@ Maximum miter length (used for strokeLineJoin = "miter") of an object's stroke
 
 `FillStrokeProps.strokeMiterLimit`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FillStrokeProps.ts:76
 
@@ -576,7 +588,7 @@ false
 
 `FillStrokeProps.strokeUniform`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FillStrokeProps.ts:89
 
@@ -598,7 +610,7 @@ Width of a stroke used to render this object
 
 `FillStrokeProps.strokeWidth`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FillStrokeProps.ts:41
 
@@ -622,7 +634,7 @@ You can change this by setting [originY](../../../../api/interfaces/fabricobject
 
 `BaseProps.top`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:20
 
@@ -640,7 +652,7 @@ When set to `false`, an object is not rendered on canvas
 
 ```
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/SerializedObjectProps.ts:40
 
@@ -662,6 +674,6 @@ Object width
 
 `BaseProps.width`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:27

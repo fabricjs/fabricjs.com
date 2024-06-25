@@ -7,22 +7,19 @@ title: "toDataURL"
 
 > **toDataURL**(`canvasEl`, `format`, `quality`): `string`
 
-since 2.6.0 moved from canvas instance to utility.
-possibly useless
-
 ## Parameters
 
 • **canvasEl**: `HTMLCanvasElement`
 
 to copy size and content of
 
-• **format**: [`ImageFormat`](../../../type-aliases/ImageFormat.md)
+• **format**: [`ImageFormat`](/api/type-aliases/imageformat/)
 
 'jpeg' or 'png', in some browsers 'webp' is ok too
 
 • **quality**: `number`
 
-`<= 1 and >` 0
+<= 1 and > 0
 
 ## Returns
 
@@ -30,6 +27,6 @@ to copy size and content of
 
 data url
 
-## Source
+## Defined in
 
 src/util/misc/dom.ts:46

@@ -20,35 +20,35 @@ classRegistry.setClass(MyActiveSelection)
 
 ## Extends
 
-- [`Group`](Group.md)
+- [`Group`](/api/classes/group/)
 
 ## Constructors
 
-### new ActiveSelection(objects, options)
+### new ActiveSelection()
 
-> **new ActiveSelection**(`objects`?, `options`?): [`ActiveSelection`](ActiveSelection.md)
+> **new ActiveSelection**(`objects`?, `options`?): [`ActiveSelection`](/api/classes/activeselection/)
 
 Constructor
 
 #### Parameters
 
-• **objects?**: [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>[]= `[]`
+• **objects?**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>[] = `[]`
 
 instance objects
 
-• **options?**: `Partial`\<[`GroupProps`](../interfaces/GroupProps.md)\>= `{}`
+• **options?**: `Partial`\<[`GroupProps`](/api/interfaces/groupprops/)\> = `{}`
 
 Options object
 
 #### Returns
 
-[`ActiveSelection`](ActiveSelection.md)
+[`ActiveSelection`](/api/classes/activeselection/)
 
 #### Inherited from
 
-[`Group`](Group.md).[`constructor`](Group.md#constructors)
+[`Group`](/api/classes/group/).[`constructor`](/api/classes/group/#constructors)
 
-#### Source
+#### Defined in
 
 src/shapes/Group.ts:129
 
@@ -56,7 +56,7 @@ src/shapes/Group.ts:129
 
 ### \_\_corner?
 
-> **`optional`** **\_\_corner**: `string`
+> `optional` **\_\_corner**: `string`
 
 keeps the value of the last hovered corner during mouse move.
 0 is no corner, or 'mt', 'ml', 'mtr' etc..
@@ -66,9 +66,9 @@ this isn't cleaned automatically. Non selected objects may have wrong values
 
 #### Inherited from
 
-[`Group`](Group.md).[`__corner`](Group.md#__corner)
+[`Group`](/api/classes/group/).[`__corner`](/api/classes/group/#__corner)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:104
 
@@ -84,9 +84,9 @@ this takes priority over the generic control visibility
 
 #### Inherited from
 
-[`Group`](Group.md).[`_controlsVisibility`](Group.md#_controlsvisibility)
+[`Group`](/api/classes/group/).[`_controlsVisibility`](/api/classes/group/#_controlsvisibility)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:111
 
@@ -94,7 +94,7 @@ src/shapes/Object/InteractiveObject.ts:111
 
 ### \_objects
 
-> **\_objects**: [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>[] = `[]`
+> **\_objects**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>[] = `[]`
 
 #### TODO
 
@@ -102,9 +102,9 @@ needs to end up in the constructor too
 
 #### Inherited from
 
-[`Group`](Group.md).[`_objects`](Group.md#_objects)
+[`Group`](/api/classes/group/).[`_objects`](/api/classes/group/#_objects)
 
-#### Source
+#### Defined in
 
 src/Collection.ts:21
 
@@ -112,7 +112,7 @@ src/Collection.ts:21
 
 ### \_scaling?
 
-> **`optional`** **\_scaling**: `boolean`
+> `optional` **\_scaling**: `boolean`
 
 A boolean used from the gesture module to keep tracking of a scaling
 action when there is no scaling transform in place.
@@ -126,9 +126,9 @@ DON'T USE IT. WE WILL TRY TO REMOVE IT
 
 #### Inherited from
 
-[`Group`](Group.md).[`_scaling`](Group.md#_scaling)
+[`Group`](/api/classes/group/).[`_scaling`](/api/classes/group/#_scaling)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:133
 
@@ -136,7 +136,7 @@ src/shapes/Object/InteractiveObject.ts:133
 
 ### aCoords
 
-> **aCoords**: [`TCornerPoint`](../type-aliases/TCornerPoint.md)
+> **aCoords**: [`TCornerPoint`](/api/type-aliases/tcornerpoint/)
 
 Describe object's corner position in scene coordinates.
 The coordinates are derived from the following:
@@ -147,9 +147,9 @@ You can calculate them without updating with [()](../../../../api/classes/active
 
 #### Inherited from
 
-[`Group`](Group.md).[`aCoords`](Group.md#acoords)
+[`Group`](/api/classes/group/).[`aCoords`](/api/classes/group/#acoords)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:50
 
@@ -174,31 +174,17 @@ false
 
 #### Inherited from
 
-[`Group`](Group.md).[`absolutePositioned`](Group.md#absolutepositioned)
+[`Group`](/api/classes/group/).[`absolutePositioned`](/api/classes/group/#absolutepositioned)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:166
 
 ***
 
-### activeOn
-
-> **activeOn**: `"down"` \| `"up"`
-
-#### Inherited from
-
-[`Group`](Group.md).[`activeOn`](Group.md#activeon)
-
-#### Source
-
-src/shapes/Object/InteractiveObject.ts:83
-
-***
-
 ### angle
 
-> **angle**: [`TDegree`](../type-aliases/TDegree.md)
+> **angle**: [`TDegree`](/api/type-aliases/tdegree/)
 
 Angle of rotation of an object (in degrees)
 
@@ -210,9 +196,9 @@ Angle of rotation of an object (in degrees)
 
 #### Inherited from
 
-[`Group`](Group.md).[`angle`](Group.md#angle)
+[`Group`](/api/classes/group/).[`angle`](/api/classes/group/#angle)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:29
 
@@ -233,9 +219,9 @@ takes css colors https://www.w3.org/TR/css-color-3/
 
 #### Inherited from
 
-[`Group`](Group.md).[`backgroundColor`](Group.md#backgroundcolor)
+[`Group`](/api/classes/group/).[`backgroundColor`](/api/classes/group/#backgroundcolor)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:153
 
@@ -255,9 +241,9 @@ rgb(178,204,255)
 
 #### Inherited from
 
-[`Group`](Group.md).[`borderColor`](Group.md#bordercolor)
+[`Group`](/api/classes/group/).[`borderColor`](/api/classes/group/#bordercolor)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:73
 
@@ -275,9 +261,9 @@ Array specifying dash pattern of an object's borders (hasBorder must be true)
 
 #### Inherited from
 
-[`Group`](Group.md).[`borderDashArray`](Group.md#borderdasharray)
+[`Group`](/api/classes/group/).[`borderDashArray`](/api/classes/group/#borderdasharray)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:74
 
@@ -297,9 +283,9 @@ Opacity of object's controlling borders when object is active and moving
 
 #### Inherited from
 
-[`Group`](Group.md).[`borderOpacityWhenMoving`](Group.md#borderopacitywhenmoving)
+[`Group`](/api/classes/group/).[`borderOpacityWhenMoving`](/api/classes/group/#borderopacitywhenmoving)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:75
 
@@ -322,25 +308,11 @@ since there is no way to change the border itself.
 
 #### Inherited from
 
-[`Group`](Group.md).[`borderScaleFactor`](Group.md#borderscalefactor)
+[`Group`](/api/classes/group/).[`borderScaleFactor`](/api/classes/group/#borderscalefactor)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:76
-
-***
-
-### canvas?
-
-> **`optional`** **canvas**: [`Canvas`](Canvas.md)
-
-#### Inherited from
-
-[`Group`](Group.md).[`canvas`](Group.md#canvas)
-
-#### Source
-
-src/shapes/Object/InteractiveObject.ts:135
 
 ***
 
@@ -366,9 +338,9 @@ The object method `rotate` will always consider this property and never the canv
 
 #### Inherited from
 
-[`Group`](Group.md).[`centeredRotation`](Group.md#centeredrotation)
+[`Group`](/api/classes/group/).[`centeredRotation`](/api/classes/group/#centeredrotation)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:167
 
@@ -393,9 +365,9 @@ when being scaled via the controls.
 
 #### Inherited from
 
-[`Group`](Group.md).[`centeredScaling`](Group.md#centeredscaling)
+[`Group`](/api/classes/group/).[`centeredScaling`](/api/classes/group/#centeredscaling)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:168
 
@@ -403,13 +375,18 @@ src/shapes/Object/Object.ts:168
 
 ### clipPath?
 
-> **`optional`** **clipPath**: `FabricObject`\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+> `optional` **clipPath**: `FabricObject`\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
+
+a fabricObject that, without stroke define a clipping area with their shape. filled in black
+the clipPath object gets used when the object has rendered, and the context is placed in the center
+of the object cacheCanvas.
+If you want 0,0 of a clipPath to align with an object center, use clipPath.originX/Y to 'center'
 
 #### Inherited from
 
-[`Group`](Group.md).[`clipPath`](Group.md#clippath)
+[`Group`](/api/classes/group/).[`clipPath`](/api/classes/group/#clippath)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:164
 
@@ -417,16 +394,16 @@ src/shapes/Object/Object.ts:164
 
 ### clipPathId?
 
-> **`optional`** **clipPathId**: `string`
+> `optional` **clipPathId**: `string`
 
 When an object is being exported as SVG as a clippath, a reference inside the SVG is needed.
 This reference is a UID in the fabric namespace and is temporary stored here.
 
 #### Inherited from
 
-[`Group`](Group.md).[`clipPathId`](Group.md#clippathid)
+[`Group`](/api/classes/group/).[`clipPathId`](/api/classes/group/#clippathid)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/FabricObjectSVGExportMixin.ts:14
 
@@ -441,9 +418,9 @@ controls are added by default_controls.js
 
 #### Inherited from
 
-[`Group`](Group.md).[`controls`](Group.md#controls)
+[`Group`](/api/classes/group/).[`controls`](/api/classes/group/#controls)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:117
 
@@ -463,9 +440,9 @@ rgb(178,204,255)
 
 #### Inherited from
 
-[`Group`](Group.md).[`cornerColor`](Group.md#cornercolor)
+[`Group`](/api/classes/group/).[`cornerColor`](/api/classes/group/#cornercolor)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:67
 
@@ -483,9 +460,9 @@ Array specifying dash pattern of an object's control (hasBorder must be true)
 
 #### Inherited from
 
-[`Group`](Group.md).[`cornerDashArray`](Group.md#cornerdasharray)
+[`Group`](/api/classes/group/).[`cornerDashArray`](/api/classes/group/#cornerdasharray)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:70
 
@@ -505,9 +482,9 @@ Size of object's controlling corners (in pixels)
 
 #### Inherited from
 
-[`Group`](Group.md).[`cornerSize`](Group.md#cornersize)
+[`Group`](/api/classes/group/).[`cornerSize`](/api/classes/group/#cornersize)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:64
 
@@ -531,9 +508,9 @@ null
 
 #### Inherited from
 
-[`Group`](Group.md).[`cornerStrokeColor`](Group.md#cornerstrokecolor)
+[`Group`](/api/classes/group/).[`cornerStrokeColor`](/api/classes/group/#cornerstrokecolor)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:68
 
@@ -563,9 +540,9 @@ This API is no longer supported and may be removed in a future release.
 
 #### Inherited from
 
-[`Group`](Group.md).[`cornerStyle`](Group.md#cornerstyle)
+[`Group`](/api/classes/group/).[`cornerStyle`](/api/classes/group/#cornerstyle)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:69
 
@@ -586,9 +563,9 @@ true
 
 #### Inherited from
 
-[`Group`](Group.md).[`dirty`](Group.md#dirty)
+[`Group`](/api/classes/group/).[`dirty`](/api/classes/group/#dirty)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:193
 
@@ -608,9 +585,9 @@ When set to `false`, an object can not be a target of events. All events propaga
 
 #### Inherited from
 
-[`Group`](Group.md).[`evented`](Group.md#evented)
+[`Group`](/api/classes/group/).[`evented`](/api/classes/group/#evented)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:81
 
@@ -634,9 +611,9 @@ When `true`, object is not exported in OBJECT/JSON
 
 #### Inherited from
 
-[`Group`](Group.md).[`excludeFromExport`](Group.md#excludefromexport)
+[`Group`](/api/classes/group/).[`excludeFromExport`](/api/classes/group/#excludefromexport)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:160
 
@@ -644,13 +621,22 @@ src/shapes/Object/Object.ts:160
 
 ### fill
 
-> **fill**: `null` \| `string` \| [`TFiller`](../type-aliases/TFiller.md)
+> **fill**: `null` \| `string` \| [`TFiller`](/api/type-aliases/tfiller/)
+
+Color of object's fill
+takes css colors https://www.w3.org/TR/css-color-3/
+
+#### Default
+
+```ts
+rgb(0,0,0)
+```
 
 #### Inherited from
 
-[`Group`](Group.md).[`fill`](Group.md#fill)
+[`Group`](/api/classes/group/).[`fill`](/api/classes/group/#fill)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:143
 
@@ -672,9 +658,9 @@ nonzero
 
 #### Inherited from
 
-[`Group`](Group.md).[`fillRule`](Group.md#fillrule)
+[`Group`](/api/classes/group/).[`fillRule`](/api/classes/group/#fillrule)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:144
 
@@ -694,9 +680,9 @@ false
 
 #### Inherited from
 
-[`Group`](Group.md).[`flipX`](Group.md#flipx)
+[`Group`](/api/classes/group/).[`flipX`](/api/classes/group/#flipx)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:21
 
@@ -716,9 +702,9 @@ false
 
 #### Inherited from
 
-[`Group`](Group.md).[`flipY`](Group.md#flipy)
+[`Group`](/api/classes/group/).[`flipY`](/api/classes/group/#flipy)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:22
 
@@ -738,9 +724,9 @@ Composite rule used for canvas globalCompositeOperation
 
 #### Inherited from
 
-[`Group`](Group.md).[`globalCompositeOperation`](Group.md#globalcompositeoperation)
+[`Group`](/api/classes/group/).[`globalCompositeOperation`](/api/classes/group/#globalcompositeoperation)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:152
 
@@ -760,9 +746,9 @@ When set to `false`, object's controlling borders are not rendered
 
 #### Inherited from
 
-[`Group`](Group.md).[`hasBorders`](Group.md#hasborders)
+[`Group`](/api/classes/group/).[`hasBorders`](/api/classes/group/#hasborders)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:77
 
@@ -782,9 +768,9 @@ When set to `false`, object's controls are not displayed and can not be used to 
 
 #### Inherited from
 
-[`Group`](Group.md).[`hasControls`](Group.md#hascontrols)
+[`Group`](/api/classes/group/).[`hasControls`](/api/classes/group/#hascontrols)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:71
 
@@ -804,9 +790,9 @@ Object height
 
 #### Inherited from
 
-[`Group`](Group.md).[`height`](Group.md#height)
+[`Group`](/api/classes/group/).[`height`](/api/classes/group/#height)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:20
 
@@ -826,9 +812,9 @@ null
 
 #### Inherited from
 
-[`Group`](Group.md).[`hoverCursor`](Group.md#hovercursor)
+[`Group`](/api/classes/group/).[`hoverCursor`](/api/classes/group/#hovercursor)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:85
 
@@ -848,9 +834,9 @@ When `false`, default object's values are not included in its serialization
 
 #### Inherited from
 
-[`Group`](Group.md).[`includeDefaultValues`](Group.md#includedefaultvalues)
+[`Group`](/api/classes/group/).[`includeDefaultValues`](/api/classes/group/#includedefaultvalues)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:159
 
@@ -872,9 +858,9 @@ set to true if you want to select an object inside a group.\
 
 #### Inherited from
 
-[`Group`](Group.md).[`interactive`](Group.md#interactive)
+[`Group`](/api/classes/group/).[`interactive`](/api/classes/group/#interactive)
 
-#### Source
+#### Defined in
 
 src/shapes/Group.ts:98
 
@@ -896,9 +882,9 @@ false
 
 #### Inherited from
 
-[`Group`](Group.md).[`inverted`](Group.md#inverted)
+[`Group`](/api/classes/group/).[`inverted`](/api/classes/group/#inverted)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:165
 
@@ -906,16 +892,16 @@ src/shapes/Object/Object.ts:165
 
 ### isMoving?
 
-> **`optional`** **isMoving**: `boolean`
+> `optional` **isMoving**: `boolean`
 
 internal boolean to signal the code that the object is
 part of the move action.
 
 #### Inherited from
 
-[`Group`](Group.md).[`isMoving`](Group.md#ismoving)
+[`Group`](/api/classes/group/).[`isMoving`](/api/classes/group/#ismoving)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:123
 
@@ -923,13 +909,13 @@ src/shapes/Object/InteractiveObject.ts:123
 
 ### layoutManager
 
-> **layoutManager**: [`LayoutManager`](LayoutManager.md)
+> **layoutManager**: [`LayoutManager`](/api/classes/layoutmanager/)
 
 #### Inherited from
 
-[`Group`](Group.md).[`layoutManager`](Group.md#layoutmanager)
+[`Group`](/api/classes/group/).[`layoutManager`](/api/classes/group/#layoutmanager)
 
-#### Source
+#### Defined in
 
 src/shapes/Group.ts:100
 
@@ -941,7 +927,7 @@ src/shapes/Group.ts:100
 
 Left position of an object.
 Note that by default it's relative to object left.
-You can change this by setting [originX](../../../../api/classes/interfaces/fabricobjectprops/#originx)
+You can change this by setting [originX](../../../../api/interfaces/fabricobjectprops/#originx)
 
 #### Default
 
@@ -951,9 +937,9 @@ You can change this by setting [originX](../../../../api/classes/interfaces/fabr
 
 #### Inherited from
 
-[`Group`](Group.md).[`left`](Group.md#left)
+[`Group`](/api/classes/group/).[`left`](/api/classes/group/#left)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:18
 
@@ -973,9 +959,9 @@ When `true`, object horizontal movement is locked
 
 #### Inherited from
 
-[`Group`](Group.md).[`lockMovementX`](Group.md#lockmovementx)
+[`Group`](/api/classes/group/).[`lockMovementX`](/api/classes/group/#lockmovementx)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:55
 
@@ -995,9 +981,9 @@ When `true`, object vertical movement is locked
 
 #### Inherited from
 
-[`Group`](Group.md).[`lockMovementY`](Group.md#lockmovementy)
+[`Group`](/api/classes/group/).[`lockMovementY`](/api/classes/group/#lockmovementy)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:56
 
@@ -1017,9 +1003,9 @@ When `true`, object rotation is locked
 
 #### Inherited from
 
-[`Group`](Group.md).[`lockRotation`](Group.md#lockrotation)
+[`Group`](/api/classes/group/).[`lockRotation`](/api/classes/group/#lockrotation)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:57
 
@@ -1039,9 +1025,9 @@ When `true`, object cannot be flipped by scaling into negative values
 
 #### Inherited from
 
-[`Group`](Group.md).[`lockScalingFlip`](Group.md#lockscalingflip)
+[`Group`](/api/classes/group/).[`lockScalingFlip`](/api/classes/group/#lockscalingflip)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:62
 
@@ -1061,9 +1047,9 @@ When `true`, object horizontal scaling is locked
 
 #### Inherited from
 
-[`Group`](Group.md).[`lockScalingX`](Group.md#lockscalingx)
+[`Group`](/api/classes/group/).[`lockScalingX`](/api/classes/group/#lockscalingx)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:58
 
@@ -1083,9 +1069,9 @@ When `true`, object vertical scaling is locked
 
 #### Inherited from
 
-[`Group`](Group.md).[`lockScalingY`](Group.md#lockscalingy)
+[`Group`](/api/classes/group/).[`lockScalingY`](/api/classes/group/#lockscalingy)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:59
 
@@ -1105,9 +1091,9 @@ When `true`, object horizontal skewing is locked
 
 #### Inherited from
 
-[`Group`](Group.md).[`lockSkewingX`](Group.md#lockskewingx)
+[`Group`](/api/classes/group/).[`lockSkewingX`](/api/classes/group/#lockskewingx)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:60
 
@@ -1127,9 +1113,9 @@ When `true`, object vertical skewing is locked
 
 #### Inherited from
 
-[`Group`](Group.md).[`lockSkewingY`](Group.md#lockskewingy)
+[`Group`](/api/classes/group/).[`lockSkewingY`](/api/classes/group/#lockskewingy)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:61
 
@@ -1137,15 +1123,15 @@ src/shapes/Object/InteractiveObject.ts:61
 
 ### matrixCache?
 
-> **`optional`** **matrixCache**: `TMatrixCache`
+> `optional` **matrixCache**: `TMatrixCache`
 
 storage cache for object full transform matrix
 
 #### Inherited from
 
-[`Group`](Group.md).[`matrixCache`](Group.md#matrixcache)
+[`Group`](/api/classes/group/).[`matrixCache`](/api/classes/group/#matrixcache)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:60
 
@@ -1165,9 +1151,9 @@ Minimum allowed scale value of an object
 
 #### Inherited from
 
-[`Group`](Group.md).[`minScaleLimit`](Group.md#minscalelimit)
+[`Group`](/api/classes/group/).[`minScaleLimit`](/api/classes/group/#minscalelimit)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:138
 
@@ -1187,9 +1173,9 @@ null
 
 #### Inherited from
 
-[`Group`](Group.md).[`moveCursor`](Group.md#movecursor)
+[`Group`](/api/classes/group/).[`moveCursor`](/api/classes/group/#movecursor)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:86
 
@@ -1197,7 +1183,7 @@ src/shapes/Object/InteractiveObject.ts:86
 
 ### multiSelectionStacking
 
-> **multiSelectionStacking**: [`MultiSelectionStacking`](../type-aliases/MultiSelectionStacking.md)
+> **multiSelectionStacking**: [`MultiSelectionStacking`](/api/type-aliases/multiselectionstacking/)
 
 controls how selected objects are added during a multiselection event
 - `canvas-stacking` adds the selected object to the active selection while respecting canvas object stacking order
@@ -1208,7 +1194,7 @@ meaning that the stack is ordered by the order in which objects were selected
 
 `canvas-stacking`
 
-#### Source
+#### Defined in
 
 src/shapes/ActiveSelection.ts:51
 
@@ -1232,9 +1218,9 @@ true
 
 #### Inherited from
 
-[`Group`](Group.md).[`noScaleCache`](Group.md#noscalecache)
+[`Group`](/api/classes/group/).[`noScaleCache`](/api/classes/group/#noscalecache)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:50
 
@@ -1251,9 +1237,9 @@ Used to draw and locate controls.
 
 #### Inherited from
 
-[`Group`](Group.md).[`oCoords`](Group.md#ocoords)
+[`Group`](/api/classes/group/).[`oCoords`](/api/classes/group/#ocoords)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:94
 
@@ -1279,9 +1265,9 @@ true
 
 #### Inherited from
 
-[`Group`](Group.md).[`objectCaching`](Group.md#objectcaching)
+[`Group`](/api/classes/group/).[`objectCaching`](/api/classes/group/#objectcaching)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:162
 
@@ -1301,9 +1287,9 @@ Opacity of an object
 
 #### Inherited from
 
-[`Group`](Group.md).[`opacity`](Group.md#opacity)
+[`Group`](/api/classes/group/).[`opacity`](/api/classes/group/#opacity)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:140
 
@@ -1311,7 +1297,7 @@ src/shapes/Object/Object.ts:140
 
 ### originX
 
-> **originX**: [`TOriginX`](../type-aliases/TOriginX.md)
+> **originX**: [`TOriginX`](/api/type-aliases/toriginx/)
 
 Horizontal origin of transformation of an object (`left`, `center`, `right`  or `[0, 1]`)
 See http://jsfiddle.net/1ow02gea/244/ on how originX/originY affect objects in groups
@@ -1324,9 +1310,9 @@ See http://jsfiddle.net/1ow02gea/244/ on how originX/originY affect objects in g
 
 #### Inherited from
 
-[`Group`](Group.md).[`originX`](Group.md#originx)
+[`Group`](/api/classes/group/).[`originX`](/api/classes/group/#originx)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:27
 
@@ -1334,7 +1320,7 @@ src/shapes/Object/ObjectOrigin.ts:27
 
 ### originY
 
-> **originY**: [`TOriginY`](../type-aliases/TOriginY.md)
+> **originY**: [`TOriginY`](/api/type-aliases/toriginy/)
 
 Vertical origin of transformation of an object (`top`, `center`, `bottom` or `[0, 1]`)
 See http://jsfiddle.net/1ow02gea/244/ on how originX/originY affect objects in groups
@@ -1347,9 +1333,9 @@ See http://jsfiddle.net/1ow02gea/244/ on how originX/originY affect objects in g
 
 #### Inherited from
 
-[`Group`](Group.md).[`originY`](Group.md#originy)
+[`Group`](/api/classes/group/).[`originY`](/api/classes/group/#originy)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:28
 
@@ -1357,15 +1343,15 @@ src/shapes/Object/ObjectOrigin.ts:28
 
 ### ownMatrixCache?
 
-> **`optional`** **ownMatrixCache**: `TMatrixCache`
+> `optional` **ownMatrixCache**: `TMatrixCache`
 
 storage cache for object transform matrix
 
 #### Inherited from
 
-[`Group`](Group.md).[`ownMatrixCache`](Group.md#ownmatrixcache)
+[`Group`](/api/classes/group/).[`ownMatrixCache`](/api/classes/group/#ownmatrixcache)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:55
 
@@ -1385,9 +1371,9 @@ Padding between object and its controlling borders (in pixels)
 
 #### Inherited from
 
-[`Group`](Group.md).[`padding`](Group.md#padding)
+[`Group`](/api/classes/group/).[`padding`](/api/classes/group/#padding)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:40
 
@@ -1407,9 +1393,9 @@ Determines if the fill or the stroke is drawn first (one of "fill" or "stroke")
 
 #### Inherited from
 
-[`Group`](Group.md).[`paintFirst`](Group.md#paintfirst)
+[`Group`](/api/classes/group/).[`paintFirst`](/api/classes/group/#paintfirst)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:142
 
@@ -1417,16 +1403,16 @@ src/shapes/Object/Object.ts:142
 
 ### parent?
 
-> **`optional`** **parent**: [`Group`](Group.md)
+> `optional` **parent**: [`Group`](/api/classes/group/)
 
 A reference to the parent of the object
 Used to keep the original parent ref when the object has been added to an ActiveSelection, hence loosing the `group` ref
 
 #### Inherited from
 
-[`Group`](Group.md).[`parent`](Group.md#parent)
+[`Group`](/api/classes/group/).[`parent`](/api/classes/group/#parent)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/StackedObject.ts:44
 
@@ -1446,9 +1432,9 @@ When set to `true`, objects are "found" on canvas on per-pixel basis rather than
 
 #### Inherited from
 
-[`Group`](Group.md).[`perPixelTargetFind`](Group.md#perpixeltargetfind)
+[`Group`](/api/classes/group/).[`perPixelTargetFind`](/api/classes/group/#perpixeltargetfind)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:82
 
@@ -1468,9 +1454,9 @@ Object scale factor (horizontal)
 
 #### Inherited from
 
-[`Group`](Group.md).[`scaleX`](Group.md#scalex)
+[`Group`](/api/classes/group/).[`scaleX`](/api/classes/group/#scalex)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:23
 
@@ -1490,9 +1476,9 @@ Object scale factor (vertical)
 
 #### Inherited from
 
-[`Group`](Group.md).[`scaleY`](Group.md#scaley)
+[`Group`](/api/classes/group/).[`scaleY`](/api/classes/group/#scaley)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:24
 
@@ -1513,9 +1499,9 @@ But events still fire on it.
 
 #### Inherited from
 
-[`Group`](Group.md).[`selectable`](Group.md#selectable)
+[`Group`](/api/classes/group/).[`selectable`](/api/classes/group/#selectable)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:80
 
@@ -1540,9 +1526,9 @@ This API is no longer supported and may be removed in a future release.
 
 #### Inherited from
 
-[`Group`](Group.md).[`selectionBackgroundColor`](Group.md#selectionbackgroundcolor)
+[`Group`](/api/classes/group/).[`selectionBackgroundColor`](/api/classes/group/#selectionbackgroundcolor)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:78
 
@@ -1550,13 +1536,21 @@ src/shapes/Object/InteractiveObject.ts:78
 
 ### shadow
 
-> **shadow**: `null` \| [`Shadow`](Shadow.md)
+> **shadow**: `null` \| [`Shadow`](/api/classes/shadow/)
+
+Shadow object representing shadow of this shape
+
+#### Default
+
+```ts
+null
+```
 
 #### Inherited from
 
-[`Group`](Group.md).[`shadow`](Group.md#shadow)
+[`Group`](/api/classes/group/).[`shadow`](/api/classes/group/#shadow)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:155
 
@@ -1576,9 +1570,9 @@ Angle of skew on x axes of an object (in degrees)
 
 #### Inherited from
 
-[`Group`](Group.md).[`skewX`](Group.md#skewx)
+[`Group`](/api/classes/group/).[`skewX`](/api/classes/group/#skewx)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:25
 
@@ -1598,9 +1592,9 @@ Angle of skew on y axes of an object (in degrees)
 
 #### Inherited from
 
-[`Group`](Group.md).[`skewY`](Group.md#skewy)
+[`Group`](/api/classes/group/).[`skewY`](/api/classes/group/#skewy)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:26
 
@@ -1608,15 +1602,15 @@ src/shapes/Object/ObjectOrigin.ts:26
 
 ### snapAngle?
 
-> **`optional`** **snapAngle**: [`TDegree`](../type-aliases/TDegree.md)
+> `optional` **snapAngle**: [`TDegree`](/api/type-aliases/tdegree/)
 
 The angle that an object will lock to while rotating.
 
 #### Inherited from
 
-[`Group`](Group.md).[`snapAngle`](Group.md#snapangle)
+[`Group`](/api/classes/group/).[`snapAngle`](/api/classes/group/#snapangle)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:52
 
@@ -1624,16 +1618,16 @@ src/shapes/Object/InteractiveObject.ts:52
 
 ### snapThreshold?
 
-> **`optional`** **snapThreshold**: [`TDegree`](../type-aliases/TDegree.md)
+> `optional` **snapThreshold**: [`TDegree`](/api/type-aliases/tdegree/)
 
 The angle difference from the current snapped angle in which snapping should occur.
 When undefined, the snapThreshold will default to the snapAngle.
 
 #### Inherited from
 
-[`Group`](Group.md).[`snapThreshold`](Group.md#snapthreshold)
+[`Group`](/api/classes/group/).[`snapThreshold`](/api/classes/group/#snapthreshold)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:53
 
@@ -1641,13 +1635,22 @@ src/shapes/Object/InteractiveObject.ts:53
 
 ### stroke
 
-> **stroke**: `null` \| `string` \| [`TFiller`](../type-aliases/TFiller.md)
+> **stroke**: `null` \| `string` \| [`TFiller`](/api/type-aliases/tfiller/)
+
+When defined, an object is rendered via stroke and this property specifies its color
+takes css colors https://www.w3.org/TR/css-color-3/
+
+#### Default
+
+```ts
+null
+```
 
 #### Inherited from
 
-[`Group`](Group.md).[`stroke`](Group.md#stroke)
+[`Group`](/api/classes/group/).[`stroke`](/api/classes/group/#stroke)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:145
 
@@ -1667,9 +1670,9 @@ null;
 
 #### Inherited from
 
-[`Group`](Group.md).[`strokeDashArray`](Group.md#strokedasharray)
+[`Group`](/api/classes/group/).[`strokeDashArray`](/api/classes/group/#strokedasharray)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:146
 
@@ -1689,9 +1692,9 @@ Line offset of an object's stroke
 
 #### Inherited from
 
-[`Group`](Group.md).[`strokeDashOffset`](Group.md#strokedashoffset)
+[`Group`](/api/classes/group/).[`strokeDashOffset`](/api/classes/group/#strokedashoffset)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:147
 
@@ -1711,9 +1714,9 @@ butt
 
 #### Inherited from
 
-[`Group`](Group.md).[`strokeLineCap`](Group.md#strokelinecap)
+[`Group`](/api/classes/group/).[`strokeLineCap`](/api/classes/group/#strokelinecap)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:148
 
@@ -1733,9 +1736,9 @@ Corner style of an object's stroke (one of "bevel", "round", "miter")
 
 #### Inherited from
 
-[`Group`](Group.md).[`strokeLineJoin`](Group.md#strokelinejoin)
+[`Group`](/api/classes/group/).[`strokeLineJoin`](/api/classes/group/#strokelinejoin)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:149
 
@@ -1755,9 +1758,9 @@ Maximum miter length (used for strokeLineJoin = "miter") of an object's stroke
 
 #### Inherited from
 
-[`Group`](Group.md).[`strokeMiterLimit`](Group.md#strokemiterlimit)
+[`Group`](/api/classes/group/).[`strokeMiterLimit`](/api/classes/group/#strokemiterlimit)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:150
 
@@ -1790,9 +1793,9 @@ false
 
 #### Inherited from
 
-[`Group`](Group.md).[`strokeUniform`](Group.md#strokeuniform)
+[`Group`](/api/classes/group/).[`strokeUniform`](/api/classes/group/#strokeuniform)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:31
 
@@ -1812,9 +1815,9 @@ Width of a stroke used to render this object
 
 #### Inherited from
 
-[`Group`](Group.md).[`strokeWidth`](Group.md#strokewidth)
+[`Group`](/api/classes/group/).[`strokeWidth`](/api/classes/group/#strokewidth)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:30
 
@@ -1835,9 +1838,9 @@ set to `false` if you don't need contained objects to be targets of events
 
 #### Inherited from
 
-[`Group`](Group.md).[`subTargetCheck`](Group.md#subtargetcheck)
+[`Group`](/api/classes/group/).[`subTargetCheck`](/api/classes/group/#subtargetcheck)
 
-#### Source
+#### Defined in
 
 src/shapes/Group.ts:89
 
@@ -1849,7 +1852,7 @@ src/shapes/Group.ts:89
 
 Top position of an object.
 Note that by default it's relative to object top.
-You can change this by setting [originY](../../../../api/classes/interfaces/fabricobjectprops/#originy)
+You can change this by setting [originY](../../../../api/interfaces/fabricobjectprops/#originy)
 
 #### Default
 
@@ -1859,9 +1862,9 @@ You can change this by setting [originY](../../../../api/classes/interfaces/fabr
 
 #### Inherited from
 
-[`Group`](Group.md).[`top`](Group.md#top)
+[`Group`](/api/classes/group/).[`top`](/api/classes/group/#top)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:17
 
@@ -1881,9 +1884,9 @@ Size of object's controlling corners when touch interaction is detected
 
 #### Inherited from
 
-[`Group`](Group.md).[`touchCornerSize`](Group.md#touchcornersize)
+[`Group`](/api/classes/group/).[`touchCornerSize`](/api/classes/group/#touchcornersize)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:65
 
@@ -1903,9 +1906,9 @@ true
 
 #### Inherited from
 
-[`Group`](Group.md).[`transparentCorners`](Group.md#transparentcorners)
+[`Group`](/api/classes/group/).[`transparentCorners`](/api/classes/group/#transparentcorners)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:66
 
@@ -1925,9 +1928,9 @@ When set to `false`, an object is not rendered on canvas
 
 #### Inherited from
 
-[`Group`](Group.md).[`visible`](Group.md#visible)
+[`Group`](/api/classes/group/).[`visible`](/api/classes/group/#visible)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:157
 
@@ -1947,9 +1950,9 @@ Object width
 
 #### Inherited from
 
-[`Group`](Group.md).[`width`](Group.md#width)
+[`Group`](/api/classes/group/).[`width`](/api/classes/group/#width)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:19
 
@@ -1957,7 +1960,7 @@ src/shapes/Object/ObjectOrigin.ts:19
 
 ### cacheProperties
 
-> **`static`** **cacheProperties**: `string`[]
+> `static` **cacheProperties**: `string`[]
 
 List of properties to consider when checking if cache needs refresh
 Those properties are checked by
@@ -1966,9 +1969,9 @@ and refreshed at the next render
 
 #### Inherited from
 
-[`Group`](Group.md).[`cacheProperties`](Group.md#cacheproperties)
+[`Group`](/api/classes/group/).[`cacheProperties`](/api/classes/group/#cacheproperties)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:185
 
@@ -1976,15 +1979,15 @@ src/shapes/Object/Object.ts:185
 
 ### colorProperties
 
-> **`static`** **colorProperties**: `string`[]
+> `static` **colorProperties**: `string`[]
 
 List of properties to consider for animating colors.
 
 #### Inherited from
 
-[`Group`](Group.md).[`colorProperties`](Group.md#colorproperties)
+[`Group`](/api/classes/group/).[`colorProperties`](/api/classes/group/#colorproperties)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/AnimatableObject.ts:20
 
@@ -1992,13 +1995,13 @@ src/shapes/Object/AnimatableObject.ts:20
 
 ### ownDefaults
 
-> **`static`** **ownDefaults**: `Partial`\<[`TClassProperties`](../type-aliases/TClassProperties.md)\<[`ActiveSelection`](ActiveSelection.md)\>\> = `activeSelectionDefaultValues`
+> `static` **ownDefaults**: `Partial`\<[`TClassProperties`](/api/type-aliases/tclassproperties/)\<[`ActiveSelection`](/api/classes/activeselection/)\>\> = `activeSelectionDefaultValues`
 
 #### Overrides
 
-[`Group`](Group.md).[`ownDefaults`](Group.md#owndefaults)
+[`Group`](/api/classes/group/).[`ownDefaults`](/api/classes/group/#owndefaults)
 
-#### Source
+#### Defined in
 
 src/shapes/ActiveSelection.ts:38
 
@@ -2006,7 +2009,7 @@ src/shapes/ActiveSelection.ts:38
 
 ### stateProperties
 
-> **`static`** **stateProperties**: `string`[]
+> `static` **stateProperties**: `string`[]
 
 This list of properties is used to check if the state of an object is changed.
 This state change now is only used for children of groups to understand if a group
@@ -2014,31 +2017,17 @@ needs its cache regenerated during a .set call
 
 #### Inherited from
 
-[`Group`](Group.md).[`stateProperties`](Group.md#stateproperties)
+[`Group`](/api/classes/group/).[`stateProperties`](/api/classes/group/#stateproperties)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:176
 
 ***
 
-### type
+### ~~type~~
 
-> **`static`** **type**: `string` = `'ActiveSelection'`
-
-#### Overrides
-
-[`Group`](Group.md).[`type`](Group.md#type)
-
-#### Source
-
-src/shapes/ActiveSelection.ts:36
-
-## Accessors
-
-### type
-
-> **`get`** **type**(): `string`
+> `static` **type**: `string` = `'ActiveSelection'`
 
 Legacy identifier of the class. Prefer using utils like isType or instanceOf
 Will be removed in fabric 7 or 8.
@@ -2053,7 +2042,34 @@ add sustainable warning message
 This API is no longer supported and may be removed in a future release.
 :::
 
-> **`set`** **type**(`value`): `void`
+#### Overrides
+
+[`Group`](/api/classes/group/).[`type`](/api/classes/group/#type)
+
+#### Defined in
+
+src/shapes/ActiveSelection.ts:36
+
+## Accessors
+
+### type
+
+> `get` **type**(): `string`
+
+Legacy identifier of the class. Prefer using utils like isType or instanceOf
+Will be removed in fabric 7 or 8.
+The setter exists because is very hard to catch all the ways in which a type value
+could be set in the instance
+
+#### TODO
+
+add sustainable warning message
+
+:::caution[Deprecated]
+This API is no longer supported and may be removed in a future release.
+:::
+
+> `set` **type**(`value`): `void`
 
 #### Parameters
 
@@ -2063,7 +2079,11 @@ This API is no longer supported and may be removed in a future release.
 
 `string`
 
-#### Source
+#### Inherited from
+
+[`Group`](/api/classes/group/).[`type`](/api/classes/group/#type-1)
+
+#### Defined in
 
 src/shapes/Object/Object.ts:320
 
@@ -2079,7 +2099,7 @@ Prepare clipPath state and cache and draw it on instance's cache
 
 • **ctx**: `CanvasRenderingContext2D`
 
-• **clipPath?**: `FabricObject`\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **clipPath?**: `FabricObject`\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 #### Returns
 
@@ -2087,9 +2107,9 @@ Prepare clipPath state and cache and draw it on instance's cache
 
 #### Inherited from
 
-[`Group`](Group.md).[`_drawClipPath`](Group.md#_drawclippath)
+[`Group`](/api/classes/group/).[`_drawClipPath`](/api/classes/group/#_drawclippath)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:977
 
@@ -2122,9 +2142,9 @@ making bargain with performances.
 
 #### Inherited from
 
-[`Group`](Group.md).[`_limitCacheSize`](Group.md#_limitcachesize)
+[`Group`](/api/classes/group/).[`_limitCacheSize`](/api/classes/group/#_limitcachesize)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:372
 
@@ -2136,7 +2156,7 @@ src/shapes/Object/Object.ts:372
 
 #### Parameters
 
-• **object**: [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **object**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 #### Returns
 
@@ -2144,9 +2164,9 @@ src/shapes/Object/Object.ts:372
 
 #### Inherited from
 
-[`Group`](Group.md).[`_onObjectAdded`](Group.md#_onobjectadded)
+[`Group`](/api/classes/group/).[`_onObjectAdded`](/api/classes/group/#_onobjectadded)
 
-#### Source
+#### Defined in
 
 src/shapes/Group.ts:229
 
@@ -2162,9 +2182,9 @@ src/shapes/Group.ts:229
 
 #### Inherited from
 
-[`Group`](Group.md).[`_onStackOrderChanged`](Group.md#_onstackorderchanged)
+[`Group`](/api/classes/group/).[`_onStackOrderChanged`](/api/classes/group/#_onstackorderchanged)
 
-#### Source
+#### Defined in
 
 src/shapes/Group.ts:259
 
@@ -2182,9 +2202,9 @@ Remove cacheCanvas and its dimensions from the objects
 
 #### Inherited from
 
-[`Group`](Group.md).[`_removeCacheCanvas`](Group.md#_removecachecanvas)
+[`Group`](/api/classes/group/).[`_removeCacheCanvas`](/api/classes/group/#_removecachecanvas)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:831
 
@@ -2202,11 +2222,11 @@ Renders controls and borders for the object
 
 Context to render on
 
-• **styleOverride?**: `Partial`\<`Pick`\<`InteractiveFabricObject`\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>, `"cornerStyle"` \| `"cornerSize"` \| `"cornerColor"` \| `"cornerStrokeColor"` \| `"cornerDashArray"` \| `"transparentCorners"`\>\>
+• **styleOverride?**: `Partial`\<`Pick`\<`InteractiveFabricObject`\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>, `"cornerStyle"` \| `"cornerSize"` \| `"cornerColor"` \| `"cornerStrokeColor"` \| `"cornerDashArray"` \| `"transparentCorners"`\>\>
 
 properties to override the object style
 
-• **childrenOverride?**: `Partial`\<`Pick`\<`InteractiveFabricObject`\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>, `"cornerStyle"` \| `"cornerSize"` \| `"cornerColor"` \| `"cornerStrokeColor"` \| `"cornerDashArray"` \| `"transparentCorners"`\>\>
+• **childrenOverride?**: `Partial`\<`Pick`\<`InteractiveFabricObject`\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>, `"cornerStyle"` \| `"cornerSize"` \| `"cornerColor"` \| `"cornerStrokeColor"` \| `"cornerDashArray"` \| `"transparentCorners"`\>\>
 
 properties to override the children overrides
 
@@ -2216,9 +2236,9 @@ properties to override the children overrides
 
 #### Overrides
 
-[`Group`](Group.md).[`_renderControls`](Group.md#_rendercontrols)
+[`Group`](/api/classes/group/).[`_renderControls`](/api/classes/group/#_rendercontrols)
 
-#### Source
+#### Defined in
 
 src/shapes/ActiveSelection.ts:215
 
@@ -2238,9 +2258,9 @@ src/shapes/ActiveSelection.ts:215
 
 #### Inherited from
 
-[`Group`](Group.md).[`_setClippingProperties`](Group.md#_setclippingproperties)
+[`Group`](/api/classes/group/).[`_setClippingProperties`](/api/classes/group/#_setclippingproperties)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:1117
 
@@ -2254,7 +2274,7 @@ src/shapes/Object/Object.ts:1117
 
 • **ctx**: `CanvasRenderingContext2D`
 
-• **\_\_namedParameters**: `Pick`\<[`ActiveSelection`](ActiveSelection.md), `"fill"`\>
+• **\_\_namedParameters**: `Pick`\<[`ActiveSelection`](/api/classes/activeselection/), `"fill"`\>
 
 #### Returns
 
@@ -2262,9 +2282,9 @@ src/shapes/Object/Object.ts:1117
 
 #### Inherited from
 
-[`Group`](Group.md).[`_setFillStyles`](Group.md#_setfillstyles)
+[`Group`](/api/classes/group/).[`_setFillStyles`](/api/classes/group/#_setfillstyles)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:1106
 
@@ -2278,7 +2298,7 @@ src/shapes/Object/Object.ts:1106
 
 • **ctx**: `CanvasRenderingContext2D`
 
-• **decl**: `Pick`\<[`ActiveSelection`](ActiveSelection.md), `"strokeDashOffset"` \| `"strokeLineCap"` \| `"strokeLineJoin"` \| `"strokeMiterLimit"` \| `"strokeWidth"` \| `"stroke"`\>
+• **decl**: `Pick`\<[`ActiveSelection`](/api/classes/activeselection/), `"strokeDashOffset"` \| `"strokeLineCap"` \| `"strokeLineJoin"` \| `"strokeMiterLimit"` \| `"strokeWidth"` \| `"stroke"`\>
 
 #### Returns
 
@@ -2286,9 +2306,9 @@ src/shapes/Object/Object.ts:1106
 
 #### Inherited from
 
-[`Group`](Group.md).[`_setStrokeStyles`](Group.md#_setstrokestyles)
+[`Group`](/api/classes/group/).[`_setStrokeStyles`](/api/classes/group/#_setstrokestyles)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:1064
 
@@ -2313,9 +2333,9 @@ Rendering canvas context
 
 #### Inherited from
 
-[`Group`](Group.md).[`_setupCompositeOperation`](Group.md#_setupcompositeoperation)
+[`Group`](/api/classes/group/).[`_setupCompositeOperation`](/api/classes/group/#_setupcompositeoperation)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:1571
 
@@ -2329,7 +2349,7 @@ Returns svg representation of an instance
 
 #### Parameters
 
-• **reviver?**: [`TSVGReviver`](../type-aliases/TSVGReviver.md)
+• **reviver?**: [`TSVGReviver`](/api/type-aliases/tsvgreviver/)
 
 Method for further parsing of svg representation.
 
@@ -2341,9 +2361,9 @@ svg representation of an instance
 
 #### Inherited from
 
-[`Group`](Group.md).[`_toSVG`](Group.md#_tosvg)
+[`Group`](/api/classes/group/).[`_toSVG`](/api/classes/group/#_tosvg)
 
-#### Source
+#### Defined in
 
 src/shapes/Group.ts:603
 
@@ -2357,7 +2377,7 @@ Add objects
 
 #### Parameters
 
-• ...**objects**: [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>[]
+• ...**objects**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>[]
 
 #### Returns
 
@@ -2365,9 +2385,9 @@ Add objects
 
 #### Inherited from
 
-[`Group`](Group.md).[`add`](Group.md#add)
+[`Group`](/api/classes/group/).[`add`](/api/classes/group/#add)
 
-#### Source
+#### Defined in
 
 src/shapes/Group.ts:199
 
@@ -2379,7 +2399,7 @@ src/shapes/Group.ts:199
 
 #### Parameters
 
-• **this**: `FabricObjectSVGExportMixin` & [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **this**: `FabricObjectSVGExportMixin` & [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 #### Returns
 
@@ -2387,9 +2407,9 @@ src/shapes/Group.ts:199
 
 #### Inherited from
 
-[`Group`](Group.md).[`addPaintOrder`](Group.md#addpaintorder)
+[`Group`](/api/classes/group/).[`addPaintOrder`](/api/classes/group/#addpaintorder)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/FabricObjectSVGExportMixin.ts:249
 
@@ -2397,13 +2417,13 @@ src/shapes/Object/FabricObjectSVGExportMixin.ts:249
 
 ### animate()
 
-> **animate**\<`T`\>(`animatable`, `options`?): `Record`\<`string`, [`TAnimation`](../namespaces/util/type-aliases/TAnimation.md)\<`T`\>\>
+> **animate**\<`T`\>(`animatable`, `options`?): `Record`\<`string`, [`TAnimation`](/api/namespaces/util/type-aliases/tanimation/)\<`T`\>\>
 
 Animates object's properties
 
-#### Type parameters
+#### Type Parameters
 
-• **T** extends `number` \| [`TColorArg`](../type-aliases/TColorArg.md) \| `number`[]
+• **T** *extends* `number` \| [`TColorArg`](/api/type-aliases/tcolorarg/) \| `number`[]
 
 #### Parameters
 
@@ -2411,28 +2431,28 @@ Animates object's properties
 
 map of keys and end values
 
-• **options?**: `Partial`\<[`AnimationOptions`](../namespaces/util/type-aliases/AnimationOptions.md)\<`T`\>\>
+• **options?**: `Partial`\<[`AnimationOptions`](/api/namespaces/util/type-aliases/animationoptions/)\<`T`\>\>
 
 #### Returns
 
-`Record`\<`string`, [`TAnimation`](../namespaces/util/type-aliases/TAnimation.md)\<`T`\>\>
+`Record`\<`string`, [`TAnimation`](/api/namespaces/util/type-aliases/tanimation/)\<`T`\>\>
 
 map of animation contexts
 
 As object — multiple properties
 
-object.animate(\{ left: ..., top: ... \});
-object.animate(\{ left: ..., top: ... \}, \{ duration: ... \});
+object.animate({ left: ..., top: ... });
+object.animate({ left: ..., top: ... }, { duration: ... });
 
 #### Inherited from
 
-[`Group`](Group.md).[`animate`](Group.md#animate)
+[`Group`](/api/classes/group/).[`animate`](/api/classes/group/#animate)
 
 #### Tutorial
 
 [http://fabricjs.com/fabric-intro-part-2#animation](http://fabricjs.com/fabric-intro-part-2#animation)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/AnimatableObject.ts:34
 
@@ -2450,7 +2470,7 @@ stack.
 
 #### Parameters
 
-• **object**: [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **object**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 Object to send
 
@@ -2466,9 +2486,9 @@ true if change occurred
 
 #### Inherited from
 
-[`Group`](Group.md).[`bringObjectForward`](Group.md#bringobjectforward)
+[`Group`](/api/classes/group/).[`bringObjectForward`](/api/classes/group/#bringobjectforward)
 
-#### Source
+#### Defined in
 
 src/Collection.ts:240
 
@@ -2483,7 +2503,7 @@ to the top of the stack of drawn objects
 
 #### Parameters
 
-• **object**: [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **object**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 Object to send
 
@@ -2495,9 +2515,9 @@ true if change occurred
 
 #### Inherited from
 
-[`Group`](Group.md).[`bringObjectToFront`](Group.md#bringobjecttofront)
+[`Group`](/api/classes/group/).[`bringObjectToFront`](/api/classes/group/#bringobjecttofront)
 
-#### Source
+#### Defined in
 
 src/Collection.ts:194
 
@@ -2505,20 +2525,20 @@ src/Collection.ts:194
 
 ### calcACoords()
 
-> **calcACoords**(): [`TCornerPoint`](../type-aliases/TCornerPoint.md)
+> **calcACoords**(): [`TCornerPoint`](/api/type-aliases/tcornerpoint/)
 
 Calculates the coordinates of the 4 corner of the bbox, in absolute coordinates.
 those never change with zoom or viewport changes.
 
 #### Returns
 
-[`TCornerPoint`](../type-aliases/TCornerPoint.md)
+[`TCornerPoint`](/api/type-aliases/tcornerpoint/)
 
 #### Inherited from
 
-[`Group`](Group.md).[`calcACoords`](Group.md#calcacoords)
+[`Group`](/api/classes/group/).[`calcACoords`](/api/classes/group/#calcacoords)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:414
 
@@ -2539,9 +2559,9 @@ is a public api and should be done just if extremely necessary
 
 #### Inherited from
 
-[`Group`](Group.md).[`calcOCoords`](Group.md#calcocoords)
+[`Group`](/api/classes/group/).[`calcOCoords`](/api/classes/group/#calcocoords)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:224
 
@@ -2549,22 +2569,22 @@ src/shapes/Object/InteractiveObject.ts:224
 
 ### calcOwnMatrix()
 
-> **calcOwnMatrix**(): [`TMat2D`](../type-aliases/TMat2D.md)
+> **calcOwnMatrix**(): [`TMat2D`](/api/type-aliases/tmat2d/)
 
 calculate transform matrix that represents the current transformations from the
 object's properties, this matrix does not include the group transformation
 
 #### Returns
 
-[`TMat2D`](../type-aliases/TMat2D.md)
+[`TMat2D`](/api/type-aliases/tmat2d/)
 
 transform matrix for the object
 
 #### Inherited from
 
-[`Group`](Group.md).[`calcOwnMatrix`](Group.md#calcownmatrix)
+[`Group`](/api/classes/group/).[`calcOwnMatrix`](/api/classes/group/#calcownmatrix)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:511
 
@@ -2572,29 +2592,29 @@ src/shapes/Object/ObjectGeometry.ts:511
 
 ### calcTransformMatrix()
 
-> **calcTransformMatrix**(`skipGroup`?): [`TMat2D`](../type-aliases/TMat2D.md)
+> **calcTransformMatrix**(`skipGroup`?): [`TMat2D`](/api/type-aliases/tmat2d/)
 
 calculate transform matrix that represents the current transformations from the
 object's properties.
 
 #### Parameters
 
-• **skipGroup?**: `boolean`= `false`
+• **skipGroup?**: `boolean` = `false`
 
 return transform matrix for object not counting parent transformations
 There are some situation in which this is useful to avoid the fake rotation.
 
 #### Returns
 
-[`TMat2D`](../type-aliases/TMat2D.md)
+[`TMat2D`](/api/type-aliases/tmat2d/)
 
 transform matrix for the object
 
 #### Inherited from
 
-[`Group`](Group.md).[`calcTransformMatrix`](Group.md#calctransformmatrix)
+[`Group`](/api/classes/group/).[`calcTransformMatrix`](/api/classes/group/#calctransformmatrix)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:483
 
@@ -2618,9 +2638,9 @@ true if the object currently dragged can be dropped on the target
 
 #### Inherited from
 
-[`Group`](Group.md).[`canDrop`](Group.md#candrop)
+[`Group`](/api/classes/group/).[`canDrop`](/api/classes/group/#candrop)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:663
 
@@ -2634,7 +2654,7 @@ block ancestors/descendants of selected objects from being selected to prevent a
 
 #### Parameters
 
-• **object**: [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **object**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 #### Returns
 
@@ -2644,7 +2664,7 @@ block ancestors/descendants of selected objects from being selected to prevent a
 
 `Group.canEnterGroup`
 
-#### Source
+#### Defined in
 
 src/shapes/ActiveSelection.ts:93
 
@@ -2674,13 +2694,13 @@ with the object transformMatrix, or restored to neutral transform
 
 #### Inherited from
 
-[`Group`](Group.md).[`clearContextTop`](Group.md#clearcontexttop)
+[`Group`](/api/classes/group/).[`clearContextTop`](/api/classes/group/#clearcontexttop)
 
 #### Todo
 
 discuss swapping restoreManually with a renderCallback, but think of async issues
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:589
 
@@ -2688,7 +2708,7 @@ src/shapes/Object/InteractiveObject.ts:589
 
 ### clone()
 
-> **clone**(`propertiesToInclude`?): `Promise`\<[`ActiveSelection`](ActiveSelection.md)\>
+> **clone**(`propertiesToInclude`?): `Promise`\<[`ActiveSelection`](/api/classes/activeselection/)\>
 
 Clones an instance.
 
@@ -2700,13 +2720,13 @@ Any properties that you might want to additionally include in the output
 
 #### Returns
 
-`Promise`\<[`ActiveSelection`](ActiveSelection.md)\>
+`Promise`\<[`ActiveSelection`](/api/classes/activeselection/)\>
 
 #### Inherited from
 
-[`Group`](Group.md).[`clone`](Group.md#clone)
+[`Group`](/api/classes/group/).[`clone`](/api/classes/group/#clone)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:1345
 
@@ -2714,7 +2734,7 @@ src/shapes/Object/Object.ts:1345
 
 ### cloneAsImage()
 
-> **cloneAsImage**(`options`?): [`FabricImage`](FabricImage.md)\<`Partial`\<[`ImageProps`](../interfaces/ImageProps.md)\>, [`SerializedImageProps`](../interfaces/SerializedImageProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+> **cloneAsImage**(`options`?): [`FabricImage`](/api/classes/fabricimage/)\<`Partial`\<[`ImageProps`](/api/interfaces/imageprops/)\>, [`SerializedImageProps`](/api/interfaces/serializedimageprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 Creates an instance of Image out of an object
 makes use of toCanvasElement.
@@ -2731,19 +2751,19 @@ for clone as image, passed to toDataURL
 
 #### Returns
 
-[`FabricImage`](FabricImage.md)\<`Partial`\<[`ImageProps`](../interfaces/ImageProps.md)\>, [`SerializedImageProps`](../interfaces/SerializedImageProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+[`FabricImage`](/api/classes/fabricimage/)\<`Partial`\<[`ImageProps`](/api/interfaces/imageprops/)\>, [`SerializedImageProps`](/api/interfaces/serializedimageprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 Object cloned as image.
 
 #### Inherited from
 
-[`Group`](Group.md).[`cloneAsImage`](Group.md#cloneasimage)
+[`Group`](/api/classes/group/).[`cloneAsImage`](/api/classes/group/#cloneasimage)
 
 #### Todo
 
 fix the export type, it could not be Image but the type that getClass return for 'image'.
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:1371
 
@@ -2751,7 +2771,7 @@ src/shapes/Object/Object.ts:1371
 
 ### collectObjects()
 
-> **collectObjects**(`bbox`, `options`): `InteractiveFabricObject`\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>[]
+> **collectObjects**(`bbox`, `options`): `InteractiveFabricObject`\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>[]
 
 Given a bounding box, return all the objects of the collection that are contained in the bounding box.
 If `includeIntersecting` is true, return also the objects that intersect the bounding box as well.
@@ -2759,27 +2779,27 @@ This is meant to work with selection. Is not a generic method.
 
 #### Parameters
 
-• **bbox**: [`TBBox`](../type-aliases/TBBox.md)
+• **bbox**: [`TBBox`](/api/type-aliases/tbbox/)
 
 a bounding box in scene coordinates
 
-• **options**= `{}`
+• **options** = `{}`
 
 an object with includeIntersecting
 
-• **options\.includeIntersecting?**: `boolean`= `true`
+• **options.includeIntersecting?**: `boolean` = `true`
 
 #### Returns
 
-`InteractiveFabricObject`\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>[]
+`InteractiveFabricObject`\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>[]
 
 array of objects contained in the bounding box, ordered from top to bottom stacking wise
 
 #### Inherited from
 
-[`Group`](Group.md).[`collectObjects`](Group.md#collectobjects)
+[`Group`](/api/classes/group/).[`collectObjects`](/api/classes/group/#collectobjects)
 
-#### Source
+#### Defined in
 
 src/Collection.ts:326
 
@@ -2789,8 +2809,6 @@ src/Collection.ts:326
 
 > **complexity**(): `number`
 
-Returns number representation of a collection complexity
-
 #### Returns
 
 `number`
@@ -2799,9 +2817,9 @@ complexity
 
 #### Inherited from
 
-[`Group`](Group.md).[`complexity`](Group.md#complexity)
+[`Group`](/api/classes/group/).[`complexity`](/api/classes/group/#complexity)
 
-#### Source
+#### Defined in
 
 src/Collection.ts:165
 
@@ -2817,7 +2835,7 @@ instead of `a.contains(b)` use `b.isDescendantOf(a)`
 
 #### Parameters
 
-• **object**: [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **object**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 Object to check against
 
@@ -2833,9 +2851,9 @@ Object to check against
 
 #### Inherited from
 
-[`Group`](Group.md).[`contains`](Group.md#contains)
+[`Group`](/api/classes/group/).[`contains`](/api/classes/group/#contains)
 
-#### Source
+#### Defined in
 
 src/Collection.ts:148
 
@@ -2849,7 +2867,7 @@ Checks if point is inside the object
 
 #### Parameters
 
-• **point**: [`Point`](Point.md)
+• **point**: [`Point`](/api/classes/point/)
 
 Point to check against
 
@@ -2861,9 +2879,9 @@ true if point is inside the object
 
 #### Inherited from
 
-[`Group`](Group.md).[`containsPoint`](Group.md#containspoint)
+[`Group`](/api/classes/group/).[`containsPoint`](/api/classes/group/#containspoint)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:269
 
@@ -2873,15 +2891,18 @@ src/shapes/Object/ObjectGeometry.ts:269
 
 > **dispose**(): `void`
 
+cancel instance's running animations
+override if necessary to dispose artifacts such as `clipPath`
+
 #### Returns
 
 `void`
 
 #### Inherited from
 
-[`Group`](Group.md).[`dispose`](Group.md#dispose)
+[`Group`](/api/classes/group/).[`dispose`](/api/classes/group/#dispose)
 
-#### Source
+#### Defined in
 
 src/shapes/Group.ts:571
 
@@ -2901,7 +2922,7 @@ Requires public options: padding, borderColor
 
 Context to draw on
 
-• **options**: `Required`\<`Omit`\<[`TComposeMatrixArgs`](../namespaces/util/type-aliases/TComposeMatrixArgs.md), `"flipX"` \| `"flipY"`\>\>
+• **options**: `Required`\<`Omit`\<[`TComposeMatrixArgs`](/api/namespaces/util/type-aliases/tcomposematrixargs/), `"flipX"` \| `"flipY"`\>\>
 
 object representing current object parameters
 
@@ -2915,9 +2936,9 @@ object to override the object style
 
 #### Inherited from
 
-[`Group`](Group.md).[`drawBorders`](Group.md#drawborders)
+[`Group`](/api/classes/group/).[`drawBorders`](/api/classes/group/#drawborders)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:442
 
@@ -2931,7 +2952,7 @@ Paint the cached copy of the object on the target context.
 
 #### Parameters
 
-• **this**: `TCachedFabricObject`\<`FabricObject`\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>\>
+• **this**: `TCachedFabricObject`\<`FabricObject`\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>\>
 
 • **ctx**: `CanvasRenderingContext2D`
 
@@ -2943,9 +2964,9 @@ Context to render on
 
 #### Inherited from
 
-[`Group`](Group.md).[`drawCacheOnCanvas`](Group.md#drawcacheoncanvas)
+[`Group`](/api/classes/group/).[`drawCacheOnCanvas`](/api/classes/group/#drawcacheoncanvas)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:995
 
@@ -2963,7 +2984,7 @@ Execute the drawing operation for an object clipPath
 
 Context to render on
 
-• **clipPath**: `TCachedFabricObject`\<`FabricObject`\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>\>
+• **clipPath**: `TCachedFabricObject`\<`FabricObject`\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>\>
 
 #### Returns
 
@@ -2971,9 +2992,9 @@ Context to render on
 
 #### Inherited from
 
-[`Group`](Group.md).[`drawClipPathOnCache`](Group.md#drawclippathoncache)
+[`Group`](/api/classes/group/).[`drawClipPathOnCache`](/api/classes/group/#drawclippathoncache)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:924
 
@@ -2993,7 +3014,7 @@ Requires public options: cornerSize, padding
 
 Context to draw on
 
-• **styleOverride**: `Partial`\<`Pick`\<`InteractiveFabricObject`\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>, `"cornerStyle"` \| `"cornerSize"` \| `"cornerColor"` \| `"cornerStrokeColor"` \| `"cornerDashArray"` \| `"transparentCorners"`\>\>= `{}`
+• **styleOverride**: `Partial`\<`Pick`\<`InteractiveFabricObject`\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>, `"cornerStyle"` \| `"cornerSize"` \| `"cornerColor"` \| `"cornerStrokeColor"` \| `"cornerDashArray"` \| `"transparentCorners"`\>\> = `{}`
 
 object to override the object style
 
@@ -3003,9 +3024,9 @@ object to override the object style
 
 #### Inherited from
 
-[`Group`](Group.md).[`drawControls`](Group.md#drawcontrols)
+[`Group`](/api/classes/group/).[`drawControls`](/api/classes/group/#drawcontrols)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:511
 
@@ -3025,7 +3046,7 @@ Requires public options: padding, borderColor
 
 Context to draw on
 
-• **size**: [`Point`](Point.md)
+• **size**: [`Point`](/api/classes/point/)
 
 object size x = width, y = height
 
@@ -3035,9 +3056,9 @@ object size x = width, y = height
 
 #### Inherited from
 
-[`Group`](Group.md).[`drawControlsConnectingLines`](Group.md#drawcontrolsconnectinglines)
+[`Group`](/api/classes/group/).[`drawControlsConnectingLines`](/api/classes/group/#drawcontrolsconnectinglines)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:481
 
@@ -3061,9 +3082,9 @@ Context to render on
 
 #### Inherited from
 
-[`Group`](Group.md).[`drawObject`](Group.md#drawobject)
+[`Group`](/api/classes/group/).[`drawObject`](/api/classes/group/#drawobject)
 
-#### Source
+#### Defined in
 
 src/shapes/Group.ts:464
 
@@ -3090,7 +3111,7 @@ Context to draw on
 
 #### Inherited from
 
-[`Group`](Group.md).[`drawSelectionBackground`](Group.md#drawselectionbackground)
+[`Group`](/api/classes/group/).[`drawSelectionBackground`](/api/classes/group/#drawselectionbackground)
 
 #### Todo
 
@@ -3098,7 +3119,7 @@ evaluate if make this disappear in favor of a pre-render hook for objects
 this was added by Andrea Bogazzi to make possible some feature for work reasons
 it seemed a good option, now is an edge case
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:339
 
@@ -3110,11 +3131,11 @@ src/shapes/Object/InteractiveObject.ts:339
 
 Compare ancestors
 
-#### Type parameters
+#### Type Parameters
 
-• **T** extends [`ActiveSelection`](ActiveSelection.md)
+• **T** *extends* [`ActiveSelection`](/api/classes/activeselection/)
 
-• **S** extends `boolean`
+• **S** *extends* `boolean`
 
 #### Parameters
 
@@ -3132,9 +3153,9 @@ an object that represent the ancestry situation.
 
 #### Inherited from
 
-[`Group`](Group.md).[`findCommonAncestors`](Group.md#findcommonancestors)
+[`Group`](/api/classes/group/).[`findCommonAncestors`](/api/classes/group/#findcommonancestors)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/StackedObject.ts:90
 
@@ -3146,7 +3167,7 @@ src/shapes/Object/StackedObject.ts:90
 
 #### Parameters
 
-• **object**: [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **object**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 • **idx**: `number`
 
@@ -3158,9 +3179,9 @@ src/shapes/Object/StackedObject.ts:90
 
 #### Inherited from
 
-[`Group`](Group.md).[`findNewLowerIndex`](Group.md#findnewlowerindex)
+[`Group`](/api/classes/group/).[`findNewLowerIndex`](/api/classes/group/#findnewlowerindex)
 
-#### Source
+#### Defined in
 
 src/Collection.ts:272
 
@@ -3172,7 +3193,7 @@ src/Collection.ts:272
 
 #### Parameters
 
-• **object**: [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **object**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 • **idx**: `number`
 
@@ -3184,9 +3205,9 @@ src/Collection.ts:272
 
 #### Inherited from
 
-[`Group`](Group.md).[`findNewUpperIndex`](Group.md#findnewupperindex)
+[`Group`](/api/classes/group/).[`findNewUpperIndex`](/api/classes/group/#findnewupperindex)
 
-#### Source
+#### Defined in
 
 src/Collection.ts:295
 
@@ -3198,9 +3219,9 @@ src/Collection.ts:295
 
 Fires event with an optional options object
 
-#### Type parameters
+#### Type Parameters
 
-• **K** extends keyof [`GroupEvents`](../interfaces/GroupEvents.md)
+• **K** *extends* keyof [`GroupEvents`](/api/interfaces/groupevents/)
 
 #### Parameters
 
@@ -3208,7 +3229,7 @@ Fires event with an optional options object
 
 Event name to fire
 
-• **options?**: [`GroupEvents`](../interfaces/GroupEvents.md)\[`K`\]
+• **options?**: [`GroupEvents`](/api/interfaces/groupevents/)\[`K`\]
 
 Options object
 
@@ -3218,9 +3239,9 @@ Options object
 
 #### Inherited from
 
-[`Group`](Group.md).[`fire`](Group.md#fire)
+[`Group`](/api/classes/group/).[`fire`](/api/classes/group/#fire)
 
-#### Source
+#### Defined in
 
 src/Observable.ts:159
 
@@ -3245,9 +3266,9 @@ function to iterate over the controls over
 
 #### Inherited from
 
-[`Group`](Group.md).[`forEachControl`](Group.md#foreachcontrol)
+[`Group`](/api/classes/group/).[`forEachControl`](/api/classes/group/#foreachcontrol)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:317
 
@@ -3274,9 +3295,9 @@ Callback invoked with current object as first argument,
 
 #### Inherited from
 
-[`Group`](Group.md).[`forEachObject`](Group.md#foreachobject)
+[`Group`](/api/classes/group/).[`forEachObject`](/api/classes/group/#foreachobject)
 
-#### Source
+#### Defined in
 
 src/Collection.ts:91
 
@@ -3302,9 +3323,9 @@ value of a property
 
 #### Inherited from
 
-[`Group`](Group.md).[`get`](Group.md#get)
+[`Group`](/api/classes/group/).[`get`](/api/classes/group/#get)
 
-#### Source
+#### Defined in
 
 src/CommonMethods.ts:59
 
@@ -3312,17 +3333,17 @@ src/CommonMethods.ts:59
 
 ### getActiveControl()
 
-> **getActiveControl**(): `undefined` \| `Object`
+> **getActiveControl**(): `undefined` \| `object`
 
 #### Returns
 
-`undefined` \| `Object`
+`undefined` \| `object`
 
 #### Inherited from
 
-[`Group`](Group.md).[`getActiveControl`](Group.md#getactivecontrol)
+[`Group`](/api/classes/group/).[`getActiveControl`](/api/classes/group/#getactivecontrol)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:170
 
@@ -3332,9 +3353,9 @@ src/shapes/Object/InteractiveObject.ts:170
 
 > **getAncestors**\<`T`\>(`strict`?): `Ancestors`\<`T`\>
 
-#### Type parameters
+#### Type Parameters
 
-• **T** extends `boolean`
+• **T** *extends* `boolean`
 
 #### Parameters
 
@@ -3350,9 +3371,9 @@ ancestors (excluding `ActiveSelection`) from bottom to top
 
 #### Inherited from
 
-[`Group`](Group.md).[`getAncestors`](Group.md#getancestors)
+[`Group`](/api/classes/group/).[`getAncestors`](/api/classes/group/#getancestors)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/StackedObject.ts:69
 
@@ -3360,22 +3381,22 @@ src/shapes/Object/StackedObject.ts:69
 
 ### getBoundingRect()
 
-> **getBoundingRect**(): [`TBBox`](../type-aliases/TBBox.md)
+> **getBoundingRect**(): [`TBBox`](/api/type-aliases/tbbox/)
 
 Returns coordinates of object's bounding rectangle (left, top, width, height)
 the box is intended as aligned to axis of canvas.
 
 #### Returns
 
-[`TBBox`](../type-aliases/TBBox.md)
+[`TBBox`](/api/type-aliases/tbbox/)
 
 Object with left, top, width, height properties
 
 #### Inherited from
 
-[`Group`](Group.md).[`getBoundingRect`](Group.md#getboundingrect)
+[`Group`](/api/classes/group/).[`getBoundingRect`](/api/classes/group/#getboundingrect)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:330
 
@@ -3391,9 +3412,9 @@ src/shapes/Object/ObjectGeometry.ts:330
 
 #### Inherited from
 
-[`Group`](Group.md).[`getCanvasRetinaScaling`](Group.md#getcanvasretinascaling)
+[`Group`](/api/classes/group/).[`getCanvasRetinaScaling`](/api/classes/group/#getcanvasretinascaling)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:387
 
@@ -3401,19 +3422,19 @@ src/shapes/Object/ObjectGeometry.ts:387
 
 ### getCenterPoint()
 
-> **getCenterPoint**(): [`Point`](Point.md)
+> **getCenterPoint**(): [`Point`](/api/classes/point/)
 
 Returns the center coordinates of the object relative to canvas
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
 #### Inherited from
 
-[`Group`](Group.md).[`getCenterPoint`](Group.md#getcenterpoint)
+[`Group`](/api/classes/group/).[`getCenterPoint`](/api/classes/group/#getcenterpoint)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:174
 
@@ -3421,19 +3442,19 @@ src/shapes/Object/ObjectOrigin.ts:174
 
 ### getCoords()
 
-> **getCoords**(): [`Point`](Point.md)[]
+> **getCoords**(): [`Point`](/api/classes/point/)[]
 
 #### Returns
 
-[`Point`](Point.md)[]
+[`Point`](/api/classes/point/)[]
 
 [tl, tr, br, bl] in the scene plane
 
 #### Inherited from
 
-[`Group`](Group.md).[`getCoords`](Group.md#getcoords)
+[`Group`](/api/classes/group/).[`getCoords`](/api/classes/group/#getcoords)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:191
 
@@ -3451,9 +3472,9 @@ Return the object opacity counting also the group property
 
 #### Inherited from
 
-[`Group`](Group.md).[`getObjectOpacity`](Group.md#getobjectopacity)
+[`Group`](/api/classes/group/).[`getObjectOpacity`](/api/classes/group/#getobjectopacity)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:690
 
@@ -3461,19 +3482,19 @@ src/shapes/Object/Object.ts:690
 
 ### getObjectScaling()
 
-> **getObjectScaling**(): [`Point`](Point.md)
+> **getObjectScaling**(): [`Point`](/api/classes/point/)
 
 Return the object scale factor counting also the group scaling
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
 #### Inherited from
 
-[`Group`](Group.md).[`getObjectScaling`](Group.md#getobjectscaling)
+[`Group`](/api/classes/group/).[`getObjectScaling`](/api/classes/group/#getobjectscaling)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:659
 
@@ -3481,7 +3502,7 @@ src/shapes/Object/Object.ts:659
 
 ### getObjects()
 
-> **getObjects**(...`types`?): [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>[]
+> **getObjects**(...`types`?): [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>[]
 
 Returns an array of children objects of this instance
 
@@ -3493,13 +3514,13 @@ When specified, only objects of these types are returned
 
 #### Returns
 
-[`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>[]
+[`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>[]
 
 #### Inherited from
 
-[`Group`](Group.md).[`getObjects`](Group.md#getobjects)
+[`Group`](/api/classes/group/).[`getObjects`](/api/classes/group/#getobjects)
 
-#### Source
+#### Defined in
 
 src/Collection.ts:108
 
@@ -3507,29 +3528,29 @@ src/Collection.ts:108
 
 ### getPointByOrigin()
 
-> **getPointByOrigin**(`originX`, `originY`): [`Point`](Point.md)
+> **getPointByOrigin**(`originX`, `originY`): [`Point`](/api/classes/point/)
 
 Returns the coordinates of the object as if it has a different origin
 
 #### Parameters
 
-• **originX**: [`TOriginX`](../type-aliases/TOriginX.md)
+• **originX**: [`TOriginX`](/api/type-aliases/toriginx/)
 
 Horizontal origin: 'left', 'center' or 'right'
 
-• **originY**: [`TOriginY`](../type-aliases/TOriginY.md)
+• **originY**: [`TOriginY`](/api/type-aliases/toriginy/)
 
 Vertical origin: 'top', 'center' or 'bottom'
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
 #### Inherited from
 
-[`Group`](Group.md).[`getPointByOrigin`](Group.md#getpointbyorigin)
+[`Group`](/api/classes/group/).[`getPointByOrigin`](/api/classes/group/#getpointbyorigin)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:199
 
@@ -3537,19 +3558,19 @@ src/shapes/Object/ObjectOrigin.ts:199
 
 ### getRelativeCenterPoint()
 
-> **getRelativeCenterPoint**(): [`Point`](Point.md)
+> **getRelativeCenterPoint**(): [`Point`](/api/classes/point/)
 
 Returns the center coordinates of the object relative to it's parent
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
 #### Inherited from
 
-[`Group`](Group.md).[`getRelativeCenterPoint`](Group.md#getrelativecenterpoint)
+[`Group`](/api/classes/group/).[`getRelativeCenterPoint`](/api/classes/group/#getrelativecenterpoint)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:185
 
@@ -3563,14 +3584,14 @@ src/shapes/Object/ObjectOrigin.ts:185
 
 `number`
 
-x position according to object's [originX](FabricObject.md#originx) property in parent's coordinate plane\
-if parent is canvas then this property is identical to [getX](ActiveSelection.md#getx)
+x position according to object's [originX](/api/api/classes/fabricobject/originx/#originx) property in parent's coordinate plane\
+if parent is canvas then this property is identical to [getX](/api/api/classes/activeselection/getx/#getx)
 
 #### Inherited from
 
-[`Group`](Group.md).[`getRelativeX`](Group.md#getrelativex)
+[`Group`](/api/classes/group/).[`getRelativeX`](/api/classes/group/#getrelativex)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:102
 
@@ -3578,19 +3599,19 @@ src/shapes/Object/ObjectGeometry.ts:102
 
 ### getRelativeXY()
 
-> **getRelativeXY**(): [`Point`](Point.md)
+> **getRelativeXY**(): [`Point`](/api/classes/point/)
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
-x,y position according to object's [originX](FabricObject.md#originx) [originY](FabricObject.md#originy) properties in parent's coordinate plane
+x,y position according to object's [originX](/api/api/classes/fabricobject/originx/#originx) [originY](/api/api/classes/fabricobject/originy/#originy) properties in parent's coordinate plane
 
 #### Inherited from
 
-[`Group`](Group.md).[`getRelativeXY`](Group.md#getrelativexy)
+[`Group`](/api/classes/group/).[`getRelativeXY`](/api/classes/group/#getrelativexy)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:163
 
@@ -3604,14 +3625,14 @@ src/shapes/Object/ObjectGeometry.ts:163
 
 `number`
 
-y position according to object's [originY](FabricObject.md#originy) property in parent's coordinate plane\
-if parent is canvas then this property is identical to [getY](ActiveSelection.md#gety)
+y position according to object's [originY](/api/api/classes/fabricobject/originy/#originy) property in parent's coordinate plane\
+if parent is canvas then this property is identical to [getY](/api/api/classes/activeselection/gety/#gety)
 
 #### Inherited from
 
-[`Group`](Group.md).[`getRelativeY`](Group.md#getrelativey)
+[`Group`](/api/classes/group/).[`getRelativeY`](/api/classes/group/#getrelativey)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:118
 
@@ -3631,13 +3652,13 @@ height value
 
 #### Inherited from
 
-[`Group`](Group.md).[`getScaledHeight`](Group.md#getscaledheight)
+[`Group`](/api/classes/group/).[`getScaledHeight`](/api/classes/group/#getscaledheight)
 
 #### Todo
 
 shouldn't this account for group transform and return the actual size in canvas coordinate plane?
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:348
 
@@ -3657,13 +3678,13 @@ width value
 
 #### Inherited from
 
-[`Group`](Group.md).[`getScaledWidth`](Group.md#getscaledwidth)
+[`Group`](/api/classes/group/).[`getScaledWidth`](/api/classes/group/#getscaledwidth)
 
 #### Todo
 
 shouldn't this account for group transform and return the actual size in canvas coordinate plane?
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:339
 
@@ -3677,7 +3698,7 @@ Returns id attribute for svg output
 
 #### Parameters
 
-• **this**: `FabricObjectSVGExportMixin` & [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\> & `Object`
+• **this**: `FabricObjectSVGExportMixin` & [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\> & `object`
 
 #### Returns
 
@@ -3685,9 +3706,9 @@ Returns id attribute for svg output
 
 #### Inherited from
 
-[`Group`](Group.md).[`getSvgCommons`](Group.md#getsvgcommons)
+[`Group`](/api/classes/group/).[`getSvgCommons`](/api/classes/group/#getsvgcommons)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/FabricObjectSVGExportMixin.ts:84
 
@@ -3701,7 +3722,7 @@ Returns filter for svg shadow
 
 #### Parameters
 
-• **this**: `FabricObjectSVGExportMixin` & [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **this**: `FabricObjectSVGExportMixin` & [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 #### Returns
 
@@ -3709,9 +3730,9 @@ Returns filter for svg shadow
 
 #### Inherited from
 
-[`Group`](Group.md).[`getSvgFilter`](Group.md#getsvgfilter)
+[`Group`](/api/classes/group/).[`getSvgFilter`](/api/classes/group/#getsvgfilter)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/FabricObjectSVGExportMixin.ts:76
 
@@ -3729,9 +3750,9 @@ Returns styles-string for svg-export, specific version for group
 
 #### Inherited from
 
-[`Group`](Group.md).[`getSvgStyles`](Group.md#getsvgstyles)
+[`Group`](/api/classes/group/).[`getSvgStyles`](/api/classes/group/#getsvgstyles)
 
-#### Source
+#### Defined in
 
 src/shapes/Group.ts:618
 
@@ -3745,11 +3766,11 @@ Returns transform-string for svg-export
 
 #### Parameters
 
-• **this**: `FabricObjectSVGExportMixin` & [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **this**: `FabricObjectSVGExportMixin` & [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 • **full?**: `boolean`
 
-• **additionalTransform?**: `string`= `''`
+• **additionalTransform?**: `string` = `''`
 
 #### Returns
 
@@ -3757,9 +3778,9 @@ Returns transform-string for svg-export
 
 #### Inherited from
 
-[`Group`](Group.md).[`getSvgTransform`](Group.md#getsvgtransform)
+[`Group`](/api/classes/group/).[`getSvgTransform`](/api/classes/group/#getsvgtransform)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/FabricObjectSVGExportMixin.ts:103
 
@@ -3767,19 +3788,19 @@ src/shapes/Object/FabricObjectSVGExportMixin.ts:103
 
 ### getTotalAngle()
 
-> **getTotalAngle**(): [`TDegree`](../type-aliases/TDegree.md)
+> **getTotalAngle**(): [`TDegree`](/api/type-aliases/tdegree/)
 
 Returns the object angle relative to canvas counting also the group property
 
 #### Returns
 
-[`TDegree`](../type-aliases/TDegree.md)
+[`TDegree`](/api/type-aliases/tdegree/)
 
 #### Inherited from
 
-[`Group`](Group.md).[`getTotalAngle`](Group.md#gettotalangle)
+[`Group`](/api/classes/group/).[`getTotalAngle`](/api/classes/group/#gettotalangle)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:395
 
@@ -3787,21 +3808,21 @@ src/shapes/Object/ObjectGeometry.ts:395
 
 ### getTotalObjectScaling()
 
-> **getTotalObjectScaling**(): [`Point`](Point.md)
+> **getTotalObjectScaling**(): [`Point`](/api/classes/point/)
 
 Return the object scale factor counting also the group scaling, zoom and retina
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
 object with scaleX and scaleY properties
 
 #### Inherited from
 
-[`Group`](Group.md).[`getTotalObjectScaling`](Group.md#gettotalobjectscaling)
+[`Group`](/api/classes/group/).[`getTotalObjectScaling`](/api/classes/group/#gettotalobjectscaling)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:676
 
@@ -3809,19 +3830,19 @@ src/shapes/Object/Object.ts:676
 
 ### getViewportTransform()
 
-> **getViewportTransform**(): [`TMat2D`](../type-aliases/TMat2D.md)
+> **getViewportTransform**(): [`TMat2D`](/api/type-aliases/tmat2d/)
 
 Retrieves viewportTransform from Object's canvas if available
 
 #### Returns
 
-[`TMat2D`](../type-aliases/TMat2D.md)
+[`TMat2D`](/api/type-aliases/tmat2d/)
 
 #### Inherited from
 
-[`Group`](Group.md).[`getViewportTransform`](Group.md#getviewporttransform)
+[`Group`](/api/classes/group/).[`getViewportTransform`](/api/classes/group/#getviewporttransform)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:405
 
@@ -3835,13 +3856,13 @@ src/shapes/Object/ObjectGeometry.ts:405
 
 `number`
 
-x position according to object's [originX](FabricObject.md#originx) property in canvas coordinate plane
+x position according to object's [originX](/api/api/classes/fabricobject/originx/#originx) property in canvas coordinate plane
 
 #### Inherited from
 
-[`Group`](Group.md).[`getX`](Group.md#getx)
+[`Group`](/api/classes/group/).[`getX`](/api/classes/group/#getx)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:73
 
@@ -3849,19 +3870,19 @@ src/shapes/Object/ObjectGeometry.ts:73
 
 ### getXY()
 
-> **getXY**(): [`Point`](Point.md)
+> **getXY**(): [`Point`](/api/classes/point/)
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
-x position according to object's [originX](FabricObject.md#originx) [originY](FabricObject.md#originy) properties in canvas coordinate plane
+x position according to object's [originX](/api/api/classes/fabricobject/originx/#originx) [originY](/api/api/classes/fabricobject/originy/#originy) properties in canvas coordinate plane
 
 #### Inherited from
 
-[`Group`](Group.md).[`getXY`](Group.md#getxy)
+[`Group`](/api/classes/group/).[`getXY`](/api/classes/group/#getxy)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:133
 
@@ -3875,13 +3896,13 @@ src/shapes/Object/ObjectGeometry.ts:133
 
 `number`
 
-y position according to object's [originY](FabricObject.md#originy) property in canvas coordinate plane
+y position according to object's [originY](/api/api/classes/fabricobject/originy/#originy) property in canvas coordinate plane
 
 #### Inherited from
 
-[`Group`](Group.md).[`getY`](Group.md#gety)
+[`Group`](/api/classes/group/).[`getY`](/api/classes/group/#gety)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:87
 
@@ -3891,9 +3912,9 @@ src/shapes/Object/ObjectGeometry.ts:87
 
 > **hasCommonAncestors**\<`T`\>(`other`, `strict`?): `boolean`
 
-#### Type parameters
+#### Type Parameters
 
-• **T** extends [`ActiveSelection`](ActiveSelection.md)
+• **T** *extends* [`ActiveSelection`](/api/classes/activeselection/)
 
 #### Parameters
 
@@ -3909,9 +3930,9 @@ checks only ancestors that are objects (without canvas)
 
 #### Inherited from
 
-[`Group`](Group.md).[`hasCommonAncestors`](Group.md#hascommonancestors)
+[`Group`](/api/classes/group/).[`hasCommonAncestors`](/api/classes/group/#hascommonancestors)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/StackedObject.ts:159
 
@@ -3936,13 +3957,13 @@ Boolean
 
 #### Inherited from
 
-[`Group`](Group.md).[`hasFill`](Group.md#hasfill)
+[`Group`](/api/classes/group/).[`hasFill`](/api/classes/group/#hasfill)
 
 #### Since
 
 3.0.0
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:864
 
@@ -3967,13 +3988,13 @@ Boolean
 
 #### Inherited from
 
-[`Group`](Group.md).[`hasStroke`](Group.md#hasstroke)
+[`Group`](/api/classes/group/).[`hasStroke`](/api/classes/group/#hasstroke)
 
 #### Since
 
 3.0.0
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:848
 
@@ -3991,7 +4012,7 @@ Inserts an object into collection at specified index
 
 Index to insert object at
 
-• ...**objects**: [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>[]
+• ...**objects**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>[]
 
 Object to insert
 
@@ -4001,9 +4022,9 @@ Object to insert
 
 #### Inherited from
 
-[`Group`](Group.md).[`insertAt`](Group.md#insertat)
+[`Group`](/api/classes/group/).[`insertAt`](/api/classes/group/#insertat)
 
-#### Source
+#### Defined in
 
 src/shapes/Group.ts:211
 
@@ -4017,7 +4038,7 @@ Checks if object intersects with another object
 
 #### Parameters
 
-• **other**: `ObjectGeometry`\<[`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **other**: `ObjectGeometry`\<[`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 Object to test
 
@@ -4029,9 +4050,9 @@ true if object intersects with another object
 
 #### Inherited from
 
-[`Group`](Group.md).[`intersectsWithObject`](Group.md#intersectswithobject)
+[`Group`](/api/classes/group/).[`intersectsWithObject`](/api/classes/group/#intersectswithobject)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:219
 
@@ -4045,9 +4066,9 @@ Checks if object intersects with the scene rect formed by tl and br
 
 #### Parameters
 
-• **tl**: [`Point`](Point.md)
+• **tl**: [`Point`](/api/classes/point/)
 
-• **br**: [`Point`](Point.md)
+• **br**: [`Point`](/api/classes/point/)
 
 #### Returns
 
@@ -4055,9 +4076,9 @@ Checks if object intersects with the scene rect formed by tl and br
 
 #### Inherited from
 
-[`Group`](Group.md).[`intersectsWithRect`](Group.md#intersectswithrect)
+[`Group`](/api/classes/group/).[`intersectsWithRect`](/api/classes/group/#intersectswithrect)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:205
 
@@ -4071,7 +4092,7 @@ Check if cache is dirty
 
 #### Parameters
 
-• **skipCanvas**: `boolean`= `false`
+• **skipCanvas**: `boolean` = `false`
 
 skip canvas checks because this object is painted
 on parent canvas.
@@ -4082,9 +4103,9 @@ on parent canvas.
 
 #### Inherited from
 
-[`Group`](Group.md).[`isCacheDirty`](Group.md#iscachedirty)
+[`Group`](/api/classes/group/).[`isCacheDirty`](/api/classes/group/#iscachedirty)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:1009
 
@@ -4098,7 +4119,7 @@ Checks if object is fully contained within area of another object
 
 #### Parameters
 
-• **other**: `ObjectGeometry`\<[`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **other**: `ObjectGeometry`\<[`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 Object to test
 
@@ -4110,9 +4131,9 @@ true if object is fully contained within area of another object
 
 #### Inherited from
 
-[`Group`](Group.md).[`isContainedWithinObject`](Group.md#iscontainedwithinobject)
+[`Group`](/api/classes/group/).[`isContainedWithinObject`](/api/classes/group/#iscontainedwithinobject)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:238
 
@@ -4126,9 +4147,9 @@ Checks if object is fully contained within the scene rect formed by tl and br
 
 #### Parameters
 
-• **tl**: [`Point`](Point.md)
+• **tl**: [`Point`](/api/classes/point/)
 
-• **br**: [`Point`](Point.md)
+• **br**: [`Point`](/api/classes/point/)
 
 #### Returns
 
@@ -4136,9 +4157,9 @@ Checks if object is fully contained within the scene rect formed by tl and br
 
 #### Inherited from
 
-[`Group`](Group.md).[`isContainedWithinRect`](Group.md#iscontainedwithinrect)
+[`Group`](/api/classes/group/).[`isContainedWithinRect`](/api/classes/group/#iscontainedwithinrect)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:246
 
@@ -4165,9 +4186,9 @@ true if the specified control is visible, false otherwise
 
 #### Inherited from
 
-[`Group`](Group.md).[`isControlVisible`](Group.md#iscontrolvisible)
+[`Group`](/api/classes/group/).[`isControlVisible`](/api/classes/group/#iscontrolvisible)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:546
 
@@ -4190,9 +4211,9 @@ Should be used instead of [Group.contains](../../../../api/classes/group/#contai
 
 #### Inherited from
 
-[`Group`](Group.md).[`isDescendantOf`](Group.md#isdescendantof)
+[`Group`](/api/classes/group/).[`isDescendantOf`](/api/classes/group/#isdescendantof)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/StackedObject.ts:52
 
@@ -4212,9 +4233,9 @@ true if collection is empty
 
 #### Inherited from
 
-[`Group`](Group.md).[`isEmpty`](Group.md#isempty)
+[`Group`](/api/classes/group/).[`isEmpty`](/api/classes/group/#isempty)
 
-#### Source
+#### Defined in
 
 src/Collection.ts:128
 
@@ -4224,9 +4245,9 @@ src/Collection.ts:128
 
 > **isInFrontOf**\<`T`\>(`other`): `undefined` \| `boolean`
 
-#### Type parameters
+#### Type Parameters
 
-• **T** extends [`ActiveSelection`](ActiveSelection.md)
+• **T** *extends* [`ActiveSelection`](/api/classes/activeselection/)
 
 #### Parameters
 
@@ -4242,9 +4263,9 @@ if objects do not share a common ancestor or they are strictly equal it is impos
 
 #### Inherited from
 
-[`Group`](Group.md).[`isInFrontOf`](Group.md#isinfrontof)
+[`Group`](/api/classes/group/).[`isInFrontOf`](/api/classes/group/#isinfrontof)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/StackedObject.ts:169
 
@@ -4260,9 +4281,9 @@ src/shapes/Object/StackedObject.ts:169
 
 #### Inherited from
 
-[`Group`](Group.md).[`isNotVisible`](Group.md#isnotvisible)
+[`Group`](/api/classes/group/).[`isNotVisible`](/api/classes/group/#isnotvisible)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:771
 
@@ -4280,9 +4301,9 @@ Check if this group or its parent group are caching, recursively up
 
 #### Overrides
 
-[`Group`](Group.md).[`isOnACache`](Group.md#isonacache)
+[`Group`](/api/classes/group/).[`isOnACache`](/api/classes/group/#isonacache)
 
-#### Source
+#### Defined in
 
 src/shapes/ActiveSelection.ts:205
 
@@ -4303,9 +4324,9 @@ true if object is fully or partially contained within canvas
 
 #### Inherited from
 
-[`Group`](Group.md).[`isOnScreen`](Group.md#isonscreen)
+[`Group`](/api/classes/group/).[`isOnScreen`](/api/classes/group/#isonscreen)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:278
 
@@ -4315,9 +4336,9 @@ src/shapes/Object/ObjectGeometry.ts:278
 
 > **isOverlapping**\<`T`\>(`other`): `boolean`
 
-#### Type parameters
+#### Type Parameters
 
-• **T** extends `ObjectGeometry`\<[`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **T** *extends* `ObjectGeometry`\<[`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 #### Parameters
 
@@ -4329,9 +4350,9 @@ src/shapes/Object/ObjectGeometry.ts:278
 
 #### Inherited from
 
-[`Group`](Group.md).[`isOverlapping`](Group.md#isoverlapping)
+[`Group`](/api/classes/group/).[`isOverlapping`](/api/classes/group/#isoverlapping)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:256
 
@@ -4351,9 +4372,9 @@ true if object is partially contained within canvas
 
 #### Inherited from
 
-[`Group`](Group.md).[`isPartiallyOnScreen`](Group.md#ispartiallyonscreen)
+[`Group`](/api/classes/group/).[`isPartiallyOnScreen`](/api/classes/group/#ispartiallyonscreen)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:308
 
@@ -4375,9 +4396,9 @@ Returns true if any of the specified types is identical to the type of an instan
 
 #### Inherited from
 
-[`Group`](Group.md).[`isType`](Group.md#istype)
+[`Group`](/api/classes/group/).[`isType`](/api/classes/group/#istype)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:1502
 
@@ -4385,7 +4406,7 @@ src/shapes/Object/Object.ts:1502
 
 ### item()
 
-> **item**(`index`): [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+> **item**(`index`): [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 Returns object at specified index
 
@@ -4395,15 +4416,15 @@ Returns object at specified index
 
 #### Returns
 
-[`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+[`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 object at index
 
 #### Inherited from
 
-[`Group`](Group.md).[`item`](Group.md#item)
+[`Group`](/api/classes/group/).[`item`](/api/classes/group/#item)
 
-#### Source
+#### Defined in
 
 src/Collection.ts:120
 
@@ -4417,7 +4438,7 @@ Moves an object to specified level in stack of drawn objects
 
 #### Parameters
 
-• **object**: [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **object**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 Object to send
 
@@ -4433,9 +4454,9 @@ true if change occurred
 
 #### Inherited from
 
-[`Group`](Group.md).[`moveObjectTo`](Group.md#moveobjectto)
+[`Group`](/api/classes/group/).[`moveObjectTo`](/api/classes/group/#moveobjectto)
 
-#### Source
+#### Defined in
 
 src/Collection.ts:262
 
@@ -4449,7 +4470,7 @@ Adds objects with respect to [multiSelectionStacking](../../../../api/classes/ac
 
 #### Parameters
 
-• ...**targets**: [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>[]
+• ...**targets**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>[]
 
 object to add to selection
 
@@ -4457,7 +4478,7 @@ object to add to selection
 
 `void`
 
-#### Source
+#### Defined in
 
 src/shapes/ActiveSelection.ts:72
 
@@ -4481,9 +4502,9 @@ Boolean
 
 #### Inherited from
 
-[`Group`](Group.md).[`needsItsOwnCache`](Group.md#needsitsowncache)
+[`Group`](/api/classes/group/).[`needsItsOwnCache`](/api/classes/group/#needsitsowncache)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:876
 
@@ -4497,9 +4518,9 @@ src/shapes/Object/Object.ts:876
 
 unsubscribe an event listener
 
-##### Type parameters
+##### Type Parameters
 
-• **K** extends keyof [`GroupEvents`](../interfaces/GroupEvents.md)
+• **K** *extends* keyof [`GroupEvents`](/api/interfaces/groupevents/)
 
 ##### Parameters
 
@@ -4517,9 +4538,9 @@ event listener to unsubscribe
 
 ##### Inherited from
 
-[`Group`](Group.md).[`off`](Group.md#off)
+[`Group`](/api/classes/group/).[`off`](/api/classes/group/#off)
 
-##### Source
+##### Defined in
 
 src/Observable.ts:120
 
@@ -4531,9 +4552,9 @@ unsubscribe event listeners
 
 ##### Parameters
 
-• **handlers**: `EventRegistryObject`\<[`GroupEvents`](../interfaces/GroupEvents.md)\>
+• **handlers**: `EventRegistryObject`\<[`GroupEvents`](/api/interfaces/groupevents/)\>
 
-handlers key/value pairs (eg. \{'after:render': handler, 'selection:cleared': handler\})
+handlers key/value pairs (eg. {'after:render': handler, 'selection:cleared': handler})
 
 ##### Returns
 
@@ -4541,9 +4562,9 @@ handlers key/value pairs (eg. \{'after:render': handler, 'selection:cleared': ha
 
 ##### Inherited from
 
-[`Group`](Group.md).[`off`](Group.md#off)
+[`Group`](/api/classes/group/).[`off`](/api/classes/group/#off)
 
-##### Source
+##### Defined in
 
 src/Observable.ts:125
 
@@ -4559,9 +4580,9 @@ unsubscribe all event listeners
 
 ##### Inherited from
 
-[`Group`](Group.md).[`off`](Group.md#off)
+[`Group`](/api/classes/group/).[`off`](/api/classes/group/#off)
 
-##### Source
+##### Defined in
 
 src/Observable.ts:129
 
@@ -4575,11 +4596,11 @@ src/Observable.ts:129
 
 Observes specified event
 
-##### Type parameters
+##### Type Parameters
 
-• **K** extends keyof [`GroupEvents`](../interfaces/GroupEvents.md)
+• **K** *extends* keyof [`GroupEvents`](/api/interfaces/groupevents/)
 
-• **E** extends [`TPointerEventInfo`](../interfaces/TPointerEventInfo.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\> \| [`TPointerEventInfo`](../interfaces/TPointerEventInfo.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\> & `Object` \| [`TPointerEventInfo`](../interfaces/TPointerEventInfo.md)\<`WheelEvent`\> \| [`TPointerEventInfo`](../interfaces/TPointerEventInfo.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\> & `InEvent` \| [`TPointerEventInfo`](../interfaces/TPointerEventInfo.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\> & `OutEvent` \| [`BasicTransformEvent`](../interfaces/BasicTransformEvent.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\> \| [`ModifiedEvent`](../interfaces/ModifiedEvent.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\> \| `Partial`\<[`TEvent`](../interfaces/TEvent.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\>\> & `Object` \| `Partial`\<[`TEvent`](../interfaces/TEvent.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\>\> & `Object` \| `Object` \| `Object` \| `Object` \| `TEventWithTarget`\<`DragEvent`\> \| [`DragEventData`](../interfaces/DragEventData.md) \| [`DragEventData`](../interfaces/DragEventData.md) & `InEvent` \| [`DragEventData`](../interfaces/DragEventData.md) & `OutEvent` \| [`DropEventData`](../interfaces/DropEventData.md) \| `SimpleEventHandler`\<`Event`\> \| `Object` \| `Object` \| [`LayoutBeforeEvent`](../type-aliases/LayoutBeforeEvent.md) \| [`LayoutAfterEvent`](../type-aliases/LayoutAfterEvent.md)
+• **E** *extends* [`TPointerEventInfo`](/api/interfaces/tpointereventinfo/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> \| [`TPointerEventInfo`](/api/interfaces/tpointereventinfo/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> & `object` \| [`TPointerEventInfo`](/api/interfaces/tpointereventinfo/)\<`WheelEvent`\> \| [`TPointerEventInfo`](/api/interfaces/tpointereventinfo/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> & `InEvent` \| [`TPointerEventInfo`](/api/interfaces/tpointereventinfo/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> & `OutEvent` \| [`BasicTransformEvent`](/api/interfaces/basictransformevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> \| [`ModifiedEvent`](/api/interfaces/modifiedevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> \| `Partial`\<[`TEvent`](/api/interfaces/tevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\>\> & `object` \| `Partial`\<[`TEvent`](/api/interfaces/tevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\>\> & `object` \| `object` \| `object` \| `object` \| `TEventWithTarget`\<`DragEvent`\> \| [`DragEventData`](/api/interfaces/drageventdata/) \| [`DragEventData`](/api/interfaces/drageventdata/) & `InEvent` \| [`DragEventData`](/api/interfaces/drageventdata/) & `OutEvent` \| [`DropEventData`](/api/interfaces/dropeventdata/) \| `SimpleEventHandler`\<`Event`\> \| `object` \| `object` \| [`LayoutBeforeEvent`](/api/type-aliases/layoutbeforeevent/) \| [`LayoutAfterEvent`](/api/type-aliases/layoutafterevent/)
 
 ##### Parameters
 
@@ -4599,13 +4620,13 @@ disposer
 
 ##### Inherited from
 
-[`Group`](Group.md).[`on`](Group.md#on)
+[`Group`](/api/classes/group/).[`on`](/api/classes/group/#on)
 
 ##### Alias
 
 on
 
-##### Source
+##### Defined in
 
 src/Observable.ts:23
 
@@ -4615,7 +4636,7 @@ src/Observable.ts:23
 
 ##### Parameters
 
-• **handlers**: `EventRegistryObject`\<[`GroupEvents`](../interfaces/GroupEvents.md)\>
+• **handlers**: `EventRegistryObject`\<[`GroupEvents`](/api/interfaces/groupevents/)\>
 
 ##### Returns
 
@@ -4623,9 +4644,9 @@ src/Observable.ts:23
 
 ##### Inherited from
 
-[`Group`](Group.md).[`on`](Group.md#on)
+[`Group`](/api/classes/group/).[`on`](/api/classes/group/#on)
 
-##### Source
+##### Defined in
 
 src/Observable.ts:27
 
@@ -4643,9 +4664,9 @@ remove all objects
 
 #### Overrides
 
-[`Group`](Group.md).[`onDeselect`](Group.md#ondeselect)
+[`Group`](/api/classes/group/).[`onDeselect`](/api/classes/group/#ondeselect)
 
-#### Source
+#### Defined in
 
 src/shapes/ActiveSelection.ts:176
 
@@ -4670,9 +4691,9 @@ true to handle the drag event
 
 #### Inherited from
 
-[`Group`](Group.md).[`onDragStart`](Group.md#ondragstart)
+[`Group`](/api/classes/group/).[`onDragStart`](/api/classes/group/#ondragstart)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:653
 
@@ -4691,7 +4712,7 @@ try to to select this object. If the function returns true, the process is cance
 
 options sent from the upper functions
 
-• **options\.e?**: [`TPointerEvent`](../type-aliases/TPointerEvent.md)
+• **options.e?**: [`TPointerEvent`](/api/type-aliases/tpointerevent/)
 
 event if the process is generated by an event
 
@@ -4701,9 +4722,9 @@ event if the process is generated by an event
 
 #### Inherited from
 
-[`Group`](Group.md).[`onSelect`](Group.md#onselect)
+[`Group`](/api/classes/group/).[`onSelect`](/api/classes/group/#onselect)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:634
 
@@ -4717,11 +4738,11 @@ src/shapes/Object/InteractiveObject.ts:634
 
 Observes specified event **once**
 
-##### Type parameters
+##### Type Parameters
 
-• **K** extends keyof [`GroupEvents`](../interfaces/GroupEvents.md)
+• **K** *extends* keyof [`GroupEvents`](/api/interfaces/groupevents/)
 
-• **E** extends [`TPointerEventInfo`](../interfaces/TPointerEventInfo.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\> \| [`TPointerEventInfo`](../interfaces/TPointerEventInfo.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\> & `Object` \| [`TPointerEventInfo`](../interfaces/TPointerEventInfo.md)\<`WheelEvent`\> \| [`TPointerEventInfo`](../interfaces/TPointerEventInfo.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\> & `InEvent` \| [`TPointerEventInfo`](../interfaces/TPointerEventInfo.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\> & `OutEvent` \| [`BasicTransformEvent`](../interfaces/BasicTransformEvent.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\> \| [`ModifiedEvent`](../interfaces/ModifiedEvent.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\> \| `Partial`\<[`TEvent`](../interfaces/TEvent.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\>\> & `Object` \| `Partial`\<[`TEvent`](../interfaces/TEvent.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\>\> & `Object` \| `Object` \| `Object` \| `Object` \| `TEventWithTarget`\<`DragEvent`\> \| [`DragEventData`](../interfaces/DragEventData.md) \| [`DragEventData`](../interfaces/DragEventData.md) & `InEvent` \| [`DragEventData`](../interfaces/DragEventData.md) & `OutEvent` \| [`DropEventData`](../interfaces/DropEventData.md) \| `SimpleEventHandler`\<`Event`\> \| `Object` \| `Object` \| [`LayoutBeforeEvent`](../type-aliases/LayoutBeforeEvent.md) \| [`LayoutAfterEvent`](../type-aliases/LayoutAfterEvent.md)
+• **E** *extends* [`TPointerEventInfo`](/api/interfaces/tpointereventinfo/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> \| [`TPointerEventInfo`](/api/interfaces/tpointereventinfo/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> & `object` \| [`TPointerEventInfo`](/api/interfaces/tpointereventinfo/)\<`WheelEvent`\> \| [`TPointerEventInfo`](/api/interfaces/tpointereventinfo/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> & `InEvent` \| [`TPointerEventInfo`](/api/interfaces/tpointereventinfo/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> & `OutEvent` \| [`BasicTransformEvent`](/api/interfaces/basictransformevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> \| [`ModifiedEvent`](/api/interfaces/modifiedevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> \| `Partial`\<[`TEvent`](/api/interfaces/tevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\>\> & `object` \| `Partial`\<[`TEvent`](/api/interfaces/tevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\>\> & `object` \| `object` \| `object` \| `object` \| `TEventWithTarget`\<`DragEvent`\> \| [`DragEventData`](/api/interfaces/drageventdata/) \| [`DragEventData`](/api/interfaces/drageventdata/) & `InEvent` \| [`DragEventData`](/api/interfaces/drageventdata/) & `OutEvent` \| [`DropEventData`](/api/interfaces/dropeventdata/) \| `SimpleEventHandler`\<`Event`\> \| `object` \| `object` \| [`LayoutBeforeEvent`](/api/type-aliases/layoutbeforeevent/) \| [`LayoutAfterEvent`](/api/type-aliases/layoutafterevent/)
 
 ##### Parameters
 
@@ -4741,13 +4762,13 @@ disposer
 
 ##### Inherited from
 
-[`Group`](Group.md).[`once`](Group.md#once)
+[`Group`](/api/classes/group/).[`once`](/api/classes/group/#once)
 
 ##### Alias
 
 once
 
-##### Source
+##### Defined in
 
 src/Observable.ts:62
 
@@ -4757,7 +4778,7 @@ src/Observable.ts:62
 
 ##### Parameters
 
-• **handlers**: `EventRegistryObject`\<[`GroupEvents`](../interfaces/GroupEvents.md)\>
+• **handlers**: `EventRegistryObject`\<[`GroupEvents`](/api/interfaces/groupevents/)\>
 
 ##### Returns
 
@@ -4765,9 +4786,9 @@ src/Observable.ts:62
 
 ##### Inherited from
 
-[`Group`](Group.md).[`once`](Group.md#once)
+[`Group`](/api/classes/group/).[`once`](/api/classes/group/#once)
 
-##### Source
+##### Defined in
 
 src/Observable.ts:66
 
@@ -4775,25 +4796,25 @@ src/Observable.ts:66
 
 ### remove()
 
-> **remove**(...`objects`): [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>[]
+> **remove**(...`objects`): [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>[]
 
 Remove objects
 
 #### Parameters
 
-• ...**objects**: [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>[]
+• ...**objects**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>[]
 
 #### Returns
 
-[`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>[]
+[`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>[]
 
 removed objects
 
 #### Inherited from
 
-[`Group`](Group.md).[`remove`](Group.md#remove)
+[`Group`](/api/classes/group/).[`remove`](/api/classes/group/#remove)
 
-#### Source
+#### Defined in
 
 src/shapes/Group.ts:223
 
@@ -4801,21 +4822,21 @@ src/shapes/Group.ts:223
 
 ### removeAll()
 
-> **removeAll**(): [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>[]
+> **removeAll**(): [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>[]
 
 Remove all objects
 
 #### Returns
 
-[`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>[]
+[`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>[]
 
 removed objects
 
 #### Inherited from
 
-[`Group`](Group.md).[`removeAll`](Group.md#removeall)
+[`Group`](/api/classes/group/).[`removeAll`](/api/classes/group/#removeall)
 
-#### Source
+#### Defined in
 
 src/shapes/Group.ts:290
 
@@ -4839,9 +4860,9 @@ context to render instance on
 
 #### Inherited from
 
-[`Group`](Group.md).[`render`](Group.md#render)
+[`Group`](/api/classes/group/).[`render`](/api/classes/group/#render)
 
-#### Source
+#### Defined in
 
 src/shapes/Group.ts:505
 
@@ -4861,9 +4882,9 @@ src/shapes/Group.ts:505
 
 #### Inherited from
 
-[`Group`](Group.md).[`renderCache`](Group.md#rendercache)
+[`Group`](/api/classes/group/).[`renderCache`](/api/classes/group/#rendercache)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:817
 
@@ -4887,9 +4908,9 @@ example: render the selection status for the part of text that is being dragged 
 
 #### Inherited from
 
-[`Group`](Group.md).[`renderDragSourceEffect`](Group.md#renderdragsourceeffect)
+[`Group`](/api/classes/group/).[`renderDragSourceEffect`](/api/classes/group/#renderdragsourceeffect)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:674
 
@@ -4914,9 +4935,9 @@ object will change when dropping. example: show the cursor where the text is abo
 
 #### Inherited from
 
-[`Group`](Group.md).[`renderDropTargetEffect`](Group.md#renderdroptargeteffect)
+[`Group`](/api/classes/group/).[`renderDropTargetEffect`](/api/classes/group/#renderdroptargeteffect)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:686
 
@@ -4930,7 +4951,7 @@ Sets "angle" of an instance with centered rotation
 
 #### Parameters
 
-• **angle**: [`TDegree`](../type-aliases/TDegree.md)
+• **angle**: [`TDegree`](/api/type-aliases/tdegree/)
 
 Angle value (in degrees)
 
@@ -4940,9 +4961,9 @@ Angle value (in degrees)
 
 #### Inherited from
 
-[`Group`](Group.md).[`rotate`](Group.md#rotate)
+[`Group`](/api/classes/group/).[`rotate`](/api/classes/group/#rotate)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:1530
 
@@ -4966,9 +4987,9 @@ Scale factor
 
 #### Inherited from
 
-[`Group`](Group.md).[`scale`](Group.md#scale)
+[`Group`](/api/classes/group/).[`scale`](/api/classes/group/#scale)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:357
 
@@ -4992,9 +5013,9 @@ New height value
 
 #### Inherited from
 
-[`Group`](Group.md).[`scaleToHeight`](Group.md#scaletoheight)
+[`Group`](/api/classes/group/).[`scaleToHeight`](/api/classes/group/#scaletoheight)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:380
 
@@ -5018,9 +5039,9 @@ New width value
 
 #### Inherited from
 
-[`Group`](Group.md).[`scaleToWidth`](Group.md#scaletowidth)
+[`Group`](/api/classes/group/).[`scaleToWidth`](/api/classes/group/#scaletowidth)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:368
 
@@ -5038,7 +5059,7 @@ stack.
 
 #### Parameters
 
-• **object**: [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **object**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 Object to send
 
@@ -5054,9 +5075,9 @@ true if change occurred
 
 #### Inherited from
 
-[`Group`](Group.md).[`sendObjectBackwards`](Group.md#sendobjectbackwards)
+[`Group`](/api/classes/group/).[`sendObjectBackwards`](/api/classes/group/#sendobjectbackwards)
 
-#### Source
+#### Defined in
 
 src/Collection.ts:214
 
@@ -5071,7 +5092,7 @@ to the bottom of the stack of drawn objects
 
 #### Parameters
 
-• **object**: [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **object**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 Object to send to back
 
@@ -5083,9 +5104,9 @@ true if change occurred
 
 #### Inherited from
 
-[`Group`](Group.md).[`sendObjectToBack`](Group.md#sendobjecttoback)
+[`Group`](/api/classes/group/).[`sendObjectToBack`](/api/classes/group/#sendobjecttoback)
 
-#### Source
+#### Defined in
 
 src/Collection.ts:178
 
@@ -5093,7 +5114,7 @@ src/Collection.ts:178
 
 ### set()
 
-> **set**(`key`, `value`?): [`ActiveSelection`](ActiveSelection.md)
+> **set**(`key`, `value`?): [`ActiveSelection`](/api/classes/activeselection/)
 
 Sets property to a given value. When changing position/dimension -related properties (left, top, scale, angle, etc.) `set` does not update position of object's borders/controls. If you need to update those, call `setCoords()`.
 
@@ -5109,13 +5130,13 @@ Property value (if function, the value is passed into it and its return value is
 
 #### Returns
 
-[`ActiveSelection`](ActiveSelection.md)
+[`ActiveSelection`](/api/classes/activeselection/)
 
 #### Inherited from
 
-[`Group`](Group.md).[`set`](Group.md#set)
+[`Group`](/api/classes/group/).[`set`](/api/classes/group/#set)
 
-#### Source
+#### Defined in
 
 src/CommonMethods.ts:29
 
@@ -5145,13 +5166,13 @@ true to set the specified control visible, false otherwise
 
 #### Inherited from
 
-[`Group`](Group.md).[`setControlVisible`](Group.md#setcontrolvisible)
+[`Group`](/api/classes/group/).[`setControlVisible`](/api/classes/group/#setcontrolvisible)
 
 #### Todo
 
 discuss this overlap of priority here with the team. Andrea Bogazzi for details
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:561
 
@@ -5165,10 +5186,10 @@ Sets the visibility state of object controls, this is just a bulk option for set
 
 #### Parameters
 
-• **options?**: `Record`\<`string`, `boolean`\>= `{}`
+• **options?**: `Record`\<`string`, `boolean`\> = `{}`
 
 with an optional key per control
-example: \{Boolean\} [options.bl] true to enable the bottom-left control, false to disable it
+example: {Boolean} [options.bl] true to enable the bottom-left control, false to disable it
 
 #### Returns
 
@@ -5176,9 +5197,9 @@ example: \{Boolean\} [options.bl] true to enable the bottom-left control, false 
 
 #### Inherited from
 
-[`Group`](Group.md).[`setControlsVisibility`](Group.md#setcontrolsvisibility)
+[`Group`](/api/classes/group/).[`setControlsVisibility`](/api/classes/group/#setcontrolsvisibility)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:573
 
@@ -5194,9 +5215,9 @@ src/shapes/Object/InteractiveObject.ts:573
 
 #### Inherited from
 
-[`Group`](Group.md).[`setCoords`](Group.md#setcoords)
+[`Group`](/api/classes/group/).[`setCoords`](/api/classes/group/#setcoords)
 
-#### Source
+#### Defined in
 
 src/shapes/Group.ts:487
 
@@ -5217,9 +5238,9 @@ Travis build error about unused variables.
 
 #### Inherited from
 
-[`Group`](Group.md).[`setOnGroup`](Group.md#setongroup)
+[`Group`](/api/classes/group/).[`setOnGroup`](/api/classes/group/#setongroup)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:1562
 
@@ -5233,15 +5254,15 @@ Sets the position of the object taking into consideration the object's origin
 
 #### Parameters
 
-• **pos**: [`Point`](Point.md)
+• **pos**: [`Point`](/api/classes/point/)
 
 The new position of the object
 
-• **originX**: [`TOriginX`](../type-aliases/TOriginX.md)
+• **originX**: [`TOriginX`](/api/type-aliases/toriginx/)
 
 Horizontal origin: 'left', 'center' or 'right'
 
-• **originY**: [`TOriginY`](../type-aliases/TOriginY.md)
+• **originY**: [`TOriginY`](/api/type-aliases/toriginy/)
 
 Vertical origin: 'top', 'center' or 'bottom'
 
@@ -5251,9 +5272,9 @@ Vertical origin: 'top', 'center' or 'bottom'
 
 #### Inherited from
 
-[`Group`](Group.md).[`setPositionByOrigin`](Group.md#setpositionbyorigin)
+[`Group`](/api/classes/group/).[`setPositionByOrigin`](/api/classes/group/#setpositionbyorigin)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:214
 
@@ -5276,9 +5297,9 @@ if parent is canvas then this method is identical to [setX](../../../../api/clas
 
 #### Inherited from
 
-[`Group`](Group.md).[`setRelativeX`](Group.md#setrelativex)
+[`Group`](/api/classes/group/).[`setRelativeX`](/api/classes/group/#setrelativex)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:110
 
@@ -5292,15 +5313,15 @@ As [setXY](../../../../api/classes/activeselection/#setxy), but in current paren
 
 #### Parameters
 
-• **point**: [`Point`](Point.md)
+• **point**: [`Point`](/api/classes/point/)
 
 position according to object's originX originY properties in parent's coordinate plane
 
-• **originX?**: [`TOriginX`](../type-aliases/TOriginX.md)= `undefined`
+• **originX?**: [`TOriginX`](/api/type-aliases/toriginx/) = `...`
 
 Horizontal origin: 'left', 'center' or 'right'
 
-• **originY?**: [`TOriginY`](../type-aliases/TOriginY.md)= `undefined`
+• **originY?**: [`TOriginY`](/api/type-aliases/toriginy/) = `...`
 
 Vertical origin: 'top', 'center' or 'bottom'
 
@@ -5310,9 +5331,9 @@ Vertical origin: 'top', 'center' or 'bottom'
 
 #### Inherited from
 
-[`Group`](Group.md).[`setRelativeXY`](Group.md#setrelativexy)
+[`Group`](/api/classes/group/).[`setRelativeXY`](/api/classes/group/#setrelativexy)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:173
 
@@ -5335,9 +5356,9 @@ if parent is canvas then this property is identical to [setY](../../../../api/cl
 
 #### Inherited from
 
-[`Group`](Group.md).[`setRelativeY`](Group.md#setrelativey)
+[`Group`](/api/classes/group/).[`setRelativeY`](/api/classes/group/#setrelativey)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:126
 
@@ -5359,9 +5380,9 @@ x position according to object's [originX](../../../../api/classes/fabricobject/
 
 #### Inherited from
 
-[`Group`](Group.md).[`setX`](Group.md#setx)
+[`Group`](/api/classes/group/).[`setX`](/api/classes/group/#setx)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:80
 
@@ -5377,15 +5398,15 @@ that otherwise are the object's current values.
 
 #### Parameters
 
-• **point**: [`Point`](Point.md)
+• **point**: [`Point`](/api/classes/point/)
 
 position in canvas coordinate plane
 
-• **originX?**: [`TOriginX`](../type-aliases/TOriginX.md)
+• **originX?**: [`TOriginX`](/api/type-aliases/toriginx/)
 
 Horizontal origin: 'left', 'center' or 'right'
 
-• **originY?**: [`TOriginY`](../type-aliases/TOriginY.md)
+• **originY?**: [`TOriginY`](/api/type-aliases/toriginy/)
 
 Vertical origin: 'top', 'center' or 'bottom'
 
@@ -5395,7 +5416,7 @@ Vertical origin: 'top', 'center' or 'bottom'
 
 #### Inherited from
 
-[`Group`](Group.md).[`setXY`](Group.md#setxy)
+[`Group`](/api/classes/group/).[`setXY`](/api/classes/group/#setxy)
 
 #### Example
 
@@ -5403,7 +5424,7 @@ Vertical origin: 'top', 'center' or 'bottom'
 object.setXY(new Point(5, 5), 'left', 'bottom').
 ```
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:150
 
@@ -5425,9 +5446,9 @@ y position according to object's [originY](../../../../api/classes/fabricobject/
 
 #### Inherited from
 
-[`Group`](Group.md).[`setY`](Group.md#sety)
+[`Group`](/api/classes/group/).[`setY`](/api/classes/group/#sety)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:94
 
@@ -5449,9 +5470,9 @@ Generally you do not cache objects in groups because the group outside is cached
 
 #### Overrides
 
-[`Group`](Group.md).[`shouldCache`](Group.md#shouldcache)
+[`Group`](/api/classes/group/).[`shouldCache`](/api/classes/group/#shouldcache)
 
-#### Source
+#### Defined in
 
 src/shapes/ActiveSelection.ts:197
 
@@ -5472,9 +5493,9 @@ true in order for the window to start a drag session
 
 #### Inherited from
 
-[`Group`](Group.md).[`shouldStartDragging`](Group.md#shouldstartdragging)
+[`Group`](/api/classes/group/).[`shouldStartDragging`](/api/classes/group/#shouldstartdragging)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:644
 
@@ -5494,9 +5515,9 @@ Collection size
 
 #### Inherited from
 
-[`Group`](Group.md).[`size`](Group.md#size)
+[`Group`](/api/classes/group/).[`size`](/api/classes/group/#size)
 
-#### Source
+#### Defined in
 
 src/Collection.ts:136
 
@@ -5514,7 +5535,7 @@ override this function in order to customize the drawing of the control box, e.g
 
 ctx is rotated and translated so that (0,0) is at object's center
 
-• **size**: [`Point`](Point.md)
+• **size**: [`Point`](/api/classes/point/)
 
 the control box size used
 
@@ -5524,9 +5545,9 @@ the control box size used
 
 #### Inherited from
 
-[`Group`](Group.md).[`strokeBorders`](Group.md#strokeborders)
+[`Group`](/api/classes/group/).[`strokeBorders`](/api/classes/group/#strokeborders)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:363
 
@@ -5540,7 +5561,7 @@ Converts an object into a HTMLCanvas element
 
 #### Parameters
 
-• **options**: `ObjectToCanvasElementOptions`= `{}`
+• **options**: `ObjectToCanvasElementOptions` = `{}`
 
 Options object
 
@@ -5548,13 +5569,13 @@ Options object
 
 `HTMLCanvasElement`
 
-Returns DOM element `<canvas>` with the FabricObject
+Returns DOM element <canvas> with the FabricObject
 
 #### Inherited from
 
-[`Group`](Group.md).[`toCanvasElement`](Group.md#tocanvaselement)
+[`Group`](/api/classes/group/).[`toCanvasElement`](/api/classes/group/#tocanvaselement)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:1393
 
@@ -5568,7 +5589,7 @@ Returns svg clipPath representation of an instance
 
 #### Parameters
 
-• **reviver?**: [`TSVGReviver`](../type-aliases/TSVGReviver.md)
+• **reviver?**: [`TSVGReviver`](/api/type-aliases/tsvgreviver/)
 
 Method for further parsing of svg representation.
 
@@ -5580,9 +5601,9 @@ svg representation of an instance
 
 #### Inherited from
 
-[`Group`](Group.md).[`toClipPathSVG`](Group.md#toclippathsvg)
+[`Group`](/api/classes/group/).[`toClipPathSVG`](/api/classes/group/#toclippathsvg)
 
-#### Source
+#### Defined in
 
 src/shapes/Group.ts:632
 
@@ -5596,7 +5617,7 @@ Converts an object into a data-url-like string
 
 #### Parameters
 
-• **options**: `toDataURLOptions`= `{}`
+• **options**: `toDataURLOptions` = `{}`
 
 Options object
 
@@ -5608,9 +5629,9 @@ Returns a data: URL containing a representation of the object in the format spec
 
 #### Inherited from
 
-[`Group`](Group.md).[`toDataURL`](Group.md#todataurl)
+[`Group`](/api/classes/group/).[`toDataURL`](/api/classes/group/#todataurl)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:1489
 
@@ -5636,9 +5657,9 @@ Object representation of an instance
 
 #### Inherited from
 
-[`Group`](Group.md).[`toDatalessObject`](Group.md#todatalessobject)
+[`Group`](/api/classes/group/).[`toDatalessObject`](/api/classes/group/#todatalessobject)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:611
 
@@ -5658,9 +5679,9 @@ JSON
 
 #### Inherited from
 
-[`Group`](Group.md).[`toJSON`](Group.md#tojson)
+[`Group`](/api/classes/group/).[`toJSON`](/api/classes/group/#tojson)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:1521
 
@@ -5668,33 +5689,33 @@ src/shapes/Object/Object.ts:1521
 
 ### toObject()
 
-> **toObject**\<`T`, `K`\>(`propertiesToInclude`?): `Pick`\<`T`, `K`\> & [`SerializedGroupProps`](../interfaces/SerializedGroupProps.md)
+> **toObject**\<`T`, `K`\>(`propertiesToInclude`?): `Pick`\<`T`, `K`\> & [`SerializedGroupProps`](/api/interfaces/serializedgroupprops/)
 
 Returns object representation of an instance
 
-#### Type parameters
+#### Type Parameters
 
-• **T** extends `Omit`\<[`GroupProps`](../interfaces/GroupProps.md) & [`TClassProperties`](../type-aliases/TClassProperties.md)\<[`ActiveSelection`](ActiveSelection.md)\>, keyof [`SerializedGroupProps`](../interfaces/SerializedGroupProps.md)\>
+• **T** *extends* `Omit`\<[`GroupProps`](/api/interfaces/groupprops/) & [`TClassProperties`](/api/type-aliases/tclassproperties/)\<[`ActiveSelection`](/api/classes/activeselection/)\>, keyof [`SerializedGroupProps`](/api/interfaces/serializedgroupprops/)\>
 
-• **K** extends `string` \| `number` \| `symbol` = `never`
+• **K** *extends* `string` \| `number` \| `symbol` = `never`
 
 #### Parameters
 
-• **propertiesToInclude?**: `K`[]= `[]`
+• **propertiesToInclude?**: `K`[] = `[]`
 
 Any properties that you might want to additionally include in the output
 
 #### Returns
 
-`Pick`\<`T`, `K`\> & [`SerializedGroupProps`](../interfaces/SerializedGroupProps.md)
+`Pick`\<`T`, `K`\> & [`SerializedGroupProps`](/api/interfaces/serializedgroupprops/)
 
 object representation of an instance
 
 #### Inherited from
 
-[`Group`](Group.md).[`toObject`](Group.md#toobject)
+[`Group`](/api/classes/group/).[`toObject`](/api/classes/group/#toobject)
 
-#### Source
+#### Defined in
 
 src/shapes/Group.ts:542
 
@@ -5708,9 +5729,9 @@ Returns svg representation of an instance
 
 #### Parameters
 
-• **this**: `FabricObjectSVGExportMixin` & [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **this**: `FabricObjectSVGExportMixin` & [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
-• **reviver?**: [`TSVGReviver`](../type-aliases/TSVGReviver.md)
+• **reviver?**: [`TSVGReviver`](/api/type-aliases/tsvgreviver/)
 
 Method for further parsing of svg representation.
 
@@ -5722,9 +5743,9 @@ svg representation of an instance
 
 #### Inherited from
 
-[`Group`](Group.md).[`toSVG`](Group.md#tosvg)
+[`Group`](/api/classes/group/).[`toSVG`](/api/classes/group/#tosvg)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/FabricObjectSVGExportMixin.ts:129
 
@@ -5742,9 +5763,9 @@ Returns string representation of a group
 
 #### Overrides
 
-[`Group`](Group.md).[`toString`](Group.md#tostring)
+[`Group`](/api/classes/group/).[`toString`](/api/classes/group/#tostring)
 
-#### Source
+#### Defined in
 
 src/shapes/ActiveSelection.ts:185
 
@@ -5752,7 +5773,7 @@ src/shapes/ActiveSelection.ts:185
 
 ### toggle()
 
-> **toggle**(`property`): [`ActiveSelection`](ActiveSelection.md)
+> **toggle**(`property`): [`ActiveSelection`](/api/classes/activeselection/)
 
 Toggles specified property from `true` to `false` or from `false` to `true`
 
@@ -5764,13 +5785,13 @@ Property to toggle
 
 #### Returns
 
-[`ActiveSelection`](ActiveSelection.md)
+[`ActiveSelection`](/api/classes/activeselection/)
 
 #### Inherited from
 
-[`Group`](Group.md).[`toggle`](Group.md#toggle)
+[`Group`](/api/classes/group/).[`toggle`](/api/classes/group/#toggle)
 
-#### Source
+#### Defined in
 
 src/CommonMethods.ts:46
 
@@ -5794,9 +5815,9 @@ Context
 
 #### Inherited from
 
-[`Group`](Group.md).[`transform`](Group.md#transform)
+[`Group`](/api/classes/group/).[`transform`](/api/classes/group/#transform)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:533
 
@@ -5808,7 +5829,7 @@ src/shapes/Object/Object.ts:533
 
 #### Parameters
 
-• **skipGroup**: `boolean`= `false`
+• **skipGroup**: `boolean` = `false`
 
 #### Returns
 
@@ -5816,9 +5837,9 @@ src/shapes/Object/Object.ts:533
 
 #### Inherited from
 
-[`Group`](Group.md).[`transformMatrixKey`](Group.md#transformmatrixkey)
+[`Group`](/api/classes/group/).[`transformMatrixKey`](/api/classes/group/#transformmatrixkey)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:440
 
@@ -5826,33 +5847,33 @@ src/shapes/Object/ObjectGeometry.ts:440
 
 ### translateToCenterPoint()
 
-> **translateToCenterPoint**(`point`, `originX`, `originY`): [`Point`](Point.md)
+> **translateToCenterPoint**(`point`, `originX`, `originY`): [`Point`](/api/classes/point/)
 
 Translates the coordinates from origin to center coordinates (based on the object's dimensions)
 
 #### Parameters
 
-• **point**: [`Point`](Point.md)
+• **point**: [`Point`](/api/classes/point/)
 
 The point which corresponds to the originX and originY params
 
-• **originX**: [`TOriginX`](../type-aliases/TOriginX.md)
+• **originX**: [`TOriginX`](/api/type-aliases/toriginx/)
 
 Horizontal origin: 'left', 'center' or 'right'
 
-• **originY**: [`TOriginY`](../type-aliases/TOriginY.md)
+• **originY**: [`TOriginY`](/api/type-aliases/toriginy/)
 
 Vertical origin: 'top', 'center' or 'bottom'
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
 #### Inherited from
 
-[`Group`](Group.md).[`translateToCenterPoint`](Group.md#translatetocenterpoint)
+[`Group`](/api/classes/group/).[`translateToCenterPoint`](/api/classes/group/#translatetocenterpoint)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:127
 
@@ -5860,41 +5881,41 @@ src/shapes/Object/ObjectOrigin.ts:127
 
 ### translateToGivenOrigin()
 
-> **translateToGivenOrigin**(`point`, `fromOriginX`, `fromOriginY`, `toOriginX`, `toOriginY`): [`Point`](Point.md)
+> **translateToGivenOrigin**(`point`, `fromOriginX`, `fromOriginY`, `toOriginX`, `toOriginY`): [`Point`](/api/classes/point/)
 
 Translates the coordinates from a set of origin to another (based on the object's dimensions)
 
 #### Parameters
 
-• **point**: [`Point`](Point.md)
+• **point**: [`Point`](/api/classes/point/)
 
 The point which corresponds to the originX and originY params
 
-• **fromOriginX**: [`TOriginX`](../type-aliases/TOriginX.md)
+• **fromOriginX**: [`TOriginX`](/api/type-aliases/toriginx/)
 
 Horizontal origin: 'left', 'center' or 'right'
 
-• **fromOriginY**: [`TOriginY`](../type-aliases/TOriginY.md)
+• **fromOriginY**: [`TOriginY`](/api/type-aliases/toriginy/)
 
 Vertical origin: 'top', 'center' or 'bottom'
 
-• **toOriginX**: [`TOriginX`](../type-aliases/TOriginX.md)
+• **toOriginX**: [`TOriginX`](/api/type-aliases/toriginx/)
 
 Horizontal origin: 'left', 'center' or 'right'
 
-• **toOriginY**: [`TOriginY`](../type-aliases/TOriginY.md)
+• **toOriginY**: [`TOriginY`](/api/type-aliases/toriginy/)
 
 Vertical origin: 'top', 'center' or 'bottom'
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
 #### Inherited from
 
-[`Group`](Group.md).[`translateToGivenOrigin`](Group.md#translatetogivenorigin)
+[`Group`](/api/classes/group/).[`translateToGivenOrigin`](/api/classes/group/#translatetogivenorigin)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:99
 
@@ -5902,33 +5923,33 @@ src/shapes/Object/ObjectOrigin.ts:99
 
 ### translateToOriginPoint()
 
-> **translateToOriginPoint**(`center`, `originX`, `originY`): [`Point`](Point.md)
+> **translateToOriginPoint**(`center`, `originX`, `originY`): [`Point`](/api/classes/point/)
 
 Translates the coordinates from center to origin coordinates (based on the object's dimensions)
 
 #### Parameters
 
-• **center**: [`Point`](Point.md)
+• **center**: [`Point`](/api/classes/point/)
 
 The point which corresponds to center of the object
 
-• **originX**: [`TOriginX`](../type-aliases/TOriginX.md)
+• **originX**: [`TOriginX`](/api/type-aliases/toriginx/)
 
 Horizontal origin: 'left', 'center' or 'right'
 
-• **originY**: [`TOriginY`](../type-aliases/TOriginY.md)
+• **originY**: [`TOriginY`](/api/type-aliases/toriginy/)
 
 Vertical origin: 'top', 'center' or 'bottom'
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
 #### Inherited from
 
-[`Group`](Group.md).[`translateToOriginPoint`](Group.md#translatetooriginpoint)
+[`Group`](/api/classes/group/).[`translateToOriginPoint`](/api/classes/group/#translatetooriginpoint)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:152
 
@@ -5940,7 +5961,7 @@ src/shapes/Object/ObjectOrigin.ts:152
 
 #### Parameters
 
-• **options**: [`ImperativeLayoutOptions`](../type-aliases/ImperativeLayoutOptions.md)= `{}`
+• **options**: [`ImperativeLayoutOptions`](/api/type-aliases/imperativelayoutoptions/) = `{}`
 
 #### Returns
 
@@ -5948,9 +5969,9 @@ src/shapes/Object/ObjectOrigin.ts:152
 
 #### Inherited from
 
-[`Group`](Group.md).[`triggerLayout`](Group.md#triggerlayout)
+[`Group`](/api/classes/group/).[`triggerLayout`](/api/classes/group/#triggerlayout)
 
-#### Source
+#### Defined in
 
 src/shapes/Group.ts:493
 
@@ -5968,9 +5989,9 @@ Check if this object or a child object will cast a shadow
 
 #### Inherited from
 
-[`Group`](Group.md).[`willDrawShadow`](Group.md#willdrawshadow)
+[`Group`](/api/classes/group/).[`willDrawShadow`](/api/classes/group/#willdrawshadow)
 
-#### Source
+#### Defined in
 
 src/shapes/Group.ts:440
 
@@ -5978,17 +5999,17 @@ src/shapes/Group.ts:440
 
 ### \_fromObject()
 
-> **`static`** **\_fromObject**\<`S`\>(`__namedParameters`, `__namedParameters`): `Promise`\<`S`\>
+> `static` **\_fromObject**\<`S`\>(`__namedParameters`, `__namedParameters`): `Promise`\<`S`\>
 
-#### Type parameters
+#### Type Parameters
 
-• **S** extends `FabricObject`\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **S** *extends* `FabricObject`\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 #### Parameters
 
 • **\_\_namedParameters**: `Record`\<`string`, `unknown`\>
 
-• **\_\_namedParameters**: [`Abortable`](../type-aliases/Abortable.md) & `Object`= `{}`
+• **\_\_namedParameters**: [`Abortable`](/api/type-aliases/abortable/) & `object` = `{}`
 
 #### Returns
 
@@ -5996,9 +6017,9 @@ src/shapes/Group.ts:440
 
 #### Inherited from
 
-[`Group`](Group.md).[`_fromObject`](Group.md#_fromobject)
+[`Group`](/api/classes/group/).[`_fromObject`](/api/classes/group/#_fromobject)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:1600
 
@@ -6006,7 +6027,7 @@ src/shapes/Object/Object.ts:1600
 
 ### getDefaults()
 
-> **`static`** **getDefaults**(): `Record`\<`string`, `any`\>
+> `static` **getDefaults**(): `Record`\<`string`, `any`\>
 
 #### Returns
 
@@ -6014,8 +6035,8 @@ src/shapes/Object/Object.ts:1600
 
 #### Overrides
 
-[`Group`](Group.md).[`getDefaults`](Group.md#getdefaults)
+[`Group`](/api/classes/group/).[`getDefaults`](/api/classes/group/#getdefaults)
 
-#### Source
+#### Defined in
 
 src/shapes/ActiveSelection.ts:40

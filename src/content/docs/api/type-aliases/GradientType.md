@@ -7,6 +7,6 @@ title: "GradientType"
 
 > **GradientType**: `"linear"` \| `"radial"`
 
-## Source
+## Defined in
 
 src/gradient/typedefs.ts:5

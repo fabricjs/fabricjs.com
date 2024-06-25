@@ -7,8 +7,8 @@ title: "GroupOwnProps"
 
 ## Extended by
 
-- [`GroupProps`](GroupProps.md)
-- [`SerializedGroupProps`](SerializedGroupProps.md)
+- [`GroupProps`](/api/interfaces/groupprops/)
+- [`SerializedGroupProps`](/api/interfaces/serializedgroupprops/)
 
 ## Properties
 
@@ -16,7 +16,7 @@ title: "GroupOwnProps"
 
 > **interactive**: `boolean`
 
-#### Source
+#### Defined in
 
 src/shapes/Group.ts:51
 
@@ -26,6 +26,6 @@ src/shapes/Group.ts:51
 
 > **subTargetCheck**: `boolean`
 
-#### Source
+#### Defined in
 
 src/shapes/Group.ts:50

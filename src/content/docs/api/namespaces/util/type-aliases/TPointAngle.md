@@ -5,7 +5,7 @@ prev: false
 title: "TPointAngle"
 ---
 
-> **TPointAngle**: [`XY`](../../../interfaces/XY.md) & `Object`
+> **TPointAngle**: [`XY`](/api/interfaces/xy/) & `object`
 
 A point (vector) and angle between the vector and x-axis
 
@@ -13,8 +13,8 @@ A point (vector) and angle between the vector and x-axis
 
 ### angle
 
-> **angle**: [`TRadian`](../../../type-aliases/TRadian.md)
+> **angle**: [`TRadian`](/api/type-aliases/tradian/)
 
-## Source
+## Defined in
 
 src/util/path/typedefs.ts:305

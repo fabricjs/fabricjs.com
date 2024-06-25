@@ -5,8 +5,8 @@ prev: false
 title: "TColorArg"
 ---
 
-> **TColorArg**: `string` \| [`TRGBColorSource`](TRGBColorSource.md) \| [`TRGBAColorSource`](TRGBAColorSource.md) \| [`Color`](../classes/Color.md)
+> **TColorArg**: `string` \| [`TRGBColorSource`](/api/type-aliases/trgbcolorsource/) \| [`TRGBAColorSource`](/api/type-aliases/trgbacolorsource/) \| [`Color`](/api/classes/color/)
 
-## Source
+## Defined in
 
 src/color/typedefs.ts:18

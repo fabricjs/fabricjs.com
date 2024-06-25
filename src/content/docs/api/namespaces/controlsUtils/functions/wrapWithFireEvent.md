@@ -5,28 +5,26 @@ prev: false
 title: "wrapWithFireEvent"
 ---
 
-> **wrapWithFireEvent**\<`T`\>(`eventName`, `actionHandler`): [`TransformActionHandler`](../../../type-aliases/TransformActionHandler.md)\<`T`\>
+> **wrapWithFireEvent**\<`T`\>(`eventName`, `actionHandler`): [`TransformActionHandler`](/api/type-aliases/transformactionhandler/)\<`T`\>
 
-Wrap an action handler with firing an event if the action is performed
+## Type Parameters
 
-## Type parameters
-
-• **T** extends [`Transform`](../../../type-aliases/Transform.md)
+• **T** *extends* [`Transform`](/api/type-aliases/transform/)
 
 ## Parameters
 
-• **eventName**: [`TModificationEvents`](../../../type-aliases/TModificationEvents.md)
+• **eventName**: [`TModificationEvents`](/api/type-aliases/tmodificationevents/)
 
-• **actionHandler**: [`TransformActionHandler`](../../../type-aliases/TransformActionHandler.md)\<`T`\>
+• **actionHandler**: [`TransformActionHandler`](/api/type-aliases/transformactionhandler/)\<`T`\>
 
 the function to wrap
 
 ## Returns
 
-[`TransformActionHandler`](../../../type-aliases/TransformActionHandler.md)\<`T`\>
+[`TransformActionHandler`](/api/type-aliases/transformactionhandler/)\<`T`\>
 
 a function with an action handler signature
 
-## Source
+## Defined in
 
 src/controls/wrapWithFireEvent.ts:14

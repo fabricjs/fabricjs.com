@@ -5,8 +5,8 @@ prev: false
 title: "Vintage"
 ---
 
-> **`const`** **Vintage**: *typeof* `__class`
+> `const` **Vintage**: *typeof* `__class`
 
-## Source
+## Defined in
 
 src/filters/ColorMatrixFilters.ts:29

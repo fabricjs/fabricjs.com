@@ -5,8 +5,8 @@ prev: false
 title: "Percent"
 ---
 
-> **Percent**: ```${number}%```
+> **Percent**: \`$\{number\}%\`
 
-## Source
+## Defined in
 
 src/typedefs.ts:44

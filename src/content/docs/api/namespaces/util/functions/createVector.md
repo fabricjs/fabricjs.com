@@ -5,22 +5,20 @@ prev: false
 title: "createVector"
 ---
 
-> **createVector**(`from`, `to`): [`Point`](../../../classes/Point.md)
-
-Creates a vector from points represented as a point
+> **createVector**(`from`, `to`): [`Point`](/api/classes/point/)
 
 ## Parameters
 
-• **from**: [`XY`](../../../interfaces/XY.md)
+• **from**: [`XY`](/api/interfaces/xy/)
 
-• **to**: [`XY`](../../../interfaces/XY.md)
+• **to**: [`XY`](/api/interfaces/xy/)
 
 ## Returns
 
-[`Point`](../../../classes/Point.md)
+[`Point`](/api/classes/point/)
 
 vector
 
-## Source
+## Defined in
 
 src/util/misc/vectors.ts:24

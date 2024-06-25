@@ -9,35 +9,35 @@ Layout will adjust the bounding box to fit target's objects.
 
 ## Extends
 
-- [`LayoutStrategy`](LayoutStrategy.md)
+- [`LayoutStrategy`](/api/classes/layoutstrategy/)
 
 ## Constructors
 
 ### new FitContentLayout()
 
-> **new FitContentLayout**(): [`FitContentLayout`](FitContentLayout.md)
+> **new FitContentLayout**(): [`FitContentLayout`](/api/classes/fitcontentlayout/)
 
 #### Returns
 
-[`FitContentLayout`](FitContentLayout.md)
+[`FitContentLayout`](/api/classes/fitcontentlayout/)
 
 #### Inherited from
 
-[`LayoutStrategy`](LayoutStrategy.md).[`constructor`](LayoutStrategy.md#constructors)
+[`LayoutStrategy`](/api/classes/layoutstrategy/).[`constructor`](/api/classes/layoutstrategy/#constructors)
 
 ## Properties
 
 ### type
 
-> **`static`** **`readonly`** **type**: `"fit-content"` = `'fit-content'`
+> `readonly` `static` **type**: `"fit-content"` = `'fit-content'`
 
 override by subclass for persistence (TS does not support `static abstract`)
 
 #### Overrides
 
-[`LayoutStrategy`](LayoutStrategy.md).[`type`](LayoutStrategy.md#type)
+[`LayoutStrategy`](/api/classes/layoutstrategy/).[`type`](/api/classes/layoutstrategy/#type)
 
-#### Source
+#### Defined in
 
 src/LayoutManager/LayoutStrategies/FitContentLayout.ts:9
 
@@ -45,25 +45,25 @@ src/LayoutManager/LayoutStrategies/FitContentLayout.ts:9
 
 ### calcBoundingBox()
 
-> **calcBoundingBox**(`objects`, `context`): `undefined` \| [`LayoutStrategyResult`](../type-aliases/LayoutStrategyResult.md)
+> **calcBoundingBox**(`objects`, `context`): `undefined` \| [`LayoutStrategyResult`](/api/type-aliases/layoutstrategyresult/)
 
 Override this method to customize layout.
 
 #### Parameters
 
-• **objects**: [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>[]
+• **objects**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>[]
 
-• **context**: [`StrictLayoutContext`](../type-aliases/StrictLayoutContext.md)
+• **context**: [`StrictLayoutContext`](/api/type-aliases/strictlayoutcontext/)
 
 #### Returns
 
-`undefined` \| [`LayoutStrategyResult`](../type-aliases/LayoutStrategyResult.md)
+`undefined` \| [`LayoutStrategyResult`](/api/type-aliases/layoutstrategyresult/)
 
 #### Inherited from
 
-[`LayoutStrategy`](LayoutStrategy.md).[`calcBoundingBox`](LayoutStrategy.md#calcboundingbox)
+[`LayoutStrategy`](/api/classes/layoutstrategy/).[`calcBoundingBox`](/api/classes/layoutstrategy/#calcboundingbox)
 
-#### Source
+#### Defined in
 
 src/LayoutManager/LayoutStrategies/LayoutStrategy.ts:66
 
@@ -71,27 +71,27 @@ src/LayoutManager/LayoutStrategies/LayoutStrategy.ts:66
 
 ### calcLayoutResult()
 
-> **calcLayoutResult**(`context`, `objects`): `undefined` \| [`LayoutStrategyResult`](../type-aliases/LayoutStrategyResult.md)
+> **calcLayoutResult**(`context`, `objects`): `undefined` \| [`LayoutStrategyResult`](/api/type-aliases/layoutstrategyresult/)
 
 Used by the `LayoutManager` to perform layout
 
 #### Parameters
 
-• **context**: [`StrictLayoutContext`](../type-aliases/StrictLayoutContext.md)
+• **context**: [`StrictLayoutContext`](/api/type-aliases/strictlayoutcontext/)
 
-• **objects**: [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>[]
+• **objects**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>[]
 
 #### Returns
 
-`undefined` \| [`LayoutStrategyResult`](../type-aliases/LayoutStrategyResult.md)
+`undefined` \| [`LayoutStrategyResult`](/api/type-aliases/layoutstrategyresult/)
 
 layout result **OR** `undefined` to skip layout
 
 #### Inherited from
 
-[`LayoutStrategy`](LayoutStrategy.md).[`calcLayoutResult`](LayoutStrategy.md#calclayoutresult)
+[`LayoutStrategy`](/api/classes/layoutstrategy/).[`calcLayoutResult`](/api/classes/layoutstrategy/#calclayoutresult)
 
-#### Source
+#### Defined in
 
 src/LayoutManager/LayoutStrategies/LayoutStrategy.ts:31
 
@@ -99,23 +99,23 @@ src/LayoutManager/LayoutStrategies/LayoutStrategy.ts:31
 
 ### getInitialSize()
 
-> **getInitialSize**(`context`, `result`): [`Point`](Point.md)
+> **getInitialSize**(`context`, `result`): [`Point`](/api/classes/point/)
 
 #### Parameters
 
-• **context**: [`StrictLayoutContext`](../type-aliases/StrictLayoutContext.md) & [`CommonLayoutContext`](../type-aliases/CommonLayoutContext.md) & `Object`
+• **context**: [`StrictLayoutContext`](/api/type-aliases/strictlayoutcontext/) & [`CommonLayoutContext`](/api/type-aliases/commonlayoutcontext/) & `object`
 
-• **result**: `Pick`\<[`LayoutStrategyResult`](../type-aliases/LayoutStrategyResult.md), `"center"` \| `"size"`\>
+• **result**: `Pick`\<[`LayoutStrategyResult`](/api/type-aliases/layoutstrategyresult/), `"center"` \| `"size"`\>
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
 #### Inherited from
 
-[`LayoutStrategy`](LayoutStrategy.md).[`getInitialSize`](LayoutStrategy.md#getinitialsize)
+[`LayoutStrategy`](/api/classes/layoutstrategy/).[`getInitialSize`](/api/classes/layoutstrategy/#getinitialsize)
 
-#### Source
+#### Defined in
 
 src/LayoutManager/LayoutStrategies/LayoutStrategy.ts:56
 
@@ -127,7 +127,7 @@ src/LayoutManager/LayoutStrategies/LayoutStrategy.ts:56
 
 #### Parameters
 
-• **\_\_namedParameters**: [`StrictLayoutContext`](../type-aliases/StrictLayoutContext.md)
+• **\_\_namedParameters**: [`StrictLayoutContext`](/api/type-aliases/strictlayoutcontext/)
 
 #### Returns
 
@@ -135,9 +135,9 @@ src/LayoutManager/LayoutStrategies/LayoutStrategy.ts:56
 
 #### Inherited from
 
-[`LayoutStrategy`](LayoutStrategy.md).[`shouldLayoutClipPath`](LayoutStrategy.md#shouldlayoutclippath)
+[`LayoutStrategy`](/api/classes/layoutstrategy/).[`shouldLayoutClipPath`](/api/classes/layoutstrategy/#shouldlayoutclippath)
 
-#### Source
+#### Defined in
 
 src/LayoutManager/LayoutStrategies/LayoutStrategy.ts:48
 
@@ -152,7 +152,7 @@ Override at will
 
 #### Parameters
 
-• **context**: [`StrictLayoutContext`](../type-aliases/StrictLayoutContext.md)
+• **context**: [`StrictLayoutContext`](/api/type-aliases/strictlayoutcontext/)
 
 #### Returns
 
@@ -160,8 +160,8 @@ Override at will
 
 #### Overrides
 
-[`LayoutStrategy`](LayoutStrategy.md).[`shouldPerformLayout`](LayoutStrategy.md#shouldperformlayout)
+[`LayoutStrategy`](/api/classes/layoutstrategy/).[`shouldPerformLayout`](/api/classes/layoutstrategy/#shouldperformlayout)
 
-#### Source
+#### Defined in
 
 src/LayoutManager/LayoutStrategies/FitContentLayout.ts:16

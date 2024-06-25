@@ -5,22 +5,20 @@ prev: false
 title: "invertTransform"
 ---
 
-> **invertTransform**(`t`): [`TMat2D`](../../../type-aliases/TMat2D.md)
-
-Invert transformation t
+> **invertTransform**(`t`): [`TMat2D`](/api/type-aliases/tmat2d/)
 
 ## Parameters
 
-• **t**: [`TMat2D`](../../../type-aliases/TMat2D.md)
+• **t**: [`TMat2D`](/api/type-aliases/tmat2d/)
 
 The transform
 
 ## Returns
 
-[`TMat2D`](../../../type-aliases/TMat2D.md)
+[`TMat2D`](/api/type-aliases/tmat2d/)
 
 The inverted transform
 
-## Source
+## Defined in
 
 src/util/misc/matrix.ts:57

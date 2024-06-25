@@ -7,11 +7,9 @@ title: "getSvgAttributes"
 
 > **getSvgAttributes**(`type`): `string`[]
 
-Returns array of attributes for given svg that fabric parses
-
 ## Parameters
 
-• **type**: [`SVGElementName`](../../../type-aliases/SVGElementName.md)
+• **type**: [`SVGElementName`](/api/type-aliases/svgelementname/)
 
 Type of svg element (eg. 'circle')
 
@@ -21,6 +19,6 @@ Type of svg element (eg. 'circle')
 
 string names of supported attributes
 
-## Source
+## Defined in
 
 src/util/misc/svgParsing.ts:17

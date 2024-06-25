@@ -5,11 +5,11 @@ prev: false
 title: "ControlActionHandler"
 ---
 
-> **ControlActionHandler**: [`TransformAction`](TransformAction.md)\<[`Transform`](Transform.md), `any`\>
+> **ControlActionHandler**: [`TransformAction`](/api/type-aliases/transformaction/)\<[`Transform`](/api/type-aliases/transform/), `any`\>
 
 Control handlers that run on control click/down/up
 Those handlers run with or without a transform defined
 
-## Source
+## Defined in
 
 src/EventTypeDefs.ts:42

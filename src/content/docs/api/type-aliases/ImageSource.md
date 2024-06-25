@@ -7,6 +7,6 @@ title: "ImageSource"
 
 > **ImageSource**: `HTMLImageElement` \| `HTMLVideoElement` \| `HTMLCanvasElement`
 
-## Source
+## Defined in
 
 src/shapes/Image.ts:37

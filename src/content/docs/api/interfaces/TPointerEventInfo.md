@@ -7,24 +7,24 @@ title: "TPointerEventInfo"
 
 ## Extends
 
-- [`TEvent`](TEvent.md)\<`E`\>
+- [`TEvent`](/api/interfaces/tevent/)\<`E`\>
 
-## Type parameters
+## Type Parameters
 
-• **E** extends [`TPointerEvent`](../type-aliases/TPointerEvent.md) = [`TPointerEvent`](../type-aliases/TPointerEvent.md)
+• **E** *extends* [`TPointerEvent`](/api/type-aliases/tpointerevent/) = [`TPointerEvent`](/api/type-aliases/tpointerevent/)
 
 ## Properties
 
 ### ~~absolutePointer~~
 
-> **absolutePointer**: [`Point`](../classes/Point.md)
+> **absolutePointer**: [`Point`](/api/classes/point/)
 
 :::caution[Deprecated]
 use scenePoint instead.
 Kept for compatibility
 :::
 
-#### Source
+#### Defined in
 
 src/EventTypeDefs.ts:149
 
@@ -36,9 +36,9 @@ src/EventTypeDefs.ts:149
 
 #### Inherited from
 
-[`TEvent`](TEvent.md).[`e`](TEvent.md#e)
+[`TEvent`](/api/interfaces/tevent/).[`e`](/api/interfaces/tevent/#e)
 
-#### Source
+#### Defined in
 
 src/EventTypeDefs.ts:86
 
@@ -46,14 +46,14 @@ src/EventTypeDefs.ts:86
 
 ### ~~pointer~~
 
-> **pointer**: [`Point`](../classes/Point.md)
+> **pointer**: [`Point`](/api/classes/point/)
 
 :::caution[Deprecated]
 use viewportPoint instead.
 Kept for compatibility
 :::
 
-#### Source
+#### Defined in
 
 src/EventTypeDefs.ts:143
 
@@ -61,9 +61,9 @@ src/EventTypeDefs.ts:143
 
 ### scenePoint
 
-> **scenePoint**: [`Point`](../classes/Point.md)
+> **scenePoint**: [`Point`](/api/classes/point/)
 
-#### Source
+#### Defined in
 
 src/EventTypeDefs.ts:150
 
@@ -71,9 +71,9 @@ src/EventTypeDefs.ts:150
 
 ### subTargets?
 
-> **`optional`** **subTargets**: [`FabricObject`](../classes/FabricObject.md)\<`Partial`\<[`FabricObjectProps`](FabricObjectProps.md)\>, [`SerializedObjectProps`](SerializedObjectProps.md), [`ObjectEvents`](ObjectEvents.md)\>[]
+> `optional` **subTargets**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>[]
 
-#### Source
+#### Defined in
 
 src/EventTypeDefs.ts:136
 
@@ -81,9 +81,9 @@ src/EventTypeDefs.ts:136
 
 ### target?
 
-> **`optional`** **target**: [`FabricObject`](../classes/FabricObject.md)\<`Partial`\<[`FabricObjectProps`](FabricObjectProps.md)\>, [`SerializedObjectProps`](SerializedObjectProps.md), [`ObjectEvents`](ObjectEvents.md)\>
+> `optional` **target**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
-#### Source
+#### Defined in
 
 src/EventTypeDefs.ts:135
 
@@ -91,9 +91,9 @@ src/EventTypeDefs.ts:135
 
 ### transform?
 
-> **`optional`** **transform**: `null` \| [`Transform`](../type-aliases/Transform.md)
+> `optional` **transform**: `null` \| [`Transform`](/api/type-aliases/transform/)
 
-#### Source
+#### Defined in
 
 src/EventTypeDefs.ts:137
 
@@ -101,8 +101,8 @@ src/EventTypeDefs.ts:137
 
 ### viewportPoint
 
-> **viewportPoint**: [`Point`](../classes/Point.md)
+> **viewportPoint**: [`Point`](/api/classes/point/)
 
-#### Source
+#### Defined in
 
 src/EventTypeDefs.ts:151

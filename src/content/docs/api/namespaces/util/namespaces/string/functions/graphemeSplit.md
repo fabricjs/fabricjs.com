@@ -7,8 +7,6 @@ title: "graphemeSplit"
 
 > **graphemeSplit**(`textstring`): `string`[]
 
-Divide a string in the user perceived single units
-
 ## Parameters
 
 • **textstring**: `string`
@@ -21,6 +19,6 @@ String to escape
 
 array containing the graphemes
 
-## Source
+## Defined in
 
 src/util/lang\_string.ts:32

@@ -7,14 +7,12 @@ title: "createCanvasElement"
 
 > **createCanvasElement**(): `HTMLCanvasElement`
 
-Creates canvas element
-
 ## Returns
 
 `HTMLCanvasElement`
 
 initialized canvas element
 
-## Source
+## Defined in
 
 src/util/misc/dom.ts:8

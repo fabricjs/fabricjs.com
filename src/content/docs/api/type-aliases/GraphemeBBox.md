@@ -5,7 +5,7 @@ prev: false
 title: "GraphemeBBox"
 ---
 
-> **GraphemeBBox**: `Object`
+> **GraphemeBBox**: `object`
 
 Measure and return the info of a single grapheme.
 needs the the info of previous graphemes already filled
@@ -15,7 +15,7 @@ Override to customize measuring
 
 ### angle?
 
-> **`optional`** **angle**: `number`
+> `optional` **angle**: `number`
 
 ### deltaY
 
@@ -35,16 +35,16 @@ Override to customize measuring
 
 ### renderLeft?
 
-> **`optional`** **renderLeft**: `number`
+> `optional` **renderLeft**: `number`
 
 ### renderTop?
 
-> **`optional`** **renderTop**: `number`
+> `optional` **renderTop**: `number`
 
 ### width
 
 > **width**: `number`
 
-## Source
+## Defined in
 
 src/shapes/Text/Text.ts:81

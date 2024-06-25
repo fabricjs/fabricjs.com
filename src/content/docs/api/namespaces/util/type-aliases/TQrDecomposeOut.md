@@ -5,8 +5,8 @@ prev: false
 title: "TQrDecomposeOut"
 ---
 
-> **TQrDecomposeOut**: `Required`\<`Omit`\<[`TComposeMatrixArgs`](TComposeMatrixArgs.md), `"flipX"` \| `"flipY"`\>\>
+> **TQrDecomposeOut**: `Required`\<`Omit`\<[`TComposeMatrixArgs`](/api/namespaces/util/type-aliases/tcomposematrixargs/), `"flipX"` \| `"flipY"`\>\>
 
-## Source
+## Defined in
 
 src/util/misc/matrix.ts:31

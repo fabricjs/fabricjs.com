@@ -9,15 +9,15 @@ title: "hasStyleChanged"
 
 ## Parameters
 
-• **prevStyle**: `Partial`\<[`CompleteTextStyleDeclaration`](../../../type-aliases/CompleteTextStyleDeclaration.md)\>
+• **prevStyle**: `Partial`\<[`CompleteTextStyleDeclaration`](/api/type-aliases/completetextstyledeclaration/)\>
 
 first style to compare
 
-• **thisStyle**: `Partial`\<[`CompleteTextStyleDeclaration`](../../../type-aliases/CompleteTextStyleDeclaration.md)\>
+• **thisStyle**: `Partial`\<[`CompleteTextStyleDeclaration`](/api/type-aliases/completetextstyledeclaration/)\>
 
 second style to compare
 
-• **forTextSpans**: `boolean`= `false`
+• **forTextSpans**: `boolean` = `false`
 
 whether to check overline, underline, and line-through properties
 
@@ -27,6 +27,6 @@ whether to check overline, underline, and line-through properties
 
 true if the style changed
 
-## Source
+## Defined in
 
 src/util/misc/textStyles.ts:21

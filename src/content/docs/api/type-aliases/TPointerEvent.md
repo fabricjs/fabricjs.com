@@ -7,6 +7,6 @@ title: "TPointerEvent"
 
 > **TPointerEvent**: `MouseEvent` \| `TouchEvent` \| `PointerEvent`
 
-## Source
+## Defined in
 
 src/EventTypeDefs.ts:22

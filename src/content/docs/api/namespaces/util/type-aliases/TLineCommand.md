@@ -5,8 +5,8 @@ prev: false
 title: "TLineCommand"
 ---
 
-> **TLineCommand**: `TCommand3`\<[`TParsedLineCommand`](TParsedLineCommand.md)\>
+> **TLineCommand**: `TCommand3`\<[`TParsedLineCommand`](/api/namespaces/util/type-aliases/tparsedlinecommand/)\>
 
-## Source
+## Defined in
 
 src/util/path/typedefs.ts:123

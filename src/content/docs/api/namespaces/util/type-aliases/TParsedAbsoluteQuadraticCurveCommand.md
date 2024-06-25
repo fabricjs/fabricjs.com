@@ -7,6 +7,6 @@ title: "TParsedAbsoluteQuadraticCurveCommand"
 
 > **TParsedAbsoluteQuadraticCurveCommand**: [`"Q"`, `number`, `number`, `number`, `number`]
 
-## Source
+## Defined in
 
 src/util/path/typedefs.ts:194

@@ -5,13 +5,13 @@ prev: false
 title: "ObjectModifiedLayoutContext"
 ---
 
-> **ObjectModifiedLayoutContext**: [`CommonLayoutContext`](CommonLayoutContext.md) & `Object`
+> **ObjectModifiedLayoutContext**: [`CommonLayoutContext`](/api/type-aliases/commonlayoutcontext/) & `object`
 
 ## Type declaration
 
 ### e
 
-> **e**: [`ModifiedEvent`](../interfaces/ModifiedEvent.md)
+> **e**: [`ModifiedEvent`](/api/interfaces/modifiedevent/)
 
 ### trigger
 
@@ -21,6 +21,6 @@ title: "ObjectModifiedLayoutContext"
 
 > **type**: *typeof* `LAYOUT_TYPE_OBJECT_MODIFIED`
 
-## Source
+## Defined in
 
 src/LayoutManager/types.ts:96

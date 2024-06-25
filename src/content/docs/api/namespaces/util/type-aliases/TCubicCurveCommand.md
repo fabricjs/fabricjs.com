@@ -5,8 +5,8 @@ prev: false
 title: "TCubicCurveCommand"
 ---
 
-> **TCubicCurveCommand**: `TCommand7`\<[`TParsedCubicCurveCommand`](TParsedCubicCurveCommand.md)\>
+> **TCubicCurveCommand**: `TCommand7`\<[`TParsedCubicCurveCommand`](/api/namespaces/util/type-aliases/tparsedcubiccurvecommand/)\>
 
-## Source
+## Defined in
 
 src/util/path/typedefs.ts:171

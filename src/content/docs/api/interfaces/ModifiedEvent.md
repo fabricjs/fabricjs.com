@@ -5,17 +5,17 @@ prev: false
 title: "ModifiedEvent"
 ---
 
-## Type parameters
+## Type Parameters
 
-• **E** extends `Event` = [`TPointerEvent`](../type-aliases/TPointerEvent.md)
+• **E** *extends* `Event` = [`TPointerEvent`](/api/type-aliases/tpointerevent/)
 
 ## Properties
 
 ### action?
 
-> **`optional`** **action**: `string`
+> `optional` **action**: `string`
 
-#### Source
+#### Defined in
 
 src/EventTypeDefs.ts:111
 
@@ -23,9 +23,9 @@ src/EventTypeDefs.ts:111
 
 ### e?
 
-> **`optional`** **e**: `E`
+> `optional` **e**: `E`
 
-#### Source
+#### Defined in
 
 src/EventTypeDefs.ts:108
 
@@ -33,9 +33,9 @@ src/EventTypeDefs.ts:108
 
 ### target
 
-> **target**: [`FabricObject`](../classes/FabricObject.md)\<`Partial`\<[`FabricObjectProps`](FabricObjectProps.md)\>, [`SerializedObjectProps`](SerializedObjectProps.md), [`ObjectEvents`](ObjectEvents.md)\>
+> **target**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
-#### Source
+#### Defined in
 
 src/EventTypeDefs.ts:110
 
@@ -43,8 +43,8 @@ src/EventTypeDefs.ts:110
 
 ### transform
 
-> **transform**: [`Transform`](../type-aliases/Transform.md)
+> **transform**: [`Transform`](/api/type-aliases/transform/)
 
-#### Source
+#### Defined in
 
 src/EventTypeDefs.ts:109

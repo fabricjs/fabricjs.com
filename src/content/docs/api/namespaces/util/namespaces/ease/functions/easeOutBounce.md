@@ -23,6 +23,6 @@ Bouncing easing out
 
 `number`
 
-## Source
+## Defined in
 
 src/util/animation/easing.ts:281

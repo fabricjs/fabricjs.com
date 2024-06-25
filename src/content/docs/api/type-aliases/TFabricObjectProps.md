@@ -5,8 +5,8 @@ prev: false
 title: "TFabricObjectProps"
 ---
 
-> **TFabricObjectProps**: [`TOptions`](TOptions.md)\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>
+> **TFabricObjectProps**: [`TOptions`](/api/type-aliases/toptions/)\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>
 
-## Source
+## Defined in
 
 src/shapes/Object/types/index.ts:7

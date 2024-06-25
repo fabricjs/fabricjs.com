@@ -5,16 +5,16 @@ prev: false
 title: "getPointer"
 ---
 
-> **getPointer**(`event`): [`Point`](../../../classes/Point.md)
+> **getPointer**(`event`): [`Point`](/api/classes/point/)
 
 ## Parameters
 
-• **event**: [`TPointerEvent`](../../../type-aliases/TPointerEvent.md)
+• **event**: [`TPointerEvent`](/api/type-aliases/tpointerevent/)
 
 ## Returns
 
-[`Point`](../../../classes/Point.md)
+[`Point`](/api/classes/point/)
 
-## Source
+## Defined in
 
 src/util/dom\_event.ts:15

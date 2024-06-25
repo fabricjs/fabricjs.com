@@ -5,7 +5,7 @@ prev: false
 title: "parsePath"
 ---
 
-> **parsePath**(`pathString`): [`TComplexPathData`](../type-aliases/TComplexPathData.md)
+> **parsePath**(`pathString`): [`TComplexPathData`](/api/namespaces/util/type-aliases/tcomplexpathdata/)
 
 ## Parameters
 
@@ -13,20 +13,10 @@ title: "parsePath"
 
 ## Returns
 
-[`TComplexPathData`](../type-aliases/TComplexPathData.md)
+[`TComplexPathData`](/api/namespaces/util/type-aliases/tcomplexpathdata/)
 
 An array of SVG path commands
 
-## Example
-
-```ts
-parsePath('M 3 4 Q 3 5 2 1 4 0 Q 9 12 2 1 4 0') === [
-  ['M', 3, 4],
-  ['Q', 3, 5, 2, 1, 4, 0],
-  ['Q', 9, 12, 2, 1, 4, 0],
-];
-```
-
-## Source
+## Defined in
 
 src/util/path/index.ts:844

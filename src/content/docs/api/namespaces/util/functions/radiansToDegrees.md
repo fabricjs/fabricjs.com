@@ -5,22 +5,20 @@ prev: false
 title: "radiansToDegrees"
 ---
 
-> **radiansToDegrees**(`radians`): [`TDegree`](../../../type-aliases/TDegree.md)
-
-Transforms radians to degrees.
+> **radiansToDegrees**(`radians`): [`TDegree`](/api/type-aliases/tdegree/)
 
 ## Parameters
 
-• **radians**: [`TRadian`](../../../type-aliases/TRadian.md)
+• **radians**: [`TRadian`](/api/type-aliases/tradian/)
 
 value in radians
 
 ## Returns
 
-[`TDegree`](../../../type-aliases/TDegree.md)
+[`TDegree`](/api/type-aliases/tdegree/)
 
 value in degrees
 
-## Source
+## Defined in
 
 src/util/misc/radiansDegreesConversion.ts:17

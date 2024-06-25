@@ -7,9 +7,6 @@ title: "parsePreserveAspectRatioAttribute"
 
 > **parsePreserveAspectRatioAttribute**(`attribute`): `TPreserveArParsed`
 
-Parse preserveAspectRatio attribute from element
-https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/preserveAspectRatio
-
 ## Parameters
 
 • **attribute**: `string`
@@ -22,6 +19,6 @@ to be parsed
 
 an object containing align and meetOrSlice attribute
 
-## Source
+## Defined in
 
 src/util/misc/svgParsing.ts:108

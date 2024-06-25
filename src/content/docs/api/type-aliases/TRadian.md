@@ -7,6 +7,6 @@ title: "TRadian"
 
 > **TRadian**: `Nominal`\<`number`, `Radian`\>
 
-## Source
+## Defined in
 
 src/typedefs.ts:26

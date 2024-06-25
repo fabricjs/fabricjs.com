@@ -5,8 +5,8 @@ prev: false
 title: "iMatrix"
 ---
 
-> **`const`** **iMatrix**: [`TMat2D`](../type-aliases/TMat2D.md)
+> `const` **iMatrix**: [`TMat2D`](/api/type-aliases/tmat2d/)
 
-## Source
+## Defined in
 
 src/constants.ts:13

@@ -11,7 +11,7 @@ title: "XY"
 
 > **x**: `number`
 
-#### Source
+#### Defined in
 
 src/Point.ts:6
 
@@ -21,6 +21,6 @@ src/Point.ts:6
 
 > **y**: `number`
 
-#### Source
+#### Defined in
 
 src/Point.ts:7

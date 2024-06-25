@@ -7,6 +7,6 @@ title: "TValidToObjectMethod"
 
 > **TValidToObjectMethod**: `"toDatalessObject"` \| `"toObject"`
 
-## Source
+## Defined in
 
 src/typedefs.ts:87

@@ -7,11 +7,9 @@ title: "enlivenObjects"
 
 > **enlivenObjects**\<`T`\>(`objects`, `options`?): `Promise`\<`T`[]\>
 
-Creates corresponding fabric instances from their object representations
+## Type Parameters
 
-## Type parameters
-
-• **T** extends [`Shadow`](../../../classes/Shadow.md) \| [`FabricObject`](../../../classes/FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../../../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../../../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../../../interfaces/ObjectEvents.md)\> \| [`BaseFilter`](../../filters/classes/BaseFilter.md) \| `FabricObject`\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](../../../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../../../interfaces/ObjectEvents.md)\> \| [`TFiller`](../../../type-aliases/TFiller.md)
+• **T** *extends* [`Shadow`](/api/classes/shadow/) \| [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\> \| [`BaseFilter`](/api/namespaces/filters/classes/basefilter/) \| `FabricObject`\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\> \| [`TFiller`](/api/type-aliases/tfiller/)
 
 ## Parameters
 
@@ -19,12 +17,12 @@ Creates corresponding fabric instances from their object representations
 
 Objects to enliven
 
-• **options?**: [`EnlivenObjectOptions`](../type-aliases/EnlivenObjectOptions.md)= `{}`
+• **options?**: [`EnlivenObjectOptions`](/api/namespaces/util/type-aliases/enlivenobjectoptions/) = `{}`
 
 ## Returns
 
 `Promise`\<`T`[]\>
 
-## Source
+## Defined in
 
 src/util/misc/objectEnlive.ts:87

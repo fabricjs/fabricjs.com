@@ -7,6 +7,6 @@ title: "TDegree"
 
 > **TDegree**: `Nominal`\<`number`, `Degree`\>
 
-## Source
+## Defined in
 
 src/typedefs.ts:25

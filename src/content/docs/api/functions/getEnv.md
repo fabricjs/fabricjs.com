@@ -13,6 +13,6 @@ In order to support SSR we **MUST** access the browser env only after the window
 
 `TFabricEnv`
 
-## Source
+## Defined in
 
 src/env/index.ts:36

@@ -5,14 +5,7 @@ prev: false
 title: "createScaleMatrix"
 ---
 
-> **createScaleMatrix**(`x`, `y`?): [`TMat2D`](../../../type-aliases/TMat2D.md)
-
-Generate a scale matrix around the point (0,0)
-
-A matrix in the form of
-[x 0 0]
-[0 y 0]
-[0 0 1]
+> **createScaleMatrix**(`x`, `y`?): [`TMat2D`](/api/type-aliases/tmat2d/)
 
 ## Parameters
 
@@ -20,20 +13,16 @@ A matrix in the form of
 
 scale on X axis
 
-• **y?**: `number`= `x`
+• **y?**: `number` = `x`
 
 scale on Y axis
 
 ## Returns
 
-[`TMat2D`](../../../type-aliases/TMat2D.md)
+[`TMat2D`](/api/type-aliases/tmat2d/)
 
 matrix
 
-## Link
-
-https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/transform#scale
-
-## Source
+## Defined in
 
 src/util/misc/matrix.ts:198

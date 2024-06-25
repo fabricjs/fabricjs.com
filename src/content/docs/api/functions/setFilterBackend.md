@@ -15,6 +15,6 @@ title: "setFilterBackend"
 
 `void`
 
-## Source
+## Defined in
 
 src/filters/FilterBackend.ts:36

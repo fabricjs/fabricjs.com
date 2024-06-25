@@ -5,26 +5,24 @@ prev: false
 title: "getSmoothPathFromPoints"
 ---
 
-> **getSmoothPathFromPoints**(`points`, `correction`?): [`TSimplePathData`](../type-aliases/TSimplePathData.md)
-
-Converts points to a smooth SVG path
+> **getSmoothPathFromPoints**(`points`, `correction`?): [`TSimplePathData`](/api/namespaces/util/type-aliases/tsimplepathdata/)
 
 ## Parameters
 
-• **points**: [`Point`](../../../classes/Point.md)[]
+• **points**: [`Point`](/api/classes/point/)[]
 
 Array of points
 
-• **correction?**: `number`= `0`
+• **correction?**: `number` = `0`
 
 Apply a correction to the path (usually we use `width / 1000`). If value is undefined 0 is used as the correction value.
 
 ## Returns
 
-[`TSimplePathData`](../type-aliases/TSimplePathData.md)
+[`TSimplePathData`](/api/namespaces/util/type-aliases/tsimplepathdata/)
 
 An array of SVG path commands
 
-## Source
+## Defined in
 
 src/util/path/index.ts:905

@@ -7,20 +7,17 @@ title: "rotationStyleHandler"
 
 > **rotationStyleHandler**(`eventData`, `control`, `fabricObject`): `string`
 
-Find the correct style for the control that is used for rotation.
-this function is very simple and it just take care of not-allowed or standard cursor
-
 ## Parameters
 
-• **eventData**: [`TPointerEvent`](../../../type-aliases/TPointerEvent.md)
+• **eventData**: [`TPointerEvent`](/api/type-aliases/tpointerevent/)
 
 the javascript event that is causing the scale
 
-• **control**: [`Control`](../../../classes/Control.md)
+• **control**: [`Control`](/api/classes/control/)
 
 the control that is interested in the action
 
-• **fabricObject**: [`FabricObject`](../../../classes/FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../../../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../../../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../../../interfaces/ObjectEvents.md)\>
+• **fabricObject**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 the fabric object that is interested in the action
 
@@ -30,6 +27,6 @@ the fabric object that is interested in the action
 
 a valid css string for the cursor
 
-## Source
+## Defined in
 
 src/controls/rotate.ts:18

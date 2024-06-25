@@ -9,7 +9,7 @@ title: "TOnAnimationChangeCallback"
 
 Callback called every frame
 
-## Type parameters
+## Type Parameters
 
 • **T**
 
@@ -34,6 +34,6 @@ current value of the animation.
 
 `R`
 
-## Source
+## Defined in
 
 src/util/animation/types.ts:13

@@ -5,8 +5,8 @@ prev: false
 title: "TPathSegmentInfo"
 ---
 
-> **TPathSegmentInfo**: [`TPathSegmentCommandInfo`](TPathSegmentCommandInfo.md)\[keyof [`TPathSegmentCommandInfo`](TPathSegmentCommandInfo.md)\]
+> **TPathSegmentInfo**: [`TPathSegmentCommandInfo`](/api/namespaces/util/type-aliases/tpathsegmentcommandinfo/)\[keyof [`TPathSegmentCommandInfo`](/api/namespaces/util/type-aliases/tpathsegmentcommandinfo/)\]
 
-## Source
+## Defined in
 
 src/util/path/typedefs.ts:45

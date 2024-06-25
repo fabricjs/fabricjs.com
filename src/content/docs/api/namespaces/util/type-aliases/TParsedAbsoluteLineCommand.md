@@ -7,6 +7,6 @@ title: "TParsedAbsoluteLineCommand"
 
 > **TParsedAbsoluteLineCommand**: [`"L"`, `number`, `number`]
 
-## Source
+## Defined in
 
 src/util/path/typedefs.ts:117

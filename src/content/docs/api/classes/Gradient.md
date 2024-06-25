@@ -12,27 +12,27 @@ Gradient class
 
 [http://fabricjs.com/fabric-intro-part-2#gradients](http://fabricjs.com/fabric-intro-part-2#gradients)
 
-## Type parameters
+## Type Parameters
 
 • **S**
 
-• **T** extends [`GradientType`](../type-aliases/GradientType.md) = `S` extends [`GradientType`](../type-aliases/GradientType.md) ? `S` : `"linear"`
+• **T** *extends* [`GradientType`](/api/type-aliases/gradienttype/) = `S` *extends* [`GradientType`](/api/type-aliases/gradienttype/) ? `S` : `"linear"`
 
 ## Constructors
 
-### new Gradient(__namedParameters)
+### new Gradient()
 
-> **new Gradient**\<`S`, `T`\>(`__namedParameters`): [`Gradient`](Gradient.md)\<`S`, `T`\>
+> **new Gradient**\<`S`, `T`\>(`__namedParameters`): [`Gradient`](/api/classes/gradient/)\<`S`, `T`\>
 
 #### Parameters
 
-• **\_\_namedParameters**: [`GradientOptions`](../type-aliases/GradientOptions.md)\<`T`\>
+• **\_\_namedParameters**: [`GradientOptions`](/api/type-aliases/gradientoptions/)\<`T`\>
 
 #### Returns
 
-[`Gradient`](Gradient.md)\<`S`, `T`\>
+[`Gradient`](/api/classes/gradient/)\<`S`, `T`\>
 
-#### Source
+#### Defined in
 
 src/gradient/Gradient.ts:102
 
@@ -40,12 +40,12 @@ src/gradient/Gradient.ts:102
 
 ### colorStops
 
-> **colorStops**: [`ColorStop`](../type-aliases/ColorStop.md)[]
+> **colorStops**: [`ColorStop`](/api/type-aliases/colorstop/)[]
 
 Defines how many colors a gradient has and how they are located on the axis
 defined by coords
 
-#### Source
+#### Defined in
 
 src/gradient/Gradient.ts:86
 
@@ -53,11 +53,11 @@ src/gradient/Gradient.ts:86
 
 ### coords
 
-> **coords**: [`GradientCoords`](../type-aliases/GradientCoords.md)\<`T`\>
+> **coords**: [`GradientCoords`](/api/type-aliases/gradientcoords/)\<`T`\>
 
 Defines how the gradient is located in space and spread
 
-#### Source
+#### Defined in
 
 src/gradient/Gradient.ts:79
 
@@ -65,11 +65,11 @@ src/gradient/Gradient.ts:79
 
 ### excludeFromExport?
 
-> **`optional`** **excludeFromExport**: `boolean`
+> `optional` **excludeFromExport**: `boolean`
 
 If true, this object will not be exported during the serialization of a canvas
 
-#### Source
+#### Defined in
 
 src/gradient/Gradient.ts:92
 
@@ -77,7 +77,7 @@ src/gradient/Gradient.ts:92
 
 ### gradientTransform?
 
-> **`optional`** **gradientTransform**: [`TMat2D`](../type-aliases/TMat2D.md)
+> `optional` **gradientTransform**: [`TMat2D`](/api/type-aliases/tmat2d/)
 
 A transform matrix to apply to the gradient before painting.
 Imported from svg gradients, is not applied with the current transform in the center.
@@ -90,7 +90,7 @@ plus the addition of offsetY and offsetX.
 null
 ```
 
-#### Source
+#### Defined in
 
 src/gradient/Gradient.ts:55
 
@@ -98,7 +98,7 @@ src/gradient/Gradient.ts:55
 
 ### gradientUnits
 
-> **gradientUnits**: [`GradientUnits`](../type-aliases/GradientUnits.md)
+> **gradientUnits**: [`GradientUnits`](/api/type-aliases/gradientunits/)
 
 coordinates units for coords.
 If `pixels`, the number of coords are in the same unit of width / height.
@@ -112,7 +112,7 @@ allowed values pixels or percentage.
 'pixels'
 ```
 
-#### Source
+#### Defined in
 
 src/gradient/Gradient.ts:66
 
@@ -120,11 +120,11 @@ src/gradient/Gradient.ts:66
 
 ### id
 
-> **`readonly`** **id**: `string` \| `number`
+> `readonly` **id**: `string` \| `number`
 
 ID used for SVG export functionalities
 
-#### Source
+#### Defined in
 
 src/gradient/Gradient.ts:98
 
@@ -142,7 +142,7 @@ Horizontal offset for aligning gradients coming from SVG when outside pathgroups
 0
 ```
 
-#### Source
+#### Defined in
 
 src/gradient/Gradient.ts:38
 
@@ -160,7 +160,7 @@ Vertical offset for aligning gradients coming from SVG when outside pathgroups
 0
 ```
 
-#### Source
+#### Defined in
 
 src/gradient/Gradient.ts:45
 
@@ -178,7 +178,7 @@ Gradient type linear or radial
 'linear'
 ```
 
-#### Source
+#### Defined in
 
 src/gradient/Gradient.ts:73
 
@@ -186,9 +186,9 @@ src/gradient/Gradient.ts:73
 
 ### type
 
-> **`static`** **type**: `string` = `'Gradient'`
+> `static` **type**: `string` = `'Gradient'`
 
-#### Source
+#### Defined in
 
 src/gradient/Gradient.ts:100
 
@@ -196,7 +196,7 @@ src/gradient/Gradient.ts:100
 
 ### addColorStop()
 
-> **addColorStop**(`colorStops`): [`Gradient`](Gradient.md)\<`S`, `T`\>
+> **addColorStop**(`colorStops`): [`Gradient`](/api/classes/gradient/)\<`S`, `T`\>
 
 Adds another colorStop
 
@@ -206,11 +206,11 @@ Adds another colorStop
 
 #### Returns
 
-[`Gradient`](Gradient.md)\<`S`, `T`\>
+[`Gradient`](/api/classes/gradient/)\<`S`, `T`\>
 
 thisArg
 
-#### Source
+#### Defined in
 
 src/gradient/Gradient.ts:134
 
@@ -232,7 +232,7 @@ Context to render on
 
 `CanvasGradient`
 
-#### Source
+#### Defined in
 
 src/gradient/Gradient.ts:298
 
@@ -240,7 +240,7 @@ src/gradient/Gradient.ts:298
 
 ### toObject()
 
-> **toObject**(`propertiesToInclude`?): `Partial`\<[`Gradient`](Gradient.md)\<`S`, `T`\>\> & `Object`
+> **toObject**(`propertiesToInclude`?): `Partial`\<[`Gradient`](/api/classes/gradient/)\<`S`, `T`\>\> & `object`
 
 Returns object representation of a gradient
 
@@ -252,9 +252,9 @@ Any properties that you might want to additionally include in the output
 
 #### Returns
 
-`Partial`\<[`Gradient`](Gradient.md)\<`S`, `T`\>\> & `Object`
+`Partial`\<[`Gradient`](/api/classes/gradient/)\<`S`, `T`\>\> & `object`
 
-#### Source
+#### Defined in
 
 src/gradient/Gradient.ts:151
 
@@ -268,13 +268,13 @@ Returns SVG representation of an gradient
 
 #### Parameters
 
-• **object**: [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **object**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 Object to create a gradient for
 
-• **\_\_namedParameters**= `{}`
+• **\_\_namedParameters** = `{}`
 
-• **\_\_namedParameters\.additionalTransform?**: `string`
+• **\_\_namedParameters.additionalTransform?**: `string`
 
 #### Returns
 
@@ -282,7 +282,7 @@ Object to create a gradient for
 
 SVG representation of an gradient (linear/radial)
 
-#### Source
+#### Defined in
 
 src/gradient/Gradient.ts:172
 
@@ -290,7 +290,7 @@ src/gradient/Gradient.ts:172
 
 ### fromElement()
 
-> **`static`** **fromElement**(`el`, `instance`, `svgOptions`): [`Gradient`](Gradient.md)\<[`GradientType`](../type-aliases/GradientType.md), [`GradientType`](../type-aliases/GradientType.md)\>
+> `static` **fromElement**(`el`, `instance`, `svgOptions`): [`Gradient`](/api/classes/gradient/)\<[`GradientType`](/api/type-aliases/gradienttype/), [`GradientType`](/api/type-aliases/gradienttype/)\>
 
 Returns [Gradient](../../../../api/classes/gradient) instance from an SVG element
 
@@ -300,16 +300,16 @@ Returns [Gradient](../../../../api/classes/gradient) instance from an SVG elemen
 
 SVG gradient element
 
-• **instance**: [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **instance**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
-• **svgOptions**: [`SVGOptions`](../type-aliases/SVGOptions.md)
+• **svgOptions**: [`SVGOptions`](/api/type-aliases/svgoptions/)
 
 an object containing the size of the SVG in order to parse correctly gradients
 that uses gradientUnits as 'userSpaceOnUse' and percentages.
 
 #### Returns
 
-[`Gradient`](Gradient.md)\<[`GradientType`](../type-aliases/GradientType.md), [`GradientType`](../type-aliases/GradientType.md)\>
+[`Gradient`](/api/classes/gradient/)\<[`GradientType`](/api/type-aliases/gradienttype/), [`GradientType`](/api/type-aliases/gradienttype/)\>
 
 Gradient instance
 
@@ -356,7 +356,7 @@ Gradient
  </radialGradient>
 ```
 
-#### Source
+#### Defined in
 
 src/gradient/Gradient.ts:381
 
@@ -366,32 +366,32 @@ src/gradient/Gradient.ts:381
 
 #### fromObject(options)
 
-> **`static`** **fromObject**(`options`): `Promise`\<[`Gradient`](Gradient.md)\<`"radial"`, `"radial"`\>\>
+> `static` **fromObject**(`options`): `Promise`\<[`Gradient`](/api/classes/gradient/)\<`"radial"`, `"radial"`\>\>
 
 ##### Parameters
 
-• **options**: [`GradientOptions`](../type-aliases/GradientOptions.md)\<`"linear"`\>
+• **options**: [`GradientOptions`](/api/type-aliases/gradientoptions/)\<`"linear"`\>
 
 ##### Returns
 
-`Promise`\<[`Gradient`](Gradient.md)\<`"radial"`, `"radial"`\>\>
+`Promise`\<[`Gradient`](/api/classes/gradient/)\<`"radial"`, `"radial"`\>\>
 
-##### Source
+##### Defined in
 
 src/gradient/Gradient.ts:324
 
 #### fromObject(options)
 
-> **`static`** **fromObject**(`options`): `Promise`\<[`Gradient`](Gradient.md)\<`"radial"`, `"radial"`\>\>
+> `static` **fromObject**(`options`): `Promise`\<[`Gradient`](/api/classes/gradient/)\<`"radial"`, `"radial"`\>\>
 
 ##### Parameters
 
-• **options**: [`GradientOptions`](../type-aliases/GradientOptions.md)\<`"radial"`\>
+• **options**: [`GradientOptions`](/api/type-aliases/gradientoptions/)\<`"radial"`\>
 
 ##### Returns
 
-`Promise`\<[`Gradient`](Gradient.md)\<`"radial"`, `"radial"`\>\>
+`Promise`\<[`Gradient`](/api/classes/gradient/)\<`"radial"`, `"radial"`\>\>
 
-##### Source
+##### Defined in
 
 src/gradient/Gradient.ts:327

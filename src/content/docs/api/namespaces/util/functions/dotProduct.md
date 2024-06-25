@@ -7,18 +7,16 @@ title: "dotProduct"
 
 > **dotProduct**(`a`, `b`): `number`
 
-Dot product of two vectors in 2D
-
 ## Parameters
 
-• **a**: [`Point`](../../../classes/Point.md)
+• **a**: [`Point`](/api/classes/point/)
 
-• **b**: [`Point`](../../../classes/Point.md)
+• **b**: [`Point`](/api/classes/point/)
 
 ## Returns
 
 `number`
 
-## Source
+## Defined in
 
 src/util/misc/vectors.ts:83

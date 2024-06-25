@@ -23,6 +23,6 @@ Quintic easing in
 
 `number`
 
-## Source
+## Defined in
 
 src/util/animation/easing.ts:88

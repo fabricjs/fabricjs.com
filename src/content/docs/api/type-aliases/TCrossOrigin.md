@@ -13,6 +13,6 @@ An invalid keyword and an empty string will be handled as the `anonymous` keywor
 
 https://developer.mozilla.org/en-US/docs/HTML/CORS_settings_attributes
 
-## Source
+## Defined in
 
 src/typedefs.ts:73

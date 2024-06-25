@@ -7,13 +7,9 @@ title: "sin"
 
 > **sin**(`angle`): `number`
 
-Calculate the cos of an angle, avoiding returning floats for known results
-This function is here just to avoid getting 0.999999999999999 when dealing
-with numbers that are really 1 or 0.
-
 ## Parameters
 
-• **angle**: [`TRadian`](../../../type-aliases/TRadian.md)
+• **angle**: [`TRadian`](/api/type-aliases/tradian/)
 
 the angle
 
@@ -23,6 +19,6 @@ the angle
 
 the sin value for angle.
 
-## Source
+## Defined in
 
 src/util/misc/sin.ts:11

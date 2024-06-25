@@ -5,7 +5,7 @@ prev: false
 title: "TWebGLPipelineState"
 ---
 
-> **TWebGLPipelineState**: `Object`
+> **TWebGLPipelineState**: `object`
 
 ## Type declaration
 
@@ -27,7 +27,7 @@ title: "TWebGLPipelineState"
 
 ### filterBackend
 
-> **filterBackend**: [`WebGLFilterBackend`](../classes/WebGLFilterBackend.md)
+> **filterBackend**: [`WebGLFilterBackend`](/api/classes/webglfilterbackend/)
 
 ### originalHeight
 
@@ -51,7 +51,7 @@ title: "TWebGLPipelineState"
 
 ### programCache
 
-> **programCache**: [`TProgramCache`](TProgramCache.md)
+> **programCache**: [`TProgramCache`](/api/type-aliases/tprogramcache/)
 
 ### sourceHeight
 
@@ -77,6 +77,6 @@ title: "TWebGLPipelineState"
 
 > **webgl**: `boolean`
 
-## Source
+## Defined in
 
 src/filters/typedefs.ts:15

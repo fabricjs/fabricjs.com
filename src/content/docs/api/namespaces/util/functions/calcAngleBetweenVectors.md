@@ -5,22 +5,20 @@ prev: false
 title: "calcAngleBetweenVectors"
 ---
 
-> **calcAngleBetweenVectors**(`a`, `b`): [`TRadian`](../../../type-aliases/TRadian.md)
-
-Calculates the angle between 2 vectors
+> **calcAngleBetweenVectors**(`a`, `b`): [`TRadian`](/api/type-aliases/tradian/)
 
 ## Parameters
 
-• **a**: [`Point`](../../../classes/Point.md)
+• **a**: [`Point`](/api/classes/point/)
 
-• **b**: [`Point`](../../../classes/Point.md)
+• **b**: [`Point`](/api/classes/point/)
 
 ## Returns
 
-[`TRadian`](../../../type-aliases/TRadian.md)
+[`TRadian`](/api/type-aliases/tradian/)
 
 the angle in radians from `a` to `b`
 
-## Source
+## Defined in
 
 src/util/misc/vectors.ts:39

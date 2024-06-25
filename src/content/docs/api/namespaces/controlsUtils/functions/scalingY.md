@@ -9,7 +9,7 @@ title: "scalingY"
 
 ## Parameters
 
-• **eventData**: [`TPointerEvent`](../../../type-aliases/TPointerEvent.md)
+• **eventData**: [`TPointerEvent`](/api/type-aliases/tpointerevent/)
 
 • **transform**: `ScaleTransform`
 
@@ -21,6 +21,6 @@ title: "scalingY"
 
 `boolean`
 
-## Source
+## Defined in
 
 src/controls/scale.ts:283

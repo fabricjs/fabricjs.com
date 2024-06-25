@@ -7,6 +7,6 @@ title: "TAxis"
 
 > **TAxis**: `"x"` \| `"y"`
 
-## Source
+## Defined in
 
 src/typedefs.ts:28

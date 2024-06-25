@@ -7,6 +7,6 @@ title: "MultiSelectionStacking"
 
 > **MultiSelectionStacking**: `"canvas-stacking"` \| `"selection-order"`
 
-## Source
+## Defined in
 
 src/shapes/ActiveSelection.ts:13

@@ -9,6 +9,6 @@ title: "TParsedCommand"
 
 A parsed command of any length (even impossible ones)
 
-## Source
+## Defined in
 
 src/util/path/typedefs.ts:51

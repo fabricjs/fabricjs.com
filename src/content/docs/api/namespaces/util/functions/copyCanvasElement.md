@@ -7,8 +7,6 @@ title: "copyCanvasElement"
 
 > **copyCanvasElement**(`canvas`): `HTMLCanvasElement`
 
-Creates a canvas element that is a copy of another and is also painted
-
 ## Parameters
 
 • **canvas**: `HTMLCanvasElement`
@@ -21,6 +19,6 @@ to copy size and content of
 
 initialized canvas element
 
-## Source
+## Defined in
 
 src/util/misc/dom.ts:28

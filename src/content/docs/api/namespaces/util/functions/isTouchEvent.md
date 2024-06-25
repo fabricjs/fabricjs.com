@@ -9,12 +9,12 @@ title: "isTouchEvent"
 
 ## Parameters
 
-• **event**: [`TPointerEvent`](../../../type-aliases/TPointerEvent.md)
+• **event**: [`TPointerEvent`](/api/type-aliases/tpointerevent/)
 
 ## Returns
 
 `boolean`
 
-## Source
+## Defined in
 
 src/util/dom\_event.ts:22

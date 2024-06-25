@@ -23,33 +23,37 @@ layout:after
 
 ## Extends
 
-- `Collection`\<(`options`?) => [`FabricObject`](FabricObject.md)\<[`GroupProps`](../interfaces/GroupProps.md), [`SerializedGroupProps`](../interfaces/SerializedGroupProps.md), [`GroupEvents`](../interfaces/GroupEvents.md)\>, `this`\> & [`FabricObject`](FabricObject.md)\<[`GroupProps`](../interfaces/GroupProps.md), [`SerializedGroupProps`](../interfaces/SerializedGroupProps.md), [`GroupEvents`](../interfaces/GroupEvents.md), `this`\>
+- `Collection`\<(`options`?) => [`FabricObject`](/api/classes/fabricobject/)\<[`GroupProps`](/api/interfaces/groupprops/), [`SerializedGroupProps`](/api/interfaces/serializedgroupprops/), [`GroupEvents`](/api/interfaces/groupevents/)\>, `this`\> & [`FabricObject`](/api/classes/fabricobject/)\<[`GroupProps`](/api/interfaces/groupprops/), [`SerializedGroupProps`](/api/interfaces/serializedgroupprops/), [`GroupEvents`](/api/interfaces/groupevents/), `this`\>
+
+## Extended by
+
+- [`ActiveSelection`](/api/classes/activeselection/)
 
 ## Implements
 
-- [`GroupProps`](../interfaces/GroupProps.md)
+- [`GroupProps`](/api/interfaces/groupprops/)
 
 ## Constructors
 
-### new Group(objects, options)
+### new Group()
 
-> **new Group**(`objects`?, `options`?): [`Group`](Group.md)
+> **new Group**(`objects`?, `options`?): [`Group`](/api/classes/group/)
 
 Constructor
 
 #### Parameters
 
-• **objects?**: [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>[]= `[]`
+• **objects?**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>[] = `[]`
 
 instance objects
 
-• **options?**: `Partial`\<[`GroupProps`](../interfaces/GroupProps.md)\>= `{}`
+• **options?**: `Partial`\<[`GroupProps`](/api/interfaces/groupprops/)\> = `{}`
 
 Options object
 
 #### Returns
 
-[`Group`](Group.md)
+[`Group`](/api/classes/group/)
 
 #### Overrides
 
@@ -57,7 +61,7 @@ Options object
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).constructor`
 
-#### Source
+#### Defined in
 
 src/shapes/Group.ts:129
 
@@ -65,7 +69,7 @@ src/shapes/Group.ts:129
 
 ### \_\_corner?
 
-> **`optional`** **\_\_corner**: `string`
+> `optional` **\_\_corner**: `string`
 
 keeps the value of the last hovered corner during mouse move.
 0 is no corner, or 'mt', 'ml', 'mtr' etc..
@@ -79,7 +83,7 @@ this isn't cleaned automatically. Non selected objects may have wrong values
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).__corner`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:104
 
@@ -99,7 +103,7 @@ this takes priority over the generic control visibility
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   )._controlsVisibility`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:111
 
@@ -107,7 +111,7 @@ src/shapes/Object/InteractiveObject.ts:111
 
 ### \_objects
 
-> **\_objects**: [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>[] = `[]`
+> **\_objects**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>[] = `[]`
 
 #### TODO
 
@@ -119,7 +123,7 @@ needs to end up in the constructor too
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   )._objects`
 
-#### Source
+#### Defined in
 
 src/Collection.ts:21
 
@@ -127,7 +131,7 @@ src/Collection.ts:21
 
 ### \_scaling?
 
-> **`optional`** **\_scaling**: `boolean`
+> `optional` **\_scaling**: `boolean`
 
 A boolean used from the gesture module to keep tracking of a scaling
 action when there is no scaling transform in place.
@@ -145,7 +149,7 @@ DON'T USE IT. WE WILL TRY TO REMOVE IT
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   )._scaling`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:133
 
@@ -153,7 +157,7 @@ src/shapes/Object/InteractiveObject.ts:133
 
 ### aCoords
 
-> **aCoords**: [`TCornerPoint`](../type-aliases/TCornerPoint.md)
+> **aCoords**: [`TCornerPoint`](/api/type-aliases/tcornerpoint/)
 
 Describe object's corner position in scene coordinates.
 The coordinates are derived from the following:
@@ -168,7 +172,7 @@ You can calculate them without updating with [()](../../../../api/classes/group/
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).aCoords`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:50
 
@@ -193,7 +197,7 @@ false
 
 #### Implementation of
 
-[`GroupProps`](../interfaces/GroupProps.md).[`absolutePositioned`](../interfaces/GroupProps.md#absolutepositioned)
+[`GroupProps`](/api/interfaces/groupprops/).[`absolutePositioned`](/api/interfaces/groupprops/#absolutepositioned)
 
 #### Inherited from
 
@@ -201,35 +205,15 @@ false
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).absolutePositioned`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:166
 
 ***
 
-### activeOn
-
-> **activeOn**: `"down"` \| `"up"`
-
-#### Implementation of
-
-`GroupProps.activeOn`
-
-#### Inherited from
-
-`createCollectionMixin(
-    FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
-  ).activeOn`
-
-#### Source
-
-src/shapes/Object/InteractiveObject.ts:83
-
-***
-
 ### angle
 
-> **angle**: [`TDegree`](../type-aliases/TDegree.md)
+> **angle**: [`TDegree`](/api/type-aliases/tdegree/)
 
 Angle of rotation of an object (in degrees)
 
@@ -241,7 +225,7 @@ Angle of rotation of an object (in degrees)
 
 #### Implementation of
 
-[`GroupProps`](../interfaces/GroupProps.md).[`angle`](../interfaces/GroupProps.md#angle)
+[`GroupProps`](/api/interfaces/groupprops/).[`angle`](/api/interfaces/groupprops/#angle)
 
 #### Inherited from
 
@@ -249,7 +233,7 @@ Angle of rotation of an object (in degrees)
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).angle`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:29
 
@@ -270,7 +254,7 @@ takes css colors https://www.w3.org/TR/css-color-3/
 
 #### Implementation of
 
-[`GroupProps`](../interfaces/GroupProps.md).[`backgroundColor`](../interfaces/GroupProps.md#backgroundcolor)
+[`GroupProps`](/api/interfaces/groupprops/).[`backgroundColor`](/api/interfaces/groupprops/#backgroundcolor)
 
 #### Inherited from
 
@@ -278,7 +262,7 @@ takes css colors https://www.w3.org/TR/css-color-3/
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).backgroundColor`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:153
 
@@ -298,7 +282,7 @@ rgb(178,204,255)
 
 #### Implementation of
 
-[`GroupProps`](../interfaces/GroupProps.md).[`borderColor`](../interfaces/GroupProps.md#bordercolor)
+[`GroupProps`](/api/interfaces/groupprops/).[`borderColor`](/api/interfaces/groupprops/#bordercolor)
 
 #### Inherited from
 
@@ -306,7 +290,7 @@ rgb(178,204,255)
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).borderColor`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:73
 
@@ -324,7 +308,7 @@ Array specifying dash pattern of an object's borders (hasBorder must be true)
 
 #### Implementation of
 
-[`GroupProps`](../interfaces/GroupProps.md).[`borderDashArray`](../interfaces/GroupProps.md#borderdasharray)
+[`GroupProps`](/api/interfaces/groupprops/).[`borderDashArray`](/api/interfaces/groupprops/#borderdasharray)
 
 #### Inherited from
 
@@ -332,7 +316,7 @@ Array specifying dash pattern of an object's borders (hasBorder must be true)
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).borderDashArray`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:74
 
@@ -352,7 +336,7 @@ Opacity of object's controlling borders when object is active and moving
 
 #### Implementation of
 
-[`GroupProps`](../interfaces/GroupProps.md).[`borderOpacityWhenMoving`](../interfaces/GroupProps.md#borderopacitywhenmoving)
+[`GroupProps`](/api/interfaces/groupprops/).[`borderOpacityWhenMoving`](/api/interfaces/groupprops/#borderopacitywhenmoving)
 
 #### Inherited from
 
@@ -360,7 +344,7 @@ Opacity of object's controlling borders when object is active and moving
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).borderOpacityWhenMoving`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:75
 
@@ -383,7 +367,7 @@ since there is no way to change the border itself.
 
 #### Implementation of
 
-[`GroupProps`](../interfaces/GroupProps.md).[`borderScaleFactor`](../interfaces/GroupProps.md#borderscalefactor)
+[`GroupProps`](/api/interfaces/groupprops/).[`borderScaleFactor`](/api/interfaces/groupprops/#borderscalefactor)
 
 #### Inherited from
 
@@ -391,29 +375,9 @@ since there is no way to change the border itself.
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).borderScaleFactor`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:76
-
-***
-
-### canvas?
-
-> **`optional`** **canvas**: [`Canvas`](Canvas.md)
-
-#### Implementation of
-
-[`GroupProps`](../interfaces/GroupProps.md).[`canvas`](../interfaces/GroupProps.md#canvas)
-
-#### Inherited from
-
-`createCollectionMixin(
-    FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
-  ).canvas`
-
-#### Source
-
-src/shapes/Object/InteractiveObject.ts:135
 
 ***
 
@@ -439,7 +403,7 @@ The object method `rotate` will always consider this property and never the canv
 
 #### Implementation of
 
-[`GroupProps`](../interfaces/GroupProps.md).[`centeredRotation`](../interfaces/GroupProps.md#centeredrotation)
+[`GroupProps`](/api/interfaces/groupprops/).[`centeredRotation`](/api/interfaces/groupprops/#centeredrotation)
 
 #### Inherited from
 
@@ -447,7 +411,7 @@ The object method `rotate` will always consider this property and never the canv
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).centeredRotation`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:167
 
@@ -472,7 +436,7 @@ when being scaled via the controls.
 
 #### Implementation of
 
-[`GroupProps`](../interfaces/GroupProps.md).[`centeredScaling`](../interfaces/GroupProps.md#centeredscaling)
+[`GroupProps`](/api/interfaces/groupprops/).[`centeredScaling`](/api/interfaces/groupprops/#centeredscaling)
 
 #### Inherited from
 
@@ -480,7 +444,7 @@ when being scaled via the controls.
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).centeredScaling`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:168
 
@@ -488,11 +452,16 @@ src/shapes/Object/Object.ts:168
 
 ### clipPath?
 
-> **`optional`** **clipPath**: `FabricObject`\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+> `optional` **clipPath**: `FabricObject`\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
+
+a fabricObject that, without stroke define a clipping area with their shape. filled in black
+the clipPath object gets used when the object has rendered, and the context is placed in the center
+of the object cacheCanvas.
+If you want 0,0 of a clipPath to align with an object center, use clipPath.originX/Y to 'center'
 
 #### Implementation of
 
-[`GroupProps`](../interfaces/GroupProps.md).[`clipPath`](../interfaces/GroupProps.md#clippath)
+[`GroupProps`](/api/interfaces/groupprops/).[`clipPath`](/api/interfaces/groupprops/#clippath)
 
 #### Inherited from
 
@@ -500,7 +469,7 @@ src/shapes/Object/Object.ts:168
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).clipPath`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:164
 
@@ -508,7 +477,7 @@ src/shapes/Object/Object.ts:164
 
 ### clipPathId?
 
-> **`optional`** **clipPathId**: `string`
+> `optional` **clipPathId**: `string`
 
 When an object is being exported as SVG as a clippath, a reference inside the SVG is needed.
 This reference is a UID in the fabric namespace and is temporary stored here.
@@ -519,7 +488,7 @@ This reference is a UID in the fabric namespace and is temporary stored here.
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).clipPathId`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/FabricObjectSVGExportMixin.ts:14
 
@@ -538,7 +507,7 @@ controls are added by default_controls.js
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).controls`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:117
 
@@ -558,7 +527,7 @@ rgb(178,204,255)
 
 #### Implementation of
 
-[`GroupProps`](../interfaces/GroupProps.md).[`cornerColor`](../interfaces/GroupProps.md#cornercolor)
+[`GroupProps`](/api/interfaces/groupprops/).[`cornerColor`](/api/interfaces/groupprops/#cornercolor)
 
 #### Inherited from
 
@@ -566,7 +535,7 @@ rgb(178,204,255)
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).cornerColor`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:67
 
@@ -584,7 +553,7 @@ Array specifying dash pattern of an object's control (hasBorder must be true)
 
 #### Implementation of
 
-[`GroupProps`](../interfaces/GroupProps.md).[`cornerDashArray`](../interfaces/GroupProps.md#cornerdasharray)
+[`GroupProps`](/api/interfaces/groupprops/).[`cornerDashArray`](/api/interfaces/groupprops/#cornerdasharray)
 
 #### Inherited from
 
@@ -592,7 +561,7 @@ Array specifying dash pattern of an object's control (hasBorder must be true)
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).cornerDashArray`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:70
 
@@ -612,7 +581,7 @@ Size of object's controlling corners (in pixels)
 
 #### Implementation of
 
-[`GroupProps`](../interfaces/GroupProps.md).[`cornerSize`](../interfaces/GroupProps.md#cornersize)
+[`GroupProps`](/api/interfaces/groupprops/).[`cornerSize`](/api/interfaces/groupprops/#cornersize)
 
 #### Inherited from
 
@@ -620,7 +589,7 @@ Size of object's controlling corners (in pixels)
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).cornerSize`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:64
 
@@ -644,7 +613,7 @@ null
 
 #### Implementation of
 
-[`GroupProps`](../interfaces/GroupProps.md).[`cornerStrokeColor`](../interfaces/GroupProps.md#cornerstrokecolor)
+[`GroupProps`](/api/interfaces/groupprops/).[`cornerStrokeColor`](/api/interfaces/groupprops/#cornerstrokecolor)
 
 #### Inherited from
 
@@ -652,7 +621,7 @@ null
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).cornerStrokeColor`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:68
 
@@ -682,7 +651,7 @@ This API is no longer supported and may be removed in a future release.
 
 #### Implementation of
 
-[`GroupProps`](../interfaces/GroupProps.md).[`cornerStyle`](../interfaces/GroupProps.md#cornerstyle)
+[`GroupProps`](/api/interfaces/groupprops/).[`cornerStyle`](/api/interfaces/groupprops/#cornerstyle)
 
 #### Inherited from
 
@@ -690,7 +659,7 @@ This API is no longer supported and may be removed in a future release.
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).cornerStyle`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:69
 
@@ -715,7 +684,7 @@ true
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).dirty`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:193
 
@@ -735,7 +704,7 @@ When set to `false`, an object can not be a target of events. All events propaga
 
 #### Implementation of
 
-[`GroupProps`](../interfaces/GroupProps.md).[`evented`](../interfaces/GroupProps.md#evented)
+[`GroupProps`](/api/interfaces/groupprops/).[`evented`](/api/interfaces/groupprops/#evented)
 
 #### Inherited from
 
@@ -743,7 +712,7 @@ When set to `false`, an object can not be a target of events. All events propaga
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).evented`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:81
 
@@ -767,7 +736,7 @@ When `true`, object is not exported in OBJECT/JSON
 
 #### Implementation of
 
-[`GroupProps`](../interfaces/GroupProps.md).[`excludeFromExport`](../interfaces/GroupProps.md#excludefromexport)
+[`GroupProps`](/api/interfaces/groupprops/).[`excludeFromExport`](/api/interfaces/groupprops/#excludefromexport)
 
 #### Inherited from
 
@@ -775,7 +744,7 @@ When `true`, object is not exported in OBJECT/JSON
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).excludeFromExport`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:160
 
@@ -783,11 +752,20 @@ src/shapes/Object/Object.ts:160
 
 ### fill
 
-> **fill**: `null` \| `string` \| [`TFiller`](../type-aliases/TFiller.md)
+> **fill**: `null` \| `string` \| [`TFiller`](/api/type-aliases/tfiller/)
+
+Color of object's fill
+takes css colors https://www.w3.org/TR/css-color-3/
+
+#### Default
+
+```ts
+rgb(0,0,0)
+```
 
 #### Implementation of
 
-[`GroupProps`](../interfaces/GroupProps.md).[`fill`](../interfaces/GroupProps.md#fill)
+[`GroupProps`](/api/interfaces/groupprops/).[`fill`](/api/interfaces/groupprops/#fill)
 
 #### Inherited from
 
@@ -795,7 +773,7 @@ src/shapes/Object/Object.ts:160
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).fill`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:143
 
@@ -817,7 +795,7 @@ nonzero
 
 #### Implementation of
 
-[`GroupProps`](../interfaces/GroupProps.md).[`fillRule`](../interfaces/GroupProps.md#fillrule)
+[`GroupProps`](/api/interfaces/groupprops/).[`fillRule`](/api/interfaces/groupprops/#fillrule)
 
 #### Inherited from
 
@@ -825,7 +803,7 @@ nonzero
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).fillRule`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:144
 
@@ -845,7 +823,7 @@ false
 
 #### Implementation of
 
-[`GroupProps`](../interfaces/GroupProps.md).[`flipX`](../interfaces/GroupProps.md#flipx)
+[`GroupProps`](/api/interfaces/groupprops/).[`flipX`](/api/interfaces/groupprops/#flipx)
 
 #### Inherited from
 
@@ -853,7 +831,7 @@ false
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).flipX`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:21
 
@@ -873,7 +851,7 @@ false
 
 #### Implementation of
 
-[`GroupProps`](../interfaces/GroupProps.md).[`flipY`](../interfaces/GroupProps.md#flipy)
+[`GroupProps`](/api/interfaces/groupprops/).[`flipY`](/api/interfaces/groupprops/#flipy)
 
 #### Inherited from
 
@@ -881,7 +859,7 @@ false
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).flipY`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:22
 
@@ -901,7 +879,7 @@ Composite rule used for canvas globalCompositeOperation
 
 #### Implementation of
 
-[`GroupProps`](../interfaces/GroupProps.md).[`globalCompositeOperation`](../interfaces/GroupProps.md#globalcompositeoperation)
+[`GroupProps`](/api/interfaces/groupprops/).[`globalCompositeOperation`](/api/interfaces/groupprops/#globalcompositeoperation)
 
 #### Inherited from
 
@@ -909,7 +887,7 @@ Composite rule used for canvas globalCompositeOperation
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).globalCompositeOperation`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:152
 
@@ -929,7 +907,7 @@ When set to `false`, object's controlling borders are not rendered
 
 #### Implementation of
 
-[`GroupProps`](../interfaces/GroupProps.md).[`hasBorders`](../interfaces/GroupProps.md#hasborders)
+[`GroupProps`](/api/interfaces/groupprops/).[`hasBorders`](/api/interfaces/groupprops/#hasborders)
 
 #### Inherited from
 
@@ -937,7 +915,7 @@ When set to `false`, object's controlling borders are not rendered
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).hasBorders`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:77
 
@@ -957,7 +935,7 @@ When set to `false`, object's controls are not displayed and can not be used to 
 
 #### Implementation of
 
-[`GroupProps`](../interfaces/GroupProps.md).[`hasControls`](../interfaces/GroupProps.md#hascontrols)
+[`GroupProps`](/api/interfaces/groupprops/).[`hasControls`](/api/interfaces/groupprops/#hascontrols)
 
 #### Inherited from
 
@@ -965,7 +943,7 @@ When set to `false`, object's controls are not displayed and can not be used to 
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).hasControls`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:71
 
@@ -985,7 +963,7 @@ Object height
 
 #### Implementation of
 
-[`GroupProps`](../interfaces/GroupProps.md).[`height`](../interfaces/GroupProps.md#height)
+[`GroupProps`](/api/interfaces/groupprops/).[`height`](/api/interfaces/groupprops/#height)
 
 #### Inherited from
 
@@ -993,7 +971,7 @@ Object height
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).height`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:20
 
@@ -1013,7 +991,7 @@ null
 
 #### Implementation of
 
-[`GroupProps`](../interfaces/GroupProps.md).[`hoverCursor`](../interfaces/GroupProps.md#hovercursor)
+[`GroupProps`](/api/interfaces/groupprops/).[`hoverCursor`](/api/interfaces/groupprops/#hovercursor)
 
 #### Inherited from
 
@@ -1021,7 +999,7 @@ null
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).hoverCursor`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:85
 
@@ -1041,7 +1019,7 @@ When `false`, default object's values are not included in its serialization
 
 #### Implementation of
 
-[`GroupProps`](../interfaces/GroupProps.md).[`includeDefaultValues`](../interfaces/GroupProps.md#includedefaultvalues)
+[`GroupProps`](/api/interfaces/groupprops/).[`includeDefaultValues`](/api/interfaces/groupprops/#includedefaultvalues)
 
 #### Inherited from
 
@@ -1049,7 +1027,7 @@ When `false`, default object's values are not included in its serialization
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).includeDefaultValues`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:159
 
@@ -1071,9 +1049,9 @@ set to true if you want to select an object inside a group.\
 
 #### Implementation of
 
-[`GroupProps`](../interfaces/GroupProps.md).[`interactive`](../interfaces/GroupProps.md#interactive)
+[`GroupProps`](/api/interfaces/groupprops/).[`interactive`](/api/interfaces/groupprops/#interactive)
 
-#### Source
+#### Defined in
 
 src/shapes/Group.ts:98
 
@@ -1095,7 +1073,7 @@ false
 
 #### Implementation of
 
-[`GroupProps`](../interfaces/GroupProps.md).[`inverted`](../interfaces/GroupProps.md#inverted)
+[`GroupProps`](/api/interfaces/groupprops/).[`inverted`](/api/interfaces/groupprops/#inverted)
 
 #### Inherited from
 
@@ -1103,7 +1081,7 @@ false
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).inverted`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:165
 
@@ -1111,7 +1089,7 @@ src/shapes/Object/Object.ts:165
 
 ### isMoving?
 
-> **`optional`** **isMoving**: `boolean`
+> `optional` **isMoving**: `boolean`
 
 internal boolean to signal the code that the object is
 part of the move action.
@@ -1122,7 +1100,7 @@ part of the move action.
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).isMoving`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:123
 
@@ -1130,13 +1108,13 @@ src/shapes/Object/InteractiveObject.ts:123
 
 ### layoutManager
 
-> **layoutManager**: [`LayoutManager`](LayoutManager.md)
+> **layoutManager**: [`LayoutManager`](/api/classes/layoutmanager/)
 
 #### Implementation of
 
-[`GroupProps`](../interfaces/GroupProps.md).[`layoutManager`](../interfaces/GroupProps.md#layoutmanager)
+[`GroupProps`](/api/interfaces/groupprops/).[`layoutManager`](/api/interfaces/groupprops/#layoutmanager)
 
-#### Source
+#### Defined in
 
 src/shapes/Group.ts:100
 
@@ -1148,7 +1126,7 @@ src/shapes/Group.ts:100
 
 Left position of an object.
 Note that by default it's relative to object left.
-You can change this by setting [originX](../../../../api/classes/interfaces/fabricobjectprops/#originx)
+You can change this by setting [originX](../../../../api/interfaces/fabricobjectprops/#originx)
 
 #### Default
 
@@ -1158,7 +1136,7 @@ You can change this by setting [originX](../../../../api/classes/interfaces/fabr
 
 #### Implementation of
 
-[`GroupProps`](../interfaces/GroupProps.md).[`left`](../interfaces/GroupProps.md#left)
+[`GroupProps`](/api/interfaces/groupprops/).[`left`](/api/interfaces/groupprops/#left)
 
 #### Inherited from
 
@@ -1166,7 +1144,7 @@ You can change this by setting [originX](../../../../api/classes/interfaces/fabr
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).left`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:18
 
@@ -1186,7 +1164,7 @@ When `true`, object horizontal movement is locked
 
 #### Implementation of
 
-[`GroupProps`](../interfaces/GroupProps.md).[`lockMovementX`](../interfaces/GroupProps.md#lockmovementx)
+[`GroupProps`](/api/interfaces/groupprops/).[`lockMovementX`](/api/interfaces/groupprops/#lockmovementx)
 
 #### Inherited from
 
@@ -1194,7 +1172,7 @@ When `true`, object horizontal movement is locked
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).lockMovementX`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:55
 
@@ -1214,7 +1192,7 @@ When `true`, object vertical movement is locked
 
 #### Implementation of
 
-[`GroupProps`](../interfaces/GroupProps.md).[`lockMovementY`](../interfaces/GroupProps.md#lockmovementy)
+[`GroupProps`](/api/interfaces/groupprops/).[`lockMovementY`](/api/interfaces/groupprops/#lockmovementy)
 
 #### Inherited from
 
@@ -1222,7 +1200,7 @@ When `true`, object vertical movement is locked
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).lockMovementY`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:56
 
@@ -1242,7 +1220,7 @@ When `true`, object rotation is locked
 
 #### Implementation of
 
-[`GroupProps`](../interfaces/GroupProps.md).[`lockRotation`](../interfaces/GroupProps.md#lockrotation)
+[`GroupProps`](/api/interfaces/groupprops/).[`lockRotation`](/api/interfaces/groupprops/#lockrotation)
 
 #### Inherited from
 
@@ -1250,7 +1228,7 @@ When `true`, object rotation is locked
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).lockRotation`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:57
 
@@ -1270,7 +1248,7 @@ When `true`, object cannot be flipped by scaling into negative values
 
 #### Implementation of
 
-[`GroupProps`](../interfaces/GroupProps.md).[`lockScalingFlip`](../interfaces/GroupProps.md#lockscalingflip)
+[`GroupProps`](/api/interfaces/groupprops/).[`lockScalingFlip`](/api/interfaces/groupprops/#lockscalingflip)
 
 #### Inherited from
 
@@ -1278,7 +1256,7 @@ When `true`, object cannot be flipped by scaling into negative values
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).lockScalingFlip`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:62
 
@@ -1298,7 +1276,7 @@ When `true`, object horizontal scaling is locked
 
 #### Implementation of
 
-[`GroupProps`](../interfaces/GroupProps.md).[`lockScalingX`](../interfaces/GroupProps.md#lockscalingx)
+[`GroupProps`](/api/interfaces/groupprops/).[`lockScalingX`](/api/interfaces/groupprops/#lockscalingx)
 
 #### Inherited from
 
@@ -1306,7 +1284,7 @@ When `true`, object horizontal scaling is locked
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).lockScalingX`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:58
 
@@ -1326,7 +1304,7 @@ When `true`, object vertical scaling is locked
 
 #### Implementation of
 
-[`GroupProps`](../interfaces/GroupProps.md).[`lockScalingY`](../interfaces/GroupProps.md#lockscalingy)
+[`GroupProps`](/api/interfaces/groupprops/).[`lockScalingY`](/api/interfaces/groupprops/#lockscalingy)
 
 #### Inherited from
 
@@ -1334,7 +1312,7 @@ When `true`, object vertical scaling is locked
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).lockScalingY`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:59
 
@@ -1354,7 +1332,7 @@ When `true`, object horizontal skewing is locked
 
 #### Implementation of
 
-[`GroupProps`](../interfaces/GroupProps.md).[`lockSkewingX`](../interfaces/GroupProps.md#lockskewingx)
+[`GroupProps`](/api/interfaces/groupprops/).[`lockSkewingX`](/api/interfaces/groupprops/#lockskewingx)
 
 #### Inherited from
 
@@ -1362,7 +1340,7 @@ When `true`, object horizontal skewing is locked
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).lockSkewingX`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:60
 
@@ -1382,7 +1360,7 @@ When `true`, object vertical skewing is locked
 
 #### Implementation of
 
-[`GroupProps`](../interfaces/GroupProps.md).[`lockSkewingY`](../interfaces/GroupProps.md#lockskewingy)
+[`GroupProps`](/api/interfaces/groupprops/).[`lockSkewingY`](/api/interfaces/groupprops/#lockskewingy)
 
 #### Inherited from
 
@@ -1390,7 +1368,7 @@ When `true`, object vertical skewing is locked
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).lockSkewingY`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:61
 
@@ -1398,7 +1376,7 @@ src/shapes/Object/InteractiveObject.ts:61
 
 ### matrixCache?
 
-> **`optional`** **matrixCache**: `TMatrixCache`
+> `optional` **matrixCache**: `TMatrixCache`
 
 storage cache for object full transform matrix
 
@@ -1408,7 +1386,7 @@ storage cache for object full transform matrix
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).matrixCache`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:60
 
@@ -1428,7 +1406,7 @@ Minimum allowed scale value of an object
 
 #### Implementation of
 
-[`GroupProps`](../interfaces/GroupProps.md).[`minScaleLimit`](../interfaces/GroupProps.md#minscalelimit)
+[`GroupProps`](/api/interfaces/groupprops/).[`minScaleLimit`](/api/interfaces/groupprops/#minscalelimit)
 
 #### Inherited from
 
@@ -1436,7 +1414,7 @@ Minimum allowed scale value of an object
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).minScaleLimit`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:138
 
@@ -1456,7 +1434,7 @@ null
 
 #### Implementation of
 
-[`GroupProps`](../interfaces/GroupProps.md).[`moveCursor`](../interfaces/GroupProps.md#movecursor)
+[`GroupProps`](/api/interfaces/groupprops/).[`moveCursor`](/api/interfaces/groupprops/#movecursor)
 
 #### Inherited from
 
@@ -1464,7 +1442,7 @@ null
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).moveCursor`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:86
 
@@ -1488,7 +1466,7 @@ true
 
 #### Implementation of
 
-[`GroupProps`](../interfaces/GroupProps.md).[`noScaleCache`](../interfaces/GroupProps.md#noscalecache)
+[`GroupProps`](/api/interfaces/groupprops/).[`noScaleCache`](/api/interfaces/groupprops/#noscalecache)
 
 #### Inherited from
 
@@ -1496,7 +1474,7 @@ true
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).noScaleCache`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:50
 
@@ -1517,7 +1495,7 @@ Used to draw and locate controls.
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).oCoords`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:94
 
@@ -1543,7 +1521,7 @@ true
 
 #### Implementation of
 
-[`GroupProps`](../interfaces/GroupProps.md).[`objectCaching`](../interfaces/GroupProps.md#objectcaching)
+[`GroupProps`](/api/interfaces/groupprops/).[`objectCaching`](/api/interfaces/groupprops/#objectcaching)
 
 #### Inherited from
 
@@ -1551,7 +1529,7 @@ true
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).objectCaching`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:162
 
@@ -1571,7 +1549,7 @@ Opacity of an object
 
 #### Implementation of
 
-[`GroupProps`](../interfaces/GroupProps.md).[`opacity`](../interfaces/GroupProps.md#opacity)
+[`GroupProps`](/api/interfaces/groupprops/).[`opacity`](/api/interfaces/groupprops/#opacity)
 
 #### Inherited from
 
@@ -1579,7 +1557,7 @@ Opacity of an object
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).opacity`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:140
 
@@ -1587,7 +1565,7 @@ src/shapes/Object/Object.ts:140
 
 ### originX
 
-> **originX**: [`TOriginX`](../type-aliases/TOriginX.md)
+> **originX**: [`TOriginX`](/api/type-aliases/toriginx/)
 
 Horizontal origin of transformation of an object (`left`, `center`, `right`  or `[0, 1]`)
 See http://jsfiddle.net/1ow02gea/244/ on how originX/originY affect objects in groups
@@ -1600,7 +1578,7 @@ See http://jsfiddle.net/1ow02gea/244/ on how originX/originY affect objects in g
 
 #### Implementation of
 
-[`GroupProps`](../interfaces/GroupProps.md).[`originX`](../interfaces/GroupProps.md#originx)
+[`GroupProps`](/api/interfaces/groupprops/).[`originX`](/api/interfaces/groupprops/#originx)
 
 #### Inherited from
 
@@ -1608,7 +1586,7 @@ See http://jsfiddle.net/1ow02gea/244/ on how originX/originY affect objects in g
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).originX`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:27
 
@@ -1616,7 +1594,7 @@ src/shapes/Object/ObjectOrigin.ts:27
 
 ### originY
 
-> **originY**: [`TOriginY`](../type-aliases/TOriginY.md)
+> **originY**: [`TOriginY`](/api/type-aliases/toriginy/)
 
 Vertical origin of transformation of an object (`top`, `center`, `bottom` or `[0, 1]`)
 See http://jsfiddle.net/1ow02gea/244/ on how originX/originY affect objects in groups
@@ -1629,7 +1607,7 @@ See http://jsfiddle.net/1ow02gea/244/ on how originX/originY affect objects in g
 
 #### Implementation of
 
-[`GroupProps`](../interfaces/GroupProps.md).[`originY`](../interfaces/GroupProps.md#originy)
+[`GroupProps`](/api/interfaces/groupprops/).[`originY`](/api/interfaces/groupprops/#originy)
 
 #### Inherited from
 
@@ -1637,7 +1615,7 @@ See http://jsfiddle.net/1ow02gea/244/ on how originX/originY affect objects in g
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).originY`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:28
 
@@ -1645,7 +1623,7 @@ src/shapes/Object/ObjectOrigin.ts:28
 
 ### ownMatrixCache?
 
-> **`optional`** **ownMatrixCache**: `TMatrixCache`
+> `optional` **ownMatrixCache**: `TMatrixCache`
 
 storage cache for object transform matrix
 
@@ -1655,7 +1633,7 @@ storage cache for object transform matrix
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).ownMatrixCache`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:55
 
@@ -1675,7 +1653,7 @@ Padding between object and its controlling borders (in pixels)
 
 #### Implementation of
 
-[`GroupProps`](../interfaces/GroupProps.md).[`padding`](../interfaces/GroupProps.md#padding)
+[`GroupProps`](/api/interfaces/groupprops/).[`padding`](/api/interfaces/groupprops/#padding)
 
 #### Inherited from
 
@@ -1683,7 +1661,7 @@ Padding between object and its controlling borders (in pixels)
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).padding`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:40
 
@@ -1703,7 +1681,7 @@ Determines if the fill or the stroke is drawn first (one of "fill" or "stroke")
 
 #### Implementation of
 
-[`GroupProps`](../interfaces/GroupProps.md).[`paintFirst`](../interfaces/GroupProps.md#paintfirst)
+[`GroupProps`](/api/interfaces/groupprops/).[`paintFirst`](/api/interfaces/groupprops/#paintfirst)
 
 #### Inherited from
 
@@ -1711,7 +1689,7 @@ Determines if the fill or the stroke is drawn first (one of "fill" or "stroke")
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).paintFirst`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:142
 
@@ -1719,7 +1697,7 @@ src/shapes/Object/Object.ts:142
 
 ### parent?
 
-> **`optional`** **parent**: [`Group`](Group.md)
+> `optional` **parent**: [`Group`](/api/classes/group/)
 
 A reference to the parent of the object
 Used to keep the original parent ref when the object has been added to an ActiveSelection, hence loosing the `group` ref
@@ -1730,7 +1708,7 @@ Used to keep the original parent ref when the object has been added to an Active
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).parent`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/StackedObject.ts:44
 
@@ -1750,7 +1728,7 @@ When set to `true`, objects are "found" on canvas on per-pixel basis rather than
 
 #### Implementation of
 
-[`GroupProps`](../interfaces/GroupProps.md).[`perPixelTargetFind`](../interfaces/GroupProps.md#perpixeltargetfind)
+[`GroupProps`](/api/interfaces/groupprops/).[`perPixelTargetFind`](/api/interfaces/groupprops/#perpixeltargetfind)
 
 #### Inherited from
 
@@ -1758,7 +1736,7 @@ When set to `true`, objects are "found" on canvas on per-pixel basis rather than
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).perPixelTargetFind`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:82
 
@@ -1778,7 +1756,7 @@ Object scale factor (horizontal)
 
 #### Implementation of
 
-[`GroupProps`](../interfaces/GroupProps.md).[`scaleX`](../interfaces/GroupProps.md#scalex)
+[`GroupProps`](/api/interfaces/groupprops/).[`scaleX`](/api/interfaces/groupprops/#scalex)
 
 #### Inherited from
 
@@ -1786,7 +1764,7 @@ Object scale factor (horizontal)
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).scaleX`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:23
 
@@ -1806,7 +1784,7 @@ Object scale factor (vertical)
 
 #### Implementation of
 
-[`GroupProps`](../interfaces/GroupProps.md).[`scaleY`](../interfaces/GroupProps.md#scaley)
+[`GroupProps`](/api/interfaces/groupprops/).[`scaleY`](/api/interfaces/groupprops/#scaley)
 
 #### Inherited from
 
@@ -1814,7 +1792,7 @@ Object scale factor (vertical)
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).scaleY`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:24
 
@@ -1835,7 +1813,7 @@ But events still fire on it.
 
 #### Implementation of
 
-[`GroupProps`](../interfaces/GroupProps.md).[`selectable`](../interfaces/GroupProps.md#selectable)
+[`GroupProps`](/api/interfaces/groupprops/).[`selectable`](/api/interfaces/groupprops/#selectable)
 
 #### Inherited from
 
@@ -1843,7 +1821,7 @@ But events still fire on it.
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).selectable`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:80
 
@@ -1868,7 +1846,7 @@ This API is no longer supported and may be removed in a future release.
 
 #### Implementation of
 
-[`GroupProps`](../interfaces/GroupProps.md).[`selectionBackgroundColor`](../interfaces/GroupProps.md#selectionbackgroundcolor)
+[`GroupProps`](/api/interfaces/groupprops/).[`selectionBackgroundColor`](/api/interfaces/groupprops/#selectionbackgroundcolor)
 
 #### Inherited from
 
@@ -1876,7 +1854,7 @@ This API is no longer supported and may be removed in a future release.
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).selectionBackgroundColor`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:78
 
@@ -1884,11 +1862,19 @@ src/shapes/Object/InteractiveObject.ts:78
 
 ### shadow
 
-> **shadow**: `null` \| [`Shadow`](Shadow.md)
+> **shadow**: `null` \| [`Shadow`](/api/classes/shadow/)
+
+Shadow object representing shadow of this shape
+
+#### Default
+
+```ts
+null
+```
 
 #### Implementation of
 
-[`GroupProps`](../interfaces/GroupProps.md).[`shadow`](../interfaces/GroupProps.md#shadow)
+[`GroupProps`](/api/interfaces/groupprops/).[`shadow`](/api/interfaces/groupprops/#shadow)
 
 #### Inherited from
 
@@ -1896,7 +1882,7 @@ src/shapes/Object/InteractiveObject.ts:78
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).shadow`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:155
 
@@ -1916,7 +1902,7 @@ Angle of skew on x axes of an object (in degrees)
 
 #### Implementation of
 
-[`GroupProps`](../interfaces/GroupProps.md).[`skewX`](../interfaces/GroupProps.md#skewx)
+[`GroupProps`](/api/interfaces/groupprops/).[`skewX`](/api/interfaces/groupprops/#skewx)
 
 #### Inherited from
 
@@ -1924,7 +1910,7 @@ Angle of skew on x axes of an object (in degrees)
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).skewX`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:25
 
@@ -1944,7 +1930,7 @@ Angle of skew on y axes of an object (in degrees)
 
 #### Implementation of
 
-[`GroupProps`](../interfaces/GroupProps.md).[`skewY`](../interfaces/GroupProps.md#skewy)
+[`GroupProps`](/api/interfaces/groupprops/).[`skewY`](/api/interfaces/groupprops/#skewy)
 
 #### Inherited from
 
@@ -1952,7 +1938,7 @@ Angle of skew on y axes of an object (in degrees)
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).skewY`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:26
 
@@ -1960,13 +1946,13 @@ src/shapes/Object/ObjectOrigin.ts:26
 
 ### snapAngle?
 
-> **`optional`** **snapAngle**: [`TDegree`](../type-aliases/TDegree.md)
+> `optional` **snapAngle**: [`TDegree`](/api/type-aliases/tdegree/)
 
 The angle that an object will lock to while rotating.
 
 #### Implementation of
 
-[`GroupProps`](../interfaces/GroupProps.md).[`snapAngle`](../interfaces/GroupProps.md#snapangle)
+[`GroupProps`](/api/interfaces/groupprops/).[`snapAngle`](/api/interfaces/groupprops/#snapangle)
 
 #### Inherited from
 
@@ -1974,7 +1960,7 @@ The angle that an object will lock to while rotating.
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).snapAngle`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:52
 
@@ -1982,14 +1968,14 @@ src/shapes/Object/InteractiveObject.ts:52
 
 ### snapThreshold?
 
-> **`optional`** **snapThreshold**: [`TDegree`](../type-aliases/TDegree.md)
+> `optional` **snapThreshold**: [`TDegree`](/api/type-aliases/tdegree/)
 
 The angle difference from the current snapped angle in which snapping should occur.
 When undefined, the snapThreshold will default to the snapAngle.
 
 #### Implementation of
 
-[`GroupProps`](../interfaces/GroupProps.md).[`snapThreshold`](../interfaces/GroupProps.md#snapthreshold)
+[`GroupProps`](/api/interfaces/groupprops/).[`snapThreshold`](/api/interfaces/groupprops/#snapthreshold)
 
 #### Inherited from
 
@@ -1997,7 +1983,7 @@ When undefined, the snapThreshold will default to the snapAngle.
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).snapThreshold`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:53
 
@@ -2005,11 +1991,20 @@ src/shapes/Object/InteractiveObject.ts:53
 
 ### stroke
 
-> **stroke**: `null` \| `string` \| [`TFiller`](../type-aliases/TFiller.md)
+> **stroke**: `null` \| `string` \| [`TFiller`](/api/type-aliases/tfiller/)
+
+When defined, an object is rendered via stroke and this property specifies its color
+takes css colors https://www.w3.org/TR/css-color-3/
+
+#### Default
+
+```ts
+null
+```
 
 #### Implementation of
 
-[`GroupProps`](../interfaces/GroupProps.md).[`stroke`](../interfaces/GroupProps.md#stroke)
+[`GroupProps`](/api/interfaces/groupprops/).[`stroke`](/api/interfaces/groupprops/#stroke)
 
 #### Inherited from
 
@@ -2017,7 +2012,7 @@ src/shapes/Object/InteractiveObject.ts:53
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).stroke`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:145
 
@@ -2037,7 +2032,7 @@ null;
 
 #### Implementation of
 
-[`GroupProps`](../interfaces/GroupProps.md).[`strokeDashArray`](../interfaces/GroupProps.md#strokedasharray)
+[`GroupProps`](/api/interfaces/groupprops/).[`strokeDashArray`](/api/interfaces/groupprops/#strokedasharray)
 
 #### Inherited from
 
@@ -2045,7 +2040,7 @@ null;
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).strokeDashArray`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:146
 
@@ -2065,7 +2060,7 @@ Line offset of an object's stroke
 
 #### Implementation of
 
-[`GroupProps`](../interfaces/GroupProps.md).[`strokeDashOffset`](../interfaces/GroupProps.md#strokedashoffset)
+[`GroupProps`](/api/interfaces/groupprops/).[`strokeDashOffset`](/api/interfaces/groupprops/#strokedashoffset)
 
 #### Inherited from
 
@@ -2073,7 +2068,7 @@ Line offset of an object's stroke
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).strokeDashOffset`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:147
 
@@ -2093,7 +2088,7 @@ butt
 
 #### Implementation of
 
-[`GroupProps`](../interfaces/GroupProps.md).[`strokeLineCap`](../interfaces/GroupProps.md#strokelinecap)
+[`GroupProps`](/api/interfaces/groupprops/).[`strokeLineCap`](/api/interfaces/groupprops/#strokelinecap)
 
 #### Inherited from
 
@@ -2101,7 +2096,7 @@ butt
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).strokeLineCap`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:148
 
@@ -2121,7 +2116,7 @@ Corner style of an object's stroke (one of "bevel", "round", "miter")
 
 #### Implementation of
 
-[`GroupProps`](../interfaces/GroupProps.md).[`strokeLineJoin`](../interfaces/GroupProps.md#strokelinejoin)
+[`GroupProps`](/api/interfaces/groupprops/).[`strokeLineJoin`](/api/interfaces/groupprops/#strokelinejoin)
 
 #### Inherited from
 
@@ -2129,7 +2124,7 @@ Corner style of an object's stroke (one of "bevel", "round", "miter")
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).strokeLineJoin`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:149
 
@@ -2149,7 +2144,7 @@ Maximum miter length (used for strokeLineJoin = "miter") of an object's stroke
 
 #### Implementation of
 
-[`GroupProps`](../interfaces/GroupProps.md).[`strokeMiterLimit`](../interfaces/GroupProps.md#strokemiterlimit)
+[`GroupProps`](/api/interfaces/groupprops/).[`strokeMiterLimit`](/api/interfaces/groupprops/#strokemiterlimit)
 
 #### Inherited from
 
@@ -2157,7 +2152,7 @@ Maximum miter length (used for strokeLineJoin = "miter") of an object's stroke
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).strokeMiterLimit`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:150
 
@@ -2190,7 +2185,7 @@ false
 
 #### Implementation of
 
-[`GroupProps`](../interfaces/GroupProps.md).[`strokeUniform`](../interfaces/GroupProps.md#strokeuniform)
+[`GroupProps`](/api/interfaces/groupprops/).[`strokeUniform`](/api/interfaces/groupprops/#strokeuniform)
 
 #### Inherited from
 
@@ -2198,7 +2193,7 @@ false
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).strokeUniform`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:31
 
@@ -2218,7 +2213,7 @@ Width of a stroke used to render this object
 
 #### Implementation of
 
-[`GroupProps`](../interfaces/GroupProps.md).[`strokeWidth`](../interfaces/GroupProps.md#strokewidth)
+[`GroupProps`](/api/interfaces/groupprops/).[`strokeWidth`](/api/interfaces/groupprops/#strokewidth)
 
 #### Inherited from
 
@@ -2226,7 +2221,7 @@ Width of a stroke used to render this object
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).strokeWidth`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:30
 
@@ -2247,9 +2242,9 @@ set to `false` if you don't need contained objects to be targets of events
 
 #### Implementation of
 
-[`GroupProps`](../interfaces/GroupProps.md).[`subTargetCheck`](../interfaces/GroupProps.md#subtargetcheck)
+[`GroupProps`](/api/interfaces/groupprops/).[`subTargetCheck`](/api/interfaces/groupprops/#subtargetcheck)
 
-#### Source
+#### Defined in
 
 src/shapes/Group.ts:89
 
@@ -2261,7 +2256,7 @@ src/shapes/Group.ts:89
 
 Top position of an object.
 Note that by default it's relative to object top.
-You can change this by setting [originY](../../../../api/classes/interfaces/fabricobjectprops/#originy)
+You can change this by setting [originY](../../../../api/interfaces/fabricobjectprops/#originy)
 
 #### Default
 
@@ -2271,7 +2266,7 @@ You can change this by setting [originY](../../../../api/classes/interfaces/fabr
 
 #### Implementation of
 
-[`GroupProps`](../interfaces/GroupProps.md).[`top`](../interfaces/GroupProps.md#top)
+[`GroupProps`](/api/interfaces/groupprops/).[`top`](/api/interfaces/groupprops/#top)
 
 #### Inherited from
 
@@ -2279,7 +2274,7 @@ You can change this by setting [originY](../../../../api/classes/interfaces/fabr
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).top`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:17
 
@@ -2299,7 +2294,7 @@ Size of object's controlling corners when touch interaction is detected
 
 #### Implementation of
 
-[`GroupProps`](../interfaces/GroupProps.md).[`touchCornerSize`](../interfaces/GroupProps.md#touchcornersize)
+[`GroupProps`](/api/interfaces/groupprops/).[`touchCornerSize`](/api/interfaces/groupprops/#touchcornersize)
 
 #### Inherited from
 
@@ -2307,7 +2302,7 @@ Size of object's controlling corners when touch interaction is detected
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).touchCornerSize`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:65
 
@@ -2327,7 +2322,7 @@ true
 
 #### Implementation of
 
-[`GroupProps`](../interfaces/GroupProps.md).[`transparentCorners`](../interfaces/GroupProps.md#transparentcorners)
+[`GroupProps`](/api/interfaces/groupprops/).[`transparentCorners`](/api/interfaces/groupprops/#transparentcorners)
 
 #### Inherited from
 
@@ -2335,7 +2330,7 @@ true
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).transparentCorners`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:66
 
@@ -2355,7 +2350,7 @@ When set to `false`, an object is not rendered on canvas
 
 #### Implementation of
 
-[`GroupProps`](../interfaces/GroupProps.md).[`visible`](../interfaces/GroupProps.md#visible)
+[`GroupProps`](/api/interfaces/groupprops/).[`visible`](/api/interfaces/groupprops/#visible)
 
 #### Inherited from
 
@@ -2363,7 +2358,7 @@ When set to `false`, an object is not rendered on canvas
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).visible`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:157
 
@@ -2383,7 +2378,7 @@ Object width
 
 #### Implementation of
 
-[`GroupProps`](../interfaces/GroupProps.md).[`width`](../interfaces/GroupProps.md#width)
+[`GroupProps`](/api/interfaces/groupprops/).[`width`](/api/interfaces/groupprops/#width)
 
 #### Inherited from
 
@@ -2391,7 +2386,7 @@ Object width
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).width`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:19
 
@@ -2399,7 +2394,7 @@ src/shapes/Object/ObjectOrigin.ts:19
 
 ### cacheProperties
 
-> **`static`** **cacheProperties**: `string`[]
+> `static` **cacheProperties**: `string`[]
 
 List of properties to consider when checking if cache needs refresh
 Those properties are checked by
@@ -2412,7 +2407,7 @@ and refreshed at the next render
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).cacheProperties`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:185
 
@@ -2420,7 +2415,7 @@ src/shapes/Object/Object.ts:185
 
 ### colorProperties
 
-> **`static`** **colorProperties**: `string`[]
+> `static` **colorProperties**: `string`[]
 
 List of properties to consider for animating colors.
 
@@ -2430,7 +2425,7 @@ List of properties to consider for animating colors.
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).colorProperties`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/AnimatableObject.ts:20
 
@@ -2438,7 +2433,7 @@ src/shapes/Object/AnimatableObject.ts:20
 
 ### ownDefaults
 
-> **`static`** **ownDefaults**: `Record`\<`string`, `any`\> = `groupDefaultValues`
+> `static` **ownDefaults**: `Record`\<`string`, `any`\> = `groupDefaultValues`
 
 #### Overrides
 
@@ -2446,7 +2441,7 @@ src/shapes/Object/AnimatableObject.ts:20
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).ownDefaults`
 
-#### Source
+#### Defined in
 
 src/shapes/Group.ts:112
 
@@ -2454,7 +2449,7 @@ src/shapes/Group.ts:112
 
 ### stateProperties
 
-> **`static`** **stateProperties**: `string`[]
+> `static` **stateProperties**: `string`[]
 
 This list of properties is used to check if the state of an object is changed.
 This state change now is only used for children of groups to understand if a group
@@ -2466,31 +2461,15 @@ needs its cache regenerated during a .set call
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).stateProperties`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:176
 
 ***
 
-### type
+### ~~type~~
 
-> **`static`** **type**: `string` = `'Group'`
-
-#### Overrides
-
-`createCollectionMixin(
-    FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
-  ).type`
-
-#### Source
-
-src/shapes/Group.ts:110
-
-## Accessors
-
-### type
-
-> **`get`** **type**(): `string`
+> `static` **type**: `string` = `'Group'`
 
 Legacy identifier of the class. Prefer using utils like isType or instanceOf
 Will be removed in fabric 7 or 8.
@@ -2505,7 +2484,36 @@ add sustainable warning message
 This API is no longer supported and may be removed in a future release.
 :::
 
-> **`set`** **type**(`value`): `void`
+#### Overrides
+
+`createCollectionMixin(
+    FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
+  ).type`
+
+#### Defined in
+
+src/shapes/Group.ts:110
+
+## Accessors
+
+### type
+
+> `get` **type**(): `string`
+
+Legacy identifier of the class. Prefer using utils like isType or instanceOf
+Will be removed in fabric 7 or 8.
+The setter exists because is very hard to catch all the ways in which a type value
+could be set in the instance
+
+#### TODO
+
+add sustainable warning message
+
+:::caution[Deprecated]
+This API is no longer supported and may be removed in a future release.
+:::
+
+> `set` **type**(`value`): `void`
 
 #### Parameters
 
@@ -2515,7 +2523,13 @@ This API is no longer supported and may be removed in a future release.
 
 `string`
 
-#### Source
+#### Inherited from
+
+`createCollectionMixin(
+    FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
+  ).type`
+
+#### Defined in
 
 src/shapes/Object/Object.ts:320
 
@@ -2531,7 +2545,7 @@ Prepare clipPath state and cache and draw it on instance's cache
 
 • **ctx**: `CanvasRenderingContext2D`
 
-• **clipPath?**: `FabricObject`\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **clipPath?**: `FabricObject`\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 #### Returns
 
@@ -2543,7 +2557,7 @@ Prepare clipPath state and cache and draw it on instance's cache
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   )._drawClipPath`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:977
 
@@ -2580,7 +2594,7 @@ making bargain with performances.
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   )._limitCacheSize`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:372
 
@@ -2592,7 +2606,7 @@ src/shapes/Object/Object.ts:372
 
 #### Parameters
 
-• **object**: [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **object**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 #### Returns
 
@@ -2604,7 +2618,7 @@ src/shapes/Object/Object.ts:372
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   )._onObjectAdded`
 
-#### Source
+#### Defined in
 
 src/shapes/Group.ts:229
 
@@ -2624,7 +2638,7 @@ src/shapes/Group.ts:229
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   )._onStackOrderChanged`
 
-#### Source
+#### Defined in
 
 src/shapes/Group.ts:259
 
@@ -2646,7 +2660,7 @@ Remove cacheCanvas and its dimensions from the objects
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   )._removeCacheCanvas`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:831
 
@@ -2665,7 +2679,7 @@ the context here is not transformed
 
 Context to render on
 
-• **styleOverride?**: `TStyleOverride`= `{}`
+• **styleOverride?**: `TStyleOverride` = `{}`
 
 properties to override the object style
 
@@ -2683,7 +2697,7 @@ properties to override the object style
 
 move to interactivity
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:399
 
@@ -2707,7 +2721,7 @@ src/shapes/Object/InteractiveObject.ts:399
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   )._setClippingProperties`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:1117
 
@@ -2721,7 +2735,7 @@ src/shapes/Object/Object.ts:1117
 
 • **ctx**: `CanvasRenderingContext2D`
 
-• **\_\_namedParameters**: `Pick`\<[`Group`](Group.md), `"fill"`\>
+• **\_\_namedParameters**: `Pick`\<[`Group`](/api/classes/group/), `"fill"`\>
 
 #### Returns
 
@@ -2733,7 +2747,7 @@ src/shapes/Object/Object.ts:1117
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   )._setFillStyles`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:1106
 
@@ -2747,7 +2761,7 @@ src/shapes/Object/Object.ts:1106
 
 • **ctx**: `CanvasRenderingContext2D`
 
-• **decl**: `Pick`\<[`Group`](Group.md), `"strokeDashOffset"` \| `"strokeLineCap"` \| `"strokeLineJoin"` \| `"strokeMiterLimit"` \| `"strokeWidth"` \| `"stroke"`\>
+• **decl**: `Pick`\<[`Group`](/api/classes/group/), `"strokeDashOffset"` \| `"strokeLineCap"` \| `"strokeLineJoin"` \| `"strokeMiterLimit"` \| `"strokeWidth"` \| `"stroke"`\>
 
 #### Returns
 
@@ -2759,7 +2773,7 @@ src/shapes/Object/Object.ts:1106
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   )._setStrokeStyles`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:1064
 
@@ -2788,7 +2802,7 @@ Rendering canvas context
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   )._setupCompositeOperation`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:1571
 
@@ -2802,7 +2816,7 @@ Returns svg representation of an instance
 
 #### Parameters
 
-• **reviver?**: [`TSVGReviver`](../type-aliases/TSVGReviver.md)
+• **reviver?**: [`TSVGReviver`](/api/type-aliases/tsvgreviver/)
 
 Method for further parsing of svg representation.
 
@@ -2818,7 +2832,7 @@ svg representation of an instance
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   )._toSVG`
 
-#### Source
+#### Defined in
 
 src/shapes/Group.ts:603
 
@@ -2832,7 +2846,7 @@ Add objects
 
 #### Parameters
 
-• ...**objects**: [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>[]
+• ...**objects**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>[]
 
 #### Returns
 
@@ -2844,7 +2858,7 @@ Add objects
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).add`
 
-#### Source
+#### Defined in
 
 src/shapes/Group.ts:199
 
@@ -2856,7 +2870,7 @@ src/shapes/Group.ts:199
 
 #### Parameters
 
-• **this**: `FabricObjectSVGExportMixin` & [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **this**: `FabricObjectSVGExportMixin` & [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 #### Returns
 
@@ -2868,7 +2882,7 @@ src/shapes/Group.ts:199
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).addPaintOrder`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/FabricObjectSVGExportMixin.ts:249
 
@@ -2876,13 +2890,13 @@ src/shapes/Object/FabricObjectSVGExportMixin.ts:249
 
 ### animate()
 
-> **animate**\<`T`\>(`animatable`, `options`?): `Record`\<`string`, [`TAnimation`](../namespaces/util/type-aliases/TAnimation.md)\<`T`\>\>
+> **animate**\<`T`\>(`animatable`, `options`?): `Record`\<`string`, [`TAnimation`](/api/namespaces/util/type-aliases/tanimation/)\<`T`\>\>
 
 Animates object's properties
 
-#### Type parameters
+#### Type Parameters
 
-• **T** extends `number` \| [`TColorArg`](../type-aliases/TColorArg.md) \| `number`[]
+• **T** *extends* `number` \| [`TColorArg`](/api/type-aliases/tcolorarg/) \| `number`[]
 
 #### Parameters
 
@@ -2890,18 +2904,18 @@ Animates object's properties
 
 map of keys and end values
 
-• **options?**: `Partial`\<[`AnimationOptions`](../namespaces/util/type-aliases/AnimationOptions.md)\<`T`\>\>
+• **options?**: `Partial`\<[`AnimationOptions`](/api/namespaces/util/type-aliases/animationoptions/)\<`T`\>\>
 
 #### Returns
 
-`Record`\<`string`, [`TAnimation`](../namespaces/util/type-aliases/TAnimation.md)\<`T`\>\>
+`Record`\<`string`, [`TAnimation`](/api/namespaces/util/type-aliases/tanimation/)\<`T`\>\>
 
 map of animation contexts
 
 As object — multiple properties
 
-object.animate(\{ left: ..., top: ... \});
-object.animate(\{ left: ..., top: ... \}, \{ duration: ... \});
+object.animate({ left: ..., top: ... });
+object.animate({ left: ..., top: ... }, { duration: ... });
 
 #### Inherited from
 
@@ -2913,7 +2927,7 @@ object.animate(\{ left: ..., top: ... \}, \{ duration: ... \});
 
 [http://fabricjs.com/fabric-intro-part-2#animation](http://fabricjs.com/fabric-intro-part-2#animation)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/AnimatableObject.ts:34
 
@@ -2931,7 +2945,7 @@ stack.
 
 #### Parameters
 
-• **object**: [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **object**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 Object to send
 
@@ -2951,7 +2965,7 @@ true if change occurred
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).bringObjectForward`
 
-#### Source
+#### Defined in
 
 src/Collection.ts:240
 
@@ -2966,7 +2980,7 @@ to the top of the stack of drawn objects
 
 #### Parameters
 
-• **object**: [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **object**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 Object to send
 
@@ -2982,7 +2996,7 @@ true if change occurred
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).bringObjectToFront`
 
-#### Source
+#### Defined in
 
 src/Collection.ts:194
 
@@ -2990,14 +3004,14 @@ src/Collection.ts:194
 
 ### calcACoords()
 
-> **calcACoords**(): [`TCornerPoint`](../type-aliases/TCornerPoint.md)
+> **calcACoords**(): [`TCornerPoint`](/api/type-aliases/tcornerpoint/)
 
 Calculates the coordinates of the 4 corner of the bbox, in absolute coordinates.
 those never change with zoom or viewport changes.
 
 #### Returns
 
-[`TCornerPoint`](../type-aliases/TCornerPoint.md)
+[`TCornerPoint`](/api/type-aliases/tcornerpoint/)
 
 #### Inherited from
 
@@ -3005,7 +3019,7 @@ those never change with zoom or viewport changes.
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).calcACoords`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:414
 
@@ -3030,7 +3044,7 @@ is a public api and should be done just if extremely necessary
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).calcOCoords`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:224
 
@@ -3038,14 +3052,14 @@ src/shapes/Object/InteractiveObject.ts:224
 
 ### calcOwnMatrix()
 
-> **calcOwnMatrix**(): [`TMat2D`](../type-aliases/TMat2D.md)
+> **calcOwnMatrix**(): [`TMat2D`](/api/type-aliases/tmat2d/)
 
 calculate transform matrix that represents the current transformations from the
 object's properties, this matrix does not include the group transformation
 
 #### Returns
 
-[`TMat2D`](../type-aliases/TMat2D.md)
+[`TMat2D`](/api/type-aliases/tmat2d/)
 
 transform matrix for the object
 
@@ -3055,7 +3069,7 @@ transform matrix for the object
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).calcOwnMatrix`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:511
 
@@ -3063,21 +3077,21 @@ src/shapes/Object/ObjectGeometry.ts:511
 
 ### calcTransformMatrix()
 
-> **calcTransformMatrix**(`skipGroup`?): [`TMat2D`](../type-aliases/TMat2D.md)
+> **calcTransformMatrix**(`skipGroup`?): [`TMat2D`](/api/type-aliases/tmat2d/)
 
 calculate transform matrix that represents the current transformations from the
 object's properties.
 
 #### Parameters
 
-• **skipGroup?**: `boolean`= `false`
+• **skipGroup?**: `boolean` = `false`
 
 return transform matrix for object not counting parent transformations
 There are some situation in which this is useful to avoid the fake rotation.
 
 #### Returns
 
-[`TMat2D`](../type-aliases/TMat2D.md)
+[`TMat2D`](/api/type-aliases/tmat2d/)
 
 transform matrix for the object
 
@@ -3087,7 +3101,7 @@ transform matrix for the object
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).calcTransformMatrix`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:483
 
@@ -3115,7 +3129,7 @@ true if the object currently dragged can be dropped on the target
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).canDrop`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:663
 
@@ -3153,7 +3167,7 @@ with the object transformMatrix, or restored to neutral transform
 
 discuss swapping restoreManually with a renderCallback, but think of async issues
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:589
 
@@ -3161,7 +3175,7 @@ src/shapes/Object/InteractiveObject.ts:589
 
 ### clone()
 
-> **clone**(`propertiesToInclude`?): `Promise`\<[`Group`](Group.md)\>
+> **clone**(`propertiesToInclude`?): `Promise`\<[`Group`](/api/classes/group/)\>
 
 Clones an instance.
 
@@ -3173,7 +3187,7 @@ Any properties that you might want to additionally include in the output
 
 #### Returns
 
-`Promise`\<[`Group`](Group.md)\>
+`Promise`\<[`Group`](/api/classes/group/)\>
 
 #### Inherited from
 
@@ -3181,7 +3195,7 @@ Any properties that you might want to additionally include in the output
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).clone`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:1345
 
@@ -3189,7 +3203,7 @@ src/shapes/Object/Object.ts:1345
 
 ### cloneAsImage()
 
-> **cloneAsImage**(`options`?): [`FabricImage`](FabricImage.md)\<`Partial`\<[`ImageProps`](../interfaces/ImageProps.md)\>, [`SerializedImageProps`](../interfaces/SerializedImageProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+> **cloneAsImage**(`options`?): [`FabricImage`](/api/classes/fabricimage/)\<`Partial`\<[`ImageProps`](/api/interfaces/imageprops/)\>, [`SerializedImageProps`](/api/interfaces/serializedimageprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 Creates an instance of Image out of an object
 makes use of toCanvasElement.
@@ -3206,7 +3220,7 @@ for clone as image, passed to toDataURL
 
 #### Returns
 
-[`FabricImage`](FabricImage.md)\<`Partial`\<[`ImageProps`](../interfaces/ImageProps.md)\>, [`SerializedImageProps`](../interfaces/SerializedImageProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+[`FabricImage`](/api/classes/fabricimage/)\<`Partial`\<[`ImageProps`](/api/interfaces/imageprops/)\>, [`SerializedImageProps`](/api/interfaces/serializedimageprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 Object cloned as image.
 
@@ -3220,7 +3234,7 @@ Object cloned as image.
 
 fix the export type, it could not be Image but the type that getClass return for 'image'.
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:1371
 
@@ -3228,7 +3242,7 @@ src/shapes/Object/Object.ts:1371
 
 ### collectObjects()
 
-> **collectObjects**(`bbox`, `options`): `InteractiveFabricObject`\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>[]
+> **collectObjects**(`bbox`, `options`): `InteractiveFabricObject`\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>[]
 
 Given a bounding box, return all the objects of the collection that are contained in the bounding box.
 If `includeIntersecting` is true, return also the objects that intersect the bounding box as well.
@@ -3236,19 +3250,19 @@ This is meant to work with selection. Is not a generic method.
 
 #### Parameters
 
-• **bbox**: [`TBBox`](../type-aliases/TBBox.md)
+• **bbox**: [`TBBox`](/api/type-aliases/tbbox/)
 
 a bounding box in scene coordinates
 
-• **options**= `{}`
+• **options** = `{}`
 
 an object with includeIntersecting
 
-• **options\.includeIntersecting?**: `boolean`= `true`
+• **options.includeIntersecting?**: `boolean` = `true`
 
 #### Returns
 
-`InteractiveFabricObject`\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>[]
+`InteractiveFabricObject`\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>[]
 
 array of objects contained in the bounding box, ordered from top to bottom stacking wise
 
@@ -3258,7 +3272,7 @@ array of objects contained in the bounding box, ordered from top to bottom stack
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).collectObjects`
 
-#### Source
+#### Defined in
 
 src/Collection.ts:326
 
@@ -3267,8 +3281,6 @@ src/Collection.ts:326
 ### complexity()
 
 > **complexity**(): `number`
-
-Returns number representation of a collection complexity
 
 #### Returns
 
@@ -3282,7 +3294,7 @@ complexity
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).complexity`
 
-#### Source
+#### Defined in
 
 src/Collection.ts:165
 
@@ -3298,7 +3310,7 @@ instead of `a.contains(b)` use `b.isDescendantOf(a)`
 
 #### Parameters
 
-• **object**: [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **object**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 Object to check against
 
@@ -3318,7 +3330,7 @@ Object to check against
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).contains`
 
-#### Source
+#### Defined in
 
 src/Collection.ts:148
 
@@ -3332,7 +3344,7 @@ Checks if point is inside the object
 
 #### Parameters
 
-• **point**: [`Point`](Point.md)
+• **point**: [`Point`](/api/classes/point/)
 
 Point to check against
 
@@ -3348,7 +3360,7 @@ true if point is inside the object
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).containsPoint`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:269
 
@@ -3357,6 +3369,9 @@ src/shapes/Object/ObjectGeometry.ts:269
 ### dispose()
 
 > **dispose**(): `void`
+
+cancel instance's running animations
+override if necessary to dispose artifacts such as `clipPath`
 
 #### Returns
 
@@ -3368,7 +3383,7 @@ src/shapes/Object/ObjectGeometry.ts:269
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).dispose`
 
-#### Source
+#### Defined in
 
 src/shapes/Group.ts:571
 
@@ -3388,7 +3403,7 @@ Requires public options: padding, borderColor
 
 Context to draw on
 
-• **options**: `Required`\<`Omit`\<[`TComposeMatrixArgs`](../namespaces/util/type-aliases/TComposeMatrixArgs.md), `"flipX"` \| `"flipY"`\>\>
+• **options**: `Required`\<`Omit`\<[`TComposeMatrixArgs`](/api/namespaces/util/type-aliases/tcomposematrixargs/), `"flipX"` \| `"flipY"`\>\>
 
 object representing current object parameters
 
@@ -3406,7 +3421,7 @@ object to override the object style
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).drawBorders`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:442
 
@@ -3420,7 +3435,7 @@ Paint the cached copy of the object on the target context.
 
 #### Parameters
 
-• **this**: `TCachedFabricObject`\<`FabricObject`\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>\>
+• **this**: `TCachedFabricObject`\<`FabricObject`\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>\>
 
 • **ctx**: `CanvasRenderingContext2D`
 
@@ -3436,7 +3451,7 @@ Context to render on
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).drawCacheOnCanvas`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:995
 
@@ -3454,7 +3469,7 @@ Execute the drawing operation for an object clipPath
 
 Context to render on
 
-• **clipPath**: `TCachedFabricObject`\<`FabricObject`\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>\>
+• **clipPath**: `TCachedFabricObject`\<`FabricObject`\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>\>
 
 #### Returns
 
@@ -3466,7 +3481,7 @@ Context to render on
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).drawClipPathOnCache`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:924
 
@@ -3486,7 +3501,7 @@ Requires public options: cornerSize, padding
 
 Context to draw on
 
-• **styleOverride**: `Partial`\<`Pick`\<`InteractiveFabricObject`\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>, `"cornerStyle"` \| `"cornerSize"` \| `"cornerColor"` \| `"cornerStrokeColor"` \| `"cornerDashArray"` \| `"transparentCorners"`\>\>= `{}`
+• **styleOverride**: `Partial`\<`Pick`\<`InteractiveFabricObject`\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>, `"cornerStyle"` \| `"cornerSize"` \| `"cornerColor"` \| `"cornerStrokeColor"` \| `"cornerDashArray"` \| `"transparentCorners"`\>\> = `{}`
 
 object to override the object style
 
@@ -3500,7 +3515,7 @@ object to override the object style
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).drawControls`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:511
 
@@ -3520,7 +3535,7 @@ Requires public options: padding, borderColor
 
 Context to draw on
 
-• **size**: [`Point`](Point.md)
+• **size**: [`Point`](/api/classes/point/)
 
 object size x = width, y = height
 
@@ -3534,7 +3549,7 @@ object size x = width, y = height
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).drawControlsConnectingLines`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:481
 
@@ -3562,7 +3577,7 @@ Context to render on
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).drawObject`
 
-#### Source
+#### Defined in
 
 src/shapes/Group.ts:464
 
@@ -3599,7 +3614,7 @@ evaluate if make this disappear in favor of a pre-render hook for objects
 this was added by Andrea Bogazzi to make possible some feature for work reasons
 it seemed a good option, now is an edge case
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:339
 
@@ -3611,11 +3626,11 @@ src/shapes/Object/InteractiveObject.ts:339
 
 Compare ancestors
 
-#### Type parameters
+#### Type Parameters
 
-• **T** extends [`Group`](Group.md)
+• **T** *extends* [`Group`](/api/classes/group/)
 
-• **S** extends `boolean`
+• **S** *extends* `boolean`
 
 #### Parameters
 
@@ -3637,7 +3652,7 @@ an object that represent the ancestry situation.
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).findCommonAncestors`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/StackedObject.ts:90
 
@@ -3649,7 +3664,7 @@ src/shapes/Object/StackedObject.ts:90
 
 #### Parameters
 
-• **object**: [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **object**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 • **idx**: `number`
 
@@ -3665,7 +3680,7 @@ src/shapes/Object/StackedObject.ts:90
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).findNewLowerIndex`
 
-#### Source
+#### Defined in
 
 src/Collection.ts:272
 
@@ -3677,7 +3692,7 @@ src/Collection.ts:272
 
 #### Parameters
 
-• **object**: [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **object**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 • **idx**: `number`
 
@@ -3693,7 +3708,7 @@ src/Collection.ts:272
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).findNewUpperIndex`
 
-#### Source
+#### Defined in
 
 src/Collection.ts:295
 
@@ -3705,9 +3720,9 @@ src/Collection.ts:295
 
 Fires event with an optional options object
 
-#### Type parameters
+#### Type Parameters
 
-• **K** extends keyof [`GroupEvents`](../interfaces/GroupEvents.md)
+• **K** *extends* keyof [`GroupEvents`](/api/interfaces/groupevents/)
 
 #### Parameters
 
@@ -3715,7 +3730,7 @@ Fires event with an optional options object
 
 Event name to fire
 
-• **options?**: [`GroupEvents`](../interfaces/GroupEvents.md)\[`K`\]
+• **options?**: [`GroupEvents`](/api/interfaces/groupevents/)\[`K`\]
 
 Options object
 
@@ -3729,7 +3744,7 @@ Options object
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).fire`
 
-#### Source
+#### Defined in
 
 src/Observable.ts:159
 
@@ -3758,7 +3773,7 @@ function to iterate over the controls over
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).forEachControl`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:317
 
@@ -3789,7 +3804,7 @@ Callback invoked with current object as first argument,
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).forEachObject`
 
-#### Source
+#### Defined in
 
 src/Collection.ts:91
 
@@ -3819,7 +3834,7 @@ value of a property
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).get`
 
-#### Source
+#### Defined in
 
 src/CommonMethods.ts:59
 
@@ -3827,11 +3842,11 @@ src/CommonMethods.ts:59
 
 ### getActiveControl()
 
-> **getActiveControl**(): `undefined` \| `Object`
+> **getActiveControl**(): `undefined` \| `object`
 
 #### Returns
 
-`undefined` \| `Object`
+`undefined` \| `object`
 
 #### Inherited from
 
@@ -3839,7 +3854,7 @@ src/CommonMethods.ts:59
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).getActiveControl`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:170
 
@@ -3849,9 +3864,9 @@ src/shapes/Object/InteractiveObject.ts:170
 
 > **getAncestors**\<`T`\>(`strict`?): `Ancestors`\<`T`\>
 
-#### Type parameters
+#### Type Parameters
 
-• **T** extends `boolean`
+• **T** *extends* `boolean`
 
 #### Parameters
 
@@ -3871,7 +3886,7 @@ ancestors (excluding `ActiveSelection`) from bottom to top
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).getAncestors`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/StackedObject.ts:69
 
@@ -3879,14 +3894,14 @@ src/shapes/Object/StackedObject.ts:69
 
 ### getBoundingRect()
 
-> **getBoundingRect**(): [`TBBox`](../type-aliases/TBBox.md)
+> **getBoundingRect**(): [`TBBox`](/api/type-aliases/tbbox/)
 
 Returns coordinates of object's bounding rectangle (left, top, width, height)
 the box is intended as aligned to axis of canvas.
 
 #### Returns
 
-[`TBBox`](../type-aliases/TBBox.md)
+[`TBBox`](/api/type-aliases/tbbox/)
 
 Object with left, top, width, height properties
 
@@ -3896,7 +3911,7 @@ Object with left, top, width, height properties
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).getBoundingRect`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:330
 
@@ -3916,7 +3931,7 @@ src/shapes/Object/ObjectGeometry.ts:330
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).getCanvasRetinaScaling`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:387
 
@@ -3924,13 +3939,13 @@ src/shapes/Object/ObjectGeometry.ts:387
 
 ### getCenterPoint()
 
-> **getCenterPoint**(): [`Point`](Point.md)
+> **getCenterPoint**(): [`Point`](/api/classes/point/)
 
 Returns the center coordinates of the object relative to canvas
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
 #### Inherited from
 
@@ -3938,7 +3953,7 @@ Returns the center coordinates of the object relative to canvas
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).getCenterPoint`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:174
 
@@ -3946,11 +3961,11 @@ src/shapes/Object/ObjectOrigin.ts:174
 
 ### getCoords()
 
-> **getCoords**(): [`Point`](Point.md)[]
+> **getCoords**(): [`Point`](/api/classes/point/)[]
 
 #### Returns
 
-[`Point`](Point.md)[]
+[`Point`](/api/classes/point/)[]
 
 [tl, tr, br, bl] in the scene plane
 
@@ -3960,7 +3975,7 @@ src/shapes/Object/ObjectOrigin.ts:174
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).getCoords`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:191
 
@@ -3982,7 +3997,7 @@ Return the object opacity counting also the group property
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).getObjectOpacity`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:690
 
@@ -3990,13 +4005,13 @@ src/shapes/Object/Object.ts:690
 
 ### getObjectScaling()
 
-> **getObjectScaling**(): [`Point`](Point.md)
+> **getObjectScaling**(): [`Point`](/api/classes/point/)
 
 Return the object scale factor counting also the group scaling
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
 #### Inherited from
 
@@ -4004,7 +4019,7 @@ Return the object scale factor counting also the group scaling
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).getObjectScaling`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:659
 
@@ -4012,7 +4027,7 @@ src/shapes/Object/Object.ts:659
 
 ### getObjects()
 
-> **getObjects**(...`types`?): [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>[]
+> **getObjects**(...`types`?): [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>[]
 
 Returns an array of children objects of this instance
 
@@ -4024,7 +4039,7 @@ When specified, only objects of these types are returned
 
 #### Returns
 
-[`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>[]
+[`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>[]
 
 #### Inherited from
 
@@ -4032,7 +4047,7 @@ When specified, only objects of these types are returned
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).getObjects`
 
-#### Source
+#### Defined in
 
 src/Collection.ts:108
 
@@ -4040,23 +4055,23 @@ src/Collection.ts:108
 
 ### getPointByOrigin()
 
-> **getPointByOrigin**(`originX`, `originY`): [`Point`](Point.md)
+> **getPointByOrigin**(`originX`, `originY`): [`Point`](/api/classes/point/)
 
 Returns the coordinates of the object as if it has a different origin
 
 #### Parameters
 
-• **originX**: [`TOriginX`](../type-aliases/TOriginX.md)
+• **originX**: [`TOriginX`](/api/type-aliases/toriginx/)
 
 Horizontal origin: 'left', 'center' or 'right'
 
-• **originY**: [`TOriginY`](../type-aliases/TOriginY.md)
+• **originY**: [`TOriginY`](/api/type-aliases/toriginy/)
 
 Vertical origin: 'top', 'center' or 'bottom'
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
 #### Inherited from
 
@@ -4064,7 +4079,7 @@ Vertical origin: 'top', 'center' or 'bottom'
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).getPointByOrigin`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:199
 
@@ -4072,13 +4087,13 @@ src/shapes/Object/ObjectOrigin.ts:199
 
 ### getRelativeCenterPoint()
 
-> **getRelativeCenterPoint**(): [`Point`](Point.md)
+> **getRelativeCenterPoint**(): [`Point`](/api/classes/point/)
 
 Returns the center coordinates of the object relative to it's parent
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
 #### Inherited from
 
@@ -4086,7 +4101,7 @@ Returns the center coordinates of the object relative to it's parent
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).getRelativeCenterPoint`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:185
 
@@ -4100,8 +4115,8 @@ src/shapes/Object/ObjectOrigin.ts:185
 
 `number`
 
-x position according to object's [originX](FabricObject.md#originx) property in parent's coordinate plane\
-if parent is canvas then this property is identical to [getX](Group.md#getx)
+x position according to object's [originX](/api/api/classes/fabricobject/originx/#originx) property in parent's coordinate plane\
+if parent is canvas then this property is identical to [getX](/api/api/classes/group/getx/#getx)
 
 #### Inherited from
 
@@ -4109,7 +4124,7 @@ if parent is canvas then this property is identical to [getX](Group.md#getx)
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).getRelativeX`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:102
 
@@ -4117,13 +4132,13 @@ src/shapes/Object/ObjectGeometry.ts:102
 
 ### getRelativeXY()
 
-> **getRelativeXY**(): [`Point`](Point.md)
+> **getRelativeXY**(): [`Point`](/api/classes/point/)
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
-x,y position according to object's [originX](FabricObject.md#originx) [originY](FabricObject.md#originy) properties in parent's coordinate plane
+x,y position according to object's [originX](/api/api/classes/fabricobject/originx/#originx) [originY](/api/api/classes/fabricobject/originy/#originy) properties in parent's coordinate plane
 
 #### Inherited from
 
@@ -4131,7 +4146,7 @@ x,y position according to object's [originX](FabricObject.md#originx) [originY](
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).getRelativeXY`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:163
 
@@ -4145,8 +4160,8 @@ src/shapes/Object/ObjectGeometry.ts:163
 
 `number`
 
-y position according to object's [originY](FabricObject.md#originy) property in parent's coordinate plane\
-if parent is canvas then this property is identical to [getY](Group.md#gety)
+y position according to object's [originY](/api/api/classes/fabricobject/originy/#originy) property in parent's coordinate plane\
+if parent is canvas then this property is identical to [getY](/api/api/classes/group/gety/#gety)
 
 #### Inherited from
 
@@ -4154,7 +4169,7 @@ if parent is canvas then this property is identical to [getY](Group.md#gety)
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).getRelativeY`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:118
 
@@ -4182,7 +4197,7 @@ height value
 
 shouldn't this account for group transform and return the actual size in canvas coordinate plane?
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:348
 
@@ -4210,7 +4225,7 @@ width value
 
 shouldn't this account for group transform and return the actual size in canvas coordinate plane?
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:339
 
@@ -4224,7 +4239,7 @@ Returns id attribute for svg output
 
 #### Parameters
 
-• **this**: `FabricObjectSVGExportMixin` & [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\> & `Object`
+• **this**: `FabricObjectSVGExportMixin` & [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\> & `object`
 
 #### Returns
 
@@ -4236,7 +4251,7 @@ Returns id attribute for svg output
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).getSvgCommons`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/FabricObjectSVGExportMixin.ts:84
 
@@ -4250,7 +4265,7 @@ Returns filter for svg shadow
 
 #### Parameters
 
-• **this**: `FabricObjectSVGExportMixin` & [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **this**: `FabricObjectSVGExportMixin` & [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 #### Returns
 
@@ -4262,7 +4277,7 @@ Returns filter for svg shadow
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).getSvgFilter`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/FabricObjectSVGExportMixin.ts:76
 
@@ -4284,7 +4299,7 @@ Returns styles-string for svg-export, specific version for group
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).getSvgStyles`
 
-#### Source
+#### Defined in
 
 src/shapes/Group.ts:618
 
@@ -4298,11 +4313,11 @@ Returns transform-string for svg-export
 
 #### Parameters
 
-• **this**: `FabricObjectSVGExportMixin` & [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **this**: `FabricObjectSVGExportMixin` & [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 • **full?**: `boolean`
 
-• **additionalTransform?**: `string`= `''`
+• **additionalTransform?**: `string` = `''`
 
 #### Returns
 
@@ -4314,7 +4329,7 @@ Returns transform-string for svg-export
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).getSvgTransform`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/FabricObjectSVGExportMixin.ts:103
 
@@ -4322,13 +4337,13 @@ src/shapes/Object/FabricObjectSVGExportMixin.ts:103
 
 ### getTotalAngle()
 
-> **getTotalAngle**(): [`TDegree`](../type-aliases/TDegree.md)
+> **getTotalAngle**(): [`TDegree`](/api/type-aliases/tdegree/)
 
 Returns the object angle relative to canvas counting also the group property
 
 #### Returns
 
-[`TDegree`](../type-aliases/TDegree.md)
+[`TDegree`](/api/type-aliases/tdegree/)
 
 #### Inherited from
 
@@ -4336,7 +4351,7 @@ Returns the object angle relative to canvas counting also the group property
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).getTotalAngle`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:395
 
@@ -4344,13 +4359,13 @@ src/shapes/Object/ObjectGeometry.ts:395
 
 ### getTotalObjectScaling()
 
-> **getTotalObjectScaling**(): [`Point`](Point.md)
+> **getTotalObjectScaling**(): [`Point`](/api/classes/point/)
 
 Return the object scale factor counting also the group scaling, zoom and retina
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
 object with scaleX and scaleY properties
 
@@ -4360,7 +4375,7 @@ object with scaleX and scaleY properties
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).getTotalObjectScaling`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:676
 
@@ -4368,13 +4383,13 @@ src/shapes/Object/Object.ts:676
 
 ### getViewportTransform()
 
-> **getViewportTransform**(): [`TMat2D`](../type-aliases/TMat2D.md)
+> **getViewportTransform**(): [`TMat2D`](/api/type-aliases/tmat2d/)
 
 Retrieves viewportTransform from Object's canvas if available
 
 #### Returns
 
-[`TMat2D`](../type-aliases/TMat2D.md)
+[`TMat2D`](/api/type-aliases/tmat2d/)
 
 #### Inherited from
 
@@ -4382,7 +4397,7 @@ Retrieves viewportTransform from Object's canvas if available
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).getViewportTransform`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:405
 
@@ -4396,7 +4411,7 @@ src/shapes/Object/ObjectGeometry.ts:405
 
 `number`
 
-x position according to object's [originX](FabricObject.md#originx) property in canvas coordinate plane
+x position according to object's [originX](/api/api/classes/fabricobject/originx/#originx) property in canvas coordinate plane
 
 #### Inherited from
 
@@ -4404,7 +4419,7 @@ x position according to object's [originX](FabricObject.md#originx) property in 
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).getX`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:73
 
@@ -4412,13 +4427,13 @@ src/shapes/Object/ObjectGeometry.ts:73
 
 ### getXY()
 
-> **getXY**(): [`Point`](Point.md)
+> **getXY**(): [`Point`](/api/classes/point/)
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
-x position according to object's [originX](FabricObject.md#originx) [originY](FabricObject.md#originy) properties in canvas coordinate plane
+x position according to object's [originX](/api/api/classes/fabricobject/originx/#originx) [originY](/api/api/classes/fabricobject/originy/#originy) properties in canvas coordinate plane
 
 #### Inherited from
 
@@ -4426,7 +4441,7 @@ x position according to object's [originX](FabricObject.md#originx) [originY](Fa
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).getXY`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:133
 
@@ -4440,7 +4455,7 @@ src/shapes/Object/ObjectGeometry.ts:133
 
 `number`
 
-y position according to object's [originY](FabricObject.md#originy) property in canvas coordinate plane
+y position according to object's [originY](/api/api/classes/fabricobject/originy/#originy) property in canvas coordinate plane
 
 #### Inherited from
 
@@ -4448,7 +4463,7 @@ y position according to object's [originY](FabricObject.md#originy) property in 
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).getY`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:87
 
@@ -4458,9 +4473,9 @@ src/shapes/Object/ObjectGeometry.ts:87
 
 > **hasCommonAncestors**\<`T`\>(`other`, `strict`?): `boolean`
 
-#### Type parameters
+#### Type Parameters
 
-• **T** extends [`Group`](Group.md)
+• **T** *extends* [`Group`](/api/classes/group/)
 
 #### Parameters
 
@@ -4480,7 +4495,7 @@ checks only ancestors that are objects (without canvas)
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).hasCommonAncestors`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/StackedObject.ts:159
 
@@ -4513,7 +4528,7 @@ Boolean
 
 3.0.0
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:864
 
@@ -4546,7 +4561,7 @@ Boolean
 
 3.0.0
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:848
 
@@ -4564,7 +4579,7 @@ Inserts an object into collection at specified index
 
 Index to insert object at
 
-• ...**objects**: [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>[]
+• ...**objects**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>[]
 
 Object to insert
 
@@ -4578,7 +4593,7 @@ Object to insert
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).insertAt`
 
-#### Source
+#### Defined in
 
 src/shapes/Group.ts:211
 
@@ -4592,7 +4607,7 @@ Checks if object intersects with another object
 
 #### Parameters
 
-• **other**: `ObjectGeometry`\<[`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **other**: `ObjectGeometry`\<[`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 Object to test
 
@@ -4608,7 +4623,7 @@ true if object intersects with another object
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).intersectsWithObject`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:219
 
@@ -4622,9 +4637,9 @@ Checks if object intersects with the scene rect formed by tl and br
 
 #### Parameters
 
-• **tl**: [`Point`](Point.md)
+• **tl**: [`Point`](/api/classes/point/)
 
-• **br**: [`Point`](Point.md)
+• **br**: [`Point`](/api/classes/point/)
 
 #### Returns
 
@@ -4636,7 +4651,7 @@ Checks if object intersects with the scene rect formed by tl and br
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).intersectsWithRect`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:205
 
@@ -4650,7 +4665,7 @@ Check if cache is dirty
 
 #### Parameters
 
-• **skipCanvas**: `boolean`= `false`
+• **skipCanvas**: `boolean` = `false`
 
 skip canvas checks because this object is painted
 on parent canvas.
@@ -4665,7 +4680,7 @@ on parent canvas.
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).isCacheDirty`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:1009
 
@@ -4679,7 +4694,7 @@ Checks if object is fully contained within area of another object
 
 #### Parameters
 
-• **other**: `ObjectGeometry`\<[`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **other**: `ObjectGeometry`\<[`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 Object to test
 
@@ -4695,7 +4710,7 @@ true if object is fully contained within area of another object
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).isContainedWithinObject`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:238
 
@@ -4709,9 +4724,9 @@ Checks if object is fully contained within the scene rect formed by tl and br
 
 #### Parameters
 
-• **tl**: [`Point`](Point.md)
+• **tl**: [`Point`](/api/classes/point/)
 
-• **br**: [`Point`](Point.md)
+• **br**: [`Point`](/api/classes/point/)
 
 #### Returns
 
@@ -4723,7 +4738,7 @@ Checks if object is fully contained within the scene rect formed by tl and br
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).isContainedWithinRect`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:246
 
@@ -4754,7 +4769,7 @@ true if the specified control is visible, false otherwise
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).isControlVisible`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:546
 
@@ -4781,7 +4796,7 @@ Should be used instead of [Group.contains](../../../../api/classes/group/#contai
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).isDescendantOf`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/StackedObject.ts:52
 
@@ -4805,7 +4820,7 @@ true if collection is empty
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).isEmpty`
 
-#### Source
+#### Defined in
 
 src/Collection.ts:128
 
@@ -4815,9 +4830,9 @@ src/Collection.ts:128
 
 > **isInFrontOf**\<`T`\>(`other`): `undefined` \| `boolean`
 
-#### Type parameters
+#### Type Parameters
 
-• **T** extends [`Group`](Group.md)
+• **T** *extends* [`Group`](/api/classes/group/)
 
 #### Parameters
 
@@ -4837,7 +4852,7 @@ if objects do not share a common ancestor or they are strictly equal it is impos
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).isInFrontOf`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/StackedObject.ts:169
 
@@ -4857,7 +4872,7 @@ src/shapes/Object/StackedObject.ts:169
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).isNotVisible`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:771
 
@@ -4873,7 +4888,7 @@ Check if instance or its group are caching, recursively up
 
 `boolean`
 
-#### Source
+#### Defined in
 
 src/shapes/Group.ts:456
 
@@ -4898,7 +4913,7 @@ true if object is fully or partially contained within canvas
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).isOnScreen`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:278
 
@@ -4908,9 +4923,9 @@ src/shapes/Object/ObjectGeometry.ts:278
 
 > **isOverlapping**\<`T`\>(`other`): `boolean`
 
-#### Type parameters
+#### Type Parameters
 
-• **T** extends `ObjectGeometry`\<[`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **T** *extends* `ObjectGeometry`\<[`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 #### Parameters
 
@@ -4926,7 +4941,7 @@ src/shapes/Object/ObjectGeometry.ts:278
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).isOverlapping`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:256
 
@@ -4950,7 +4965,7 @@ true if object is partially contained within canvas
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).isPartiallyOnScreen`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:308
 
@@ -4976,7 +4991,7 @@ Returns true if any of the specified types is identical to the type of an instan
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).isType`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:1502
 
@@ -4984,7 +4999,7 @@ src/shapes/Object/Object.ts:1502
 
 ### item()
 
-> **item**(`index`): [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+> **item**(`index`): [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 Returns object at specified index
 
@@ -4994,7 +5009,7 @@ Returns object at specified index
 
 #### Returns
 
-[`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+[`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 object at index
 
@@ -5004,7 +5019,7 @@ object at index
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).item`
 
-#### Source
+#### Defined in
 
 src/Collection.ts:120
 
@@ -5018,7 +5033,7 @@ Moves an object to specified level in stack of drawn objects
 
 #### Parameters
 
-• **object**: [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **object**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 Object to send
 
@@ -5038,7 +5053,7 @@ true if change occurred
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).moveObjectTo`
 
-#### Source
+#### Defined in
 
 src/Collection.ts:262
 
@@ -5066,7 +5081,7 @@ Boolean
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).needsItsOwnCache`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:876
 
@@ -5080,9 +5095,9 @@ src/shapes/Object/Object.ts:876
 
 unsubscribe an event listener
 
-##### Type parameters
+##### Type Parameters
 
-• **K** extends keyof [`GroupEvents`](../interfaces/GroupEvents.md)
+• **K** *extends* keyof [`GroupEvents`](/api/interfaces/groupevents/)
 
 ##### Parameters
 
@@ -5104,7 +5119,7 @@ event listener to unsubscribe
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).off`
 
-##### Source
+##### Defined in
 
 src/Observable.ts:120
 
@@ -5116,9 +5131,9 @@ unsubscribe event listeners
 
 ##### Parameters
 
-• **handlers**: `EventRegistryObject`\<[`GroupEvents`](../interfaces/GroupEvents.md)\>
+• **handlers**: `EventRegistryObject`\<[`GroupEvents`](/api/interfaces/groupevents/)\>
 
-handlers key/value pairs (eg. \{'after:render': handler, 'selection:cleared': handler\})
+handlers key/value pairs (eg. {'after:render': handler, 'selection:cleared': handler})
 
 ##### Returns
 
@@ -5130,7 +5145,7 @@ handlers key/value pairs (eg. \{'after:render': handler, 'selection:cleared': ha
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).off`
 
-##### Source
+##### Defined in
 
 src/Observable.ts:125
 
@@ -5150,7 +5165,7 @@ unsubscribe all event listeners
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).off`
 
-##### Source
+##### Defined in
 
 src/Observable.ts:129
 
@@ -5164,11 +5179,11 @@ src/Observable.ts:129
 
 Observes specified event
 
-##### Type parameters
+##### Type Parameters
 
-• **K** extends keyof [`GroupEvents`](../interfaces/GroupEvents.md)
+• **K** *extends* keyof [`GroupEvents`](/api/interfaces/groupevents/)
 
-• **E** extends [`TPointerEventInfo`](../interfaces/TPointerEventInfo.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\> \| [`TPointerEventInfo`](../interfaces/TPointerEventInfo.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\> & `Object` \| [`TPointerEventInfo`](../interfaces/TPointerEventInfo.md)\<`WheelEvent`\> \| [`TPointerEventInfo`](../interfaces/TPointerEventInfo.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\> & `InEvent` \| [`TPointerEventInfo`](../interfaces/TPointerEventInfo.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\> & `OutEvent` \| [`BasicTransformEvent`](../interfaces/BasicTransformEvent.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\> \| [`ModifiedEvent`](../interfaces/ModifiedEvent.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\> \| `Partial`\<[`TEvent`](../interfaces/TEvent.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\>\> & `Object` \| `Partial`\<[`TEvent`](../interfaces/TEvent.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\>\> & `Object` \| `Object` \| `Object` \| `Object` \| `TEventWithTarget`\<`DragEvent`\> \| [`DragEventData`](../interfaces/DragEventData.md) \| [`DragEventData`](../interfaces/DragEventData.md) & `InEvent` \| [`DragEventData`](../interfaces/DragEventData.md) & `OutEvent` \| [`DropEventData`](../interfaces/DropEventData.md) \| `SimpleEventHandler`\<`Event`\> \| `Object` \| `Object` \| [`LayoutBeforeEvent`](../type-aliases/LayoutBeforeEvent.md) \| [`LayoutAfterEvent`](../type-aliases/LayoutAfterEvent.md)
+• **E** *extends* [`TPointerEventInfo`](/api/interfaces/tpointereventinfo/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> \| [`TPointerEventInfo`](/api/interfaces/tpointereventinfo/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> & `object` \| [`TPointerEventInfo`](/api/interfaces/tpointereventinfo/)\<`WheelEvent`\> \| [`TPointerEventInfo`](/api/interfaces/tpointereventinfo/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> & `InEvent` \| [`TPointerEventInfo`](/api/interfaces/tpointereventinfo/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> & `OutEvent` \| [`BasicTransformEvent`](/api/interfaces/basictransformevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> \| [`ModifiedEvent`](/api/interfaces/modifiedevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> \| `Partial`\<[`TEvent`](/api/interfaces/tevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\>\> & `object` \| `Partial`\<[`TEvent`](/api/interfaces/tevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\>\> & `object` \| `object` \| `object` \| `object` \| `TEventWithTarget`\<`DragEvent`\> \| [`DragEventData`](/api/interfaces/drageventdata/) \| [`DragEventData`](/api/interfaces/drageventdata/) & `InEvent` \| [`DragEventData`](/api/interfaces/drageventdata/) & `OutEvent` \| [`DropEventData`](/api/interfaces/dropeventdata/) \| `SimpleEventHandler`\<`Event`\> \| `object` \| `object` \| [`LayoutBeforeEvent`](/api/type-aliases/layoutbeforeevent/) \| [`LayoutAfterEvent`](/api/type-aliases/layoutafterevent/)
 
 ##### Parameters
 
@@ -5196,7 +5211,7 @@ disposer
 
 on
 
-##### Source
+##### Defined in
 
 src/Observable.ts:23
 
@@ -5206,7 +5221,7 @@ src/Observable.ts:23
 
 ##### Parameters
 
-• **handlers**: `EventRegistryObject`\<[`GroupEvents`](../interfaces/GroupEvents.md)\>
+• **handlers**: `EventRegistryObject`\<[`GroupEvents`](/api/interfaces/groupevents/)\>
 
 ##### Returns
 
@@ -5218,7 +5233,7 @@ src/Observable.ts:23
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).on`
 
-##### Source
+##### Defined in
 
 src/Observable.ts:27
 
@@ -5237,11 +5252,11 @@ try to to deselect this object. If the function returns true, the process is can
 
 options sent from the upper functions
 
-• **options\.e?**: [`TPointerEvent`](../type-aliases/TPointerEvent.md)
+• **options.e?**: [`TPointerEvent`](/api/type-aliases/tpointerevent/)
 
 event if the process is generated by an event
 
-• **options\.object?**: `InteractiveFabricObject`\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **options.object?**: `InteractiveFabricObject`\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 next object we are setting as active, and reason why
 this is being deselected
@@ -5256,7 +5271,7 @@ this is being deselected
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).onDeselect`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:620
 
@@ -5285,7 +5300,7 @@ true to handle the drag event
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).onDragStart`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:653
 
@@ -5304,7 +5319,7 @@ try to to select this object. If the function returns true, the process is cance
 
 options sent from the upper functions
 
-• **options\.e?**: [`TPointerEvent`](../type-aliases/TPointerEvent.md)
+• **options.e?**: [`TPointerEvent`](/api/type-aliases/tpointerevent/)
 
 event if the process is generated by an event
 
@@ -5318,7 +5333,7 @@ event if the process is generated by an event
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).onSelect`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:634
 
@@ -5332,11 +5347,11 @@ src/shapes/Object/InteractiveObject.ts:634
 
 Observes specified event **once**
 
-##### Type parameters
+##### Type Parameters
 
-• **K** extends keyof [`GroupEvents`](../interfaces/GroupEvents.md)
+• **K** *extends* keyof [`GroupEvents`](/api/interfaces/groupevents/)
 
-• **E** extends [`TPointerEventInfo`](../interfaces/TPointerEventInfo.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\> \| [`TPointerEventInfo`](../interfaces/TPointerEventInfo.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\> & `Object` \| [`TPointerEventInfo`](../interfaces/TPointerEventInfo.md)\<`WheelEvent`\> \| [`TPointerEventInfo`](../interfaces/TPointerEventInfo.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\> & `InEvent` \| [`TPointerEventInfo`](../interfaces/TPointerEventInfo.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\> & `OutEvent` \| [`BasicTransformEvent`](../interfaces/BasicTransformEvent.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\> \| [`ModifiedEvent`](../interfaces/ModifiedEvent.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\> \| `Partial`\<[`TEvent`](../interfaces/TEvent.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\>\> & `Object` \| `Partial`\<[`TEvent`](../interfaces/TEvent.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\>\> & `Object` \| `Object` \| `Object` \| `Object` \| `TEventWithTarget`\<`DragEvent`\> \| [`DragEventData`](../interfaces/DragEventData.md) \| [`DragEventData`](../interfaces/DragEventData.md) & `InEvent` \| [`DragEventData`](../interfaces/DragEventData.md) & `OutEvent` \| [`DropEventData`](../interfaces/DropEventData.md) \| `SimpleEventHandler`\<`Event`\> \| `Object` \| `Object` \| [`LayoutBeforeEvent`](../type-aliases/LayoutBeforeEvent.md) \| [`LayoutAfterEvent`](../type-aliases/LayoutAfterEvent.md)
+• **E** *extends* [`TPointerEventInfo`](/api/interfaces/tpointereventinfo/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> \| [`TPointerEventInfo`](/api/interfaces/tpointereventinfo/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> & `object` \| [`TPointerEventInfo`](/api/interfaces/tpointereventinfo/)\<`WheelEvent`\> \| [`TPointerEventInfo`](/api/interfaces/tpointereventinfo/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> & `InEvent` \| [`TPointerEventInfo`](/api/interfaces/tpointereventinfo/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> & `OutEvent` \| [`BasicTransformEvent`](/api/interfaces/basictransformevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> \| [`ModifiedEvent`](/api/interfaces/modifiedevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> \| `Partial`\<[`TEvent`](/api/interfaces/tevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\>\> & `object` \| `Partial`\<[`TEvent`](/api/interfaces/tevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\>\> & `object` \| `object` \| `object` \| `object` \| `TEventWithTarget`\<`DragEvent`\> \| [`DragEventData`](/api/interfaces/drageventdata/) \| [`DragEventData`](/api/interfaces/drageventdata/) & `InEvent` \| [`DragEventData`](/api/interfaces/drageventdata/) & `OutEvent` \| [`DropEventData`](/api/interfaces/dropeventdata/) \| `SimpleEventHandler`\<`Event`\> \| `object` \| `object` \| [`LayoutBeforeEvent`](/api/type-aliases/layoutbeforeevent/) \| [`LayoutAfterEvent`](/api/type-aliases/layoutafterevent/)
 
 ##### Parameters
 
@@ -5364,7 +5379,7 @@ disposer
 
 once
 
-##### Source
+##### Defined in
 
 src/Observable.ts:62
 
@@ -5374,7 +5389,7 @@ src/Observable.ts:62
 
 ##### Parameters
 
-• **handlers**: `EventRegistryObject`\<[`GroupEvents`](../interfaces/GroupEvents.md)\>
+• **handlers**: `EventRegistryObject`\<[`GroupEvents`](/api/interfaces/groupevents/)\>
 
 ##### Returns
 
@@ -5386,7 +5401,7 @@ src/Observable.ts:62
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).once`
 
-##### Source
+##### Defined in
 
 src/Observable.ts:66
 
@@ -5394,17 +5409,17 @@ src/Observable.ts:66
 
 ### remove()
 
-> **remove**(...`objects`): [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>[]
+> **remove**(...`objects`): [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>[]
 
 Remove objects
 
 #### Parameters
 
-• ...**objects**: [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>[]
+• ...**objects**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>[]
 
 #### Returns
 
-[`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>[]
+[`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>[]
 
 removed objects
 
@@ -5414,7 +5429,7 @@ removed objects
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).remove`
 
-#### Source
+#### Defined in
 
 src/shapes/Group.ts:223
 
@@ -5422,17 +5437,17 @@ src/shapes/Group.ts:223
 
 ### removeAll()
 
-> **removeAll**(): [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>[]
+> **removeAll**(): [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>[]
 
 Remove all objects
 
 #### Returns
 
-[`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>[]
+[`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>[]
 
 removed objects
 
-#### Source
+#### Defined in
 
 src/shapes/Group.ts:290
 
@@ -5460,7 +5475,7 @@ context to render instance on
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).render`
 
-#### Source
+#### Defined in
 
 src/shapes/Group.ts:505
 
@@ -5484,7 +5499,7 @@ src/shapes/Group.ts:505
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).renderCache`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:817
 
@@ -5512,7 +5527,7 @@ example: render the selection status for the part of text that is being dragged 
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).renderDragSourceEffect`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:674
 
@@ -5541,7 +5556,7 @@ object will change when dropping. example: show the cursor where the text is abo
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).renderDropTargetEffect`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:686
 
@@ -5555,7 +5570,7 @@ Sets "angle" of an instance with centered rotation
 
 #### Parameters
 
-• **angle**: [`TDegree`](../type-aliases/TDegree.md)
+• **angle**: [`TDegree`](/api/type-aliases/tdegree/)
 
 Angle value (in degrees)
 
@@ -5569,7 +5584,7 @@ Angle value (in degrees)
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).rotate`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:1530
 
@@ -5597,7 +5612,7 @@ Scale factor
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).scale`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:357
 
@@ -5625,7 +5640,7 @@ New height value
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).scaleToHeight`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:380
 
@@ -5653,7 +5668,7 @@ New width value
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).scaleToWidth`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:368
 
@@ -5671,7 +5686,7 @@ stack.
 
 #### Parameters
 
-• **object**: [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **object**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 Object to send
 
@@ -5691,7 +5706,7 @@ true if change occurred
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).sendObjectBackwards`
 
-#### Source
+#### Defined in
 
 src/Collection.ts:214
 
@@ -5706,7 +5721,7 @@ to the bottom of the stack of drawn objects
 
 #### Parameters
 
-• **object**: [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **object**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 Object to send to back
 
@@ -5722,7 +5737,7 @@ true if change occurred
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).sendObjectToBack`
 
-#### Source
+#### Defined in
 
 src/Collection.ts:178
 
@@ -5730,7 +5745,7 @@ src/Collection.ts:178
 
 ### set()
 
-> **set**(`key`, `value`?): [`Group`](Group.md)
+> **set**(`key`, `value`?): [`Group`](/api/classes/group/)
 
 Sets property to a given value. When changing position/dimension -related properties (left, top, scale, angle, etc.) `set` does not update position of object's borders/controls. If you need to update those, call `setCoords()`.
 
@@ -5746,7 +5761,7 @@ Property value (if function, the value is passed into it and its return value is
 
 #### Returns
 
-[`Group`](Group.md)
+[`Group`](/api/classes/group/)
 
 #### Inherited from
 
@@ -5754,7 +5769,7 @@ Property value (if function, the value is passed into it and its return value is
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).set`
 
-#### Source
+#### Defined in
 
 src/CommonMethods.ts:29
 
@@ -5792,7 +5807,7 @@ true to set the specified control visible, false otherwise
 
 discuss this overlap of priority here with the team. Andrea Bogazzi for details
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:561
 
@@ -5806,10 +5821,10 @@ Sets the visibility state of object controls, this is just a bulk option for set
 
 #### Parameters
 
-• **options?**: `Record`\<`string`, `boolean`\>= `{}`
+• **options?**: `Record`\<`string`, `boolean`\> = `{}`
 
 with an optional key per control
-example: \{Boolean\} [options.bl] true to enable the bottom-left control, false to disable it
+example: {Boolean} [options.bl] true to enable the bottom-left control, false to disable it
 
 #### Returns
 
@@ -5821,7 +5836,7 @@ example: \{Boolean\} [options.bl] true to enable the bottom-left control, false 
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).setControlsVisibility`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:573
 
@@ -5841,7 +5856,7 @@ src/shapes/Object/InteractiveObject.ts:573
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).setCoords`
 
-#### Source
+#### Defined in
 
 src/shapes/Group.ts:487
 
@@ -5866,7 +5881,7 @@ Travis build error about unused variables.
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).setOnGroup`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:1562
 
@@ -5880,15 +5895,15 @@ Sets the position of the object taking into consideration the object's origin
 
 #### Parameters
 
-• **pos**: [`Point`](Point.md)
+• **pos**: [`Point`](/api/classes/point/)
 
 The new position of the object
 
-• **originX**: [`TOriginX`](../type-aliases/TOriginX.md)
+• **originX**: [`TOriginX`](/api/type-aliases/toriginx/)
 
 Horizontal origin: 'left', 'center' or 'right'
 
-• **originY**: [`TOriginY`](../type-aliases/TOriginY.md)
+• **originY**: [`TOriginY`](/api/type-aliases/toriginy/)
 
 Vertical origin: 'top', 'center' or 'bottom'
 
@@ -5902,7 +5917,7 @@ Vertical origin: 'top', 'center' or 'bottom'
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).setPositionByOrigin`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:214
 
@@ -5929,7 +5944,7 @@ if parent is canvas then this method is identical to [setX](../../../../api/clas
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).setRelativeX`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:110
 
@@ -5943,15 +5958,15 @@ As [setXY](../../../../api/classes/group/#setxy), but in current parent's coordi
 
 #### Parameters
 
-• **point**: [`Point`](Point.md)
+• **point**: [`Point`](/api/classes/point/)
 
 position according to object's originX originY properties in parent's coordinate plane
 
-• **originX?**: [`TOriginX`](../type-aliases/TOriginX.md)= `undefined`
+• **originX?**: [`TOriginX`](/api/type-aliases/toriginx/) = `...`
 
 Horizontal origin: 'left', 'center' or 'right'
 
-• **originY?**: [`TOriginY`](../type-aliases/TOriginY.md)= `undefined`
+• **originY?**: [`TOriginY`](/api/type-aliases/toriginy/) = `...`
 
 Vertical origin: 'top', 'center' or 'bottom'
 
@@ -5965,7 +5980,7 @@ Vertical origin: 'top', 'center' or 'bottom'
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).setRelativeXY`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:173
 
@@ -5992,7 +6007,7 @@ if parent is canvas then this property is identical to [setY](../../../../api/cl
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).setRelativeY`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:126
 
@@ -6018,7 +6033,7 @@ x position according to object's [originX](../../../../api/classes/fabricobject/
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).setX`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:80
 
@@ -6034,15 +6049,15 @@ that otherwise are the object's current values.
 
 #### Parameters
 
-• **point**: [`Point`](Point.md)
+• **point**: [`Point`](/api/classes/point/)
 
 position in canvas coordinate plane
 
-• **originX?**: [`TOriginX`](../type-aliases/TOriginX.md)
+• **originX?**: [`TOriginX`](/api/type-aliases/toriginx/)
 
 Horizontal origin: 'left', 'center' or 'right'
 
-• **originY?**: [`TOriginY`](../type-aliases/TOriginY.md)
+• **originY?**: [`TOriginY`](/api/type-aliases/toriginy/)
 
 Vertical origin: 'top', 'center' or 'bottom'
 
@@ -6062,7 +6077,7 @@ Vertical origin: 'top', 'center' or 'bottom'
 object.setXY(new Point(5, 5), 'left', 'bottom').
 ```
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:150
 
@@ -6088,7 +6103,7 @@ y position according to object's [originY](../../../../api/classes/fabricobject/
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).setY`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:94
 
@@ -6113,7 +6128,7 @@ Generally you do not cache objects in groups because the group is already cached
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).shouldCache`
 
-#### Source
+#### Defined in
 
 src/shapes/Group.ts:423
 
@@ -6138,7 +6153,7 @@ true in order for the window to start a drag session
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).shouldStartDragging`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:644
 
@@ -6162,7 +6177,7 @@ Collection size
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).size`
 
-#### Source
+#### Defined in
 
 src/Collection.ts:136
 
@@ -6180,7 +6195,7 @@ override this function in order to customize the drawing of the control box, e.g
 
 ctx is rotated and translated so that (0,0) is at object's center
 
-• **size**: [`Point`](Point.md)
+• **size**: [`Point`](/api/classes/point/)
 
 the control box size used
 
@@ -6194,7 +6209,7 @@ the control box size used
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).strokeBorders`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:363
 
@@ -6208,7 +6223,7 @@ Converts an object into a HTMLCanvas element
 
 #### Parameters
 
-• **options**: `ObjectToCanvasElementOptions`= `{}`
+• **options**: `ObjectToCanvasElementOptions` = `{}`
 
 Options object
 
@@ -6216,7 +6231,7 @@ Options object
 
 `HTMLCanvasElement`
 
-Returns DOM element `<canvas>` with the FabricObject
+Returns DOM element <canvas> with the FabricObject
 
 #### Inherited from
 
@@ -6224,7 +6239,7 @@ Returns DOM element `<canvas>` with the FabricObject
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).toCanvasElement`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:1393
 
@@ -6238,7 +6253,7 @@ Returns svg clipPath representation of an instance
 
 #### Parameters
 
-• **reviver?**: [`TSVGReviver`](../type-aliases/TSVGReviver.md)
+• **reviver?**: [`TSVGReviver`](/api/type-aliases/tsvgreviver/)
 
 Method for further parsing of svg representation.
 
@@ -6254,7 +6269,7 @@ svg representation of an instance
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).toClipPathSVG`
 
-#### Source
+#### Defined in
 
 src/shapes/Group.ts:632
 
@@ -6268,7 +6283,7 @@ Converts an object into a data-url-like string
 
 #### Parameters
 
-• **options**: `toDataURLOptions`= `{}`
+• **options**: `toDataURLOptions` = `{}`
 
 Options object
 
@@ -6284,7 +6299,7 @@ Returns a data: URL containing a representation of the object in the format spec
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).toDataURL`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:1489
 
@@ -6314,7 +6329,7 @@ Object representation of an instance
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).toDatalessObject`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:611
 
@@ -6338,7 +6353,7 @@ JSON
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).toJSON`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:1521
 
@@ -6346,25 +6361,25 @@ src/shapes/Object/Object.ts:1521
 
 ### toObject()
 
-> **toObject**\<`T`, `K`\>(`propertiesToInclude`?): `Pick`\<`T`, `K`\> & [`SerializedGroupProps`](../interfaces/SerializedGroupProps.md)
+> **toObject**\<`T`, `K`\>(`propertiesToInclude`?): `Pick`\<`T`, `K`\> & [`SerializedGroupProps`](/api/interfaces/serializedgroupprops/)
 
 Returns object representation of an instance
 
-#### Type parameters
+#### Type Parameters
 
-• **T** extends `Omit`\<[`GroupProps`](../interfaces/GroupProps.md) & [`TClassProperties`](../type-aliases/TClassProperties.md)\<[`Group`](Group.md)\>, keyof [`SerializedGroupProps`](../interfaces/SerializedGroupProps.md)\>
+• **T** *extends* `Omit`\<[`GroupProps`](/api/interfaces/groupprops/) & [`TClassProperties`](/api/type-aliases/tclassproperties/)\<[`Group`](/api/classes/group/)\>, keyof [`SerializedGroupProps`](/api/interfaces/serializedgroupprops/)\>
 
-• **K** extends `string` \| `number` \| `symbol` = `never`
+• **K** *extends* `string` \| `number` \| `symbol` = `never`
 
 #### Parameters
 
-• **propertiesToInclude?**: `K`[]= `[]`
+• **propertiesToInclude?**: `K`[] = `[]`
 
 Any properties that you might want to additionally include in the output
 
 #### Returns
 
-`Pick`\<`T`, `K`\> & [`SerializedGroupProps`](../interfaces/SerializedGroupProps.md)
+`Pick`\<`T`, `K`\> & [`SerializedGroupProps`](/api/interfaces/serializedgroupprops/)
 
 object representation of an instance
 
@@ -6374,7 +6389,7 @@ object representation of an instance
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).toObject`
 
-#### Source
+#### Defined in
 
 src/shapes/Group.ts:542
 
@@ -6388,9 +6403,9 @@ Returns svg representation of an instance
 
 #### Parameters
 
-• **this**: `FabricObjectSVGExportMixin` & [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **this**: `FabricObjectSVGExportMixin` & [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
-• **reviver?**: [`TSVGReviver`](../type-aliases/TSVGReviver.md)
+• **reviver?**: [`TSVGReviver`](/api/type-aliases/tsvgreviver/)
 
 Method for further parsing of svg representation.
 
@@ -6406,7 +6421,7 @@ svg representation of an instance
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).toSVG`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/FabricObjectSVGExportMixin.ts:129
 
@@ -6415,6 +6430,8 @@ src/shapes/Object/FabricObjectSVGExportMixin.ts:129
 ### toString()
 
 > **toString**(): `string`
+
+Returns a string representation of an instance
 
 #### Returns
 
@@ -6426,7 +6443,7 @@ src/shapes/Object/FabricObjectSVGExportMixin.ts:129
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).toString`
 
-#### Source
+#### Defined in
 
 src/shapes/Group.ts:567
 
@@ -6434,7 +6451,7 @@ src/shapes/Group.ts:567
 
 ### toggle()
 
-> **toggle**(`property`): [`Group`](Group.md)
+> **toggle**(`property`): [`Group`](/api/classes/group/)
 
 Toggles specified property from `true` to `false` or from `false` to `true`
 
@@ -6446,7 +6463,7 @@ Property to toggle
 
 #### Returns
 
-[`Group`](Group.md)
+[`Group`](/api/classes/group/)
 
 #### Inherited from
 
@@ -6454,7 +6471,7 @@ Property to toggle
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).toggle`
 
-#### Source
+#### Defined in
 
 src/CommonMethods.ts:46
 
@@ -6482,7 +6499,7 @@ Context
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).transform`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:533
 
@@ -6494,7 +6511,7 @@ src/shapes/Object/Object.ts:533
 
 #### Parameters
 
-• **skipGroup**: `boolean`= `false`
+• **skipGroup**: `boolean` = `false`
 
 #### Returns
 
@@ -6506,7 +6523,7 @@ src/shapes/Object/Object.ts:533
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).transformMatrixKey`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:440
 
@@ -6514,27 +6531,27 @@ src/shapes/Object/ObjectGeometry.ts:440
 
 ### translateToCenterPoint()
 
-> **translateToCenterPoint**(`point`, `originX`, `originY`): [`Point`](Point.md)
+> **translateToCenterPoint**(`point`, `originX`, `originY`): [`Point`](/api/classes/point/)
 
 Translates the coordinates from origin to center coordinates (based on the object's dimensions)
 
 #### Parameters
 
-• **point**: [`Point`](Point.md)
+• **point**: [`Point`](/api/classes/point/)
 
 The point which corresponds to the originX and originY params
 
-• **originX**: [`TOriginX`](../type-aliases/TOriginX.md)
+• **originX**: [`TOriginX`](/api/type-aliases/toriginx/)
 
 Horizontal origin: 'left', 'center' or 'right'
 
-• **originY**: [`TOriginY`](../type-aliases/TOriginY.md)
+• **originY**: [`TOriginY`](/api/type-aliases/toriginy/)
 
 Vertical origin: 'top', 'center' or 'bottom'
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
 #### Inherited from
 
@@ -6542,7 +6559,7 @@ Vertical origin: 'top', 'center' or 'bottom'
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).translateToCenterPoint`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:127
 
@@ -6550,35 +6567,35 @@ src/shapes/Object/ObjectOrigin.ts:127
 
 ### translateToGivenOrigin()
 
-> **translateToGivenOrigin**(`point`, `fromOriginX`, `fromOriginY`, `toOriginX`, `toOriginY`): [`Point`](Point.md)
+> **translateToGivenOrigin**(`point`, `fromOriginX`, `fromOriginY`, `toOriginX`, `toOriginY`): [`Point`](/api/classes/point/)
 
 Translates the coordinates from a set of origin to another (based on the object's dimensions)
 
 #### Parameters
 
-• **point**: [`Point`](Point.md)
+• **point**: [`Point`](/api/classes/point/)
 
 The point which corresponds to the originX and originY params
 
-• **fromOriginX**: [`TOriginX`](../type-aliases/TOriginX.md)
+• **fromOriginX**: [`TOriginX`](/api/type-aliases/toriginx/)
 
 Horizontal origin: 'left', 'center' or 'right'
 
-• **fromOriginY**: [`TOriginY`](../type-aliases/TOriginY.md)
+• **fromOriginY**: [`TOriginY`](/api/type-aliases/toriginy/)
 
 Vertical origin: 'top', 'center' or 'bottom'
 
-• **toOriginX**: [`TOriginX`](../type-aliases/TOriginX.md)
+• **toOriginX**: [`TOriginX`](/api/type-aliases/toriginx/)
 
 Horizontal origin: 'left', 'center' or 'right'
 
-• **toOriginY**: [`TOriginY`](../type-aliases/TOriginY.md)
+• **toOriginY**: [`TOriginY`](/api/type-aliases/toriginy/)
 
 Vertical origin: 'top', 'center' or 'bottom'
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
 #### Inherited from
 
@@ -6586,7 +6603,7 @@ Vertical origin: 'top', 'center' or 'bottom'
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).translateToGivenOrigin`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:99
 
@@ -6594,27 +6611,27 @@ src/shapes/Object/ObjectOrigin.ts:99
 
 ### translateToOriginPoint()
 
-> **translateToOriginPoint**(`center`, `originX`, `originY`): [`Point`](Point.md)
+> **translateToOriginPoint**(`center`, `originX`, `originY`): [`Point`](/api/classes/point/)
 
 Translates the coordinates from center to origin coordinates (based on the object's dimensions)
 
 #### Parameters
 
-• **center**: [`Point`](Point.md)
+• **center**: [`Point`](/api/classes/point/)
 
 The point which corresponds to center of the object
 
-• **originX**: [`TOriginX`](../type-aliases/TOriginX.md)
+• **originX**: [`TOriginX`](/api/type-aliases/toriginx/)
 
 Horizontal origin: 'left', 'center' or 'right'
 
-• **originY**: [`TOriginY`](../type-aliases/TOriginY.md)
+• **originY**: [`TOriginY`](/api/type-aliases/toriginy/)
 
 Vertical origin: 'top', 'center' or 'bottom'
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
 #### Inherited from
 
@@ -6622,7 +6639,7 @@ Vertical origin: 'top', 'center' or 'bottom'
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).translateToOriginPoint`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:152
 
@@ -6634,13 +6651,13 @@ src/shapes/Object/ObjectOrigin.ts:152
 
 #### Parameters
 
-• **options**: [`ImperativeLayoutOptions`](../type-aliases/ImperativeLayoutOptions.md)= `{}`
+• **options**: [`ImperativeLayoutOptions`](/api/type-aliases/imperativelayoutoptions/) = `{}`
 
 #### Returns
 
 `void`
 
-#### Source
+#### Defined in
 
 src/shapes/Group.ts:493
 
@@ -6662,7 +6679,7 @@ Check if this object or a child object will cast a shadow
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).willDrawShadow`
 
-#### Source
+#### Defined in
 
 src/shapes/Group.ts:440
 
@@ -6670,17 +6687,17 @@ src/shapes/Group.ts:440
 
 ### \_fromObject()
 
-> **`static`** **\_fromObject**\<`S`\>(`__namedParameters`, `__namedParameters`): `Promise`\<`S`\>
+> `static` **\_fromObject**\<`S`\>(`__namedParameters`, `__namedParameters`): `Promise`\<`S`\>
 
-#### Type parameters
+#### Type Parameters
 
-• **S** extends `FabricObject`\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **S** *extends* `FabricObject`\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 #### Parameters
 
 • **\_\_namedParameters**: `Record`\<`string`, `unknown`\>
 
-• **\_\_namedParameters**: [`Abortable`](../type-aliases/Abortable.md) & `Object`= `{}`
+• **\_\_namedParameters**: [`Abortable`](/api/type-aliases/abortable/) & `object` = `{}`
 
 #### Returns
 
@@ -6692,7 +6709,7 @@ src/shapes/Group.ts:440
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   )._fromObject`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:1600
 
@@ -6700,7 +6717,7 @@ src/shapes/Object/Object.ts:1600
 
 ### getDefaults()
 
-> **`static`** **getDefaults**(): `Record`\<`string`, `any`\>
+> `static` **getDefaults**(): `Record`\<`string`, `any`\>
 
 #### Returns
 
@@ -6712,6 +6729,6 @@ src/shapes/Object/Object.ts:1600
     FabricObject<GroupProps, SerializedGroupProps, GroupEvents>
   ).getDefaults`
 
-#### Source
+#### Defined in
 
 src/shapes/Group.ts:116

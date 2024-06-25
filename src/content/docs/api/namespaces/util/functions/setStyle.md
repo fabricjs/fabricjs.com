@@ -19,6 +19,6 @@ wrapper for setting element's style
 
 `void`
 
-## Source
+## Defined in
 
 src/util/dom\_style.ts:8

@@ -7,13 +7,13 @@ title: "TEvent"
 
 ## Extended by
 
-- [`BasicTransformEvent`](BasicTransformEvent.md)
-- [`TPointerEventInfo`](TPointerEventInfo.md)
-- [`DragEventData`](DragEventData.md)
+- [`BasicTransformEvent`](/api/interfaces/basictransformevent/)
+- [`TPointerEventInfo`](/api/interfaces/tpointereventinfo/)
+- [`DragEventData`](/api/interfaces/drageventdata/)
 
-## Type parameters
+## Type Parameters
 
-• **E** extends `Event` = [`TPointerEvent`](../type-aliases/TPointerEvent.md)
+• **E** *extends* `Event` = [`TPointerEvent`](/api/type-aliases/tpointerevent/)
 
 ## Properties
 
@@ -21,6 +21,6 @@ title: "TEvent"
 
 > **e**: `E`
 
-#### Source
+#### Defined in
 
 src/EventTypeDefs.ts:86

@@ -7,11 +7,11 @@ title: "BasicTransformEvent"
 
 ## Extends
 
-- [`TEvent`](TEvent.md)\<`E`\>
+- [`TEvent`](/api/interfaces/tevent/)\<`E`\>
 
-## Type parameters
+## Type Parameters
 
-• **E** extends `Event` = [`TPointerEvent`](../type-aliases/TPointerEvent.md)
+• **E** *extends* `Event` = [`TPointerEvent`](/api/type-aliases/tpointerevent/)
 
 ## Properties
 
@@ -21,9 +21,9 @@ title: "BasicTransformEvent"
 
 #### Inherited from
 
-[`TEvent`](TEvent.md).[`e`](TEvent.md#e)
+[`TEvent`](/api/interfaces/tevent/).[`e`](/api/interfaces/tevent/#e)
 
-#### Source
+#### Defined in
 
 src/EventTypeDefs.ts:86
 
@@ -31,9 +31,9 @@ src/EventTypeDefs.ts:86
 
 ### pointer
 
-> **pointer**: [`Point`](../classes/Point.md)
+> **pointer**: [`Point`](/api/classes/point/)
 
-#### Source
+#### Defined in
 
 src/EventTypeDefs.ts:96
 
@@ -41,8 +41,8 @@ src/EventTypeDefs.ts:96
 
 ### transform
 
-> **transform**: [`Transform`](../type-aliases/Transform.md)
+> **transform**: [`Transform`](/api/type-aliases/transform/)
 
-#### Source
+#### Defined in
 
 src/EventTypeDefs.ts:95

@@ -5,26 +5,22 @@ prev: false
 title: "projectStrokeOnPoints"
 ---
 
-> **projectStrokeOnPoints**(`points`, `options`, `openPath`): [`TProjection`](../type-aliases/TProjection.md)[]
+> **projectStrokeOnPoints**(`points`, `options`, `openPath`): [`TProjection`](/api/namespaces/util/type-aliases/tprojection/)[]
 
 Used to calculate object's bounding box
 
 ## Parameters
 
-• **points**: [`XY`](../../../interfaces/XY.md)[]
+• **points**: [`XY`](/api/interfaces/xy/)[]
 
-• **options**: [`TProjectStrokeOnPointsOptions`](../type-aliases/TProjectStrokeOnPointsOptions.md)
+• **options**: [`TProjectStrokeOnPointsOptions`](/api/namespaces/util/type-aliases/tprojectstrokeonpointsoptions/)
 
-• **openPath**: `boolean`= `false`
+• **openPath**: `boolean` = `false`
 
 ## Returns
 
-[`TProjection`](../type-aliases/TProjection.md)[]
+[`TProjection`](/api/namespaces/util/type-aliases/tprojection/)[]
 
-## See
-
-https://github.com/fabricjs/fabric.js/pull/8344
-
-## Source
+## Defined in
 
 src/util/misc/projectStroke/index.ts:16

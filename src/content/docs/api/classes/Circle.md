@@ -7,15 +7,15 @@ title: "Circle"
 
 ## Extends
 
-- [`FabricObject`](FabricObject.md)\<`Props`, `SProps`, `EventSpec`\>
+- [`FabricObject`](/api/classes/fabricobject/)\<`Props`, `SProps`, `EventSpec`\>
 
-## Type parameters
+## Type Parameters
 
-• **Props** extends [`TOptions`](../type-aliases/TOptions.md)\<[`CircleProps`](../interfaces/CircleProps.md)\> = `Partial`\<[`CircleProps`](../interfaces/CircleProps.md)\>
+• **Props** *extends* [`TOptions`](/api/type-aliases/toptions/)\<[`CircleProps`](/api/interfaces/circleprops/)\> = `Partial`\<[`CircleProps`](/api/interfaces/circleprops/)\>
 
-• **SProps** extends [`SerializedCircleProps`](../interfaces/SerializedCircleProps.md) = [`SerializedCircleProps`](../interfaces/SerializedCircleProps.md)
+• **SProps** *extends* [`SerializedCircleProps`](/api/interfaces/serializedcircleprops/) = [`SerializedCircleProps`](/api/interfaces/serializedcircleprops/)
 
-• **EventSpec** extends [`ObjectEvents`](../interfaces/ObjectEvents.md) = [`ObjectEvents`](../interfaces/ObjectEvents.md)
+• **EventSpec** *extends* [`ObjectEvents`](/api/interfaces/objectevents/) = [`ObjectEvents`](/api/interfaces/objectevents/)
 
 ## Implements
 
@@ -23,27 +23,27 @@ title: "Circle"
 
 ## Constructors
 
-### new Circle(options)
+### new Circle()
 
-> **new Circle**\<`Props`, `SProps`, `EventSpec`\>(`options`?): [`Circle`](Circle.md)\<`Props`, `SProps`, `EventSpec`\>
+> **new Circle**\<`Props`, `SProps`, `EventSpec`\>(`options`?): [`Circle`](/api/classes/circle/)\<`Props`, `SProps`, `EventSpec`\>
 
 Constructor
 
 #### Parameters
 
-• **options?**: `Props`= `undefined`
+• **options?**: `Props` = `...`
 
 Options object
 
 #### Returns
 
-[`Circle`](Circle.md)\<`Props`, `SProps`, `EventSpec`\>
+[`Circle`](/api/classes/circle/)\<`Props`, `SProps`, `EventSpec`\>
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`constructor`](FabricObject.md#constructors)
+[`FabricObject`](/api/classes/fabricobject/).[`constructor`](/api/classes/fabricobject/#constructors)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:336
 
@@ -51,7 +51,7 @@ src/shapes/Object/Object.ts:336
 
 ### \_\_corner?
 
-> **`optional`** **\_\_corner**: `string`
+> `optional` **\_\_corner**: `string`
 
 keeps the value of the last hovered corner during mouse move.
 0 is no corner, or 'mt', 'ml', 'mtr' etc..
@@ -61,9 +61,9 @@ this isn't cleaned automatically. Non selected objects may have wrong values
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`__corner`](FabricObject.md#__corner)
+[`FabricObject`](/api/classes/fabricobject/).[`__corner`](/api/classes/fabricobject/#__corner)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:104
 
@@ -79,9 +79,9 @@ this takes priority over the generic control visibility
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`_controlsVisibility`](FabricObject.md#_controlsvisibility)
+[`FabricObject`](/api/classes/fabricobject/).[`_controlsVisibility`](/api/classes/fabricobject/#_controlsvisibility)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:111
 
@@ -89,7 +89,7 @@ src/shapes/Object/InteractiveObject.ts:111
 
 ### \_scaling?
 
-> **`optional`** **\_scaling**: `boolean`
+> `optional` **\_scaling**: `boolean`
 
 A boolean used from the gesture module to keep tracking of a scaling
 action when there is no scaling transform in place.
@@ -103,9 +103,9 @@ DON'T USE IT. WE WILL TRY TO REMOVE IT
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`_scaling`](FabricObject.md#_scaling)
+[`FabricObject`](/api/classes/fabricobject/).[`_scaling`](/api/classes/fabricobject/#_scaling)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:133
 
@@ -113,7 +113,7 @@ src/shapes/Object/InteractiveObject.ts:133
 
 ### aCoords
 
-> **aCoords**: [`TCornerPoint`](../type-aliases/TCornerPoint.md)
+> **aCoords**: [`TCornerPoint`](/api/type-aliases/tcornerpoint/)
 
 Describe object's corner position in scene coordinates.
 The coordinates are derived from the following:
@@ -124,9 +124,9 @@ You can calculate them without updating with [()](../../../../api/classes/circle
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`aCoords`](FabricObject.md#acoords)
+[`FabricObject`](/api/classes/fabricobject/).[`aCoords`](/api/classes/fabricobject/#acoords)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:50
 
@@ -136,39 +136,46 @@ src/shapes/Object/ObjectGeometry.ts:50
 
 > **absolutePositioned**: `boolean`
 
+Meaningful ONLY when the object is used as clipPath.
+if true, the clipPath will have its top and left relative to canvas, and will
+not be influenced by the object transform. This will make the clipPath relative
+to the canvas, but clipping just a particular object.
+WARNING this is beta, this feature may change or be renamed.
+since 2.4.0
+
+#### Default
+
+```ts
+false
+```
+
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`absolutePositioned`](FabricObject.md#absolutepositioned)
+[`FabricObject`](/api/classes/fabricobject/).[`absolutePositioned`](/api/classes/fabricobject/#absolutepositioned)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:166
 
 ***
 
-### activeOn
-
-> **activeOn**: `"down"` \| `"up"`
-
-#### Inherited from
-
-[`FabricObject`](FabricObject.md).[`activeOn`](FabricObject.md#activeon)
-
-#### Source
-
-src/shapes/Object/InteractiveObject.ts:83
-
-***
-
 ### angle
 
-> **angle**: [`TDegree`](../type-aliases/TDegree.md)
+> **angle**: [`TDegree`](/api/type-aliases/tdegree/)
+
+Angle of rotation of an object (in degrees)
+
+#### Default
+
+```ts
+0
+```
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`angle`](FabricObject.md#angle)
+[`FabricObject`](/api/classes/fabricobject/).[`angle`](/api/classes/fabricobject/#angle)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:29
 
@@ -178,11 +185,20 @@ src/shapes/Object/ObjectOrigin.ts:29
 
 > **backgroundColor**: `string`
 
+Background color of an object.
+takes css colors https://www.w3.org/TR/css-color-3/
+
+#### Default
+
+```ts
+
+```
+
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`backgroundColor`](FabricObject.md#backgroundcolor)
+[`FabricObject`](/api/classes/fabricobject/).[`backgroundColor`](/api/classes/fabricobject/#backgroundcolor)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:153
 
@@ -192,11 +208,19 @@ src/shapes/Object/Object.ts:153
 
 > **borderColor**: `string`
 
+Color of controlling borders of an object (when it's active)
+
+#### Default
+
+```ts
+rgb(178,204,255)
+```
+
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`borderColor`](FabricObject.md#bordercolor)
+[`FabricObject`](/api/classes/fabricobject/).[`borderColor`](/api/classes/fabricobject/#bordercolor)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:73
 
@@ -206,11 +230,17 @@ src/shapes/Object/InteractiveObject.ts:73
 
 > **borderDashArray**: `null` \| `number`[]
 
+Array specifying dash pattern of an object's borders (hasBorder must be true)
+
+#### Since
+
+1.6.2
+
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`borderDashArray`](FabricObject.md#borderdasharray)
+[`FabricObject`](/api/classes/fabricobject/).[`borderDashArray`](/api/classes/fabricobject/#borderdasharray)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:74
 
@@ -220,11 +250,19 @@ src/shapes/Object/InteractiveObject.ts:74
 
 > **borderOpacityWhenMoving**: `number`
 
+Opacity of object's controlling borders when object is active and moving
+
+#### Default
+
+```ts
+0.4
+```
+
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`borderOpacityWhenMoving`](FabricObject.md#borderopacitywhenmoving)
+[`FabricObject`](/api/classes/fabricobject/).[`borderOpacityWhenMoving`](/api/classes/fabricobject/#borderopacitywhenmoving)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:75
 
@@ -234,27 +272,24 @@ src/shapes/Object/InteractiveObject.ts:75
 
 > **borderScaleFactor**: `number`
 
+Scale factor of object's controlling borders
+bigger number will make a thicker border
+border is 1, so this is basically a border thickness
+since there is no way to change the border itself.
+
+#### Default
+
+```ts
+1
+```
+
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`borderScaleFactor`](FabricObject.md#borderscalefactor)
+[`FabricObject`](/api/classes/fabricobject/).[`borderScaleFactor`](/api/classes/fabricobject/#borderscalefactor)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:76
-
-***
-
-### canvas?
-
-> **`optional`** **canvas**: [`Canvas`](Canvas.md)
-
-#### Inherited from
-
-[`FabricObject`](FabricObject.md).[`canvas`](FabricObject.md#canvas)
-
-#### Source
-
-src/shapes/Object/InteractiveObject.ts:135
 
 ***
 
@@ -262,11 +297,27 @@ src/shapes/Object/InteractiveObject.ts:135
 
 > **centeredRotation**: `boolean`
 
+When `true` the object will rotate on its center.
+When `false` will rotate around the origin point defined by originX and originY.
+The value of this property is IGNORED during a transform if the canvas has already
+centeredRotation set to `true`
+The object method `rotate` will always consider this property and never the canvas's one.
+
+#### Since
+
+1.3.4
+
+#### Default
+
+```ts
+
+```
+
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`centeredRotation`](FabricObject.md#centeredrotation)
+[`FabricObject`](/api/classes/fabricobject/).[`centeredRotation`](/api/classes/fabricobject/#centeredrotation)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:167
 
@@ -276,11 +327,24 @@ src/shapes/Object/Object.ts:167
 
 > **centeredScaling**: `boolean`
 
+When true, this object will use center point as the origin of transformation
+when being scaled via the controls.
+
+#### Since
+
+1.3.4
+
+#### Default
+
+```ts
+
+```
+
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`centeredScaling`](FabricObject.md#centeredscaling)
+[`FabricObject`](/api/classes/fabricobject/).[`centeredScaling`](/api/classes/fabricobject/#centeredscaling)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:168
 
@@ -288,13 +352,13 @@ src/shapes/Object/Object.ts:168
 
 ### clipPath?
 
-> **`optional`** **clipPath**: `FabricObject`\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+> `optional` **clipPath**: `FabricObject`\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`clipPath`](FabricObject.md#clippath)
+[`FabricObject`](/api/classes/fabricobject/).[`clipPath`](/api/classes/fabricobject/#clippath)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:164
 
@@ -302,16 +366,16 @@ src/shapes/Object/Object.ts:164
 
 ### clipPathId?
 
-> **`optional`** **clipPathId**: `string`
+> `optional` **clipPathId**: `string`
 
 When an object is being exported as SVG as a clippath, a reference inside the SVG is needed.
 This reference is a UID in the fabric namespace and is temporary stored here.
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`clipPathId`](FabricObject.md#clippathid)
+[`FabricObject`](/api/classes/fabricobject/).[`clipPathId`](/api/classes/fabricobject/#clippathid)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/FabricObjectSVGExportMixin.ts:14
 
@@ -326,9 +390,9 @@ controls are added by default_controls.js
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`controls`](FabricObject.md#controls)
+[`FabricObject`](/api/classes/fabricobject/).[`controls`](/api/classes/fabricobject/#controls)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:117
 
@@ -338,11 +402,19 @@ src/shapes/Object/InteractiveObject.ts:117
 
 > **cornerColor**: `string`
 
+Color of controlling corners of an object (when it's active)
+
+#### Default
+
+```ts
+rgb(178,204,255)
+```
+
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`cornerColor`](FabricObject.md#cornercolor)
+[`FabricObject`](/api/classes/fabricobject/).[`cornerColor`](/api/classes/fabricobject/#cornercolor)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:67
 
@@ -352,11 +424,17 @@ src/shapes/Object/InteractiveObject.ts:67
 
 > **cornerDashArray**: `null` \| `number`[]
 
+Array specifying dash pattern of an object's control (hasBorder must be true)
+
+#### Since
+
+1.6.2
+
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`cornerDashArray`](FabricObject.md#cornerdasharray)
+[`FabricObject`](/api/classes/fabricobject/).[`cornerDashArray`](/api/classes/fabricobject/#cornerdasharray)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:70
 
@@ -366,11 +444,19 @@ src/shapes/Object/InteractiveObject.ts:70
 
 > **cornerSize**: `number`
 
+Size of object's controlling corners (in pixels)
+
+#### Default
+
+```ts
+13
+```
+
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`cornerSize`](FabricObject.md#cornersize)
+[`FabricObject`](/api/classes/fabricobject/).[`cornerSize`](/api/classes/fabricobject/#cornersize)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:64
 
@@ -380,25 +466,55 @@ src/shapes/Object/InteractiveObject.ts:64
 
 > **cornerStrokeColor**: `string`
 
+Color of controlling corners of an object (when it's active and transparentCorners false)
+
+#### Since
+
+1.6.2
+
+#### Default
+
+```ts
+null
+```
+
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`cornerStrokeColor`](FabricObject.md#cornerstrokecolor)
+[`FabricObject`](/api/classes/fabricobject/).[`cornerStrokeColor`](/api/classes/fabricobject/#cornerstrokecolor)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:68
 
 ***
 
-### cornerStyle
+### ~~cornerStyle~~
 
 > **cornerStyle**: `"circle"` \| `"rect"`
 
+Specify style of control, 'rect' or 'circle'
+This is deprecated. In the future there will be a standard control render
+And you can swap it with one of the alternative proposed with the control api
+
+#### Since
+
+1.6.2
+
+#### Default
+
+```ts
+rect
+```
+
+:::caution[Deprecated]
+This API is no longer supported and may be removed in a future release.
+:::
+
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`cornerStyle`](FabricObject.md#cornerstyle)
+[`FabricObject`](/api/classes/fabricobject/).[`cornerStyle`](/api/classes/fabricobject/#cornerstyle)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:69
 
@@ -408,11 +524,21 @@ src/shapes/Object/InteractiveObject.ts:69
 
 > **counterClockwise**: `boolean`
 
+Orientation for the direction of the circle.
+Setting to true will switch the arc of the circle to traverse from startAngle to endAngle in a counter-clockwise direction.
+Note: this will only change how the circle is drawn, and does not affect rotational transformation.
+
+#### Default
+
+```ts
+false
+```
+
 #### Implementation of
 
 `UniqueCircleProps.counterClockwise`
 
-#### Source
+#### Defined in
 
 src/shapes/Circle.ts:75
 
@@ -433,9 +559,9 @@ true
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`dirty`](FabricObject.md#dirty)
+[`FabricObject`](/api/classes/fabricobject/).[`dirty`](/api/classes/fabricobject/#dirty)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:193
 
@@ -445,11 +571,19 @@ src/shapes/Object/Object.ts:193
 
 > **endAngle**: `number`
 
+Angle for the end of the circle, in degrees
+
+#### Default
+
+```ts
+360
+```
+
 #### Implementation of
 
 `UniqueCircleProps.endAngle`
 
-#### Source
+#### Defined in
 
 src/shapes/Circle.ts:74
 
@@ -459,11 +593,19 @@ src/shapes/Circle.ts:74
 
 > **evented**: `boolean`
 
+When set to `false`, an object can not be a target of events. All events propagate through it. Introduced in v1.3.4
+
+#### Default
+
+```ts
+
+```
+
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`evented`](FabricObject.md#evented)
+[`FabricObject`](/api/classes/fabricobject/).[`evented`](/api/classes/fabricobject/#evented)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:81
 
@@ -473,11 +615,23 @@ src/shapes/Object/InteractiveObject.ts:81
 
 > **excludeFromExport**: `boolean`
 
+When `true`, object is not exported in OBJECT/JSON
+
+#### Since
+
+1.6.3
+
+#### Default
+
+```ts
+
+```
+
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`excludeFromExport`](FabricObject.md#excludefromexport)
+[`FabricObject`](/api/classes/fabricobject/).[`excludeFromExport`](/api/classes/fabricobject/#excludefromexport)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:160
 
@@ -485,13 +639,13 @@ src/shapes/Object/Object.ts:160
 
 ### fill
 
-> **fill**: `null` \| `string` \| [`TFiller`](../type-aliases/TFiller.md)
+> **fill**: `null` \| `string` \| [`TFiller`](/api/type-aliases/tfiller/)
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`fill`](FabricObject.md#fill)
+[`FabricObject`](/api/classes/fabricobject/).[`fill`](/api/classes/fabricobject/#fill)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:143
 
@@ -501,11 +655,21 @@ src/shapes/Object/Object.ts:143
 
 > **fillRule**: `CanvasFillRule`
 
+Fill rule used to fill an object
+accepted values are nonzero, evenodd
+<b>Backwards incompatibility note:</b> This property was used for setting globalCompositeOperation until v1.4.12 (use `globalCompositeOperation` instead)
+
+#### Default
+
+```ts
+nonzero
+```
+
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`fillRule`](FabricObject.md#fillrule)
+[`FabricObject`](/api/classes/fabricobject/).[`fillRule`](/api/classes/fabricobject/#fillrule)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:144
 
@@ -515,11 +679,19 @@ src/shapes/Object/Object.ts:144
 
 > **flipX**: `boolean`
 
+When true, an object is rendered as flipped horizontally
+
+#### Default
+
+```ts
+false
+```
+
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`flipX`](FabricObject.md#flipx)
+[`FabricObject`](/api/classes/fabricobject/).[`flipX`](/api/classes/fabricobject/#flipx)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:21
 
@@ -529,11 +701,19 @@ src/shapes/Object/ObjectOrigin.ts:21
 
 > **flipY**: `boolean`
 
+When true, an object is rendered as flipped vertically
+
+#### Default
+
+```ts
+false
+```
+
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`flipY`](FabricObject.md#flipy)
+[`FabricObject`](/api/classes/fabricobject/).[`flipY`](/api/classes/fabricobject/#flipy)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:22
 
@@ -543,11 +723,19 @@ src/shapes/Object/ObjectOrigin.ts:22
 
 > **globalCompositeOperation**: `GlobalCompositeOperation`
 
+Composite rule used for canvas globalCompositeOperation
+
+#### Default
+
+```ts
+
+```
+
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`globalCompositeOperation`](FabricObject.md#globalcompositeoperation)
+[`FabricObject`](/api/classes/fabricobject/).[`globalCompositeOperation`](/api/classes/fabricobject/#globalcompositeoperation)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:152
 
@@ -557,11 +745,19 @@ src/shapes/Object/Object.ts:152
 
 > **hasBorders**: `boolean`
 
+When set to `false`, object's controlling borders are not rendered
+
+#### Default
+
+```ts
+
+```
+
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`hasBorders`](FabricObject.md#hasborders)
+[`FabricObject`](/api/classes/fabricobject/).[`hasBorders`](/api/classes/fabricobject/#hasborders)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:77
 
@@ -571,11 +767,19 @@ src/shapes/Object/InteractiveObject.ts:77
 
 > **hasControls**: `boolean`
 
+When set to `false`, object's controls are not displayed and can not be used to manipulate object
+
+#### Default
+
+```ts
+
+```
+
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`hasControls`](FabricObject.md#hascontrols)
+[`FabricObject`](/api/classes/fabricobject/).[`hasControls`](/api/classes/fabricobject/#hascontrols)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:71
 
@@ -585,11 +789,19 @@ src/shapes/Object/InteractiveObject.ts:71
 
 > **height**: `number`
 
+Object height
+
+#### Default
+
+```ts
+
+```
+
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`height`](FabricObject.md#height)
+[`FabricObject`](/api/classes/fabricobject/).[`height`](/api/classes/fabricobject/#height)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:20
 
@@ -599,11 +811,19 @@ src/shapes/Object/ObjectOrigin.ts:20
 
 > **hoverCursor**: `null` \| `string`
 
+Default cursor value used when hovering over this object on canvas
+
+#### Default
+
+```ts
+null
+```
+
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`hoverCursor`](FabricObject.md#hovercursor)
+[`FabricObject`](/api/classes/fabricobject/).[`hoverCursor`](/api/classes/fabricobject/#hovercursor)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:85
 
@@ -613,11 +833,19 @@ src/shapes/Object/InteractiveObject.ts:85
 
 > **includeDefaultValues**: `boolean`
 
+When `false`, default object's values are not included in its serialization
+
+#### Default
+
+```ts
+
+```
+
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`includeDefaultValues`](FabricObject.md#includedefaultvalues)
+[`FabricObject`](/api/classes/fabricobject/).[`includeDefaultValues`](/api/classes/fabricobject/#includedefaultvalues)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:159
 
@@ -627,11 +855,21 @@ src/shapes/Object/Object.ts:159
 
 > **inverted**: `boolean`
 
+Meaningful ONLY when the object is used as clipPath.
+if true, the clipPath will make the object clip to the outside of the clipPath
+since 2.4.0
+
+#### Default
+
+```ts
+false
+```
+
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`inverted`](FabricObject.md#inverted)
+[`FabricObject`](/api/classes/fabricobject/).[`inverted`](/api/classes/fabricobject/#inverted)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:165
 
@@ -639,16 +877,16 @@ src/shapes/Object/Object.ts:165
 
 ### isMoving?
 
-> **`optional`** **isMoving**: `boolean`
+> `optional` **isMoving**: `boolean`
 
 internal boolean to signal the code that the object is
 part of the move action.
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`isMoving`](FabricObject.md#ismoving)
+[`FabricObject`](/api/classes/fabricobject/).[`isMoving`](/api/classes/fabricobject/#ismoving)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:123
 
@@ -658,11 +896,21 @@ src/shapes/Object/InteractiveObject.ts:123
 
 > **left**: `number`
 
+Left position of an object.
+Note that by default it's relative to object left.
+You can change this by setting [originX](../../../../api/interfaces/fabricobjectprops/#originx)
+
+#### Default
+
+```ts
+0
+```
+
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`left`](FabricObject.md#left)
+[`FabricObject`](/api/classes/fabricobject/).[`left`](/api/classes/fabricobject/#left)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:18
 
@@ -672,11 +920,19 @@ src/shapes/Object/ObjectOrigin.ts:18
 
 > **lockMovementX**: `boolean`
 
+When `true`, object horizontal movement is locked
+
+#### Default
+
+```ts
+
+```
+
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`lockMovementX`](FabricObject.md#lockmovementx)
+[`FabricObject`](/api/classes/fabricobject/).[`lockMovementX`](/api/classes/fabricobject/#lockmovementx)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:55
 
@@ -686,11 +942,19 @@ src/shapes/Object/InteractiveObject.ts:55
 
 > **lockMovementY**: `boolean`
 
+When `true`, object vertical movement is locked
+
+#### Default
+
+```ts
+
+```
+
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`lockMovementY`](FabricObject.md#lockmovementy)
+[`FabricObject`](/api/classes/fabricobject/).[`lockMovementY`](/api/classes/fabricobject/#lockmovementy)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:56
 
@@ -700,11 +964,19 @@ src/shapes/Object/InteractiveObject.ts:56
 
 > **lockRotation**: `boolean`
 
+When `true`, object rotation is locked
+
+#### Default
+
+```ts
+
+```
+
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`lockRotation`](FabricObject.md#lockrotation)
+[`FabricObject`](/api/classes/fabricobject/).[`lockRotation`](/api/classes/fabricobject/#lockrotation)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:57
 
@@ -714,11 +986,19 @@ src/shapes/Object/InteractiveObject.ts:57
 
 > **lockScalingFlip**: `boolean`
 
+When `true`, object cannot be flipped by scaling into negative values
+
+#### Default
+
+```ts
+
+```
+
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`lockScalingFlip`](FabricObject.md#lockscalingflip)
+[`FabricObject`](/api/classes/fabricobject/).[`lockScalingFlip`](/api/classes/fabricobject/#lockscalingflip)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:62
 
@@ -728,11 +1008,19 @@ src/shapes/Object/InteractiveObject.ts:62
 
 > **lockScalingX**: `boolean`
 
+When `true`, object horizontal scaling is locked
+
+#### Default
+
+```ts
+
+```
+
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`lockScalingX`](FabricObject.md#lockscalingx)
+[`FabricObject`](/api/classes/fabricobject/).[`lockScalingX`](/api/classes/fabricobject/#lockscalingx)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:58
 
@@ -742,11 +1030,19 @@ src/shapes/Object/InteractiveObject.ts:58
 
 > **lockScalingY**: `boolean`
 
+When `true`, object vertical scaling is locked
+
+#### Default
+
+```ts
+
+```
+
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`lockScalingY`](FabricObject.md#lockscalingy)
+[`FabricObject`](/api/classes/fabricobject/).[`lockScalingY`](/api/classes/fabricobject/#lockscalingy)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:59
 
@@ -756,11 +1052,19 @@ src/shapes/Object/InteractiveObject.ts:59
 
 > **lockSkewingX**: `boolean`
 
+When `true`, object horizontal skewing is locked
+
+#### Default
+
+```ts
+
+```
+
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`lockSkewingX`](FabricObject.md#lockskewingx)
+[`FabricObject`](/api/classes/fabricobject/).[`lockSkewingX`](/api/classes/fabricobject/#lockskewingx)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:60
 
@@ -770,11 +1074,19 @@ src/shapes/Object/InteractiveObject.ts:60
 
 > **lockSkewingY**: `boolean`
 
+When `true`, object vertical skewing is locked
+
+#### Default
+
+```ts
+
+```
+
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`lockSkewingY`](FabricObject.md#lockskewingy)
+[`FabricObject`](/api/classes/fabricobject/).[`lockSkewingY`](/api/classes/fabricobject/#lockskewingy)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:61
 
@@ -782,15 +1094,15 @@ src/shapes/Object/InteractiveObject.ts:61
 
 ### matrixCache?
 
-> **`optional`** **matrixCache**: `TMatrixCache`
+> `optional` **matrixCache**: `TMatrixCache`
 
 storage cache for object full transform matrix
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`matrixCache`](FabricObject.md#matrixcache)
+[`FabricObject`](/api/classes/fabricobject/).[`matrixCache`](/api/classes/fabricobject/#matrixcache)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:60
 
@@ -800,11 +1112,19 @@ src/shapes/Object/ObjectGeometry.ts:60
 
 > **minScaleLimit**: `number`
 
+Minimum allowed scale value of an object
+
+#### Default
+
+```ts
+0
+```
+
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`minScaleLimit`](FabricObject.md#minscalelimit)
+[`FabricObject`](/api/classes/fabricobject/).[`minScaleLimit`](/api/classes/fabricobject/#minscalelimit)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:138
 
@@ -814,11 +1134,19 @@ src/shapes/Object/Object.ts:138
 
 > **moveCursor**: `null` \| `string`
 
+Default cursor value used when moving this object on canvas
+
+#### Default
+
+```ts
+null
+```
+
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`moveCursor`](FabricObject.md#movecursor)
+[`FabricObject`](/api/classes/fabricobject/).[`moveCursor`](/api/classes/fabricobject/#movecursor)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:86
 
@@ -828,11 +1156,23 @@ src/shapes/Object/InteractiveObject.ts:86
 
 > **noScaleCache**: `boolean`
 
+When `true`, cache does not get updated during scaling. The picture will get blocky if scaled
+too much and will be redrawn with correct details at the end of scaling.
+this setting is performance and application dependant.
+default to true
+since 1.7.0
+
+#### Default
+
+```ts
+true
+```
+
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`noScaleCache`](FabricObject.md#noscalecache)
+[`FabricObject`](/api/classes/fabricobject/).[`noScaleCache`](/api/classes/fabricobject/#noscalecache)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:50
 
@@ -849,9 +1189,9 @@ Used to draw and locate controls.
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`oCoords`](FabricObject.md#ocoords)
+[`FabricObject`](/api/classes/fabricobject/).[`oCoords`](/api/classes/fabricobject/#ocoords)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:94
 
@@ -861,11 +1201,25 @@ src/shapes/Object/InteractiveObject.ts:94
 
 > **objectCaching**: `boolean`
 
+When `true`, object is cached on an additional canvas.
+When `false`, object is not cached unless necessary ( clipPath )
+default to true
+
+#### Since
+
+1.7.0
+
+#### Default
+
+```ts
+true
+```
+
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`objectCaching`](FabricObject.md#objectcaching)
+[`FabricObject`](/api/classes/fabricobject/).[`objectCaching`](/api/classes/fabricobject/#objectcaching)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:162
 
@@ -875,11 +1229,19 @@ src/shapes/Object/Object.ts:162
 
 > **opacity**: `number`
 
+Opacity of an object
+
+#### Default
+
+```ts
+1
+```
+
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`opacity`](FabricObject.md#opacity)
+[`FabricObject`](/api/classes/fabricobject/).[`opacity`](/api/classes/fabricobject/#opacity)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:140
 
@@ -887,13 +1249,22 @@ src/shapes/Object/Object.ts:140
 
 ### originX
 
-> **originX**: [`TOriginX`](../type-aliases/TOriginX.md)
+> **originX**: [`TOriginX`](/api/type-aliases/toriginx/)
+
+Horizontal origin of transformation of an object (`left`, `center`, `right`  or `[0, 1]`)
+See http://jsfiddle.net/1ow02gea/244/ on how originX/originY affect objects in groups
+
+#### Default
+
+```ts
+'left'
+```
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`originX`](FabricObject.md#originx)
+[`FabricObject`](/api/classes/fabricobject/).[`originX`](/api/classes/fabricobject/#originx)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:27
 
@@ -901,13 +1272,22 @@ src/shapes/Object/ObjectOrigin.ts:27
 
 ### originY
 
-> **originY**: [`TOriginY`](../type-aliases/TOriginY.md)
+> **originY**: [`TOriginY`](/api/type-aliases/toriginy/)
+
+Vertical origin of transformation of an object (`top`, `center`, `bottom` or `[0, 1]`)
+See http://jsfiddle.net/1ow02gea/244/ on how originX/originY affect objects in groups
+
+#### Default
+
+```ts
+'top'
+```
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`originY`](FabricObject.md#originy)
+[`FabricObject`](/api/classes/fabricobject/).[`originY`](/api/classes/fabricobject/#originy)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:28
 
@@ -915,15 +1295,15 @@ src/shapes/Object/ObjectOrigin.ts:28
 
 ### ownMatrixCache?
 
-> **`optional`** **ownMatrixCache**: `TMatrixCache`
+> `optional` **ownMatrixCache**: `TMatrixCache`
 
 storage cache for object transform matrix
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`ownMatrixCache`](FabricObject.md#ownmatrixcache)
+[`FabricObject`](/api/classes/fabricobject/).[`ownMatrixCache`](/api/classes/fabricobject/#ownmatrixcache)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:55
 
@@ -933,11 +1313,19 @@ src/shapes/Object/ObjectGeometry.ts:55
 
 > **padding**: `number`
 
+Padding between object and its controlling borders (in pixels)
+
+#### Default
+
+```ts
+0
+```
+
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`padding`](FabricObject.md#padding)
+[`FabricObject`](/api/classes/fabricobject/).[`padding`](/api/classes/fabricobject/#padding)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:40
 
@@ -947,11 +1335,19 @@ src/shapes/Object/ObjectGeometry.ts:40
 
 > **paintFirst**: `"fill"` \| `"stroke"`
 
+Determines if the fill or the stroke is drawn first (one of "fill" or "stroke")
+
+#### Default
+
+```ts
+
+```
+
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`paintFirst`](FabricObject.md#paintfirst)
+[`FabricObject`](/api/classes/fabricobject/).[`paintFirst`](/api/classes/fabricobject/#paintfirst)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:142
 
@@ -959,16 +1355,16 @@ src/shapes/Object/Object.ts:142
 
 ### parent?
 
-> **`optional`** **parent**: [`Group`](Group.md)
+> `optional` **parent**: [`Group`](/api/classes/group/)
 
 A reference to the parent of the object
 Used to keep the original parent ref when the object has been added to an ActiveSelection, hence loosing the `group` ref
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`parent`](FabricObject.md#parent)
+[`FabricObject`](/api/classes/fabricobject/).[`parent`](/api/classes/fabricobject/#parent)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/StackedObject.ts:44
 
@@ -978,11 +1374,19 @@ src/shapes/Object/StackedObject.ts:44
 
 > **perPixelTargetFind**: `boolean`
 
+When set to `true`, objects are "found" on canvas on per-pixel basis rather than according to bounding box
+
+#### Default
+
+```ts
+
+```
+
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`perPixelTargetFind`](FabricObject.md#perpixeltargetfind)
+[`FabricObject`](/api/classes/fabricobject/).[`perPixelTargetFind`](/api/classes/fabricobject/#perpixeltargetfind)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:82
 
@@ -992,11 +1396,19 @@ src/shapes/Object/InteractiveObject.ts:82
 
 > **radius**: `number`
 
+Radius of this circle
+
+#### Default
+
+```ts
+0
+```
+
 #### Implementation of
 
 `UniqueCircleProps.radius`
 
-#### Source
+#### Defined in
 
 src/shapes/Circle.ts:72
 
@@ -1006,11 +1418,19 @@ src/shapes/Circle.ts:72
 
 > **scaleX**: `number`
 
+Object scale factor (horizontal)
+
+#### Default
+
+```ts
+1
+```
+
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`scaleX`](FabricObject.md#scalex)
+[`FabricObject`](/api/classes/fabricobject/).[`scaleX`](/api/classes/fabricobject/#scalex)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:23
 
@@ -1020,11 +1440,19 @@ src/shapes/Object/ObjectOrigin.ts:23
 
 > **scaleY**: `number`
 
+Object scale factor (vertical)
+
+#### Default
+
+```ts
+1
+```
+
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`scaleY`](FabricObject.md#scaley)
+[`FabricObject`](/api/classes/fabricobject/).[`scaleY`](/api/classes/fabricobject/#scaley)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:24
 
@@ -1034,25 +1462,47 @@ src/shapes/Object/ObjectOrigin.ts:24
 
 > **selectable**: `boolean`
 
+When set to `false`, an object can not be selected for modification (using either point-click-based or group-based selection).
+But events still fire on it.
+
+#### Default
+
+```ts
+
+```
+
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`selectable`](FabricObject.md#selectable)
+[`FabricObject`](/api/classes/fabricobject/).[`selectable`](/api/classes/fabricobject/#selectable)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:80
 
 ***
 
-### selectionBackgroundColor
+### ~~selectionBackgroundColor~~
 
 > **selectionBackgroundColor**: `string`
 
+Selection Background color of an object. colored layer behind the object when it is active.
+does not mix good with globalCompositeOperation methods.
+
+#### Default
+
+```ts
+
+```
+
+:::caution[Deprecated]
+This API is no longer supported and may be removed in a future release.
+:::
+
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`selectionBackgroundColor`](FabricObject.md#selectionbackgroundcolor)
+[`FabricObject`](/api/classes/fabricobject/).[`selectionBackgroundColor`](/api/classes/fabricobject/#selectionbackgroundcolor)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:78
 
@@ -1060,13 +1510,13 @@ src/shapes/Object/InteractiveObject.ts:78
 
 ### shadow
 
-> **shadow**: `null` \| [`Shadow`](Shadow.md)
+> **shadow**: `null` \| [`Shadow`](/api/classes/shadow/)
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`shadow`](FabricObject.md#shadow)
+[`FabricObject`](/api/classes/fabricobject/).[`shadow`](/api/classes/fabricobject/#shadow)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:155
 
@@ -1076,11 +1526,19 @@ src/shapes/Object/Object.ts:155
 
 > **skewX**: `number`
 
+Angle of skew on x axes of an object (in degrees)
+
+#### Default
+
+```ts
+0
+```
+
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`skewX`](FabricObject.md#skewx)
+[`FabricObject`](/api/classes/fabricobject/).[`skewX`](/api/classes/fabricobject/#skewx)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:25
 
@@ -1090,11 +1548,19 @@ src/shapes/Object/ObjectOrigin.ts:25
 
 > **skewY**: `number`
 
+Angle of skew on y axes of an object (in degrees)
+
+#### Default
+
+```ts
+0
+```
+
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`skewY`](FabricObject.md#skewy)
+[`FabricObject`](/api/classes/fabricobject/).[`skewY`](/api/classes/fabricobject/#skewy)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:26
 
@@ -1102,13 +1568,15 @@ src/shapes/Object/ObjectOrigin.ts:26
 
 ### snapAngle?
 
-> **`optional`** **snapAngle**: [`TDegree`](../type-aliases/TDegree.md)
+> `optional` **snapAngle**: [`TDegree`](/api/type-aliases/tdegree/)
+
+The angle that an object will lock to while rotating.
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`snapAngle`](FabricObject.md#snapangle)
+[`FabricObject`](/api/classes/fabricobject/).[`snapAngle`](/api/classes/fabricobject/#snapangle)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:52
 
@@ -1116,13 +1584,16 @@ src/shapes/Object/InteractiveObject.ts:52
 
 ### snapThreshold?
 
-> **`optional`** **snapThreshold**: [`TDegree`](../type-aliases/TDegree.md)
+> `optional` **snapThreshold**: [`TDegree`](/api/type-aliases/tdegree/)
+
+The angle difference from the current snapped angle in which snapping should occur.
+When undefined, the snapThreshold will default to the snapAngle.
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`snapThreshold`](FabricObject.md#snapthreshold)
+[`FabricObject`](/api/classes/fabricobject/).[`snapThreshold`](/api/classes/fabricobject/#snapthreshold)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:53
 
@@ -1132,11 +1603,19 @@ src/shapes/Object/InteractiveObject.ts:53
 
 > **startAngle**: `number`
 
+Angle for the start of the circle, in degrees.
+
+#### Default
+
+```ts
+0
+```
+
 #### Implementation of
 
 `UniqueCircleProps.startAngle`
 
-#### Source
+#### Defined in
 
 src/shapes/Circle.ts:73
 
@@ -1144,13 +1623,13 @@ src/shapes/Circle.ts:73
 
 ### stroke
 
-> **stroke**: `null` \| `string` \| [`TFiller`](../type-aliases/TFiller.md)
+> **stroke**: `null` \| `string` \| [`TFiller`](/api/type-aliases/tfiller/)
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`stroke`](FabricObject.md#stroke)
+[`FabricObject`](/api/classes/fabricobject/).[`stroke`](/api/classes/fabricobject/#stroke)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:145
 
@@ -1160,11 +1639,19 @@ src/shapes/Object/Object.ts:145
 
 > **strokeDashArray**: `null` \| `number`[]
 
+Array specifying dash pattern of an object's stroke (stroke must be defined)
+
+#### Default
+
+```ts
+null;
+```
+
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`strokeDashArray`](FabricObject.md#strokedasharray)
+[`FabricObject`](/api/classes/fabricobject/).[`strokeDashArray`](/api/classes/fabricobject/#strokedasharray)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:146
 
@@ -1174,11 +1661,19 @@ src/shapes/Object/Object.ts:146
 
 > **strokeDashOffset**: `number`
 
+Line offset of an object's stroke
+
+#### Default
+
+```ts
+0
+```
+
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`strokeDashOffset`](FabricObject.md#strokedashoffset)
+[`FabricObject`](/api/classes/fabricobject/).[`strokeDashOffset`](/api/classes/fabricobject/#strokedashoffset)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:147
 
@@ -1188,11 +1683,19 @@ src/shapes/Object/Object.ts:147
 
 > **strokeLineCap**: `CanvasLineCap`
 
+Line endings style of an object's stroke (one of "butt", "round", "square")
+
+#### Default
+
+```ts
+butt
+```
+
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`strokeLineCap`](FabricObject.md#strokelinecap)
+[`FabricObject`](/api/classes/fabricobject/).[`strokeLineCap`](/api/classes/fabricobject/#strokelinecap)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:148
 
@@ -1202,11 +1705,19 @@ src/shapes/Object/Object.ts:148
 
 > **strokeLineJoin**: `CanvasLineJoin`
 
+Corner style of an object's stroke (one of "bevel", "round", "miter")
+
+#### Default
+
+```ts
+
+```
+
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`strokeLineJoin`](FabricObject.md#strokelinejoin)
+[`FabricObject`](/api/classes/fabricobject/).[`strokeLineJoin`](/api/classes/fabricobject/#strokelinejoin)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:149
 
@@ -1216,11 +1727,19 @@ src/shapes/Object/Object.ts:149
 
 > **strokeMiterLimit**: `number`
 
+Maximum miter length (used for strokeLineJoin = "miter") of an object's stroke
+
+#### Default
+
+```ts
+4
+```
+
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`strokeMiterLimit`](FabricObject.md#strokemiterlimit)
+[`FabricObject`](/api/classes/fabricobject/).[`strokeMiterLimit`](/api/classes/fabricobject/#strokemiterlimit)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:150
 
@@ -1230,11 +1749,32 @@ src/shapes/Object/Object.ts:150
 
 > **strokeUniform**: `boolean`
 
+When `false`, the stoke width will scale with the object.
+When `true`, the stroke will always match the exact pixel size entered for stroke width.
+this Property does not work on Text classes or drawing call that uses strokeText,fillText methods
+default to false
+
+#### Since
+
+2.6.0
+
+#### Default
+
+```ts
+false
+```
+
+#### Default
+
+```ts
+false
+```
+
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`strokeUniform`](FabricObject.md#strokeuniform)
+[`FabricObject`](/api/classes/fabricobject/).[`strokeUniform`](/api/classes/fabricobject/#strokeuniform)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:31
 
@@ -1244,11 +1784,19 @@ src/shapes/Object/ObjectOrigin.ts:31
 
 > **strokeWidth**: `number`
 
+Width of a stroke used to render this object
+
+#### Default
+
+```ts
+1
+```
+
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`strokeWidth`](FabricObject.md#strokewidth)
+[`FabricObject`](/api/classes/fabricobject/).[`strokeWidth`](/api/classes/fabricobject/#strokewidth)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:30
 
@@ -1258,11 +1806,21 @@ src/shapes/Object/ObjectOrigin.ts:30
 
 > **top**: `number`
 
+Top position of an object.
+Note that by default it's relative to object top.
+You can change this by setting [originY](../../../../api/interfaces/fabricobjectprops/#originy)
+
+#### Default
+
+```ts
+0
+```
+
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`top`](FabricObject.md#top)
+[`FabricObject`](/api/classes/fabricobject/).[`top`](/api/classes/fabricobject/#top)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:17
 
@@ -1272,11 +1830,19 @@ src/shapes/Object/ObjectOrigin.ts:17
 
 > **touchCornerSize**: `number`
 
+Size of object's controlling corners when touch interaction is detected
+
+#### Default
+
+```ts
+24
+```
+
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`touchCornerSize`](FabricObject.md#touchcornersize)
+[`FabricObject`](/api/classes/fabricobject/).[`touchCornerSize`](/api/classes/fabricobject/#touchcornersize)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:65
 
@@ -1286,11 +1852,19 @@ src/shapes/Object/InteractiveObject.ts:65
 
 > **transparentCorners**: `boolean`
 
+When true, object's controlling corners are rendered as transparent inside (i.e. stroke instead of fill)
+
+#### Default
+
+```ts
+true
+```
+
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`transparentCorners`](FabricObject.md#transparentcorners)
+[`FabricObject`](/api/classes/fabricobject/).[`transparentCorners`](/api/classes/fabricobject/#transparentcorners)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:66
 
@@ -1300,11 +1874,19 @@ src/shapes/Object/InteractiveObject.ts:66
 
 > **visible**: `boolean`
 
+When set to `false`, an object is not rendered on canvas
+
+#### Default
+
+```ts
+
+```
+
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`visible`](FabricObject.md#visible)
+[`FabricObject`](/api/classes/fabricobject/).[`visible`](/api/classes/fabricobject/#visible)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:157
 
@@ -1314,11 +1896,19 @@ src/shapes/Object/Object.ts:157
 
 > **width**: `number`
 
+Object width
+
+#### Default
+
+```ts
+
+```
+
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`width`](FabricObject.md#width)
+[`FabricObject`](/api/classes/fabricobject/).[`width`](/api/classes/fabricobject/#width)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:19
 
@@ -1326,7 +1916,7 @@ src/shapes/Object/ObjectOrigin.ts:19
 
 ### ATTRIBUTE\_NAMES
 
-> **`static`** **ATTRIBUTE\_NAMES**: `string`[]
+> `static` **ATTRIBUTE\_NAMES**: `string`[]
 
 List of attribute names to account for when parsing SVG element (used by [Circle.fromElement](../../../../api/classes/circle/#fromelement))
 
@@ -1337,7 +1927,7 @@ List of attribute names to account for when parsing SVG element (used by [Circle
 Circle
 @see: http://www.w3.org/TR/SVG/shapes.html#CircleElement
 
-#### Source
+#### Defined in
 
 src/shapes/Circle.ts:203
 
@@ -1345,7 +1935,7 @@ src/shapes/Circle.ts:203
 
 ### cacheProperties
 
-> **`static`** **cacheProperties**: `string`[]
+> `static` **cacheProperties**: `string`[]
 
 List of properties to consider when checking if cache needs refresh
 Those properties are checked by
@@ -1354,9 +1944,9 @@ and refreshed at the next render
 
 #### Overrides
 
-[`FabricObject`](FabricObject.md).[`cacheProperties`](FabricObject.md#cacheproperties)
+[`FabricObject`](/api/classes/fabricobject/).[`cacheProperties`](/api/classes/fabricobject/#cacheproperties)
 
-#### Source
+#### Defined in
 
 src/shapes/Circle.ts:79
 
@@ -1364,15 +1954,15 @@ src/shapes/Circle.ts:79
 
 ### colorProperties
 
-> **`static`** **colorProperties**: `string`[]
+> `static` **colorProperties**: `string`[]
 
 List of properties to consider for animating colors.
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`colorProperties`](FabricObject.md#colorproperties)
+[`FabricObject`](/api/classes/fabricobject/).[`colorProperties`](/api/classes/fabricobject/#colorproperties)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/AnimatableObject.ts:20
 
@@ -1380,13 +1970,13 @@ src/shapes/Object/AnimatableObject.ts:20
 
 ### ownDefaults
 
-> **`static`** **ownDefaults**: `Partial`\<[`TClassProperties`](../type-aliases/TClassProperties.md)\<[`Circle`](Circle.md)\<`Partial`\<[`CircleProps`](../interfaces/CircleProps.md)\>, [`SerializedCircleProps`](../interfaces/SerializedCircleProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>\>\> = `circleDefaultValues`
+> `static` **ownDefaults**: `Partial`\<[`TClassProperties`](/api/type-aliases/tclassproperties/)\<[`Circle`](/api/classes/circle/)\<`Partial`\<[`CircleProps`](/api/interfaces/circleprops/)\>, [`SerializedCircleProps`](/api/interfaces/serializedcircleprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>\>\> = `circleDefaultValues`
 
 #### Overrides
 
-[`FabricObject`](FabricObject.md).[`ownDefaults`](FabricObject.md#owndefaults)
+[`FabricObject`](/api/classes/fabricobject/).[`ownDefaults`](/api/classes/fabricobject/#owndefaults)
 
-#### Source
+#### Defined in
 
 src/shapes/Circle.ts:81
 
@@ -1394,7 +1984,7 @@ src/shapes/Circle.ts:81
 
 ### stateProperties
 
-> **`static`** **stateProperties**: `string`[]
+> `static` **stateProperties**: `string`[]
 
 This list of properties is used to check if the state of an object is changed.
 This state change now is only used for children of groups to understand if a group
@@ -1402,9 +1992,9 @@ needs its cache regenerated during a .set call
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`stateProperties`](FabricObject.md#stateproperties)
+[`FabricObject`](/api/classes/fabricobject/).[`stateProperties`](/api/classes/fabricobject/#stateproperties)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:176
 
@@ -1412,7 +2002,7 @@ src/shapes/Object/Object.ts:176
 
 ### type
 
-> **`static`** **type**: `string` = `'Circle'`
+> `static` **type**: `string` = `'Circle'`
 
 The class type. Used to identify which class this is.
 This is used for serialization purposes and internally it can be used
@@ -1422,9 +2012,9 @@ to avoid doing that.
 
 #### Overrides
 
-[`FabricObject`](FabricObject.md).[`type`](FabricObject.md#type)
+[`FabricObject`](/api/classes/fabricobject/).[`type`](/api/classes/fabricobject/#type)
 
-#### Source
+#### Defined in
 
 src/shapes/Circle.ts:77
 
@@ -1432,7 +2022,7 @@ src/shapes/Circle.ts:77
 
 ### type
 
-> **`get`** **type**(): `string`
+> `get` **type**(): `string`
 
 Legacy identifier of the class. Prefer using utils like isType or instanceOf
 Will be removed in fabric 7 or 8.
@@ -1447,7 +2037,7 @@ add sustainable warning message
 This API is no longer supported and may be removed in a future release.
 :::
 
-> **`set`** **type**(`value`): `void`
+> `set` **type**(`value`): `void`
 
 #### Parameters
 
@@ -1457,7 +2047,11 @@ This API is no longer supported and may be removed in a future release.
 
 `string`
 
-#### Source
+#### Inherited from
+
+[`FabricObject`](/api/classes/fabricobject/).[`type`](/api/classes/fabricobject/#type-1)
+
+#### Defined in
 
 src/shapes/Object/Object.ts:320
 
@@ -1473,7 +2067,7 @@ Prepare clipPath state and cache and draw it on instance's cache
 
 • **ctx**: `CanvasRenderingContext2D`
 
-• **clipPath?**: `FabricObject`\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **clipPath?**: `FabricObject`\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 #### Returns
 
@@ -1481,9 +2075,9 @@ Prepare clipPath state and cache and draw it on instance's cache
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`_drawClipPath`](FabricObject.md#_drawclippath)
+[`FabricObject`](/api/classes/fabricobject/).[`_drawClipPath`](/api/classes/fabricobject/#_drawclippath)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:977
 
@@ -1516,9 +2110,9 @@ making bargain with performances.
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`_limitCacheSize`](FabricObject.md#_limitcachesize)
+[`FabricObject`](/api/classes/fabricobject/).[`_limitCacheSize`](/api/classes/fabricobject/#_limitcachesize)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:372
 
@@ -1536,9 +2130,9 @@ Remove cacheCanvas and its dimensions from the objects
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`_removeCacheCanvas`](FabricObject.md#_removecachecanvas)
+[`FabricObject`](/api/classes/fabricobject/).[`_removeCacheCanvas`](/api/classes/fabricobject/#_removecachecanvas)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:831
 
@@ -1557,7 +2151,7 @@ the context here is not transformed
 
 Context to render on
 
-• **styleOverride?**: `TStyleOverride`= `{}`
+• **styleOverride?**: `TStyleOverride` = `{}`
 
 properties to override the object style
 
@@ -1567,13 +2161,13 @@ properties to override the object style
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`_renderControls`](FabricObject.md#_rendercontrols)
+[`FabricObject`](/api/classes/fabricobject/).[`_renderControls`](/api/classes/fabricobject/#_rendercontrols)
 
 #### Todo
 
 move to interactivity
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:399
 
@@ -1593,9 +2187,9 @@ src/shapes/Object/InteractiveObject.ts:399
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`_setClippingProperties`](FabricObject.md#_setclippingproperties)
+[`FabricObject`](/api/classes/fabricobject/).[`_setClippingProperties`](/api/classes/fabricobject/#_setclippingproperties)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:1117
 
@@ -1609,7 +2203,7 @@ src/shapes/Object/Object.ts:1117
 
 • **ctx**: `CanvasRenderingContext2D`
 
-• **\_\_namedParameters**: `Pick`\<[`Circle`](Circle.md)\<`Props`, `SProps`, `EventSpec`\>, `"fill"`\>
+• **\_\_namedParameters**: `Pick`\<[`Circle`](/api/classes/circle/)\<`Props`, `SProps`, `EventSpec`\>, `"fill"`\>
 
 #### Returns
 
@@ -1617,9 +2211,9 @@ src/shapes/Object/Object.ts:1117
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`_setFillStyles`](FabricObject.md#_setfillstyles)
+[`FabricObject`](/api/classes/fabricobject/).[`_setFillStyles`](/api/classes/fabricobject/#_setfillstyles)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:1106
 
@@ -1633,7 +2227,7 @@ src/shapes/Object/Object.ts:1106
 
 • **ctx**: `CanvasRenderingContext2D`
 
-• **decl**: `Pick`\<[`Circle`](Circle.md)\<`Props`, `SProps`, `EventSpec`\>, `"strokeDashOffset"` \| `"strokeLineCap"` \| `"strokeLineJoin"` \| `"strokeMiterLimit"` \| `"strokeWidth"` \| `"stroke"`\>
+• **decl**: `Pick`\<[`Circle`](/api/classes/circle/)\<`Props`, `SProps`, `EventSpec`\>, `"strokeDashOffset"` \| `"strokeLineCap"` \| `"strokeLineJoin"` \| `"strokeMiterLimit"` \| `"strokeWidth"` \| `"stroke"`\>
 
 #### Returns
 
@@ -1641,9 +2235,9 @@ src/shapes/Object/Object.ts:1106
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`_setStrokeStyles`](FabricObject.md#_setstrokestyles)
+[`FabricObject`](/api/classes/fabricobject/).[`_setStrokeStyles`](/api/classes/fabricobject/#_setstrokestyles)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:1064
 
@@ -1668,9 +2262,9 @@ Rendering canvas context
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`_setupCompositeOperation`](FabricObject.md#_setupcompositeoperation)
+[`FabricObject`](/api/classes/fabricobject/).[`_setupCompositeOperation`](/api/classes/fabricobject/#_setupcompositeoperation)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:1571
 
@@ -1691,9 +2285,9 @@ of the instance
 
 #### Overrides
 
-[`FabricObject`](FabricObject.md).[`_toSVG`](FabricObject.md#_tosvg)
+[`FabricObject`](/api/classes/fabricobject/).[`_toSVG`](/api/classes/fabricobject/#_tosvg)
 
-#### Source
+#### Defined in
 
 src/shapes/Circle.ts:165
 
@@ -1705,7 +2299,7 @@ src/shapes/Circle.ts:165
 
 #### Parameters
 
-• **this**: `FabricObjectSVGExportMixin` & [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **this**: `FabricObjectSVGExportMixin` & [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 #### Returns
 
@@ -1713,9 +2307,9 @@ src/shapes/Circle.ts:165
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`addPaintOrder`](FabricObject.md#addpaintorder)
+[`FabricObject`](/api/classes/fabricobject/).[`addPaintOrder`](/api/classes/fabricobject/#addpaintorder)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/FabricObjectSVGExportMixin.ts:249
 
@@ -1723,13 +2317,13 @@ src/shapes/Object/FabricObjectSVGExportMixin.ts:249
 
 ### animate()
 
-> **animate**\<`T`\>(`animatable`, `options`?): `Record`\<`string`, [`TAnimation`](../namespaces/util/type-aliases/TAnimation.md)\<`T`\>\>
+> **animate**\<`T`\>(`animatable`, `options`?): `Record`\<`string`, [`TAnimation`](/api/namespaces/util/type-aliases/tanimation/)\<`T`\>\>
 
 Animates object's properties
 
-#### Type parameters
+#### Type Parameters
 
-• **T** extends `number` \| [`TColorArg`](../type-aliases/TColorArg.md) \| `number`[]
+• **T** *extends* `number` \| [`TColorArg`](/api/type-aliases/tcolorarg/) \| `number`[]
 
 #### Parameters
 
@@ -1737,28 +2331,28 @@ Animates object's properties
 
 map of keys and end values
 
-• **options?**: `Partial`\<[`AnimationOptions`](../namespaces/util/type-aliases/AnimationOptions.md)\<`T`\>\>
+• **options?**: `Partial`\<[`AnimationOptions`](/api/namespaces/util/type-aliases/animationoptions/)\<`T`\>\>
 
 #### Returns
 
-`Record`\<`string`, [`TAnimation`](../namespaces/util/type-aliases/TAnimation.md)\<`T`\>\>
+`Record`\<`string`, [`TAnimation`](/api/namespaces/util/type-aliases/tanimation/)\<`T`\>\>
 
 map of animation contexts
 
 As object — multiple properties
 
-object.animate(\{ left: ..., top: ... \});
-object.animate(\{ left: ..., top: ... \}, \{ duration: ... \});
+object.animate({ left: ..., top: ... });
+object.animate({ left: ..., top: ... }, { duration: ... });
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`animate`](FabricObject.md#animate)
+[`FabricObject`](/api/classes/fabricobject/).[`animate`](/api/classes/fabricobject/#animate)
 
 #### Tutorial
 
 [http://fabricjs.com/fabric-intro-part-2#animation](http://fabricjs.com/fabric-intro-part-2#animation)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/AnimatableObject.ts:34
 
@@ -1766,20 +2360,20 @@ src/shapes/Object/AnimatableObject.ts:34
 
 ### calcACoords()
 
-> **calcACoords**(): [`TCornerPoint`](../type-aliases/TCornerPoint.md)
+> **calcACoords**(): [`TCornerPoint`](/api/type-aliases/tcornerpoint/)
 
 Calculates the coordinates of the 4 corner of the bbox, in absolute coordinates.
 those never change with zoom or viewport changes.
 
 #### Returns
 
-[`TCornerPoint`](../type-aliases/TCornerPoint.md)
+[`TCornerPoint`](/api/type-aliases/tcornerpoint/)
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`calcACoords`](FabricObject.md#calcacoords)
+[`FabricObject`](/api/classes/fabricobject/).[`calcACoords`](/api/classes/fabricobject/#calcacoords)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:414
 
@@ -1800,9 +2394,9 @@ is a public api and should be done just if extremely necessary
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`calcOCoords`](FabricObject.md#calcocoords)
+[`FabricObject`](/api/classes/fabricobject/).[`calcOCoords`](/api/classes/fabricobject/#calcocoords)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:224
 
@@ -1810,22 +2404,22 @@ src/shapes/Object/InteractiveObject.ts:224
 
 ### calcOwnMatrix()
 
-> **calcOwnMatrix**(): [`TMat2D`](../type-aliases/TMat2D.md)
+> **calcOwnMatrix**(): [`TMat2D`](/api/type-aliases/tmat2d/)
 
 calculate transform matrix that represents the current transformations from the
 object's properties, this matrix does not include the group transformation
 
 #### Returns
 
-[`TMat2D`](../type-aliases/TMat2D.md)
+[`TMat2D`](/api/type-aliases/tmat2d/)
 
 transform matrix for the object
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`calcOwnMatrix`](FabricObject.md#calcownmatrix)
+[`FabricObject`](/api/classes/fabricobject/).[`calcOwnMatrix`](/api/classes/fabricobject/#calcownmatrix)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:511
 
@@ -1833,29 +2427,29 @@ src/shapes/Object/ObjectGeometry.ts:511
 
 ### calcTransformMatrix()
 
-> **calcTransformMatrix**(`skipGroup`?): [`TMat2D`](../type-aliases/TMat2D.md)
+> **calcTransformMatrix**(`skipGroup`?): [`TMat2D`](/api/type-aliases/tmat2d/)
 
 calculate transform matrix that represents the current transformations from the
 object's properties.
 
 #### Parameters
 
-• **skipGroup?**: `boolean`= `false`
+• **skipGroup?**: `boolean` = `false`
 
 return transform matrix for object not counting parent transformations
 There are some situation in which this is useful to avoid the fake rotation.
 
 #### Returns
 
-[`TMat2D`](../type-aliases/TMat2D.md)
+[`TMat2D`](/api/type-aliases/tmat2d/)
 
 transform matrix for the object
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`calcTransformMatrix`](FabricObject.md#calctransformmatrix)
+[`FabricObject`](/api/classes/fabricobject/).[`calcTransformMatrix`](/api/classes/fabricobject/#calctransformmatrix)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:483
 
@@ -1879,9 +2473,9 @@ true if the object currently dragged can be dropped on the target
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`canDrop`](FabricObject.md#candrop)
+[`FabricObject`](/api/classes/fabricobject/).[`canDrop`](/api/classes/fabricobject/#candrop)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:663
 
@@ -1911,13 +2505,13 @@ with the object transformMatrix, or restored to neutral transform
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`clearContextTop`](FabricObject.md#clearcontexttop)
+[`FabricObject`](/api/classes/fabricobject/).[`clearContextTop`](/api/classes/fabricobject/#clearcontexttop)
 
 #### Todo
 
 discuss swapping restoreManually with a renderCallback, but think of async issues
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:589
 
@@ -1925,7 +2519,7 @@ src/shapes/Object/InteractiveObject.ts:589
 
 ### clone()
 
-> **clone**(`propertiesToInclude`?): `Promise`\<[`Circle`](Circle.md)\<`Props`, `SProps`, `EventSpec`\>\>
+> **clone**(`propertiesToInclude`?): `Promise`\<[`Circle`](/api/classes/circle/)\<`Props`, `SProps`, `EventSpec`\>\>
 
 Clones an instance.
 
@@ -1937,13 +2531,13 @@ Any properties that you might want to additionally include in the output
 
 #### Returns
 
-`Promise`\<[`Circle`](Circle.md)\<`Props`, `SProps`, `EventSpec`\>\>
+`Promise`\<[`Circle`](/api/classes/circle/)\<`Props`, `SProps`, `EventSpec`\>\>
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`clone`](FabricObject.md#clone)
+[`FabricObject`](/api/classes/fabricobject/).[`clone`](/api/classes/fabricobject/#clone)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:1345
 
@@ -1951,7 +2545,7 @@ src/shapes/Object/Object.ts:1345
 
 ### cloneAsImage()
 
-> **cloneAsImage**(`options`?): [`FabricImage`](FabricImage.md)\<`Partial`\<[`ImageProps`](../interfaces/ImageProps.md)\>, [`SerializedImageProps`](../interfaces/SerializedImageProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+> **cloneAsImage**(`options`?): [`FabricImage`](/api/classes/fabricimage/)\<`Partial`\<[`ImageProps`](/api/interfaces/imageprops/)\>, [`SerializedImageProps`](/api/interfaces/serializedimageprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 Creates an instance of Image out of an object
 makes use of toCanvasElement.
@@ -1968,19 +2562,19 @@ for clone as image, passed to toDataURL
 
 #### Returns
 
-[`FabricImage`](FabricImage.md)\<`Partial`\<[`ImageProps`](../interfaces/ImageProps.md)\>, [`SerializedImageProps`](../interfaces/SerializedImageProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+[`FabricImage`](/api/classes/fabricimage/)\<`Partial`\<[`ImageProps`](/api/interfaces/imageprops/)\>, [`SerializedImageProps`](/api/interfaces/serializedimageprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 Object cloned as image.
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`cloneAsImage`](FabricObject.md#cloneasimage)
+[`FabricObject`](/api/classes/fabricobject/).[`cloneAsImage`](/api/classes/fabricobject/#cloneasimage)
 
 #### Todo
 
 fix the export type, it could not be Image but the type that getClass return for 'image'.
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:1371
 
@@ -2000,9 +2594,9 @@ complexity of this instance (is 1 unless subclassed)
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`complexity`](FabricObject.md#complexity)
+[`FabricObject`](/api/classes/fabricobject/).[`complexity`](/api/classes/fabricobject/#complexity)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:1513
 
@@ -2016,7 +2610,7 @@ Checks if point is inside the object
 
 #### Parameters
 
-• **point**: [`Point`](Point.md)
+• **point**: [`Point`](/api/classes/point/)
 
 Point to check against
 
@@ -2028,9 +2622,9 @@ true if point is inside the object
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`containsPoint`](FabricObject.md#containspoint)
+[`FabricObject`](/api/classes/fabricobject/).[`containsPoint`](/api/classes/fabricobject/#containspoint)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:269
 
@@ -2049,9 +2643,9 @@ override if necessary to dispose artifacts such as `clipPath`
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`dispose`](FabricObject.md#dispose)
+[`FabricObject`](/api/classes/fabricobject/).[`dispose`](/api/classes/fabricobject/#dispose)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:1581
 
@@ -2071,7 +2665,7 @@ Requires public options: padding, borderColor
 
 Context to draw on
 
-• **options**: `Required`\<`Omit`\<[`TComposeMatrixArgs`](../namespaces/util/type-aliases/TComposeMatrixArgs.md), `"flipX"` \| `"flipY"`\>\>
+• **options**: `Required`\<`Omit`\<[`TComposeMatrixArgs`](/api/namespaces/util/type-aliases/tcomposematrixargs/), `"flipX"` \| `"flipY"`\>\>
 
 object representing current object parameters
 
@@ -2085,9 +2679,9 @@ object to override the object style
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`drawBorders`](FabricObject.md#drawborders)
+[`FabricObject`](/api/classes/fabricobject/).[`drawBorders`](/api/classes/fabricobject/#drawborders)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:442
 
@@ -2101,7 +2695,7 @@ Paint the cached copy of the object on the target context.
 
 #### Parameters
 
-• **this**: `TCachedFabricObject`\<`FabricObject`\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>\>
+• **this**: `TCachedFabricObject`\<`FabricObject`\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>\>
 
 • **ctx**: `CanvasRenderingContext2D`
 
@@ -2113,9 +2707,9 @@ Context to render on
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`drawCacheOnCanvas`](FabricObject.md#drawcacheoncanvas)
+[`FabricObject`](/api/classes/fabricobject/).[`drawCacheOnCanvas`](/api/classes/fabricobject/#drawcacheoncanvas)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:995
 
@@ -2133,7 +2727,7 @@ Execute the drawing operation for an object clipPath
 
 Context to render on
 
-• **clipPath**: `TCachedFabricObject`\<`FabricObject`\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>\>
+• **clipPath**: `TCachedFabricObject`\<`FabricObject`\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>\>
 
 #### Returns
 
@@ -2141,9 +2735,9 @@ Context to render on
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`drawClipPathOnCache`](FabricObject.md#drawclippathoncache)
+[`FabricObject`](/api/classes/fabricobject/).[`drawClipPathOnCache`](/api/classes/fabricobject/#drawclippathoncache)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:924
 
@@ -2163,7 +2757,7 @@ Requires public options: cornerSize, padding
 
 Context to draw on
 
-• **styleOverride**: `Partial`\<`Pick`\<`InteractiveFabricObject`\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>, `"cornerStyle"` \| `"cornerSize"` \| `"cornerColor"` \| `"cornerStrokeColor"` \| `"cornerDashArray"` \| `"transparentCorners"`\>\>= `{}`
+• **styleOverride**: `Partial`\<`Pick`\<`InteractiveFabricObject`\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>, `"cornerStyle"` \| `"cornerSize"` \| `"cornerColor"` \| `"cornerStrokeColor"` \| `"cornerDashArray"` \| `"transparentCorners"`\>\> = `{}`
 
 object to override the object style
 
@@ -2173,9 +2767,9 @@ object to override the object style
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`drawControls`](FabricObject.md#drawcontrols)
+[`FabricObject`](/api/classes/fabricobject/).[`drawControls`](/api/classes/fabricobject/#drawcontrols)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:511
 
@@ -2195,7 +2789,7 @@ Requires public options: padding, borderColor
 
 Context to draw on
 
-• **size**: [`Point`](Point.md)
+• **size**: [`Point`](/api/classes/point/)
 
 object size x = width, y = height
 
@@ -2205,9 +2799,9 @@ object size x = width, y = height
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`drawControlsConnectingLines`](FabricObject.md#drawcontrolsconnectinglines)
+[`FabricObject`](/api/classes/fabricobject/).[`drawControlsConnectingLines`](/api/classes/fabricobject/#drawcontrolsconnectinglines)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:481
 
@@ -2235,9 +2829,9 @@ apply clipping styles
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`drawObject`](FabricObject.md#drawobject)
+[`FabricObject`](/api/classes/fabricobject/).[`drawObject`](/api/classes/fabricobject/#drawobject)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:956
 
@@ -2264,7 +2858,7 @@ Context to draw on
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`drawSelectionBackground`](FabricObject.md#drawselectionbackground)
+[`FabricObject`](/api/classes/fabricobject/).[`drawSelectionBackground`](/api/classes/fabricobject/#drawselectionbackground)
 
 #### Todo
 
@@ -2272,7 +2866,7 @@ evaluate if make this disappear in favor of a pre-render hook for objects
 this was added by Andrea Bogazzi to make possible some feature for work reasons
 it seemed a good option, now is an edge case
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:339
 
@@ -2284,11 +2878,11 @@ src/shapes/Object/InteractiveObject.ts:339
 
 Compare ancestors
 
-#### Type parameters
+#### Type Parameters
 
-• **T** extends [`Circle`](Circle.md)\<`Props`, `SProps`, `EventSpec`\>
+• **T** *extends* [`Circle`](/api/classes/circle/)\<`Props`, `SProps`, `EventSpec`\>
 
-• **S** extends `boolean`
+• **S** *extends* `boolean`
 
 #### Parameters
 
@@ -2306,9 +2900,9 @@ an object that represent the ancestry situation.
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`findCommonAncestors`](FabricObject.md#findcommonancestors)
+[`FabricObject`](/api/classes/fabricobject/).[`findCommonAncestors`](/api/classes/fabricobject/#findcommonancestors)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/StackedObject.ts:90
 
@@ -2320,9 +2914,9 @@ src/shapes/Object/StackedObject.ts:90
 
 Fires event with an optional options object
 
-#### Type parameters
+#### Type Parameters
 
-• **K** extends `string` \| `number` \| `symbol`
+• **K** *extends* `string` \| `number` \| `symbol`
 
 #### Parameters
 
@@ -2340,9 +2934,9 @@ Options object
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`fire`](FabricObject.md#fire)
+[`FabricObject`](/api/classes/fabricobject/).[`fire`](/api/classes/fabricobject/#fire)
 
-#### Source
+#### Defined in
 
 src/Observable.ts:159
 
@@ -2367,9 +2961,9 @@ function to iterate over the controls over
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`forEachControl`](FabricObject.md#foreachcontrol)
+[`FabricObject`](/api/classes/fabricobject/).[`forEachControl`](/api/classes/fabricobject/#foreachcontrol)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:317
 
@@ -2395,9 +2989,9 @@ value of a property
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`get`](FabricObject.md#get)
+[`FabricObject`](/api/classes/fabricobject/).[`get`](/api/classes/fabricobject/#get)
 
-#### Source
+#### Defined in
 
 src/CommonMethods.ts:59
 
@@ -2405,17 +2999,17 @@ src/CommonMethods.ts:59
 
 ### getActiveControl()
 
-> **getActiveControl**(): `undefined` \| `Object`
+> **getActiveControl**(): `undefined` \| `object`
 
 #### Returns
 
-`undefined` \| `Object`
+`undefined` \| `object`
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`getActiveControl`](FabricObject.md#getactivecontrol)
+[`FabricObject`](/api/classes/fabricobject/).[`getActiveControl`](/api/classes/fabricobject/#getactivecontrol)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:170
 
@@ -2425,9 +3019,9 @@ src/shapes/Object/InteractiveObject.ts:170
 
 > **getAncestors**\<`T`\>(`strict`?): `Ancestors`\<`T`\>
 
-#### Type parameters
+#### Type Parameters
 
-• **T** extends `boolean`
+• **T** *extends* `boolean`
 
 #### Parameters
 
@@ -2443,9 +3037,9 @@ ancestors (excluding `ActiveSelection`) from bottom to top
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`getAncestors`](FabricObject.md#getancestors)
+[`FabricObject`](/api/classes/fabricobject/).[`getAncestors`](/api/classes/fabricobject/#getancestors)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/StackedObject.ts:69
 
@@ -2453,22 +3047,22 @@ src/shapes/Object/StackedObject.ts:69
 
 ### getBoundingRect()
 
-> **getBoundingRect**(): [`TBBox`](../type-aliases/TBBox.md)
+> **getBoundingRect**(): [`TBBox`](/api/type-aliases/tbbox/)
 
 Returns coordinates of object's bounding rectangle (left, top, width, height)
 the box is intended as aligned to axis of canvas.
 
 #### Returns
 
-[`TBBox`](../type-aliases/TBBox.md)
+[`TBBox`](/api/type-aliases/tbbox/)
 
 Object with left, top, width, height properties
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`getBoundingRect`](FabricObject.md#getboundingrect)
+[`FabricObject`](/api/classes/fabricobject/).[`getBoundingRect`](/api/classes/fabricobject/#getboundingrect)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:330
 
@@ -2484,9 +3078,9 @@ src/shapes/Object/ObjectGeometry.ts:330
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`getCanvasRetinaScaling`](FabricObject.md#getcanvasretinascaling)
+[`FabricObject`](/api/classes/fabricobject/).[`getCanvasRetinaScaling`](/api/classes/fabricobject/#getcanvasretinascaling)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:387
 
@@ -2494,19 +3088,19 @@ src/shapes/Object/ObjectGeometry.ts:387
 
 ### getCenterPoint()
 
-> **getCenterPoint**(): [`Point`](Point.md)
+> **getCenterPoint**(): [`Point`](/api/classes/point/)
 
 Returns the center coordinates of the object relative to canvas
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`getCenterPoint`](FabricObject.md#getcenterpoint)
+[`FabricObject`](/api/classes/fabricobject/).[`getCenterPoint`](/api/classes/fabricobject/#getcenterpoint)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:174
 
@@ -2514,19 +3108,19 @@ src/shapes/Object/ObjectOrigin.ts:174
 
 ### getCoords()
 
-> **getCoords**(): [`Point`](Point.md)[]
+> **getCoords**(): [`Point`](/api/classes/point/)[]
 
 #### Returns
 
-[`Point`](Point.md)[]
+[`Point`](/api/classes/point/)[]
 
 [tl, tr, br, bl] in the scene plane
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`getCoords`](FabricObject.md#getcoords)
+[`FabricObject`](/api/classes/fabricobject/).[`getCoords`](/api/classes/fabricobject/#getcoords)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:191
 
@@ -2544,9 +3138,9 @@ Return the object opacity counting also the group property
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`getObjectOpacity`](FabricObject.md#getobjectopacity)
+[`FabricObject`](/api/classes/fabricobject/).[`getObjectOpacity`](/api/classes/fabricobject/#getobjectopacity)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:690
 
@@ -2554,19 +3148,19 @@ src/shapes/Object/Object.ts:690
 
 ### getObjectScaling()
 
-> **getObjectScaling**(): [`Point`](Point.md)
+> **getObjectScaling**(): [`Point`](/api/classes/point/)
 
 Return the object scale factor counting also the group scaling
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`getObjectScaling`](FabricObject.md#getobjectscaling)
+[`FabricObject`](/api/classes/fabricobject/).[`getObjectScaling`](/api/classes/fabricobject/#getobjectscaling)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:659
 
@@ -2574,29 +3168,29 @@ src/shapes/Object/Object.ts:659
 
 ### getPointByOrigin()
 
-> **getPointByOrigin**(`originX`, `originY`): [`Point`](Point.md)
+> **getPointByOrigin**(`originX`, `originY`): [`Point`](/api/classes/point/)
 
 Returns the coordinates of the object as if it has a different origin
 
 #### Parameters
 
-• **originX**: [`TOriginX`](../type-aliases/TOriginX.md)
+• **originX**: [`TOriginX`](/api/type-aliases/toriginx/)
 
 Horizontal origin: 'left', 'center' or 'right'
 
-• **originY**: [`TOriginY`](../type-aliases/TOriginY.md)
+• **originY**: [`TOriginY`](/api/type-aliases/toriginy/)
 
 Vertical origin: 'top', 'center' or 'bottom'
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`getPointByOrigin`](FabricObject.md#getpointbyorigin)
+[`FabricObject`](/api/classes/fabricobject/).[`getPointByOrigin`](/api/classes/fabricobject/#getpointbyorigin)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:199
 
@@ -2612,7 +3206,7 @@ Returns horizontal radius of an object (according to how an object is scaled)
 
 `number`
 
-#### Source
+#### Defined in
 
 src/shapes/Circle.ts:126
 
@@ -2628,7 +3222,7 @@ Returns vertical radius of an object (according to how an object is scaled)
 
 `number`
 
-#### Source
+#### Defined in
 
 src/shapes/Circle.ts:134
 
@@ -2636,19 +3230,19 @@ src/shapes/Circle.ts:134
 
 ### getRelativeCenterPoint()
 
-> **getRelativeCenterPoint**(): [`Point`](Point.md)
+> **getRelativeCenterPoint**(): [`Point`](/api/classes/point/)
 
 Returns the center coordinates of the object relative to it's parent
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`getRelativeCenterPoint`](FabricObject.md#getrelativecenterpoint)
+[`FabricObject`](/api/classes/fabricobject/).[`getRelativeCenterPoint`](/api/classes/fabricobject/#getrelativecenterpoint)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:185
 
@@ -2662,14 +3256,14 @@ src/shapes/Object/ObjectOrigin.ts:185
 
 `number`
 
-x position according to object's [originX](FabricObject.md#originx) property in parent's coordinate plane\
-if parent is canvas then this property is identical to [getX](Circle.md#getx)
+x position according to object's [originX](/api/api/classes/fabricobject/originx/#originx) property in parent's coordinate plane\
+if parent is canvas then this property is identical to [getX](/api/api/classes/circle/getx/#getx)
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`getRelativeX`](FabricObject.md#getrelativex)
+[`FabricObject`](/api/classes/fabricobject/).[`getRelativeX`](/api/classes/fabricobject/#getrelativex)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:102
 
@@ -2677,19 +3271,19 @@ src/shapes/Object/ObjectGeometry.ts:102
 
 ### getRelativeXY()
 
-> **getRelativeXY**(): [`Point`](Point.md)
+> **getRelativeXY**(): [`Point`](/api/classes/point/)
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
-x,y position according to object's [originX](FabricObject.md#originx) [originY](FabricObject.md#originy) properties in parent's coordinate plane
+x,y position according to object's [originX](/api/api/classes/fabricobject/originx/#originx) [originY](/api/api/classes/fabricobject/originy/#originy) properties in parent's coordinate plane
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`getRelativeXY`](FabricObject.md#getrelativexy)
+[`FabricObject`](/api/classes/fabricobject/).[`getRelativeXY`](/api/classes/fabricobject/#getrelativexy)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:163
 
@@ -2703,14 +3297,14 @@ src/shapes/Object/ObjectGeometry.ts:163
 
 `number`
 
-y position according to object's [originY](FabricObject.md#originy) property in parent's coordinate plane\
-if parent is canvas then this property is identical to [getY](Circle.md#gety)
+y position according to object's [originY](/api/api/classes/fabricobject/originy/#originy) property in parent's coordinate plane\
+if parent is canvas then this property is identical to [getY](/api/api/classes/circle/gety/#gety)
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`getRelativeY`](FabricObject.md#getrelativey)
+[`FabricObject`](/api/classes/fabricobject/).[`getRelativeY`](/api/classes/fabricobject/#getrelativey)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:118
 
@@ -2730,13 +3324,13 @@ height value
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`getScaledHeight`](FabricObject.md#getscaledheight)
+[`FabricObject`](/api/classes/fabricobject/).[`getScaledHeight`](/api/classes/fabricobject/#getscaledheight)
 
 #### Todo
 
 shouldn't this account for group transform and return the actual size in canvas coordinate plane?
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:348
 
@@ -2756,13 +3350,13 @@ width value
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`getScaledWidth`](FabricObject.md#getscaledwidth)
+[`FabricObject`](/api/classes/fabricobject/).[`getScaledWidth`](/api/classes/fabricobject/#getscaledwidth)
 
 #### Todo
 
 shouldn't this account for group transform and return the actual size in canvas coordinate plane?
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:339
 
@@ -2776,7 +3370,7 @@ Returns id attribute for svg output
 
 #### Parameters
 
-• **this**: `FabricObjectSVGExportMixin` & [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\> & `Object`
+• **this**: `FabricObjectSVGExportMixin` & [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\> & `object`
 
 #### Returns
 
@@ -2784,9 +3378,9 @@ Returns id attribute for svg output
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`getSvgCommons`](FabricObject.md#getsvgcommons)
+[`FabricObject`](/api/classes/fabricobject/).[`getSvgCommons`](/api/classes/fabricobject/#getsvgcommons)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/FabricObjectSVGExportMixin.ts:84
 
@@ -2800,7 +3394,7 @@ Returns filter for svg shadow
 
 #### Parameters
 
-• **this**: `FabricObjectSVGExportMixin` & [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **this**: `FabricObjectSVGExportMixin` & [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 #### Returns
 
@@ -2808,9 +3402,9 @@ Returns filter for svg shadow
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`getSvgFilter`](FabricObject.md#getsvgfilter)
+[`FabricObject`](/api/classes/fabricobject/).[`getSvgFilter`](/api/classes/fabricobject/#getsvgfilter)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/FabricObjectSVGExportMixin.ts:76
 
@@ -2824,7 +3418,7 @@ Returns styles-string for svg-export
 
 #### Parameters
 
-• **this**: `FabricObjectSVGExportMixin` & [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **this**: `FabricObjectSVGExportMixin` & [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 • **skipShadow?**: `boolean`
 
@@ -2836,9 +3430,9 @@ a boolean to skip shadow filter output
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`getSvgStyles`](FabricObject.md#getsvgstyles)
+[`FabricObject`](/api/classes/fabricobject/).[`getSvgStyles`](/api/classes/fabricobject/#getsvgstyles)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/FabricObjectSVGExportMixin.ts:21
 
@@ -2852,11 +3446,11 @@ Returns transform-string for svg-export
 
 #### Parameters
 
-• **this**: `FabricObjectSVGExportMixin` & [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **this**: `FabricObjectSVGExportMixin` & [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 • **full?**: `boolean`
 
-• **additionalTransform?**: `string`= `''`
+• **additionalTransform?**: `string` = `''`
 
 #### Returns
 
@@ -2864,9 +3458,9 @@ Returns transform-string for svg-export
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`getSvgTransform`](FabricObject.md#getsvgtransform)
+[`FabricObject`](/api/classes/fabricobject/).[`getSvgTransform`](/api/classes/fabricobject/#getsvgtransform)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/FabricObjectSVGExportMixin.ts:103
 
@@ -2874,19 +3468,19 @@ src/shapes/Object/FabricObjectSVGExportMixin.ts:103
 
 ### getTotalAngle()
 
-> **getTotalAngle**(): [`TDegree`](../type-aliases/TDegree.md)
+> **getTotalAngle**(): [`TDegree`](/api/type-aliases/tdegree/)
 
 Returns the object angle relative to canvas counting also the group property
 
 #### Returns
 
-[`TDegree`](../type-aliases/TDegree.md)
+[`TDegree`](/api/type-aliases/tdegree/)
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`getTotalAngle`](FabricObject.md#gettotalangle)
+[`FabricObject`](/api/classes/fabricobject/).[`getTotalAngle`](/api/classes/fabricobject/#gettotalangle)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:395
 
@@ -2894,21 +3488,21 @@ src/shapes/Object/ObjectGeometry.ts:395
 
 ### getTotalObjectScaling()
 
-> **getTotalObjectScaling**(): [`Point`](Point.md)
+> **getTotalObjectScaling**(): [`Point`](/api/classes/point/)
 
 Return the object scale factor counting also the group scaling, zoom and retina
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
 object with scaleX and scaleY properties
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`getTotalObjectScaling`](FabricObject.md#gettotalobjectscaling)
+[`FabricObject`](/api/classes/fabricobject/).[`getTotalObjectScaling`](/api/classes/fabricobject/#gettotalobjectscaling)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:676
 
@@ -2916,19 +3510,19 @@ src/shapes/Object/Object.ts:676
 
 ### getViewportTransform()
 
-> **getViewportTransform**(): [`TMat2D`](../type-aliases/TMat2D.md)
+> **getViewportTransform**(): [`TMat2D`](/api/type-aliases/tmat2d/)
 
 Retrieves viewportTransform from Object's canvas if available
 
 #### Returns
 
-[`TMat2D`](../type-aliases/TMat2D.md)
+[`TMat2D`](/api/type-aliases/tmat2d/)
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`getViewportTransform`](FabricObject.md#getviewporttransform)
+[`FabricObject`](/api/classes/fabricobject/).[`getViewportTransform`](/api/classes/fabricobject/#getviewporttransform)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:405
 
@@ -2942,13 +3536,13 @@ src/shapes/Object/ObjectGeometry.ts:405
 
 `number`
 
-x position according to object's [originX](FabricObject.md#originx) property in canvas coordinate plane
+x position according to object's [originX](/api/api/classes/fabricobject/originx/#originx) property in canvas coordinate plane
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`getX`](FabricObject.md#getx)
+[`FabricObject`](/api/classes/fabricobject/).[`getX`](/api/classes/fabricobject/#getx)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:73
 
@@ -2956,19 +3550,19 @@ src/shapes/Object/ObjectGeometry.ts:73
 
 ### getXY()
 
-> **getXY**(): [`Point`](Point.md)
+> **getXY**(): [`Point`](/api/classes/point/)
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
-x position according to object's [originX](FabricObject.md#originx) [originY](FabricObject.md#originy) properties in canvas coordinate plane
+x position according to object's [originX](/api/api/classes/fabricobject/originx/#originx) [originY](/api/api/classes/fabricobject/originy/#originy) properties in canvas coordinate plane
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`getXY`](FabricObject.md#getxy)
+[`FabricObject`](/api/classes/fabricobject/).[`getXY`](/api/classes/fabricobject/#getxy)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:133
 
@@ -2982,13 +3576,13 @@ src/shapes/Object/ObjectGeometry.ts:133
 
 `number`
 
-y position according to object's [originY](FabricObject.md#originy) property in canvas coordinate plane
+y position according to object's [originY](/api/api/classes/fabricobject/originy/#originy) property in canvas coordinate plane
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`getY`](FabricObject.md#gety)
+[`FabricObject`](/api/classes/fabricobject/).[`getY`](/api/classes/fabricobject/#gety)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:87
 
@@ -2998,9 +3592,9 @@ src/shapes/Object/ObjectGeometry.ts:87
 
 > **hasCommonAncestors**\<`T`\>(`other`, `strict`?): `boolean`
 
-#### Type parameters
+#### Type Parameters
 
-• **T** extends [`Circle`](Circle.md)\<`Props`, `SProps`, `EventSpec`\>
+• **T** *extends* [`Circle`](/api/classes/circle/)\<`Props`, `SProps`, `EventSpec`\>
 
 #### Parameters
 
@@ -3016,9 +3610,9 @@ checks only ancestors that are objects (without canvas)
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`hasCommonAncestors`](FabricObject.md#hascommonancestors)
+[`FabricObject`](/api/classes/fabricobject/).[`hasCommonAncestors`](/api/classes/fabricobject/#hascommonancestors)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/StackedObject.ts:159
 
@@ -3043,13 +3637,13 @@ Boolean
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`hasFill`](FabricObject.md#hasfill)
+[`FabricObject`](/api/classes/fabricobject/).[`hasFill`](/api/classes/fabricobject/#hasfill)
 
 #### Since
 
 3.0.0
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:864
 
@@ -3074,13 +3668,13 @@ Boolean
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`hasStroke`](FabricObject.md#hasstroke)
+[`FabricObject`](/api/classes/fabricobject/).[`hasStroke`](/api/classes/fabricobject/#hasstroke)
 
 #### Since
 
 3.0.0
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:848
 
@@ -3094,7 +3688,7 @@ Checks if object intersects with another object
 
 #### Parameters
 
-• **other**: `ObjectGeometry`\<[`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **other**: `ObjectGeometry`\<[`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 Object to test
 
@@ -3106,9 +3700,9 @@ true if object intersects with another object
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`intersectsWithObject`](FabricObject.md#intersectswithobject)
+[`FabricObject`](/api/classes/fabricobject/).[`intersectsWithObject`](/api/classes/fabricobject/#intersectswithobject)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:219
 
@@ -3122,9 +3716,9 @@ Checks if object intersects with the scene rect formed by tl and br
 
 #### Parameters
 
-• **tl**: [`Point`](Point.md)
+• **tl**: [`Point`](/api/classes/point/)
 
-• **br**: [`Point`](Point.md)
+• **br**: [`Point`](/api/classes/point/)
 
 #### Returns
 
@@ -3132,9 +3726,9 @@ Checks if object intersects with the scene rect formed by tl and br
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`intersectsWithRect`](FabricObject.md#intersectswithrect)
+[`FabricObject`](/api/classes/fabricobject/).[`intersectsWithRect`](/api/classes/fabricobject/#intersectswithrect)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:205
 
@@ -3148,7 +3742,7 @@ Check if cache is dirty
 
 #### Parameters
 
-• **skipCanvas**: `boolean`= `false`
+• **skipCanvas**: `boolean` = `false`
 
 skip canvas checks because this object is painted
 on parent canvas.
@@ -3159,9 +3753,9 @@ on parent canvas.
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`isCacheDirty`](FabricObject.md#iscachedirty)
+[`FabricObject`](/api/classes/fabricobject/).[`isCacheDirty`](/api/classes/fabricobject/#iscachedirty)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:1009
 
@@ -3175,7 +3769,7 @@ Checks if object is fully contained within area of another object
 
 #### Parameters
 
-• **other**: `ObjectGeometry`\<[`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **other**: `ObjectGeometry`\<[`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 Object to test
 
@@ -3187,9 +3781,9 @@ true if object is fully contained within area of another object
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`isContainedWithinObject`](FabricObject.md#iscontainedwithinobject)
+[`FabricObject`](/api/classes/fabricobject/).[`isContainedWithinObject`](/api/classes/fabricobject/#iscontainedwithinobject)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:238
 
@@ -3203,9 +3797,9 @@ Checks if object is fully contained within the scene rect formed by tl and br
 
 #### Parameters
 
-• **tl**: [`Point`](Point.md)
+• **tl**: [`Point`](/api/classes/point/)
 
-• **br**: [`Point`](Point.md)
+• **br**: [`Point`](/api/classes/point/)
 
 #### Returns
 
@@ -3213,9 +3807,9 @@ Checks if object is fully contained within the scene rect formed by tl and br
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`isContainedWithinRect`](FabricObject.md#iscontainedwithinrect)
+[`FabricObject`](/api/classes/fabricobject/).[`isContainedWithinRect`](/api/classes/fabricobject/#iscontainedwithinrect)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:246
 
@@ -3242,9 +3836,9 @@ true if the specified control is visible, false otherwise
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`isControlVisible`](FabricObject.md#iscontrolvisible)
+[`FabricObject`](/api/classes/fabricobject/).[`isControlVisible`](/api/classes/fabricobject/#iscontrolvisible)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:546
 
@@ -3267,9 +3861,9 @@ Should be used instead of [Group.contains](../../../../api/classes/group/#contai
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`isDescendantOf`](FabricObject.md#isdescendantof)
+[`FabricObject`](/api/classes/fabricobject/).[`isDescendantOf`](/api/classes/fabricobject/#isdescendantof)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/StackedObject.ts:52
 
@@ -3279,9 +3873,9 @@ src/shapes/Object/StackedObject.ts:52
 
 > **isInFrontOf**\<`T`\>(`other`): `undefined` \| `boolean`
 
-#### Type parameters
+#### Type Parameters
 
-• **T** extends [`Circle`](Circle.md)\<`Props`, `SProps`, `EventSpec`\>
+• **T** *extends* [`Circle`](/api/classes/circle/)\<`Props`, `SProps`, `EventSpec`\>
 
 #### Parameters
 
@@ -3297,9 +3891,9 @@ if objects do not share a common ancestor or they are strictly equal it is impos
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`isInFrontOf`](FabricObject.md#isinfrontof)
+[`FabricObject`](/api/classes/fabricobject/).[`isInFrontOf`](/api/classes/fabricobject/#isinfrontof)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/StackedObject.ts:169
 
@@ -3315,9 +3909,9 @@ src/shapes/Object/StackedObject.ts:169
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`isNotVisible`](FabricObject.md#isnotvisible)
+[`FabricObject`](/api/classes/fabricobject/).[`isNotVisible`](/api/classes/fabricobject/#isnotvisible)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:771
 
@@ -3338,9 +3932,9 @@ true if object is fully or partially contained within canvas
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`isOnScreen`](FabricObject.md#isonscreen)
+[`FabricObject`](/api/classes/fabricobject/).[`isOnScreen`](/api/classes/fabricobject/#isonscreen)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:278
 
@@ -3350,9 +3944,9 @@ src/shapes/Object/ObjectGeometry.ts:278
 
 > **isOverlapping**\<`T`\>(`other`): `boolean`
 
-#### Type parameters
+#### Type Parameters
 
-• **T** extends `ObjectGeometry`\<[`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **T** *extends* `ObjectGeometry`\<[`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 #### Parameters
 
@@ -3364,9 +3958,9 @@ src/shapes/Object/ObjectGeometry.ts:278
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`isOverlapping`](FabricObject.md#isoverlapping)
+[`FabricObject`](/api/classes/fabricobject/).[`isOverlapping`](/api/classes/fabricobject/#isoverlapping)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:256
 
@@ -3386,9 +3980,9 @@ true if object is partially contained within canvas
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`isPartiallyOnScreen`](FabricObject.md#ispartiallyonscreen)
+[`FabricObject`](/api/classes/fabricobject/).[`isPartiallyOnScreen`](/api/classes/fabricobject/#ispartiallyonscreen)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:308
 
@@ -3410,9 +4004,9 @@ Returns true if any of the specified types is identical to the type of an instan
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`isType`](FabricObject.md#istype)
+[`FabricObject`](/api/classes/fabricobject/).[`isType`](/api/classes/fabricobject/#istype)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:1502
 
@@ -3436,9 +4030,9 @@ Boolean
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`needsItsOwnCache`](FabricObject.md#needsitsowncache)
+[`FabricObject`](/api/classes/fabricobject/).[`needsItsOwnCache`](/api/classes/fabricobject/#needsitsowncache)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:876
 
@@ -3452,9 +4046,9 @@ src/shapes/Object/Object.ts:876
 
 unsubscribe an event listener
 
-##### Type parameters
+##### Type Parameters
 
-• **K** extends `string` \| `number` \| `symbol`
+• **K** *extends* `string` \| `number` \| `symbol`
 
 ##### Parameters
 
@@ -3472,9 +4066,9 @@ event listener to unsubscribe
 
 ##### Inherited from
 
-[`FabricObject`](FabricObject.md).[`off`](FabricObject.md#off)
+[`FabricObject`](/api/classes/fabricobject/).[`off`](/api/classes/fabricobject/#off)
 
-##### Source
+##### Defined in
 
 src/Observable.ts:120
 
@@ -3488,7 +4082,7 @@ unsubscribe event listeners
 
 • **handlers**: `EventRegistryObject`\<`EventSpec`\>
 
-handlers key/value pairs (eg. \{'after:render': handler, 'selection:cleared': handler\})
+handlers key/value pairs (eg. {'after:render': handler, 'selection:cleared': handler})
 
 ##### Returns
 
@@ -3496,9 +4090,9 @@ handlers key/value pairs (eg. \{'after:render': handler, 'selection:cleared': ha
 
 ##### Inherited from
 
-[`FabricObject`](FabricObject.md).[`off`](FabricObject.md#off)
+[`FabricObject`](/api/classes/fabricobject/).[`off`](/api/classes/fabricobject/#off)
 
-##### Source
+##### Defined in
 
 src/Observable.ts:125
 
@@ -3514,9 +4108,9 @@ unsubscribe all event listeners
 
 ##### Inherited from
 
-[`FabricObject`](FabricObject.md).[`off`](FabricObject.md#off)
+[`FabricObject`](/api/classes/fabricobject/).[`off`](/api/classes/fabricobject/#off)
 
-##### Source
+##### Defined in
 
 src/Observable.ts:129
 
@@ -3530,9 +4124,9 @@ src/Observable.ts:129
 
 Observes specified event
 
-##### Type parameters
+##### Type Parameters
 
-• **K** extends `string` \| `number` \| `symbol`
+• **K** *extends* `string` \| `number` \| `symbol`
 
 • **E**
 
@@ -3554,13 +4148,13 @@ disposer
 
 ##### Inherited from
 
-[`FabricObject`](FabricObject.md).[`on`](FabricObject.md#on)
+[`FabricObject`](/api/classes/fabricobject/).[`on`](/api/classes/fabricobject/#on)
 
 ##### Alias
 
 on
 
-##### Source
+##### Defined in
 
 src/Observable.ts:23
 
@@ -3578,9 +4172,9 @@ src/Observable.ts:23
 
 ##### Inherited from
 
-[`FabricObject`](FabricObject.md).[`on`](FabricObject.md#on)
+[`FabricObject`](/api/classes/fabricobject/).[`on`](/api/classes/fabricobject/#on)
 
-##### Source
+##### Defined in
 
 src/Observable.ts:27
 
@@ -3599,11 +4193,11 @@ try to to deselect this object. If the function returns true, the process is can
 
 options sent from the upper functions
 
-• **options\.e?**: [`TPointerEvent`](../type-aliases/TPointerEvent.md)
+• **options.e?**: [`TPointerEvent`](/api/type-aliases/tpointerevent/)
 
 event if the process is generated by an event
 
-• **options\.object?**: `InteractiveFabricObject`\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **options.object?**: `InteractiveFabricObject`\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 next object we are setting as active, and reason why
 this is being deselected
@@ -3614,9 +4208,9 @@ this is being deselected
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`onDeselect`](FabricObject.md#ondeselect)
+[`FabricObject`](/api/classes/fabricobject/).[`onDeselect`](/api/classes/fabricobject/#ondeselect)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:620
 
@@ -3641,9 +4235,9 @@ true to handle the drag event
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`onDragStart`](FabricObject.md#ondragstart)
+[`FabricObject`](/api/classes/fabricobject/).[`onDragStart`](/api/classes/fabricobject/#ondragstart)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:653
 
@@ -3662,7 +4256,7 @@ try to to select this object. If the function returns true, the process is cance
 
 options sent from the upper functions
 
-• **options\.e?**: [`TPointerEvent`](../type-aliases/TPointerEvent.md)
+• **options.e?**: [`TPointerEvent`](/api/type-aliases/tpointerevent/)
 
 event if the process is generated by an event
 
@@ -3672,9 +4266,9 @@ event if the process is generated by an event
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`onSelect`](FabricObject.md#onselect)
+[`FabricObject`](/api/classes/fabricobject/).[`onSelect`](/api/classes/fabricobject/#onselect)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:634
 
@@ -3688,9 +4282,9 @@ src/shapes/Object/InteractiveObject.ts:634
 
 Observes specified event **once**
 
-##### Type parameters
+##### Type Parameters
 
-• **K** extends `string` \| `number` \| `symbol`
+• **K** *extends* `string` \| `number` \| `symbol`
 
 • **E**
 
@@ -3712,13 +4306,13 @@ disposer
 
 ##### Inherited from
 
-[`FabricObject`](FabricObject.md).[`once`](FabricObject.md#once)
+[`FabricObject`](/api/classes/fabricobject/).[`once`](/api/classes/fabricobject/#once)
 
 ##### Alias
 
 once
 
-##### Source
+##### Defined in
 
 src/Observable.ts:62
 
@@ -3736,9 +4330,9 @@ src/Observable.ts:62
 
 ##### Inherited from
 
-[`FabricObject`](FabricObject.md).[`once`](FabricObject.md#once)
+[`FabricObject`](/api/classes/fabricobject/).[`once`](/api/classes/fabricobject/#once)
 
-##### Source
+##### Defined in
 
 src/Observable.ts:66
 
@@ -3762,9 +4356,9 @@ Context to render on
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`render`](FabricObject.md#render)
+[`FabricObject`](/api/classes/fabricobject/).[`render`](/api/classes/fabricobject/#render)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:783
 
@@ -3784,9 +4378,9 @@ src/shapes/Object/Object.ts:783
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`renderCache`](FabricObject.md#rendercache)
+[`FabricObject`](/api/classes/fabricobject/).[`renderCache`](/api/classes/fabricobject/#rendercache)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:817
 
@@ -3810,9 +4404,9 @@ example: render the selection status for the part of text that is being dragged 
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`renderDragSourceEffect`](FabricObject.md#renderdragsourceeffect)
+[`FabricObject`](/api/classes/fabricobject/).[`renderDragSourceEffect`](/api/classes/fabricobject/#renderdragsourceeffect)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:674
 
@@ -3837,9 +4431,9 @@ object will change when dropping. example: show the cursor where the text is abo
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`renderDropTargetEffect`](FabricObject.md#renderdroptargeteffect)
+[`FabricObject`](/api/classes/fabricobject/).[`renderDropTargetEffect`](/api/classes/fabricobject/#renderdroptargeteffect)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:686
 
@@ -3853,7 +4447,7 @@ Sets "angle" of an instance with centered rotation
 
 #### Parameters
 
-• **angle**: [`TDegree`](../type-aliases/TDegree.md)
+• **angle**: [`TDegree`](/api/type-aliases/tdegree/)
 
 Angle value (in degrees)
 
@@ -3863,9 +4457,9 @@ Angle value (in degrees)
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`rotate`](FabricObject.md#rotate)
+[`FabricObject`](/api/classes/fabricobject/).[`rotate`](/api/classes/fabricobject/#rotate)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:1530
 
@@ -3889,9 +4483,9 @@ Scale factor
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`scale`](FabricObject.md#scale)
+[`FabricObject`](/api/classes/fabricobject/).[`scale`](/api/classes/fabricobject/#scale)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:357
 
@@ -3915,9 +4509,9 @@ New height value
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`scaleToHeight`](FabricObject.md#scaletoheight)
+[`FabricObject`](/api/classes/fabricobject/).[`scaleToHeight`](/api/classes/fabricobject/#scaletoheight)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:380
 
@@ -3941,9 +4535,9 @@ New width value
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`scaleToWidth`](FabricObject.md#scaletowidth)
+[`FabricObject`](/api/classes/fabricobject/).[`scaleToWidth`](/api/classes/fabricobject/#scaletowidth)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:368
 
@@ -3951,7 +4545,7 @@ src/shapes/Object/ObjectGeometry.ts:368
 
 ### set()
 
-> **set**(`key`, `value`?): [`Circle`](Circle.md)\<`Props`, `SProps`, `EventSpec`\>
+> **set**(`key`, `value`?): [`Circle`](/api/classes/circle/)\<`Props`, `SProps`, `EventSpec`\>
 
 Sets property to a given value. When changing position/dimension -related properties (left, top, scale, angle, etc.) `set` does not update position of object's borders/controls. If you need to update those, call `setCoords()`.
 
@@ -3967,13 +4561,13 @@ Property value (if function, the value is passed into it and its return value is
 
 #### Returns
 
-[`Circle`](Circle.md)\<`Props`, `SProps`, `EventSpec`\>
+[`Circle`](/api/classes/circle/)\<`Props`, `SProps`, `EventSpec`\>
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`set`](FabricObject.md#set)
+[`FabricObject`](/api/classes/fabricobject/).[`set`](/api/classes/fabricobject/#set)
 
-#### Source
+#### Defined in
 
 src/CommonMethods.ts:29
 
@@ -4003,13 +4597,13 @@ true to set the specified control visible, false otherwise
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`setControlVisible`](FabricObject.md#setcontrolvisible)
+[`FabricObject`](/api/classes/fabricobject/).[`setControlVisible`](/api/classes/fabricobject/#setcontrolvisible)
 
 #### Todo
 
 discuss this overlap of priority here with the team. Andrea Bogazzi for details
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:561
 
@@ -4023,10 +4617,10 @@ Sets the visibility state of object controls, this is just a bulk option for set
 
 #### Parameters
 
-• **options?**: `Record`\<`string`, `boolean`\>= `{}`
+• **options?**: `Record`\<`string`, `boolean`\> = `{}`
 
 with an optional key per control
-example: \{Boolean\} [options.bl] true to enable the bottom-left control, false to disable it
+example: {Boolean} [options.bl] true to enable the bottom-left control, false to disable it
 
 #### Returns
 
@@ -4034,9 +4628,9 @@ example: \{Boolean\} [options.bl] true to enable the bottom-left control, false 
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`setControlsVisibility`](FabricObject.md#setcontrolsvisibility)
+[`FabricObject`](/api/classes/fabricobject/).[`setControlsVisibility`](/api/classes/fabricobject/#setcontrolsvisibility)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:573
 
@@ -4055,9 +4649,9 @@ See [https://github.com/fabricjs/fabric.js/wiki/When-to-call-setCoords](https://
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`setCoords`](FabricObject.md#setcoords)
+[`FabricObject`](/api/classes/fabricobject/).[`setCoords`](/api/classes/fabricobject/#setcoords)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:307
 
@@ -4078,9 +4672,9 @@ Travis build error about unused variables.
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`setOnGroup`](FabricObject.md#setongroup)
+[`FabricObject`](/api/classes/fabricobject/).[`setOnGroup`](/api/classes/fabricobject/#setongroup)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:1562
 
@@ -4094,15 +4688,15 @@ Sets the position of the object taking into consideration the object's origin
 
 #### Parameters
 
-• **pos**: [`Point`](Point.md)
+• **pos**: [`Point`](/api/classes/point/)
 
 The new position of the object
 
-• **originX**: [`TOriginX`](../type-aliases/TOriginX.md)
+• **originX**: [`TOriginX`](/api/type-aliases/toriginx/)
 
 Horizontal origin: 'left', 'center' or 'right'
 
-• **originY**: [`TOriginY`](../type-aliases/TOriginY.md)
+• **originY**: [`TOriginY`](/api/type-aliases/toriginy/)
 
 Vertical origin: 'top', 'center' or 'bottom'
 
@@ -4112,9 +4706,9 @@ Vertical origin: 'top', 'center' or 'bottom'
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`setPositionByOrigin`](FabricObject.md#setpositionbyorigin)
+[`FabricObject`](/api/classes/fabricobject/).[`setPositionByOrigin`](/api/classes/fabricobject/#setpositionbyorigin)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:214
 
@@ -4134,7 +4728,7 @@ Sets radius of an object (and updates width accordingly)
 
 `void`
 
-#### Source
+#### Defined in
 
 src/shapes/Circle.ts:141
 
@@ -4157,9 +4751,9 @@ if parent is canvas then this method is identical to [setX](../../../../api/clas
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`setRelativeX`](FabricObject.md#setrelativex)
+[`FabricObject`](/api/classes/fabricobject/).[`setRelativeX`](/api/classes/fabricobject/#setrelativex)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:110
 
@@ -4173,15 +4767,15 @@ As [setXY](../../../../api/classes/circle/#setxy), but in current parent's coord
 
 #### Parameters
 
-• **point**: [`Point`](Point.md)
+• **point**: [`Point`](/api/classes/point/)
 
 position according to object's originX originY properties in parent's coordinate plane
 
-• **originX?**: [`TOriginX`](../type-aliases/TOriginX.md)= `undefined`
+• **originX?**: [`TOriginX`](/api/type-aliases/toriginx/) = `...`
 
 Horizontal origin: 'left', 'center' or 'right'
 
-• **originY?**: [`TOriginY`](../type-aliases/TOriginY.md)= `undefined`
+• **originY?**: [`TOriginY`](/api/type-aliases/toriginy/) = `...`
 
 Vertical origin: 'top', 'center' or 'bottom'
 
@@ -4191,9 +4785,9 @@ Vertical origin: 'top', 'center' or 'bottom'
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`setRelativeXY`](FabricObject.md#setrelativexy)
+[`FabricObject`](/api/classes/fabricobject/).[`setRelativeXY`](/api/classes/fabricobject/#setrelativexy)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:173
 
@@ -4216,9 +4810,9 @@ if parent is canvas then this property is identical to [setY](../../../../api/cl
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`setRelativeY`](FabricObject.md#setrelativey)
+[`FabricObject`](/api/classes/fabricobject/).[`setRelativeY`](/api/classes/fabricobject/#setrelativey)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:126
 
@@ -4240,9 +4834,9 @@ x position according to object's [originX](../../../../api/classes/fabricobject/
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`setX`](FabricObject.md#setx)
+[`FabricObject`](/api/classes/fabricobject/).[`setX`](/api/classes/fabricobject/#setx)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:80
 
@@ -4258,15 +4852,15 @@ that otherwise are the object's current values.
 
 #### Parameters
 
-• **point**: [`Point`](Point.md)
+• **point**: [`Point`](/api/classes/point/)
 
 position in canvas coordinate plane
 
-• **originX?**: [`TOriginX`](../type-aliases/TOriginX.md)
+• **originX?**: [`TOriginX`](/api/type-aliases/toriginx/)
 
 Horizontal origin: 'left', 'center' or 'right'
 
-• **originY?**: [`TOriginY`](../type-aliases/TOriginY.md)
+• **originY?**: [`TOriginY`](/api/type-aliases/toriginy/)
 
 Vertical origin: 'top', 'center' or 'bottom'
 
@@ -4276,7 +4870,7 @@ Vertical origin: 'top', 'center' or 'bottom'
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`setXY`](FabricObject.md#setxy)
+[`FabricObject`](/api/classes/fabricobject/).[`setXY`](/api/classes/fabricobject/#setxy)
 
 #### Example
 
@@ -4284,7 +4878,7 @@ Vertical origin: 'top', 'center' or 'bottom'
 object.setXY(new Point(5, 5), 'left', 'bottom').
 ```
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:150
 
@@ -4306,9 +4900,9 @@ y position according to object's [originY](../../../../api/classes/fabricobject/
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`setY`](FabricObject.md#sety)
+[`FabricObject`](/api/classes/fabricobject/).[`setY`](/api/classes/fabricobject/#sety)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:94
 
@@ -4331,9 +4925,9 @@ Read as: cache if is needed, or if the feature is enabled but we are not already
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`shouldCache`](FabricObject.md#shouldcache)
+[`FabricObject`](/api/classes/fabricobject/).[`shouldCache`](/api/classes/fabricobject/#shouldcache)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:900
 
@@ -4354,9 +4948,9 @@ true in order for the window to start a drag session
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`shouldStartDragging`](FabricObject.md#shouldstartdragging)
+[`FabricObject`](/api/classes/fabricobject/).[`shouldStartDragging`](/api/classes/fabricobject/#shouldstartdragging)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:644
 
@@ -4374,7 +4968,7 @@ override this function in order to customize the drawing of the control box, e.g
 
 ctx is rotated and translated so that (0,0) is at object's center
 
-• **size**: [`Point`](Point.md)
+• **size**: [`Point`](/api/classes/point/)
 
 the control box size used
 
@@ -4384,9 +4978,9 @@ the control box size used
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`strokeBorders`](FabricObject.md#strokeborders)
+[`FabricObject`](/api/classes/fabricobject/).[`strokeBorders`](/api/classes/fabricobject/#strokeborders)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:363
 
@@ -4400,7 +4994,7 @@ Converts an object into a HTMLCanvas element
 
 #### Parameters
 
-• **options**: `ObjectToCanvasElementOptions`= `{}`
+• **options**: `ObjectToCanvasElementOptions` = `{}`
 
 Options object
 
@@ -4408,13 +5002,13 @@ Options object
 
 `HTMLCanvasElement`
 
-Returns DOM element `<canvas>` with the FabricObject
+Returns DOM element <canvas> with the FabricObject
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`toCanvasElement`](FabricObject.md#tocanvaselement)
+[`FabricObject`](/api/classes/fabricobject/).[`toCanvasElement`](/api/classes/fabricobject/#tocanvaselement)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:1393
 
@@ -4428,9 +5022,9 @@ Returns svg clipPath representation of an instance
 
 #### Parameters
 
-• **this**: `FabricObjectSVGExportMixin` & [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **this**: `FabricObjectSVGExportMixin` & [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
-• **reviver?**: [`TSVGReviver`](../type-aliases/TSVGReviver.md)
+• **reviver?**: [`TSVGReviver`](/api/type-aliases/tsvgreviver/)
 
 Method for further parsing of svg representation.
 
@@ -4442,9 +5036,9 @@ svg representation of an instance
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`toClipPathSVG`](FabricObject.md#toclippathsvg)
+[`FabricObject`](/api/classes/fabricobject/).[`toClipPathSVG`](/api/classes/fabricobject/#toclippathsvg)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/FabricObjectSVGExportMixin.ts:143
 
@@ -4458,7 +5052,7 @@ Converts an object into a data-url-like string
 
 #### Parameters
 
-• **options**: `toDataURLOptions`= `{}`
+• **options**: `toDataURLOptions` = `{}`
 
 Options object
 
@@ -4470,9 +5064,9 @@ Returns a data: URL containing a representation of the object in the format spec
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`toDataURL`](FabricObject.md#todataurl)
+[`FabricObject`](/api/classes/fabricobject/).[`toDataURL`](/api/classes/fabricobject/#todataurl)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:1489
 
@@ -4498,9 +5092,9 @@ Object representation of an instance
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`toDatalessObject`](FabricObject.md#todatalessobject)
+[`FabricObject`](/api/classes/fabricobject/).[`toDatalessObject`](/api/classes/fabricobject/#todatalessobject)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:611
 
@@ -4520,9 +5114,9 @@ JSON
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`toJSON`](FabricObject.md#tojson)
+[`FabricObject`](/api/classes/fabricobject/).[`toJSON`](/api/classes/fabricobject/#tojson)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:1521
 
@@ -4534,15 +5128,15 @@ src/shapes/Object/Object.ts:1521
 
 Returns object representation of an instance
 
-#### Type parameters
+#### Type Parameters
 
-• **T** extends `Omit`\<`Props` & [`TClassProperties`](../type-aliases/TClassProperties.md)\<[`Circle`](Circle.md)\<`Props`, `SProps`, `EventSpec`\>\>, keyof `SProps`\>
+• **T** *extends* `Omit`\<`Props` & [`TClassProperties`](/api/type-aliases/tclassproperties/)\<[`Circle`](/api/classes/circle/)\<`Props`, `SProps`, `EventSpec`\>\>, keyof `SProps`\>
 
-• **K** extends `string` \| `number` \| `symbol` = `never`
+• **K** *extends* `string` \| `number` \| `symbol` = `never`
 
 #### Parameters
 
-• **propertiesToInclude?**: `K`[]= `[]`
+• **propertiesToInclude?**: `K`[] = `[]`
 
 Any properties that you might want to additionally include in the output
 
@@ -4554,9 +5148,9 @@ object representation of an instance
 
 #### Overrides
 
-[`FabricObject`](FabricObject.md).[`toObject`](FabricObject.md#toobject)
+[`FabricObject`](/api/classes/fabricobject/).[`toObject`](/api/classes/fabricobject/#toobject)
 
-#### Source
+#### Defined in
 
 src/shapes/Circle.ts:151
 
@@ -4570,9 +5164,9 @@ Returns svg representation of an instance
 
 #### Parameters
 
-• **this**: `FabricObjectSVGExportMixin` & [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **this**: `FabricObjectSVGExportMixin` & [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
-• **reviver?**: [`TSVGReviver`](../type-aliases/TSVGReviver.md)
+• **reviver?**: [`TSVGReviver`](/api/type-aliases/tsvgreviver/)
 
 Method for further parsing of svg representation.
 
@@ -4584,9 +5178,9 @@ svg representation of an instance
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`toSVG`](FabricObject.md#tosvg)
+[`FabricObject`](/api/classes/fabricobject/).[`toSVG`](/api/classes/fabricobject/#tosvg)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/FabricObjectSVGExportMixin.ts:129
 
@@ -4604,9 +5198,9 @@ Returns a string representation of an instance
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`toString`](FabricObject.md#tostring)
+[`FabricObject`](/api/classes/fabricobject/).[`toString`](/api/classes/fabricobject/#tostring)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:651
 
@@ -4614,7 +5208,7 @@ src/shapes/Object/Object.ts:651
 
 ### toggle()
 
-> **toggle**(`property`): [`Circle`](Circle.md)\<`Props`, `SProps`, `EventSpec`\>
+> **toggle**(`property`): [`Circle`](/api/classes/circle/)\<`Props`, `SProps`, `EventSpec`\>
 
 Toggles specified property from `true` to `false` or from `false` to `true`
 
@@ -4626,13 +5220,13 @@ Property to toggle
 
 #### Returns
 
-[`Circle`](Circle.md)\<`Props`, `SProps`, `EventSpec`\>
+[`Circle`](/api/classes/circle/)\<`Props`, `SProps`, `EventSpec`\>
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`toggle`](FabricObject.md#toggle)
+[`FabricObject`](/api/classes/fabricobject/).[`toggle`](/api/classes/fabricobject/#toggle)
 
-#### Source
+#### Defined in
 
 src/CommonMethods.ts:46
 
@@ -4656,9 +5250,9 @@ Context
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`transform`](FabricObject.md#transform)
+[`FabricObject`](/api/classes/fabricobject/).[`transform`](/api/classes/fabricobject/#transform)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:533
 
@@ -4670,7 +5264,7 @@ src/shapes/Object/Object.ts:533
 
 #### Parameters
 
-• **skipGroup**: `boolean`= `false`
+• **skipGroup**: `boolean` = `false`
 
 #### Returns
 
@@ -4678,9 +5272,9 @@ src/shapes/Object/Object.ts:533
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`transformMatrixKey`](FabricObject.md#transformmatrixkey)
+[`FabricObject`](/api/classes/fabricobject/).[`transformMatrixKey`](/api/classes/fabricobject/#transformmatrixkey)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:440
 
@@ -4688,33 +5282,33 @@ src/shapes/Object/ObjectGeometry.ts:440
 
 ### translateToCenterPoint()
 
-> **translateToCenterPoint**(`point`, `originX`, `originY`): [`Point`](Point.md)
+> **translateToCenterPoint**(`point`, `originX`, `originY`): [`Point`](/api/classes/point/)
 
 Translates the coordinates from origin to center coordinates (based on the object's dimensions)
 
 #### Parameters
 
-• **point**: [`Point`](Point.md)
+• **point**: [`Point`](/api/classes/point/)
 
 The point which corresponds to the originX and originY params
 
-• **originX**: [`TOriginX`](../type-aliases/TOriginX.md)
+• **originX**: [`TOriginX`](/api/type-aliases/toriginx/)
 
 Horizontal origin: 'left', 'center' or 'right'
 
-• **originY**: [`TOriginY`](../type-aliases/TOriginY.md)
+• **originY**: [`TOriginY`](/api/type-aliases/toriginy/)
 
 Vertical origin: 'top', 'center' or 'bottom'
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`translateToCenterPoint`](FabricObject.md#translatetocenterpoint)
+[`FabricObject`](/api/classes/fabricobject/).[`translateToCenterPoint`](/api/classes/fabricobject/#translatetocenterpoint)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:127
 
@@ -4722,41 +5316,41 @@ src/shapes/Object/ObjectOrigin.ts:127
 
 ### translateToGivenOrigin()
 
-> **translateToGivenOrigin**(`point`, `fromOriginX`, `fromOriginY`, `toOriginX`, `toOriginY`): [`Point`](Point.md)
+> **translateToGivenOrigin**(`point`, `fromOriginX`, `fromOriginY`, `toOriginX`, `toOriginY`): [`Point`](/api/classes/point/)
 
 Translates the coordinates from a set of origin to another (based on the object's dimensions)
 
 #### Parameters
 
-• **point**: [`Point`](Point.md)
+• **point**: [`Point`](/api/classes/point/)
 
 The point which corresponds to the originX and originY params
 
-• **fromOriginX**: [`TOriginX`](../type-aliases/TOriginX.md)
+• **fromOriginX**: [`TOriginX`](/api/type-aliases/toriginx/)
 
 Horizontal origin: 'left', 'center' or 'right'
 
-• **fromOriginY**: [`TOriginY`](../type-aliases/TOriginY.md)
+• **fromOriginY**: [`TOriginY`](/api/type-aliases/toriginy/)
 
 Vertical origin: 'top', 'center' or 'bottom'
 
-• **toOriginX**: [`TOriginX`](../type-aliases/TOriginX.md)
+• **toOriginX**: [`TOriginX`](/api/type-aliases/toriginx/)
 
 Horizontal origin: 'left', 'center' or 'right'
 
-• **toOriginY**: [`TOriginY`](../type-aliases/TOriginY.md)
+• **toOriginY**: [`TOriginY`](/api/type-aliases/toriginy/)
 
 Vertical origin: 'top', 'center' or 'bottom'
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`translateToGivenOrigin`](FabricObject.md#translatetogivenorigin)
+[`FabricObject`](/api/classes/fabricobject/).[`translateToGivenOrigin`](/api/classes/fabricobject/#translatetogivenorigin)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:99
 
@@ -4764,33 +5358,33 @@ src/shapes/Object/ObjectOrigin.ts:99
 
 ### translateToOriginPoint()
 
-> **translateToOriginPoint**(`center`, `originX`, `originY`): [`Point`](Point.md)
+> **translateToOriginPoint**(`center`, `originX`, `originY`): [`Point`](/api/classes/point/)
 
 Translates the coordinates from center to origin coordinates (based on the object's dimensions)
 
 #### Parameters
 
-• **center**: [`Point`](Point.md)
+• **center**: [`Point`](/api/classes/point/)
 
 The point which corresponds to center of the object
 
-• **originX**: [`TOriginX`](../type-aliases/TOriginX.md)
+• **originX**: [`TOriginX`](/api/type-aliases/toriginx/)
 
 Horizontal origin: 'left', 'center' or 'right'
 
-• **originY**: [`TOriginY`](../type-aliases/TOriginY.md)
+• **originY**: [`TOriginY`](/api/type-aliases/toriginy/)
 
 Vertical origin: 'top', 'center' or 'bottom'
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`translateToOriginPoint`](FabricObject.md#translatetooriginpoint)
+[`FabricObject`](/api/classes/fabricobject/).[`translateToOriginPoint`](/api/classes/fabricobject/#translatetooriginpoint)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:152
 
@@ -4813,13 +5407,9 @@ This API is no longer supported and may be removed in a future release.
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`willDrawShadow`](FabricObject.md#willdrawshadow)
+[`FabricObject`](/api/classes/fabricobject/).[`willDrawShadow`](/api/classes/fabricobject/#willdrawshadow)
 
-:::caution[Deprecated]
-This API is no longer supported and may be removed in a future release.
-:::
-
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:913
 
@@ -4827,17 +5417,17 @@ src/shapes/Object/Object.ts:913
 
 ### \_fromObject()
 
-> **`static`** **\_fromObject**\<`S`\>(`__namedParameters`, `__namedParameters`): `Promise`\<`S`\>
+> `static` **\_fromObject**\<`S`\>(`__namedParameters`, `__namedParameters`): `Promise`\<`S`\>
 
-#### Type parameters
+#### Type Parameters
 
-• **S** extends `FabricObject`\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **S** *extends* `FabricObject`\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 #### Parameters
 
 • **\_\_namedParameters**: `Record`\<`string`, `unknown`\>
 
-• **\_\_namedParameters**: [`Abortable`](../type-aliases/Abortable.md) & `Object`= `{}`
+• **\_\_namedParameters**: [`Abortable`](/api/type-aliases/abortable/) & `object` = `{}`
 
 #### Returns
 
@@ -4845,9 +5435,9 @@ src/shapes/Object/Object.ts:913
 
 #### Inherited from
 
-[`FabricObject`](FabricObject.md).[`_fromObject`](FabricObject.md#_fromobject)
+[`FabricObject`](/api/classes/fabricobject/).[`_fromObject`](/api/classes/fabricobject/#_fromobject)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:1600
 
@@ -4855,7 +5445,7 @@ src/shapes/Object/Object.ts:1600
 
 ### fromElement()
 
-> **`static`** **fromElement**(`element`, `options`?, `cssRules`?): `Promise`\<[`Circle`](Circle.md)\<`Partial`\<[`CircleProps`](../interfaces/CircleProps.md)\>, [`SerializedCircleProps`](../interfaces/SerializedCircleProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>\>
+> `static` **fromElement**(`element`, `options`?, `cssRules`?): `Promise`\<[`Circle`](/api/classes/circle/)\<`Partial`\<[`CircleProps`](/api/interfaces/circleprops/)\>, [`SerializedCircleProps`](/api/interfaces/serializedcircleprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>\>
 
 Returns [Circle](../../../../api/classes/circle) instance from an SVG element
 
@@ -4865,7 +5455,7 @@ Returns [Circle](../../../../api/classes/circle) instance from an SVG element
 
 Element to parse
 
-• **options?**: [`Abortable`](../type-aliases/Abortable.md)
+• **options?**: [`Abortable`](/api/type-aliases/abortable/)
 
 Partial Circle object to default missing properties on the element.
 
@@ -4873,7 +5463,7 @@ Partial Circle object to default missing properties on the element.
 
 #### Returns
 
-`Promise`\<[`Circle`](Circle.md)\<`Partial`\<[`CircleProps`](../interfaces/CircleProps.md)\>, [`SerializedCircleProps`](../interfaces/SerializedCircleProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>\>
+`Promise`\<[`Circle`](/api/classes/circle/)\<`Partial`\<[`CircleProps`](/api/interfaces/circleprops/)\>, [`SerializedCircleProps`](/api/interfaces/serializedcircleprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>\>
 
 #### Static
 
@@ -4885,7 +5475,7 @@ Circle
 
 If value of `r` attribute is missing or invalid
 
-#### Source
+#### Defined in
 
 src/shapes/Circle.ts:213
 
@@ -4893,11 +5483,11 @@ src/shapes/Circle.ts:213
 
 ### fromObject()
 
-> **`static`** **fromObject**\<`T`\>(`object`): `Promise`\<[`Circle`](Circle.md)\<`Partial`\<[`CircleProps`](../interfaces/CircleProps.md)\>, [`SerializedCircleProps`](../interfaces/SerializedCircleProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>\>
+> `static` **fromObject**\<`T`\>(`object`): `Promise`\<[`Circle`](/api/classes/circle/)\<`Partial`\<[`CircleProps`](/api/interfaces/circleprops/)\>, [`SerializedCircleProps`](/api/interfaces/serializedcircleprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>\>
 
-#### Type parameters
+#### Type Parameters
 
-• **T** extends [`TOptions`](../type-aliases/TOptions.md)\<[`SerializedCircleProps`](../interfaces/SerializedCircleProps.md)\>
+• **T** *extends* [`TOptions`](/api/type-aliases/toptions/)\<[`SerializedCircleProps`](/api/interfaces/serializedcircleprops/)\>
 
 #### Parameters
 
@@ -4905,17 +5495,17 @@ src/shapes/Circle.ts:213
 
 #### Returns
 
-`Promise`\<[`Circle`](Circle.md)\<`Partial`\<[`CircleProps`](../interfaces/CircleProps.md)\>, [`SerializedCircleProps`](../interfaces/SerializedCircleProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>\>
+`Promise`\<[`Circle`](/api/classes/circle/)\<`Partial`\<[`CircleProps`](/api/interfaces/circleprops/)\>, [`SerializedCircleProps`](/api/interfaces/serializedcircleprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>\>
 
 #### Overrides
 
-[`FabricObject`](FabricObject.md).[`fromObject`](FabricObject.md#fromobject)
+[`FabricObject`](/api/classes/fabricobject/).[`fromObject`](/api/classes/fabricobject/#fromobject)
 
 #### Todo
 
 how do we declare this??
 
-#### Source
+#### Defined in
 
 src/shapes/Circle.ts:244
 
@@ -4923,7 +5513,7 @@ src/shapes/Circle.ts:244
 
 ### getDefaults()
 
-> **`static`** **getDefaults**(): `Record`\<`string`, `any`\>
+> `static` **getDefaults**(): `Record`\<`string`, `any`\>
 
 #### Returns
 
@@ -4931,8 +5521,8 @@ src/shapes/Circle.ts:244
 
 #### Overrides
 
-[`FabricObject`](FabricObject.md).[`getDefaults`](FabricObject.md#getdefaults)
+[`FabricObject`](/api/classes/fabricobject/).[`getDefaults`](/api/classes/fabricobject/#getdefaults)
 
-#### Source
+#### Defined in
 
 src/shapes/Circle.ts:83

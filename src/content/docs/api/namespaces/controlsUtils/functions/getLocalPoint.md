@@ -5,17 +5,17 @@ prev: false
 title: "getLocalPoint"
 ---
 
-> **getLocalPoint**(`transform`, `originX`, `originY`, `x`, `y`): [`Point`](../../../classes/Point.md)
+> **getLocalPoint**(`transform`, `originX`, `originY`, `x`, `y`): [`Point`](/api/classes/point/)
 
 Transforms a point to the offset from the given origin
 
 ## Parameters
 
-• **transform**: [`Transform`](../../../type-aliases/Transform.md)
+• **transform**: [`Transform`](/api/type-aliases/transform/)
 
-• **originX**: [`TOriginX`](../../../type-aliases/TOriginX.md)
+• **originX**: [`TOriginX`](/api/type-aliases/toriginx/)
 
-• **originY**: [`TOriginY`](../../../type-aliases/TOriginY.md)
+• **originY**: [`TOriginY`](/api/type-aliases/toriginy/)
 
 • **x**: `number`
 
@@ -23,10 +23,10 @@ Transforms a point to the offset from the given origin
 
 ## Returns
 
-[`Point`](../../../classes/Point.md)
+[`Point`](/api/classes/point/)
 
 the normalized point
 
-## Source
+## Defined in
 
 src/controls/util.ts:129

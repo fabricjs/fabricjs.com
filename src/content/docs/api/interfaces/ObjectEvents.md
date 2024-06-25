@@ -7,19 +7,23 @@ title: "ObjectEvents"
 
 ## Extends
 
-- [`ObjectPointerEvents`](../type-aliases/ObjectPointerEvents.md).`DnDEvents`.[`MiscEvents`](MiscEvents.md).`ObjectModificationEvents`
+- [`ObjectPointerEvents`](/api/type-aliases/objectpointerevents/).`DnDEvents`.[`MiscEvents`](/api/interfaces/miscevents/).`ObjectModificationEvents`
+
+## Extended by
+
+- [`GroupEvents`](/api/interfaces/groupevents/)
 
 ## Properties
 
 ### added
 
-> **added**: `Object`
+> **added**: `object`
 
 #### target
 
-> **target**: [`Canvas`](../classes/Canvas.md) \| [`Group`](../classes/Group.md) \| [`StaticCanvas`](../classes/StaticCanvas.md)\<[`StaticCanvasEvents`](StaticCanvasEvents.md)\>
+> **target**: [`Canvas`](/api/classes/canvas/) \| [`Group`](/api/classes/group/) \| [`StaticCanvas`](/api/classes/staticcanvas/)\<[`StaticCanvasEvents`](/api/interfaces/staticcanvasevents/)\>
 
-#### Source
+#### Defined in
 
 src/EventTypeDefs.ts:283
 
@@ -31,9 +35,9 @@ src/EventTypeDefs.ts:283
 
 #### Inherited from
 
-[`MiscEvents`](MiscEvents.md).[`contextmenu`](MiscEvents.md#contextmenu)
+[`MiscEvents`](/api/interfaces/miscevents/).[`contextmenu`](/api/interfaces/miscevents/#contextmenu)
 
-#### Source
+#### Defined in
 
 src/EventTypeDefs.ts:266
 
@@ -45,9 +49,9 @@ src/EventTypeDefs.ts:266
 
 #### Inherited from
 
-[`MiscEvents`](MiscEvents.md).[`contextmenu:before`](MiscEvents.md#contextmenu:before)
+[`MiscEvents`](/api/interfaces/miscevents/).[`contextmenu:before`](/api/interfaces/miscevents/#contextmenu:before)
 
-#### Source
+#### Defined in
 
 src/EventTypeDefs.ts:265
 
@@ -55,15 +59,15 @@ src/EventTypeDefs.ts:265
 
 ### deselected
 
-> **deselected**: `Partial`\<[`TEvent`](TEvent.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\>\> & `Object`
+> **deselected**: `Partial`\<[`TEvent`](/api/interfaces/tevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\>\> & `object`
 
 #### Type declaration
 
 ##### target
 
-> **target**: [`FabricObject`](../classes/FabricObject.md)\<`Partial`\<[`FabricObjectProps`](FabricObjectProps.md)\>, [`SerializedObjectProps`](SerializedObjectProps.md), [`ObjectEvents`](ObjectEvents.md)\>
+> **target**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
-#### Source
+#### Defined in
 
 src/EventTypeDefs.ts:278
 
@@ -71,13 +75,13 @@ src/EventTypeDefs.ts:278
 
 ### drag
 
-> **drag**: [`DragEventData`](DragEventData.md)
+> **drag**: [`DragEventData`](/api/interfaces/drageventdata/)
 
 #### Inherited from
 
 `DnDEvents.drag`
 
-#### Source
+#### Defined in
 
 src/EventTypeDefs.ts:196
 
@@ -85,13 +89,13 @@ src/EventTypeDefs.ts:196
 
 ### dragend
 
-> **dragend**: [`DragEventData`](DragEventData.md)
+> **dragend**: [`DragEventData`](/api/interfaces/drageventdata/)
 
 #### Inherited from
 
 `DnDEvents.dragend`
 
-#### Source
+#### Defined in
 
 src/EventTypeDefs.ts:200
 
@@ -99,13 +103,13 @@ src/EventTypeDefs.ts:200
 
 ### dragenter
 
-> **dragenter**: [`DragEventData`](DragEventData.md) & `InEvent`
+> **dragenter**: [`DragEventData`](/api/interfaces/drageventdata/) & `InEvent`
 
 #### Inherited from
 
 `DnDEvents.dragenter`
 
-#### Source
+#### Defined in
 
 src/EventTypeDefs.ts:198
 
@@ -113,13 +117,13 @@ src/EventTypeDefs.ts:198
 
 ### dragleave
 
-> **dragleave**: [`DragEventData`](DragEventData.md) & `OutEvent`
+> **dragleave**: [`DragEventData`](/api/interfaces/drageventdata/) & `OutEvent`
 
 #### Inherited from
 
 `DnDEvents.dragleave`
 
-#### Source
+#### Defined in
 
 src/EventTypeDefs.ts:199
 
@@ -127,13 +131,13 @@ src/EventTypeDefs.ts:199
 
 ### dragover
 
-> **dragover**: [`DragEventData`](DragEventData.md)
+> **dragover**: [`DragEventData`](/api/interfaces/drageventdata/)
 
 #### Inherited from
 
 `DnDEvents.dragover`
 
-#### Source
+#### Defined in
 
 src/EventTypeDefs.ts:197
 
@@ -147,7 +151,7 @@ src/EventTypeDefs.ts:197
 
 `DnDEvents.dragstart`
 
-#### Source
+#### Defined in
 
 src/EventTypeDefs.ts:195
 
@@ -155,13 +159,13 @@ src/EventTypeDefs.ts:195
 
 ### drop
 
-> **drop**: [`DropEventData`](DropEventData.md)
+> **drop**: [`DropEventData`](/api/interfaces/dropeventdata/)
 
 #### Inherited from
 
 `DnDEvents.drop`
 
-#### Source
+#### Defined in
 
 src/EventTypeDefs.ts:202
 
@@ -169,13 +173,13 @@ src/EventTypeDefs.ts:202
 
 ### drop:after
 
-> **drop:after**: [`DropEventData`](DropEventData.md)
+> **drop:after**: [`DropEventData`](/api/interfaces/dropeventdata/)
 
 #### Inherited from
 
 `DnDEvents.drop:after`
 
-#### Source
+#### Defined in
 
 src/EventTypeDefs.ts:203
 
@@ -183,13 +187,13 @@ src/EventTypeDefs.ts:203
 
 ### drop:before
 
-> **drop:before**: [`DropEventData`](DropEventData.md)
+> **drop:before**: [`DropEventData`](/api/interfaces/dropeventdata/)
 
 #### Inherited from
 
 `DnDEvents.drop:before`
 
-#### Source
+#### Defined in
 
 src/EventTypeDefs.ts:201
 
@@ -197,13 +201,13 @@ src/EventTypeDefs.ts:201
 
 ### erasing:end
 
-> **erasing:end**: `Object`
+> **erasing:end**: `object`
 
 #### path
 
-> **path**: [`FabricObject`](../classes/FabricObject.md)\<`Partial`\<[`FabricObjectProps`](FabricObjectProps.md)\>, [`SerializedObjectProps`](SerializedObjectProps.md), [`ObjectEvents`](ObjectEvents.md)\>
+> **path**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
-#### Source
+#### Defined in
 
 src/EventTypeDefs.ts:287
 
@@ -211,7 +215,7 @@ src/EventTypeDefs.ts:287
 
 ### modified
 
-> **modified**: [`ModifiedEvent`](ModifiedEvent.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\>
+> **modified**: [`ModifiedEvent`](/api/interfaces/modifiedevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\>
 
 #### Inherited from
 
@@ -221,7 +225,7 @@ src/EventTypeDefs.ts:287
 
 ### modifyPoly
 
-> **modifyPoly**: [`BasicTransformEvent`](BasicTransformEvent.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\>
+> **modifyPoly**: [`BasicTransformEvent`](/api/interfaces/basictransformevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\>
 
 #### Inherited from
 
@@ -231,7 +235,7 @@ src/EventTypeDefs.ts:287
 
 ### mousedblclick
 
-> **mousedblclick**: [`TPointerEventInfo`](TPointerEventInfo.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\>
+> **mousedblclick**: [`TPointerEventInfo`](/api/interfaces/tpointereventinfo/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\>
 
 #### Inherited from
 
@@ -241,7 +245,7 @@ src/EventTypeDefs.ts:287
 
 ### mousedown
 
-> **mousedown**: [`TPointerEventInfo`](TPointerEventInfo.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\>
+> **mousedown**: [`TPointerEventInfo`](/api/interfaces/tpointereventinfo/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\>
 
 #### Inherited from
 
@@ -251,7 +255,7 @@ src/EventTypeDefs.ts:287
 
 ### mousedown:before
 
-> **mousedown:before**: [`TPointerEventInfo`](TPointerEventInfo.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\>
+> **mousedown:before**: [`TPointerEventInfo`](/api/interfaces/tpointereventinfo/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\>
 
 #### Inherited from
 
@@ -261,7 +265,7 @@ src/EventTypeDefs.ts:287
 
 ### mousemove
 
-> **mousemove**: [`TPointerEventInfo`](TPointerEventInfo.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\>
+> **mousemove**: [`TPointerEventInfo`](/api/interfaces/tpointereventinfo/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\>
 
 #### Inherited from
 
@@ -271,7 +275,7 @@ src/EventTypeDefs.ts:287
 
 ### mousemove:before
 
-> **mousemove:before**: [`TPointerEventInfo`](TPointerEventInfo.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\>
+> **mousemove:before**: [`TPointerEventInfo`](/api/interfaces/tpointereventinfo/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\>
 
 #### Inherited from
 
@@ -281,7 +285,7 @@ src/EventTypeDefs.ts:287
 
 ### mouseout
 
-> **mouseout**: [`TPointerEventInfo`](TPointerEventInfo.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\> & `OutEvent`
+> **mouseout**: [`TPointerEventInfo`](/api/interfaces/tpointereventinfo/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> & `OutEvent`
 
 #### Inherited from
 
@@ -291,7 +295,7 @@ src/EventTypeDefs.ts:287
 
 ### mouseover
 
-> **mouseover**: [`TPointerEventInfo`](TPointerEventInfo.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\> & `InEvent`
+> **mouseover**: [`TPointerEventInfo`](/api/interfaces/tpointereventinfo/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> & `InEvent`
 
 #### Inherited from
 
@@ -301,17 +305,17 @@ src/EventTypeDefs.ts:287
 
 ### mouseup
 
-> **mouseup**: [`TPointerEventInfo`](TPointerEventInfo.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\> & `Object`
+> **mouseup**: [`TPointerEventInfo`](/api/interfaces/tpointereventinfo/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> & `object`
 
 #### Type declaration
 
 ##### currentSubTargets
 
-> **currentSubTargets**: [`FabricObject`](../classes/FabricObject.md)\<`Partial`\<[`FabricObjectProps`](FabricObjectProps.md)\>, [`SerializedObjectProps`](SerializedObjectProps.md), [`ObjectEvents`](ObjectEvents.md)\>[]
+> **currentSubTargets**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>[]
 
 ##### currentTarget?
 
-> **`optional`** **currentTarget**: [`FabricObject`](../classes/FabricObject.md)\<`Partial`\<[`FabricObjectProps`](FabricObjectProps.md)\>, [`SerializedObjectProps`](SerializedObjectProps.md), [`ObjectEvents`](ObjectEvents.md)\>
+> `optional` **currentTarget**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 ##### isClick
 
@@ -325,17 +329,17 @@ src/EventTypeDefs.ts:287
 
 ### mouseup:before
 
-> **mouseup:before**: [`TPointerEventInfo`](TPointerEventInfo.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\> & `Object`
+> **mouseup:before**: [`TPointerEventInfo`](/api/interfaces/tpointereventinfo/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> & `object`
 
 #### Type declaration
 
 ##### currentSubTargets
 
-> **currentSubTargets**: [`FabricObject`](../classes/FabricObject.md)\<`Partial`\<[`FabricObjectProps`](FabricObjectProps.md)\>, [`SerializedObjectProps`](SerializedObjectProps.md), [`ObjectEvents`](ObjectEvents.md)\>[]
+> **currentSubTargets**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>[]
 
 ##### currentTarget?
 
-> **`optional`** **currentTarget**: [`FabricObject`](../classes/FabricObject.md)\<`Partial`\<[`FabricObjectProps`](FabricObjectProps.md)\>, [`SerializedObjectProps`](SerializedObjectProps.md), [`ObjectEvents`](ObjectEvents.md)\>
+> `optional` **currentTarget**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 ##### isClick
 
@@ -349,7 +353,7 @@ src/EventTypeDefs.ts:287
 
 ### mousewheel
 
-> **mousewheel**: [`TPointerEventInfo`](TPointerEventInfo.md)\<`WheelEvent`\>
+> **mousewheel**: [`TPointerEventInfo`](/api/interfaces/tpointereventinfo/)\<`WheelEvent`\>
 
 #### Inherited from
 
@@ -359,7 +363,7 @@ src/EventTypeDefs.ts:287
 
 ### moving
 
-> **moving**: [`BasicTransformEvent`](BasicTransformEvent.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\>
+> **moving**: [`BasicTransformEvent`](/api/interfaces/basictransformevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\>
 
 #### Inherited from
 
@@ -369,13 +373,13 @@ src/EventTypeDefs.ts:287
 
 ### removed
 
-> **removed**: `Object`
+> **removed**: `object`
 
 #### target
 
-> **target**: [`Canvas`](../classes/Canvas.md) \| [`Group`](../classes/Group.md) \| [`StaticCanvas`](../classes/StaticCanvas.md)\<[`StaticCanvasEvents`](StaticCanvasEvents.md)\>
+> **target**: [`Canvas`](/api/classes/canvas/) \| [`Group`](/api/classes/group/) \| [`StaticCanvas`](/api/classes/staticcanvas/)\<[`StaticCanvasEvents`](/api/interfaces/staticcanvasevents/)\>
 
-#### Source
+#### Defined in
 
 src/EventTypeDefs.ts:284
 
@@ -383,7 +387,7 @@ src/EventTypeDefs.ts:284
 
 ### resizing
 
-> **resizing**: [`BasicTransformEvent`](BasicTransformEvent.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\>
+> **resizing**: [`BasicTransformEvent`](/api/interfaces/basictransformevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\>
 
 #### Inherited from
 
@@ -393,7 +397,7 @@ src/EventTypeDefs.ts:284
 
 ### rotating
 
-> **rotating**: [`BasicTransformEvent`](BasicTransformEvent.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\>
+> **rotating**: [`BasicTransformEvent`](/api/interfaces/basictransformevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\>
 
 #### Inherited from
 
@@ -403,7 +407,7 @@ src/EventTypeDefs.ts:284
 
 ### scaling
 
-> **scaling**: [`BasicTransformEvent`](BasicTransformEvent.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\>
+> **scaling**: [`BasicTransformEvent`](/api/interfaces/basictransformevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\>
 
 #### Inherited from
 
@@ -413,15 +417,15 @@ src/EventTypeDefs.ts:284
 
 ### selected
 
-> **selected**: `Partial`\<[`TEvent`](TEvent.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\>\> & `Object`
+> **selected**: `Partial`\<[`TEvent`](/api/interfaces/tevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\>\> & `object`
 
 #### Type declaration
 
 ##### target
 
-> **target**: [`FabricObject`](../classes/FabricObject.md)\<`Partial`\<[`FabricObjectProps`](FabricObjectProps.md)\>, [`SerializedObjectProps`](SerializedObjectProps.md), [`ObjectEvents`](ObjectEvents.md)\>
+> **target**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
-#### Source
+#### Defined in
 
 src/EventTypeDefs.ts:275
 
@@ -429,7 +433,7 @@ src/EventTypeDefs.ts:275
 
 ### skewing
 
-> **skewing**: [`BasicTransformEvent`](BasicTransformEvent.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\>
+> **skewing**: [`BasicTransformEvent`](/api/interfaces/basictransformevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\>
 
 #### Inherited from
 

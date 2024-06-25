@@ -5,7 +5,7 @@ prev: false
 title: "SerializedShadowOptions"
 ---
 
-> **SerializedShadowOptions**: `Object`
+> **SerializedShadowOptions**: `object`
 
 ## Type declaration
 
@@ -37,6 +37,6 @@ title: "SerializedShadowOptions"
 
 > **type**: `string`
 
-## Source
+## Defined in
 
 src/Shadow.ts:54

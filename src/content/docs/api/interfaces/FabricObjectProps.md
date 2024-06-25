@@ -9,6 +9,16 @@ title: "FabricObjectProps"
 
 - `ObjectProps`.`ControlProps`.`BorderProps`.`LockInteractionProps`
 
+## Extended by
+
+- [`CircleProps`](/api/interfaces/circleprops/)
+- [`EllipseProps`](/api/interfaces/ellipseprops/)
+- [`RectProps`](/api/interfaces/rectprops/)
+- [`PathProps`](/api/interfaces/pathprops/)
+- [`TextProps`](/api/interfaces/textprops/)
+- [`GroupProps`](/api/interfaces/groupprops/)
+- [`ImageProps`](/api/interfaces/imageprops/)
+
 ## Properties
 
 ### absolutePositioned
@@ -32,7 +42,7 @@ false
 
 `ObjectProps.absolutePositioned`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/SerializedObjectProps.ts:72
 
@@ -40,7 +50,7 @@ src/shapes/Object/types/SerializedObjectProps.ts:72
 
 ### angle
 
-> **angle**: [`TDegree`](../type-aliases/TDegree.md)
+> **angle**: [`TDegree`](/api/type-aliases/tdegree/)
 
 Angle of rotation of an object (in degrees)
 
@@ -54,7 +64,7 @@ Angle of rotation of an object (in degrees)
 
 `ObjectProps.angle`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:57
 
@@ -77,7 +87,7 @@ takes css colors https://www.w3.org/TR/css-color-3/
 
 `ObjectProps.backgroundColor`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/SerializedObjectProps.ts:26
 
@@ -99,7 +109,7 @@ rgb(178,204,255)
 
 `BorderProps.borderColor`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BorderProps.ts:7
 
@@ -119,7 +129,7 @@ Array specifying dash pattern of an object's borders (hasBorder must be true)
 
 `BorderProps.borderDashArray`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BorderProps.ts:15
 
@@ -141,7 +151,7 @@ Opacity of object's controlling borders when object is active and moving
 
 `BorderProps.borderOpacityWhenMoving`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BorderProps.ts:29
 
@@ -166,7 +176,7 @@ since there is no way to change the border itself.
 
 `BorderProps.borderScaleFactor`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BorderProps.ts:39
 
@@ -174,13 +184,13 @@ src/shapes/Object/types/BorderProps.ts:39
 
 ### canvas?
 
-> **`optional`** **canvas**: [`Canvas`](../classes/Canvas.md) \| [`StaticCanvas`](../classes/StaticCanvas.md)\<[`StaticCanvasEvents`](StaticCanvasEvents.md)\>
+> `optional` **canvas**: [`Canvas`](/api/classes/canvas/) \| [`StaticCanvas`](/api/classes/staticcanvas/)\<[`StaticCanvasEvents`](/api/interfaces/staticcanvasevents/)\>
 
 #### Inherited from
 
 `ObjectProps.canvas`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ObjectProps.ts:20
 
@@ -210,7 +220,7 @@ The object method `rotate` will always consider this property and never the canv
 
 `ObjectProps.centeredRotation`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ObjectTransformProps.ts:27
 
@@ -237,7 +247,7 @@ when being scaled via the controls.
 
 `ObjectProps.centeredScaling`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ObjectTransformProps.ts:36
 
@@ -245,13 +255,18 @@ src/shapes/Object/types/ObjectTransformProps.ts:36
 
 ### clipPath?
 
-> **`optional`** **clipPath**: `FabricObject`\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](SerializedObjectProps.md), [`ObjectEvents`](ObjectEvents.md)\>
+> `optional` **clipPath**: `FabricObject`\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
+
+a fabricObject that, without stroke define a clipping area with their shape. filled in black
+the clipPath object gets used when the object has rendered, and the context is placed in the center
+of the object cacheCanvas.
+If you want 0,0 of a clipPath to align with an object center, use clipPath.originX/Y to 'center'
 
 #### Inherited from
 
 `ObjectProps.clipPath`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ObjectProps.ts:16
 
@@ -273,7 +288,7 @@ rgb(178,204,255)
 
 `ControlProps.cornerColor`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ControlProps.ts:28
 
@@ -293,7 +308,7 @@ Array specifying dash pattern of an object's control (hasBorder must be true)
 
 `ControlProps.cornerDashArray`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ControlProps.ts:54
 
@@ -315,7 +330,7 @@ Size of object's controlling corners (in pixels)
 
 `ControlProps.cornerSize`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ControlProps.ts:7
 
@@ -341,7 +356,7 @@ null
 
 `ControlProps.cornerStrokeColor`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ControlProps.ts:36
 
@@ -373,7 +388,7 @@ This API is no longer supported and may be removed in a future release.
 
 `ControlProps.cornerStyle`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ControlProps.ts:47
 
@@ -391,7 +406,7 @@ When set to `false`, an object can not be a target of events. All events propaga
 
 ```
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FabricObjectProps.ts:65
 
@@ -417,7 +432,7 @@ When `true`, object is not exported in OBJECT/JSON
 
 `ObjectProps.excludeFromExport`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ObjectProps.ts:52
 
@@ -425,13 +440,22 @@ src/shapes/Object/types/ObjectProps.ts:52
 
 ### fill
 
-> **fill**: `null` \| `string` \| [`TFiller`](../type-aliases/TFiller.md)
+> **fill**: `null` \| `string` \| [`TFiller`](/api/type-aliases/tfiller/)
+
+Color of object's fill
+takes css colors https://www.w3.org/TR/css-color-3/
+
+#### Default
+
+```ts
+rgb(0,0,0)
+```
 
 #### Inherited from
 
 `ObjectProps.fill`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ObjectProps.ts:17
 
@@ -455,7 +479,7 @@ nonzero
 
 `ObjectProps.fillRule`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FillStrokeProps.ts:26
 
@@ -477,7 +501,7 @@ false
 
 `ObjectProps.flipX`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:64
 
@@ -499,7 +523,7 @@ false
 
 `ObjectProps.flipY`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:71
 
@@ -521,7 +545,7 @@ Composite rule used for canvas globalCompositeOperation
 
 `ObjectProps.globalCompositeOperation`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/SerializedObjectProps.ts:18
 
@@ -543,7 +567,7 @@ When set to `false`, object's controlling borders are not rendered
 
 `BorderProps.hasBorders`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BorderProps.ts:22
 
@@ -565,7 +589,7 @@ When set to `false`, object's controls are not displayed and can not be used to 
 
 `ControlProps.hasControls`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ControlProps.ts:68
 
@@ -587,7 +611,7 @@ Object height
 
 `ObjectProps.height`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:34
 
@@ -605,7 +629,7 @@ Default cursor value used when hovering over this object on canvas
 null
 ```
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FabricObjectProps.ts:27
 
@@ -627,7 +651,7 @@ When `false`, default object's values are not included in its serialization
 
 `ObjectProps.includeDefaultValues`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ObjectProps.ts:44
 
@@ -651,7 +675,7 @@ false
 
 `ObjectProps.inverted`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/SerializedObjectProps.ts:60
 
@@ -675,7 +699,7 @@ You can change this by setting [originX](../../../../api/interfaces/fabricobject
 
 `ObjectProps.left`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:11
 
@@ -697,7 +721,7 @@ When `true`, object horizontal movement is locked
 
 `LockInteractionProps.lockMovementX`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/LockInteractionProps.ts:7
 
@@ -719,7 +743,7 @@ When `true`, object vertical movement is locked
 
 `LockInteractionProps.lockMovementY`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/LockInteractionProps.ts:14
 
@@ -741,7 +765,7 @@ When `true`, object rotation is locked
 
 `LockInteractionProps.lockRotation`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/LockInteractionProps.ts:21
 
@@ -763,7 +787,7 @@ When `true`, object cannot be flipped by scaling into negative values
 
 `LockInteractionProps.lockScalingFlip`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/LockInteractionProps.ts:56
 
@@ -785,7 +809,7 @@ When `true`, object horizontal scaling is locked
 
 `LockInteractionProps.lockScalingX`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/LockInteractionProps.ts:28
 
@@ -807,7 +831,7 @@ When `true`, object vertical scaling is locked
 
 `LockInteractionProps.lockScalingY`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/LockInteractionProps.ts:35
 
@@ -829,7 +853,7 @@ When `true`, object horizontal skewing is locked
 
 `LockInteractionProps.lockSkewingX`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/LockInteractionProps.ts:42
 
@@ -851,7 +875,7 @@ When `true`, object vertical skewing is locked
 
 `LockInteractionProps.lockSkewingY`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/LockInteractionProps.ts:49
 
@@ -873,7 +897,7 @@ Minimum allowed scale value of an object
 
 `ObjectProps.minScaleLimit`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ObjectProps.ts:27
 
@@ -891,7 +915,7 @@ Default cursor value used when moving this object on canvas
 null
 ```
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FabricObjectProps.ts:34
 
@@ -899,7 +923,7 @@ src/shapes/Object/types/FabricObjectProps.ts:34
 
 ### noScaleCache?
 
-> **`optional`** **noScaleCache**: `boolean`
+> `optional` **noScaleCache**: `boolean`
 
 When `true`, cache does not get updated during scaling. The picture will get blocky if scaled
 too much and will be redrawn with correct details at the end of scaling.
@@ -913,7 +937,7 @@ since 1.7.0
 true
 ```
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FabricObjectProps.ts:20
 
@@ -941,7 +965,7 @@ true
 
 `ObjectProps.objectCaching`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ObjectProps.ts:37
 
@@ -963,7 +987,7 @@ Opacity of an object
 
 `ObjectProps.opacity`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/SerializedObjectProps.ts:11
 
@@ -971,7 +995,7 @@ src/shapes/Object/types/SerializedObjectProps.ts:11
 
 ### originX
 
-> **originX**: [`TOriginX`](../type-aliases/TOriginX.md)
+> **originX**: [`TOriginX`](/api/type-aliases/toriginx/)
 
 Horizontal origin of transformation of an object (`left`, `center`, `right`  or `[0, 1]`)
 See http://jsfiddle.net/1ow02gea/244/ on how originX/originY affect objects in groups
@@ -986,7 +1010,7 @@ See http://jsfiddle.net/1ow02gea/244/ on how originX/originY affect objects in g
 
 `ObjectProps.originX`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:42
 
@@ -994,7 +1018,7 @@ src/shapes/Object/types/BaseProps.ts:42
 
 ### originY
 
-> **originY**: [`TOriginY`](../type-aliases/TOriginY.md)
+> **originY**: [`TOriginY`](/api/type-aliases/toriginy/)
 
 Vertical origin of transformation of an object (`top`, `center`, `bottom` or `[0, 1]`)
 See http://jsfiddle.net/1ow02gea/244/ on how originX/originY affect objects in groups
@@ -1009,7 +1033,7 @@ See http://jsfiddle.net/1ow02gea/244/ on how originX/originY affect objects in g
 
 `ObjectProps.originY`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:50
 
@@ -1031,7 +1055,7 @@ Padding between object and its controlling borders (in pixels)
 
 `ControlProps.padding`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ControlProps.ts:61
 
@@ -1053,7 +1077,7 @@ Determines if the fill or the stroke is drawn first (one of "fill" or "stroke")
 
 `ObjectProps.paintFirst`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FillStrokeProps.ts:9
 
@@ -1071,7 +1095,7 @@ When set to `true`, objects are "found" on canvas on per-pixel basis rather than
 
 ```
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FabricObjectProps.ts:50
 
@@ -1093,7 +1117,7 @@ Object scale factor (horizontal)
 
 `ObjectProps.scaleX`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:78
 
@@ -1115,7 +1139,7 @@ Object scale factor (vertical)
 
 `ObjectProps.scaleY`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:85
 
@@ -1134,7 +1158,7 @@ But events still fire on it.
 
 ```
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FabricObjectProps.ts:58
 
@@ -1157,7 +1181,7 @@ does not mix good with globalCompositeOperation methods.
 This API is no longer supported and may be removed in a future release.
 :::
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FabricObjectProps.ts:43
 
@@ -1165,13 +1189,21 @@ src/shapes/Object/types/FabricObjectProps.ts:43
 
 ### shadow
 
-> **shadow**: `null` \| [`Shadow`](../classes/Shadow.md)
+> **shadow**: `null` \| [`Shadow`](/api/classes/shadow/)
+
+Shadow object representing shadow of this shape
+
+#### Default
+
+```ts
+null
+```
 
 #### Inherited from
 
 `ObjectProps.shadow`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ObjectProps.ts:19
 
@@ -1179,7 +1211,7 @@ src/shapes/Object/types/ObjectProps.ts:19
 
 ### skewX
 
-> **skewX**: [`TDegree`](../type-aliases/TDegree.md)
+> **skewX**: [`TDegree`](/api/type-aliases/tdegree/)
 
 Angle of skew on x axes of an object (in degrees)
 
@@ -1193,7 +1225,7 @@ Angle of skew on x axes of an object (in degrees)
 
 `ObjectProps.skewX`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:92
 
@@ -1201,7 +1233,7 @@ src/shapes/Object/types/BaseProps.ts:92
 
 ### skewY
 
-> **skewY**: [`TDegree`](../type-aliases/TDegree.md)
+> **skewY**: [`TDegree`](/api/type-aliases/tdegree/)
 
 Angle of skew on y axes of an object (in degrees)
 
@@ -1215,7 +1247,7 @@ Angle of skew on y axes of an object (in degrees)
 
 `ObjectProps.skewY`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:99
 
@@ -1223,7 +1255,7 @@ src/shapes/Object/types/BaseProps.ts:99
 
 ### snapAngle?
 
-> **`optional`** **snapAngle**: [`TDegree`](../type-aliases/TDegree.md)
+> `optional` **snapAngle**: [`TDegree`](/api/type-aliases/tdegree/)
 
 The angle that an object will lock to while rotating.
 
@@ -1231,7 +1263,7 @@ The angle that an object will lock to while rotating.
 
 `ObjectProps.snapAngle`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ObjectTransformProps.ts:8
 
@@ -1239,7 +1271,7 @@ src/shapes/Object/types/ObjectTransformProps.ts:8
 
 ### snapThreshold?
 
-> **`optional`** **snapThreshold**: [`TDegree`](../type-aliases/TDegree.md)
+> `optional` **snapThreshold**: [`TDegree`](/api/type-aliases/tdegree/)
 
 The angle difference from the current snapped angle in which snapping should occur.
 When undefined, the snapThreshold will default to the snapAngle.
@@ -1248,7 +1280,7 @@ When undefined, the snapThreshold will default to the snapAngle.
 
 `ObjectProps.snapThreshold`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ObjectTransformProps.ts:15
 
@@ -1256,13 +1288,22 @@ src/shapes/Object/types/ObjectTransformProps.ts:15
 
 ### stroke
 
-> **stroke**: `null` \| `string` \| [`TFiller`](../type-aliases/TFiller.md)
+> **stroke**: `null` \| `string` \| [`TFiller`](/api/type-aliases/tfiller/)
+
+When defined, an object is rendered via stroke and this property specifies its color
+takes css colors https://www.w3.org/TR/css-color-3/
+
+#### Default
+
+```ts
+null
+```
 
 #### Inherited from
 
 `ObjectProps.stroke`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ObjectProps.ts:18
 
@@ -1284,7 +1325,7 @@ null;
 
 `ObjectProps.strokeDashArray`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FillStrokeProps.ts:48
 
@@ -1306,7 +1347,7 @@ Line offset of an object's stroke
 
 `ObjectProps.strokeDashOffset`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FillStrokeProps.ts:55
 
@@ -1328,7 +1369,7 @@ butt
 
 `ObjectProps.strokeLineCap`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FillStrokeProps.ts:62
 
@@ -1350,7 +1391,7 @@ Corner style of an object's stroke (one of "bevel", "round", "miter")
 
 `ObjectProps.strokeLineJoin`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FillStrokeProps.ts:69
 
@@ -1372,7 +1413,7 @@ Maximum miter length (used for strokeLineJoin = "miter") of an object's stroke
 
 `ObjectProps.strokeMiterLimit`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FillStrokeProps.ts:76
 
@@ -1407,7 +1448,7 @@ false
 
 `ObjectProps.strokeUniform`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FillStrokeProps.ts:89
 
@@ -1429,7 +1470,7 @@ Width of a stroke used to render this object
 
 `ObjectProps.strokeWidth`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FillStrokeProps.ts:41
 
@@ -1453,7 +1494,7 @@ You can change this by setting [originY](../../../../api/interfaces/fabricobject
 
 `ObjectProps.top`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:20
 
@@ -1475,7 +1516,7 @@ Size of object's controlling corners when touch interaction is detected
 
 `ControlProps.touchCornerSize`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ControlProps.ts:14
 
@@ -1497,7 +1538,7 @@ true
 
 `ControlProps.transparentCorners`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ControlProps.ts:21
 
@@ -1519,7 +1560,7 @@ When set to `false`, an object is not rendered on canvas
 
 `ObjectProps.visible`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/SerializedObjectProps.ts:40
 
@@ -1541,6 +1582,6 @@ Object width
 
 `ObjectProps.width`
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:27

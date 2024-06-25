@@ -5,7 +5,7 @@ prev: false
 title: "TEasingFunction"
 ---
 
-> **TEasingFunction**\<`T`\>: `T` extends `number`[] ? (`timeElapsed`, `startValue`, `byValue`, `duration`, `index`) => `number` : (`timeElapsed`, `startValue`, `byValue`, `duration`) => `number`
+> **TEasingFunction**\<`T`\>: `T` *extends* `number`[] ? (`timeElapsed`, `startValue`, `byValue`, `duration`, `index`) => `number` : (`timeElapsed`, `startValue`, `byValue`, `duration`) => `number`
 
 An easing function used to calculate the current value
 
@@ -25,10 +25,10 @@ ms elapsed since start
 
 in ms
 
-## Type parameters
+## Type Parameters
 
 • **T** = `unknown`
 
-## Source
+## Defined in
 
 src/util/animation/types.ts:35

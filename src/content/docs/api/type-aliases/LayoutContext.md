@@ -5,8 +5,8 @@ prev: false
 title: "LayoutContext"
 ---
 
-> **LayoutContext**: [`InitializationLayoutContext`](InitializationLayoutContext.md) \| [`CollectionChangeLayoutContext`](CollectionChangeLayoutContext.md) \| [`ObjectModifiedLayoutContext`](ObjectModifiedLayoutContext.md) \| [`ObjectModifyingLayoutContext`](ObjectModifyingLayoutContext.md) \| [`ImperativeLayoutContext`](ImperativeLayoutContext.md)
+> **LayoutContext**: [`InitializationLayoutContext`](/api/type-aliases/initializationlayoutcontext/) \| [`CollectionChangeLayoutContext`](/api/type-aliases/collectionchangelayoutcontext/) \| [`ObjectModifiedLayoutContext`](/api/type-aliases/objectmodifiedlayoutcontext/) \| [`ObjectModifyingLayoutContext`](/api/type-aliases/objectmodifyinglayoutcontext/) \| [`ImperativeLayoutContext`](/api/type-aliases/imperativelayoutcontext/)
 
-## Source
+## Defined in
 
 src/LayoutManager/types.ts:121

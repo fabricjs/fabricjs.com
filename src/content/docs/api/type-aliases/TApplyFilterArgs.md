@@ -5,8 +5,8 @@ prev: false
 title: "TApplyFilterArgs"
 ---
 
-> **TApplyFilterArgs**: `Object`
+> **TApplyFilterArgs**: `object`
 
-## Source
+## Defined in
 
 src/filters/typedefs.ts:60

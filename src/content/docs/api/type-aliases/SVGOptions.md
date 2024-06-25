@@ -5,7 +5,7 @@ prev: false
 title: "SVGOptions"
 ---
 
-> **SVGOptions**: `Object`
+> **SVGOptions**: `object`
 
 ## Type declaration
 
@@ -37,6 +37,6 @@ width part of the viewBox attribute on svg
 
 width part of the svg tag if viewBox is not specified
 
-## Source
+## Defined in
 
 src/gradient/typedefs.ts:85

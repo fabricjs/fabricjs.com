@@ -5,28 +5,28 @@ prev: false
 title: "LayoutResult"
 ---
 
-> **LayoutResult**: `Object`
+> **LayoutResult**: `object`
 
 ## Type declaration
 
 ### nextCenter
 
-> **nextCenter**: [`Point`](../classes/Point.md)
+> **nextCenter**: [`Point`](/api/classes/point/)
 
 ### offset
 
-> **offset**: [`Point`](../classes/Point.md)
+> **offset**: [`Point`](/api/classes/point/)
 
 The vector used to offset objects by, as measured by the plane
 
 ### prevCenter
 
-> **prevCenter**: [`Point`](../classes/Point.md)
+> **prevCenter**: [`Point`](/api/classes/point/)
 
 ### result?
 
-> **`optional`** **result**: [`LayoutStrategyResult`](LayoutStrategyResult.md)
+> `optional` **result**: [`LayoutStrategyResult`](/api/type-aliases/layoutstrategyresult/)
 
-## Source
+## Defined in
 
 src/LayoutManager/types.ts:54

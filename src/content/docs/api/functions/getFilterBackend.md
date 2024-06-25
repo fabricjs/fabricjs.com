@@ -11,7 +11,7 @@ Get the current fabricJS filter backend  or initialize one if not available yet
 
 ## Parameters
 
-• **strict?**: `boolean`= `true`
+• **strict?**: `boolean` = `true`
 
 pass `true` to create the backend if it wasn't created yet (default behavior),
 pass `false` to get the backend ref without mutating it
@@ -20,6 +20,6 @@ pass `false` to get the backend ref without mutating it
 
 `FilterBackend`
 
-## Source
+## Defined in
 
 src/filters/FilterBackend.ts:29

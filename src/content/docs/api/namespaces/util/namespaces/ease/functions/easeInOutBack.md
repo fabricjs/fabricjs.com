@@ -23,6 +23,6 @@ Backwards easing in and out
 
 `number`
 
-## Source
+## Defined in
 
 src/util/animation/easing.ts:270

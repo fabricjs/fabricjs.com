@@ -5,8 +5,8 @@ prev: false
 title: "GradientCoordValue"
 ---
 
-> **GradientCoordValue**: `number` \| [`Percent`](Percent.md) \| `string`
+> **GradientCoordValue**: `number` \| [`Percent`](/api/type-aliases/percent/) \| `string`
 
-## Source
+## Defined in
 
 src/gradient/typedefs.ts:7

@@ -7,6 +7,6 @@ title: "ObjectPointerEvents"
 
 > **ObjectPointerEvents**: `TPointerEvents`\<`"mouse"`\>
 
-## Source
+## Defined in
 
 src/EventTypeDefs.ts:261

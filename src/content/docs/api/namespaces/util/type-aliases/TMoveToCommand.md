@@ -5,8 +5,8 @@ prev: false
 title: "TMoveToCommand"
 ---
 
-> **TMoveToCommand**: `TCommand3`\<[`TParsedMoveToCommand`](TParsedMoveToCommand.md)\>
+> **TMoveToCommand**: `TCommand3`\<[`TParsedMoveToCommand`](/api/namespaces/util/type-aliases/tparsedmovetocommand/)\>
 
-## Source
+## Defined in
 
 src/util/path/typedefs.ts:115

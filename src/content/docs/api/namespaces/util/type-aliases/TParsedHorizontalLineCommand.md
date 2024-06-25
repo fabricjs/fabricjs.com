@@ -5,8 +5,8 @@ prev: false
 title: "TParsedHorizontalLineCommand"
 ---
 
-> **TParsedHorizontalLineCommand**: [`TParsedAbsoluteHorizontalLineCommand`](TParsedAbsoluteHorizontalLineCommand.md) \| [`TParsedRelativeHorizontalLineCommand`](TParsedRelativeHorizontalLineCommand.md)
+> **TParsedHorizontalLineCommand**: [`TParsedAbsoluteHorizontalLineCommand`](/api/namespaces/util/type-aliases/tparsedabsolutehorizontallinecommand/) \| [`TParsedRelativeHorizontalLineCommand`](/api/namespaces/util/type-aliases/tparsedrelativehorizontallinecommand/)
 
-## Source
+## Defined in
 
 src/util/path/typedefs.ts:127

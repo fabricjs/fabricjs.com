@@ -15,6 +15,6 @@ title: "TSVGReviver"
 
 `string`
 
-## Source
+## Defined in
 
 src/typedefs.ts:85

@@ -7,6 +7,6 @@ title: "TOriginY"
 
 > **TOriginY**: `"center"` \| `"top"` \| `"bottom"` \| `number`
 
-## Source
+## Defined in
 
 src/typedefs.ts:76

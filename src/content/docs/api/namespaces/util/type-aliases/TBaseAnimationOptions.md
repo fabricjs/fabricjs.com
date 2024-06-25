@@ -5,7 +5,7 @@ prev: false
 title: "TBaseAnimationOptions"
 ---
 
-> **TBaseAnimationOptions**\<`T`, `TCallback`, `TEasing`\>: `Partial`\<[`TAnimationBaseOptions`](TAnimationBaseOptions.md)\<`TEasing`\> & [`TAnimationCallbacks`](TAnimationCallbacks.md)\<`TCallback`\>\> & `Object`
+> **TBaseAnimationOptions**\<`T`, `TCallback`, `TEasing`\>: `Partial`\<[`TAnimationBaseOptions`](/api/namespaces/util/type-aliases/tanimationbaseoptions/)\<`TEasing`\> & [`TAnimationCallbacks`](/api/namespaces/util/type-aliases/tanimationcallbacks/)\<`TCallback`\>\> & `object`
 
 ## Type declaration
 
@@ -17,7 +17,7 @@ title: "TBaseAnimationOptions"
 
 > **startValue**: `T`
 
-## Type parameters
+## Type Parameters
 
 • **T**
 
@@ -25,6 +25,6 @@ title: "TBaseAnimationOptions"
 
 • **TEasing** = `T`
 
-## Source
+## Defined in
 
 src/util/animation/types.ts:98

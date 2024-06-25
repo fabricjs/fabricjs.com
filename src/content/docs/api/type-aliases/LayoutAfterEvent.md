@@ -5,20 +5,20 @@ prev: false
 title: "LayoutAfterEvent"
 ---
 
-> **LayoutAfterEvent**: `Object`
+> **LayoutAfterEvent**: `object`
 
 ## Type declaration
 
 ### context
 
-> **context**: [`StrictLayoutContext`](StrictLayoutContext.md)
+> **context**: [`StrictLayoutContext`](/api/type-aliases/strictlayoutcontext/)
 
 ### result?
 
-> **`optional`** **result**: [`LayoutResult`](LayoutResult.md)
+> `optional` **result**: [`LayoutResult`](/api/type-aliases/layoutresult/)
 
 will be undefined if layout was skipped
 
-## Source
+## Defined in
 
 src/LayoutManager/types.ts:144

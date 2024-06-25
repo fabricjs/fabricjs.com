@@ -14,7 +14,7 @@ plus the addition of offsetY and offsetX.
 
 ## Parameters
 
-• **this**: [`Control`](../../../classes/Control.md)
+• **this**: [`Control`](/api/classes/control/)
 
 • **ctx**: `CanvasRenderingContext2D`
 
@@ -28,11 +28,11 @@ x coordinate where the control center should be
 
 y coordinate where the control center should be
 
-• **styleOverride**: `Partial`\<`Pick`\<`InteractiveFabricObject`\<`Partial`\<[`FabricObjectProps`](../../../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../../../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../../../interfaces/ObjectEvents.md)\>, `"cornerStyle"` \| `"cornerSize"` \| `"cornerColor"` \| `"cornerStrokeColor"` \| `"cornerDashArray"` \| `"transparentCorners"`\>\>
+• **styleOverride**: `Partial`\<`Pick`\<`InteractiveFabricObject`\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>, `"cornerStyle"` \| `"cornerSize"` \| `"cornerColor"` \| `"cornerStrokeColor"` \| `"cornerDashArray"` \| `"transparentCorners"`\>\>
 
 override for FabricObject controls style
 
-• **fabricObject**: `InteractiveFabricObject`\<`Partial`\<[`FabricObjectProps`](../../../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../../../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../../../interfaces/ObjectEvents.md)\>
+• **fabricObject**: `InteractiveFabricObject`\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 the fabric object for which we are rendering controls
 
@@ -40,6 +40,6 @@ the fabric object for which we are rendering controls
 
 `void`
 
-## Source
+## Defined in
 
 src/controls/controlRendering.ts:37

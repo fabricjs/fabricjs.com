@@ -5,7 +5,7 @@ prev: false
 title: "createPolyPositionHandler"
 ---
 
-> **createPolyPositionHandler**(`pointIndex`): (`dim`, `finalMatrix`, `polyObject`) => [`Point`](../../../classes/Point.md)
+> **createPolyPositionHandler**(`pointIndex`): (`dim`, `finalMatrix`, `polyObject`) => [`Point`](/api/classes/point/)
 
 This function locates the controls.
 It'll be used both for drawing and for interaction.
@@ -18,19 +18,18 @@ It'll be used both for drawing and for interaction.
 
 `Function`
 
-> ### Parameters
->
-> • **dim**: [`Point`](../../../classes/Point.md)
->
-> • **finalMatrix**: [`TMat2D`](../../../type-aliases/TMat2D.md)
->
-> • **polyObject**: [`Polyline`](../../../classes/Polyline.md)\<`Partial`\<[`FabricObjectProps`](../../../interfaces/FabricObjectProps.md)\>, [`SerializedPolylineProps`](../../../interfaces/SerializedPolylineProps.md), [`ObjectEvents`](../../../interfaces/ObjectEvents.md)\>
->
-> ### Returns
->
-> [`Point`](../../../classes/Point.md)
->
+### Parameters
 
-## Source
+• **dim**: [`Point`](/api/classes/point/)
+
+• **finalMatrix**: [`TMat2D`](/api/type-aliases/tmat2d/)
+
+• **polyObject**: [`Polyline`](/api/classes/polyline/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedPolylineProps`](/api/interfaces/serializedpolylineprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
+
+### Returns
+
+[`Point`](/api/classes/point/)
+
+## Defined in
 
 src/controls/polyControl.ts:23

@@ -7,6 +7,6 @@ title: "TPointerEventNames"
 
 > **TPointerEventNames**: `WithBeforeSuffix`\<`"down"`\> \| `WithBeforeSuffix`\<`"move"`\> \| `WithBeforeSuffix`\<`"up"`\> \| `"dblclick"` \| `"wheel"`
 
-## Source
+## Defined in
 
 src/EventTypeDefs.ts:254

@@ -5,25 +5,23 @@ prev: false
 title: "saveObjectTransform"
 ---
 
-> **saveObjectTransform**(`target`): `Object`
-
-Extract Object transform values
+> **saveObjectTransform**(`target`): `object`
 
 ## Parameters
 
-• **target**: `FabricObject`\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](../../../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../../../interfaces/ObjectEvents.md)\>
+• **target**: `FabricObject`\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 object to read from
 
 ## Returns
 
-`Object`
+`object`
 
 Components of transform
 
 ### angle
 
-> **angle**: [`TDegree`](../../../type-aliases/TDegree.md) = `target.angle`
+> **angle**: [`TDegree`](/api/type-aliases/tdegree/) = `target.angle`
 
 ### flipX
 
@@ -57,6 +55,6 @@ Components of transform
 
 > **top**: `number` = `target.top`
 
-## Source
+## Defined in
 
 src/util/misc/objectTransforms.ts:86

@@ -7,7 +7,7 @@ title: "CanvasOptions"
 
 ## Extends
 
-- [`StaticCanvasOptions`](StaticCanvasOptions.md).`CanvasTransformOptions`.`CanvasSelectionOptions`.`CanvasCursorOptions`.`TargetFindOptions`.`CanvasEventsOptions`
+- [`StaticCanvasOptions`](/api/interfaces/staticcanvasoptions/).`CanvasTransformOptions`.`CanvasSelectionOptions`.`CanvasCursorOptions`.`TargetFindOptions`.`CanvasEventsOptions`
 
 ## Properties
 
@@ -29,9 +29,9 @@ move to Canvas
 
 #### Inherited from
 
-[`StaticCanvasOptions`](StaticCanvasOptions.md).[`allowTouchScrolling`](StaticCanvasOptions.md#allowtouchscrolling)
+[`StaticCanvasOptions`](/api/interfaces/staticcanvasoptions/).[`allowTouchScrolling`](/api/interfaces/staticcanvasoptions/#allowtouchscrolling)
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvasOptions.ts:161
 
@@ -39,7 +39,7 @@ src/canvas/StaticCanvasOptions.ts:161
 
 ### altActionKey
 
-> **altActionKey**: [`TOptionalModifierKey`](../type-aliases/TOptionalModifierKey.md)
+> **altActionKey**: [`TOptionalModifierKey`](/api/type-aliases/toptionalmodifierkey/)
 
 Indicates which key enable alternate action on corner
 values: 'altKey', 'shiftKey', 'ctrlKey'.
@@ -60,7 +60,7 @@ feature is disabled feature disabled.
 
 `CanvasTransformOptions.altActionKey`
 
-#### Source
+#### Defined in
 
 src/canvas/CanvasOptions.ts:67
 
@@ -68,7 +68,7 @@ src/canvas/CanvasOptions.ts:67
 
 ### altSelectionKey
 
-> **altSelectionKey**: [`TOptionalModifierKey`](../type-aliases/TOptionalModifierKey.md)
+> **altSelectionKey**: [`TOptionalModifierKey`](/api/type-aliases/toptionalmodifierkey/)
 
 Indicates which key enable alternative selection
 in case of target overlapping with active object
@@ -92,7 +92,7 @@ feature is disabled.
 
 `CanvasSelectionOptions.altSelectionKey`
 
-#### Source
+#### Defined in
 
 src/canvas/CanvasOptions.ts:102
 
@@ -100,7 +100,7 @@ src/canvas/CanvasOptions.ts:102
 
 ### backgroundColor
 
-> **backgroundColor**: `string` \| [`TFiller`](../type-aliases/TFiller.md)
+> **backgroundColor**: `string` \| [`TFiller`](/api/type-aliases/tfiller/)
 
 Background color of canvas instance.
 
@@ -112,9 +112,9 @@ Background color of canvas instance.
 
 #### Inherited from
 
-[`StaticCanvasOptions`](StaticCanvasOptions.md).[`backgroundColor`](StaticCanvasOptions.md#backgroundcolor)
+[`StaticCanvasOptions`](/api/interfaces/staticcanvasoptions/).[`backgroundColor`](/api/interfaces/staticcanvasoptions/#backgroundcolor)
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvasOptions.ts:21
 
@@ -122,7 +122,7 @@ src/canvas/StaticCanvasOptions.ts:21
 
 ### backgroundImage?
 
-> **`optional`** **backgroundImage**: [`FabricObject`](../classes/FabricObject.md)\<`Partial`\<[`FabricObjectProps`](FabricObjectProps.md)\>, [`SerializedObjectProps`](SerializedObjectProps.md), [`ObjectEvents`](ObjectEvents.md)\>
+> `optional` **backgroundImage**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 Background image of canvas instance.
 since 2.4.0 image caching is active, please when putting an image as background, add to the
@@ -137,9 +137,9 @@ vale. As an alternative you can disable image objectCaching
 
 #### Inherited from
 
-[`StaticCanvasOptions`](StaticCanvasOptions.md).[`backgroundImage`](StaticCanvasOptions.md#backgroundimage)
+[`StaticCanvasOptions`](/api/interfaces/staticcanvasoptions/).[`backgroundImage`](/api/interfaces/staticcanvasoptions/#backgroundimage)
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvasOptions.ts:31
 
@@ -167,9 +167,9 @@ we should really find a different way to do this
 
 #### Inherited from
 
-[`StaticCanvasOptions`](StaticCanvasOptions.md).[`backgroundVpt`](StaticCanvasOptions.md#backgroundvpt)
+[`StaticCanvasOptions`](/api/interfaces/staticcanvasoptions/).[`backgroundVpt`](/api/interfaces/staticcanvasoptions/#backgroundvpt)
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvasOptions.ts:14
 
@@ -177,7 +177,7 @@ src/canvas/StaticCanvasOptions.ts:14
 
 ### centeredKey
 
-> **centeredKey**: [`TOptionalModifierKey`](../type-aliases/TOptionalModifierKey.md)
+> **centeredKey**: [`TOptionalModifierKey`](/api/type-aliases/toptionalmodifierkey/)
 
 Indicates which key enable centered Transform
 values: 'altKey', 'shiftKey', 'ctrlKey'.
@@ -198,7 +198,7 @@ feature is disabled feature disabled.
 
 `CanvasTransformOptions.centeredKey`
 
-#### Source
+#### Defined in
 
 src/canvas/CanvasOptions.ts:56
 
@@ -225,7 +225,7 @@ When true, objects use center point as the origin of rotate transformation.
 
 `CanvasTransformOptions.centeredRotation`
 
-#### Source
+#### Defined in
 
 src/canvas/CanvasOptions.ts:45
 
@@ -252,7 +252,7 @@ When true, objects use center point as the origin of scale transformation.
 
 `CanvasTransformOptions.centeredScaling`
 
-#### Source
+#### Defined in
 
 src/canvas/CanvasOptions.ts:36
 
@@ -260,7 +260,7 @@ src/canvas/CanvasOptions.ts:36
 
 ### clipPath?
 
-> **`optional`** **clipPath**: [`FabricObject`](../classes/FabricObject.md)\<`Partial`\<[`FabricObjectProps`](FabricObjectProps.md)\>, [`SerializedObjectProps`](SerializedObjectProps.md), [`ObjectEvents`](ObjectEvents.md)\>
+> `optional` **clipPath**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 a fabricObject that, without stroke define a clipping area with their shape. filled in black
 the clipPath object gets used when the canvas has rendered, and the context is placed in the
@@ -269,9 +269,9 @@ clipPath will clip away controls, if you do not want this to happen use controls
 
 #### Inherited from
 
-[`StaticCanvasOptions`](StaticCanvasOptions.md).[`clipPath`](StaticCanvasOptions.md#clippath)
+[`StaticCanvasOptions`](/api/interfaces/staticcanvasoptions/).[`clipPath`](/api/interfaces/staticcanvasoptions/#clippath)
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvasOptions.ts:106
 
@@ -290,10 +290,10 @@ Default element class that's given to wrapper (div) element of canvas
 ```
 
 :::caution[Deprecated]
-customize [CanvasDOMManager](../classes/CanvasDOMManager.md) instead or access elements directly
+customize [CanvasDOMManager](/api/classes/canvasdommanager/) instead or access elements directly
 :::
 
-#### Source
+#### Defined in
 
 src/canvas/CanvasOptions.ts:251
 
@@ -317,9 +317,9 @@ move to Canvas
 
 #### Inherited from
 
-[`StaticCanvasOptions`](StaticCanvasOptions.md).[`controlsAboveOverlay`](StaticCanvasOptions.md#controlsaboveoverlay)
+[`StaticCanvasOptions`](/api/interfaces/staticcanvasoptions/).[`controlsAboveOverlay`](/api/interfaces/staticcanvasoptions/#controlsaboveoverlay)
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvasOptions.ts:152
 
@@ -341,7 +341,7 @@ default
 
 `CanvasCursorOptions.defaultCursor`
 
-#### Source
+#### Defined in
 
 src/canvas/CanvasOptions.ts:160
 
@@ -363,7 +363,7 @@ When the option is enabled, PointerEvent is used instead of TPointerEvent.
 
 `CanvasEventsOptions.enablePointerEvents`
 
-#### Source
+#### Defined in
 
 src/canvas/CanvasOptions.ts:235
 
@@ -383,9 +383,9 @@ When true, canvas is scaled by devicePixelRatio for better rendering on retina s
 
 #### Inherited from
 
-[`StaticCanvasOptions`](StaticCanvasOptions.md).[`enableRetinaScaling`](StaticCanvasOptions.md#enableretinascaling)
+[`StaticCanvasOptions`](/api/interfaces/staticcanvasoptions/).[`enableRetinaScaling`](/api/interfaces/staticcanvasoptions/#enableretinascaling)
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvasOptions.ts:90
 
@@ -411,7 +411,7 @@ Indicates if the canvas can fire middle click events
 
 `CanvasEventsOptions.fireMiddleClick`
 
-#### Source
+#### Defined in
 
 src/canvas/CanvasOptions.ts:228
 
@@ -437,7 +437,7 @@ Indicates if the canvas can fire right click events
 
 `CanvasEventsOptions.fireRightClick`
 
-#### Source
+#### Defined in
 
 src/canvas/CanvasOptions.ts:220
 
@@ -459,7 +459,7 @@ crosshair
 
 `CanvasCursorOptions.freeDrawingCursor`
 
-#### Source
+#### Defined in
 
 src/canvas/CanvasOptions.ts:167
 
@@ -474,9 +474,9 @@ The canvas can be taller than width if retina scaling is active
 
 #### Inherited from
 
-[`StaticCanvasOptions`](StaticCanvasOptions.md).[`height`](StaticCanvasOptions.md#height)
+[`StaticCanvasOptions`](/api/interfaces/staticcanvasoptions/).[`height`](/api/interfaces/staticcanvasoptions/#height)
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvasOptions.ts:143
 
@@ -498,7 +498,7 @@ move
 
 `CanvasCursorOptions.hoverCursor`
 
-#### Source
+#### Defined in
 
 src/canvas/CanvasOptions.ts:146
 
@@ -518,9 +518,9 @@ Indicates whether this canvas will use image smoothing, this is on by default in
 
 #### Inherited from
 
-[`StaticCanvasOptions`](StaticCanvasOptions.md).[`imageSmoothingEnabled`](StaticCanvasOptions.md#imagesmoothingenabled)
+[`StaticCanvasOptions`](/api/interfaces/staticcanvasoptions/).[`imageSmoothingEnabled`](/api/interfaces/staticcanvasoptions/#imagesmoothingenabled)
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvasOptions.ts:97
 
@@ -541,9 +541,9 @@ if set to false, takes precedence over the object value.
 
 #### Inherited from
 
-[`StaticCanvasOptions`](StaticCanvasOptions.md).[`includeDefaultValues`](StaticCanvasOptions.md#includedefaultvalues)
+[`StaticCanvasOptions`](/api/interfaces/staticcanvasoptions/).[`includeDefaultValues`](/api/interfaces/staticcanvasoptions/#includedefaultvalues)
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvasOptions.ts:116
 
@@ -565,7 +565,7 @@ move
 
 `CanvasCursorOptions.moveCursor`
 
-#### Source
+#### Defined in
 
 src/canvas/CanvasOptions.ts:153
 
@@ -591,7 +591,7 @@ not-allowed
 
 `CanvasCursorOptions.notAllowedCursor`
 
-#### Source
+#### Defined in
 
 src/canvas/CanvasOptions.ts:175
 
@@ -599,7 +599,7 @@ src/canvas/CanvasOptions.ts:175
 
 ### overlayColor
 
-> **overlayColor**: `string` \| [`TFiller`](../type-aliases/TFiller.md)
+> **overlayColor**: `string` \| [`TFiller`](/api/type-aliases/tfiller/)
 
 Overlay color of canvas instance.
 
@@ -615,9 +615,9 @@ Overlay color of canvas instance.
 
 #### Inherited from
 
-[`StaticCanvasOptions`](StaticCanvasOptions.md).[`overlayColor`](StaticCanvasOptions.md#overlaycolor)
+[`StaticCanvasOptions`](/api/interfaces/staticcanvasoptions/).[`overlayColor`](/api/interfaces/staticcanvasoptions/#overlaycolor)
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvasOptions.ts:48
 
@@ -625,7 +625,7 @@ src/canvas/StaticCanvasOptions.ts:48
 
 ### overlayImage?
 
-> **`optional`** **overlayImage**: [`FabricObject`](../classes/FabricObject.md)\<`Partial`\<[`FabricObjectProps`](FabricObjectProps.md)\>, [`SerializedObjectProps`](SerializedObjectProps.md), [`ObjectEvents`](ObjectEvents.md)\>
+> `optional` **overlayImage**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 Overlay image of canvas instance.
 since 2.4.0 image caching is active, please when putting an image as overlay, add to the
@@ -640,9 +640,9 @@ vale. As an alternative you can disable image objectCaching
 
 #### Inherited from
 
-[`StaticCanvasOptions`](StaticCanvasOptions.md).[`overlayImage`](StaticCanvasOptions.md#overlayimage)
+[`StaticCanvasOptions`](/api/interfaces/staticcanvasoptions/).[`overlayImage`](/api/interfaces/staticcanvasoptions/#overlayimage)
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvasOptions.ts:58
 
@@ -670,9 +670,9 @@ we should really find a different way to do this
 
 #### Inherited from
 
-[`StaticCanvasOptions`](StaticCanvasOptions.md).[`overlayVpt`](StaticCanvasOptions.md#overlayvpt)
+[`StaticCanvasOptions`](/api/interfaces/staticcanvasoptions/).[`overlayVpt`](/api/interfaces/staticcanvasoptions/#overlayvpt)
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvasOptions.ts:40
 
@@ -694,7 +694,7 @@ When true, object detection happens on per-pixel basis rather than on per-boundi
 
 `TargetFindOptions.perPixelTargetFind`
 
-#### Source
+#### Defined in
 
 src/canvas/CanvasOptions.ts:184
 
@@ -713,7 +713,7 @@ When false objects are brought to top and rendered as part of the selection grou
 
 ```
 
-#### Source
+#### Defined in
 
 src/canvas/CanvasOptions.ts:259
 
@@ -723,8 +723,8 @@ src/canvas/CanvasOptions.ts:259
 
 > **renderOnAddRemove**: `boolean`
 
-Indicates whether [StaticCanvas#add](../../../../api/interfaces/classes/staticcanvas/#add), [StaticCanvas#insertAt](../../../../api/interfaces/classes/staticcanvas/#insertat) and [StaticCanvas#remove](../../../../api/interfaces/classes/staticcanvas/#remove),
-StaticCanvas#moveTo, [StaticCanvas#clear](../../../../api/interfaces/classes/staticcanvas/#clear) and many more, should also re-render canvas.
+Indicates whether [StaticCanvas#add](../../../../api/classes/staticcanvas/#add), [StaticCanvas#insertAt](../../../../api/classes/staticcanvas/#insertat) and StaticCanvas#remove,
+StaticCanvas#moveTo, [StaticCanvas#clear](../../../../api/classes/staticcanvas/#clear) and many more, should also re-render canvas.
 Disabling this option will not give a performance boost when adding/removing a lot of objects to/from canvas at once
 since the renders are queued and executed one per frame.
 Disabling is suggested anyway and managing the renders of the app manually is not a big effort ( canvas.requestRenderAll() )
@@ -738,9 +738,9 @@ Left default to true to do not break documentation and old app, fiddles.
 
 #### Inherited from
 
-[`StaticCanvasOptions`](StaticCanvasOptions.md).[`renderOnAddRemove`](StaticCanvasOptions.md#renderonaddremove)
+[`StaticCanvasOptions`](/api/interfaces/staticcanvasoptions/).[`renderOnAddRemove`](/api/interfaces/staticcanvasoptions/#renderonaddremove)
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvasOptions.ts:72
 
@@ -762,7 +762,7 @@ Indicates whether group selection should be enabled
 
 `CanvasSelectionOptions.selection`
 
-#### Source
+#### Defined in
 
 src/canvas/CanvasOptions.ts:76
 
@@ -784,7 +784,7 @@ Color of the border of selection (usually slightly darker than color of selectio
 
 `CanvasSelectionOptions.selectionBorderColor`
 
-#### Source
+#### Defined in
 
 src/canvas/CanvasOptions.ts:123
 
@@ -806,7 +806,7 @@ Color of selection
 
 `CanvasSelectionOptions.selectionColor`
 
-#### Source
+#### Defined in
 
 src/canvas/CanvasOptions.ts:109
 
@@ -823,7 +823,7 @@ If not empty the selection border is dashed
 
 `CanvasSelectionOptions.selectionDashArray`
 
-#### Source
+#### Defined in
 
 src/canvas/CanvasOptions.ts:116
 
@@ -845,7 +845,7 @@ Select only shapes that are fully contained in the dragged selection rectangle.
 
 `CanvasSelectionOptions.selectionFullyContained`
 
-#### Source
+#### Defined in
 
 src/canvas/CanvasOptions.ts:137
 
@@ -853,7 +853,7 @@ src/canvas/CanvasOptions.ts:137
 
 ### selectionKey
 
-> **selectionKey**: [`TOptionalModifierKey`](../type-aliases/TOptionalModifierKey.md) \| (`"altKey"` \| `"shiftKey"` \| `"ctrlKey"` \| `"metaKey"`)[]
+> **selectionKey**: [`TOptionalModifierKey`](/api/type-aliases/toptionalmodifierkey/) \| (`"altKey"` \| `"shiftKey"` \| `"ctrlKey"` \| `"metaKey"`)[]
 
 Indicates which key or keys enable multiple click selection
 Pass value as a string or array of strings
@@ -875,7 +875,7 @@ feature is disabled.
 
 `CanvasSelectionOptions.selectionKey`
 
-#### Source
+#### Defined in
 
 src/canvas/CanvasOptions.ts:88
 
@@ -897,7 +897,7 @@ Width of a line used in object/group selection
 
 `CanvasSelectionOptions.selectionLineWidth`
 
-#### Source
+#### Defined in
 
 src/canvas/CanvasOptions.ts:130
 
@@ -921,9 +921,9 @@ true
 
 #### Inherited from
 
-[`StaticCanvasOptions`](StaticCanvasOptions.md).[`skipOffscreen`](StaticCanvasOptions.md#skipoffscreen)
+[`StaticCanvasOptions`](/api/interfaces/staticcanvasoptions/).[`skipOffscreen`](/api/interfaces/staticcanvasoptions/#skipoffscreen)
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvasOptions.ts:83
 
@@ -949,7 +949,7 @@ if you deactivate both, you should look into staticCanvas.
 
 `TargetFindOptions.skipTargetFind`
 
-#### Source
+#### Defined in
 
 src/canvas/CanvasOptions.ts:202
 
@@ -975,7 +975,7 @@ Indicates if the right click on canvas can output the context menu or not
 
 `CanvasEventsOptions.stopContextMenu`
 
-#### Source
+#### Defined in
 
 src/canvas/CanvasOptions.ts:212
 
@@ -996,9 +996,9 @@ a zoomed canvas will then produce zoomed SVG output.
 
 #### Inherited from
 
-[`StaticCanvasOptions`](StaticCanvasOptions.md).[`svgViewportTransformation`](StaticCanvasOptions.md#svgviewporttransformation)
+[`StaticCanvasOptions`](/api/interfaces/staticcanvasoptions/).[`svgViewportTransformation`](/api/interfaces/staticcanvasoptions/#svgviewporttransformation)
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvasOptions.ts:124
 
@@ -1020,7 +1020,7 @@ Number of pixels around target pixel to tolerate (consider active) during object
 
 `TargetFindOptions.targetFindTolerance`
 
-#### Source
+#### Defined in
 
 src/canvas/CanvasOptions.ts:191
 
@@ -1028,7 +1028,7 @@ src/canvas/CanvasOptions.ts:191
 
 ### uniScaleKey
 
-> **uniScaleKey**: [`TOptionalModifierKey`](../type-aliases/TOptionalModifierKey.md)
+> **uniScaleKey**: [`TOptionalModifierKey`](/api/type-aliases/toptionalmodifierkey/)
 
 Indicates which key switches uniform scaling.
 values: 'altKey', 'shiftKey', 'ctrlKey'.
@@ -1052,7 +1052,7 @@ and viceversa.
 
 `CanvasTransformOptions.uniScaleKey`
 
-#### Source
+#### Defined in
 
 src/canvas/CanvasOptions.ts:27
 
@@ -1079,7 +1079,7 @@ fabric 4.0 // changed name and default value
 
 `CanvasTransformOptions.uniformScaling`
 
-#### Source
+#### Defined in
 
 src/canvas/CanvasOptions.ts:13
 
@@ -1087,17 +1087,15 @@ src/canvas/CanvasOptions.ts:13
 
 ### viewportTransform
 
-> **viewportTransform**: [`TMat2D`](../type-aliases/TMat2D.md)
+> **viewportTransform**: [`TMat2D`](/api/type-aliases/tmat2d/)
 
 The transformation (a Canvas 2D API transform matrix) which focuses the viewport
 
-#### Example
+#### Examples
 
 ```ts
 canvas.viewportTransform = [1, 0, 0, 1, 0, 0];
 ```
-
-#### Example
 
 ```ts
 canvas.viewportTransform = [0.7, 0, 0, 0.7, 50, 50];
@@ -1111,9 +1109,9 @@ canvas.viewportTransform = [0.7, 0, 0, 0.7, 50, 50];
 
 #### Inherited from
 
-[`StaticCanvasOptions`](StaticCanvasOptions.md).[`viewportTransform`](StaticCanvasOptions.md#viewporttransform)
+[`StaticCanvasOptions`](/api/interfaces/staticcanvasoptions/).[`viewportTransform`](/api/interfaces/staticcanvasoptions/#viewporttransform)
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvasOptions.ts:172
 
@@ -1128,8 +1126,8 @@ The canvas can be larger than width if retina scaling is active
 
 #### Inherited from
 
-[`StaticCanvasOptions`](StaticCanvasOptions.md).[`width`](StaticCanvasOptions.md#width)
+[`StaticCanvasOptions`](/api/interfaces/staticcanvasoptions/).[`width`](/api/interfaces/staticcanvasoptions/#width)
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvasOptions.ts:136

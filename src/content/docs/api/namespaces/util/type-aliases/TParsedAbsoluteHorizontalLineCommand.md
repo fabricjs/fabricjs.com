@@ -7,6 +7,6 @@ title: "TParsedAbsoluteHorizontalLineCommand"
 
 > **TParsedAbsoluteHorizontalLineCommand**: [`"H"`, `number`]
 
-## Source
+## Defined in
 
 src/util/path/typedefs.ts:125

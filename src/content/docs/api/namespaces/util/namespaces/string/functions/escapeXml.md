@@ -7,8 +7,6 @@ title: "escapeXml"
 
 > **escapeXml**(`string`): `string`
 
-Escapes XML in a string
-
 ## Parameters
 
 • **string**: `string`
@@ -21,6 +19,6 @@ String to escape
 
 Escaped version of a string
 
-## Source
+## Defined in
 
 src/util/lang\_string.ts:19

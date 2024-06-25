@@ -7,11 +7,9 @@ title: "joinPath"
 
 > **joinPath**(`pathData`, `fractionDigits`?): `string`
 
-Join path commands to go back to svg format
-
 ## Parameters
 
-• **pathData**: [`TSimplePathData`](../type-aliases/TSimplePathData.md)
+• **pathData**: [`TSimplePathData`](/api/namespaces/util/type-aliases/tsimplepathdata/)
 
 fabricJS parsed path commands
 
@@ -25,6 +23,6 @@ number of fraction digits to "leave"
 
 joined path 'M 0 0 L 20 30'
 
-## Source
+## Defined in
 
 src/util/path/index.ts:1027

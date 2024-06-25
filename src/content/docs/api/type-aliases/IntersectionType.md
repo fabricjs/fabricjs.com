@@ -7,6 +7,6 @@ title: "IntersectionType"
 
 > **IntersectionType**: `"Intersection"` \| `"Coincident"` \| `"Parallel"`
 
-## Source
+## Defined in
 
 src/Intersection.ts:6

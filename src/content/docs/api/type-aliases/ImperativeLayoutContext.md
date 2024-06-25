@@ -5,7 +5,7 @@ prev: false
 title: "ImperativeLayoutContext"
 ---
 
-> **ImperativeLayoutContext**: [`CommonLayoutContext`](CommonLayoutContext.md) & `ImperativeLayoutCommonOptions` & `Object`
+> **ImperativeLayoutContext**: [`CommonLayoutContext`](/api/type-aliases/commonlayoutcontext/) & `ImperativeLayoutCommonOptions` & `object`
 
 ## Type declaration
 
@@ -13,6 +13,6 @@ title: "ImperativeLayoutContext"
 
 > **type**: *typeof* `LAYOUT_TYPE_IMPERATIVE`
 
-## Source
+## Defined in
 
 src/LayoutManager/types.ts:116

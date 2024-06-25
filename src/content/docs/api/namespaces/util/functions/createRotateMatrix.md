@@ -5,7 +5,7 @@ prev: false
 title: "createRotateMatrix"
 ---
 
-> **createRotateMatrix**(`angle`, `pivotPoint`?): [`TMat2D`](../../../type-aliases/TMat2D.md)
+> **createRotateMatrix**(`angle`, `pivotPoint`?): [`TMat2D`](/api/type-aliases/tmat2d/)
 
 Generate a rotation matrix around around a point (x,y), defaulting to (0,0)
 
@@ -16,20 +16,20 @@ A matrix in the form of
 
 ## Parameters
 
-• **angle**: [`TRotateMatrixArgs`](../type-aliases/TRotateMatrixArgs.md)= `{}`
+• **angle**: [`TRotateMatrixArgs`](/api/namespaces/util/type-aliases/trotatematrixargs/) = `{}`
 
 rotation in degrees
 
-• **pivotPoint?**: `Partial`\<[`XY`](../../../interfaces/XY.md)\>= `{}`
+• **pivotPoint?**: `Partial`\<[`XY`](/api/interfaces/xy/)\> = `{}`
 
 pivot point to rotate around
 
 ## Returns
 
-[`TMat2D`](../../../type-aliases/TMat2D.md)
+[`TMat2D`](/api/type-aliases/tmat2d/)
 
 matrix
 
-## Source
+## Defined in
 
 src/util/misc/matrix.ts:167

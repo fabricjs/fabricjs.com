@@ -9,12 +9,12 @@ title: "isWebGLPipelineState"
 
 ## Parameters
 
-• **options**: [`TWebGLPipelineState`](../type-aliases/TWebGLPipelineState.md) \| [`T2DPipelineState`](../type-aliases/T2DPipelineState.md)
+• **options**: [`TWebGLPipelineState`](/api/type-aliases/twebglpipelinestate/) \| [`T2DPipelineState`](/api/type-aliases/t2dpipelinestate/)
 
 ## Returns
 
 `options is TWebGLPipelineState`
 
-## Source
+## Defined in
 
 src/filters/utils.ts:6

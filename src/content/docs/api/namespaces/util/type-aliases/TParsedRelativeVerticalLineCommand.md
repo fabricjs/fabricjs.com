@@ -7,6 +7,6 @@ title: "TParsedRelativeVerticalLineCommand"
 
 > **TParsedRelativeVerticalLineCommand**: [`"v"`, `number`]
 
-## Source
+## Defined in
 
 src/util/path/typedefs.ts:134

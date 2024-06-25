@@ -5,8 +5,8 @@ prev: false
 title: "TClosePathCommand"
 ---
 
-> **TClosePathCommand**: `TCommand1`\<[`TParsedClosePathCommand`](TParsedClosePathCommand.md)\>
+> **TClosePathCommand**: `TCommand1`\<[`TParsedClosePathCommand`](/api/namespaces/util/type-aliases/tparsedclosepathcommand/)\>
 
-## Source
+## Defined in
 
 src/util/path/typedefs.ts:147

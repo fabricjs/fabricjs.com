@@ -5,8 +5,8 @@ prev: false
 title: "runningAnimations"
 ---
 
-> **`const`** **runningAnimations**: `AnimationRegistry`
+> `const` **runningAnimations**: `AnimationRegistry`
 
-## Source
+## Defined in
 
 src/util/animation/AnimationRegistry.ts:59

@@ -11,27 +11,31 @@ title: "CircleBrush"
 
 ## Extends
 
-- [`BaseBrush`](BaseBrush.md)
+- [`BaseBrush`](/api/classes/basebrush/)
 
 ## Constructors
 
-### new CircleBrush(canvas)
+### new CircleBrush()
 
-> **new CircleBrush**(`canvas`): [`CircleBrush`](CircleBrush.md)
+> **new CircleBrush**(`canvas`): [`CircleBrush`](/api/classes/circlebrush/)
 
 #### Parameters
 
-• **canvas**: [`Canvas`](Canvas.md)
+• **canvas**: [`Canvas`](/api/classes/canvas/)
+
+**Todo**
+
+add type
 
 #### Returns
 
-[`CircleBrush`](CircleBrush.md)
+[`CircleBrush`](/api/classes/circlebrush/)
 
 #### Overrides
 
-[`BaseBrush`](BaseBrush.md).[`constructor`](BaseBrush.md#constructors)
+[`BaseBrush`](/api/classes/basebrush/).[`constructor`](/api/classes/basebrush/#constructors)
 
-#### Source
+#### Defined in
 
 src/brushes/CircleBrush.ts:22
 
@@ -39,7 +43,7 @@ src/brushes/CircleBrush.ts:22
 
 ### canvas
 
-> **canvas**: [`Canvas`](Canvas.md)
+> **canvas**: [`Canvas`](/api/classes/canvas/)
 
 #### Todo
 
@@ -47,9 +51,9 @@ add type
 
 #### Inherited from
 
-[`BaseBrush`](BaseBrush.md).[`canvas`](BaseBrush.md#canvas)
+[`BaseBrush`](/api/classes/basebrush/).[`canvas`](/api/classes/basebrush/#canvas)
 
-#### Source
+#### Defined in
 
 src/brushes/BaseBrush.ts:73
 
@@ -69,9 +73,9 @@ Color of a brush
 
 #### Inherited from
 
-[`BaseBrush`](BaseBrush.md).[`color`](BaseBrush.md#color)
+[`BaseBrush`](/api/classes/basebrush/).[`color`](/api/classes/basebrush/#color)
 
-#### Source
+#### Defined in
 
 src/brushes/BaseBrush.ts:16
 
@@ -91,9 +95,9 @@ false
 
 #### Inherited from
 
-[`BaseBrush`](BaseBrush.md).[`limitedToCanvasSize`](BaseBrush.md#limitedtocanvassize)
+[`BaseBrush`](/api/classes/basebrush/).[`limitedToCanvasSize`](/api/classes/basebrush/#limitedtocanvassize)
 
-#### Source
+#### Defined in
 
 src/brushes/BaseBrush.ts:68
 
@@ -101,9 +105,9 @@ src/brushes/BaseBrush.ts:68
 
 ### points
 
-> **points**: [`CircleBrushPoint`](../type-aliases/CircleBrushPoint.md)[]
+> **points**: [`CircleBrushPoint`](/api/type-aliases/circlebrushpoint/)[]
 
-#### Source
+#### Defined in
 
 src/brushes/CircleBrush.ts:20
 
@@ -111,7 +115,7 @@ src/brushes/CircleBrush.ts:20
 
 ### shadow
 
-> **shadow**: `null` \| [`Shadow`](Shadow.md) = `null`
+> **shadow**: `null` \| [`Shadow`](/api/classes/shadow/) = `null`
 
 Shadow object representing shadow of this shape.
 <b>Backwards incompatibility note:</b> This property replaces "shadowColor" (String), "shadowOffsetX" (Number),
@@ -125,9 +129,9 @@ Shadow object representing shadow of this shape.
 
 #### Inherited from
 
-[`BaseBrush`](BaseBrush.md).[`shadow`](BaseBrush.md#shadow)
+[`BaseBrush`](/api/classes/basebrush/).[`shadow`](/api/classes/basebrush/#shadow)
 
-#### Source
+#### Defined in
 
 src/brushes/BaseBrush.ts:32
 
@@ -147,9 +151,9 @@ Stroke Dash Array.
 
 #### Inherited from
 
-[`BaseBrush`](BaseBrush.md).[`strokeDashArray`](BaseBrush.md#strokedasharray)
+[`BaseBrush`](/api/classes/basebrush/).[`strokeDashArray`](/api/classes/basebrush/#strokedasharray)
 
-#### Source
+#### Defined in
 
 src/brushes/BaseBrush.ts:60
 
@@ -169,9 +173,9 @@ Line endings style of a brush (one of "butt", "round", "square")
 
 #### Inherited from
 
-[`BaseBrush`](BaseBrush.md).[`strokeLineCap`](BaseBrush.md#strokelinecap)
+[`BaseBrush`](/api/classes/basebrush/).[`strokeLineCap`](/api/classes/basebrush/#strokelinecap)
 
-#### Source
+#### Defined in
 
 src/brushes/BaseBrush.ts:39
 
@@ -191,9 +195,9 @@ Corner style of a brush (one of "bevel", "round", "miter")
 
 #### Inherited from
 
-[`BaseBrush`](BaseBrush.md).[`strokeLineJoin`](BaseBrush.md#strokelinejoin)
+[`BaseBrush`](/api/classes/basebrush/).[`strokeLineJoin`](/api/classes/basebrush/#strokelinejoin)
 
-#### Source
+#### Defined in
 
 src/brushes/BaseBrush.ts:46
 
@@ -213,9 +217,9 @@ Maximum miter length (used for strokeLineJoin = "miter") of a brush's
 
 #### Inherited from
 
-[`BaseBrush`](BaseBrush.md).[`strokeMiterLimit`](BaseBrush.md#strokemiterlimit)
+[`BaseBrush`](/api/classes/basebrush/).[`strokeMiterLimit`](/api/classes/basebrush/#strokemiterlimit)
 
-#### Source
+#### Defined in
 
 src/brushes/BaseBrush.ts:53
 
@@ -235,9 +239,9 @@ Width of a brush
 
 #### Overrides
 
-[`BaseBrush`](BaseBrush.md).[`width`](BaseBrush.md#width)
+[`BaseBrush`](/api/classes/basebrush/).[`width`](/api/classes/basebrush/#width)
 
-#### Source
+#### Defined in
 
 src/brushes/CircleBrush.ts:18
 
@@ -245,19 +249,19 @@ src/brushes/CircleBrush.ts:18
 
 ### addPoint()
 
-> **addPoint**(`pointer`): [`CircleBrushPoint`](../type-aliases/CircleBrushPoint.md)
+> **addPoint**(`pointer`): [`CircleBrushPoint`](/api/type-aliases/circlebrushpoint/)
 
 #### Parameters
 
-• **pointer**: [`Point`](Point.md)
+• **pointer**: [`Point`](/api/classes/point/)
 
 #### Returns
 
-[`CircleBrushPoint`](../type-aliases/CircleBrushPoint.md)
+[`CircleBrushPoint`](/api/type-aliases/circlebrushpoint/)
 
 Just added pointer point
 
-#### Source
+#### Defined in
 
 src/brushes/CircleBrush.ts:128
 
@@ -271,13 +275,13 @@ src/brushes/CircleBrush.ts:128
 
 • **ctx**: `CanvasRenderingContext2D`
 
-• **point**: [`CircleBrushPoint`](../type-aliases/CircleBrushPoint.md)
+• **point**: [`CircleBrushPoint`](/api/type-aliases/circlebrushpoint/)
 
 #### Returns
 
 `void`
 
-#### Source
+#### Defined in
 
 src/brushes/CircleBrush.ts:39
 
@@ -291,13 +295,13 @@ Invoked inside on mouse down and mouse move
 
 #### Parameters
 
-• **pointer**: [`Point`](Point.md)
+• **pointer**: [`Point`](/api/classes/point/)
 
 #### Returns
 
 `void`
 
-#### Source
+#### Defined in
 
 src/brushes/CircleBrush.ts:31
 
@@ -311,7 +315,7 @@ Invoked on mouse down
 
 #### Parameters
 
-• **pointer**: [`Point`](Point.md)
+• **pointer**: [`Point`](/api/classes/point/)
 
 #### Returns
 
@@ -319,9 +323,9 @@ Invoked on mouse down
 
 #### Overrides
 
-[`BaseBrush`](BaseBrush.md).[`onMouseDown`](BaseBrush.md#onmousedown)
+[`BaseBrush`](/api/classes/basebrush/).[`onMouseDown`](/api/classes/basebrush/#onmousedown)
 
-#### Source
+#### Defined in
 
 src/brushes/CircleBrush.ts:50
 
@@ -335,7 +339,7 @@ Invoked on mouse move
 
 #### Parameters
 
-• **pointer**: [`Point`](Point.md)
+• **pointer**: [`Point`](/api/classes/point/)
 
 #### Returns
 
@@ -343,9 +347,9 @@ Invoked on mouse move
 
 #### Overrides
 
-[`BaseBrush`](BaseBrush.md).[`onMouseMove`](BaseBrush.md#onmousemove)
+[`BaseBrush`](/api/classes/basebrush/).[`onMouseMove`](/api/classes/basebrush/#onmousemove)
 
-#### Source
+#### Defined in
 
 src/brushes/CircleBrush.ts:75
 
@@ -363,8 +367,8 @@ Invoked on mouse up
 
 #### Overrides
 
-[`BaseBrush`](BaseBrush.md).[`onMouseUp`](BaseBrush.md#onmouseup)
+[`BaseBrush`](/api/classes/basebrush/).[`onMouseUp`](/api/classes/basebrush/#onmouseup)
 
-#### Source
+#### Defined in
 
 src/brushes/CircleBrush.ts:91

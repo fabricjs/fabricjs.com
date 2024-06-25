@@ -5,32 +5,28 @@ prev: false
 title: "transformPath"
 ---
 
-> **transformPath**(`path`, `transform`, `pathOffset`?): [`TSimplePathData`](../type-aliases/TSimplePathData.md)
-
-Transform a path by transforming each segment.
-it has to be a simplified path or it won't work.
-WARNING: this depends from pathOffset for correct operation
+> **transformPath**(`path`, `transform`, `pathOffset`?): [`TSimplePathData`](/api/namespaces/util/type-aliases/tsimplepathdata/)
 
 ## Parameters
 
-• **path**: [`TSimplePathData`](../type-aliases/TSimplePathData.md)
+• **path**: [`TSimplePathData`](/api/namespaces/util/type-aliases/tsimplepathdata/)
 
 fabricJS parsed and simplified path commands
 
-• **transform**: [`TMat2D`](../../../type-aliases/TMat2D.md)
+• **transform**: [`TMat2D`](/api/type-aliases/tmat2d/)
 
 matrix that represent the transformation
 
-• **pathOffset?**: [`Point`](../../../classes/Point.md)
+• **pathOffset?**: [`Point`](/api/classes/point/)
 
 `Path.pathOffset`
 
 ## Returns
 
-[`TSimplePathData`](../type-aliases/TSimplePathData.md)
+[`TSimplePathData`](/api/namespaces/util/type-aliases/tsimplepathdata/)
 
 the transformed path
 
-## Source
+## Defined in
 
 src/util/path/index.ts:961

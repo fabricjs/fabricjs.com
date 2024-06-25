@@ -7,6 +7,6 @@ title: "TParsedAbsoluteCubicCurveCommand"
 
 > **TParsedAbsoluteCubicCurveCommand**: [`"C"`, `number`, `number`, `number`, `number`, `number`, `number`]
 
-## Source
+## Defined in
 
 src/util/path/typedefs.ts:149

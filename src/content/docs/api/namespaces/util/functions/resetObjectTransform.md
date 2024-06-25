@@ -11,7 +11,7 @@ reset an object transform state to neutral. Top and left are not accounted for
 
 ## Parameters
 
-• **target**: `FabricObject`\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](../../../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../../../interfaces/ObjectEvents.md)\>
+• **target**: `FabricObject`\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 object to transform
 
@@ -19,6 +19,6 @@ object to transform
 
 `void`
 
-## Source
+## Defined in
 
 src/util/misc/objectTransforms.ts:71

@@ -7,7 +7,7 @@ title: "ActiveSelectionOptions"
 
 ## Extends
 
-- [`GroupProps`](GroupProps.md)
+- [`GroupProps`](/api/interfaces/groupprops/)
 
 ## Properties
 
@@ -30,9 +30,9 @@ false
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`absolutePositioned`](GroupProps.md#absolutepositioned)
+[`GroupProps`](/api/interfaces/groupprops/).[`absolutePositioned`](/api/interfaces/groupprops/#absolutepositioned)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/SerializedObjectProps.ts:72
 
@@ -40,7 +40,7 @@ src/shapes/Object/types/SerializedObjectProps.ts:72
 
 ### angle
 
-> **angle**: [`TDegree`](../type-aliases/TDegree.md)
+> **angle**: [`TDegree`](/api/type-aliases/tdegree/)
 
 Angle of rotation of an object (in degrees)
 
@@ -52,9 +52,9 @@ Angle of rotation of an object (in degrees)
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`angle`](GroupProps.md#angle)
+[`GroupProps`](/api/interfaces/groupprops/).[`angle`](/api/interfaces/groupprops/#angle)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:57
 
@@ -75,9 +75,9 @@ takes css colors https://www.w3.org/TR/css-color-3/
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`backgroundColor`](GroupProps.md#backgroundcolor)
+[`GroupProps`](/api/interfaces/groupprops/).[`backgroundColor`](/api/interfaces/groupprops/#backgroundcolor)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/SerializedObjectProps.ts:26
 
@@ -97,9 +97,9 @@ rgb(178,204,255)
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`borderColor`](GroupProps.md#bordercolor)
+[`GroupProps`](/api/interfaces/groupprops/).[`borderColor`](/api/interfaces/groupprops/#bordercolor)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BorderProps.ts:7
 
@@ -117,9 +117,9 @@ Array specifying dash pattern of an object's borders (hasBorder must be true)
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`borderDashArray`](GroupProps.md#borderdasharray)
+[`GroupProps`](/api/interfaces/groupprops/).[`borderDashArray`](/api/interfaces/groupprops/#borderdasharray)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BorderProps.ts:15
 
@@ -139,9 +139,9 @@ Opacity of object's controlling borders when object is active and moving
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`borderOpacityWhenMoving`](GroupProps.md#borderopacitywhenmoving)
+[`GroupProps`](/api/interfaces/groupprops/).[`borderOpacityWhenMoving`](/api/interfaces/groupprops/#borderopacitywhenmoving)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BorderProps.ts:29
 
@@ -164,9 +164,9 @@ since there is no way to change the border itself.
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`borderScaleFactor`](GroupProps.md#borderscalefactor)
+[`GroupProps`](/api/interfaces/groupprops/).[`borderScaleFactor`](/api/interfaces/groupprops/#borderscalefactor)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BorderProps.ts:39
 
@@ -174,13 +174,13 @@ src/shapes/Object/types/BorderProps.ts:39
 
 ### canvas?
 
-> **`optional`** **canvas**: [`Canvas`](../classes/Canvas.md) \| [`StaticCanvas`](../classes/StaticCanvas.md)\<[`StaticCanvasEvents`](StaticCanvasEvents.md)\>
+> `optional` **canvas**: [`Canvas`](/api/classes/canvas/) \| [`StaticCanvas`](/api/classes/staticcanvas/)\<[`StaticCanvasEvents`](/api/interfaces/staticcanvasevents/)\>
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`canvas`](GroupProps.md#canvas)
+[`GroupProps`](/api/interfaces/groupprops/).[`canvas`](/api/interfaces/groupprops/#canvas)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ObjectProps.ts:20
 
@@ -208,9 +208,9 @@ The object method `rotate` will always consider this property and never the canv
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`centeredRotation`](GroupProps.md#centeredrotation)
+[`GroupProps`](/api/interfaces/groupprops/).[`centeredRotation`](/api/interfaces/groupprops/#centeredrotation)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ObjectTransformProps.ts:27
 
@@ -235,9 +235,9 @@ when being scaled via the controls.
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`centeredScaling`](GroupProps.md#centeredscaling)
+[`GroupProps`](/api/interfaces/groupprops/).[`centeredScaling`](/api/interfaces/groupprops/#centeredscaling)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ObjectTransformProps.ts:36
 
@@ -245,13 +245,18 @@ src/shapes/Object/types/ObjectTransformProps.ts:36
 
 ### clipPath?
 
-> **`optional`** **clipPath**: `FabricObject`\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](SerializedObjectProps.md), [`ObjectEvents`](ObjectEvents.md)\>
+> `optional` **clipPath**: `FabricObject`\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
+
+a fabricObject that, without stroke define a clipping area with their shape. filled in black
+the clipPath object gets used when the object has rendered, and the context is placed in the center
+of the object cacheCanvas.
+If you want 0,0 of a clipPath to align with an object center, use clipPath.originX/Y to 'center'
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`clipPath`](GroupProps.md#clippath)
+[`GroupProps`](/api/interfaces/groupprops/).[`clipPath`](/api/interfaces/groupprops/#clippath)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ObjectProps.ts:16
 
@@ -271,9 +276,9 @@ rgb(178,204,255)
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`cornerColor`](GroupProps.md#cornercolor)
+[`GroupProps`](/api/interfaces/groupprops/).[`cornerColor`](/api/interfaces/groupprops/#cornercolor)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ControlProps.ts:28
 
@@ -291,9 +296,9 @@ Array specifying dash pattern of an object's control (hasBorder must be true)
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`cornerDashArray`](GroupProps.md#cornerdasharray)
+[`GroupProps`](/api/interfaces/groupprops/).[`cornerDashArray`](/api/interfaces/groupprops/#cornerdasharray)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ControlProps.ts:54
 
@@ -313,9 +318,9 @@ Size of object's controlling corners (in pixels)
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`cornerSize`](GroupProps.md#cornersize)
+[`GroupProps`](/api/interfaces/groupprops/).[`cornerSize`](/api/interfaces/groupprops/#cornersize)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ControlProps.ts:7
 
@@ -339,9 +344,9 @@ null
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`cornerStrokeColor`](GroupProps.md#cornerstrokecolor)
+[`GroupProps`](/api/interfaces/groupprops/).[`cornerStrokeColor`](/api/interfaces/groupprops/#cornerstrokecolor)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ControlProps.ts:36
 
@@ -371,9 +376,9 @@ This API is no longer supported and may be removed in a future release.
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`cornerStyle`](GroupProps.md#cornerstyle)
+[`GroupProps`](/api/interfaces/groupprops/).[`cornerStyle`](/api/interfaces/groupprops/#cornerstyle)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ControlProps.ts:47
 
@@ -393,9 +398,9 @@ When set to `false`, an object can not be a target of events. All events propaga
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`evented`](GroupProps.md#evented)
+[`GroupProps`](/api/interfaces/groupprops/).[`evented`](/api/interfaces/groupprops/#evented)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FabricObjectProps.ts:65
 
@@ -419,9 +424,9 @@ When `true`, object is not exported in OBJECT/JSON
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`excludeFromExport`](GroupProps.md#excludefromexport)
+[`GroupProps`](/api/interfaces/groupprops/).[`excludeFromExport`](/api/interfaces/groupprops/#excludefromexport)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ObjectProps.ts:52
 
@@ -429,13 +434,22 @@ src/shapes/Object/types/ObjectProps.ts:52
 
 ### fill
 
-> **fill**: `null` \| `string` \| [`TFiller`](../type-aliases/TFiller.md)
+> **fill**: `null` \| `string` \| [`TFiller`](/api/type-aliases/tfiller/)
+
+Color of object's fill
+takes css colors https://www.w3.org/TR/css-color-3/
+
+#### Default
+
+```ts
+rgb(0,0,0)
+```
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`fill`](GroupProps.md#fill)
+[`GroupProps`](/api/interfaces/groupprops/).[`fill`](/api/interfaces/groupprops/#fill)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ObjectProps.ts:17
 
@@ -457,9 +471,9 @@ nonzero
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`fillRule`](GroupProps.md#fillrule)
+[`GroupProps`](/api/interfaces/groupprops/).[`fillRule`](/api/interfaces/groupprops/#fillrule)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FillStrokeProps.ts:26
 
@@ -479,9 +493,9 @@ false
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`flipX`](GroupProps.md#flipx)
+[`GroupProps`](/api/interfaces/groupprops/).[`flipX`](/api/interfaces/groupprops/#flipx)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:64
 
@@ -501,9 +515,9 @@ false
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`flipY`](GroupProps.md#flipy)
+[`GroupProps`](/api/interfaces/groupprops/).[`flipY`](/api/interfaces/groupprops/#flipy)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:71
 
@@ -523,9 +537,9 @@ Composite rule used for canvas globalCompositeOperation
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`globalCompositeOperation`](GroupProps.md#globalcompositeoperation)
+[`GroupProps`](/api/interfaces/groupprops/).[`globalCompositeOperation`](/api/interfaces/groupprops/#globalcompositeoperation)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/SerializedObjectProps.ts:18
 
@@ -545,9 +559,9 @@ When set to `false`, object's controlling borders are not rendered
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`hasBorders`](GroupProps.md#hasborders)
+[`GroupProps`](/api/interfaces/groupprops/).[`hasBorders`](/api/interfaces/groupprops/#hasborders)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BorderProps.ts:22
 
@@ -567,9 +581,9 @@ When set to `false`, object's controls are not displayed and can not be used to 
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`hasControls`](GroupProps.md#hascontrols)
+[`GroupProps`](/api/interfaces/groupprops/).[`hasControls`](/api/interfaces/groupprops/#hascontrols)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ControlProps.ts:68
 
@@ -589,9 +603,9 @@ Object height
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`height`](GroupProps.md#height)
+[`GroupProps`](/api/interfaces/groupprops/).[`height`](/api/interfaces/groupprops/#height)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:34
 
@@ -611,9 +625,9 @@ null
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`hoverCursor`](GroupProps.md#hovercursor)
+[`GroupProps`](/api/interfaces/groupprops/).[`hoverCursor`](/api/interfaces/groupprops/#hovercursor)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FabricObjectProps.ts:27
 
@@ -633,9 +647,9 @@ When `false`, default object's values are not included in its serialization
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`includeDefaultValues`](GroupProps.md#includedefaultvalues)
+[`GroupProps`](/api/interfaces/groupprops/).[`includeDefaultValues`](/api/interfaces/groupprops/#includedefaultvalues)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ObjectProps.ts:44
 
@@ -647,9 +661,9 @@ src/shapes/Object/types/ObjectProps.ts:44
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`interactive`](GroupProps.md#interactive)
+[`GroupProps`](/api/interfaces/groupprops/).[`interactive`](/api/interfaces/groupprops/#interactive)
 
-#### Source
+#### Defined in
 
 src/shapes/Group.ts:51
 
@@ -671,9 +685,9 @@ false
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`inverted`](GroupProps.md#inverted)
+[`GroupProps`](/api/interfaces/groupprops/).[`inverted`](/api/interfaces/groupprops/#inverted)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/SerializedObjectProps.ts:60
 
@@ -681,13 +695,13 @@ src/shapes/Object/types/SerializedObjectProps.ts:60
 
 ### layoutManager
 
-> **layoutManager**: [`LayoutManager`](../classes/LayoutManager.md)
+> **layoutManager**: [`LayoutManager`](/api/classes/layoutmanager/)
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`layoutManager`](GroupProps.md#layoutmanager)
+[`GroupProps`](/api/interfaces/groupprops/).[`layoutManager`](/api/interfaces/groupprops/#layoutmanager)
 
-#### Source
+#### Defined in
 
 src/shapes/Group.ts:62
 
@@ -709,9 +723,9 @@ You can change this by setting [originX](../../../../api/interfaces/fabricobject
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`left`](GroupProps.md#left)
+[`GroupProps`](/api/interfaces/groupprops/).[`left`](/api/interfaces/groupprops/#left)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:11
 
@@ -731,9 +745,9 @@ When `true`, object horizontal movement is locked
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`lockMovementX`](GroupProps.md#lockmovementx)
+[`GroupProps`](/api/interfaces/groupprops/).[`lockMovementX`](/api/interfaces/groupprops/#lockmovementx)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/LockInteractionProps.ts:7
 
@@ -753,9 +767,9 @@ When `true`, object vertical movement is locked
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`lockMovementY`](GroupProps.md#lockmovementy)
+[`GroupProps`](/api/interfaces/groupprops/).[`lockMovementY`](/api/interfaces/groupprops/#lockmovementy)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/LockInteractionProps.ts:14
 
@@ -775,9 +789,9 @@ When `true`, object rotation is locked
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`lockRotation`](GroupProps.md#lockrotation)
+[`GroupProps`](/api/interfaces/groupprops/).[`lockRotation`](/api/interfaces/groupprops/#lockrotation)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/LockInteractionProps.ts:21
 
@@ -797,9 +811,9 @@ When `true`, object cannot be flipped by scaling into negative values
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`lockScalingFlip`](GroupProps.md#lockscalingflip)
+[`GroupProps`](/api/interfaces/groupprops/).[`lockScalingFlip`](/api/interfaces/groupprops/#lockscalingflip)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/LockInteractionProps.ts:56
 
@@ -819,9 +833,9 @@ When `true`, object horizontal scaling is locked
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`lockScalingX`](GroupProps.md#lockscalingx)
+[`GroupProps`](/api/interfaces/groupprops/).[`lockScalingX`](/api/interfaces/groupprops/#lockscalingx)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/LockInteractionProps.ts:28
 
@@ -841,9 +855,9 @@ When `true`, object vertical scaling is locked
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`lockScalingY`](GroupProps.md#lockscalingy)
+[`GroupProps`](/api/interfaces/groupprops/).[`lockScalingY`](/api/interfaces/groupprops/#lockscalingy)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/LockInteractionProps.ts:35
 
@@ -863,9 +877,9 @@ When `true`, object horizontal skewing is locked
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`lockSkewingX`](GroupProps.md#lockskewingx)
+[`GroupProps`](/api/interfaces/groupprops/).[`lockSkewingX`](/api/interfaces/groupprops/#lockskewingx)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/LockInteractionProps.ts:42
 
@@ -885,9 +899,9 @@ When `true`, object vertical skewing is locked
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`lockSkewingY`](GroupProps.md#lockskewingy)
+[`GroupProps`](/api/interfaces/groupprops/).[`lockSkewingY`](/api/interfaces/groupprops/#lockskewingy)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/LockInteractionProps.ts:49
 
@@ -907,9 +921,9 @@ Minimum allowed scale value of an object
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`minScaleLimit`](GroupProps.md#minscalelimit)
+[`GroupProps`](/api/interfaces/groupprops/).[`minScaleLimit`](/api/interfaces/groupprops/#minscalelimit)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ObjectProps.ts:27
 
@@ -929,9 +943,9 @@ null
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`moveCursor`](GroupProps.md#movecursor)
+[`GroupProps`](/api/interfaces/groupprops/).[`moveCursor`](/api/interfaces/groupprops/#movecursor)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FabricObjectProps.ts:34
 
@@ -939,9 +953,9 @@ src/shapes/Object/types/FabricObjectProps.ts:34
 
 ### multiSelectionStacking
 
-> **multiSelectionStacking**: [`MultiSelectionStacking`](../type-aliases/MultiSelectionStacking.md)
+> **multiSelectionStacking**: [`MultiSelectionStacking`](/api/type-aliases/multiselectionstacking/)
 
-#### Source
+#### Defined in
 
 src/shapes/ActiveSelection.ts:16
 
@@ -949,7 +963,7 @@ src/shapes/ActiveSelection.ts:16
 
 ### noScaleCache?
 
-> **`optional`** **noScaleCache**: `boolean`
+> `optional` **noScaleCache**: `boolean`
 
 When `true`, cache does not get updated during scaling. The picture will get blocky if scaled
 too much and will be redrawn with correct details at the end of scaling.
@@ -965,9 +979,9 @@ true
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`noScaleCache`](GroupProps.md#noscalecache)
+[`GroupProps`](/api/interfaces/groupprops/).[`noScaleCache`](/api/interfaces/groupprops/#noscalecache)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FabricObjectProps.ts:20
 
@@ -993,9 +1007,9 @@ true
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`objectCaching`](GroupProps.md#objectcaching)
+[`GroupProps`](/api/interfaces/groupprops/).[`objectCaching`](/api/interfaces/groupprops/#objectcaching)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ObjectProps.ts:37
 
@@ -1015,9 +1029,9 @@ Opacity of an object
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`opacity`](GroupProps.md#opacity)
+[`GroupProps`](/api/interfaces/groupprops/).[`opacity`](/api/interfaces/groupprops/#opacity)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/SerializedObjectProps.ts:11
 
@@ -1025,7 +1039,7 @@ src/shapes/Object/types/SerializedObjectProps.ts:11
 
 ### originX
 
-> **originX**: [`TOriginX`](../type-aliases/TOriginX.md)
+> **originX**: [`TOriginX`](/api/type-aliases/toriginx/)
 
 Horizontal origin of transformation of an object (`left`, `center`, `right`  or `[0, 1]`)
 See http://jsfiddle.net/1ow02gea/244/ on how originX/originY affect objects in groups
@@ -1038,9 +1052,9 @@ See http://jsfiddle.net/1ow02gea/244/ on how originX/originY affect objects in g
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`originX`](GroupProps.md#originx)
+[`GroupProps`](/api/interfaces/groupprops/).[`originX`](/api/interfaces/groupprops/#originx)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:42
 
@@ -1048,7 +1062,7 @@ src/shapes/Object/types/BaseProps.ts:42
 
 ### originY
 
-> **originY**: [`TOriginY`](../type-aliases/TOriginY.md)
+> **originY**: [`TOriginY`](/api/type-aliases/toriginy/)
 
 Vertical origin of transformation of an object (`top`, `center`, `bottom` or `[0, 1]`)
 See http://jsfiddle.net/1ow02gea/244/ on how originX/originY affect objects in groups
@@ -1061,9 +1075,9 @@ See http://jsfiddle.net/1ow02gea/244/ on how originX/originY affect objects in g
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`originY`](GroupProps.md#originy)
+[`GroupProps`](/api/interfaces/groupprops/).[`originY`](/api/interfaces/groupprops/#originy)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:50
 
@@ -1083,9 +1097,9 @@ Padding between object and its controlling borders (in pixels)
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`padding`](GroupProps.md#padding)
+[`GroupProps`](/api/interfaces/groupprops/).[`padding`](/api/interfaces/groupprops/#padding)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ControlProps.ts:61
 
@@ -1105,9 +1119,9 @@ Determines if the fill or the stroke is drawn first (one of "fill" or "stroke")
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`paintFirst`](GroupProps.md#paintfirst)
+[`GroupProps`](/api/interfaces/groupprops/).[`paintFirst`](/api/interfaces/groupprops/#paintfirst)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FillStrokeProps.ts:9
 
@@ -1127,9 +1141,9 @@ When set to `true`, objects are "found" on canvas on per-pixel basis rather than
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`perPixelTargetFind`](GroupProps.md#perpixeltargetfind)
+[`GroupProps`](/api/interfaces/groupprops/).[`perPixelTargetFind`](/api/interfaces/groupprops/#perpixeltargetfind)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FabricObjectProps.ts:50
 
@@ -1149,9 +1163,9 @@ Object scale factor (horizontal)
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`scaleX`](GroupProps.md#scalex)
+[`GroupProps`](/api/interfaces/groupprops/).[`scaleX`](/api/interfaces/groupprops/#scalex)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:78
 
@@ -1171,9 +1185,9 @@ Object scale factor (vertical)
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`scaleY`](GroupProps.md#scaley)
+[`GroupProps`](/api/interfaces/groupprops/).[`scaleY`](/api/interfaces/groupprops/#scaley)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:85
 
@@ -1194,9 +1208,9 @@ But events still fire on it.
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`selectable`](GroupProps.md#selectable)
+[`GroupProps`](/api/interfaces/groupprops/).[`selectable`](/api/interfaces/groupprops/#selectable)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FabricObjectProps.ts:58
 
@@ -1221,9 +1235,9 @@ This API is no longer supported and may be removed in a future release.
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`selectionBackgroundColor`](GroupProps.md#selectionbackgroundcolor)
+[`GroupProps`](/api/interfaces/groupprops/).[`selectionBackgroundColor`](/api/interfaces/groupprops/#selectionbackgroundcolor)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FabricObjectProps.ts:43
 
@@ -1231,13 +1245,21 @@ src/shapes/Object/types/FabricObjectProps.ts:43
 
 ### shadow
 
-> **shadow**: `null` \| [`Shadow`](../classes/Shadow.md)
+> **shadow**: `null` \| [`Shadow`](/api/classes/shadow/)
+
+Shadow object representing shadow of this shape
+
+#### Default
+
+```ts
+null
+```
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`shadow`](GroupProps.md#shadow)
+[`GroupProps`](/api/interfaces/groupprops/).[`shadow`](/api/interfaces/groupprops/#shadow)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ObjectProps.ts:19
 
@@ -1245,7 +1267,7 @@ src/shapes/Object/types/ObjectProps.ts:19
 
 ### skewX
 
-> **skewX**: [`TDegree`](../type-aliases/TDegree.md)
+> **skewX**: [`TDegree`](/api/type-aliases/tdegree/)
 
 Angle of skew on x axes of an object (in degrees)
 
@@ -1257,9 +1279,9 @@ Angle of skew on x axes of an object (in degrees)
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`skewX`](GroupProps.md#skewx)
+[`GroupProps`](/api/interfaces/groupprops/).[`skewX`](/api/interfaces/groupprops/#skewx)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:92
 
@@ -1267,7 +1289,7 @@ src/shapes/Object/types/BaseProps.ts:92
 
 ### skewY
 
-> **skewY**: [`TDegree`](../type-aliases/TDegree.md)
+> **skewY**: [`TDegree`](/api/type-aliases/tdegree/)
 
 Angle of skew on y axes of an object (in degrees)
 
@@ -1279,9 +1301,9 @@ Angle of skew on y axes of an object (in degrees)
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`skewY`](GroupProps.md#skewy)
+[`GroupProps`](/api/interfaces/groupprops/).[`skewY`](/api/interfaces/groupprops/#skewy)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:99
 
@@ -1289,15 +1311,15 @@ src/shapes/Object/types/BaseProps.ts:99
 
 ### snapAngle?
 
-> **`optional`** **snapAngle**: [`TDegree`](../type-aliases/TDegree.md)
+> `optional` **snapAngle**: [`TDegree`](/api/type-aliases/tdegree/)
 
 The angle that an object will lock to while rotating.
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`snapAngle`](GroupProps.md#snapangle)
+[`GroupProps`](/api/interfaces/groupprops/).[`snapAngle`](/api/interfaces/groupprops/#snapangle)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ObjectTransformProps.ts:8
 
@@ -1305,16 +1327,16 @@ src/shapes/Object/types/ObjectTransformProps.ts:8
 
 ### snapThreshold?
 
-> **`optional`** **snapThreshold**: [`TDegree`](../type-aliases/TDegree.md)
+> `optional` **snapThreshold**: [`TDegree`](/api/type-aliases/tdegree/)
 
 The angle difference from the current snapped angle in which snapping should occur.
 When undefined, the snapThreshold will default to the snapAngle.
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`snapThreshold`](GroupProps.md#snapthreshold)
+[`GroupProps`](/api/interfaces/groupprops/).[`snapThreshold`](/api/interfaces/groupprops/#snapthreshold)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ObjectTransformProps.ts:15
 
@@ -1322,13 +1344,22 @@ src/shapes/Object/types/ObjectTransformProps.ts:15
 
 ### stroke
 
-> **stroke**: `null` \| `string` \| [`TFiller`](../type-aliases/TFiller.md)
+> **stroke**: `null` \| `string` \| [`TFiller`](/api/type-aliases/tfiller/)
+
+When defined, an object is rendered via stroke and this property specifies its color
+takes css colors https://www.w3.org/TR/css-color-3/
+
+#### Default
+
+```ts
+null
+```
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`stroke`](GroupProps.md#stroke)
+[`GroupProps`](/api/interfaces/groupprops/).[`stroke`](/api/interfaces/groupprops/#stroke)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ObjectProps.ts:18
 
@@ -1348,9 +1379,9 @@ null;
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`strokeDashArray`](GroupProps.md#strokedasharray)
+[`GroupProps`](/api/interfaces/groupprops/).[`strokeDashArray`](/api/interfaces/groupprops/#strokedasharray)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FillStrokeProps.ts:48
 
@@ -1370,9 +1401,9 @@ Line offset of an object's stroke
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`strokeDashOffset`](GroupProps.md#strokedashoffset)
+[`GroupProps`](/api/interfaces/groupprops/).[`strokeDashOffset`](/api/interfaces/groupprops/#strokedashoffset)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FillStrokeProps.ts:55
 
@@ -1392,9 +1423,9 @@ butt
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`strokeLineCap`](GroupProps.md#strokelinecap)
+[`GroupProps`](/api/interfaces/groupprops/).[`strokeLineCap`](/api/interfaces/groupprops/#strokelinecap)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FillStrokeProps.ts:62
 
@@ -1414,9 +1445,9 @@ Corner style of an object's stroke (one of "bevel", "round", "miter")
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`strokeLineJoin`](GroupProps.md#strokelinejoin)
+[`GroupProps`](/api/interfaces/groupprops/).[`strokeLineJoin`](/api/interfaces/groupprops/#strokelinejoin)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FillStrokeProps.ts:69
 
@@ -1436,9 +1467,9 @@ Maximum miter length (used for strokeLineJoin = "miter") of an object's stroke
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`strokeMiterLimit`](GroupProps.md#strokemiterlimit)
+[`GroupProps`](/api/interfaces/groupprops/).[`strokeMiterLimit`](/api/interfaces/groupprops/#strokemiterlimit)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FillStrokeProps.ts:76
 
@@ -1471,9 +1502,9 @@ false
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`strokeUniform`](GroupProps.md#strokeuniform)
+[`GroupProps`](/api/interfaces/groupprops/).[`strokeUniform`](/api/interfaces/groupprops/#strokeuniform)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FillStrokeProps.ts:89
 
@@ -1493,9 +1524,9 @@ Width of a stroke used to render this object
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`strokeWidth`](GroupProps.md#strokewidth)
+[`GroupProps`](/api/interfaces/groupprops/).[`strokeWidth`](/api/interfaces/groupprops/#strokewidth)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FillStrokeProps.ts:41
 
@@ -1507,9 +1538,9 @@ src/shapes/Object/types/FillStrokeProps.ts:41
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`subTargetCheck`](GroupProps.md#subtargetcheck)
+[`GroupProps`](/api/interfaces/groupprops/).[`subTargetCheck`](/api/interfaces/groupprops/#subtargetcheck)
 
-#### Source
+#### Defined in
 
 src/shapes/Group.ts:50
 
@@ -1531,9 +1562,9 @@ You can change this by setting [originY](../../../../api/interfaces/fabricobject
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`top`](GroupProps.md#top)
+[`GroupProps`](/api/interfaces/groupprops/).[`top`](/api/interfaces/groupprops/#top)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:20
 
@@ -1553,9 +1584,9 @@ Size of object's controlling corners when touch interaction is detected
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`touchCornerSize`](GroupProps.md#touchcornersize)
+[`GroupProps`](/api/interfaces/groupprops/).[`touchCornerSize`](/api/interfaces/groupprops/#touchcornersize)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ControlProps.ts:14
 
@@ -1575,9 +1606,9 @@ true
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`transparentCorners`](GroupProps.md#transparentcorners)
+[`GroupProps`](/api/interfaces/groupprops/).[`transparentCorners`](/api/interfaces/groupprops/#transparentcorners)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ControlProps.ts:21
 
@@ -1597,9 +1628,9 @@ When set to `false`, an object is not rendered on canvas
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`visible`](GroupProps.md#visible)
+[`GroupProps`](/api/interfaces/groupprops/).[`visible`](/api/interfaces/groupprops/#visible)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/SerializedObjectProps.ts:40
 
@@ -1619,8 +1650,8 @@ Object width
 
 #### Inherited from
 
-[`GroupProps`](GroupProps.md).[`width`](GroupProps.md#width)
+[`GroupProps`](/api/interfaces/groupprops/).[`width`](/api/interfaces/groupprops/#width)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:27

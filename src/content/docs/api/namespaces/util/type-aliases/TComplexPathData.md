@@ -5,10 +5,10 @@ prev: false
 title: "TComplexPathData"
 ---
 
-> **TComplexPathData**: [`TComplexParsedCommand`](TComplexParsedCommand.md)[]
+> **TComplexPathData**: [`TComplexParsedCommand`](/api/namespaces/util/type-aliases/tcomplexparsedcommand/)[]
 
 A series of path commands
 
-## Source
+## Defined in
 
 src/util/path/typedefs.ts:284

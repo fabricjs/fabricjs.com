@@ -12,15 +12,15 @@ wrapping of lines.
 
 ## Extends
 
-- [`IText`](IText.md)\<`Props`, `SProps`, `EventSpec`\>
+- [`IText`](/api/classes/itext/)\<`Props`, `SProps`, `EventSpec`\>
 
-## Type parameters
+## Type Parameters
 
-• **Props** extends [`TOptions`](../type-aliases/TOptions.md)\<[`TextboxProps`](../interfaces/TextboxProps.md)\> = `Partial`\<[`TextboxProps`](../interfaces/TextboxProps.md)\>
+• **Props** *extends* [`TOptions`](/api/type-aliases/toptions/)\<[`TextboxProps`](/api/interfaces/textboxprops/)\> = `Partial`\<[`TextboxProps`](/api/interfaces/textboxprops/)\>
 
-• **SProps** extends [`SerializedTextboxProps`](../interfaces/SerializedTextboxProps.md) = [`SerializedTextboxProps`](../interfaces/SerializedTextboxProps.md)
+• **SProps** *extends* [`SerializedTextboxProps`](/api/interfaces/serializedtextboxprops/) = [`SerializedTextboxProps`](/api/interfaces/serializedtextboxprops/)
 
-• **EventSpec** extends `ITextEvents` = `ITextEvents`
+• **EventSpec** *extends* `ITextEvents` = `ITextEvents`
 
 ## Implements
 
@@ -28,9 +28,9 @@ wrapping of lines.
 
 ## Constructors
 
-### new Textbox(text, options)
+### new Textbox()
 
-> **new Textbox**\<`Props`, `SProps`, `EventSpec`\>(`text`, `options`?): [`Textbox`](Textbox.md)\<`Props`, `SProps`, `EventSpec`\>
+> **new Textbox**\<`Props`, `SProps`, `EventSpec`\>(`text`, `options`?): [`Textbox`](/api/classes/textbox/)\<`Props`, `SProps`, `EventSpec`\>
 
 Constructor
 
@@ -46,13 +46,13 @@ Options object
 
 #### Returns
 
-[`Textbox`](Textbox.md)\<`Props`, `SProps`, `EventSpec`\>
+[`Textbox`](/api/classes/textbox/)\<`Props`, `SProps`, `EventSpec`\>
 
 #### Inherited from
 
-[`IText`](IText.md).[`constructor`](IText.md#constructors)
+[`IText`](/api/classes/itext/).[`constructor`](/api/classes/itext/#constructors)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/IText.ts:225
 
@@ -72,9 +72,9 @@ contains the min text width to avoid getting 0
 
 #### Inherited from
 
-[`IText`](IText.md).[`MIN_TEXT_WIDTH`](IText.md#min_text_width)
+[`IText`](/api/classes/itext/).[`MIN_TEXT_WIDTH`](/api/classes/itext/#min_text_width)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:389
 
@@ -82,7 +82,7 @@ src/shapes/Text/Text.ts:389
 
 ### \_\_corner?
 
-> **`optional`** **\_\_corner**: `string`
+> `optional` **\_\_corner**: `string`
 
 keeps the value of the last hovered corner during mouse move.
 0 is no corner, or 'mt', 'ml', 'mtr' etc..
@@ -92,9 +92,9 @@ this isn't cleaned automatically. Non selected objects may have wrong values
 
 #### Inherited from
 
-[`IText`](IText.md).[`__corner`](IText.md#__corner)
+[`IText`](/api/classes/itext/).[`__corner`](/api/classes/itext/#__corner)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:104
 
@@ -106,9 +106,9 @@ src/shapes/Object/InteractiveObject.ts:104
 
 #### Inherited from
 
-[`IText`](IText.md).[`__lineHeights`](IText.md#__lineheights)
+[`IText`](/api/classes/itext/).[`__lineHeights`](/api/classes/itext/#__lineheights)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:409
 
@@ -120,9 +120,9 @@ src/shapes/Text/Text.ts:409
 
 #### Inherited from
 
-[`IText`](IText.md).[`__lineWidths`](IText.md#__linewidths)
+[`IText`](/api/classes/itext/).[`__lineWidths`](/api/classes/itext/#__linewidths)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:410
 
@@ -138,9 +138,9 @@ this takes priority over the generic control visibility
 
 #### Inherited from
 
-[`IText`](IText.md).[`_controlsVisibility`](IText.md#_controlsvisibility)
+[`IText`](/api/classes/itext/).[`_controlsVisibility`](/api/classes/itext/#_controlsvisibility)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:111
 
@@ -160,9 +160,9 @@ Text Line proportion to font Size (in pixels)
 
 #### Inherited from
 
-[`IText`](IText.md).[`_fontSizeMult`](IText.md#_fontsizemult)
+[`IText`](/api/classes/itext/).[`_fontSizeMult`](/api/classes/itext/#_fontsizemult)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:337
 
@@ -170,7 +170,7 @@ src/shapes/Text/Text.ts:337
 
 ### \_scaling?
 
-> **`optional`** **\_scaling**: `boolean`
+> `optional` **\_scaling**: `boolean`
 
 A boolean used from the gesture module to keep tracking of a scaling
 action when there is no scaling transform in place.
@@ -184,9 +184,9 @@ DON'T USE IT. WE WILL TRY TO REMOVE IT
 
 #### Inherited from
 
-[`IText`](IText.md).[`_scaling`](IText.md#_scaling)
+[`IText`](/api/classes/itext/).[`_scaling`](/api/classes/itext/#_scaling)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:133
 
@@ -196,7 +196,7 @@ src/shapes/Object/InteractiveObject.ts:133
 
 > **\_styleMap**: `StyleMap`
 
-#### Source
+#### Defined in
 
 src/shapes/Textbox.ts:87
 
@@ -208,9 +208,9 @@ src/shapes/Textbox.ts:87
 
 #### Inherited from
 
-[`IText`](IText.md).[`_text`](IText.md#_text)
+[`IText`](/api/classes/itext/).[`_text`](/api/classes/itext/#_text)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:407
 
@@ -230,9 +230,9 @@ same as textlines, but each line is an array of graphemes as split by splitByGra
 
 #### Inherited from
 
-[`IText`](IText.md).[`_textLines`](IText.md#_textlines)
+[`IText`](/api/classes/itext/).[`_textLines`](/api/classes/itext/#_textlines)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:404
 
@@ -244,9 +244,9 @@ src/shapes/Text/Text.ts:404
 
 #### Inherited from
 
-[`IText`](IText.md).[`_unwrappedTextLines`](IText.md#_unwrappedtextlines)
+[`IText`](/api/classes/itext/).[`_unwrappedTextLines`](/api/classes/itext/#_unwrappedtextlines)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:406
 
@@ -260,7 +260,7 @@ src/shapes/Text/Text.ts:406
 
 `UniqueTextboxProps._wordJoiners`
 
-#### Source
+#### Defined in
 
 src/shapes/Textbox.ts:85
 
@@ -268,7 +268,7 @@ src/shapes/Textbox.ts:85
 
 ### aCoords
 
-> **aCoords**: [`TCornerPoint`](../type-aliases/TCornerPoint.md)
+> **aCoords**: [`TCornerPoint`](/api/type-aliases/tcornerpoint/)
 
 Describe object's corner position in scene coordinates.
 The coordinates are derived from the following:
@@ -279,9 +279,9 @@ You can calculate them without updating with [()](../../../../api/classes/textbo
 
 #### Inherited from
 
-[`IText`](IText.md).[`aCoords`](IText.md#acoords)
+[`IText`](/api/classes/itext/).[`aCoords`](/api/classes/itext/#acoords)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:50
 
@@ -291,39 +291,46 @@ src/shapes/Object/ObjectGeometry.ts:50
 
 > **absolutePositioned**: `boolean`
 
+Meaningful ONLY when the object is used as clipPath.
+if true, the clipPath will have its top and left relative to canvas, and will
+not be influenced by the object transform. This will make the clipPath relative
+to the canvas, but clipping just a particular object.
+WARNING this is beta, this feature may change or be renamed.
+since 2.4.0
+
+#### Default
+
+```ts
+false
+```
+
 #### Inherited from
 
-[`IText`](IText.md).[`absolutePositioned`](IText.md#absolutepositioned)
+[`IText`](/api/classes/itext/).[`absolutePositioned`](/api/classes/itext/#absolutepositioned)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:166
 
 ***
 
-### activeOn
-
-> **activeOn**: `"down"` \| `"up"`
-
-#### Inherited from
-
-[`IText`](IText.md).[`activeOn`](IText.md#activeon)
-
-#### Source
-
-src/shapes/Object/InteractiveObject.ts:83
-
-***
-
 ### angle
 
-> **angle**: [`TDegree`](../type-aliases/TDegree.md)
+> **angle**: [`TDegree`](/api/type-aliases/tdegree/)
+
+Angle of rotation of an object (in degrees)
+
+#### Default
+
+```ts
+0
+```
 
 #### Inherited from
 
-[`IText`](IText.md).[`angle`](IText.md#angle)
+[`IText`](/api/classes/itext/).[`angle`](/api/classes/itext/#angle)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:29
 
@@ -333,11 +340,20 @@ src/shapes/Object/ObjectOrigin.ts:29
 
 > **backgroundColor**: `string`
 
+Background color of an object.
+takes css colors https://www.w3.org/TR/css-color-3/
+
+#### Default
+
+```ts
+
+```
+
 #### Inherited from
 
-[`IText`](IText.md).[`backgroundColor`](IText.md#backgroundcolor)
+[`IText`](/api/classes/itext/).[`backgroundColor`](/api/classes/itext/#backgroundcolor)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:153
 
@@ -347,11 +363,19 @@ src/shapes/Object/Object.ts:153
 
 > **borderColor**: `string`
 
+Color of controlling borders of an object (when it's active)
+
+#### Default
+
+```ts
+rgb(178,204,255)
+```
+
 #### Inherited from
 
-[`IText`](IText.md).[`borderColor`](IText.md#bordercolor)
+[`IText`](/api/classes/itext/).[`borderColor`](/api/classes/itext/#bordercolor)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:73
 
@@ -361,11 +385,17 @@ src/shapes/Object/InteractiveObject.ts:73
 
 > **borderDashArray**: `null` \| `number`[]
 
+Array specifying dash pattern of an object's borders (hasBorder must be true)
+
+#### Since
+
+1.6.2
+
 #### Inherited from
 
-[`IText`](IText.md).[`borderDashArray`](IText.md#borderdasharray)
+[`IText`](/api/classes/itext/).[`borderDashArray`](/api/classes/itext/#borderdasharray)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:74
 
@@ -375,11 +405,19 @@ src/shapes/Object/InteractiveObject.ts:74
 
 > **borderOpacityWhenMoving**: `number`
 
+Opacity of object's controlling borders when object is active and moving
+
+#### Default
+
+```ts
+0.4
+```
+
 #### Inherited from
 
-[`IText`](IText.md).[`borderOpacityWhenMoving`](IText.md#borderopacitywhenmoving)
+[`IText`](/api/classes/itext/).[`borderOpacityWhenMoving`](/api/classes/itext/#borderopacitywhenmoving)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:75
 
@@ -389,11 +427,22 @@ src/shapes/Object/InteractiveObject.ts:75
 
 > **borderScaleFactor**: `number`
 
+Scale factor of object's controlling borders
+bigger number will make a thicker border
+border is 1, so this is basically a border thickness
+since there is no way to change the border itself.
+
+#### Default
+
+```ts
+1
+```
+
 #### Inherited from
 
-[`IText`](IText.md).[`borderScaleFactor`](IText.md#borderscalefactor)
+[`IText`](/api/classes/itext/).[`borderScaleFactor`](/api/classes/itext/#borderscalefactor)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:76
 
@@ -413,25 +462,11 @@ Indicates whether internal text char widths can be cached
 
 #### Inherited from
 
-[`IText`](IText.md).[`caching`](IText.md#caching)
+[`IText`](/api/classes/itext/).[`caching`](/api/classes/itext/#caching)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/IText.ts:203
-
-***
-
-### canvas?
-
-> **`optional`** **canvas**: [`Canvas`](Canvas.md)
-
-#### Inherited from
-
-[`IText`](IText.md).[`canvas`](IText.md#canvas)
-
-#### Source
-
-src/shapes/Object/InteractiveObject.ts:135
 
 ***
 
@@ -439,11 +474,27 @@ src/shapes/Object/InteractiveObject.ts:135
 
 > **centeredRotation**: `boolean`
 
+When `true` the object will rotate on its center.
+When `false` will rotate around the origin point defined by originX and originY.
+The value of this property is IGNORED during a transform if the canvas has already
+centeredRotation set to `true`
+The object method `rotate` will always consider this property and never the canvas's one.
+
+#### Since
+
+1.3.4
+
+#### Default
+
+```ts
+
+```
+
 #### Inherited from
 
-[`IText`](IText.md).[`centeredRotation`](IText.md#centeredrotation)
+[`IText`](/api/classes/itext/).[`centeredRotation`](/api/classes/itext/#centeredrotation)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:167
 
@@ -453,11 +504,24 @@ src/shapes/Object/Object.ts:167
 
 > **centeredScaling**: `boolean`
 
+When true, this object will use center point as the origin of transformation
+when being scaled via the controls.
+
+#### Since
+
+1.3.4
+
+#### Default
+
+```ts
+
+```
+
 #### Inherited from
 
-[`IText`](IText.md).[`centeredScaling`](IText.md#centeredscaling)
+[`IText`](/api/classes/itext/).[`centeredScaling`](/api/classes/itext/#centeredscaling)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:168
 
@@ -478,9 +542,9 @@ expressed in thousands of em unit
 
 #### Inherited from
 
-[`IText`](IText.md).[`charSpacing`](IText.md#charspacing)
+[`IText`](/api/classes/itext/).[`charSpacing`](/api/classes/itext/#charspacing)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:345
 
@@ -488,13 +552,13 @@ src/shapes/Text/Text.ts:345
 
 ### clipPath?
 
-> **`optional`** **clipPath**: `FabricObject`\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+> `optional` **clipPath**: `FabricObject`\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 #### Inherited from
 
-[`IText`](IText.md).[`clipPath`](IText.md#clippath)
+[`IText`](/api/classes/itext/).[`clipPath`](/api/classes/itext/#clippath)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:164
 
@@ -502,16 +566,16 @@ src/shapes/Object/Object.ts:164
 
 ### clipPathId?
 
-> **`optional`** **clipPathId**: `string`
+> `optional` **clipPathId**: `string`
 
 When an object is being exported as SVG as a clippath, a reference inside the SVG is needed.
 This reference is a UID in the fabric namespace and is temporary stored here.
 
 #### Inherited from
 
-[`IText`](IText.md).[`clipPathId`](IText.md#clippathid)
+[`IText`](/api/classes/itext/).[`clipPathId`](/api/classes/itext/#clippathid)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/FabricObjectSVGExportMixin.ts:14
 
@@ -523,9 +587,9 @@ src/shapes/Object/FabricObjectSVGExportMixin.ts:14
 
 #### Inherited from
 
-[`IText`](IText.md).[`compositionColor`](IText.md#compositioncolor)
+[`IText`](/api/classes/itext/).[`compositionColor`](/api/classes/itext/#compositioncolor)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/IText.ts:196
 
@@ -537,9 +601,9 @@ src/shapes/IText/IText.ts:196
 
 #### Inherited from
 
-[`IText`](IText.md).[`compositionEnd`](IText.md#compositionend)
+[`IText`](/api/classes/itext/).[`compositionEnd`](/api/classes/itext/#compositionend)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/IText.ts:135
 
@@ -551,9 +615,9 @@ src/shapes/IText/IText.ts:135
 
 #### Inherited from
 
-[`IText`](IText.md).[`compositionStart`](IText.md#compositionstart)
+[`IText`](/api/classes/itext/).[`compositionStart`](/api/classes/itext/#compositionstart)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/IText.ts:133
 
@@ -568,9 +632,9 @@ controls are added by default_controls.js
 
 #### Inherited from
 
-[`IText`](IText.md).[`controls`](IText.md#controls)
+[`IText`](/api/classes/itext/).[`controls`](/api/classes/itext/#controls)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:117
 
@@ -580,11 +644,19 @@ src/shapes/Object/InteractiveObject.ts:117
 
 > **cornerColor**: `string`
 
+Color of controlling corners of an object (when it's active)
+
+#### Default
+
+```ts
+rgb(178,204,255)
+```
+
 #### Inherited from
 
-[`IText`](IText.md).[`cornerColor`](IText.md#cornercolor)
+[`IText`](/api/classes/itext/).[`cornerColor`](/api/classes/itext/#cornercolor)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:67
 
@@ -594,11 +666,17 @@ src/shapes/Object/InteractiveObject.ts:67
 
 > **cornerDashArray**: `null` \| `number`[]
 
+Array specifying dash pattern of an object's control (hasBorder must be true)
+
+#### Since
+
+1.6.2
+
 #### Inherited from
 
-[`IText`](IText.md).[`cornerDashArray`](IText.md#cornerdasharray)
+[`IText`](/api/classes/itext/).[`cornerDashArray`](/api/classes/itext/#cornerdasharray)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:70
 
@@ -608,11 +686,19 @@ src/shapes/Object/InteractiveObject.ts:70
 
 > **cornerSize**: `number`
 
+Size of object's controlling corners (in pixels)
+
+#### Default
+
+```ts
+13
+```
+
 #### Inherited from
 
-[`IText`](IText.md).[`cornerSize`](IText.md#cornersize)
+[`IText`](/api/classes/itext/).[`cornerSize`](/api/classes/itext/#cornersize)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:64
 
@@ -622,25 +708,55 @@ src/shapes/Object/InteractiveObject.ts:64
 
 > **cornerStrokeColor**: `string`
 
+Color of controlling corners of an object (when it's active and transparentCorners false)
+
+#### Since
+
+1.6.2
+
+#### Default
+
+```ts
+null
+```
+
 #### Inherited from
 
-[`IText`](IText.md).[`cornerStrokeColor`](IText.md#cornerstrokecolor)
+[`IText`](/api/classes/itext/).[`cornerStrokeColor`](/api/classes/itext/#cornerstrokecolor)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:68
 
 ***
 
-### cornerStyle
+### ~~cornerStyle~~
 
 > **cornerStyle**: `"circle"` \| `"rect"`
 
+Specify style of control, 'rect' or 'circle'
+This is deprecated. In the future there will be a standard control render
+And you can swap it with one of the alternative proposed with the control api
+
+#### Since
+
+1.6.2
+
+#### Default
+
+```ts
+rect
+```
+
+:::caution[Deprecated]
+This API is no longer supported and may be removed in a future release.
+:::
+
 #### Inherited from
 
-[`IText`](IText.md).[`cornerStyle`](IText.md#cornerstyle)
+[`IText`](/api/classes/itext/).[`cornerStyle`](/api/classes/itext/#cornerstyle)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:69
 
@@ -654,9 +770,9 @@ For functionalities on keyDown + ctrl || cmd
 
 #### Inherited from
 
-[`IText`](IText.md).[`ctrlKeysMapDown`](IText.md#ctrlkeysmapdown)
+[`IText`](/api/classes/itext/).[`ctrlKeysMapDown`](/api/classes/itext/#ctrlkeysmapdown)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/ITextKeyBehavior.ts:42
 
@@ -670,9 +786,9 @@ For functionalities on keyUp + ctrl || cmd
 
 #### Inherited from
 
-[`IText`](IText.md).[`ctrlKeysMapUp`](IText.md#ctrlkeysmapup)
+[`IText`](/api/classes/itext/).[`ctrlKeysMapUp`](/api/classes/itext/#ctrlkeysmapup)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/ITextKeyBehavior.ts:37
 
@@ -695,9 +811,9 @@ be used instead of the color of the text at the current position.
 
 #### Inherited from
 
-[`IText`](IText.md).[`cursorColor`](IText.md#cursorcolor)
+[`IText`](/api/classes/itext/).[`cursorColor`](/api/classes/itext/#cursorcolor)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/IText.ts:180
 
@@ -717,9 +833,9 @@ Delay between cursor blink (in ms)
 
 #### Inherited from
 
-[`IText`](IText.md).[`cursorDelay`](IText.md#cursordelay)
+[`IText`](/api/classes/itext/).[`cursorDelay`](/api/classes/itext/#cursordelay)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/IText.ts:187
 
@@ -739,9 +855,9 @@ Duration of cursor fade in (in ms)
 
 #### Inherited from
 
-[`IText`](IText.md).[`cursorDuration`](IText.md#cursorduration)
+[`IText`](/api/classes/itext/).[`cursorDuration`](/api/classes/itext/#cursorduration)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/IText.ts:194
 
@@ -761,9 +877,9 @@ Width of cursor (in px)
 
 #### Inherited from
 
-[`IText`](IText.md).[`cursorWidth`](IText.md#cursorwidth)
+[`IText`](/api/classes/itext/).[`cursorWidth`](/api/classes/itext/#cursorwidth)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/IText.ts:170
 
@@ -783,9 +899,9 @@ Baseline shift, styles only, keep at 0 for the main text object
 
 #### Inherited from
 
-[`IText`](IText.md).[`deltaY`](IText.md#deltay)
+[`IText`](/api/classes/itext/).[`deltaY`](/api/classes/itext/#deltay)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:352
 
@@ -814,9 +930,9 @@ https://www.w3.org/International/questions/qa-bidi-unicode-controls
 
 #### Inherited from
 
-[`IText`](IText.md).[`direction`](IText.md#direction)
+[`IText`](/api/classes/itext/).[`direction`](/api/classes/itext/#direction)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:365
 
@@ -837,9 +953,9 @@ true
 
 #### Inherited from
 
-[`IText`](IText.md).[`dirty`](IText.md#dirty)
+[`IText`](/api/classes/itext/).[`dirty`](/api/classes/itext/#dirty)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:193
 
@@ -863,7 +979,7 @@ and is still selectable without text.
 
 `UniqueTextboxProps.dynamicMinWidth`
 
-#### Source
+#### Defined in
 
 src/shapes/Textbox.ts:75
 
@@ -883,9 +999,9 @@ Indicates whether a text can be edited
 
 #### Inherited from
 
-[`IText`](IText.md).[`editable`](IText.md#editable)
+[`IText`](/api/classes/itext/).[`editable`](/api/classes/itext/#editable)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/IText.ts:156
 
@@ -905,9 +1021,9 @@ Border color of text object while it's in editing mode
 
 #### Inherited from
 
-[`IText`](IText.md).[`editingBorderColor`](IText.md#editingbordercolor)
+[`IText`](/api/classes/itext/).[`editingBorderColor`](/api/classes/itext/#editingbordercolor)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/IText.ts:163
 
@@ -917,11 +1033,19 @@ src/shapes/IText/IText.ts:163
 
 > **evented**: `boolean`
 
+When set to `false`, an object can not be a target of events. All events propagate through it. Introduced in v1.3.4
+
+#### Default
+
+```ts
+
+```
+
 #### Inherited from
 
-[`IText`](IText.md).[`evented`](IText.md#evented)
+[`IText`](/api/classes/itext/).[`evented`](/api/classes/itext/#evented)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:81
 
@@ -931,11 +1055,23 @@ src/shapes/Object/InteractiveObject.ts:81
 
 > **excludeFromExport**: `boolean`
 
+When `true`, object is not exported in OBJECT/JSON
+
+#### Since
+
+1.6.3
+
+#### Default
+
+```ts
+
+```
+
 #### Inherited from
 
-[`IText`](IText.md).[`excludeFromExport`](IText.md#excludefromexport)
+[`IText`](/api/classes/itext/).[`excludeFromExport`](/api/classes/itext/#excludefromexport)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:160
 
@@ -943,13 +1079,13 @@ src/shapes/Object/Object.ts:160
 
 ### fill
 
-> **fill**: `null` \| `string` \| [`TFiller`](../type-aliases/TFiller.md)
+> **fill**: `null` \| `string` \| [`TFiller`](/api/type-aliases/tfiller/)
 
 #### Inherited from
 
-[`IText`](IText.md).[`fill`](IText.md#fill)
+[`IText`](/api/classes/itext/).[`fill`](/api/classes/itext/#fill)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:143
 
@@ -959,11 +1095,21 @@ src/shapes/Object/Object.ts:143
 
 > **fillRule**: `CanvasFillRule`
 
+Fill rule used to fill an object
+accepted values are nonzero, evenodd
+<b>Backwards incompatibility note:</b> This property was used for setting globalCompositeOperation until v1.4.12 (use `globalCompositeOperation` instead)
+
+#### Default
+
+```ts
+nonzero
+```
+
 #### Inherited from
 
-[`IText`](IText.md).[`fillRule`](IText.md#fillrule)
+[`IText`](/api/classes/itext/).[`fillRule`](/api/classes/itext/#fillrule)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:144
 
@@ -973,11 +1119,19 @@ src/shapes/Object/Object.ts:144
 
 > **flipX**: `boolean`
 
+When true, an object is rendered as flipped horizontally
+
+#### Default
+
+```ts
+false
+```
+
 #### Inherited from
 
-[`IText`](IText.md).[`flipX`](IText.md#flipx)
+[`IText`](/api/classes/itext/).[`flipX`](/api/classes/itext/#flipx)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:21
 
@@ -987,11 +1141,19 @@ src/shapes/Object/ObjectOrigin.ts:21
 
 > **flipY**: `boolean`
 
+When true, an object is rendered as flipped vertically
+
+#### Default
+
+```ts
+false
+```
+
 #### Inherited from
 
-[`IText`](IText.md).[`flipY`](IText.md#flipy)
+[`IText`](/api/classes/itext/).[`flipY`](/api/classes/itext/#flipy)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:22
 
@@ -1011,9 +1173,9 @@ Font family
 
 #### Inherited from
 
-[`IText`](IText.md).[`fontFamily`](IText.md#fontfamily)
+[`IText`](/api/classes/itext/).[`fontFamily`](/api/classes/itext/#fontfamily)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:186
 
@@ -1033,9 +1195,9 @@ Font size (in pixels)
 
 #### Inherited from
 
-[`IText`](IText.md).[`fontSize`](IText.md#fontsize)
+[`IText`](/api/classes/itext/).[`fontSize`](/api/classes/itext/#fontsize)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:172
 
@@ -1055,9 +1217,9 @@ Font style . Possible values: "", "normal", "italic" or "oblique".
 
 #### Inherited from
 
-[`IText`](IText.md).[`fontStyle`](IText.md#fontstyle)
+[`IText`](/api/classes/itext/).[`fontStyle`](/api/classes/itext/#fontstyle)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:222
 
@@ -1077,9 +1239,9 @@ Font weight (e.g. bold, normal, 400, 600, 800)
 
 #### Inherited from
 
-[`IText`](IText.md).[`fontWeight`](IText.md#fontweight)
+[`IText`](/api/classes/itext/).[`fontWeight`](/api/classes/itext/#fontweight)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:179
 
@@ -1089,11 +1251,19 @@ src/shapes/Text/Text.ts:179
 
 > **globalCompositeOperation**: `GlobalCompositeOperation`
 
+Composite rule used for canvas globalCompositeOperation
+
+#### Default
+
+```ts
+
+```
+
 #### Inherited from
 
-[`IText`](IText.md).[`globalCompositeOperation`](IText.md#globalcompositeoperation)
+[`IText`](/api/classes/itext/).[`globalCompositeOperation`](/api/classes/itext/#globalcompositeoperation)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:152
 
@@ -1103,11 +1273,19 @@ src/shapes/Object/Object.ts:152
 
 > **hasBorders**: `boolean`
 
+When set to `false`, object's controlling borders are not rendered
+
+#### Default
+
+```ts
+
+```
+
 #### Inherited from
 
-[`IText`](IText.md).[`hasBorders`](IText.md#hasborders)
+[`IText`](/api/classes/itext/).[`hasBorders`](/api/classes/itext/#hasborders)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:77
 
@@ -1117,11 +1295,19 @@ src/shapes/Object/InteractiveObject.ts:77
 
 > **hasControls**: `boolean`
 
+When set to `false`, object's controls are not displayed and can not be used to manipulate object
+
+#### Default
+
+```ts
+
+```
+
 #### Inherited from
 
-[`IText`](IText.md).[`hasControls`](IText.md#hascontrols)
+[`IText`](/api/classes/itext/).[`hasControls`](/api/classes/itext/#hascontrols)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:71
 
@@ -1131,11 +1317,19 @@ src/shapes/Object/InteractiveObject.ts:71
 
 > **height**: `number`
 
+Object height
+
+#### Default
+
+```ts
+
+```
+
 #### Inherited from
 
-[`IText`](IText.md).[`height`](IText.md#height)
+[`IText`](/api/classes/itext/).[`height`](/api/classes/itext/#height)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:20
 
@@ -1147,9 +1341,9 @@ src/shapes/Object/ObjectOrigin.ts:20
 
 #### Inherited from
 
-[`IText`](IText.md).[`hiddenTextarea`](IText.md#hiddentextarea)
+[`IText`](/api/classes/itext/).[`hiddenTextarea`](/api/classes/itext/#hiddentextarea)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/ITextKeyBehavior.ts:44
 
@@ -1157,7 +1351,7 @@ src/shapes/IText/ITextKeyBehavior.ts:44
 
 ### hiddenTextareaContainer?
 
-> **`optional`** **hiddenTextareaContainer**: `null` \| `HTMLElement`
+> `optional` **hiddenTextareaContainer**: `null` \| `HTMLElement`
 
 DOM container to append the hiddenTextarea.
 An alternative to attaching to the document.body.
@@ -1172,9 +1366,9 @@ also with modals event capturing that won't let the textarea take focus.
 
 #### Inherited from
 
-[`IText`](IText.md).[`hiddenTextareaContainer`](IText.md#hiddentextareacontainer)
+[`IText`](/api/classes/itext/).[`hiddenTextareaContainer`](/api/classes/itext/#hiddentextareacontainer)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/ITextKeyBehavior.ts:54
 
@@ -1184,11 +1378,19 @@ src/shapes/IText/ITextKeyBehavior.ts:54
 
 > **hoverCursor**: `null` \| `string`
 
+Default cursor value used when hovering over this object on canvas
+
+#### Default
+
+```ts
+null
+```
+
 #### Inherited from
 
-[`IText`](IText.md).[`hoverCursor`](IText.md#hovercursor)
+[`IText`](/api/classes/itext/).[`hoverCursor`](/api/classes/itext/#hovercursor)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:85
 
@@ -1198,11 +1400,19 @@ src/shapes/Object/InteractiveObject.ts:85
 
 > **includeDefaultValues**: `boolean`
 
+When `false`, default object's values are not included in its serialization
+
+#### Default
+
+```ts
+
+```
+
 #### Inherited from
 
-[`IText`](IText.md).[`includeDefaultValues`](IText.md#includedefaultvalues)
+[`IText`](/api/classes/itext/).[`includeDefaultValues`](/api/classes/itext/#includedefaultvalues)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:159
 
@@ -1210,13 +1420,13 @@ src/shapes/Object/Object.ts:159
 
 ### initialized?
 
-> **`optional`** **initialized**: `true`
+> `optional` **initialized**: `true`
 
 #### Inherited from
 
-[`IText`](IText.md).[`initialized`](IText.md#initialized)
+[`IText`](/api/classes/itext/).[`initialized`](/api/classes/itext/#initialized)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:411
 
@@ -1226,11 +1436,21 @@ src/shapes/Text/Text.ts:411
 
 > **inverted**: `boolean`
 
+Meaningful ONLY when the object is used as clipPath.
+if true, the clipPath will make the object clip to the outside of the clipPath
+since 2.4.0
+
+#### Default
+
+```ts
+false
+```
+
 #### Inherited from
 
-[`IText`](IText.md).[`inverted`](IText.md#inverted)
+[`IText`](/api/classes/itext/).[`inverted`](/api/classes/itext/#inverted)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:165
 
@@ -1250,9 +1470,9 @@ Indicates whether text is in editing mode
 
 #### Inherited from
 
-[`IText`](IText.md).[`isEditing`](IText.md#isediting)
+[`IText`](/api/classes/itext/).[`isEditing`](/api/classes/itext/#isediting)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/IText.ts:149
 
@@ -1260,16 +1480,16 @@ src/shapes/IText/IText.ts:149
 
 ### isMoving?
 
-> **`optional`** **isMoving**: `boolean`
+> `optional` **isMoving**: `boolean`
 
 internal boolean to signal the code that the object is
 part of the move action.
 
 #### Inherited from
 
-[`IText`](IText.md).[`isMoving`](IText.md#ismoving)
+[`IText`](/api/classes/itext/).[`isMoving`](/api/classes/itext/#ismoving)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:123
 
@@ -1279,7 +1499,7 @@ src/shapes/Object/InteractiveObject.ts:123
 
 > **isWrapping**: `boolean`
 
-#### Source
+#### Defined in
 
 src/shapes/Textbox.ts:89
 
@@ -1296,14 +1516,14 @@ this map setting the name of a function that you build on the IText or
 your prototype.
 the map change will affect all Instances unless you need for only some text Instances
 in that case you have to clone this object and assign your Instance.
-this.keysMap = Object.assign(\{\}, this.keysMap);
+this.keysMap = Object.assign({}, this.keysMap);
 The function must be in IText.prototype.myFunction And will receive event as args[0]
 
 #### Inherited from
 
-[`IText`](IText.md).[`keysMap`](IText.md#keysmap)
+[`IText`](/api/classes/itext/).[`keysMap`](/api/classes/itext/#keysmap)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/ITextKeyBehavior.ts:30
 
@@ -1315,9 +1535,9 @@ src/shapes/IText/ITextKeyBehavior.ts:30
 
 #### Inherited from
 
-[`IText`](IText.md).[`keysMapRtl`](IText.md#keysmaprtl)
+[`IText`](/api/classes/itext/).[`keysMapRtl`](/api/classes/itext/#keysmaprtl)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/ITextKeyBehavior.ts:32
 
@@ -1327,11 +1547,21 @@ src/shapes/IText/ITextKeyBehavior.ts:32
 
 > **left**: `number`
 
+Left position of an object.
+Note that by default it's relative to object left.
+You can change this by setting [originX](../../../../api/interfaces/fabricobjectprops/#originx)
+
+#### Default
+
+```ts
+0
+```
+
 #### Inherited from
 
-[`IText`](IText.md).[`left`](IText.md#left)
+[`IText`](/api/classes/itext/).[`left`](/api/classes/itext/#left)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:18
 
@@ -1351,9 +1581,9 @@ Line height
 
 #### Inherited from
 
-[`IText`](IText.md).[`lineHeight`](IText.md#lineheight)
+[`IText`](/api/classes/itext/).[`lineHeight`](/api/classes/itext/#lineheight)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:229
 
@@ -1373,9 +1603,9 @@ Text decoration linethrough.
 
 #### Inherited from
 
-[`IText`](IText.md).[`linethrough`](IText.md#linethrough)
+[`IText`](/api/classes/itext/).[`linethrough`](/api/classes/itext/#linethrough)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:207
 
@@ -1385,11 +1615,19 @@ src/shapes/Text/Text.ts:207
 
 > **lockMovementX**: `boolean`
 
+When `true`, object horizontal movement is locked
+
+#### Default
+
+```ts
+
+```
+
 #### Inherited from
 
-[`IText`](IText.md).[`lockMovementX`](IText.md#lockmovementx)
+[`IText`](/api/classes/itext/).[`lockMovementX`](/api/classes/itext/#lockmovementx)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:55
 
@@ -1399,11 +1637,19 @@ src/shapes/Object/InteractiveObject.ts:55
 
 > **lockMovementY**: `boolean`
 
+When `true`, object vertical movement is locked
+
+#### Default
+
+```ts
+
+```
+
 #### Inherited from
 
-[`IText`](IText.md).[`lockMovementY`](IText.md#lockmovementy)
+[`IText`](/api/classes/itext/).[`lockMovementY`](/api/classes/itext/#lockmovementy)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:56
 
@@ -1413,11 +1659,19 @@ src/shapes/Object/InteractiveObject.ts:56
 
 > **lockRotation**: `boolean`
 
+When `true`, object rotation is locked
+
+#### Default
+
+```ts
+
+```
+
 #### Inherited from
 
-[`IText`](IText.md).[`lockRotation`](IText.md#lockrotation)
+[`IText`](/api/classes/itext/).[`lockRotation`](/api/classes/itext/#lockrotation)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:57
 
@@ -1427,11 +1681,19 @@ src/shapes/Object/InteractiveObject.ts:57
 
 > **lockScalingFlip**: `boolean`
 
+When `true`, object cannot be flipped by scaling into negative values
+
+#### Default
+
+```ts
+
+```
+
 #### Inherited from
 
-[`IText`](IText.md).[`lockScalingFlip`](IText.md#lockscalingflip)
+[`IText`](/api/classes/itext/).[`lockScalingFlip`](/api/classes/itext/#lockscalingflip)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:62
 
@@ -1441,11 +1703,19 @@ src/shapes/Object/InteractiveObject.ts:62
 
 > **lockScalingX**: `boolean`
 
+When `true`, object horizontal scaling is locked
+
+#### Default
+
+```ts
+
+```
+
 #### Inherited from
 
-[`IText`](IText.md).[`lockScalingX`](IText.md#lockscalingx)
+[`IText`](/api/classes/itext/).[`lockScalingX`](/api/classes/itext/#lockscalingx)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:58
 
@@ -1455,11 +1725,19 @@ src/shapes/Object/InteractiveObject.ts:58
 
 > **lockScalingY**: `boolean`
 
+When `true`, object vertical scaling is locked
+
+#### Default
+
+```ts
+
+```
+
 #### Inherited from
 
-[`IText`](IText.md).[`lockScalingY`](IText.md#lockscalingy)
+[`IText`](/api/classes/itext/).[`lockScalingY`](/api/classes/itext/#lockscalingy)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:59
 
@@ -1469,11 +1747,19 @@ src/shapes/Object/InteractiveObject.ts:59
 
 > **lockSkewingX**: `boolean`
 
+When `true`, object horizontal skewing is locked
+
+#### Default
+
+```ts
+
+```
+
 #### Inherited from
 
-[`IText`](IText.md).[`lockSkewingX`](IText.md#lockskewingx)
+[`IText`](/api/classes/itext/).[`lockSkewingX`](/api/classes/itext/#lockskewingx)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:60
 
@@ -1483,11 +1769,19 @@ src/shapes/Object/InteractiveObject.ts:60
 
 > **lockSkewingY**: `boolean`
 
+When `true`, object vertical skewing is locked
+
+#### Default
+
+```ts
+
+```
+
 #### Inherited from
 
-[`IText`](IText.md).[`lockSkewingY`](IText.md#lockskewingy)
+[`IText`](/api/classes/itext/).[`lockSkewingY`](/api/classes/itext/#lockskewingy)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:61
 
@@ -1495,15 +1789,15 @@ src/shapes/Object/InteractiveObject.ts:61
 
 ### matrixCache?
 
-> **`optional`** **matrixCache**: `TMatrixCache`
+> `optional` **matrixCache**: `TMatrixCache`
 
 storage cache for object full transform matrix
 
 #### Inherited from
 
-[`IText`](IText.md).[`matrixCache`](IText.md#matrixcache)
+[`IText`](/api/classes/itext/).[`matrixCache`](/api/classes/itext/#matrixcache)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:60
 
@@ -1513,11 +1807,19 @@ src/shapes/Object/ObjectGeometry.ts:60
 
 > **minScaleLimit**: `number`
 
+Minimum allowed scale value of an object
+
+#### Default
+
+```ts
+0
+```
+
 #### Inherited from
 
-[`IText`](IText.md).[`minScaleLimit`](IText.md#minscalelimit)
+[`IText`](/api/classes/itext/).[`minScaleLimit`](/api/classes/itext/#minscalelimit)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:138
 
@@ -1539,7 +1841,7 @@ Minimum width of textbox, in pixels.
 
 `UniqueTextboxProps.minWidth`
 
-#### Source
+#### Defined in
 
 src/shapes/Textbox.ts:66
 
@@ -1549,11 +1851,19 @@ src/shapes/Textbox.ts:66
 
 > **moveCursor**: `null` \| `string`
 
+Default cursor value used when moving this object on canvas
+
+#### Default
+
+```ts
+null
+```
+
 #### Inherited from
 
-[`IText`](IText.md).[`moveCursor`](IText.md#movecursor)
+[`IText`](/api/classes/itext/).[`moveCursor`](/api/classes/itext/#movecursor)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:86
 
@@ -1563,11 +1873,23 @@ src/shapes/Object/InteractiveObject.ts:86
 
 > **noScaleCache**: `boolean`
 
+When `true`, cache does not get updated during scaling. The picture will get blocky if scaled
+too much and will be redrawn with correct details at the end of scaling.
+this setting is performance and application dependant.
+default to true
+since 1.7.0
+
+#### Default
+
+```ts
+true
+```
+
 #### Inherited from
 
-[`IText`](IText.md).[`noScaleCache`](IText.md#noscalecache)
+[`IText`](/api/classes/itext/).[`noScaleCache`](/api/classes/itext/#noscalecache)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:50
 
@@ -1584,9 +1906,9 @@ Used to draw and locate controls.
 
 #### Inherited from
 
-[`IText`](IText.md).[`oCoords`](IText.md#ocoords)
+[`IText`](/api/classes/itext/).[`oCoords`](/api/classes/itext/#ocoords)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:94
 
@@ -1596,11 +1918,25 @@ src/shapes/Object/InteractiveObject.ts:94
 
 > **objectCaching**: `boolean`
 
+When `true`, object is cached on an additional canvas.
+When `false`, object is not cached unless necessary ( clipPath )
+default to true
+
+#### Since
+
+1.7.0
+
+#### Default
+
+```ts
+true
+```
+
 #### Inherited from
 
-[`IText`](IText.md).[`objectCaching`](IText.md#objectcaching)
+[`IText`](/api/classes/itext/).[`objectCaching`](/api/classes/itext/#objectcaching)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:162
 
@@ -1610,11 +1946,19 @@ src/shapes/Object/Object.ts:162
 
 > **opacity**: `number`
 
+Opacity of an object
+
+#### Default
+
+```ts
+1
+```
+
 #### Inherited from
 
-[`IText`](IText.md).[`opacity`](IText.md#opacity)
+[`IText`](/api/classes/itext/).[`opacity`](/api/classes/itext/#opacity)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:140
 
@@ -1622,13 +1966,22 @@ src/shapes/Object/Object.ts:140
 
 ### originX
 
-> **originX**: [`TOriginX`](../type-aliases/TOriginX.md)
+> **originX**: [`TOriginX`](/api/type-aliases/toriginx/)
+
+Horizontal origin of transformation of an object (`left`, `center`, `right`  or `[0, 1]`)
+See http://jsfiddle.net/1ow02gea/244/ on how originX/originY affect objects in groups
+
+#### Default
+
+```ts
+'left'
+```
 
 #### Inherited from
 
-[`IText`](IText.md).[`originX`](IText.md#originx)
+[`IText`](/api/classes/itext/).[`originX`](/api/classes/itext/#originx)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:27
 
@@ -1636,13 +1989,22 @@ src/shapes/Object/ObjectOrigin.ts:27
 
 ### originY
 
-> **originY**: [`TOriginY`](../type-aliases/TOriginY.md)
+> **originY**: [`TOriginY`](/api/type-aliases/toriginy/)
+
+Vertical origin of transformation of an object (`top`, `center`, `bottom` or `[0, 1]`)
+See http://jsfiddle.net/1ow02gea/244/ on how originX/originY affect objects in groups
+
+#### Default
+
+```ts
+'top'
+```
 
 #### Inherited from
 
-[`IText`](IText.md).[`originY`](IText.md#originy)
+[`IText`](/api/classes/itext/).[`originY`](/api/classes/itext/#originy)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:28
 
@@ -1662,9 +2024,9 @@ Text decoration overline.
 
 #### Inherited from
 
-[`IText`](IText.md).[`overline`](IText.md#overline)
+[`IText`](/api/classes/itext/).[`overline`](/api/classes/itext/#overline)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:200
 
@@ -1672,15 +2034,15 @@ src/shapes/Text/Text.ts:200
 
 ### ownMatrixCache?
 
-> **`optional`** **ownMatrixCache**: `TMatrixCache`
+> `optional` **ownMatrixCache**: `TMatrixCache`
 
 storage cache for object transform matrix
 
 #### Inherited from
 
-[`IText`](IText.md).[`ownMatrixCache`](IText.md#ownmatrixcache)
+[`IText`](/api/classes/itext/).[`ownMatrixCache`](/api/classes/itext/#ownmatrixcache)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:55
 
@@ -1690,11 +2052,19 @@ src/shapes/Object/ObjectGeometry.ts:55
 
 > **padding**: `number`
 
+Padding between object and its controlling borders (in pixels)
+
+#### Default
+
+```ts
+0
+```
+
 #### Inherited from
 
-[`IText`](IText.md).[`padding`](IText.md#padding)
+[`IText`](/api/classes/itext/).[`padding`](/api/classes/itext/#padding)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:40
 
@@ -1704,11 +2074,19 @@ src/shapes/Object/ObjectGeometry.ts:40
 
 > **paintFirst**: `"fill"` \| `"stroke"`
 
+Determines if the fill or the stroke is drawn first (one of "fill" or "stroke")
+
+#### Default
+
+```ts
+
+```
+
 #### Inherited from
 
-[`IText`](IText.md).[`paintFirst`](IText.md#paintfirst)
+[`IText`](/api/classes/itext/).[`paintFirst`](/api/classes/itext/#paintfirst)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:142
 
@@ -1716,16 +2094,16 @@ src/shapes/Object/Object.ts:142
 
 ### parent?
 
-> **`optional`** **parent**: [`Group`](Group.md)
+> `optional` **parent**: [`Group`](/api/classes/group/)
 
 A reference to the parent of the object
 Used to keep the original parent ref when the object has been added to an ActiveSelection, hence loosing the `group` ref
 
 #### Inherited from
 
-[`IText`](IText.md).[`parent`](IText.md#parent)
+[`IText`](/api/classes/itext/).[`parent`](/api/classes/itext/#parent)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/StackedObject.ts:44
 
@@ -1733,7 +2111,7 @@ src/shapes/Object/StackedObject.ts:44
 
 ### path?
 
-> **`optional`** **path**: [`Path`](Path.md)\<`Partial`\<[`PathProps`](../interfaces/PathProps.md)\>, [`SerializedPathProps`](../interfaces/SerializedPathProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+> `optional` **path**: [`Path`](/api/classes/path/)\<`Partial`\<[`PathProps`](/api/interfaces/pathprops/)\>, [`SerializedPathProps`](/api/interfaces/serializedpathprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 Path that the text should follow.
 since 4.6.0 the path will be drawn automatically.
@@ -1766,9 +2144,9 @@ const textPath = new Text('Text on a path', {
 
 #### Inherited from
 
-[`IText`](IText.md).[`path`](IText.md#path)
+[`IText`](/api/classes/itext/).[`path`](/api/classes/itext/#path)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:294
 
@@ -1776,7 +2154,7 @@ src/shapes/Text/Text.ts:294
 
 ### pathAlign
 
-> **pathAlign**: [`TPathAlign`](../type-aliases/TPathAlign.md)
+> **pathAlign**: [`TPathAlign`](/api/type-aliases/tpathalign/)
 
 How text is aligned to the path. This property determines
 the perpendicular position of each character relative to the path.
@@ -1791,9 +2169,9 @@ This feature is in BETA, and its behavior may change
 
 #### Inherited from
 
-[`IText`](IText.md).[`pathAlign`](IText.md#pathalign)
+[`IText`](/api/classes/itext/).[`pathAlign`](/api/classes/itext/#pathalign)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:320
 
@@ -1801,7 +2179,7 @@ src/shapes/Text/Text.ts:320
 
 ### pathSide
 
-> **pathSide**: [`TPathSide`](../type-aliases/TPathSide.md)
+> **pathSide**: [`TPathSide`](/api/type-aliases/tpathside/)
 
 Which side of the path the text should be drawn on.
 Only used when text has a path
@@ -1814,9 +2192,9 @@ Only used when text has a path
 
 #### Inherited from
 
-[`IText`](IText.md).[`pathSide`](IText.md#pathside)
+[`IText`](/api/classes/itext/).[`pathSide`](/api/classes/itext/#pathside)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:310
 
@@ -1837,9 +2215,9 @@ Only used when text has a path
 
 #### Inherited from
 
-[`IText`](IText.md).[`pathStartOffset`](IText.md#pathstartoffset)
+[`IText`](/api/classes/itext/).[`pathStartOffset`](/api/classes/itext/#pathstartoffset)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:302
 
@@ -1849,11 +2227,19 @@ src/shapes/Text/Text.ts:302
 
 > **perPixelTargetFind**: `boolean`
 
+When set to `true`, objects are "found" on canvas on per-pixel basis rather than according to bounding box
+
+#### Default
+
+```ts
+
+```
+
 #### Inherited from
 
-[`IText`](IText.md).[`perPixelTargetFind`](IText.md#perpixeltargetfind)
+[`IText`](/api/classes/itext/).[`perPixelTargetFind`](/api/classes/itext/#perpixeltargetfind)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:82
 
@@ -1863,11 +2249,19 @@ src/shapes/Object/InteractiveObject.ts:82
 
 > **scaleX**: `number`
 
+Object scale factor (horizontal)
+
+#### Default
+
+```ts
+1
+```
+
 #### Inherited from
 
-[`IText`](IText.md).[`scaleX`](IText.md#scalex)
+[`IText`](/api/classes/itext/).[`scaleX`](/api/classes/itext/#scalex)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:23
 
@@ -1877,11 +2271,19 @@ src/shapes/Object/ObjectOrigin.ts:23
 
 > **scaleY**: `number`
 
+Object scale factor (vertical)
+
+#### Default
+
+```ts
+1
+```
+
 #### Inherited from
 
-[`IText`](IText.md).[`scaleY`](IText.md#scaley)
+[`IText`](/api/classes/itext/).[`scaleY`](/api/classes/itext/#scaley)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:24
 
@@ -1891,25 +2293,47 @@ src/shapes/Object/ObjectOrigin.ts:24
 
 > **selectable**: `boolean`
 
+When set to `false`, an object can not be selected for modification (using either point-click-based or group-based selection).
+But events still fire on it.
+
+#### Default
+
+```ts
+
+```
+
 #### Inherited from
 
-[`IText`](IText.md).[`selectable`](IText.md#selectable)
+[`IText`](/api/classes/itext/).[`selectable`](/api/classes/itext/#selectable)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:80
 
 ***
 
-### selectionBackgroundColor
+### ~~selectionBackgroundColor~~
 
 > **selectionBackgroundColor**: `string`
 
+Selection Background color of an object. colored layer behind the object when it is active.
+does not mix good with globalCompositeOperation methods.
+
+#### Default
+
+```ts
+
+```
+
+:::caution[Deprecated]
+This API is no longer supported and may be removed in a future release.
+:::
+
 #### Inherited from
 
-[`IText`](IText.md).[`selectionBackgroundColor`](IText.md#selectionbackgroundcolor)
+[`IText`](/api/classes/itext/).[`selectionBackgroundColor`](/api/classes/itext/#selectionbackgroundcolor)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:78
 
@@ -1929,9 +2353,9 @@ Color of text selection
 
 #### Inherited from
 
-[`IText`](IText.md).[`selectionColor`](IText.md#selectioncolor)
+[`IText`](/api/classes/itext/).[`selectionColor`](/api/classes/itext/#selectioncolor)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/IText.ts:142
 
@@ -1951,9 +2375,9 @@ Index where text selection ends
 
 #### Inherited from
 
-[`IText`](IText.md).[`selectionEnd`](IText.md#selectionend)
+[`IText`](/api/classes/itext/).[`selectionEnd`](/api/classes/itext/#selectionend)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/IText.ts:131
 
@@ -1973,9 +2397,9 @@ Index where text selection starts (or where cursor is when there is no selection
 
 #### Inherited from
 
-[`IText`](IText.md).[`selectionStart`](IText.md#selectionstart)
+[`IText`](/api/classes/itext/).[`selectionStart`](/api/classes/itext/#selectionstart)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/IText.ts:124
 
@@ -1983,13 +2407,13 @@ src/shapes/IText/IText.ts:124
 
 ### shadow
 
-> **shadow**: `null` \| [`Shadow`](Shadow.md)
+> **shadow**: `null` \| [`Shadow`](/api/classes/shadow/)
 
 #### Inherited from
 
-[`IText`](IText.md).[`shadow`](IText.md#shadow)
+[`IText`](/api/classes/itext/).[`shadow`](/api/classes/itext/#shadow)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:155
 
@@ -1999,11 +2423,19 @@ src/shapes/Object/Object.ts:155
 
 > **skewX**: `number`
 
+Angle of skew on x axes of an object (in degrees)
+
+#### Default
+
+```ts
+0
+```
+
 #### Inherited from
 
-[`IText`](IText.md).[`skewX`](IText.md#skewx)
+[`IText`](/api/classes/itext/).[`skewX`](/api/classes/itext/#skewx)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:25
 
@@ -2013,11 +2445,19 @@ src/shapes/Object/ObjectOrigin.ts:25
 
 > **skewY**: `number`
 
+Angle of skew on y axes of an object (in degrees)
+
+#### Default
+
+```ts
+0
+```
+
 #### Inherited from
 
-[`IText`](IText.md).[`skewY`](IText.md#skewy)
+[`IText`](/api/classes/itext/).[`skewY`](/api/classes/itext/#skewy)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:26
 
@@ -2025,13 +2465,15 @@ src/shapes/Object/ObjectOrigin.ts:26
 
 ### snapAngle?
 
-> **`optional`** **snapAngle**: [`TDegree`](../type-aliases/TDegree.md)
+> `optional` **snapAngle**: [`TDegree`](/api/type-aliases/tdegree/)
+
+The angle that an object will lock to while rotating.
 
 #### Inherited from
 
-[`IText`](IText.md).[`snapAngle`](IText.md#snapangle)
+[`IText`](/api/classes/itext/).[`snapAngle`](/api/classes/itext/#snapangle)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:52
 
@@ -2039,13 +2481,16 @@ src/shapes/Object/InteractiveObject.ts:52
 
 ### snapThreshold?
 
-> **`optional`** **snapThreshold**: [`TDegree`](../type-aliases/TDegree.md)
+> `optional` **snapThreshold**: [`TDegree`](/api/type-aliases/tdegree/)
+
+The angle difference from the current snapped angle in which snapping should occur.
+When undefined, the snapThreshold will default to the snapAngle.
 
 #### Inherited from
 
-[`IText`](IText.md).[`snapThreshold`](IText.md#snapthreshold)
+[`IText`](/api/classes/itext/).[`snapThreshold`](/api/classes/itext/#snapthreshold)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:53
 
@@ -2066,7 +2511,7 @@ this is a cheap way to help with chinese/japanese
 
 `UniqueTextboxProps.splitByGrapheme`
 
-#### Source
+#### Defined in
 
 src/shapes/Textbox.ts:83
 
@@ -2074,13 +2519,13 @@ src/shapes/Textbox.ts:83
 
 ### stroke
 
-> **stroke**: `null` \| `string` \| [`TFiller`](../type-aliases/TFiller.md)
+> **stroke**: `null` \| `string` \| [`TFiller`](/api/type-aliases/tfiller/)
 
 #### Inherited from
 
-[`IText`](IText.md).[`stroke`](IText.md#stroke)
+[`IText`](/api/classes/itext/).[`stroke`](/api/classes/itext/#stroke)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:145
 
@@ -2090,11 +2535,19 @@ src/shapes/Object/Object.ts:145
 
 > **strokeDashArray**: `null` \| `number`[]
 
+Array specifying dash pattern of an object's stroke (stroke must be defined)
+
+#### Default
+
+```ts
+null;
+```
+
 #### Inherited from
 
-[`IText`](IText.md).[`strokeDashArray`](IText.md#strokedasharray)
+[`IText`](/api/classes/itext/).[`strokeDashArray`](/api/classes/itext/#strokedasharray)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:146
 
@@ -2104,11 +2557,19 @@ src/shapes/Object/Object.ts:146
 
 > **strokeDashOffset**: `number`
 
+Line offset of an object's stroke
+
+#### Default
+
+```ts
+0
+```
+
 #### Inherited from
 
-[`IText`](IText.md).[`strokeDashOffset`](IText.md#strokedashoffset)
+[`IText`](/api/classes/itext/).[`strokeDashOffset`](/api/classes/itext/#strokedashoffset)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:147
 
@@ -2118,11 +2579,19 @@ src/shapes/Object/Object.ts:147
 
 > **strokeLineCap**: `CanvasLineCap`
 
+Line endings style of an object's stroke (one of "butt", "round", "square")
+
+#### Default
+
+```ts
+butt
+```
+
 #### Inherited from
 
-[`IText`](IText.md).[`strokeLineCap`](IText.md#strokelinecap)
+[`IText`](/api/classes/itext/).[`strokeLineCap`](/api/classes/itext/#strokelinecap)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:148
 
@@ -2132,11 +2601,19 @@ src/shapes/Object/Object.ts:148
 
 > **strokeLineJoin**: `CanvasLineJoin`
 
+Corner style of an object's stroke (one of "bevel", "round", "miter")
+
+#### Default
+
+```ts
+
+```
+
 #### Inherited from
 
-[`IText`](IText.md).[`strokeLineJoin`](IText.md#strokelinejoin)
+[`IText`](/api/classes/itext/).[`strokeLineJoin`](/api/classes/itext/#strokelinejoin)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:149
 
@@ -2146,11 +2623,19 @@ src/shapes/Object/Object.ts:149
 
 > **strokeMiterLimit**: `number`
 
+Maximum miter length (used for strokeLineJoin = "miter") of an object's stroke
+
+#### Default
+
+```ts
+4
+```
+
 #### Inherited from
 
-[`IText`](IText.md).[`strokeMiterLimit`](IText.md#strokemiterlimit)
+[`IText`](/api/classes/itext/).[`strokeMiterLimit`](/api/classes/itext/#strokemiterlimit)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:150
 
@@ -2160,11 +2645,32 @@ src/shapes/Object/Object.ts:150
 
 > **strokeUniform**: `boolean`
 
+When `false`, the stoke width will scale with the object.
+When `true`, the stroke will always match the exact pixel size entered for stroke width.
+this Property does not work on Text classes or drawing call that uses strokeText,fillText methods
+default to false
+
+#### Since
+
+2.6.0
+
+#### Default
+
+```ts
+false
+```
+
+#### Default
+
+```ts
+false
+```
+
 #### Inherited from
 
-[`IText`](IText.md).[`strokeUniform`](IText.md#strokeuniform)
+[`IText`](/api/classes/itext/).[`strokeUniform`](/api/classes/itext/#strokeuniform)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:31
 
@@ -2174,11 +2680,19 @@ src/shapes/Object/ObjectOrigin.ts:31
 
 > **strokeWidth**: `number`
 
+Width of a stroke used to render this object
+
+#### Default
+
+```ts
+1
+```
+
 #### Inherited from
 
-[`IText`](IText.md).[`strokeWidth`](IText.md#strokewidth)
+[`IText`](/api/classes/itext/).[`strokeWidth`](/api/classes/itext/#strokewidth)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:30
 
@@ -2186,13 +2700,13 @@ src/shapes/Object/ObjectOrigin.ts:30
 
 ### styles
 
-> **styles**: [`TextStyle`](../type-aliases/TextStyle.md)
+> **styles**: [`TextStyle`](/api/type-aliases/textstyle/)
 
 #### Inherited from
 
-[`IText`](IText.md).[`styles`](IText.md#styles)
+[`IText`](/api/classes/itext/).[`styles`](/api/classes/itext/#styles)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:270
 
@@ -2200,7 +2714,7 @@ src/shapes/Text/Text.ts:270
 
 ### subscript
 
-> **subscript**: `Object`
+> **subscript**: `object`
 
 Subscript schema object (minimum overlap)
 
@@ -2230,9 +2744,9 @@ fontSize factor
 
 #### Inherited from
 
-[`IText`](IText.md).[`subscript`](IText.md#subscript)
+[`IText`](/api/classes/itext/).[`subscript`](/api/classes/itext/#subscript)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:250
 
@@ -2240,7 +2754,7 @@ src/shapes/Text/Text.ts:250
 
 ### superscript
 
-> **superscript**: `Object`
+> **superscript**: `object`
 
 Superscript schema object (minimum overlap)
 
@@ -2270,9 +2784,9 @@ fontSize factor
 
 #### Inherited from
 
-[`IText`](IText.md).[`superscript`](IText.md#superscript)
+[`IText`](/api/classes/itext/).[`superscript`](/api/classes/itext/#superscript)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:234
 
@@ -2284,9 +2798,9 @@ src/shapes/Text/Text.ts:234
 
 #### Inherited from
 
-[`IText`](IText.md).[`text`](IText.md#text)
+[`IText`](/api/classes/itext/).[`text`](/api/classes/itext/#text)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:165
 
@@ -2307,9 +2821,9 @@ Text alignment. Possible values: "left", "center", "right", "justify",
 
 #### Inherited from
 
-[`IText`](IText.md).[`textAlign`](IText.md#textalign)
+[`IText`](/api/classes/itext/).[`textAlign`](/api/classes/itext/#textalign)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:215
 
@@ -2329,9 +2843,9 @@ Background color of text lines
 
 #### Inherited from
 
-[`IText`](IText.md).[`textBackgroundColor`](IText.md#textbackgroundcolor)
+[`IText`](/api/classes/itext/).[`textBackgroundColor`](/api/classes/itext/#textbackgroundcolor)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:268
 
@@ -2352,9 +2866,9 @@ on screen. Wrapping will divide the text independently of line breaks
 
 #### Inherited from
 
-[`IText`](IText.md).[`textLines`](IText.md#textlines)
+[`IText`](/api/classes/itext/).[`textLines`](/api/classes/itext/#textlines)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:397
 
@@ -2364,11 +2878,21 @@ src/shapes/Text/Text.ts:397
 
 > **top**: `number`
 
+Top position of an object.
+Note that by default it's relative to object top.
+You can change this by setting [originY](../../../../api/interfaces/fabricobjectprops/#originy)
+
+#### Default
+
+```ts
+0
+```
+
 #### Inherited from
 
-[`IText`](IText.md).[`top`](IText.md#top)
+[`IText`](/api/classes/itext/).[`top`](/api/classes/itext/#top)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:17
 
@@ -2378,11 +2902,19 @@ src/shapes/Object/ObjectOrigin.ts:17
 
 > **touchCornerSize**: `number`
 
+Size of object's controlling corners when touch interaction is detected
+
+#### Default
+
+```ts
+24
+```
+
 #### Inherited from
 
-[`IText`](IText.md).[`touchCornerSize`](IText.md#touchcornersize)
+[`IText`](/api/classes/itext/).[`touchCornerSize`](/api/classes/itext/#touchcornersize)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:65
 
@@ -2392,11 +2924,19 @@ src/shapes/Object/InteractiveObject.ts:65
 
 > **transparentCorners**: `boolean`
 
+When true, object's controlling corners are rendered as transparent inside (i.e. stroke instead of fill)
+
+#### Default
+
+```ts
+true
+```
+
 #### Inherited from
 
-[`IText`](IText.md).[`transparentCorners`](IText.md#transparentcorners)
+[`IText`](/api/classes/itext/).[`transparentCorners`](/api/classes/itext/#transparentcorners)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:66
 
@@ -2416,9 +2956,9 @@ Text decoration underline.
 
 #### Inherited from
 
-[`IText`](IText.md).[`underline`](IText.md#underline)
+[`IText`](/api/classes/itext/).[`underline`](/api/classes/itext/#underline)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:193
 
@@ -2428,11 +2968,19 @@ src/shapes/Text/Text.ts:193
 
 > **visible**: `boolean`
 
+When set to `false`, an object is not rendered on canvas
+
+#### Default
+
+```ts
+
+```
+
 #### Inherited from
 
-[`IText`](IText.md).[`visible`](IText.md#visible)
+[`IText`](/api/classes/itext/).[`visible`](/api/classes/itext/#visible)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:157
 
@@ -2442,11 +2990,19 @@ src/shapes/Object/Object.ts:157
 
 > **width**: `number`
 
+Object width
+
+#### Default
+
+```ts
+
+```
+
 #### Inherited from
 
-[`IText`](IText.md).[`width`](IText.md#width)
+[`IText`](/api/classes/itext/).[`width`](/api/classes/itext/#width)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:19
 
@@ -2454,7 +3010,7 @@ src/shapes/Object/ObjectOrigin.ts:19
 
 ### ATTRIBUTE\_NAMES
 
-> **`static`** **ATTRIBUTE\_NAMES**: `string`[]
+> `static` **ATTRIBUTE\_NAMES**: `string`[]
 
 List of attribute names to account for when parsing SVG element (used by [FabricText.fromElement](../../../../api/classes/fabrictext/#fromelement))
 
@@ -2467,9 +3023,9 @@ Text
 
 #### Inherited from
 
-[`IText`](IText.md).[`ATTRIBUTE_NAMES`](IText.md#attribute_names)
+[`IText`](/api/classes/itext/).[`ATTRIBUTE_NAMES`](/api/classes/itext/#attribute_names)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:1803
 
@@ -2477,13 +3033,13 @@ src/shapes/Text/Text.ts:1803
 
 ### \_styleProperties
 
-> **`static`** **\_styleProperties**: readonly `StylePropertiesType`[] = `styleProperties`
+> `static` **\_styleProperties**: readonly `StylePropertiesType`[] = `styleProperties`
 
 #### Inherited from
 
-[`IText`](IText.md).[`_styleProperties`](IText.md#_styleproperties)
+[`IText`](/api/classes/itext/).[`_styleProperties`](/api/classes/itext/#_styleproperties)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/StyledText.ts:30
 
@@ -2491,13 +3047,18 @@ src/shapes/Text/StyledText.ts:30
 
 ### cacheProperties
 
-> **`static`** **cacheProperties**: `string`[]
+> `static` **cacheProperties**: `string`[]
+
+List of properties to consider when checking if cache needs refresh
+Those properties are checked by
+calls to Object.set(key, value). If the key is in this list, the object is marked as dirty
+and refreshed at the next render
 
 #### Inherited from
 
-[`IText`](IText.md).[`cacheProperties`](IText.md#cacheproperties)
+[`IText`](/api/classes/itext/).[`cacheProperties`](/api/classes/itext/#cacheproperties)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:413
 
@@ -2505,15 +3066,15 @@ src/shapes/Text/Text.ts:413
 
 ### colorProperties
 
-> **`static`** **colorProperties**: `string`[]
+> `static` **colorProperties**: `string`[]
 
 List of properties to consider for animating colors.
 
 #### Inherited from
 
-[`IText`](IText.md).[`colorProperties`](IText.md#colorproperties)
+[`IText`](/api/classes/itext/).[`colorProperties`](/api/classes/itext/#colorproperties)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/AnimatableObject.ts:20
 
@@ -2521,13 +3082,13 @@ src/shapes/Object/AnimatableObject.ts:20
 
 ### genericFonts
 
-> **`static`** **genericFonts**: `string`[]
+> `static` **genericFonts**: `string`[]
 
 #### Inherited from
 
-[`IText`](IText.md).[`genericFonts`](IText.md#genericfonts)
+[`IText`](/api/classes/itext/).[`genericFonts`](/api/classes/itext/#genericfonts)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:1787
 
@@ -2535,13 +3096,13 @@ src/shapes/Text/Text.ts:1787
 
 ### ownDefaults
 
-> **`static`** **ownDefaults**: `Partial`\<[`TClassProperties`](../type-aliases/TClassProperties.md)\<[`Textbox`](Textbox.md)\<`Partial`\<[`TextboxProps`](../interfaces/TextboxProps.md)\>, [`SerializedTextboxProps`](../interfaces/SerializedTextboxProps.md), `ITextEvents`\>\>\> = `textboxDefaultValues`
+> `static` **ownDefaults**: `Partial`\<[`TClassProperties`](/api/type-aliases/tclassproperties/)\<[`Textbox`](/api/classes/textbox/)\<`Partial`\<[`TextboxProps`](/api/interfaces/textboxprops/)\>, [`SerializedTextboxProps`](/api/interfaces/serializedtextboxprops/), `ITextEvents`\>\>\> = `textboxDefaultValues`
 
 #### Overrides
 
-[`IText`](IText.md).[`ownDefaults`](IText.md#owndefaults)
+[`IText`](/api/classes/itext/).[`ownDefaults`](/api/classes/itext/#owndefaults)
 
-#### Source
+#### Defined in
 
 src/shapes/Textbox.ts:95
 
@@ -2549,7 +3110,7 @@ src/shapes/Textbox.ts:95
 
 ### stateProperties
 
-> **`static`** **stateProperties**: `string`[]
+> `static` **stateProperties**: `string`[]
 
 This list of properties is used to check if the state of an object is changed.
 This state change now is only used for children of groups to understand if a group
@@ -2557,37 +3118,23 @@ needs its cache regenerated during a .set call
 
 #### Inherited from
 
-[`IText`](IText.md).[`stateProperties`](IText.md#stateproperties)
+[`IText`](/api/classes/itext/).[`stateProperties`](/api/classes/itext/#stateproperties)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:176
 
 ***
 
-### textLayoutProperties
-
-> **`static`** **textLayoutProperties**: `string`[]
-
-#### Overrides
-
-`IText.textLayoutProperties`
-
-#### Source
-
-src/shapes/Textbox.ts:93
-
-***
-
 ### type
 
-> **`static`** **type**: `string` = `'Textbox'`
+> `static` **type**: `string` = `'Textbox'`
 
 #### Overrides
 
-[`IText`](IText.md).[`type`](IText.md#type)
+[`IText`](/api/classes/itext/).[`type`](/api/classes/itext/#type)
 
-#### Source
+#### Defined in
 
 src/shapes/Textbox.ts:91
 
@@ -2595,13 +3142,30 @@ src/shapes/Textbox.ts:91
 
 ### type
 
-> **`get`** **type**(): `string`
+> `get` **type**(): `string`
+
+Legacy identifier of the class. Prefer using utils like isType or instanceOf
+Will be removed in fabric 7 or 8.
+The setter exists because is very hard to catch all the ways in which a type value
+could be set in the instance
+
+#### TODO
+
+add sustainable warning message
+
+:::caution[Deprecated]
+This API is no longer supported and may be removed in a future release.
+:::
 
 #### Returns
 
 `string`
 
-#### Source
+#### Inherited from
+
+[`IText`](/api/classes/itext/).[`type`](/api/classes/itext/#type-1)
+
+#### Defined in
 
 src/shapes/IText/IText.ts:213
 
@@ -2617,7 +3181,7 @@ Prepare clipPath state and cache and draw it on instance's cache
 
 • **ctx**: `CanvasRenderingContext2D`
 
-• **clipPath?**: `FabricObject`\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **clipPath?**: `FabricObject`\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 #### Returns
 
@@ -2625,9 +3189,9 @@ Prepare clipPath state and cache and draw it on instance's cache
 
 #### Inherited from
 
-[`IText`](IText.md).[`_drawClipPath`](IText.md#_drawclippath)
+[`IText`](/api/classes/itext/).[`_drawClipPath`](/api/classes/itext/#_drawclippath)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:977
 
@@ -2641,7 +3205,7 @@ return font declaration string for canvas context
 
 #### Parameters
 
-• **\_\_namedParameters?**: `Partial`\<`Pick`\<`Partial`\<[`CompleteTextStyleDeclaration`](../type-aliases/CompleteTextStyleDeclaration.md)\>, `"fontFamily"` \| `"fontSize"` \| `"fontStyle"` \| `"fontWeight"`\>\>= `{}`
+• **\_\_namedParameters?**: `Partial`\<`Pick`\<`Partial`\<[`CompleteTextStyleDeclaration`](/api/type-aliases/completetextstyledeclaration/)\>, `"fontFamily"` \| `"fontSize"` \| `"fontStyle"` \| `"fontWeight"`\>\> = `{}`
 
 • **forMeasuring?**: `boolean`
 
@@ -2653,9 +3217,9 @@ font declaration formatted for canvas context.
 
 #### Inherited from
 
-[`IText`](IText.md).[`_getFontDeclaration`](IText.md#_getfontdeclaration)
+[`IText`](/api/classes/itext/).[`_getFontDeclaration`](/api/classes/itext/#_getfontdeclaration)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:1650
 
@@ -2663,7 +3227,7 @@ src/shapes/Text/Text.ts:1650
 
 ### \_getGraphemeBox()
 
-> **\_getGraphemeBox**(`grapheme`, `lineIndex`, `charIndex`, `prevGrapheme`?, `skipLeft`?): [`GraphemeBBox`](../type-aliases/GraphemeBBox.md)
+> **\_getGraphemeBox**(`grapheme`, `lineIndex`, `charIndex`, `prevGrapheme`?, `skipLeft`?): [`GraphemeBBox`](/api/type-aliases/graphemebbox/)
 
 #### Parameters
 
@@ -2687,15 +3251,15 @@ character preceding the one to be measured
 
 #### Returns
 
-[`GraphemeBBox`](../type-aliases/GraphemeBBox.md)
+[`GraphemeBBox`](/api/type-aliases/graphemebbox/)
 
 grapheme bbox
 
 #### Inherited from
 
-[`IText`](IText.md).[`_getGraphemeBox`](IText.md#_getgraphemebox)
+[`IText`](/api/classes/itext/).[`_getGraphemeBox`](/api/classes/itext/#_getgraphemebox)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:975
 
@@ -2722,9 +3286,9 @@ Event object
 
 #### Inherited from
 
-[`IText`](IText.md).[`_getSelectionForOffset`](IText.md#_getselectionforoffset)
+[`IText`](/api/classes/itext/).[`_getSelectionForOffset`](/api/classes/itext/#_getselectionforoffset)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/ITextKeyBehavior.ts:377
 
@@ -2740,9 +3304,9 @@ src/shapes/IText/ITextKeyBehavior.ts:377
 
 #### Inherited from
 
-[`IText`](IText.md).[`_getWidthOfCharSpacing`](IText.md#_getwidthofcharspacing)
+[`IText`](/api/classes/itext/).[`_getWidthOfCharSpacing`](/api/classes/itext/#_getwidthofcharspacing)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:1517
 
@@ -2775,9 +3339,9 @@ making bargain with performances.
 
 #### Inherited from
 
-[`IText`](IText.md).[`_limitCacheSize`](IText.md#_limitcachesize)
+[`IText`](/api/classes/itext/).[`_limitCacheSize`](/api/classes/itext/#_limitcachesize)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:372
 
@@ -2785,7 +3349,7 @@ src/shapes/Object/Object.ts:372
 
 ### \_measureLine()
 
-> **\_measureLine**(`lineIndex`): `Object`
+> **\_measureLine**(`lineIndex`): `object`
 
 measure every grapheme of a line, populating __charBounds
 
@@ -2795,7 +3359,7 @@ measure every grapheme of a line, populating __charBounds
 
 #### Returns
 
-`Object`
+`object`
 
 object.width total width of characters
 
@@ -2811,9 +3375,9 @@ object.numOfSpaces length of chars that match this._reSpacesAndTabs
 
 #### Inherited from
 
-[`IText`](IText.md).[`_measureLine`](IText.md#_measureline)
+[`IText`](/api/classes/itext/).[`_measureLine`](/api/classes/itext/#_measureline)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:883
 
@@ -2834,13 +3398,13 @@ Use with [Textbox#wordSplit](../../../../api/classes/textbox/#wordsplit)
 
 • **lineIndex**: `number`
 
-• **charOffset**: `number`= `0`
+• **charOffset**: `number` = `0`
 
 #### Returns
 
 `number`
 
-#### Source
+#### Defined in
 
 src/shapes/Textbox.ts:371
 
@@ -2859,7 +3423,7 @@ current compositionMode. It will be set to false.
 
 #### Parameters
 
-• **\_\_namedParameters**: [`TPointerEventInfo`](../interfaces/TPointerEventInfo.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\>
+• **\_\_namedParameters**: [`TPointerEventInfo`](/api/interfaces/tpointereventinfo/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\>
 
 #### Returns
 
@@ -2867,9 +3431,9 @@ current compositionMode. It will be set to false.
 
 #### Inherited from
 
-[`IText`](IText.md).[`_mouseDownHandler`](IText.md#_mousedownhandler)
+[`IText`](/api/classes/itext/).[`_mouseDownHandler`](/api/classes/itext/#_mousedownhandler)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/ITextClickBehavior.ts:127
 
@@ -2885,7 +3449,7 @@ Scope of this implementation is: verify the object is already selected when mous
 
 #### Parameters
 
-• **\_\_namedParameters**: [`TPointerEventInfo`](../interfaces/TPointerEventInfo.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\>
+• **\_\_namedParameters**: [`TPointerEventInfo`](/api/interfaces/tpointereventinfo/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\>
 
 #### Returns
 
@@ -2893,9 +3457,9 @@ Scope of this implementation is: verify the object is already selected when mous
 
 #### Inherited from
 
-[`IText`](IText.md).[`_mouseDownHandlerBefore`](IText.md#_mousedownhandlerbefore)
+[`IText`](/api/classes/itext/).[`_mouseDownHandlerBefore`](/api/classes/itext/#_mousedownhandlerbefore)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/ITextClickBehavior.ts:162
 
@@ -2923,9 +3487,9 @@ Event object
 
 #### Inherited from
 
-[`IText`](IText.md).[`_moveCursorLeftOrRight`](IText.md#_movecursorleftorright)
+[`IText`](/api/classes/itext/).[`_moveCursorLeftOrRight`](/api/classes/itext/#_movecursorleftorright)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/ITextKeyBehavior.ts:638
 
@@ -2953,9 +3517,9 @@ Event object
 
 #### Inherited from
 
-[`IText`](IText.md).[`_moveCursorUpOrDown`](IText.md#_movecursorupordown)
+[`IText`](/api/classes/itext/).[`_moveCursorUpOrDown`](/api/classes/itext/#_movecursorupordown)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/ITextKeyBehavior.ts:477
 
@@ -2973,29 +3537,11 @@ Remove cacheCanvas and its dimensions from the objects
 
 #### Inherited from
 
-[`IText`](IText.md).[`_removeCacheCanvas`](IText.md#_removecachecanvas)
+[`IText`](/api/classes/itext/).[`_removeCacheCanvas`](/api/classes/itext/#_removecachecanvas)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:831
-
-***
-
-### \_removeExtraneousStyles()
-
-> **\_removeExtraneousStyles**(): `void`
-
-#### Returns
-
-`void`
-
-#### Overrides
-
-`IText._removeExtraneousStyles`
-
-#### Source
-
-src/shapes/Textbox.ts:531
 
 ***
 
@@ -3012,7 +3558,7 @@ the context here is not transformed
 
 Context to render on
 
-• **styleOverride?**: `TStyleOverride`= `{}`
+• **styleOverride?**: `TStyleOverride` = `{}`
 
 properties to override the object style
 
@@ -3022,13 +3568,13 @@ properties to override the object style
 
 #### Inherited from
 
-[`IText`](IText.md).[`_renderControls`](IText.md#_rendercontrols)
+[`IText`](/api/classes/itext/).[`_renderControls`](/api/classes/itext/#_rendercontrols)
 
 #### Todo
 
 move to interactivity
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:399
 
@@ -3052,9 +3598,9 @@ src/shapes/Object/InteractiveObject.ts:399
 
 #### Inherited from
 
-[`IText`](IText.md).[`_renderCursor`](IText.md#_rendercursor)
+[`IText`](/api/classes/itext/).[`_renderCursor`](/api/classes/itext/#_rendercursor)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/IText.ts:499
 
@@ -3074,9 +3620,9 @@ src/shapes/IText/IText.ts:499
 
 #### Inherited from
 
-[`IText`](IText.md).[`_setClippingProperties`](IText.md#_setclippingproperties)
+[`IText`](/api/classes/itext/).[`_setClippingProperties`](/api/classes/itext/#_setclippingproperties)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:1117
 
@@ -3084,7 +3630,7 @@ src/shapes/Object/Object.ts:1117
 
 ### \_setFillStyles()
 
-> **\_setFillStyles**(`ctx`, `style`): `Object`
+> **\_setFillStyles**(`ctx`, `style`): `object`
 
 This function prepare the canvas for a ill style, and fill
 need to be sent in as defined
@@ -3093,13 +3639,13 @@ need to be sent in as defined
 
 • **ctx**: `CanvasRenderingContext2D`
 
-• **style**: `Pick`\<[`Textbox`](Textbox.md)\<`Props`, `SProps`, `EventSpec`\>, `"fill"`\>
+• **style**: `Pick`\<[`Textbox`](/api/classes/textbox/)\<`Props`, `SProps`, `EventSpec`\>, `"fill"`\>
 
 with ill defined
 
 #### Returns
 
-`Object`
+`object`
 
 ##### offsetX
 
@@ -3111,9 +3657,9 @@ with ill defined
 
 #### Inherited from
 
-[`IText`](IText.md).[`_setFillStyles`](IText.md#_setfillstyles)
+[`IText`](/api/classes/itext/).[`_setFillStyles`](/api/classes/itext/#_setfillstyles)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:1330
 
@@ -3121,7 +3667,7 @@ src/shapes/Text/Text.ts:1330
 
 ### \_setStrokeStyles()
 
-> **\_setStrokeStyles**(`ctx`, `style`): `Object`
+> **\_setStrokeStyles**(`ctx`, `style`): `object`
 
 This function prepare the canvas for a stroke style, and stroke and strokeWidth
 need to be sent in as defined
@@ -3130,13 +3676,13 @@ need to be sent in as defined
 
 • **ctx**: `CanvasRenderingContext2D`
 
-• **style**: `Pick`\<[`CompleteTextStyleDeclaration`](../type-aliases/CompleteTextStyleDeclaration.md), `"strokeWidth"` \| `"stroke"`\>
+• **style**: `Pick`\<[`CompleteTextStyleDeclaration`](/api/type-aliases/completetextstyledeclaration/), `"strokeWidth"` \| `"stroke"`\>
 
 with stroke and strokeWidth defined
 
 #### Returns
 
-`Object`
+`object`
 
 ##### offsetX
 
@@ -3148,9 +3694,9 @@ with stroke and strokeWidth defined
 
 #### Inherited from
 
-[`IText`](IText.md).[`_setStrokeStyles`](IText.md#_setstrokestyles)
+[`IText`](/api/classes/itext/).[`_setStrokeStyles`](/api/classes/itext/#_setstrokestyles)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:1308
 
@@ -3175,9 +3721,9 @@ Rendering canvas context
 
 #### Inherited from
 
-[`IText`](IText.md).[`_setupCompositeOperation`](IText.md#_setupcompositeoperation)
+[`IText`](/api/classes/itext/).[`_setupCompositeOperation`](/api/classes/itext/#_setupcompositeoperation)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:1571
 
@@ -3204,9 +3750,9 @@ Array of lines in the Textbox.
 
 #### Overrides
 
-[`IText`](IText.md).[`_splitTextIntoLines`](IText.md#_splittextintolines)
+[`IText`](/api/classes/itext/).[`_splitTextIntoLines`](/api/classes/itext/#_splittextintolines)
 
-#### Source
+#### Defined in
 
 src/shapes/Textbox.ts:515
 
@@ -3222,7 +3768,7 @@ This is just because typescript otherwise cryies all the time
 
 #### Parameters
 
-• **reviver?**: [`TSVGReviver`](../type-aliases/TSVGReviver.md)
+• **reviver?**: [`TSVGReviver`](/api/type-aliases/tsvgreviver/)
 
 #### Returns
 
@@ -3233,9 +3779,9 @@ of the instance
 
 #### Inherited from
 
-[`IText`](IText.md).[`_toSVG`](IText.md#_tosvg)
+[`IText`](/api/classes/itext/).[`_toSVG`](/api/classes/itext/#_tosvg)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/FabricObjectSVGExportMixin.ts:120
 
@@ -3266,7 +3812,7 @@ width you want to wrap to
 
 Array of lines
 
-#### Source
+#### Defined in
 
 src/shapes/Textbox.ts:306
 
@@ -3284,9 +3830,9 @@ Aborts cursor animation, clears all timeouts and clear textarea context if neces
 
 #### Inherited from
 
-[`IText`](IText.md).[`abortCursorAnimation`](IText.md#abortcursoranimation)
+[`IText`](/api/classes/itext/).[`abortCursorAnimation`](/api/classes/itext/#abortcursoranimation)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/ITextBehavior.ts:181
 
@@ -3298,7 +3844,7 @@ src/shapes/IText/ITextBehavior.ts:181
 
 #### Parameters
 
-• **this**: `FabricObjectSVGExportMixin` & [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **this**: `FabricObjectSVGExportMixin` & [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 #### Returns
 
@@ -3306,9 +3852,9 @@ src/shapes/IText/ITextBehavior.ts:181
 
 #### Inherited from
 
-[`IText`](IText.md).[`addPaintOrder`](IText.md#addpaintorder)
+[`IText`](/api/classes/itext/).[`addPaintOrder`](/api/classes/itext/#addpaintorder)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/FabricObjectSVGExportMixin.ts:249
 
@@ -3316,13 +3862,13 @@ src/shapes/Object/FabricObjectSVGExportMixin.ts:249
 
 ### animate()
 
-> **animate**\<`T`\>(`animatable`, `options`?): `Record`\<`string`, [`TAnimation`](../namespaces/util/type-aliases/TAnimation.md)\<`T`\>\>
+> **animate**\<`T`\>(`animatable`, `options`?): `Record`\<`string`, [`TAnimation`](/api/namespaces/util/type-aliases/tanimation/)\<`T`\>\>
 
 Animates object's properties
 
-#### Type parameters
+#### Type Parameters
 
-• **T** extends `number` \| [`TColorArg`](../type-aliases/TColorArg.md) \| `number`[]
+• **T** *extends* `number` \| [`TColorArg`](/api/type-aliases/tcolorarg/) \| `number`[]
 
 #### Parameters
 
@@ -3330,28 +3876,28 @@ Animates object's properties
 
 map of keys and end values
 
-• **options?**: `Partial`\<[`AnimationOptions`](../namespaces/util/type-aliases/AnimationOptions.md)\<`T`\>\>
+• **options?**: `Partial`\<[`AnimationOptions`](/api/namespaces/util/type-aliases/animationoptions/)\<`T`\>\>
 
 #### Returns
 
-`Record`\<`string`, [`TAnimation`](../namespaces/util/type-aliases/TAnimation.md)\<`T`\>\>
+`Record`\<`string`, [`TAnimation`](/api/namespaces/util/type-aliases/tanimation/)\<`T`\>\>
 
 map of animation contexts
 
 As object — multiple properties
 
-object.animate(\{ left: ..., top: ... \});
-object.animate(\{ left: ..., top: ... \}, \{ duration: ... \});
+object.animate({ left: ..., top: ... });
+object.animate({ left: ..., top: ... }, { duration: ... });
 
 #### Inherited from
 
-[`IText`](IText.md).[`animate`](IText.md#animate)
+[`IText`](/api/classes/itext/).[`animate`](/api/classes/itext/#animate)
 
 #### Tutorial
 
 [http://fabricjs.com/fabric-intro-part-2#animation](http://fabricjs.com/fabric-intro-part-2#animation)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/AnimatableObject.ts:34
 
@@ -3369,9 +3915,9 @@ Override this method to customize cursor behavior on textbox blur
 
 #### Inherited from
 
-[`IText`](IText.md).[`blur`](IText.md#blur)
+[`IText`](/api/classes/itext/).[`blur`](/api/classes/itext/#blur)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/ITextKeyBehavior.ts:106
 
@@ -3379,20 +3925,20 @@ src/shapes/IText/ITextKeyBehavior.ts:106
 
 ### calcACoords()
 
-> **calcACoords**(): [`TCornerPoint`](../type-aliases/TCornerPoint.md)
+> **calcACoords**(): [`TCornerPoint`](/api/type-aliases/tcornerpoint/)
 
 Calculates the coordinates of the 4 corner of the bbox, in absolute coordinates.
 those never change with zoom or viewport changes.
 
 #### Returns
 
-[`TCornerPoint`](../type-aliases/TCornerPoint.md)
+[`TCornerPoint`](/api/type-aliases/tcornerpoint/)
 
 #### Inherited from
 
-[`IText`](IText.md).[`calcACoords`](IText.md#calcacoords)
+[`IText`](/api/classes/itext/).[`calcACoords`](/api/classes/itext/#calcacoords)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:414
 
@@ -3413,9 +3959,9 @@ is a public api and should be done just if extremely necessary
 
 #### Inherited from
 
-[`IText`](IText.md).[`calcOCoords`](IText.md#calcocoords)
+[`IText`](/api/classes/itext/).[`calcOCoords`](/api/classes/itext/#calcocoords)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:224
 
@@ -3423,22 +3969,22 @@ src/shapes/Object/InteractiveObject.ts:224
 
 ### calcOwnMatrix()
 
-> **calcOwnMatrix**(): [`TMat2D`](../type-aliases/TMat2D.md)
+> **calcOwnMatrix**(): [`TMat2D`](/api/type-aliases/tmat2d/)
 
 calculate transform matrix that represents the current transformations from the
 object's properties, this matrix does not include the group transformation
 
 #### Returns
 
-[`TMat2D`](../type-aliases/TMat2D.md)
+[`TMat2D`](/api/type-aliases/tmat2d/)
 
 transform matrix for the object
 
 #### Inherited from
 
-[`IText`](IText.md).[`calcOwnMatrix`](IText.md#calcownmatrix)
+[`IText`](/api/classes/itext/).[`calcOwnMatrix`](/api/classes/itext/#calcownmatrix)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:511
 
@@ -3456,9 +4002,9 @@ Calculate text box height
 
 #### Inherited from
 
-[`IText`](IText.md).[`calcTextHeight`](IText.md#calctextheight)
+[`IText`](/api/classes/itext/).[`calcTextHeight`](/api/classes/itext/#calctextheight)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:1036
 
@@ -3466,29 +4012,29 @@ src/shapes/Text/Text.ts:1036
 
 ### calcTransformMatrix()
 
-> **calcTransformMatrix**(`skipGroup`?): [`TMat2D`](../type-aliases/TMat2D.md)
+> **calcTransformMatrix**(`skipGroup`?): [`TMat2D`](/api/type-aliases/tmat2d/)
 
 calculate transform matrix that represents the current transformations from the
 object's properties.
 
 #### Parameters
 
-• **skipGroup?**: `boolean`= `false`
+• **skipGroup?**: `boolean` = `false`
 
 return transform matrix for object not counting parent transformations
 There are some situation in which this is useful to avoid the fake rotation.
 
 #### Returns
 
-[`TMat2D`](../type-aliases/TMat2D.md)
+[`TMat2D`](/api/type-aliases/tmat2d/)
 
 transform matrix for the object
 
 #### Inherited from
 
-[`IText`](IText.md).[`calcTransformMatrix`](IText.md#calctransformmatrix)
+[`IText`](/api/classes/itext/).[`calcTransformMatrix`](/api/classes/itext/#calctransformmatrix)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:483
 
@@ -3510,9 +4056,9 @@ override this method to control whether instance should/shouldn't become a drop 
 
 #### Inherited from
 
-[`IText`](IText.md).[`canDrop`](IText.md#candrop)
+[`IText`](/api/classes/itext/).[`canDrop`](/api/classes/itext/#candrop)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/ITextClickBehavior.ts:66
 
@@ -3541,9 +4087,9 @@ The property to compare between characters and text.
 
 #### Inherited from
 
-[`IText`](IText.md).[`cleanStyle`](IText.md#cleanstyle)
+[`IText`](/api/classes/itext/).[`cleanStyle`](/api/classes/itext/#cleanstyle)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/StyledText.ts:103
 
@@ -3573,13 +4119,13 @@ with the object transformMatrix, or restored to neutral transform
 
 #### Inherited from
 
-[`IText`](IText.md).[`clearContextTop`](IText.md#clearcontexttop)
+[`IText`](/api/classes/itext/).[`clearContextTop`](/api/classes/itext/#clearcontexttop)
 
 #### Todo
 
 discuss swapping restoreManually with a renderCallback, but think of async issues
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:589
 
@@ -3587,7 +4133,7 @@ src/shapes/Object/InteractiveObject.ts:589
 
 ### clone()
 
-> **clone**(`propertiesToInclude`?): `Promise`\<[`Textbox`](Textbox.md)\<`Props`, `SProps`, `EventSpec`\>\>
+> **clone**(`propertiesToInclude`?): `Promise`\<[`Textbox`](/api/classes/textbox/)\<`Props`, `SProps`, `EventSpec`\>\>
 
 Clones an instance.
 
@@ -3599,13 +4145,13 @@ Any properties that you might want to additionally include in the output
 
 #### Returns
 
-`Promise`\<[`Textbox`](Textbox.md)\<`Props`, `SProps`, `EventSpec`\>\>
+`Promise`\<[`Textbox`](/api/classes/textbox/)\<`Props`, `SProps`, `EventSpec`\>\>
 
 #### Inherited from
 
-[`IText`](IText.md).[`clone`](IText.md#clone)
+[`IText`](/api/classes/itext/).[`clone`](/api/classes/itext/#clone)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:1345
 
@@ -3613,7 +4159,7 @@ src/shapes/Object/Object.ts:1345
 
 ### cloneAsImage()
 
-> **cloneAsImage**(`options`?): [`FabricImage`](FabricImage.md)\<`Partial`\<[`ImageProps`](../interfaces/ImageProps.md)\>, [`SerializedImageProps`](../interfaces/SerializedImageProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+> **cloneAsImage**(`options`?): [`FabricImage`](/api/classes/fabricimage/)\<`Partial`\<[`ImageProps`](/api/interfaces/imageprops/)\>, [`SerializedImageProps`](/api/interfaces/serializedimageprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 Creates an instance of Image out of an object
 makes use of toCanvasElement.
@@ -3630,19 +4176,19 @@ for clone as image, passed to toDataURL
 
 #### Returns
 
-[`FabricImage`](FabricImage.md)\<`Partial`\<[`ImageProps`](../interfaces/ImageProps.md)\>, [`SerializedImageProps`](../interfaces/SerializedImageProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+[`FabricImage`](/api/classes/fabricimage/)\<`Partial`\<[`ImageProps`](/api/interfaces/imageprops/)\>, [`SerializedImageProps`](/api/interfaces/serializedimageprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 Object cloned as image.
 
 #### Inherited from
 
-[`IText`](IText.md).[`cloneAsImage`](IText.md#cloneasimage)
+[`IText`](/api/classes/itext/).[`cloneAsImage`](/api/classes/itext/#cloneasimage)
 
 #### Todo
 
 fix the export type, it could not be Image but the type that getClass return for 'image'.
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:1371
 
@@ -3662,9 +4208,9 @@ complexity
 
 #### Inherited from
 
-[`IText`](IText.md).[`complexity`](IText.md#complexity)
+[`IText`](/api/classes/itext/).[`complexity`](/api/classes/itext/#complexity)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:1783
 
@@ -3678,7 +4224,7 @@ Checks if point is inside the object
 
 #### Parameters
 
-• **point**: [`Point`](Point.md)
+• **point**: [`Point`](/api/classes/point/)
 
 Point to check against
 
@@ -3690,9 +4236,9 @@ true if point is inside the object
 
 #### Inherited from
 
-[`IText`](IText.md).[`containsPoint`](IText.md#containspoint)
+[`IText`](/api/classes/itext/).[`containsPoint`](/api/classes/itext/#containspoint)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:269
 
@@ -3710,9 +4256,9 @@ Copies selected text
 
 #### Inherited from
 
-[`IText`](IText.md).[`copy`](IText.md#copy)
+[`IText`](/api/classes/itext/).[`copy`](/api/classes/itext/#copy)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/ITextKeyBehavior.ts:295
 
@@ -3722,15 +4268,18 @@ src/shapes/IText/ITextKeyBehavior.ts:295
 
 > **dispose**(): `void`
 
+cancel instance's running animations
+override if necessary to dispose artifacts such as `clipPath`
+
 #### Returns
 
 `void`
 
 #### Inherited from
 
-[`IText`](IText.md).[`dispose`](IText.md#dispose)
+[`IText`](/api/classes/itext/).[`dispose`](/api/classes/itext/#dispose)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/IText.ts:695
 
@@ -3744,7 +4293,7 @@ Default handler for double click, select a word
 
 #### Parameters
 
-• **options**: [`TPointerEventInfo`](../interfaces/TPointerEventInfo.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\>
+• **options**: [`TPointerEventInfo`](/api/interfaces/tpointereventinfo/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\>
 
 #### Returns
 
@@ -3752,9 +4301,9 @@ Default handler for double click, select a word
 
 #### Inherited from
 
-[`IText`](IText.md).[`doubleClickHandler`](IText.md#doubleclickhandler)
+[`IText`](/api/classes/itext/).[`doubleClickHandler`](/api/classes/itext/#doubleclickhandler)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/ITextClickBehavior.ts:102
 
@@ -3774,7 +4323,7 @@ Requires public options: padding, borderColor
 
 Context to draw on
 
-• **options**: `Required`\<`Omit`\<[`TComposeMatrixArgs`](../namespaces/util/type-aliases/TComposeMatrixArgs.md), `"flipX"` \| `"flipY"`\>\>
+• **options**: `Required`\<`Omit`\<[`TComposeMatrixArgs`](/api/namespaces/util/type-aliases/tcomposematrixargs/), `"flipX"` \| `"flipY"`\>\>
 
 object representing current object parameters
 
@@ -3788,9 +4337,9 @@ object to override the object style
 
 #### Inherited from
 
-[`IText`](IText.md).[`drawBorders`](IText.md#drawborders)
+[`IText`](/api/classes/itext/).[`drawBorders`](/api/classes/itext/#drawborders)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:442
 
@@ -3804,7 +4353,7 @@ Paint the cached copy of the object on the target context.
 
 #### Parameters
 
-• **this**: `TCachedFabricObject`\<`FabricObject`\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>\>
+• **this**: `TCachedFabricObject`\<`FabricObject`\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>\>
 
 • **ctx**: `CanvasRenderingContext2D`
 
@@ -3816,9 +4365,9 @@ Context to render on
 
 #### Inherited from
 
-[`IText`](IText.md).[`drawCacheOnCanvas`](IText.md#drawcacheoncanvas)
+[`IText`](/api/classes/itext/).[`drawCacheOnCanvas`](/api/classes/itext/#drawcacheoncanvas)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:995
 
@@ -3836,7 +4385,7 @@ Execute the drawing operation for an object clipPath
 
 Context to render on
 
-• **clipPath**: `TCachedFabricObject`\<`FabricObject`\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>\>
+• **clipPath**: `TCachedFabricObject`\<`FabricObject`\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>\>
 
 #### Returns
 
@@ -3844,9 +4393,9 @@ Context to render on
 
 #### Inherited from
 
-[`IText`](IText.md).[`drawClipPathOnCache`](IText.md#drawclippathoncache)
+[`IText`](/api/classes/itext/).[`drawClipPathOnCache`](/api/classes/itext/#drawclippathoncache)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:924
 
@@ -3866,7 +4415,7 @@ Requires public options: cornerSize, padding
 
 Context to draw on
 
-• **styleOverride**: `Partial`\<`Pick`\<`InteractiveFabricObject`\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>, `"cornerStyle"` \| `"cornerSize"` \| `"cornerColor"` \| `"cornerStrokeColor"` \| `"cornerDashArray"` \| `"transparentCorners"`\>\>= `{}`
+• **styleOverride**: `Partial`\<`Pick`\<`InteractiveFabricObject`\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>, `"cornerStyle"` \| `"cornerSize"` \| `"cornerColor"` \| `"cornerStrokeColor"` \| `"cornerDashArray"` \| `"transparentCorners"`\>\> = `{}`
 
 object to override the object style
 
@@ -3876,9 +4425,9 @@ object to override the object style
 
 #### Inherited from
 
-[`IText`](IText.md).[`drawControls`](IText.md#drawcontrols)
+[`IText`](/api/classes/itext/).[`drawControls`](/api/classes/itext/#drawcontrols)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:511
 
@@ -3898,7 +4447,7 @@ Requires public options: padding, borderColor
 
 Context to draw on
 
-• **size**: [`Point`](Point.md)
+• **size**: [`Point`](/api/classes/point/)
 
 object size x = width, y = height
 
@@ -3908,9 +4457,9 @@ object size x = width, y = height
 
 #### Inherited from
 
-[`IText`](IText.md).[`drawControlsConnectingLines`](IText.md#drawcontrolsconnectinglines)
+[`IText`](/api/classes/itext/).[`drawControlsConnectingLines`](/api/classes/itext/#drawcontrolsconnectinglines)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:481
 
@@ -3938,9 +4487,9 @@ apply clipping styles
 
 #### Inherited from
 
-[`IText`](IText.md).[`drawObject`](IText.md#drawobject)
+[`IText`](/api/classes/itext/).[`drawObject`](/api/classes/itext/#drawobject)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:956
 
@@ -3967,7 +4516,7 @@ Context to draw on
 
 #### Inherited from
 
-[`IText`](IText.md).[`drawSelectionBackground`](IText.md#drawselectionbackground)
+[`IText`](/api/classes/itext/).[`drawSelectionBackground`](/api/classes/itext/#drawselectionbackground)
 
 #### Todo
 
@@ -3975,7 +4524,7 @@ evaluate if make this disappear in favor of a pre-render hook for objects
 this was added by Andrea Bogazzi to make possible some feature for work reasons
 it seemed a good option, now is an edge case
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:339
 
@@ -3993,9 +4542,9 @@ Enlarge space boxes and shift the others
 
 #### Inherited from
 
-[`IText`](IText.md).[`enlargeSpaces`](IText.md#enlargespaces)
+[`IText`](/api/classes/itext/).[`enlargeSpaces`](/api/classes/itext/#enlargespaces)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:483
 
@@ -4009,7 +4558,7 @@ Enters editing state
 
 #### Parameters
 
-• **e?**: [`TPointerEvent`](../type-aliases/TPointerEvent.md)
+• **e?**: [`TPointerEvent`](/api/type-aliases/tpointerevent/)
 
 #### Returns
 
@@ -4017,9 +4566,9 @@ Enters editing state
 
 #### Inherited from
 
-[`IText`](IText.md).[`enterEditing`](IText.md#enterediting)
+[`IText`](/api/classes/itext/).[`enterEditing`](/api/classes/itext/#enterediting)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/ITextBehavior.ts:378
 
@@ -4027,19 +4576,19 @@ src/shapes/IText/ITextBehavior.ts:378
 
 ### exitEditing()
 
-> **exitEditing**(): [`Textbox`](Textbox.md)\<`Props`, `SProps`, `EventSpec`\>
+> **exitEditing**(): [`Textbox`](/api/classes/textbox/)\<`Props`, `SProps`, `EventSpec`\>
 
 Exits from editing state and fires relevant events
 
 #### Returns
 
-[`Textbox`](Textbox.md)\<`Props`, `SProps`, `EventSpec`\>
+[`Textbox`](/api/classes/textbox/)\<`Props`, `SProps`, `EventSpec`\>
 
 #### Inherited from
 
-[`IText`](IText.md).[`exitEditing`](IText.md#exitediting)
+[`IText`](/api/classes/itext/).[`exitEditing`](/api/classes/itext/#exitediting)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/ITextBehavior.ts:681
 
@@ -4051,11 +4600,11 @@ src/shapes/IText/ITextBehavior.ts:681
 
 Compare ancestors
 
-#### Type parameters
+#### Type Parameters
 
-• **T** extends [`Textbox`](Textbox.md)\<`Props`, `SProps`, `EventSpec`\>
+• **T** *extends* [`Textbox`](/api/classes/textbox/)\<`Props`, `SProps`, `EventSpec`\>
 
-• **S** extends `boolean`
+• **S** *extends* `boolean`
 
 #### Parameters
 
@@ -4073,9 +4622,9 @@ an object that represent the ancestry situation.
 
 #### Inherited from
 
-[`IText`](IText.md).[`findCommonAncestors`](IText.md#findcommonancestors)
+[`IText`](/api/classes/itext/).[`findCommonAncestors`](/api/classes/itext/#findcommonancestors)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/StackedObject.ts:90
 
@@ -4101,9 +4650,9 @@ New selection index
 
 #### Inherited from
 
-[`IText`](IText.md).[`findLineBoundaryLeft`](IText.md#findlineboundaryleft)
+[`IText`](/api/classes/itext/).[`findLineBoundaryLeft`](/api/classes/itext/#findlineboundaryleft)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/ITextBehavior.ts:282
 
@@ -4129,9 +4678,9 @@ New selection index
 
 #### Inherited from
 
-[`IText`](IText.md).[`findLineBoundaryRight`](IText.md#findlineboundaryright)
+[`IText`](/api/classes/itext/).[`findLineBoundaryRight`](/api/classes/itext/#findlineboundaryright)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/ITextBehavior.ts:299
 
@@ -4157,9 +4706,9 @@ New selection index
 
 #### Inherited from
 
-[`IText`](IText.md).[`findWordBoundaryLeft`](IText.md#findwordboundaryleft)
+[`IText`](/api/classes/itext/).[`findWordBoundaryLeft`](/api/classes/itext/#findwordboundaryleft)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/ITextBehavior.ts:234
 
@@ -4185,9 +4734,9 @@ New selection index
 
 #### Inherited from
 
-[`IText`](IText.md).[`findWordBoundaryRight`](IText.md#findwordboundaryright)
+[`IText`](/api/classes/itext/).[`findWordBoundaryRight`](/api/classes/itext/#findwordboundaryright)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/ITextBehavior.ts:258
 
@@ -4199,9 +4748,9 @@ src/shapes/IText/ITextBehavior.ts:258
 
 Fires event with an optional options object
 
-#### Type parameters
+#### Type Parameters
 
-• **K** extends `string` \| `number` \| `symbol`
+• **K** *extends* `string` \| `number` \| `symbol`
 
 #### Parameters
 
@@ -4219,9 +4768,9 @@ Options object
 
 #### Inherited from
 
-[`IText`](IText.md).[`fire`](IText.md#fire)
+[`IText`](/api/classes/itext/).[`fire`](/api/classes/itext/#fire)
 
-#### Source
+#### Defined in
 
 src/Observable.ts:159
 
@@ -4246,9 +4795,9 @@ function to iterate over the controls over
 
 #### Inherited from
 
-[`IText`](IText.md).[`forEachControl`](IText.md#foreachcontrol)
+[`IText`](/api/classes/itext/).[`forEachControl`](/api/classes/itext/#foreachcontrol)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:317
 
@@ -4256,7 +4805,7 @@ src/shapes/Object/InteractiveObject.ts:317
 
 ### fromGraphemeToStringSelection()
 
-> **fromGraphemeToStringSelection**(`start`, `end`, `graphemes`): `Object`
+> **fromGraphemeToStringSelection**(`start`, `end`, `graphemes`): `object`
 
 convert from fabric to textarea values
 
@@ -4270,7 +4819,7 @@ convert from fabric to textarea values
 
 #### Returns
 
-`Object`
+`object`
 
 ##### selectionEnd
 
@@ -4282,9 +4831,9 @@ convert from fabric to textarea values
 
 #### Inherited from
 
-[`IText`](IText.md).[`fromGraphemeToStringSelection`](IText.md#fromgraphemetostringselection)
+[`IText`](/api/classes/itext/).[`fromGraphemeToStringSelection`](/api/classes/itext/#fromgraphemetostringselection)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/ITextBehavior.ts:481
 
@@ -4292,7 +4841,7 @@ src/shapes/IText/ITextBehavior.ts:481
 
 ### fromStringToGraphemeSelection()
 
-> **fromStringToGraphemeSelection**(`start`, `end`, `text`): `Object`
+> **fromStringToGraphemeSelection**(`start`, `end`, `text`): `object`
 
 convert from textarea to grapheme indexes
 
@@ -4306,7 +4855,7 @@ convert from textarea to grapheme indexes
 
 #### Returns
 
-`Object`
+`object`
 
 ##### selectionEnd
 
@@ -4318,9 +4867,9 @@ convert from textarea to grapheme indexes
 
 #### Inherited from
 
-[`IText`](IText.md).[`fromStringToGraphemeSelection`](IText.md#fromstringtographemeselection)
+[`IText`](/api/classes/itext/).[`fromStringToGraphemeSelection`](/api/classes/itext/#fromstringtographemeselection)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/ITextBehavior.ts:464
 
@@ -4346,9 +4895,9 @@ value of a property
 
 #### Inherited from
 
-[`IText`](IText.md).[`get`](IText.md#get)
+[`IText`](/api/classes/itext/).[`get`](/api/classes/itext/#get)
 
-#### Source
+#### Defined in
 
 src/CommonMethods.ts:59
 
@@ -4356,13 +4905,13 @@ src/CommonMethods.ts:59
 
 ### get2DCursorLocation()
 
-> **get2DCursorLocation**(`selectionStart`?, `skipWrapping`?): `Object`
+> **get2DCursorLocation**(`selectionStart`?, `skipWrapping`?): `object`
 
 Returns 2d representation (lineIndex and charIndex) of cursor (or selection start)
 
 #### Parameters
 
-• **selectionStart?**: `number`= `undefined`
+• **selectionStart?**: `number` = `...`
 
 Optional index. When not given, current selectionStart is used.
 
@@ -4372,7 +4921,7 @@ consider the location for unwrapped lines. useful to manage styles.
 
 #### Returns
 
-`Object`
+`object`
 
 ##### charIndex
 
@@ -4384,9 +4933,9 @@ consider the location for unwrapped lines. useful to manage styles.
 
 #### Inherited from
 
-[`IText`](IText.md).[`get2DCursorLocation`](IText.md#get2dcursorlocation)
+[`IText`](/api/classes/itext/).[`get2DCursorLocation`](/api/classes/itext/#get2dcursorlocation)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/IText.ts:340
 
@@ -4394,17 +4943,17 @@ src/shapes/IText/IText.ts:340
 
 ### getActiveControl()
 
-> **getActiveControl**(): `undefined` \| `Object`
+> **getActiveControl**(): `undefined` \| `object`
 
 #### Returns
 
-`undefined` \| `Object`
+`undefined` \| `object`
 
 #### Inherited from
 
-[`IText`](IText.md).[`getActiveControl`](IText.md#getactivecontrol)
+[`IText`](/api/classes/itext/).[`getActiveControl`](/api/classes/itext/#getactivecontrol)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:170
 
@@ -4414,9 +4963,9 @@ src/shapes/Object/InteractiveObject.ts:170
 
 > **getAncestors**\<`T`\>(`strict`?): `Ancestors`\<`T`\>
 
-#### Type parameters
+#### Type Parameters
 
-• **T** extends `boolean`
+• **T** *extends* `boolean`
 
 #### Parameters
 
@@ -4432,9 +4981,9 @@ ancestors (excluding `ActiveSelection`) from bottom to top
 
 #### Inherited from
 
-[`IText`](IText.md).[`getAncestors`](IText.md#getancestors)
+[`IText`](/api/classes/itext/).[`getAncestors`](/api/classes/itext/#getancestors)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/StackedObject.ts:69
 
@@ -4442,22 +4991,22 @@ src/shapes/Object/StackedObject.ts:69
 
 ### getBoundingRect()
 
-> **getBoundingRect**(): [`TBBox`](../type-aliases/TBBox.md)
+> **getBoundingRect**(): [`TBBox`](/api/type-aliases/tbbox/)
 
 Returns coordinates of object's bounding rectangle (left, top, width, height)
 the box is intended as aligned to axis of canvas.
 
 #### Returns
 
-[`TBBox`](../type-aliases/TBBox.md)
+[`TBBox`](/api/type-aliases/tbbox/)
 
 Object with left, top, width, height properties
 
 #### Inherited from
 
-[`IText`](IText.md).[`getBoundingRect`](IText.md#getboundingrect)
+[`IText`](/api/classes/itext/).[`getBoundingRect`](/api/classes/itext/#getboundingrect)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:330
 
@@ -4473,9 +5022,9 @@ src/shapes/Object/ObjectGeometry.ts:330
 
 #### Inherited from
 
-[`IText`](IText.md).[`getCanvasRetinaScaling`](IText.md#getcanvasretinascaling)
+[`IText`](/api/classes/itext/).[`getCanvasRetinaScaling`](/api/classes/itext/#getcanvasretinascaling)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:387
 
@@ -4483,19 +5032,19 @@ src/shapes/Object/ObjectGeometry.ts:387
 
 ### getCenterPoint()
 
-> **getCenterPoint**(): [`Point`](Point.md)
+> **getCenterPoint**(): [`Point`](/api/classes/point/)
 
 Returns the center coordinates of the object relative to canvas
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
 #### Inherited from
 
-[`IText`](IText.md).[`getCenterPoint`](IText.md#getcenterpoint)
+[`IText`](/api/classes/itext/).[`getCenterPoint`](/api/classes/itext/#getcenterpoint)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:174
 
@@ -4503,7 +5052,7 @@ src/shapes/Object/ObjectOrigin.ts:174
 
 ### getCompleteStyleDeclaration()
 
-> **getCompleteStyleDeclaration**(`lineIndex`, `charIndex`): [`CompleteTextStyleDeclaration`](../type-aliases/CompleteTextStyleDeclaration.md)
+> **getCompleteStyleDeclaration**(`lineIndex`, `charIndex`): [`CompleteTextStyleDeclaration`](/api/type-aliases/completetextstyledeclaration/)
 
 return a new object that contains all the style property for a character
 the object returned is newly created
@@ -4520,15 +5069,15 @@ position of the character on the line
 
 #### Returns
 
-[`CompleteTextStyleDeclaration`](../type-aliases/CompleteTextStyleDeclaration.md)
+[`CompleteTextStyleDeclaration`](/api/type-aliases/completetextstyledeclaration/)
 
 style object
 
 #### Inherited from
 
-[`IText`](IText.md).[`getCompleteStyleDeclaration`](IText.md#getcompletestyledeclaration)
+[`IText`](/api/classes/itext/).[`getCompleteStyleDeclaration`](/api/classes/itext/#getcompletestyledeclaration)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/StyledText.ts:279
 
@@ -4536,19 +5085,19 @@ src/shapes/Text/StyledText.ts:279
 
 ### getCoords()
 
-> **getCoords**(): [`Point`](Point.md)[]
+> **getCoords**(): [`Point`](/api/classes/point/)[]
 
 #### Returns
 
-[`Point`](Point.md)[]
+[`Point`](/api/classes/point/)[]
 
 [tl, tr, br, bl] in the scene plane
 
 #### Inherited from
 
-[`IText`](IText.md).[`getCoords`](IText.md#getcoords)
+[`IText`](/api/classes/itext/).[`getCoords`](/api/classes/itext/#getcoords)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:191
 
@@ -4556,7 +5105,7 @@ src/shapes/Object/ObjectGeometry.ts:191
 
 ### getCurrentCharColor()
 
-> **getCurrentCharColor**(): `null` \| `string` \| [`TFiller`](../type-aliases/TFiller.md)
+> **getCurrentCharColor**(): `null` \| `string` \| [`TFiller`](/api/type-aliases/tfiller/)
 
 High level function to know the color of the cursor.
 the currentChar is the one that precedes the cursor
@@ -4566,15 +5115,15 @@ Unused by the library, is for the end user
 
 #### Returns
 
-`null` \| `string` \| [`TFiller`](../type-aliases/TFiller.md)
+`null` \| `string` \| [`TFiller`](/api/type-aliases/tfiller/)
 
 Character color (fill)
 
 #### Inherited from
 
-[`IText`](IText.md).[`getCurrentCharColor`](IText.md#getcurrentcharcolor)
+[`IText`](/api/classes/itext/).[`getCurrentCharColor`](/api/classes/itext/#getcurrentcharcolor)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/IText.ts:679
 
@@ -4597,9 +5146,9 @@ Character font size
 
 #### Inherited from
 
-[`IText`](IText.md).[`getCurrentCharFontSize`](IText.md#getcurrentcharfontsize)
+[`IText`](/api/classes/itext/).[`getCurrentCharFontSize`](/api/classes/itext/#getcurrentcharfontsize)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/IText.ts:666
 
@@ -4625,9 +5174,9 @@ Event object
 
 #### Inherited from
 
-[`IText`](IText.md).[`getDownCursorOffset`](IText.md#getdowncursoroffset)
+[`IText`](/api/classes/itext/).[`getDownCursorOffset`](/api/classes/itext/#getdowncursoroffset)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/ITextKeyBehavior.ts:345
 
@@ -4635,7 +5184,7 @@ src/shapes/IText/ITextKeyBehavior.ts:345
 
 ### getGraphemeDataForRender()
 
-> **getGraphemeDataForRender**(`lines`): [`GraphemeData`](../type-aliases/GraphemeData.md)
+> **getGraphemeDataForRender**(`lines`): [`GraphemeData`](/api/type-aliases/graphemedata/)
 
 For each line of text terminated by an hard line stop,
 measure each word width and extract the largest word from all.
@@ -4649,9 +5198,9 @@ the lines we need to measure
 
 #### Returns
 
-[`GraphemeData`](../type-aliases/GraphemeData.md)
+[`GraphemeData`](/api/type-aliases/graphemedata/)
 
-#### Source
+#### Defined in
 
 src/shapes/Textbox.ts:325
 
@@ -4681,9 +5230,9 @@ fontSize of the character
 
 #### Inherited from
 
-[`IText`](IText.md).[`getHeightOfChar`](IText.md#getheightofchar)
+[`IText`](/api/classes/itext/).[`getHeightOfChar`](/api/classes/itext/#getheightofchar)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:858
 
@@ -4707,9 +5256,9 @@ index of line to calculate
 
 #### Inherited from
 
-[`IText`](IText.md).[`getHeightOfLine`](IText.md#getheightofline)
+[`IText`](/api/classes/itext/).[`getHeightOfLine`](/api/classes/itext/#getheightofline)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:1017
 
@@ -4723,7 +5272,7 @@ src/shapes/Text/Text.ts:1017
 
 `number`
 
-#### Source
+#### Defined in
 
 src/shapes/Textbox.ts:527
 
@@ -4741,9 +5290,9 @@ Return the object opacity counting also the group property
 
 #### Inherited from
 
-[`IText`](IText.md).[`getObjectOpacity`](IText.md#getobjectopacity)
+[`IText`](/api/classes/itext/).[`getObjectOpacity`](/api/classes/itext/#getobjectopacity)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:690
 
@@ -4751,19 +5300,19 @@ src/shapes/Object/Object.ts:690
 
 ### getObjectScaling()
 
-> **getObjectScaling**(): [`Point`](Point.md)
+> **getObjectScaling**(): [`Point`](/api/classes/point/)
 
 Return the object scale factor counting also the group scaling
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
 #### Inherited from
 
-[`IText`](IText.md).[`getObjectScaling`](IText.md#getobjectscaling)
+[`IText`](/api/classes/itext/).[`getObjectScaling`](/api/classes/itext/#getobjectscaling)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:659
 
@@ -4771,29 +5320,29 @@ src/shapes/Object/Object.ts:659
 
 ### getPointByOrigin()
 
-> **getPointByOrigin**(`originX`, `originY`): [`Point`](Point.md)
+> **getPointByOrigin**(`originX`, `originY`): [`Point`](/api/classes/point/)
 
 Returns the coordinates of the object as if it has a different origin
 
 #### Parameters
 
-• **originX**: [`TOriginX`](../type-aliases/TOriginX.md)
+• **originX**: [`TOriginX`](/api/type-aliases/toriginx/)
 
 Horizontal origin: 'left', 'center' or 'right'
 
-• **originY**: [`TOriginY`](../type-aliases/TOriginY.md)
+• **originY**: [`TOriginY`](/api/type-aliases/toriginy/)
 
 Vertical origin: 'top', 'center' or 'bottom'
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
 #### Inherited from
 
-[`IText`](IText.md).[`getPointByOrigin`](IText.md#getpointbyorigin)
+[`IText`](/api/classes/itext/).[`getPointByOrigin`](/api/classes/itext/#getpointbyorigin)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:199
 
@@ -4801,19 +5350,19 @@ src/shapes/Object/ObjectOrigin.ts:199
 
 ### getRelativeCenterPoint()
 
-> **getRelativeCenterPoint**(): [`Point`](Point.md)
+> **getRelativeCenterPoint**(): [`Point`](/api/classes/point/)
 
 Returns the center coordinates of the object relative to it's parent
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
 #### Inherited from
 
-[`IText`](IText.md).[`getRelativeCenterPoint`](IText.md#getrelativecenterpoint)
+[`IText`](/api/classes/itext/).[`getRelativeCenterPoint`](/api/classes/itext/#getrelativecenterpoint)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:185
 
@@ -4827,14 +5376,14 @@ src/shapes/Object/ObjectOrigin.ts:185
 
 `number`
 
-x position according to object's [originX](FabricObject.md#originx) property in parent's coordinate plane\
-if parent is canvas then this property is identical to [getX](Textbox.md#getx)
+x position according to object's [originX](/api/api/classes/fabricobject/originx/#originx) property in parent's coordinate plane\
+if parent is canvas then this property is identical to [getX](/api/api/classes/textbox/getx/#getx)
 
 #### Inherited from
 
-[`IText`](IText.md).[`getRelativeX`](IText.md#getrelativex)
+[`IText`](/api/classes/itext/).[`getRelativeX`](/api/classes/itext/#getrelativex)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:102
 
@@ -4842,19 +5391,19 @@ src/shapes/Object/ObjectGeometry.ts:102
 
 ### getRelativeXY()
 
-> **getRelativeXY**(): [`Point`](Point.md)
+> **getRelativeXY**(): [`Point`](/api/classes/point/)
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
-x,y position according to object's [originX](FabricObject.md#originx) [originY](FabricObject.md#originy) properties in parent's coordinate plane
+x,y position according to object's [originX](/api/api/classes/fabricobject/originx/#originx) [originY](/api/api/classes/fabricobject/originy/#originy) properties in parent's coordinate plane
 
 #### Inherited from
 
-[`IText`](IText.md).[`getRelativeXY`](IText.md#getrelativexy)
+[`IText`](/api/classes/itext/).[`getRelativeXY`](/api/classes/itext/#getrelativexy)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:163
 
@@ -4868,14 +5417,14 @@ src/shapes/Object/ObjectGeometry.ts:163
 
 `number`
 
-y position according to object's [originY](FabricObject.md#originy) property in parent's coordinate plane\
-if parent is canvas then this property is identical to [getY](Textbox.md#gety)
+y position according to object's [originY](/api/api/classes/fabricobject/originy/#originy) property in parent's coordinate plane\
+if parent is canvas then this property is identical to [getY](/api/api/classes/textbox/gety/#gety)
 
 #### Inherited from
 
-[`IText`](IText.md).[`getRelativeY`](IText.md#getrelativey)
+[`IText`](/api/classes/itext/).[`getRelativeY`](/api/classes/itext/#getrelativey)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:118
 
@@ -4895,13 +5444,13 @@ height value
 
 #### Inherited from
 
-[`IText`](IText.md).[`getScaledHeight`](IText.md#getscaledheight)
+[`IText`](/api/classes/itext/).[`getScaledHeight`](/api/classes/itext/#getscaledheight)
 
 #### Todo
 
 shouldn't this account for group transform and return the actual size in canvas coordinate plane?
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:348
 
@@ -4921,13 +5470,13 @@ width value
 
 #### Inherited from
 
-[`IText`](IText.md).[`getScaledWidth`](IText.md#getscaledwidth)
+[`IText`](/api/classes/itext/).[`getScaledWidth`](/api/classes/itext/#getscaledwidth)
 
 #### Todo
 
 shouldn't this account for group transform and return the actual size in canvas coordinate plane?
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:339
 
@@ -4945,9 +5494,9 @@ Returns selected text
 
 #### Inherited from
 
-[`IText`](IText.md).[`getSelectedText`](IText.md#getselectedtext)
+[`IText`](/api/classes/itext/).[`getSelectedText`](/api/classes/itext/#getselectedtext)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/ITextBehavior.ts:225
 
@@ -4961,7 +5510,7 @@ Returns index of a character corresponding to where an object was clicked
 
 #### Parameters
 
-• **e**: [`TPointerEvent`](../type-aliases/TPointerEvent.md)
+• **e**: [`TPointerEvent`](/api/type-aliases/tpointerevent/)
 
 Event object
 
@@ -4973,9 +5522,9 @@ Index of a character
 
 #### Inherited from
 
-[`IText`](IText.md).[`getSelectionStartFromPointer`](IText.md#getselectionstartfrompointer)
+[`IText`](/api/classes/itext/).[`getSelectionStartFromPointer`](/api/classes/itext/#getselectionstartfrompointer)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/ITextClickBehavior.ts:237
 
@@ -4983,18 +5532,18 @@ src/shapes/IText/ITextClickBehavior.ts:237
 
 ### getSelectionStyles()
 
-> **getSelectionStyles**(`startIndex`, `endIndex`, `complete`?): `Partial`\<[`CompleteTextStyleDeclaration`](../type-aliases/CompleteTextStyleDeclaration.md)\>[]
+> **getSelectionStyles**(`startIndex`, `endIndex`, `complete`?): `Partial`\<[`CompleteTextStyleDeclaration`](/api/type-aliases/completetextstyledeclaration/)\>[]
 
 Gets style of a current selection/cursor (at the start position)
 if startIndex or endIndex are not provided, selectionStart or selectionEnd will be used.
 
 #### Parameters
 
-• **startIndex**: `number`= `undefined`
+• **startIndex**: `number` = `...`
 
 Start index to get styles at
 
-• **endIndex**: `number`= `undefined`
+• **endIndex**: `number` = `...`
 
 End index to get styles at, if not specified selectionEnd or startIndex + 1
 
@@ -5004,15 +5553,15 @@ get full style or not
 
 #### Returns
 
-`Partial`\<[`CompleteTextStyleDeclaration`](../type-aliases/CompleteTextStyleDeclaration.md)\>[]
+`Partial`\<[`CompleteTextStyleDeclaration`](/api/type-aliases/completetextstyledeclaration/)\>[]
 
 styles an array with one, zero or more Style objects
 
 #### Inherited from
 
-[`IText`](IText.md).[`getSelectionStyles`](IText.md#getselectionstyles)
+[`IText`](/api/classes/itext/).[`getSelectionStyles`](/api/classes/itext/#getselectionstyles)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/IText.ts:313
 
@@ -5026,7 +5575,7 @@ Returns id attribute for svg output
 
 #### Parameters
 
-• **this**: `FabricObjectSVGExportMixin` & [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\> & `Object`
+• **this**: `FabricObjectSVGExportMixin` & [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\> & `object`
 
 #### Returns
 
@@ -5034,9 +5583,9 @@ Returns id attribute for svg output
 
 #### Inherited from
 
-[`IText`](IText.md).[`getSvgCommons`](IText.md#getsvgcommons)
+[`IText`](/api/classes/itext/).[`getSvgCommons`](/api/classes/itext/#getsvgcommons)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/FabricObjectSVGExportMixin.ts:84
 
@@ -5050,7 +5599,7 @@ Returns filter for svg shadow
 
 #### Parameters
 
-• **this**: `FabricObjectSVGExportMixin` & [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **this**: `FabricObjectSVGExportMixin` & [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 #### Returns
 
@@ -5058,9 +5607,9 @@ Returns filter for svg shadow
 
 #### Inherited from
 
-[`IText`](IText.md).[`getSvgFilter`](IText.md#getsvgfilter)
+[`IText`](/api/classes/itext/).[`getSvgFilter`](/api/classes/itext/#getsvgfilter)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/FabricObjectSVGExportMixin.ts:76
 
@@ -5074,7 +5623,7 @@ Returns styles-string for svg-export
 
 #### Parameters
 
-• **this**: `FabricObjectSVGExportMixin` & [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **this**: `FabricObjectSVGExportMixin` & [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 • **skipShadow?**: `boolean`
 
@@ -5086,9 +5635,9 @@ a boolean to skip shadow filter output
 
 #### Inherited from
 
-[`IText`](IText.md).[`getSvgStyles`](IText.md#getsvgstyles)
+[`IText`](/api/classes/itext/).[`getSvgStyles`](/api/classes/itext/#getsvgstyles)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/FabricObjectSVGExportMixin.ts:21
 
@@ -5102,11 +5651,11 @@ Returns transform-string for svg-export
 
 #### Parameters
 
-• **this**: `FabricObjectSVGExportMixin` & [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **this**: `FabricObjectSVGExportMixin` & [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 • **full?**: `boolean`
 
-• **additionalTransform?**: `string`= `''`
+• **additionalTransform?**: `string` = `''`
 
 #### Returns
 
@@ -5114,9 +5663,9 @@ Returns transform-string for svg-export
 
 #### Inherited from
 
-[`IText`](IText.md).[`getSvgTransform`](IText.md#getsvgtransform)
+[`IText`](/api/classes/itext/).[`getSvgTransform`](/api/classes/itext/#getsvgtransform)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/FabricObjectSVGExportMixin.ts:103
 
@@ -5124,19 +5673,19 @@ src/shapes/Object/FabricObjectSVGExportMixin.ts:103
 
 ### getTotalAngle()
 
-> **getTotalAngle**(): [`TDegree`](../type-aliases/TDegree.md)
+> **getTotalAngle**(): [`TDegree`](/api/type-aliases/tdegree/)
 
 Returns the object angle relative to canvas counting also the group property
 
 #### Returns
 
-[`TDegree`](../type-aliases/TDegree.md)
+[`TDegree`](/api/type-aliases/tdegree/)
 
 #### Inherited from
 
-[`IText`](IText.md).[`getTotalAngle`](IText.md#gettotalangle)
+[`IText`](/api/classes/itext/).[`getTotalAngle`](/api/classes/itext/#gettotalangle)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:395
 
@@ -5144,21 +5693,21 @@ src/shapes/Object/ObjectGeometry.ts:395
 
 ### getTotalObjectScaling()
 
-> **getTotalObjectScaling**(): [`Point`](Point.md)
+> **getTotalObjectScaling**(): [`Point`](/api/classes/point/)
 
 Return the object scale factor counting also the group scaling, zoom and retina
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
 object with scaleX and scaleY properties
 
 #### Inherited from
 
-[`IText`](IText.md).[`getTotalObjectScaling`](IText.md#gettotalobjectscaling)
+[`IText`](/api/classes/itext/).[`getTotalObjectScaling`](/api/classes/itext/#gettotalobjectscaling)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:676
 
@@ -5182,9 +5731,9 @@ Event object
 
 #### Inherited from
 
-[`IText`](IText.md).[`getUpCursorOffset`](IText.md#getupcursoroffset)
+[`IText`](/api/classes/itext/).[`getUpCursorOffset`](/api/classes/itext/#getupcursoroffset)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/ITextKeyBehavior.ts:390
 
@@ -5192,13 +5741,13 @@ src/shapes/IText/ITextKeyBehavior.ts:390
 
 ### getValueOfPropertyAt()
 
-> **getValueOfPropertyAt**\<`T`\>(`lineIndex`, `charIndex`, `property`): [`Textbox`](Textbox.md)\<`Props`, `SProps`, `EventSpec`\>\[`T`\]
+> **getValueOfPropertyAt**\<`T`\>(`lineIndex`, `charIndex`, `property`): [`Textbox`](/api/classes/textbox/)\<`Props`, `SProps`, `EventSpec`\>\[`T`\]
 
 Retrieves the value of property at given character position
 
-#### Type parameters
+#### Type Parameters
 
-• **T** extends `StylePropertiesType`
+• **T** *extends* `StylePropertiesType`
 
 #### Parameters
 
@@ -5216,15 +5765,15 @@ the property name
 
 #### Returns
 
-[`Textbox`](Textbox.md)\<`Props`, `SProps`, `EventSpec`\>\[`T`\]
+[`Textbox`](/api/classes/textbox/)\<`Props`, `SProps`, `EventSpec`\>\[`T`\]
 
 the value of 'property'
 
 #### Inherited from
 
-[`IText`](IText.md).[`getValueOfPropertyAt`](IText.md#getvalueofpropertyat)
+[`IText`](/api/classes/itext/).[`getValueOfPropertyAt`](/api/classes/itext/#getvalueofpropertyat)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:1531
 
@@ -5232,19 +5781,19 @@ src/shapes/Text/Text.ts:1531
 
 ### getViewportTransform()
 
-> **getViewportTransform**(): [`TMat2D`](../type-aliases/TMat2D.md)
+> **getViewportTransform**(): [`TMat2D`](/api/type-aliases/tmat2d/)
 
 Retrieves viewportTransform from Object's canvas if available
 
 #### Returns
 
-[`TMat2D`](../type-aliases/TMat2D.md)
+[`TMat2D`](/api/type-aliases/tmat2d/)
 
 #### Inherited from
 
-[`IText`](IText.md).[`getViewportTransform`](IText.md#getviewporttransform)
+[`IText`](/api/classes/itext/).[`getViewportTransform`](/api/classes/itext/#getviewporttransform)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:405
 
@@ -5258,13 +5807,13 @@ src/shapes/Object/ObjectGeometry.ts:405
 
 `number`
 
-x position according to object's [originX](FabricObject.md#originx) property in canvas coordinate plane
+x position according to object's [originX](/api/api/classes/fabricobject/originx/#originx) property in canvas coordinate plane
 
 #### Inherited from
 
-[`IText`](IText.md).[`getX`](IText.md#getx)
+[`IText`](/api/classes/itext/).[`getX`](/api/classes/itext/#getx)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:73
 
@@ -5272,19 +5821,19 @@ src/shapes/Object/ObjectGeometry.ts:73
 
 ### getXY()
 
-> **getXY**(): [`Point`](Point.md)
+> **getXY**(): [`Point`](/api/classes/point/)
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
-x position according to object's [originX](FabricObject.md#originx) [originY](FabricObject.md#originy) properties in canvas coordinate plane
+x position according to object's [originX](/api/api/classes/fabricobject/originx/#originx) [originY](/api/api/classes/fabricobject/originy/#originy) properties in canvas coordinate plane
 
 #### Inherited from
 
-[`IText`](IText.md).[`getXY`](IText.md#getxy)
+[`IText`](/api/classes/itext/).[`getXY`](/api/classes/itext/#getxy)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:133
 
@@ -5298,13 +5847,13 @@ src/shapes/Object/ObjectGeometry.ts:133
 
 `number`
 
-y position according to object's [originY](FabricObject.md#originy) property in canvas coordinate plane
+y position according to object's [originY](/api/api/classes/fabricobject/originy/#originy) property in canvas coordinate plane
 
 #### Inherited from
 
-[`IText`](IText.md).[`getY`](IText.md#gety)
+[`IText`](/api/classes/itext/).[`getY`](/api/classes/itext/#gety)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:87
 
@@ -5328,7 +5877,7 @@ array of graphemes
 
 #### Inherited from
 
-[`IText`](IText.md).[`graphemeSplit`](IText.md#graphemesplit)
+[`IText`](/api/classes/itext/).[`graphemeSplit`](/api/classes/itext/#graphemesplit)
 
 #### Todo
 
@@ -5336,7 +5885,7 @@ the util `graphemeSplit` needs to be injectable in some way.
 is more comfortable to inject the correct util rather than having to override text
 in the middle of the prototype chain
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:1709
 
@@ -5344,23 +5893,23 @@ src/shapes/Text/Text.ts:1709
 
 ### handleFiller()
 
-> **handleFiller**\<`T`\>(`ctx`, `property`, `filler`): `Object`
+> **handleFiller**\<`T`\>(`ctx`, `property`, `filler`): `object`
 
-#### Type parameters
+#### Type Parameters
 
-• **T** extends `"fill"` \| `"stroke"`
+• **T** *extends* `"fill"` \| `"stroke"`
 
 #### Parameters
 
 • **ctx**: `CanvasRenderingContext2D`
 
-• **property**: ```${T}Style```
+• **property**: \`$\{T\}Style\`
 
-• **filler**: `string` \| [`TFiller`](../type-aliases/TFiller.md)
+• **filler**: `string` \| [`TFiller`](/api/type-aliases/tfiller/)
 
 #### Returns
 
-`Object`
+`object`
 
 ##### offsetX
 
@@ -5372,9 +5921,9 @@ src/shapes/Text/Text.ts:1709
 
 #### Inherited from
 
-[`IText`](IText.md).[`handleFiller`](IText.md#handlefiller)
+[`IText`](/api/classes/itext/).[`handleFiller`](/api/classes/itext/#handlefiller)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:1268
 
@@ -5384,9 +5933,9 @@ src/shapes/Text/Text.ts:1268
 
 > **hasCommonAncestors**\<`T`\>(`other`, `strict`?): `boolean`
 
-#### Type parameters
+#### Type Parameters
 
-• **T** extends [`Textbox`](Textbox.md)\<`Props`, `SProps`, `EventSpec`\>
+• **T** *extends* [`Textbox`](/api/classes/textbox/)\<`Props`, `SProps`, `EventSpec`\>
 
 #### Parameters
 
@@ -5402,9 +5951,9 @@ checks only ancestors that are objects (without canvas)
 
 #### Inherited from
 
-[`IText`](IText.md).[`hasCommonAncestors`](IText.md#hascommonancestors)
+[`IText`](/api/classes/itext/).[`hasCommonAncestors`](/api/classes/itext/#hascommonancestors)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/StackedObject.ts:159
 
@@ -5429,13 +5978,13 @@ Boolean
 
 #### Inherited from
 
-[`IText`](IText.md).[`hasFill`](IText.md#hasfill)
+[`IText`](/api/classes/itext/).[`hasFill`](/api/classes/itext/#hasfill)
 
 #### Since
 
 3.0.0
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:864
 
@@ -5460,13 +6009,13 @@ Boolean
 
 #### Inherited from
 
-[`IText`](IText.md).[`hasStroke`](IText.md#hasstroke)
+[`IText`](/api/classes/itext/).[`hasStroke`](/api/classes/itext/#hasstroke)
 
 #### Since
 
 3.0.0
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:848
 
@@ -5476,15 +6025,17 @@ src/shapes/Object/Object.ts:848
 
 > **initBehavior**(): `void`
 
+Initializes all the interactive behavior of IText
+
 #### Returns
 
 `void`
 
 #### Inherited from
 
-[`IText`](IText.md).[`initBehavior`](IText.md#initbehavior)
+[`IText`](/api/classes/itext/).[`initBehavior`](/api/classes/itext/#initbehavior)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/ITextClickBehavior.ts:30
 
@@ -5506,9 +6057,9 @@ Initializes delayed cursor
 
 #### Inherited from
 
-[`IText`](IText.md).[`initDelayedCursor`](IText.md#initdelayedcursor)
+[`IText`](/api/classes/itext/).[`initDelayedCursor`](/api/classes/itext/#initdelayedcursor)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/ITextBehavior.ts:173
 
@@ -5526,9 +6077,9 @@ Initializes hidden textarea (needed to bring up keyboard in iOS)
 
 #### Inherited from
 
-[`IText`](IText.md).[`initHiddenTextarea`](IText.md#inithiddentextarea)
+[`IText`](/api/classes/itext/).[`initHiddenTextarea`](/api/classes/itext/#inithiddentextarea)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/ITextKeyBehavior.ts:63
 
@@ -5554,7 +6105,7 @@ Index of a char
 
 number Style object to insert, if given
 
-• **copiedStyle?**: `Partial`\<[`CompleteTextStyleDeclaration`](../type-aliases/CompleteTextStyleDeclaration.md)\>[]
+• **copiedStyle?**: `Partial`\<[`CompleteTextStyleDeclaration`](/api/type-aliases/completetextstyledeclaration/)\>[]
 
 array of style objects
 
@@ -5564,9 +6115,9 @@ array of style objects
 
 #### Inherited from
 
-[`IText`](IText.md).[`insertCharStyleObject`](IText.md#insertcharstyleobject)
+[`IText`](/api/classes/itext/).[`insertCharStyleObject`](/api/classes/itext/#insertcharstyleobject)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/ITextBehavior.ts:871
 
@@ -5588,13 +6139,13 @@ start/end ar per grapheme position in _text array.
 
 text to insert
 
-• **style**: `undefined` \| `Partial`\<[`CompleteTextStyleDeclaration`](../type-aliases/CompleteTextStyleDeclaration.md)\>[]
+• **style**: `undefined` \| `Partial`\<[`CompleteTextStyleDeclaration`](/api/type-aliases/completetextstyledeclaration/)\>[]
 
 array of style objects
 
 • **start**: `number`
 
-• **end**: `number`= `start`
+• **end**: `number` = `start`
 
 default to start + 1
 
@@ -5604,9 +6155,9 @@ default to start + 1
 
 #### Inherited from
 
-[`IText`](IText.md).[`insertChars`](IText.md#insertchars)
+[`IText`](/api/classes/itext/).[`insertChars`](/api/classes/itext/#insertchars)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/ITextBehavior.ts:1021
 
@@ -5628,7 +6179,7 @@ Characters at the location where style is inserted
 
 cursor index for inserting style
 
-• **copiedStyle?**: `Partial`\<[`CompleteTextStyleDeclaration`](../type-aliases/CompleteTextStyleDeclaration.md)\>[]
+• **copiedStyle?**: `Partial`\<[`CompleteTextStyleDeclaration`](/api/type-aliases/completetextstyledeclaration/)\>[]
 
 array of style objects to insert.
 
@@ -5638,9 +6189,9 @@ array of style objects to insert.
 
 #### Inherited from
 
-[`IText`](IText.md).[`insertNewStyleBlock`](IText.md#insertnewstyleblock)
+[`IText`](/api/classes/itext/).[`insertNewStyleBlock`](/api/classes/itext/#insertnewstyleblock)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/ITextBehavior.ts:929
 
@@ -5679,9 +6230,9 @@ Array of objects styles
 
 #### Inherited from
 
-[`IText`](IText.md).[`insertNewlineStyleObject`](IText.md#insertnewlinestyleobject)
+[`IText`](/api/classes/itext/).[`insertNewlineStyleObject`](/api/classes/itext/#insertnewlinestyleobject)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/ITextBehavior.ts:802
 
@@ -5695,7 +6246,7 @@ Checks if object intersects with another object
 
 #### Parameters
 
-• **other**: `ObjectGeometry`\<[`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **other**: `ObjectGeometry`\<[`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 Object to test
 
@@ -5707,9 +6258,9 @@ true if object intersects with another object
 
 #### Inherited from
 
-[`IText`](IText.md).[`intersectsWithObject`](IText.md#intersectswithobject)
+[`IText`](/api/classes/itext/).[`intersectsWithObject`](/api/classes/itext/#intersectswithobject)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:219
 
@@ -5723,9 +6274,9 @@ Checks if object intersects with the scene rect formed by tl and br
 
 #### Parameters
 
-• **tl**: [`Point`](Point.md)
+• **tl**: [`Point`](/api/classes/point/)
 
-• **br**: [`Point`](Point.md)
+• **br**: [`Point`](/api/classes/point/)
 
 #### Returns
 
@@ -5733,9 +6284,9 @@ Checks if object intersects with the scene rect formed by tl and br
 
 #### Inherited from
 
-[`IText`](IText.md).[`intersectsWithRect`](IText.md#intersectswithrect)
+[`IText`](/api/classes/itext/).[`intersectsWithRect`](/api/classes/itext/#intersectswithrect)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:205
 
@@ -5749,7 +6300,7 @@ Check if cache is dirty
 
 #### Parameters
 
-• **skipCanvas**: `boolean`= `false`
+• **skipCanvas**: `boolean` = `false`
 
 skip canvas checks because this object is painted
 on parent canvas.
@@ -5760,9 +6311,9 @@ on parent canvas.
 
 #### Inherited from
 
-[`IText`](IText.md).[`isCacheDirty`](IText.md#iscachedirty)
+[`IText`](/api/classes/itext/).[`isCacheDirty`](/api/classes/itext/#iscachedirty)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:1009
 
@@ -5776,7 +6327,7 @@ Checks if object is fully contained within area of another object
 
 #### Parameters
 
-• **other**: `ObjectGeometry`\<[`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **other**: `ObjectGeometry`\<[`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 Object to test
 
@@ -5788,9 +6339,9 @@ true if object is fully contained within area of another object
 
 #### Inherited from
 
-[`IText`](IText.md).[`isContainedWithinObject`](IText.md#iscontainedwithinobject)
+[`IText`](/api/classes/itext/).[`isContainedWithinObject`](/api/classes/itext/#iscontainedwithinobject)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:238
 
@@ -5804,9 +6355,9 @@ Checks if object is fully contained within the scene rect formed by tl and br
 
 #### Parameters
 
-• **tl**: [`Point`](Point.md)
+• **tl**: [`Point`](/api/classes/point/)
 
-• **br**: [`Point`](Point.md)
+• **br**: [`Point`](/api/classes/point/)
 
 #### Returns
 
@@ -5814,9 +6365,9 @@ Checks if object is fully contained within the scene rect formed by tl and br
 
 #### Inherited from
 
-[`IText`](IText.md).[`isContainedWithinRect`](IText.md#iscontainedwithinrect)
+[`IText`](/api/classes/itext/).[`isContainedWithinRect`](/api/classes/itext/#iscontainedwithinrect)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:246
 
@@ -5843,9 +6394,9 @@ true if the specified control is visible, false otherwise
 
 #### Inherited from
 
-[`IText`](IText.md).[`isControlVisible`](IText.md#iscontrolvisible)
+[`IText`](/api/classes/itext/).[`isControlVisible`](/api/classes/itext/#iscontrolvisible)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:546
 
@@ -5868,9 +6419,9 @@ Should be used instead of [Group.contains](../../../../api/classes/group/#contai
 
 #### Inherited from
 
-[`IText`](IText.md).[`isDescendantOf`](IText.md#isdescendantof)
+[`IText`](/api/classes/itext/).[`isDescendantOf`](/api/classes/itext/#isdescendantof)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/StackedObject.ts:52
 
@@ -5894,9 +6445,9 @@ Returns true if object has no styling or no styling in a line
 
 #### Overrides
 
-[`IText`](IText.md).[`isEmptyStyles`](IText.md#isemptystyles)
+[`IText`](/api/classes/itext/).[`isEmptyStyles`](/api/classes/itext/#isemptystyles)
 
-#### Source
+#### Defined in
 
 src/shapes/Textbox.ts:190
 
@@ -5921,9 +6472,9 @@ text to split
 
 #### Overrides
 
-[`IText`](IText.md).[`isEndOfWrapping`](IText.md#isendofwrapping)
+[`IText`](/api/classes/itext/).[`isEndOfWrapping`](/api/classes/itext/#isendofwrapping)
 
-#### Source
+#### Defined in
 
 src/shapes/Textbox.ts:482
 
@@ -5933,9 +6484,9 @@ src/shapes/Textbox.ts:482
 
 > **isInFrontOf**\<`T`\>(`other`): `undefined` \| `boolean`
 
-#### Type parameters
+#### Type Parameters
 
-• **T** extends [`Textbox`](Textbox.md)\<`Props`, `SProps`, `EventSpec`\>
+• **T** *extends* [`Textbox`](/api/classes/textbox/)\<`Props`, `SProps`, `EventSpec`\>
 
 #### Parameters
 
@@ -5951,9 +6502,9 @@ if objects do not share a common ancestor or they are strictly equal it is impos
 
 #### Inherited from
 
-[`IText`](IText.md).[`isInFrontOf`](IText.md#isinfrontof)
+[`IText`](/api/classes/itext/).[`isInFrontOf`](/api/classes/itext/#isinfrontof)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/StackedObject.ts:169
 
@@ -5969,9 +6520,9 @@ src/shapes/Object/StackedObject.ts:169
 
 #### Inherited from
 
-[`IText`](IText.md).[`isNotVisible`](IText.md#isnotvisible)
+[`IText`](/api/classes/itext/).[`isNotVisible`](/api/classes/itext/#isnotvisible)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:771
 
@@ -5992,9 +6543,9 @@ true if object is fully or partially contained within canvas
 
 #### Inherited from
 
-[`IText`](IText.md).[`isOnScreen`](IText.md#isonscreen)
+[`IText`](/api/classes/itext/).[`isOnScreen`](/api/classes/itext/#isonscreen)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:278
 
@@ -6004,9 +6555,9 @@ src/shapes/Object/ObjectGeometry.ts:278
 
 > **isOverlapping**\<`T`\>(`other`): `boolean`
 
-#### Type parameters
+#### Type Parameters
 
-• **T** extends `ObjectGeometry`\<[`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **T** *extends* `ObjectGeometry`\<[`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 #### Parameters
 
@@ -6018,9 +6569,9 @@ src/shapes/Object/ObjectGeometry.ts:278
 
 #### Inherited from
 
-[`IText`](IText.md).[`isOverlapping`](IText.md#isoverlapping)
+[`IText`](/api/classes/itext/).[`isOverlapping`](/api/classes/itext/#isoverlapping)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:256
 
@@ -6040,9 +6591,9 @@ true if object is partially contained within canvas
 
 #### Inherited from
 
-[`IText`](IText.md).[`isPartiallyOnScreen`](IText.md#ispartiallyonscreen)
+[`IText`](/api/classes/itext/).[`isPartiallyOnScreen`](/api/classes/itext/#ispartiallyonscreen)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:308
 
@@ -6054,7 +6605,7 @@ src/shapes/Object/ObjectGeometry.ts:308
 
 #### Parameters
 
-• **newPointer**: [`XY`](../interfaces/XY.md)
+• **newPointer**: [`XY`](/api/interfaces/xy/)
 
 #### Returns
 
@@ -6062,9 +6613,9 @@ src/shapes/Object/ObjectGeometry.ts:308
 
 #### Inherited from
 
-[`IText`](IText.md).[`isTripleClick`](IText.md#istripleclick)
+[`IText`](/api/classes/itext/).[`isTripleClick`](/api/classes/itext/#istripleclick)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/ITextClickBehavior.ts:90
 
@@ -6086,9 +6637,9 @@ Returns true if any of the specified types is identical to the type of an instan
 
 #### Inherited from
 
-[`IText`](IText.md).[`isType`](IText.md#istype)
+[`IText`](/api/classes/itext/).[`isType`](/api/classes/itext/#istype)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:1502
 
@@ -6096,7 +6647,7 @@ src/shapes/Object/Object.ts:1502
 
 ### measureLine()
 
-> **measureLine**(`lineIndex`): `Object`
+> **measureLine**(`lineIndex`): `object`
 
 measure a text line measuring all characters.
 
@@ -6108,7 +6659,7 @@ line number
 
 #### Returns
 
-`Object`
+`object`
 
 ##### numOfSpaces
 
@@ -6120,9 +6671,9 @@ line number
 
 #### Inherited from
 
-[`IText`](IText.md).[`measureLine`](IText.md#measureline)
+[`IText`](/api/classes/itext/).[`measureLine`](/api/classes/itext/#measureline)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:866
 
@@ -6151,9 +6702,9 @@ Number
 
 #### Overrides
 
-[`IText`](IText.md).[`missingNewlineOffset`](IText.md#missingnewlineoffset)
+[`IText`](/api/classes/itext/).[`missingNewlineOffset`](/api/classes/itext/#missingnewlineoffset)
 
-#### Source
+#### Defined in
 
 src/shapes/Textbox.ts:501
 
@@ -6177,9 +6728,9 @@ Event object
 
 #### Inherited from
 
-[`IText`](IText.md).[`moveCursorDown`](IText.md#movecursordown)
+[`IText`](/api/classes/itext/).[`moveCursorDown`](/api/classes/itext/#movecursordown)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/ITextKeyBehavior.ts:451
 
@@ -6203,9 +6754,9 @@ Event object
 
 #### Inherited from
 
-[`IText`](IText.md).[`moveCursorLeft`](IText.md#movecursorleft)
+[`IText`](/api/classes/itext/).[`moveCursorLeft`](/api/classes/itext/#movecursorleft)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/ITextKeyBehavior.ts:535
 
@@ -6227,9 +6778,9 @@ Moves cursor left while keeping selection
 
 #### Inherited from
 
-[`IText`](IText.md).[`moveCursorLeftWithShift`](IText.md#movecursorleftwithshift)
+[`IText`](/api/classes/itext/).[`moveCursorLeftWithShift`](/api/classes/itext/#movecursorleftwithshift)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/ITextKeyBehavior.ts:607
 
@@ -6251,9 +6802,9 @@ Moves cursor left without keeping selection
 
 #### Inherited from
 
-[`IText`](IText.md).[`moveCursorLeftWithoutShift`](IText.md#movecursorleftwithoutshift)
+[`IText`](/api/classes/itext/).[`moveCursorLeftWithoutShift`](/api/classes/itext/#movecursorleftwithoutshift)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/ITextKeyBehavior.ts:587
 
@@ -6277,9 +6828,9 @@ Event object
 
 #### Inherited from
 
-[`IText`](IText.md).[`moveCursorRight`](IText.md#movecursorright)
+[`IText`](/api/classes/itext/).[`moveCursorRight`](/api/classes/itext/#movecursorright)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/ITextKeyBehavior.ts:623
 
@@ -6301,9 +6852,9 @@ Moves cursor right while keeping selection
 
 #### Inherited from
 
-[`IText`](IText.md).[`moveCursorRightWithShift`](IText.md#movecursorrightwithshift)
+[`IText`](/api/classes/itext/).[`moveCursorRightWithShift`](/api/classes/itext/#movecursorrightwithshift)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/ITextKeyBehavior.ts:655
 
@@ -6327,9 +6878,9 @@ Event object
 
 #### Inherited from
 
-[`IText`](IText.md).[`moveCursorRightWithoutShift`](IText.md#movecursorrightwithoutshift)
+[`IText`](/api/classes/itext/).[`moveCursorRightWithoutShift`](/api/classes/itext/#movecursorrightwithoutshift)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/ITextKeyBehavior.ts:671
 
@@ -6353,9 +6904,9 @@ Event object
 
 #### Inherited from
 
-[`IText`](IText.md).[`moveCursorUp`](IText.md#movecursorup)
+[`IText`](/api/classes/itext/).[`moveCursorUp`](/api/classes/itext/#movecursorup)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/ITextKeyBehavior.ts:465
 
@@ -6377,9 +6928,9 @@ Moves cursor with shift
 
 #### Inherited from
 
-[`IText`](IText.md).[`moveCursorWithShift`](IText.md#movecursorwithshift)
+[`IText`](/api/classes/itext/).[`moveCursorWithShift`](/api/classes/itext/#movecursorwithshift)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/ITextKeyBehavior.ts:503
 
@@ -6401,9 +6952,9 @@ Moves cursor up without shift
 
 #### Inherited from
 
-[`IText`](IText.md).[`moveCursorWithoutShift`](IText.md#movecursorwithoutshift)
+[`IText`](/api/classes/itext/).[`moveCursorWithoutShift`](/api/classes/itext/#movecursorwithoutshift)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/ITextKeyBehavior.ts:520
 
@@ -6427,9 +6978,9 @@ Boolean
 
 #### Inherited from
 
-[`IText`](IText.md).[`needsItsOwnCache`](IText.md#needsitsowncache)
+[`IText`](/api/classes/itext/).[`needsItsOwnCache`](/api/classes/itext/#needsitsowncache)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:876
 
@@ -6443,9 +6994,9 @@ src/shapes/Object/Object.ts:876
 
 unsubscribe an event listener
 
-##### Type parameters
+##### Type Parameters
 
-• **K** extends `string` \| `number` \| `symbol`
+• **K** *extends* `string` \| `number` \| `symbol`
 
 ##### Parameters
 
@@ -6463,9 +7014,9 @@ event listener to unsubscribe
 
 ##### Inherited from
 
-[`IText`](IText.md).[`off`](IText.md#off)
+[`IText`](/api/classes/itext/).[`off`](/api/classes/itext/#off)
 
-##### Source
+##### Defined in
 
 src/Observable.ts:120
 
@@ -6479,7 +7030,7 @@ unsubscribe event listeners
 
 • **handlers**: `EventRegistryObject`\<`EventSpec`\>
 
-handlers key/value pairs (eg. \{'after:render': handler, 'selection:cleared': handler\})
+handlers key/value pairs (eg. {'after:render': handler, 'selection:cleared': handler})
 
 ##### Returns
 
@@ -6487,9 +7038,9 @@ handlers key/value pairs (eg. \{'after:render': handler, 'selection:cleared': ha
 
 ##### Inherited from
 
-[`IText`](IText.md).[`off`](IText.md#off)
+[`IText`](/api/classes/itext/).[`off`](/api/classes/itext/#off)
 
-##### Source
+##### Defined in
 
 src/Observable.ts:125
 
@@ -6505,9 +7056,9 @@ unsubscribe all event listeners
 
 ##### Inherited from
 
-[`IText`](IText.md).[`off`](IText.md#off)
+[`IText`](/api/classes/itext/).[`off`](/api/classes/itext/#off)
 
-##### Source
+##### Defined in
 
 src/Observable.ts:129
 
@@ -6521,9 +7072,9 @@ src/Observable.ts:129
 
 Observes specified event
 
-##### Type parameters
+##### Type Parameters
 
-• **K** extends `string` \| `number` \| `symbol`
+• **K** *extends* `string` \| `number` \| `symbol`
 
 • **E**
 
@@ -6545,13 +7096,13 @@ disposer
 
 ##### Inherited from
 
-[`IText`](IText.md).[`on`](IText.md#on)
+[`IText`](/api/classes/itext/).[`on`](/api/classes/itext/#on)
 
 ##### Alias
 
 on
 
-##### Source
+##### Defined in
 
 src/Observable.ts:23
 
@@ -6569,9 +7120,9 @@ src/Observable.ts:23
 
 ##### Inherited from
 
-[`IText`](IText.md).[`on`](IText.md#on)
+[`IText`](/api/classes/itext/).[`on`](/api/classes/itext/#on)
 
-##### Source
+##### Defined in
 
 src/Observable.ts:27
 
@@ -6589,9 +7140,9 @@ Composition end
 
 #### Inherited from
 
-[`IText`](IText.md).[`onCompositionEnd`](IText.md#oncompositionend)
+[`IText`](/api/classes/itext/).[`onCompositionEnd`](/api/classes/itext/#oncompositionend)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/ITextKeyBehavior.ts:281
 
@@ -6609,9 +7160,9 @@ Composition start
 
 #### Inherited from
 
-[`IText`](IText.md).[`onCompositionStart`](IText.md#oncompositionstart)
+[`IText`](/api/classes/itext/).[`onCompositionStart`](/api/classes/itext/#oncompositionstart)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/ITextKeyBehavior.ts:274
 
@@ -6631,9 +7182,9 @@ src/shapes/IText/ITextKeyBehavior.ts:274
 
 #### Inherited from
 
-[`IText`](IText.md).[`onCompositionUpdate`](IText.md#oncompositionupdate)
+[`IText`](/api/classes/itext/).[`onCompositionUpdate`](/api/classes/itext/#oncompositionupdate)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/ITextKeyBehavior.ts:285
 
@@ -6643,13 +7194,23 @@ src/shapes/IText/ITextKeyBehavior.ts:285
 
 > **onDeselect**(`options`?): `boolean`
 
+This callback function is called every time _discardActiveObject or _setActiveObject
+try to to deselect this object. If the function returns true, the process is cancelled
+
 #### Parameters
 
 • **options?**
 
-• **options\.e?**: [`TPointerEvent`](../type-aliases/TPointerEvent.md)
+options sent from the upper functions
 
-• **options\.object?**: [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **options.e?**: [`TPointerEvent`](/api/type-aliases/tpointerevent/)
+
+event if the process is generated by an event
+
+• **options.object?**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
+
+next object we are setting as active, and reason why
+this is being deselected
 
 #### Returns
 
@@ -6657,9 +7218,9 @@ src/shapes/IText/ITextKeyBehavior.ts:285
 
 #### Inherited from
 
-[`IText`](IText.md).[`onDeselect`](IText.md#ondeselect)
+[`IText`](/api/classes/itext/).[`onDeselect`](/api/classes/itext/#ondeselect)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/ITextBehavior.ts:111
 
@@ -6683,13 +7244,13 @@ should handle event
 
 #### Inherited from
 
-[`IText`](IText.md).[`onDragStart`](IText.md#ondragstart)
+[`IText`](/api/classes/itext/).[`onDragStart`](/api/classes/itext/#ondragstart)
 
 #### See
 
 also DraggableTextDelegate#isActive
 
-#### Source
+#### Defined in
 
 src/shapes/IText/ITextClickBehavior.ts:59
 
@@ -6703,7 +7264,7 @@ Handles onInput event
 
 #### Parameters
 
-• **this**: [`Textbox`](Textbox.md)\<`Props`, `SProps`, `EventSpec`\> & `Object`
+• **this**: [`Textbox`](/api/classes/textbox/)\<`Props`, `SProps`, `EventSpec`\> & `object`
 
 • **e**: `Event`
 
@@ -6715,9 +7276,9 @@ Event object
 
 #### Inherited from
 
-[`IText`](IText.md).[`onInput`](IText.md#oninput)
+[`IText`](/api/classes/itext/).[`onInput`](/api/classes/itext/#oninput)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/ITextKeyBehavior.ts:167
 
@@ -6742,9 +7303,9 @@ Event object
 
 #### Inherited from
 
-[`IText`](IText.md).[`onKeyDown`](IText.md#onkeydown)
+[`IText`](/api/classes/itext/).[`onKeyDown`](/api/classes/itext/#onkeydown)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/ITextKeyBehavior.ts:115
 
@@ -6770,9 +7331,9 @@ Event object
 
 #### Inherited from
 
-[`IText`](IText.md).[`onKeyUp`](IText.md#onkeyup)
+[`IText`](/api/classes/itext/).[`onKeyUp`](/api/classes/itext/#onkeyup)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/ITextKeyBehavior.ts:147
 
@@ -6791,7 +7352,7 @@ try to to select this object. If the function returns true, the process is cance
 
 options sent from the upper functions
 
-• **options\.e?**: [`TPointerEvent`](../type-aliases/TPointerEvent.md)
+• **options.e?**: [`TPointerEvent`](/api/type-aliases/tpointerevent/)
 
 event if the process is generated by an event
 
@@ -6801,9 +7362,9 @@ event if the process is generated by an event
 
 #### Inherited from
 
-[`IText`](IText.md).[`onSelect`](IText.md#onselect)
+[`IText`](/api/classes/itext/).[`onSelect`](/api/classes/itext/#onselect)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:634
 
@@ -6817,9 +7378,9 @@ src/shapes/Object/InteractiveObject.ts:634
 
 Observes specified event **once**
 
-##### Type parameters
+##### Type Parameters
 
-• **K** extends `string` \| `number` \| `symbol`
+• **K** *extends* `string` \| `number` \| `symbol`
 
 • **E**
 
@@ -6841,13 +7402,13 @@ disposer
 
 ##### Inherited from
 
-[`IText`](IText.md).[`once`](IText.md#once)
+[`IText`](/api/classes/itext/).[`once`](/api/classes/itext/#once)
 
 ##### Alias
 
 once
 
-##### Source
+##### Defined in
 
 src/Observable.ts:62
 
@@ -6865,9 +7426,9 @@ src/Observable.ts:62
 
 ##### Inherited from
 
-[`IText`](IText.md).[`once`](IText.md#once)
+[`IText`](/api/classes/itext/).[`once`](/api/classes/itext/#once)
 
-##### Source
+##### Defined in
 
 src/Observable.ts:66
 
@@ -6885,9 +7446,9 @@ Pastes text
 
 #### Inherited from
 
-[`IText`](IText.md).[`paste`](IText.md#paste)
+[`IText`](/api/classes/itext/).[`paste`](/api/classes/itext/#paste)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/ITextKeyBehavior.ts:317
 
@@ -6904,7 +7465,7 @@ start/end ar per grapheme position in _text array.
 
 • **start**: `number`
 
-• **end**: `number`= `undefined`
+• **end**: `number` = `...`
 
 default to start + 1
 
@@ -6914,9 +7475,9 @@ default to start + 1
 
 #### Inherited from
 
-[`IText`](IText.md).[`removeChars`](IText.md#removechars)
+[`IText`](/api/classes/itext/).[`removeChars`](/api/classes/itext/#removechars)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/ITextBehavior.ts:999
 
@@ -6940,9 +7501,9 @@ props.  Deletes a line style object if it contains no other character styles.
 
 #### Inherited from
 
-[`IText`](IText.md).[`removeStyle`](IText.md#removestyle)
+[`IText`](/api/classes/itext/).[`removeStyle`](/api/classes/itext/#removestyle)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/StyledText.ts:165
 
@@ -6970,9 +7531,9 @@ linear end position for removal ( excluded from removal )
 
 #### Inherited from
 
-[`IText`](IText.md).[`removeStyleFromTo`](IText.md#removestylefromto)
+[`IText`](/api/classes/itext/).[`removeStyleFromTo`](/api/classes/itext/#removestylefromto)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/ITextBehavior.ts:717
 
@@ -6992,9 +7553,9 @@ src/shapes/IText/ITextBehavior.ts:717
 
 #### Inherited from
 
-[`IText`](IText.md).[`renderCache`](IText.md#rendercache)
+[`IText`](/api/classes/itext/).[`renderCache`](/api/classes/itext/#rendercache)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:817
 
@@ -7020,9 +7581,9 @@ transformed context to draw on
 
 #### Inherited from
 
-[`IText`](IText.md).[`renderCursor`](IText.md#rendercursor)
+[`IText`](/api/classes/itext/).[`renderCursor`](/api/classes/itext/#rendercursor)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/IText.ts:495
 
@@ -7046,9 +7607,9 @@ If contextTop is not available, do nothing.
 
 #### Inherited from
 
-[`IText`](IText.md).[`renderCursorAt`](IText.md#rendercursorat)
+[`IText`](/api/classes/itext/).[`renderCursorAt`](/api/classes/itext/#rendercursorat)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/IText.ts:485
 
@@ -7067,9 +7628,9 @@ it does on the contextTop. If contextTop is not available, do nothing.
 
 #### Inherited from
 
-[`IText`](IText.md).[`renderCursorOrSelection`](IText.md#rendercursororselection)
+[`IText`](/api/classes/itext/).[`renderCursorOrSelection`](/api/classes/itext/#rendercursororselection)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/IText.ts:375
 
@@ -7087,9 +7648,9 @@ Renders drag start text selection
 
 #### Inherited from
 
-[`IText`](IText.md).[`renderDragSourceEffect`](IText.md#renderdragsourceeffect)
+[`IText`](/api/classes/itext/).[`renderDragSourceEffect`](/api/classes/itext/#renderdragsourceeffect)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/IText.ts:555
 
@@ -7098,6 +7659,11 @@ src/shapes/IText/IText.ts:555
 ### renderDropTargetEffect()
 
 > **renderDropTargetEffect**(`e`): `void`
+
+Override to customize drag and drop behavior
+render a specific effect when an object is the target of a drag event
+used to show that the underly object can receive a drop, or to show how the
+object will change when dropping. example: show the cursor where the text is about to be dropped
 
 #### Parameters
 
@@ -7109,9 +7675,9 @@ src/shapes/IText/IText.ts:555
 
 #### Inherited from
 
-[`IText`](IText.md).[`renderDropTargetEffect`](IText.md#renderdroptargeteffect)
+[`IText`](/api/classes/itext/).[`renderDropTargetEffect`](/api/classes/itext/#renderdroptargeteffect)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/IText.ts:565
 
@@ -7139,9 +7705,9 @@ Object with left/top/leftOffset/topOffset
 
 #### Inherited from
 
-[`IText`](IText.md).[`renderSelection`](IText.md#renderselection)
+[`IText`](/api/classes/itext/).[`renderSelection`](/api/classes/itext/#renderselection)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/IText.ts:540
 
@@ -7157,9 +7723,9 @@ src/shapes/IText/IText.ts:540
 
 #### Inherited from
 
-[`IText`](IText.md).[`restartCursorIfNeeded`](IText.md#restartcursorifneeded)
+[`IText`](/api/classes/itext/).[`restartCursorIfNeeded`](/api/classes/itext/#restartcursorifneeded)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/ITextBehavior.ts:200
 
@@ -7173,7 +7739,7 @@ Sets "angle" of an instance with centered rotation
 
 #### Parameters
 
-• **angle**: [`TDegree`](../type-aliases/TDegree.md)
+• **angle**: [`TDegree`](/api/type-aliases/tdegree/)
 
 Angle value (in degrees)
 
@@ -7183,9 +7749,9 @@ Angle value (in degrees)
 
 #### Inherited from
 
-[`IText`](IText.md).[`rotate`](IText.md#rotate)
+[`IText`](/api/classes/itext/).[`rotate`](/api/classes/itext/#rotate)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:1530
 
@@ -7209,9 +7775,9 @@ Scale factor
 
 #### Inherited from
 
-[`IText`](IText.md).[`scale`](IText.md#scale)
+[`IText`](/api/classes/itext/).[`scale`](/api/classes/itext/#scale)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:357
 
@@ -7235,9 +7801,9 @@ New height value
 
 #### Inherited from
 
-[`IText`](IText.md).[`scaleToHeight`](IText.md#scaletoheight)
+[`IText`](/api/classes/itext/).[`scaleToHeight`](/api/classes/itext/#scaletoheight)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:380
 
@@ -7261,9 +7827,9 @@ New width value
 
 #### Inherited from
 
-[`IText`](IText.md).[`scaleToWidth`](IText.md#scaletowidth)
+[`IText`](/api/classes/itext/).[`scaleToWidth`](/api/classes/itext/#scaletowidth)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:368
 
@@ -7293,9 +7859,9 @@ Index of the beginning or end of a word
 
 #### Inherited from
 
-[`IText`](IText.md).[`searchWordBoundary`](IText.md#searchwordboundary)
+[`IText`](/api/classes/itext/).[`searchWordBoundary`](/api/classes/itext/#searchwordboundary)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/ITextBehavior.ts:317
 
@@ -7303,19 +7869,19 @@ src/shapes/IText/ITextBehavior.ts:317
 
 ### selectAll()
 
-> **selectAll**(): [`Textbox`](Textbox.md)\<`Props`, `SProps`, `EventSpec`\>
+> **selectAll**(): [`Textbox`](/api/classes/textbox/)\<`Props`, `SProps`, `EventSpec`\>
 
 Selects entire text
 
 #### Returns
 
-[`Textbox`](Textbox.md)\<`Props`, `SProps`, `EventSpec`\>
+[`Textbox`](/api/classes/textbox/)\<`Props`, `SProps`, `EventSpec`\>
 
 #### Inherited from
 
-[`IText`](IText.md).[`selectAll`](IText.md#selectall)
+[`IText`](/api/classes/itext/).[`selectAll`](/api/classes/itext/#selectall)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/ITextBehavior.ts:213
 
@@ -7323,7 +7889,7 @@ src/shapes/IText/ITextBehavior.ts:213
 
 ### selectLine()
 
-> **selectLine**(`selectionStart`): [`Textbox`](Textbox.md)\<`Props`, `SProps`, `EventSpec`\>
+> **selectLine**(`selectionStart`): [`Textbox`](/api/classes/textbox/)\<`Props`, `SProps`, `EventSpec`\>
 
 Selects a line based on the index
 
@@ -7335,13 +7901,13 @@ Index of a character
 
 #### Returns
 
-[`Textbox`](Textbox.md)\<`Props`, `SProps`, `EventSpec`\>
+[`Textbox`](/api/classes/textbox/)\<`Props`, `SProps`, `EventSpec`\>
 
 #### Inherited from
 
-[`IText`](IText.md).[`selectLine`](IText.md#selectline)
+[`IText`](/api/classes/itext/).[`selectLine`](/api/classes/itext/#selectline)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/ITextBehavior.ts:363
 
@@ -7365,9 +7931,9 @@ Index of a character
 
 #### Inherited from
 
-[`IText`](IText.md).[`selectWord`](IText.md#selectword)
+[`IText`](/api/classes/itext/).[`selectWord`](/api/classes/itext/#selectword)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/ITextBehavior.ts:342
 
@@ -7375,23 +7941,29 @@ src/shapes/IText/ITextBehavior.ts:342
 
 ### set()
 
-> **set**(`key`, `value`?): [`Textbox`](Textbox.md)\<`Props`, `SProps`, `EventSpec`\>
+> **set**(`key`, `value`?): [`Textbox`](/api/classes/textbox/)\<`Props`, `SProps`, `EventSpec`\>
+
+Sets property to a given value. When changing position/dimension -related properties (left, top, scale, angle, etc.) `set` does not update position of object's borders/controls. If you need to update those, call `setCoords()`.
 
 #### Parameters
 
 • **key**: `any`
 
+Property name or object (if object, iterate over the object properties)
+
 • **value?**: `any`
+
+Property value (if function, the value is passed into it and its return value is used as a new one)
 
 #### Returns
 
-[`Textbox`](Textbox.md)\<`Props`, `SProps`, `EventSpec`\>
+[`Textbox`](/api/classes/textbox/)\<`Props`, `SProps`, `EventSpec`\>
 
 #### Inherited from
 
-[`IText`](IText.md).[`set`](IText.md#set)
+[`IText`](/api/classes/itext/).[`set`](/api/classes/itext/#set)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:1752
 
@@ -7421,13 +7993,13 @@ true to set the specified control visible, false otherwise
 
 #### Inherited from
 
-[`IText`](IText.md).[`setControlVisible`](IText.md#setcontrolvisible)
+[`IText`](/api/classes/itext/).[`setControlVisible`](/api/classes/itext/#setcontrolvisible)
 
 #### Todo
 
 discuss this overlap of priority here with the team. Andrea Bogazzi for details
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:561
 
@@ -7441,10 +8013,10 @@ Sets the visibility state of object controls, this is just a bulk option for set
 
 #### Parameters
 
-• **options?**: `Record`\<`string`, `boolean`\>= `{}`
+• **options?**: `Record`\<`string`, `boolean`\> = `{}`
 
 with an optional key per control
-example: \{Boolean\} [options.bl] true to enable the bottom-left control, false to disable it
+example: {Boolean} [options.bl] true to enable the bottom-left control, false to disable it
 
 #### Returns
 
@@ -7452,9 +8024,9 @@ example: \{Boolean\} [options.bl] true to enable the bottom-left control, false 
 
 #### Inherited from
 
-[`IText`](IText.md).[`setControlsVisibility`](IText.md#setcontrolsvisibility)
+[`IText`](/api/classes/itext/).[`setControlsVisibility`](/api/classes/itext/#setcontrolsvisibility)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:573
 
@@ -7473,9 +8045,9 @@ See [https://github.com/fabricjs/fabric.js/wiki/When-to-call-setCoords](https://
 
 #### Inherited from
 
-[`IText`](IText.md).[`setCoords`](IText.md#setcoords)
+[`IText`](/api/classes/itext/).[`setCoords`](/api/classes/itext/#setcoords)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:307
 
@@ -7489,7 +8061,7 @@ Changes cursor location in a text depending on passed pointer (x/y) object
 
 #### Parameters
 
-• **e**: [`TPointerEvent`](../type-aliases/TPointerEvent.md)
+• **e**: [`TPointerEvent`](/api/type-aliases/tpointerevent/)
 
 Event object
 
@@ -7499,9 +8071,9 @@ Event object
 
 #### Inherited from
 
-[`IText`](IText.md).[`setCursorByClick`](IText.md#setcursorbyclick)
+[`IText`](/api/classes/itext/).[`setCursorByClick`](/api/classes/itext/#setcursorbyclick)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/ITextClickBehavior.ts:216
 
@@ -7522,9 +8094,9 @@ Travis build error about unused variables.
 
 #### Inherited from
 
-[`IText`](IText.md).[`setOnGroup`](IText.md#setongroup)
+[`IText`](/api/classes/itext/).[`setOnGroup`](/api/classes/itext/#setongroup)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:1562
 
@@ -7543,9 +8115,9 @@ for path and text calculations
 
 #### Inherited from
 
-[`IText`](IText.md).[`setPathInfo`](IText.md#setpathinfo)
+[`IText`](/api/classes/itext/).[`setPathInfo`](/api/classes/itext/#setpathinfo)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:437
 
@@ -7559,15 +8131,15 @@ Sets the position of the object taking into consideration the object's origin
 
 #### Parameters
 
-• **pos**: [`Point`](Point.md)
+• **pos**: [`Point`](/api/classes/point/)
 
 The new position of the object
 
-• **originX**: [`TOriginX`](../type-aliases/TOriginX.md)
+• **originX**: [`TOriginX`](/api/type-aliases/toriginx/)
 
 Horizontal origin: 'left', 'center' or 'right'
 
-• **originY**: [`TOriginY`](../type-aliases/TOriginY.md)
+• **originY**: [`TOriginY`](/api/type-aliases/toriginy/)
 
 Vertical origin: 'top', 'center' or 'bottom'
 
@@ -7577,9 +8149,9 @@ Vertical origin: 'top', 'center' or 'bottom'
 
 #### Inherited from
 
-[`IText`](IText.md).[`setPositionByOrigin`](IText.md#setpositionbyorigin)
+[`IText`](/api/classes/itext/).[`setPositionByOrigin`](/api/classes/itext/#setpositionbyorigin)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:214
 
@@ -7602,9 +8174,9 @@ if parent is canvas then this method is identical to [setX](../../../../api/clas
 
 #### Inherited from
 
-[`IText`](IText.md).[`setRelativeX`](IText.md#setrelativex)
+[`IText`](/api/classes/itext/).[`setRelativeX`](/api/classes/itext/#setrelativex)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:110
 
@@ -7618,15 +8190,15 @@ As [setXY](../../../../api/classes/textbox/#setxy), but in current parent's coor
 
 #### Parameters
 
-• **point**: [`Point`](Point.md)
+• **point**: [`Point`](/api/classes/point/)
 
 position according to object's originX originY properties in parent's coordinate plane
 
-• **originX?**: [`TOriginX`](../type-aliases/TOriginX.md)= `undefined`
+• **originX?**: [`TOriginX`](/api/type-aliases/toriginx/) = `...`
 
 Horizontal origin: 'left', 'center' or 'right'
 
-• **originY?**: [`TOriginY`](../type-aliases/TOriginY.md)= `undefined`
+• **originY?**: [`TOriginY`](/api/type-aliases/toriginy/) = `...`
 
 Vertical origin: 'top', 'center' or 'bottom'
 
@@ -7636,9 +8208,9 @@ Vertical origin: 'top', 'center' or 'bottom'
 
 #### Inherited from
 
-[`IText`](IText.md).[`setRelativeXY`](IText.md#setrelativexy)
+[`IText`](/api/classes/itext/).[`setRelativeXY`](/api/classes/itext/#setrelativexy)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:173
 
@@ -7661,9 +8233,9 @@ if parent is canvas then this property is identical to [setY](../../../../api/cl
 
 #### Inherited from
 
-[`IText`](IText.md).[`setRelativeY`](IText.md#setrelativey)
+[`IText`](/api/classes/itext/).[`setRelativeY`](/api/classes/itext/#setrelativey)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:126
 
@@ -7687,9 +8259,9 @@ Index to set selection end to
 
 #### Inherited from
 
-[`IText`](IText.md).[`setSelectionEnd`](IText.md#setselectionend)
+[`IText`](/api/classes/itext/).[`setSelectionEnd`](/api/classes/itext/#setselectionend)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/IText.ts:263
 
@@ -7713,9 +8285,9 @@ Index to set selection start to
 
 #### Inherited from
 
-[`IText`](IText.md).[`setSelectionStart`](IText.md#setselectionstart)
+[`IText`](/api/classes/itext/).[`setSelectionStart`](/api/classes/itext/#setselectionstart)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/IText.ts:254
 
@@ -7742,9 +8314,9 @@ mimic the key - mouse navigation when shift is pressed.
 
 #### Inherited from
 
-[`IText`](IText.md).[`setSelectionStartEndWithShift`](IText.md#setselectionstartendwithshift)
+[`IText`](/api/classes/itext/).[`setSelectionStartEndWithShift`](/api/classes/itext/#setselectionstartendwithshift)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/ITextBehavior.ts:1048
 
@@ -7762,11 +8334,11 @@ Sets style of a current selection, if no selection exist, do not set anything.
 
 Styles object
 
-• **startIndex?**: `number`= `undefined`
+• **startIndex?**: `number` = `...`
 
 Start index to get styles at
 
-• **endIndex?**: `number`= `undefined`
+• **endIndex?**: `number` = `...`
 
 End index to get styles at, if not specified selectionEnd or startIndex + 1
 
@@ -7776,9 +8348,9 @@ End index to get styles at, if not specified selectionEnd or startIndex + 1
 
 #### Inherited from
 
-[`IText`](IText.md).[`setSelectionStyles`](IText.md#setselectionstyles)
+[`IText`](/api/classes/itext/).[`setSelectionStyles`](/api/classes/itext/#setselectionstyles)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/IText.ts:327
 
@@ -7806,9 +8378,9 @@ selection end
 
 #### Inherited from
 
-[`IText`](IText.md).[`setSubscript`](IText.md#setsubscript)
+[`IText`](/api/classes/itext/).[`setSubscript`](/api/classes/itext/#setsubscript)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:1409
 
@@ -7836,9 +8408,9 @@ selection end
 
 #### Inherited from
 
-[`IText`](IText.md).[`setSuperscript`](IText.md#setsuperscript)
+[`IText`](/api/classes/itext/).[`setSuperscript`](/api/classes/itext/#setsuperscript)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:1400
 
@@ -7860,9 +8432,9 @@ x position according to object's [originX](../../../../api/classes/fabricobject/
 
 #### Inherited from
 
-[`IText`](IText.md).[`setX`](IText.md#setx)
+[`IText`](/api/classes/itext/).[`setX`](/api/classes/itext/#setx)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:80
 
@@ -7878,15 +8450,15 @@ that otherwise are the object's current values.
 
 #### Parameters
 
-• **point**: [`Point`](Point.md)
+• **point**: [`Point`](/api/classes/point/)
 
 position in canvas coordinate plane
 
-• **originX?**: [`TOriginX`](../type-aliases/TOriginX.md)
+• **originX?**: [`TOriginX`](/api/type-aliases/toriginx/)
 
 Horizontal origin: 'left', 'center' or 'right'
 
-• **originY?**: [`TOriginY`](../type-aliases/TOriginY.md)
+• **originY?**: [`TOriginY`](/api/type-aliases/toriginy/)
 
 Vertical origin: 'top', 'center' or 'bottom'
 
@@ -7896,7 +8468,7 @@ Vertical origin: 'top', 'center' or 'bottom'
 
 #### Inherited from
 
-[`IText`](IText.md).[`setXY`](IText.md#setxy)
+[`IText`](/api/classes/itext/).[`setXY`](/api/classes/itext/#setxy)
 
 #### Example
 
@@ -7904,7 +8476,7 @@ Vertical origin: 'top', 'center' or 'bottom'
 object.setXY(new Point(5, 5), 'left', 'bottom').
 ```
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:150
 
@@ -7926,9 +8498,9 @@ y position according to object's [originY](../../../../api/classes/fabricobject/
 
 #### Inherited from
 
-[`IText`](IText.md).[`setY`](IText.md#sety)
+[`IText`](/api/classes/itext/).[`setY`](/api/classes/itext/#sety)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:94
 
@@ -7956,9 +8528,9 @@ Can any number?
 
 #### Inherited from
 
-[`IText`](IText.md).[`shiftLineStyles`](IText.md#shiftlinestyles)
+[`IText`](/api/classes/itext/).[`shiftLineStyles`](/api/classes/itext/#shiftlinestyles)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/ITextBehavior.ts:779
 
@@ -7981,9 +8553,9 @@ Read as: cache if is needed, or if the feature is enabled but we are not already
 
 #### Inherited from
 
-[`IText`](IText.md).[`shouldCache`](IText.md#shouldcache)
+[`IText`](/api/classes/itext/).[`shouldCache`](/api/classes/itext/#shouldcache)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:900
 
@@ -7993,15 +8565,20 @@ src/shapes/Object/Object.ts:900
 
 > **shouldStartDragging**(): `boolean`
 
+Override to customize Drag behavior
+Fired from Canvas#_onMouseMove
+
 #### Returns
 
 `boolean`
 
+true in order for the window to start a drag session
+
 #### Inherited from
 
-[`IText`](IText.md).[`shouldStartDragging`](IText.md#shouldstartdragging)
+[`IText`](/api/classes/itext/).[`shouldStartDragging`](/api/classes/itext/#shouldstartdragging)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/ITextClickBehavior.ts:51
 
@@ -8019,7 +8596,7 @@ override this function in order to customize the drawing of the control box, e.g
 
 ctx is rotated and translated so that (0,0) is at object's center
 
-• **size**: [`Point`](Point.md)
+• **size**: [`Point`](/api/classes/point/)
 
 the control box size used
 
@@ -8029,9 +8606,9 @@ the control box size used
 
 #### Inherited from
 
-[`IText`](IText.md).[`strokeBorders`](IText.md#strokeborders)
+[`IText`](/api/classes/itext/).[`strokeBorders`](/api/classes/itext/#strokeborders)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/InteractiveObject.ts:363
 
@@ -8055,9 +8632,9 @@ Returns true if object has a style property or has it on a specified line
 
 #### Overrides
 
-[`IText`](IText.md).[`styleHas`](IText.md#stylehas)
+[`IText`](/api/classes/itext/).[`styleHas`](/api/classes/itext/#stylehas)
 
-#### Source
+#### Defined in
 
 src/shapes/Textbox.ts:175
 
@@ -8079,13 +8656,13 @@ block cursor/selection logic while rendering the exported canvas
 
 #### Inherited from
 
-[`IText`](IText.md).[`toCanvasElement`](IText.md#tocanvaselement)
+[`IText`](/api/classes/itext/).[`toCanvasElement`](/api/classes/itext/#tocanvaselement)
 
 #### Todo
 
 this workaround should be replaced with a more robust solution
 
-#### Source
+#### Defined in
 
 src/shapes/IText/IText.ts:363
 
@@ -8099,9 +8676,9 @@ Returns svg clipPath representation of an instance
 
 #### Parameters
 
-• **this**: `FabricObjectSVGExportMixin` & [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **this**: `FabricObjectSVGExportMixin` & [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
-• **reviver?**: [`TSVGReviver`](../type-aliases/TSVGReviver.md)
+• **reviver?**: [`TSVGReviver`](/api/type-aliases/tsvgreviver/)
 
 Method for further parsing of svg representation.
 
@@ -8113,9 +8690,9 @@ svg representation of an instance
 
 #### Inherited from
 
-[`IText`](IText.md).[`toClipPathSVG`](IText.md#toclippathsvg)
+[`IText`](/api/classes/itext/).[`toClipPathSVG`](/api/classes/itext/#toclippathsvg)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/FabricObjectSVGExportMixin.ts:143
 
@@ -8129,7 +8706,7 @@ Converts an object into a data-url-like string
 
 #### Parameters
 
-• **options**: `toDataURLOptions`= `{}`
+• **options**: `toDataURLOptions` = `{}`
 
 Options object
 
@@ -8141,9 +8718,9 @@ Returns a data: URL containing a representation of the object in the format spec
 
 #### Inherited from
 
-[`IText`](IText.md).[`toDataURL`](IText.md#todataurl)
+[`IText`](/api/classes/itext/).[`toDataURL`](/api/classes/itext/#todataurl)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:1489
 
@@ -8169,9 +8746,9 @@ Object representation of an instance
 
 #### Inherited from
 
-[`IText`](IText.md).[`toDatalessObject`](IText.md#todatalessobject)
+[`IText`](/api/classes/itext/).[`toDatalessObject`](/api/classes/itext/#todatalessobject)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:611
 
@@ -8191,9 +8768,9 @@ JSON
 
 #### Inherited from
 
-[`IText`](IText.md).[`toJSON`](IText.md#tojson)
+[`IText`](/api/classes/itext/).[`toJSON`](/api/classes/itext/#tojson)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:1521
 
@@ -8205,15 +8782,15 @@ src/shapes/Object/Object.ts:1521
 
 Returns object representation of an instance
 
-#### Type parameters
+#### Type Parameters
 
-• **T** extends `Omit`\<`Props` & [`TClassProperties`](../type-aliases/TClassProperties.md)\<[`Textbox`](Textbox.md)\<`Props`, `SProps`, `EventSpec`\>\>, keyof `SProps`\>
+• **T** *extends* `Omit`\<`Props` & [`TClassProperties`](/api/type-aliases/tclassproperties/)\<[`Textbox`](/api/classes/textbox/)\<`Props`, `SProps`, `EventSpec`\>\>, keyof `SProps`\>
 
-• **K** extends `string` \| `number` \| `symbol` = `never`
+• **K** *extends* `string` \| `number` \| `symbol` = `never`
 
 #### Parameters
 
-• **propertiesToInclude?**: `K`[]= `[]`
+• **propertiesToInclude?**: `K`[] = `[]`
 
 Any properties that you might want to additionally include in the output
 
@@ -8225,13 +8802,13 @@ object representation of an instance
 
 #### Overrides
 
-[`IText`](IText.md).[`toObject`](IText.md#toobject)
+[`IText`](/api/classes/itext/).[`toObject`](/api/classes/itext/#toobject)
 
 #### Method
 
 toObject
 
-#### Source
+#### Defined in
 
 src/shapes/Textbox.ts:555
 
@@ -8245,9 +8822,9 @@ Returns svg representation of an instance
 
 #### Parameters
 
-• **this**: `FabricObjectSVGExportMixin` & [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **this**: `FabricObjectSVGExportMixin` & [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
-• **reviver?**: [`TSVGReviver`](../type-aliases/TSVGReviver.md)
+• **reviver?**: [`TSVGReviver`](/api/type-aliases/tsvgreviver/)
 
 Method for further parsing of svg representation.
 
@@ -8259,9 +8836,9 @@ svg representation of an instance
 
 #### Inherited from
 
-[`IText`](IText.md).[`toSVG`](IText.md#tosvg)
+[`IText`](/api/classes/itext/).[`toSVG`](/api/classes/itext/#tosvg)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/FabricObjectSVGExportMixin.ts:129
 
@@ -8281,9 +8858,9 @@ String representation of text object
 
 #### Inherited from
 
-[`IText`](IText.md).[`toString`](IText.md#tostring)
+[`IText`](/api/classes/itext/).[`toString`](/api/classes/itext/#tostring)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:573
 
@@ -8291,7 +8868,7 @@ src/shapes/Text/Text.ts:573
 
 ### toggle()
 
-> **toggle**(`property`): [`Textbox`](Textbox.md)\<`Props`, `SProps`, `EventSpec`\>
+> **toggle**(`property`): [`Textbox`](/api/classes/textbox/)\<`Props`, `SProps`, `EventSpec`\>
 
 Toggles specified property from `true` to `false` or from `false` to `true`
 
@@ -8303,13 +8880,13 @@ Property to toggle
 
 #### Returns
 
-[`Textbox`](Textbox.md)\<`Props`, `SProps`, `EventSpec`\>
+[`Textbox`](/api/classes/textbox/)\<`Props`, `SProps`, `EventSpec`\>
 
 #### Inherited from
 
-[`IText`](IText.md).[`toggle`](IText.md#toggle)
+[`IText`](/api/classes/itext/).[`toggle`](/api/classes/itext/#toggle)
 
-#### Source
+#### Defined in
 
 src/CommonMethods.ts:46
 
@@ -8333,9 +8910,9 @@ Context
 
 #### Inherited from
 
-[`IText`](IText.md).[`transform`](IText.md#transform)
+[`IText`](/api/classes/itext/).[`transform`](/api/classes/itext/#transform)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:533
 
@@ -8347,7 +8924,7 @@ src/shapes/Object/Object.ts:533
 
 #### Parameters
 
-• **skipGroup**: `boolean`= `false`
+• **skipGroup**: `boolean` = `false`
 
 #### Returns
 
@@ -8355,9 +8932,9 @@ src/shapes/Object/Object.ts:533
 
 #### Inherited from
 
-[`IText`](IText.md).[`transformMatrixKey`](IText.md#transformmatrixkey)
+[`IText`](/api/classes/itext/).[`transformMatrixKey`](/api/classes/itext/#transformmatrixkey)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:440
 
@@ -8365,33 +8942,33 @@ src/shapes/Object/ObjectGeometry.ts:440
 
 ### translateToCenterPoint()
 
-> **translateToCenterPoint**(`point`, `originX`, `originY`): [`Point`](Point.md)
+> **translateToCenterPoint**(`point`, `originX`, `originY`): [`Point`](/api/classes/point/)
 
 Translates the coordinates from origin to center coordinates (based on the object's dimensions)
 
 #### Parameters
 
-• **point**: [`Point`](Point.md)
+• **point**: [`Point`](/api/classes/point/)
 
 The point which corresponds to the originX and originY params
 
-• **originX**: [`TOriginX`](../type-aliases/TOriginX.md)
+• **originX**: [`TOriginX`](/api/type-aliases/toriginx/)
 
 Horizontal origin: 'left', 'center' or 'right'
 
-• **originY**: [`TOriginY`](../type-aliases/TOriginY.md)
+• **originY**: [`TOriginY`](/api/type-aliases/toriginy/)
 
 Vertical origin: 'top', 'center' or 'bottom'
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
 #### Inherited from
 
-[`IText`](IText.md).[`translateToCenterPoint`](IText.md#translatetocenterpoint)
+[`IText`](/api/classes/itext/).[`translateToCenterPoint`](/api/classes/itext/#translatetocenterpoint)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:127
 
@@ -8399,41 +8976,41 @@ src/shapes/Object/ObjectOrigin.ts:127
 
 ### translateToGivenOrigin()
 
-> **translateToGivenOrigin**(`point`, `fromOriginX`, `fromOriginY`, `toOriginX`, `toOriginY`): [`Point`](Point.md)
+> **translateToGivenOrigin**(`point`, `fromOriginX`, `fromOriginY`, `toOriginX`, `toOriginY`): [`Point`](/api/classes/point/)
 
 Translates the coordinates from a set of origin to another (based on the object's dimensions)
 
 #### Parameters
 
-• **point**: [`Point`](Point.md)
+• **point**: [`Point`](/api/classes/point/)
 
 The point which corresponds to the originX and originY params
 
-• **fromOriginX**: [`TOriginX`](../type-aliases/TOriginX.md)
+• **fromOriginX**: [`TOriginX`](/api/type-aliases/toriginx/)
 
 Horizontal origin: 'left', 'center' or 'right'
 
-• **fromOriginY**: [`TOriginY`](../type-aliases/TOriginY.md)
+• **fromOriginY**: [`TOriginY`](/api/type-aliases/toriginy/)
 
 Vertical origin: 'top', 'center' or 'bottom'
 
-• **toOriginX**: [`TOriginX`](../type-aliases/TOriginX.md)
+• **toOriginX**: [`TOriginX`](/api/type-aliases/toriginx/)
 
 Horizontal origin: 'left', 'center' or 'right'
 
-• **toOriginY**: [`TOriginY`](../type-aliases/TOriginY.md)
+• **toOriginY**: [`TOriginY`](/api/type-aliases/toriginy/)
 
 Vertical origin: 'top', 'center' or 'bottom'
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
 #### Inherited from
 
-[`IText`](IText.md).[`translateToGivenOrigin`](IText.md#translatetogivenorigin)
+[`IText`](/api/classes/itext/).[`translateToGivenOrigin`](/api/classes/itext/#translatetogivenorigin)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:99
 
@@ -8441,33 +9018,33 @@ src/shapes/Object/ObjectOrigin.ts:99
 
 ### translateToOriginPoint()
 
-> **translateToOriginPoint**(`center`, `originX`, `originY`): [`Point`](Point.md)
+> **translateToOriginPoint**(`center`, `originX`, `originY`): [`Point`](/api/classes/point/)
 
 Translates the coordinates from center to origin coordinates (based on the object's dimensions)
 
 #### Parameters
 
-• **center**: [`Point`](Point.md)
+• **center**: [`Point`](/api/classes/point/)
 
 The point which corresponds to center of the object
 
-• **originX**: [`TOriginX`](../type-aliases/TOriginX.md)
+• **originX**: [`TOriginX`](/api/type-aliases/toriginx/)
 
 Horizontal origin: 'left', 'center' or 'right'
 
-• **originY**: [`TOriginY`](../type-aliases/TOriginY.md)
+• **originY**: [`TOriginY`](/api/type-aliases/toriginy/)
 
 Vertical origin: 'top', 'center' or 'bottom'
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
 #### Inherited from
 
-[`IText`](IText.md).[`translateToOriginPoint`](IText.md#translatetooriginpoint)
+[`IText`](/api/classes/itext/).[`translateToOriginPoint`](/api/classes/itext/#translatetooriginpoint)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:152
 
@@ -8481,7 +9058,7 @@ Default handler for triple click, select a line
 
 #### Parameters
 
-• **options**: [`TPointerEventInfo`](../interfaces/TPointerEventInfo.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\>
+• **options**: [`TPointerEventInfo`](/api/interfaces/tpointereventinfo/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\>
 
 #### Returns
 
@@ -8489,9 +9066,9 @@ Default handler for triple click, select a line
 
 #### Inherited from
 
-[`IText`](IText.md).[`tripleClickHandler`](IText.md#tripleclickhandler)
+[`IText`](/api/classes/itext/).[`tripleClickHandler`](/api/classes/itext/#tripleclickhandler)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/ITextClickBehavior.ts:112
 
@@ -8505,7 +9082,7 @@ called by [Canvas#textEditingManager](../../../../api/classes/canvas/#texteditin
 
 #### Parameters
 
-• **e**: [`TPointerEvent`](../type-aliases/TPointerEvent.md)
+• **e**: [`TPointerEvent`](/api/type-aliases/tpointerevent/)
 
 #### Returns
 
@@ -8513,9 +9090,9 @@ called by [Canvas#textEditingManager](../../../../api/classes/canvas/#texteditin
 
 #### Inherited from
 
-[`IText`](IText.md).[`updateSelectionOnMouseMove`](IText.md#updateselectiononmousemove)
+[`IText`](/api/classes/itext/).[`updateSelectionOnMouseMove`](/api/classes/itext/#updateselectiononmousemove)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/ITextBehavior.ts:410
 
@@ -8538,13 +9115,9 @@ This API is no longer supported and may be removed in a future release.
 
 #### Inherited from
 
-[`IText`](IText.md).[`willDrawShadow`](IText.md#willdrawshadow)
+[`IText`](/api/classes/itext/).[`willDrawShadow`](/api/classes/itext/#willdrawshadow)
 
-:::caution[Deprecated]
-This API is no longer supported and may be removed in a future release.
-:::
-
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:913
 
@@ -8567,7 +9140,7 @@ Use with [Textbox#_measureWord](../../../../api/classes/textbox/#_measureword)
 
 array of words
 
-#### Source
+#### Defined in
 
 src/shapes/Textbox.ts:395
 
@@ -8575,17 +9148,17 @@ src/shapes/Textbox.ts:395
 
 ### \_fromObject()
 
-> **`static`** **\_fromObject**\<`S`\>(`__namedParameters`, `__namedParameters`): `Promise`\<`S`\>
+> `static` **\_fromObject**\<`S`\>(`__namedParameters`, `__namedParameters`): `Promise`\<`S`\>
 
-#### Type parameters
+#### Type Parameters
 
-• **S** extends `FabricObject`\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **S** *extends* `FabricObject`\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 #### Parameters
 
 • **\_\_namedParameters**: `Record`\<`string`, `unknown`\>
 
-• **\_\_namedParameters**: [`Abortable`](../type-aliases/Abortable.md) & `Object`= `{}`
+• **\_\_namedParameters**: [`Abortable`](/api/type-aliases/abortable/) & `object` = `{}`
 
 #### Returns
 
@@ -8593,9 +9166,9 @@ src/shapes/Textbox.ts:395
 
 #### Inherited from
 
-[`IText`](IText.md).[`_fromObject`](IText.md#_fromobject)
+[`IText`](/api/classes/itext/).[`_fromObject`](/api/classes/itext/#_fromobject)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/Object.ts:1600
 
@@ -8603,7 +9176,7 @@ src/shapes/Object/Object.ts:1600
 
 ### fromElement()
 
-> **`static`** **fromElement**(`element`, `options`?, `cssRules`?): `Promise`\<[`FabricText`](FabricText.md)\<`Object`, [`SerializedTextProps`](../interfaces/SerializedTextProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>\>
+> `static` **fromElement**(`element`, `options`?, `cssRules`?): `Promise`\<[`FabricText`](/api/classes/fabrictext/)\<`object`, [`SerializedTextProps`](/api/interfaces/serializedtextprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>\>
 
 Returns FabricText instance from an SVG element (<b>not yet implemented</b>)
 
@@ -8613,7 +9186,7 @@ Returns FabricText instance from an SVG element (<b>not yet implemented</b>)
 
 Element to parse
 
-• **options?**: [`Abortable`](../type-aliases/Abortable.md)
+• **options?**: [`Abortable`](/api/type-aliases/abortable/)
 
 Options object
 
@@ -8621,11 +9194,11 @@ Options object
 
 #### Returns
 
-`Promise`\<[`FabricText`](FabricText.md)\<`Object`, [`SerializedTextProps`](../interfaces/SerializedTextProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>\>
+`Promise`\<[`FabricText`](/api/classes/fabrictext/)\<`object`, [`SerializedTextProps`](/api/interfaces/serializedtextprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>\>
 
 #### Inherited from
 
-[`IText`](IText.md).[`fromElement`](IText.md#fromelement)
+[`IText`](/api/classes/itext/).[`fromElement`](/api/classes/itext/#fromelement)
 
 #### Static
 
@@ -8633,7 +9206,7 @@ Options object
 
 Text
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:1824
 
@@ -8641,15 +9214,15 @@ src/shapes/Text/Text.ts:1824
 
 ### fromObject()
 
-> **`static`** **fromObject**\<`T`, `S`\>(`object`): `Promise`\<`S`\>
+> `static` **fromObject**\<`T`, `S`\>(`object`): `Promise`\<`S`\>
 
 Returns FabricText instance from an object representation
 
-#### Type parameters
+#### Type Parameters
 
-• **T** extends [`TOptions`](../type-aliases/TOptions.md)\<[`SerializedTextProps`](../interfaces/SerializedTextProps.md)\>
+• **T** *extends* [`TOptions`](/api/type-aliases/toptions/)\<[`SerializedTextProps`](/api/interfaces/serializedtextprops/)\>
 
-• **S** extends [`FabricText`](FabricText.md)\<`Partial`\<[`TextProps`](../interfaces/TextProps.md)\>, [`SerializedTextProps`](../interfaces/SerializedTextProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **S** *extends* [`FabricText`](/api/classes/fabrictext/)\<`Partial`\<[`TextProps`](/api/interfaces/textprops/)\>, [`SerializedTextProps`](/api/interfaces/serializedtextprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 #### Parameters
 
@@ -8663,9 +9236,9 @@ plain js Object to create an instance from
 
 #### Inherited from
 
-[`IText`](IText.md).[`fromObject`](IText.md#fromobject)
+[`IText`](/api/classes/itext/).[`fromObject`](/api/classes/itext/#fromobject)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:1901
 
@@ -8673,7 +9246,7 @@ src/shapes/Text/Text.ts:1901
 
 ### getDefaults()
 
-> **`static`** **getDefaults**(): `Record`\<`string`, `any`\>
+> `static` **getDefaults**(): `Record`\<`string`, `any`\>
 
 #### Returns
 
@@ -8681,8 +9254,8 @@ src/shapes/Text/Text.ts:1901
 
 #### Overrides
 
-[`IText`](IText.md).[`getDefaults`](IText.md#getdefaults)
+[`IText`](/api/classes/itext/).[`getDefaults`](/api/classes/itext/#getdefaults)
 
-#### Source
+#### Defined in
 
 src/shapes/Textbox.ts:97

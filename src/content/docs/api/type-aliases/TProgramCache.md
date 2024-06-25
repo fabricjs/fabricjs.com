@@ -7,6 +7,6 @@ title: "TProgramCache"
 
 > **TProgramCache**: `any`
 
-## Source
+## Defined in
 
 src/filters/typedefs.ts:4

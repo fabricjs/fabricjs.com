@@ -7,13 +7,17 @@ title: "SerializedITextProps"
 
 ## Extends
 
-- [`SerializedTextProps`](SerializedTextProps.md).`UniqueITextProps`
+- [`SerializedTextProps`](/api/interfaces/serializedtextprops/).`UniqueITextProps`
+
+## Extended by
+
+- [`SerializedTextboxProps`](/api/interfaces/serializedtextboxprops/)
 
 ## Properties
 
 ### angle
 
-> **angle**: [`TDegree`](../type-aliases/TDegree.md)
+> **angle**: [`TDegree`](/api/type-aliases/tdegree/)
 
 Angle of rotation of an object (in degrees)
 
@@ -25,9 +29,9 @@ Angle of rotation of an object (in degrees)
 
 #### Inherited from
 
-[`SerializedTextProps`](SerializedTextProps.md).[`angle`](SerializedTextProps.md#angle)
+[`SerializedTextProps`](/api/interfaces/serializedtextprops/).[`angle`](/api/interfaces/serializedtextprops/#angle)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:57
 
@@ -48,9 +52,9 @@ takes css colors https://www.w3.org/TR/css-color-3/
 
 #### Inherited from
 
-[`SerializedTextProps`](SerializedTextProps.md).[`backgroundColor`](SerializedTextProps.md#backgroundcolor)
+[`SerializedTextProps`](/api/interfaces/serializedtextprops/).[`backgroundColor`](/api/interfaces/serializedtextprops/#backgroundcolor)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/SerializedObjectProps.ts:26
 
@@ -62,9 +66,9 @@ src/shapes/Object/types/SerializedObjectProps.ts:26
 
 #### Inherited from
 
-[`SerializedTextProps`](SerializedTextProps.md).[`charSpacing`](SerializedTextProps.md#charspacing)
+[`SerializedTextProps`](/api/interfaces/serializedtextprops/).[`charSpacing`](/api/interfaces/serializedtextprops/#charspacing)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:94
 
@@ -72,7 +76,7 @@ src/shapes/Text/Text.ts:94
 
 ### clipPath?
 
-> **`optional`** **clipPath**: `Partial`\<[`SerializedObjectProps`](SerializedObjectProps.md) & `ClipPathProps`\>
+> `optional` **clipPath**: `Partial`\<[`SerializedObjectProps`](/api/interfaces/serializedobjectprops/) & `ClipPathProps`\>
 
 a fabricObject that, without stroke define a clipping area with their shape. filled in black
 the clipPath object gets used when the object has rendered, and the context is placed in the center
@@ -81,9 +85,9 @@ If you want 0,0 of a clipPath to align with an object center, use clipPath.origi
 
 #### Inherited from
 
-[`SerializedTextProps`](SerializedTextProps.md).[`clipPath`](SerializedTextProps.md#clippath)
+[`SerializedTextProps`](/api/interfaces/serializedtextprops/).[`clipPath`](/api/interfaces/serializedtextprops/#clippath)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/SerializedObjectProps.ts:49
 
@@ -95,9 +99,9 @@ src/shapes/Object/types/SerializedObjectProps.ts:49
 
 #### Inherited from
 
-[`SerializedTextProps`](SerializedTextProps.md).[`direction`](SerializedTextProps.md#direction)
+[`SerializedTextProps`](/api/interfaces/serializedtextprops/).[`direction`](/api/interfaces/serializedtextprops/#direction)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:106
 
@@ -105,7 +109,7 @@ src/shapes/Text/Text.ts:106
 
 ### fill
 
-> **fill**: `null` \| `string` \| `Record`\<`string`, `any`\> \| `Partial`\<[`Gradient`](../classes/Gradient.md)\<`"linear"`, `"linear"`\>\> & `Object` \| `Partial`\<[`Gradient`](../classes/Gradient.md)\<`"radial"`, `"radial"`\>\> & `Object`
+> **fill**: `null` \| `string` \| `Record`\<`string`, `any`\> \| `Partial`\<[`Gradient`](/api/classes/gradient/)\<`"linear"`, `"linear"`\>\> & `object` \| `Partial`\<[`Gradient`](/api/classes/gradient/)\<`"radial"`, `"radial"`\>\> & `object`
 
 Color of object's fill
 takes css colors https://www.w3.org/TR/css-color-3/
@@ -118,9 +122,9 @@ rgb(0,0,0)
 
 #### Inherited from
 
-[`SerializedTextProps`](SerializedTextProps.md).[`fill`](SerializedTextProps.md#fill)
+[`SerializedTextProps`](/api/interfaces/serializedtextprops/).[`fill`](/api/interfaces/serializedtextprops/#fill)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FillStrokeProps.ts:17
 
@@ -142,9 +146,9 @@ nonzero
 
 #### Inherited from
 
-[`SerializedTextProps`](SerializedTextProps.md).[`fillRule`](SerializedTextProps.md#fillrule)
+[`SerializedTextProps`](/api/interfaces/serializedtextprops/).[`fillRule`](/api/interfaces/serializedtextprops/#fillrule)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FillStrokeProps.ts:26
 
@@ -164,9 +168,9 @@ false
 
 #### Inherited from
 
-[`SerializedTextProps`](SerializedTextProps.md).[`flipX`](SerializedTextProps.md#flipx)
+[`SerializedTextProps`](/api/interfaces/serializedtextprops/).[`flipX`](/api/interfaces/serializedtextprops/#flipx)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:64
 
@@ -186,9 +190,9 @@ false
 
 #### Inherited from
 
-[`SerializedTextProps`](SerializedTextProps.md).[`flipY`](SerializedTextProps.md#flipy)
+[`SerializedTextProps`](/api/interfaces/serializedtextprops/).[`flipY`](/api/interfaces/serializedtextprops/#flipy)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:71
 
@@ -200,9 +204,9 @@ src/shapes/Object/types/BaseProps.ts:71
 
 #### Inherited from
 
-[`SerializedTextProps`](SerializedTextProps.md).[`fontFamily`](SerializedTextProps.md#fontfamily)
+[`SerializedTextProps`](/api/interfaces/serializedtextprops/).[`fontFamily`](/api/interfaces/serializedtextprops/#fontfamily)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:98
 
@@ -214,9 +218,9 @@ src/shapes/Text/Text.ts:98
 
 #### Inherited from
 
-[`SerializedTextProps`](SerializedTextProps.md).[`fontSize`](SerializedTextProps.md#fontsize)
+[`SerializedTextProps`](/api/interfaces/serializedtextprops/).[`fontSize`](/api/interfaces/serializedtextprops/#fontsize)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:96
 
@@ -228,9 +232,9 @@ src/shapes/Text/Text.ts:96
 
 #### Inherited from
 
-[`SerializedTextProps`](SerializedTextProps.md).[`fontStyle`](SerializedTextProps.md#fontstyle)
+[`SerializedTextProps`](/api/interfaces/serializedtextprops/).[`fontStyle`](/api/interfaces/serializedtextprops/#fontstyle)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:99
 
@@ -242,9 +246,9 @@ src/shapes/Text/Text.ts:99
 
 #### Inherited from
 
-[`SerializedTextProps`](SerializedTextProps.md).[`fontWeight`](SerializedTextProps.md#fontweight)
+[`SerializedTextProps`](/api/interfaces/serializedtextprops/).[`fontWeight`](/api/interfaces/serializedtextprops/#fontweight)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:97
 
@@ -264,9 +268,9 @@ Composite rule used for canvas globalCompositeOperation
 
 #### Inherited from
 
-[`SerializedTextProps`](SerializedTextProps.md).[`globalCompositeOperation`](SerializedTextProps.md#globalcompositeoperation)
+[`SerializedTextProps`](/api/interfaces/serializedtextprops/).[`globalCompositeOperation`](/api/interfaces/serializedtextprops/#globalcompositeoperation)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/SerializedObjectProps.ts:18
 
@@ -286,9 +290,9 @@ Object height
 
 #### Inherited from
 
-[`SerializedTextProps`](SerializedTextProps.md).[`height`](SerializedTextProps.md#height)
+[`SerializedTextProps`](/api/interfaces/serializedtextprops/).[`height`](/api/interfaces/serializedtextprops/#height)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:34
 
@@ -310,9 +314,9 @@ You can change this by setting [originX](../../../../api/interfaces/fabricobject
 
 #### Inherited from
 
-[`SerializedTextProps`](SerializedTextProps.md).[`left`](SerializedTextProps.md#left)
+[`SerializedTextProps`](/api/interfaces/serializedtextprops/).[`left`](/api/interfaces/serializedtextprops/#left)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:11
 
@@ -324,9 +328,9 @@ src/shapes/Object/types/BaseProps.ts:11
 
 #### Inherited from
 
-[`SerializedTextProps`](SerializedTextProps.md).[`lineHeight`](SerializedTextProps.md#lineheight)
+[`SerializedTextProps`](/api/interfaces/serializedtextprops/).[`lineHeight`](/api/interfaces/serializedtextprops/#lineheight)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:95
 
@@ -338,9 +342,9 @@ src/shapes/Text/Text.ts:95
 
 #### Inherited from
 
-[`SerializedTextProps`](SerializedTextProps.md).[`linethrough`](SerializedTextProps.md#linethrough)
+[`SerializedTextProps`](/api/interfaces/serializedtextprops/).[`linethrough`](/api/interfaces/serializedtextprops/#linethrough)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:104
 
@@ -360,9 +364,9 @@ Opacity of an object
 
 #### Inherited from
 
-[`SerializedTextProps`](SerializedTextProps.md).[`opacity`](SerializedTextProps.md#opacity)
+[`SerializedTextProps`](/api/interfaces/serializedtextprops/).[`opacity`](/api/interfaces/serializedtextprops/#opacity)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/SerializedObjectProps.ts:11
 
@@ -370,7 +374,7 @@ src/shapes/Object/types/SerializedObjectProps.ts:11
 
 ### originX
 
-> **originX**: [`TOriginX`](../type-aliases/TOriginX.md)
+> **originX**: [`TOriginX`](/api/type-aliases/toriginx/)
 
 Horizontal origin of transformation of an object (`left`, `center`, `right`  or `[0, 1]`)
 See http://jsfiddle.net/1ow02gea/244/ on how originX/originY affect objects in groups
@@ -383,9 +387,9 @@ See http://jsfiddle.net/1ow02gea/244/ on how originX/originY affect objects in g
 
 #### Inherited from
 
-[`SerializedTextProps`](SerializedTextProps.md).[`originX`](SerializedTextProps.md#originx)
+[`SerializedTextProps`](/api/interfaces/serializedtextprops/).[`originX`](/api/interfaces/serializedtextprops/#originx)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:42
 
@@ -393,7 +397,7 @@ src/shapes/Object/types/BaseProps.ts:42
 
 ### originY
 
-> **originY**: [`TOriginY`](../type-aliases/TOriginY.md)
+> **originY**: [`TOriginY`](/api/type-aliases/toriginy/)
 
 Vertical origin of transformation of an object (`top`, `center`, `bottom` or `[0, 1]`)
 See http://jsfiddle.net/1ow02gea/244/ on how originX/originY affect objects in groups
@@ -406,9 +410,9 @@ See http://jsfiddle.net/1ow02gea/244/ on how originX/originY affect objects in g
 
 #### Inherited from
 
-[`SerializedTextProps`](SerializedTextProps.md).[`originY`](SerializedTextProps.md#originy)
+[`SerializedTextProps`](/api/interfaces/serializedtextprops/).[`originY`](/api/interfaces/serializedtextprops/#originy)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:50
 
@@ -420,9 +424,9 @@ src/shapes/Object/types/BaseProps.ts:50
 
 #### Inherited from
 
-[`SerializedTextProps`](SerializedTextProps.md).[`overline`](SerializedTextProps.md#overline)
+[`SerializedTextProps`](/api/interfaces/serializedtextprops/).[`overline`](/api/interfaces/serializedtextprops/#overline)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:103
 
@@ -442,9 +446,9 @@ Determines if the fill or the stroke is drawn first (one of "fill" or "stroke")
 
 #### Inherited from
 
-[`SerializedTextProps`](SerializedTextProps.md).[`paintFirst`](SerializedTextProps.md#paintfirst)
+[`SerializedTextProps`](/api/interfaces/serializedtextprops/).[`paintFirst`](/api/interfaces/serializedtextprops/#paintfirst)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FillStrokeProps.ts:9
 
@@ -452,13 +456,13 @@ src/shapes/Object/types/FillStrokeProps.ts:9
 
 ### path?
 
-> **`optional`** **path**: [`Path`](../classes/Path.md)\<`Partial`\<[`PathProps`](PathProps.md)\>, [`SerializedPathProps`](SerializedPathProps.md), [`ObjectEvents`](ObjectEvents.md)\>
+> `optional` **path**: [`Path`](/api/classes/path/)\<`Partial`\<[`PathProps`](/api/interfaces/pathprops/)\>, [`SerializedPathProps`](/api/interfaces/serializedpathprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 #### Inherited from
 
-[`SerializedTextProps`](SerializedTextProps.md).[`path`](SerializedTextProps.md#path)
+[`SerializedTextProps`](/api/interfaces/serializedtextprops/).[`path`](/api/interfaces/serializedtextprops/#path)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:107
 
@@ -466,13 +470,13 @@ src/shapes/Text/Text.ts:107
 
 ### pathAlign
 
-> **pathAlign**: [`TPathAlign`](../type-aliases/TPathAlign.md)
+> **pathAlign**: [`TPathAlign`](/api/type-aliases/tpathalign/)
 
 #### Inherited from
 
-[`SerializedTextProps`](SerializedTextProps.md).[`pathAlign`](SerializedTextProps.md#pathalign)
+[`SerializedTextProps`](/api/interfaces/serializedtextprops/).[`pathAlign`](/api/interfaces/serializedtextprops/#pathalign)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:101
 
@@ -480,13 +484,13 @@ src/shapes/Text/Text.ts:101
 
 ### pathSide
 
-> **pathSide**: [`TPathSide`](../type-aliases/TPathSide.md)
+> **pathSide**: [`TPathSide`](/api/type-aliases/tpathside/)
 
 #### Inherited from
 
-[`SerializedTextProps`](SerializedTextProps.md).[`pathSide`](SerializedTextProps.md#pathside)
+[`SerializedTextProps`](/api/interfaces/serializedtextprops/).[`pathSide`](/api/interfaces/serializedtextprops/#pathside)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:100
 
@@ -506,9 +510,9 @@ Object scale factor (horizontal)
 
 #### Inherited from
 
-[`SerializedTextProps`](SerializedTextProps.md).[`scaleX`](SerializedTextProps.md#scalex)
+[`SerializedTextProps`](/api/interfaces/serializedtextprops/).[`scaleX`](/api/interfaces/serializedtextprops/#scalex)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:78
 
@@ -528,9 +532,9 @@ Object scale factor (vertical)
 
 #### Inherited from
 
-[`SerializedTextProps`](SerializedTextProps.md).[`scaleY`](SerializedTextProps.md#scaley)
+[`SerializedTextProps`](/api/interfaces/serializedtextprops/).[`scaleY`](/api/interfaces/serializedtextprops/#scaley)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:85
 
@@ -544,7 +548,7 @@ src/shapes/Object/types/BaseProps.ts:85
 
 `UniqueITextProps.selectionEnd`
 
-#### Source
+#### Defined in
 
 src/shapes/IText/IText.ts:59
 
@@ -558,7 +562,7 @@ src/shapes/IText/IText.ts:59
 
 `UniqueITextProps.selectionStart`
 
-#### Source
+#### Defined in
 
 src/shapes/IText/IText.ts:58
 
@@ -566,7 +570,7 @@ src/shapes/IText/IText.ts:58
 
 ### shadow
 
-> **shadow**: `null` \| `Partial`\<[`SerializedShadowOptions`](../type-aliases/SerializedShadowOptions.md)\>
+> **shadow**: `null` \| `Partial`\<[`SerializedShadowOptions`](/api/type-aliases/serializedshadowoptions/)\>
 
 Shadow object representing shadow of this shape
 
@@ -578,9 +582,9 @@ null
 
 #### Inherited from
 
-[`SerializedTextProps`](SerializedTextProps.md).[`shadow`](SerializedTextProps.md#shadow)
+[`SerializedTextProps`](/api/interfaces/serializedtextprops/).[`shadow`](/api/interfaces/serializedtextprops/#shadow)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/SerializedObjectProps.ts:33
 
@@ -588,7 +592,7 @@ src/shapes/Object/types/SerializedObjectProps.ts:33
 
 ### skewX
 
-> **skewX**: [`TDegree`](../type-aliases/TDegree.md)
+> **skewX**: [`TDegree`](/api/type-aliases/tdegree/)
 
 Angle of skew on x axes of an object (in degrees)
 
@@ -600,9 +604,9 @@ Angle of skew on x axes of an object (in degrees)
 
 #### Inherited from
 
-[`SerializedTextProps`](SerializedTextProps.md).[`skewX`](SerializedTextProps.md#skewx)
+[`SerializedTextProps`](/api/interfaces/serializedtextprops/).[`skewX`](/api/interfaces/serializedtextprops/#skewx)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:92
 
@@ -610,7 +614,7 @@ src/shapes/Object/types/BaseProps.ts:92
 
 ### skewY
 
-> **skewY**: [`TDegree`](../type-aliases/TDegree.md)
+> **skewY**: [`TDegree`](/api/type-aliases/tdegree/)
 
 Angle of skew on y axes of an object (in degrees)
 
@@ -622,9 +626,9 @@ Angle of skew on y axes of an object (in degrees)
 
 #### Inherited from
 
-[`SerializedTextProps`](SerializedTextProps.md).[`skewY`](SerializedTextProps.md#skewy)
+[`SerializedTextProps`](/api/interfaces/serializedtextprops/).[`skewY`](/api/interfaces/serializedtextprops/#skewy)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:99
 
@@ -632,7 +636,7 @@ src/shapes/Object/types/BaseProps.ts:99
 
 ### stroke
 
-> **stroke**: `null` \| `string` \| `Record`\<`string`, `any`\> \| `Partial`\<[`Gradient`](../classes/Gradient.md)\<`"linear"`, `"linear"`\>\> & `Object` \| `Partial`\<[`Gradient`](../classes/Gradient.md)\<`"radial"`, `"radial"`\>\> & `Object`
+> **stroke**: `null` \| `string` \| `Record`\<`string`, `any`\> \| `Partial`\<[`Gradient`](/api/classes/gradient/)\<`"linear"`, `"linear"`\>\> & `object` \| `Partial`\<[`Gradient`](/api/classes/gradient/)\<`"radial"`, `"radial"`\>\> & `object`
 
 When defined, an object is rendered via stroke and this property specifies its color
 takes css colors https://www.w3.org/TR/css-color-3/
@@ -645,9 +649,9 @@ null
 
 #### Inherited from
 
-[`SerializedTextProps`](SerializedTextProps.md).[`stroke`](SerializedTextProps.md#stroke)
+[`SerializedTextProps`](/api/interfaces/serializedtextprops/).[`stroke`](/api/interfaces/serializedtextprops/#stroke)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FillStrokeProps.ts:34
 
@@ -667,9 +671,9 @@ null;
 
 #### Inherited from
 
-[`SerializedTextProps`](SerializedTextProps.md).[`strokeDashArray`](SerializedTextProps.md#strokedasharray)
+[`SerializedTextProps`](/api/interfaces/serializedtextprops/).[`strokeDashArray`](/api/interfaces/serializedtextprops/#strokedasharray)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FillStrokeProps.ts:48
 
@@ -689,9 +693,9 @@ Line offset of an object's stroke
 
 #### Inherited from
 
-[`SerializedTextProps`](SerializedTextProps.md).[`strokeDashOffset`](SerializedTextProps.md#strokedashoffset)
+[`SerializedTextProps`](/api/interfaces/serializedtextprops/).[`strokeDashOffset`](/api/interfaces/serializedtextprops/#strokedashoffset)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FillStrokeProps.ts:55
 
@@ -711,9 +715,9 @@ butt
 
 #### Inherited from
 
-[`SerializedTextProps`](SerializedTextProps.md).[`strokeLineCap`](SerializedTextProps.md#strokelinecap)
+[`SerializedTextProps`](/api/interfaces/serializedtextprops/).[`strokeLineCap`](/api/interfaces/serializedtextprops/#strokelinecap)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FillStrokeProps.ts:62
 
@@ -733,9 +737,9 @@ Corner style of an object's stroke (one of "bevel", "round", "miter")
 
 #### Inherited from
 
-[`SerializedTextProps`](SerializedTextProps.md).[`strokeLineJoin`](SerializedTextProps.md#strokelinejoin)
+[`SerializedTextProps`](/api/interfaces/serializedtextprops/).[`strokeLineJoin`](/api/interfaces/serializedtextprops/#strokelinejoin)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FillStrokeProps.ts:69
 
@@ -755,9 +759,9 @@ Maximum miter length (used for strokeLineJoin = "miter") of an object's stroke
 
 #### Inherited from
 
-[`SerializedTextProps`](SerializedTextProps.md).[`strokeMiterLimit`](SerializedTextProps.md#strokemiterlimit)
+[`SerializedTextProps`](/api/interfaces/serializedtextprops/).[`strokeMiterLimit`](/api/interfaces/serializedtextprops/#strokemiterlimit)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FillStrokeProps.ts:76
 
@@ -790,9 +794,9 @@ false
 
 #### Inherited from
 
-[`SerializedTextProps`](SerializedTextProps.md).[`strokeUniform`](SerializedTextProps.md#strokeuniform)
+[`SerializedTextProps`](/api/interfaces/serializedtextprops/).[`strokeUniform`](/api/interfaces/serializedtextprops/#strokeuniform)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FillStrokeProps.ts:89
 
@@ -812,9 +816,9 @@ Width of a stroke used to render this object
 
 #### Inherited from
 
-[`SerializedTextProps`](SerializedTextProps.md).[`strokeWidth`](SerializedTextProps.md#strokewidth)
+[`SerializedTextProps`](/api/interfaces/serializedtextprops/).[`strokeWidth`](/api/interfaces/serializedtextprops/#strokewidth)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FillStrokeProps.ts:41
 
@@ -822,13 +826,13 @@ src/shapes/Object/types/FillStrokeProps.ts:41
 
 ### styles
 
-> **styles**: [`TextStyle`](../type-aliases/TextStyle.md) \| [`TextStyleArray`](../namespaces/util/type-aliases/TextStyleArray.md)
+> **styles**: [`TextStyle`](/api/type-aliases/textstyle/) \| [`TextStyleArray`](/api/namespaces/util/type-aliases/textstylearray/)
 
 #### Inherited from
 
-[`SerializedTextProps`](SerializedTextProps.md).[`styles`](SerializedTextProps.md#styles)
+[`SerializedTextProps`](/api/interfaces/serializedtextprops/).[`styles`](/api/interfaces/serializedtextprops/#styles)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:113
 
@@ -840,9 +844,9 @@ src/shapes/Text/Text.ts:113
 
 #### Inherited from
 
-[`SerializedTextProps`](SerializedTextProps.md).[`textAlign`](SerializedTextProps.md#textalign)
+[`SerializedTextProps`](/api/interfaces/serializedtextprops/).[`textAlign`](/api/interfaces/serializedtextprops/#textalign)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:105
 
@@ -864,9 +868,9 @@ You can change this by setting [originY](../../../../api/interfaces/fabricobject
 
 #### Inherited from
 
-[`SerializedTextProps`](SerializedTextProps.md).[`top`](SerializedTextProps.md#top)
+[`SerializedTextProps`](/api/interfaces/serializedtextprops/).[`top`](/api/interfaces/serializedtextprops/#top)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:20
 
@@ -878,9 +882,9 @@ src/shapes/Object/types/BaseProps.ts:20
 
 #### Inherited from
 
-[`SerializedTextProps`](SerializedTextProps.md).[`underline`](SerializedTextProps.md#underline)
+[`SerializedTextProps`](/api/interfaces/serializedtextprops/).[`underline`](/api/interfaces/serializedtextprops/#underline)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:102
 
@@ -900,9 +904,9 @@ When set to `false`, an object is not rendered on canvas
 
 #### Inherited from
 
-[`SerializedTextProps`](SerializedTextProps.md).[`visible`](SerializedTextProps.md#visible)
+[`SerializedTextProps`](/api/interfaces/serializedtextprops/).[`visible`](/api/interfaces/serializedtextprops/#visible)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/SerializedObjectProps.ts:40
 
@@ -922,8 +926,8 @@ Object width
 
 #### Inherited from
 
-[`SerializedTextProps`](SerializedTextProps.md).[`width`](SerializedTextProps.md#width)
+[`SerializedTextProps`](/api/interfaces/serializedtextprops/).[`width`](/api/interfaces/serializedtextprops/#width)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:27

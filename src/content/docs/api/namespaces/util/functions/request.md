@@ -19,7 +19,7 @@ this has to go away, we can use a modern browser method to do the same.
 
 URL to send XMLHttpRequest to
 
-• **options?**: `requestOptions`= `{}`
+• **options?**: `requestOptions` = `{}`
 
 Options object
 
@@ -29,10 +29,6 @@ Options object
 
 request
 
-:::caution[Deprecated]
-this has to go away, we can use a modern browser method to do the same.
-:::
-
-## Source
+## Defined in
 
 src/util/internals/dom\_request.ts:20

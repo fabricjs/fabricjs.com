@@ -7,6 +7,6 @@ title: "TParsedAbsoluteVerticalLineCommand"
 
 > **TParsedAbsoluteVerticalLineCommand**: [`"V"`, `number`]
 
-## Source
+## Defined in
 
 src/util/path/typedefs.ts:133

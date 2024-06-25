@@ -5,34 +5,34 @@ prev: false
 title: "TScaleMatrixArgs"
 ---
 
-> **TScaleMatrixArgs**: `Object`
+> **TScaleMatrixArgs**: `object`
 
 ## Type declaration
 
 ### flipX?
 
-> **`optional`** **flipX**: `boolean`
+> `optional` **flipX**: `boolean`
 
 ### flipY?
 
-> **`optional`** **flipY**: `boolean`
+> `optional` **flipY**: `boolean`
 
 ### scaleX?
 
-> **`optional`** **scaleX**: `number`
+> `optional` **scaleX**: `number`
 
 ### scaleY?
 
-> **`optional`** **scaleY**: `number`
+> `optional` **scaleY**: `number`
 
 ### skewX?
 
-> **`optional`** **skewX**: [`TDegree`](../../../type-aliases/TDegree.md)
+> `optional` **skewX**: [`TDegree`](/api/type-aliases/tdegree/)
 
 ### skewY?
 
-> **`optional`** **skewY**: [`TDegree`](../../../type-aliases/TDegree.md)
+> `optional` **skewY**: [`TDegree`](/api/type-aliases/tdegree/)
 
-## Source
+## Defined in
 
 src/util/misc/matrix.ts:18

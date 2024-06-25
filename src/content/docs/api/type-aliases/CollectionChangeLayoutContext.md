@@ -5,18 +5,18 @@ prev: false
 title: "CollectionChangeLayoutContext"
 ---
 
-> **CollectionChangeLayoutContext**: [`CommonLayoutContext`](CommonLayoutContext.md) & `Object`
+> **CollectionChangeLayoutContext**: [`CommonLayoutContext`](/api/type-aliases/commonlayoutcontext/) & `object`
 
 ## Type declaration
 
 ### targets
 
-> **targets**: [`FabricObject`](../classes/FabricObject.md)[]
+> **targets**: [`FabricObject`](/api/classes/fabricobject/)[]
 
 ### type
 
 > **type**: *typeof* `LAYOUT_TYPE_ADDED` \| *typeof* `LAYOUT_TYPE_REMOVED`
 
-## Source
+## Defined in
 
 src/LayoutManager/types.ts:91

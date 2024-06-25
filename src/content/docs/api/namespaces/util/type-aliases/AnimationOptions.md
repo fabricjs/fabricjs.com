@@ -5,12 +5,12 @@ prev: false
 title: "AnimationOptions"
 ---
 
-> **AnimationOptions**\<`T`\>: `T` extends [`TColorArg`](../../../type-aliases/TColorArg.md) ? [`ColorAnimationOptions`](ColorAnimationOptions.md) : `T` extends `number`[] ? [`ArrayAnimationOptions`](ArrayAnimationOptions.md) : [`ValueAnimationOptions`](ValueAnimationOptions.md)
+> **AnimationOptions**\<`T`\>: `T` *extends* [`TColorArg`](/api/type-aliases/tcolorarg/) ? [`ColorAnimationOptions`](/api/namespaces/util/type-aliases/coloranimationoptions/) : `T` *extends* `number`[] ? [`ArrayAnimationOptions`](/api/namespaces/util/type-aliases/arrayanimationoptions/) : [`ValueAnimationOptions`](/api/namespaces/util/type-aliases/valueanimationoptions/)
 
-## Type parameters
+## Type Parameters
 
-• **T** extends `number` \| `number`[] \| [`TColorArg`](../../../type-aliases/TColorArg.md)
+• **T** *extends* `number` \| `number`[] \| [`TColorArg`](/api/type-aliases/tcolorarg/)
 
-## Source
+## Defined in
 
 src/util/animation/types.ts:132

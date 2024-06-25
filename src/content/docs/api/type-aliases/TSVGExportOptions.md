@@ -5,29 +5,29 @@ prev: false
 title: "TSVGExportOptions"
 ---
 
-> **TSVGExportOptions**: `Object`
+> **TSVGExportOptions**: `object`
 
 ## Type declaration
 
 ### encoding?
 
-> **`optional`** **encoding**: `"UTF-8"`
+> `optional` **encoding**: `"UTF-8"`
 
 ### height?
 
-> **`optional`** **height**: `string`
+> `optional` **height**: `string`
 
 ### reviver?
 
-> **`optional`** **reviver**: [`TSVGReviver`](TSVGReviver.md)
+> `optional` **reviver**: [`TSVGReviver`](/api/type-aliases/tsvgreviver/)
 
 ### suppressPreamble?
 
-> **`optional`** **suppressPreamble**: `boolean`
+> `optional` **suppressPreamble**: `boolean`
 
 ### viewBox?
 
-> **`optional`** **viewBox**: `Object`
+> `optional` **viewBox**: `object`
 
 ### viewBox.height
 
@@ -47,8 +47,8 @@ title: "TSVGExportOptions"
 
 ### width?
 
-> **`optional`** **width**: `string`
+> `optional` **width**: `string`
 
-## Source
+## Defined in
 
 src/canvas/StaticCanvas.ts:62

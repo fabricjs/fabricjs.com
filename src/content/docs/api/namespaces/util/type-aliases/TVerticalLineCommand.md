@@ -5,8 +5,8 @@ prev: false
 title: "TVerticalLineCommand"
 ---
 
-> **TVerticalLineCommand**: `TCommand2`\<[`TParsedVerticalLineCommand`](TParsedVerticalLineCommand.md)\>
+> **TVerticalLineCommand**: `TCommand2`\<[`TParsedVerticalLineCommand`](/api/namespaces/util/type-aliases/tparsedverticallinecommand/)\>
 
-## Source
+## Defined in
 
 src/util/path/typedefs.ts:139

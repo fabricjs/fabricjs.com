@@ -15,6 +15,6 @@ title: "requestAnimFrame"
 
 `number`
 
-## Source
+## Defined in
 
 src/util/animation/AnimationFrameProvider.ts:3

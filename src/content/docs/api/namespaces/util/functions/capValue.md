@@ -19,6 +19,6 @@ title: "capValue"
 
 `number`
 
-## Source
+## Defined in
 
 src/util/misc/capValue.ts:1

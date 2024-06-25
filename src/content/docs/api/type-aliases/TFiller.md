@@ -5,8 +5,8 @@ prev: false
 title: "TFiller"
 ---
 
-> **TFiller**: [`Gradient`](../classes/Gradient.md)\<`"linear"`\> \| [`Gradient`](../classes/Gradient.md)\<`"radial"`\> \| [`Pattern`](../classes/Pattern.md)
+> **TFiller**: [`Gradient`](/api/classes/gradient/)\<`"linear"`\> \| [`Gradient`](/api/classes/gradient/)\<`"radial"`\> \| [`Pattern`](/api/classes/pattern/)
 
-## Source
+## Defined in
 
 src/typedefs.ts:32

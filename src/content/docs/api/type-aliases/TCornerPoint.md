@@ -5,26 +5,26 @@ prev: false
 title: "TCornerPoint"
 ---
 
-> **TCornerPoint**: `Object`
+> **TCornerPoint**: `object`
 
 ## Type declaration
 
 ### bl
 
-> **bl**: [`Point`](../classes/Point.md)
+> **bl**: [`Point`](/api/classes/point/)
 
 ### br
 
-> **br**: [`Point`](../classes/Point.md)
+> **br**: [`Point`](/api/classes/point/)
 
 ### tl
 
-> **tl**: [`Point`](../classes/Point.md)
+> **tl**: [`Point`](/api/classes/point/)
 
 ### tr
 
-> **tr**: [`Point`](../classes/Point.md)
+> **tr**: [`Point`](/api/classes/point/)
 
-## Source
+## Defined in
 
 src/typedefs.ts:78

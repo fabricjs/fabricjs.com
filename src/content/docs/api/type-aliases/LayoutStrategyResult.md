@@ -5,19 +5,19 @@ prev: false
 title: "LayoutStrategyResult"
 ---
 
-> **LayoutStrategyResult**: `Object`
+> **LayoutStrategyResult**: `object`
 
 ## Type declaration
 
 ### center
 
-> **center**: [`Point`](../classes/Point.md)
+> **center**: [`Point`](/api/classes/point/)
 
 new center point as measured by the **containing** plane (same as `left` with `originX` set to `center`)
 
 ### correction?
 
-> **`optional`** **correction**: [`Point`](../classes/Point.md)
+> `optional` **correction**: [`Point`](/api/classes/point/)
 
 correction vector to translate objects by, measured in the same plane as `center`
 
@@ -27,16 +27,16 @@ In other words, this value makes it possible to layout objects relative to the t
 
 ### relativeCorrection?
 
-> **`optional`** **relativeCorrection**: [`Point`](../classes/Point.md)
+> `optional` **relativeCorrection**: [`Point`](/api/classes/point/)
 
 correction vector to translate objects by as measured by the plane
 
 ### size
 
-> **size**: [`Point`](../classes/Point.md)
+> **size**: [`Point`](/api/classes/point/)
 
 new width and height of the layout target
 
-## Source
+## Defined in
 
 src/LayoutManager/types.ts:28

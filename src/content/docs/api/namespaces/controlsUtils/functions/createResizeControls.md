@@ -5,20 +5,20 @@ prev: false
 title: "createResizeControls"
 ---
 
-> **createResizeControls**(): `Object`
+> **createResizeControls**(): `object`
 
 ## Returns
 
-`Object`
+`object`
 
 ### ml
 
-> **ml**: [`Control`](../../../classes/Control.md)
+> **ml**: [`Control`](/api/classes/control/)
 
 ### mr
 
-> **mr**: [`Control`](../../../classes/Control.md)
+> **mr**: [`Control`](/api/classes/control/)
 
-## Source
+## Defined in
 
 src/controls/commonControls.ts:85

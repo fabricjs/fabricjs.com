@@ -5,7 +5,7 @@ prev: false
 title: "TEndPathInfo"
 ---
 
-> **TEndPathInfo**: [`TPathSegmentInfoCommon`](TPathSegmentInfoCommon.md)\<`"Z"`\> & `Object`
+> **TEndPathInfo**: [`TPathSegmentInfoCommon`](/api/namespaces/util/type-aliases/tpathsegmentinfocommon/)\<`"Z"`\> & `object`
 
 ## Type declaration
 
@@ -17,6 +17,6 @@ title: "TEndPathInfo"
 
 > **destY**: `number`
 
-## Source
+## Defined in
 
 src/util/path/typedefs.ts:28

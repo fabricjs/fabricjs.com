@@ -5,10 +5,10 @@ prev: false
 title: "TSimplePathData"
 ---
 
-> **TSimplePathData**: [`TSimpleParsedCommand`](TSimpleParsedCommand.md)[]
+> **TSimplePathData**: [`TSimpleParsedCommand`](/api/namespaces/util/type-aliases/tsimpleparsedcommand/)[]
 
 A series of simple paths
 
-## Source
+## Defined in
 
 src/util/path/typedefs.ts:300

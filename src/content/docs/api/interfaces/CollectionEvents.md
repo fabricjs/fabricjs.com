@@ -7,20 +7,20 @@ title: "CollectionEvents"
 
 ## Extended by
 
-- [`GroupEvents`](GroupEvents.md)
-- [`StaticCanvasEvents`](StaticCanvasEvents.md)
+- [`GroupEvents`](/api/interfaces/groupevents/)
+- [`StaticCanvasEvents`](/api/interfaces/staticcanvasevents/)
 
 ## Properties
 
 ### object:added
 
-> **object:added**: `Object`
+> **object:added**: `object`
 
 #### target
 
-> **target**: [`FabricObject`](../classes/FabricObject.md)\<`Partial`\<[`FabricObjectProps`](FabricObjectProps.md)\>, [`SerializedObjectProps`](SerializedObjectProps.md), [`ObjectEvents`](ObjectEvents.md)\>
+> **target**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
-#### Source
+#### Defined in
 
 src/EventTypeDefs.ts:228
 
@@ -28,12 +28,12 @@ src/EventTypeDefs.ts:228
 
 ### object:removed
 
-> **object:removed**: `Object`
+> **object:removed**: `object`
 
 #### target
 
-> **target**: [`FabricObject`](../classes/FabricObject.md)\<`Partial`\<[`FabricObjectProps`](FabricObjectProps.md)\>, [`SerializedObjectProps`](SerializedObjectProps.md), [`ObjectEvents`](ObjectEvents.md)\>
+> **target**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
-#### Source
+#### Defined in
 
 src/EventTypeDefs.ts:229

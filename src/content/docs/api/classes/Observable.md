@@ -13,7 +13,7 @@ title: "Observable"
 
 [demo](http://fabricjs.com/events|Events)
 
-## Type parameters
+## Type Parameters
 
 • **EventSpec**
 
@@ -21,11 +21,11 @@ title: "Observable"
 
 ### new Observable()
 
-> **new Observable**\<`EventSpec`\>(): [`Observable`](Observable.md)\<`EventSpec`\>
+> **new Observable**\<`EventSpec`\>(): [`Observable`](/api/classes/observable/)\<`EventSpec`\>
 
 #### Returns
 
-[`Observable`](Observable.md)\<`EventSpec`\>
+[`Observable`](/api/classes/observable/)\<`EventSpec`\>
 
 ## Methods
 
@@ -35,9 +35,9 @@ title: "Observable"
 
 Fires event with an optional options object
 
-#### Type parameters
+#### Type Parameters
 
-• **K** extends `string` \| `number` \| `symbol`
+• **K** *extends* `string` \| `number` \| `symbol`
 
 #### Parameters
 
@@ -53,7 +53,7 @@ Options object
 
 `void`
 
-#### Source
+#### Defined in
 
 src/Observable.ts:159
 
@@ -67,9 +67,9 @@ src/Observable.ts:159
 
 unsubscribe an event listener
 
-##### Type parameters
+##### Type Parameters
 
-• **K** extends `string` \| `number` \| `symbol`
+• **K** *extends* `string` \| `number` \| `symbol`
 
 ##### Parameters
 
@@ -85,7 +85,7 @@ event listener to unsubscribe
 
 `void`
 
-##### Source
+##### Defined in
 
 src/Observable.ts:120
 
@@ -99,13 +99,13 @@ unsubscribe event listeners
 
 • **handlers**: `EventRegistryObject`\<`EventSpec`\>
 
-handlers key/value pairs (eg. \{'after:render': handler, 'selection:cleared': handler\})
+handlers key/value pairs (eg. {'after:render': handler, 'selection:cleared': handler})
 
 ##### Returns
 
 `void`
 
-##### Source
+##### Defined in
 
 src/Observable.ts:125
 
@@ -119,7 +119,7 @@ unsubscribe all event listeners
 
 `void`
 
-##### Source
+##### Defined in
 
 src/Observable.ts:129
 
@@ -133,9 +133,9 @@ src/Observable.ts:129
 
 Observes specified event
 
-##### Type parameters
+##### Type Parameters
 
-• **K** extends `string` \| `number` \| `symbol`
+• **K** *extends* `string` \| `number` \| `symbol`
 
 • **E**
 
@@ -159,7 +159,7 @@ disposer
 
 on
 
-##### Source
+##### Defined in
 
 src/Observable.ts:23
 
@@ -175,7 +175,7 @@ src/Observable.ts:23
 
 `VoidFunction`
 
-##### Source
+##### Defined in
 
 src/Observable.ts:27
 
@@ -189,9 +189,9 @@ src/Observable.ts:27
 
 Observes specified event **once**
 
-##### Type parameters
+##### Type Parameters
 
-• **K** extends `string` \| `number` \| `symbol`
+• **K** *extends* `string` \| `number` \| `symbol`
 
 • **E**
 
@@ -215,7 +215,7 @@ disposer
 
 once
 
-##### Source
+##### Defined in
 
 src/Observable.ts:62
 
@@ -231,6 +231,6 @@ src/Observable.ts:62
 
 `VoidFunction`
 
-##### Source
+##### Defined in
 
 src/Observable.ts:66

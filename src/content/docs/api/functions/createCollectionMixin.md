@@ -7,9 +7,9 @@ title: "createCollectionMixin"
 
 > **createCollectionMixin**\<`TBase`\>(`Base`): (...`args`) => `Collection`\<`TBase`\> & `TBase`
 
-## Type parameters
+## Type Parameters
 
-• **TBase** extends [`Constructor`](../type-aliases/Constructor.md)
+• **TBase** *extends* [`Constructor`](/api/type-aliases/constructor/)
 
 ## Parameters
 
@@ -19,6 +19,6 @@ title: "createCollectionMixin"
 
 (...`args`) => `Collection`\<`TBase`\> & `TBase`
 
-## Source
+## Defined in
 
 src/Collection.ts:15

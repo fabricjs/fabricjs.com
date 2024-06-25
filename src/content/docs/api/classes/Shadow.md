@@ -7,31 +7,31 @@ title: "Shadow"
 
 ## Constructors
 
-### new Shadow(options)
+### new Shadow()
 
-> **new Shadow**(`options`?): [`Shadow`](Shadow.md)
+> **new Shadow**(`options`?): [`Shadow`](/api/classes/shadow/)
 
 #### Parameters
 
-• **options?**: `Partial`\<[`TClassProperties`](../type-aliases/TClassProperties.md)\<[`Shadow`](Shadow.md)\>\>
+• **options?**: `Partial`\<[`TClassProperties`](/api/type-aliases/tclassproperties/)\<[`Shadow`](/api/classes/shadow/)\>\>
 
 Options object with any of color, blur, offsetX, offsetY properties or string (e.g. "rgba(0,0,0,0.2) 2px 2px 10px")
 
 #### Returns
 
-[`Shadow`](Shadow.md)
+[`Shadow`](/api/classes/shadow/)
 
 #### See
 
 [demo](http://fabricjs.com/shadows|Shadow)
 
-#### Source
+#### Defined in
 
 src/Shadow.ts:125
 
-### new Shadow(svgAttribute)
+### new Shadow()
 
-> **new Shadow**(`svgAttribute`): [`Shadow`](Shadow.md)
+> **new Shadow**(`svgAttribute`): [`Shadow`](/api/classes/shadow/)
 
 #### Parameters
 
@@ -39,9 +39,9 @@ src/Shadow.ts:125
 
 #### Returns
 
-[`Shadow`](Shadow.md)
+[`Shadow`](/api/classes/shadow/)
 
-#### Source
+#### Defined in
 
 src/Shadow.ts:126
 
@@ -59,7 +59,7 @@ Whether the shadow should affect stroke operations
 
 ```
 
-#### Source
+#### Defined in
 
 src/Shadow.ts:97
 
@@ -71,7 +71,7 @@ src/Shadow.ts:97
 
 Shadow blur
 
-#### Source
+#### Defined in
 
 src/Shadow.ts:76
 
@@ -89,7 +89,7 @@ Shadow color
 
 ```
 
-#### Source
+#### Defined in
 
 src/Shadow.ts:70
 
@@ -99,7 +99,7 @@ src/Shadow.ts:70
 
 > **id**: `number`
 
-#### Source
+#### Defined in
 
 src/Shadow.ts:115
 
@@ -117,7 +117,7 @@ Indicates whether toObject should include default values
 
 ```
 
-#### Source
+#### Defined in
 
 src/Shadow.ts:104
 
@@ -137,7 +137,7 @@ default to false
 
 ```
 
-#### Source
+#### Defined in
 
 src/Shadow.ts:113
 
@@ -155,7 +155,7 @@ Shadow horizontal offset
 
 ```
 
-#### Source
+#### Defined in
 
 src/Shadow.ts:83
 
@@ -173,7 +173,7 @@ Shadow vertical offset
 
 ```
 
-#### Source
+#### Defined in
 
 src/Shadow.ts:90
 
@@ -181,9 +181,9 @@ src/Shadow.ts:90
 
 ### ownDefaults
 
-> **`static`** **ownDefaults**: `Partial`\<[`TClassProperties`](../type-aliases/TClassProperties.md)\<[`Shadow`](Shadow.md)\>\> = `shadowDefaultValues`
+> `static` **ownDefaults**: `Partial`\<[`TClassProperties`](/api/type-aliases/tclassproperties/)\<[`Shadow`](/api/classes/shadow/)\>\> = `shadowDefaultValues`
 
-#### Source
+#### Defined in
 
 src/Shadow.ts:117
 
@@ -191,9 +191,9 @@ src/Shadow.ts:117
 
 ### type
 
-> **`static`** **type**: `string` = `'shadow'`
+> `static` **type**: `string` = `'shadow'`
 
-#### Source
+#### Defined in
 
 src/Shadow.ts:119
 
@@ -201,17 +201,17 @@ src/Shadow.ts:119
 
 ### toObject()
 
-> **toObject**(): `Partial`\<[`SerializedShadowOptions`](../type-aliases/SerializedShadowOptions.md)\>
+> **toObject**(): `Partial`\<[`SerializedShadowOptions`](/api/type-aliases/serializedshadowoptions/)\>
 
 Returns object representation of a shadow
 
 #### Returns
 
-`Partial`\<[`SerializedShadowOptions`](../type-aliases/SerializedShadowOptions.md)\>
+`Partial`\<[`SerializedShadowOptions`](/api/type-aliases/serializedshadowoptions/)\>
 
 Object representation of a shadow instance
 
-#### Source
+#### Defined in
 
 src/Shadow.ts:228
 
@@ -225,7 +225,7 @@ Returns SVG representation of a shadow
 
 #### Parameters
 
-• **object**: [`FabricObject`](FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **object**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 #### Returns
 
@@ -233,7 +233,7 @@ Returns SVG representation of a shadow
 
 SVG representation of a shadow
 
-#### Source
+#### Defined in
 
 src/Shadow.ts:173
 
@@ -255,7 +255,7 @@ Returns CSS3 text-shadow declaration
 
 http://www.w3.org/TR/css-text-decor-3/#text-shadow
 
-#### Source
+#### Defined in
 
 src/Shadow.ts:164
 
@@ -263,17 +263,17 @@ src/Shadow.ts:164
 
 ### fromObject()
 
-> **`static`** **fromObject**(`options`): `Promise`\<[`Shadow`](Shadow.md)\>
+> `static` **fromObject**(`options`): `Promise`\<[`Shadow`](/api/classes/shadow/)\>
 
 #### Parameters
 
-• **options**: `Partial`\<[`TClassProperties`](../type-aliases/TClassProperties.md)\<[`Shadow`](Shadow.md)\>\>
+• **options**: `Partial`\<[`TClassProperties`](/api/type-aliases/tclassproperties/)\<[`Shadow`](/api/classes/shadow/)\>\>
 
 #### Returns
 
-`Promise`\<[`Shadow`](Shadow.md)\>
+`Promise`\<[`Shadow`](/api/classes/shadow/)\>
 
-#### Source
+#### Defined in
 
 src/Shadow.ts:244
 
@@ -281,7 +281,7 @@ src/Shadow.ts:244
 
 ### parseShadow()
 
-> **`static`** **parseShadow**(`value`): `Object`
+> `static` **parseShadow**(`value`): `object`
 
 #### Parameters
 
@@ -291,7 +291,7 @@ Shadow value to parse
 
 #### Returns
 
-`Object`
+`object`
 
 Shadow object with color, offsetX, offsetY and blur
 
@@ -311,6 +311,6 @@ Shadow object with color, offsetX, offsetY and blur
 
 > **offsetY**: `number`
 
-#### Source
+#### Defined in
 
 src/Shadow.ts:143

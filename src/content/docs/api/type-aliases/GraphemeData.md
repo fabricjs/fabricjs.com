@@ -5,7 +5,7 @@ prev: false
 title: "GraphemeData"
 ---
 
-> **GraphemeData**: `Object`
+> **GraphemeData**: `object`
 
 ## Type declaration
 
@@ -15,8 +15,8 @@ title: "GraphemeData"
 
 ### wordsData
 
-> **wordsData**: `Object`[][]
+> **wordsData**: `object`[][]
 
-## Source
+## Defined in
 
 src/shapes/Textbox.ts:23

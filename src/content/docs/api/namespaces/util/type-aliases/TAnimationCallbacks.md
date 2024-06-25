@@ -5,9 +5,9 @@ prev: false
 title: "TAnimationCallbacks"
 ---
 
-> **TAnimationCallbacks**\<`T`\>: `Object`
+> **TAnimationCallbacks**\<`T`\>: `object`
 
-## Type parameters
+## Type Parameters
 
 • **T**
 
@@ -15,20 +15,20 @@ title: "TAnimationCallbacks"
 
 ### abort
 
-> **abort**: [`TAbortCallback`](TAbortCallback.md)\<`T`\>
+> **abort**: [`TAbortCallback`](/api/namespaces/util/type-aliases/tabortcallback/)\<`T`\>
 
 Function called at each frame.
 If it returns true, abort
 
 ### onChange
 
-> **onChange**: [`TOnAnimationChangeCallback`](TOnAnimationChangeCallback.md)\<`T`\>
+> **onChange**: [`TOnAnimationChangeCallback`](/api/namespaces/util/type-aliases/tonanimationchangecallback/)\<`T`\>
 
 Called at each frame of the animation
 
 ### onComplete
 
-> **onComplete**: [`TOnAnimationChangeCallback`](TOnAnimationChangeCallback.md)\<`T`\>
+> **onComplete**: [`TOnAnimationChangeCallback`](/api/namespaces/util/type-aliases/tonanimationchangecallback/)\<`T`\>
 
 Called after the last frame of the animation
 
@@ -38,6 +38,6 @@ Called after the last frame of the animation
 
 Called when the animation starts
 
-## Source
+## Defined in
 
 src/util/animation/types.ts:75

@@ -7,6 +7,6 @@ title: "TPathAlign"
 
 > **TPathAlign**: `"baseline"` \| `"center"` \| `"ascender"` \| `"descender"`
 
-## Source
+## Defined in
 
 src/shapes/Text/Text.ts:67

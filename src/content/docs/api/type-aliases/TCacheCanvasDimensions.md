@@ -5,7 +5,7 @@ prev: false
 title: "TCacheCanvasDimensions"
 ---
 
-> **TCacheCanvasDimensions**: `Object`
+> **TCacheCanvasDimensions**: `object`
 
 ## Type declaration
 
@@ -33,6 +33,6 @@ title: "TCacheCanvasDimensions"
 
 > **zoomY**: `number`
 
-## Source
+## Defined in
 
 src/typedefs.ts:89

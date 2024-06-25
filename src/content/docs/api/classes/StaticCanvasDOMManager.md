@@ -7,13 +7,13 @@ title: "StaticCanvasDOMManager"
 
 ## Extended by
 
-- [`CanvasDOMManager`](CanvasDOMManager.md)
+- [`CanvasDOMManager`](/api/classes/canvasdommanager/)
 
 ## Constructors
 
-### new StaticCanvasDOMManager(arg0)
+### new StaticCanvasDOMManager()
 
-> **new StaticCanvasDOMManager**(`arg0`?): [`StaticCanvasDOMManager`](StaticCanvasDOMManager.md)
+> **new StaticCanvasDOMManager**(`arg0`?): [`StaticCanvasDOMManager`](/api/classes/staticcanvasdommanager/)
 
 #### Parameters
 
@@ -21,9 +21,9 @@ title: "StaticCanvasDOMManager"
 
 #### Returns
 
-[`StaticCanvasDOMManager`](StaticCanvasDOMManager.md)
+[`StaticCanvasDOMManager`](/api/classes/staticcanvasdommanager/)
 
-#### Source
+#### Defined in
 
 src/canvas/DOMManagers/StaticCanvasDOMManager.ts:24
 
@@ -33,7 +33,7 @@ src/canvas/DOMManagers/StaticCanvasDOMManager.ts:24
 
 > **lower**: `CanvasItem`
 
-#### Source
+#### Defined in
 
 src/canvas/DOMManagers/StaticCanvasDOMManager.ts:22
 
@@ -41,13 +41,13 @@ src/canvas/DOMManagers/StaticCanvasDOMManager.ts:22
 
 ### calcOffset()
 
-> **calcOffset**(): `Object`
+> **calcOffset**(): `object`
 
 Calculates canvas element offset relative to the document
 
 #### Returns
 
-`Object`
+`object`
 
 ##### left
 
@@ -57,7 +57,7 @@ Calculates canvas element offset relative to the document
 
 > **top**: `number` = `0`
 
-#### Source
+#### Defined in
 
 src/canvas/DOMManagers/StaticCanvasDOMManager.ts:71
 
@@ -69,13 +69,13 @@ src/canvas/DOMManagers/StaticCanvasDOMManager.ts:71
 
 #### Parameters
 
-• **\_\_namedParameters**: [`TSize`](../type-aliases/TSize.md)
+• **\_\_namedParameters**: [`TSize`](/api/type-aliases/tsize/)
 
 #### Returns
 
 `void`
 
-#### Source
+#### Defined in
 
 src/canvas/DOMManagers/StaticCanvasDOMManager.ts:47
 
@@ -89,7 +89,7 @@ src/canvas/DOMManagers/StaticCanvasDOMManager.ts:47
 
 `void`
 
-#### Source
+#### Defined in
 
 src/canvas/DOMManagers/StaticCanvasDOMManager.ts:75
 
@@ -107,7 +107,7 @@ src/canvas/DOMManagers/StaticCanvasDOMManager.ts:75
 
 `void`
 
-#### Source
+#### Defined in
 
 src/canvas/DOMManagers/StaticCanvasDOMManager.ts:64
 
@@ -119,7 +119,7 @@ src/canvas/DOMManagers/StaticCanvasDOMManager.ts:64
 
 #### Parameters
 
-• **size**: [`TSize`](../type-aliases/TSize.md)
+• **size**: [`TSize`](/api/type-aliases/tsize/)
 
 • **retinaScaling**: `number`
 
@@ -127,6 +127,6 @@ src/canvas/DOMManagers/StaticCanvasDOMManager.ts:64
 
 `void`
 
-#### Source
+#### Defined in
 
 src/canvas/DOMManagers/StaticCanvasDOMManager.ts:59

@@ -5,22 +5,20 @@ prev: false
 title: "getPathSegmentsInfo"
 ---
 
-> **getPathSegmentsInfo**(`path`): [`TPathSegmentInfo`](../type-aliases/TPathSegmentInfo.md)[]
-
-Run over a parsed and simplified path and extract some information (length of each command and starting point)
+> **getPathSegmentsInfo**(`path`): [`TPathSegmentInfo`](/api/namespaces/util/type-aliases/tpathsegmentinfo/)[]
 
 ## Parameters
 
-• **path**: [`TSimplePathData`](../type-aliases/TSimplePathData.md)
+• **path**: [`TSimplePathData`](/api/namespaces/util/type-aliases/tsimplepathdata/)
 
 parsed path commands
 
 ## Returns
 
-[`TPathSegmentInfo`](../type-aliases/TPathSegmentInfo.md)[]
+[`TPathSegmentInfo`](/api/namespaces/util/type-aliases/tpathsegmentinfo/)[]
 
 path commands information
 
-## Source
+## Defined in
 
 src/util/path/index.ts:682

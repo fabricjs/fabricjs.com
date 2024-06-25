@@ -7,6 +7,6 @@ title: "TOriginX"
 
 > **TOriginX**: `"center"` \| `"left"` \| `"right"` \| `number`
 
-## Source
+## Defined in
 
 src/typedefs.ts:75

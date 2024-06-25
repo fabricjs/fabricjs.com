@@ -5,8 +5,8 @@ prev: false
 title: "TParsedVerticalLineCommand"
 ---
 
-> **TParsedVerticalLineCommand**: [`TParsedAbsoluteVerticalLineCommand`](TParsedAbsoluteVerticalLineCommand.md) \| [`TParsedRelativeVerticalLineCommand`](TParsedRelativeVerticalLineCommand.md)
+> **TParsedVerticalLineCommand**: [`TParsedAbsoluteVerticalLineCommand`](/api/namespaces/util/type-aliases/tparsedabsoluteverticallinecommand/) \| [`TParsedRelativeVerticalLineCommand`](/api/namespaces/util/type-aliases/tparsedrelativeverticallinecommand/)
 
-## Source
+## Defined in
 
 src/util/path/typedefs.ts:135

@@ -21,7 +21,7 @@ Extra callback for further parsing of SVG elements, called after each fabric obj
 Takes as input the original svg element and the generated `FabricObject` as arguments. Used to inspect extra properties not parsed by fabric,
 or extra custom manipulation
 
-• **options?**: [`LoadImageOptions`](../namespaces/util/type-aliases/LoadImageOptions.md)
+• **options?**: [`LoadImageOptions`](/api/namespaces/util/type-aliases/loadimageoptions/)
 
 Object containing options for parsing
 
@@ -33,6 +33,6 @@ Object containing options for parsing
 
 fabric
 
-## Source
+## Defined in
 
 src/parser/loadSVGFromString.ts:20

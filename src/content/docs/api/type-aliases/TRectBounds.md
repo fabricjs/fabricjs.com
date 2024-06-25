@@ -5,8 +5,8 @@ prev: false
 title: "TRectBounds"
 ---
 
-> **TRectBounds**: [[`XY`](../interfaces/XY.md), [`XY`](../interfaces/XY.md)]
+> **TRectBounds**: [[`XY`](/api/interfaces/xy/), [`XY`](/api/interfaces/xy/)]
 
-## Source
+## Defined in
 
 src/typedefs.ts:98

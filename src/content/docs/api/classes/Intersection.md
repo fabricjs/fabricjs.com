@@ -7,19 +7,19 @@ title: "Intersection"
 
 ## Constructors
 
-### new Intersection(status)
+### new Intersection()
 
-> **new Intersection**(`status`?): [`Intersection`](Intersection.md)
+> **new Intersection**(`status`?): [`Intersection`](/api/classes/intersection/)
 
 #### Parameters
 
-• **status?**: [`IntersectionType`](../type-aliases/IntersectionType.md)
+• **status?**: [`IntersectionType`](/api/type-aliases/intersectiontype/)
 
 #### Returns
 
-[`Intersection`](Intersection.md)
+[`Intersection`](/api/classes/intersection/)
 
-#### Source
+#### Defined in
 
 src/Intersection.ts:13
 
@@ -27,9 +27,9 @@ src/Intersection.ts:13
 
 ### points
 
-> **points**: [`Point`](Point.md)[]
+> **points**: [`Point`](/api/classes/point/)[]
 
-#### Source
+#### Defined in
 
 src/Intersection.ts:9
 
@@ -37,9 +37,9 @@ src/Intersection.ts:9
 
 ### status?
 
-> **`optional`** **status**: [`IntersectionType`](../type-aliases/IntersectionType.md)
+> `optional` **status**: [`IntersectionType`](/api/type-aliases/intersectiontype/)
 
-#### Source
+#### Defined in
 
 src/Intersection.ts:11
 
@@ -47,31 +47,31 @@ src/Intersection.ts:11
 
 ### intersectLineLine()
 
-> **`static`** **intersectLineLine**(`a1`, `a2`, `b1`, `b2`, `aInfinite`?, `bInfinite`?): [`Intersection`](Intersection.md)
+> `static` **intersectLineLine**(`a1`, `a2`, `b1`, `b2`, `aInfinite`?, `bInfinite`?): [`Intersection`](/api/classes/intersection/)
 
 Checks if a line intersects another
 
 #### Parameters
 
-• **a1**: [`Point`](Point.md)
+• **a1**: [`Point`](/api/classes/point/)
 
-• **a2**: [`Point`](Point.md)
+• **a2**: [`Point`](/api/classes/point/)
 
-• **b1**: [`Point`](Point.md)
+• **b1**: [`Point`](/api/classes/point/)
 
-• **b2**: [`Point`](Point.md)
+• **b2**: [`Point`](/api/classes/point/)
 
-• **aInfinite?**: `boolean`= `true`
+• **aInfinite?**: `boolean` = `true`
 
 check segment intersection by passing `false`
 
-• **bInfinite?**: `boolean`= `true`
+• **bInfinite?**: `boolean` = `true`
 
 check segment intersection by passing `false`
 
 #### Returns
 
-[`Intersection`](Intersection.md)
+[`Intersection`](/api/classes/intersection/)
 
 #### See
 
@@ -80,7 +80,7 @@ check segment intersection by passing `false`
 
 #### Static
 
-#### Source
+#### Defined in
 
 src/Intersection.ts:127
 
@@ -88,31 +88,31 @@ src/Intersection.ts:127
 
 ### intersectLinePolygon()
 
-> **`static`** **intersectLinePolygon**(`a1`, `a2`, `points`, `infinite`?): [`Intersection`](Intersection.md)
+> `static` **intersectLinePolygon**(`a1`, `a2`, `points`, `infinite`?): [`Intersection`](/api/classes/intersection/)
 
 Checks if line intersects polygon
 
 #### Parameters
 
-• **a1**: [`Point`](Point.md)
+• **a1**: [`Point`](/api/classes/point/)
 
 point on line
 
-• **a2**: [`Point`](Point.md)
+• **a2**: [`Point`](/api/classes/point/)
 
 other point on line
 
-• **points**: [`Point`](Point.md)[]
+• **points**: [`Point`](/api/classes/point/)[]
 
 polygon points
 
-• **infinite?**: `boolean`= `true`
+• **infinite?**: `boolean` = `true`
 
 check segment intersection by passing `false`
 
 #### Returns
 
-[`Intersection`](Intersection.md)
+[`Intersection`](/api/classes/intersection/)
 
 #### Todo
 
@@ -122,9 +122,9 @@ account for stroke
 
 #### See
 
-[intersectSegmentPolygon](Intersection.md#intersectsegmentpolygon) for segment intersection
+[intersectSegmentPolygon](../../../../api/classes/intersection/#intersectsegmentpolygon) for segment intersection
 
-#### Source
+#### Defined in
 
 src/Intersection.ts:224
 
@@ -132,19 +132,19 @@ src/Intersection.ts:224
 
 ### intersectPolygonPolygon()
 
-> **`static`** **intersectPolygonPolygon**(`points1`, `points2`): [`Intersection`](Intersection.md)
+> `static` **intersectPolygonPolygon**(`points1`, `points2`): [`Intersection`](/api/classes/intersection/)
 
 Checks if polygon intersects another polygon
 
 #### Parameters
 
-• **points1**: [`Point`](Point.md)[]
+• **points1**: [`Point`](/api/classes/point/)[]
 
-• **points2**: [`Point`](Point.md)[]
+• **points2**: [`Point`](/api/classes/point/)[]
 
 #### Returns
 
-[`Intersection`](Intersection.md)
+[`Intersection`](/api/classes/intersection/)
 
 #### Todo
 
@@ -152,7 +152,7 @@ account for stroke
 
 #### Static
 
-#### Source
+#### Defined in
 
 src/Intersection.ts:277
 
@@ -160,35 +160,35 @@ src/Intersection.ts:277
 
 ### intersectPolygonRectangle()
 
-> **`static`** **intersectPolygonRectangle**(`points`, `r1`, `r2`): [`Intersection`](Intersection.md)
+> `static` **intersectPolygonRectangle**(`points`, `r1`, `r2`): [`Intersection`](/api/classes/intersection/)
 
 Checks if polygon intersects rectangle
 
 #### Parameters
 
-• **points**: [`Point`](Point.md)[]
+• **points**: [`Point`](/api/classes/point/)[]
 
 polygon points
 
-• **r1**: [`Point`](Point.md)
+• **r1**: [`Point`](/api/classes/point/)
 
 top left point of rect
 
-• **r2**: [`Point`](Point.md)
+• **r2**: [`Point`](/api/classes/point/)
 
 bottom right point of rect
 
 #### Returns
 
-[`Intersection`](Intersection.md)
+[`Intersection`](/api/classes/intersection/)
 
 #### Static
 
 #### See
 
-[intersectPolygonPolygon](Intersection.md#intersectpolygonpolygon) for polygon intersection
+[intersectPolygonPolygon](../../../../api/classes/intersection/#intersectpolygonpolygon) for polygon intersection
 
-#### Source
+#### Defined in
 
 src/Intersection.ts:315
 
@@ -196,39 +196,39 @@ src/Intersection.ts:315
 
 ### intersectSegmentLine()
 
-> **`static`** **intersectSegmentLine**(`s1`, `s2`, `l1`, `l2`): [`Intersection`](Intersection.md)
+> `static` **intersectSegmentLine**(`s1`, `s2`, `l1`, `l2`): [`Intersection`](/api/classes/intersection/)
 
 Checks if a segment intersects a line
 
 #### Parameters
 
-• **s1**: [`Point`](Point.md)
+• **s1**: [`Point`](/api/classes/point/)
 
 boundary point of segment
 
-• **s2**: [`Point`](Point.md)
+• **s2**: [`Point`](/api/classes/point/)
 
 other boundary point of segment
 
-• **l1**: [`Point`](Point.md)
+• **l1**: [`Point`](/api/classes/point/)
 
 point on line
 
-• **l2**: [`Point`](Point.md)
+• **l2**: [`Point`](/api/classes/point/)
 
 other point on line
 
 #### Returns
 
-[`Intersection`](Intersection.md)
+[`Intersection`](/api/classes/intersection/)
 
 #### See
 
-[intersectLineLine](Intersection.md#intersectlineline) for line intersection
+[intersectLineLine](../../../../api/classes/intersection/#intersectlineline) for line intersection
 
 #### Static
 
-#### Source
+#### Defined in
 
 src/Intersection.ts:183
 
@@ -236,35 +236,35 @@ src/Intersection.ts:183
 
 ### intersectSegmentPolygon()
 
-> **`static`** **intersectSegmentPolygon**(`a1`, `a2`, `points`): [`Intersection`](Intersection.md)
+> `static` **intersectSegmentPolygon**(`a1`, `a2`, `points`): [`Intersection`](/api/classes/intersection/)
 
 Checks if segment intersects polygon
 
 #### Parameters
 
-• **a1**: [`Point`](Point.md)
+• **a1**: [`Point`](/api/classes/point/)
 
 boundary point of segment
 
-• **a2**: [`Point`](Point.md)
+• **a2**: [`Point`](/api/classes/point/)
 
 other boundary point of segment
 
-• **points**: [`Point`](Point.md)[]
+• **points**: [`Point`](/api/classes/point/)[]
 
 polygon points
 
 #### Returns
 
-[`Intersection`](Intersection.md)
+[`Intersection`](/api/classes/intersection/)
 
 #### Static
 
 #### See
 
-[intersectLinePolygon](Intersection.md#intersectlinepolygon) for line intersection
+[intersectLinePolygon](../../../../api/classes/intersection/#intersectlinepolygon) for line intersection
 
-#### Source
+#### Defined in
 
 src/Intersection.ts:259
 
@@ -272,39 +272,39 @@ src/Intersection.ts:259
 
 ### intersectSegmentSegment()
 
-> **`static`** **intersectSegmentSegment**(`a1`, `a2`, `b1`, `b2`): [`Intersection`](Intersection.md)
+> `static` **intersectSegmentSegment**(`a1`, `a2`, `b1`, `b2`): [`Intersection`](/api/classes/intersection/)
 
 Checks if a segment intersects another
 
 #### Parameters
 
-• **a1**: [`Point`](Point.md)
+• **a1**: [`Point`](/api/classes/point/)
 
 boundary point of segment
 
-• **a2**: [`Point`](Point.md)
+• **a2**: [`Point`](/api/classes/point/)
 
 other boundary point of segment
 
-• **b1**: [`Point`](Point.md)
+• **b1**: [`Point`](/api/classes/point/)
 
 boundary point of segment
 
-• **b2**: [`Point`](Point.md)
+• **b2**: [`Point`](/api/classes/point/)
 
 other boundary point of segment
 
 #### Returns
 
-[`Intersection`](Intersection.md)
+[`Intersection`](/api/classes/intersection/)
 
 #### See
 
-[intersectLineLine](Intersection.md#intersectlineline) for line intersection
+[intersectLineLine](../../../../api/classes/intersection/#intersectlineline) for line intersection
 
 #### Static
 
-#### Source
+#### Defined in
 
 src/Intersection.ts:202
 
@@ -312,25 +312,25 @@ src/Intersection.ts:202
 
 ### isPointContained()
 
-> **`static`** **isPointContained**(`T`, `A`, `B`, `infinite`?): `boolean`
+> `static` **isPointContained**(`T`, `A`, `B`, `infinite`?): `boolean`
 
 check if point T is on the segment or line defined between A and B
 
 #### Parameters
 
-• **T**: [`Point`](Point.md)
+• **T**: [`Point`](/api/classes/point/)
 
 the point we are checking for
 
-• **A**: [`Point`](Point.md)
+• **A**: [`Point`](/api/classes/point/)
 
 one extremity of the segment
 
-• **B**: [`Point`](Point.md)
+• **B**: [`Point`](/api/classes/point/)
 
 the other extremity of the segment
 
-• **infinite?**: `boolean`= `false`
+• **infinite?**: `boolean` = `false`
 
 if true checks if `T` is on the line defined by `A` and `B`
 
@@ -340,7 +340,7 @@ if true checks if `T` is on the line defined by `A` and `B`
 
 true if `T` is contained
 
-#### Source
+#### Defined in
 
 src/Intersection.ts:51
 
@@ -348,15 +348,15 @@ src/Intersection.ts:51
 
 ### isPointInPolygon()
 
-> **`static`** **isPointInPolygon**(`point`, `points`): `boolean`
+> `static` **isPointInPolygon**(`point`, `points`): `boolean`
 
 Use the ray casting algorithm to determine if point is in the polygon defined by points
 
 #### Parameters
 
-• **point**: [`Point`](Point.md)
+• **point**: [`Point`](/api/classes/point/)
 
-• **points**: [`Point`](Point.md)[]
+• **points**: [`Point`](/api/classes/point/)[]
 
 polygon points
 
@@ -368,6 +368,6 @@ polygon points
 
 https://en.wikipedia.org/wiki/Point_in_polygon
 
-#### Source
+#### Defined in
 
 src/Intersection.ts:91

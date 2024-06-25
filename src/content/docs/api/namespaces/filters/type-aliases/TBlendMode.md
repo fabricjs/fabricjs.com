@@ -7,6 +7,6 @@ title: "TBlendMode"
 
 > **TBlendMode**: `"multiply"` \| `"add"` \| `"difference"` \| `"screen"` \| `"subtract"` \| `"darken"` \| `"lighten"` \| `"overlay"` \| `"exclusion"` \| `"tint"`
 
-## Source
+## Defined in
 
 src/filters/BlendColor.ts:8

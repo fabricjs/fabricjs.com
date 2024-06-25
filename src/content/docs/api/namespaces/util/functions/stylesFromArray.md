@@ -5,15 +5,11 @@ prev: false
 title: "stylesFromArray"
 ---
 
-> **stylesFromArray**(`styles`, `text`): [`TextStyle`](../../../type-aliases/TextStyle.md)
-
-Returns the object form of the styles property with styles that are assigned per
-character rather than grouped by range. This format is more verbose, and is
-only used during runtime (not for serialization/storage)
+> **stylesFromArray**(`styles`, `text`): [`TextStyle`](/api/type-aliases/textstyle/)
 
 ## Parameters
 
-• **styles**: [`TextStyle`](../../../type-aliases/TextStyle.md) \| [`TextStyleArray`](../type-aliases/TextStyleArray.md)
+• **styles**: [`TextStyle`](/api/type-aliases/textstyle/) \| [`TextStyleArray`](/api/namespaces/util/type-aliases/textstylearray/)
 
 the serialized form of a text object's styles
 
@@ -23,8 +19,8 @@ the text string that the styles are applied to
 
 ## Returns
 
-[`TextStyle`](../../../type-aliases/TextStyle.md)
+[`TextStyle`](/api/type-aliases/textstyle/)
 
-## Source
+## Defined in
 
 src/util/misc/textStyles.ts:99

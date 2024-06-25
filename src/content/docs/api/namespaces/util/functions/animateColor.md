@@ -9,12 +9,12 @@ title: "animateColor"
 
 ## Parameters
 
-• **options**: `Partial`\<[`TAnimationBaseOptions`](../type-aliases/TAnimationBaseOptions.md)\<`number`[]\> & [`TAnimationCallbacks`](../type-aliases/TAnimationCallbacks.md)\<`string`\> & `Object`\>
+• **options**: `Partial`\<[`TAnimationBaseOptions`](/api/namespaces/util/type-aliases/tanimationbaseoptions/)\<`number`[]\> & [`TAnimationCallbacks`](/api/namespaces/util/type-aliases/tanimationcallbacks/)\<`string`\> & `object`\>
 
 ## Returns
 
 `ColorAnimation`
 
-## Source
+## Defined in
 
 src/util/animation/animate.ts:70

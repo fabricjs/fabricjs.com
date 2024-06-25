@@ -5,17 +5,17 @@ prev: false
 title: "TDataUrlOptions"
 ---
 
-> **TDataUrlOptions**\<`T`\>: [`TToCanvasElementOptions`](TToCanvasElementOptions.md)\<`T`\> & `Object`
+> **TDataUrlOptions**\<`T`\>: [`TToCanvasElementOptions`](/api/type-aliases/ttocanvaselementoptions/)\<`T`\> & `object`
 
 ## Type declaration
 
 ### enableRetinaScaling?
 
-> **`optional`** **enableRetinaScaling**: `boolean`
+> `optional` **enableRetinaScaling**: `boolean`
 
 ### format?
 
-> **`optional`** **format**: [`ImageFormat`](ImageFormat.md)
+> `optional` **format**: [`ImageFormat`](/api/type-aliases/imageformat/)
 
 ### multiplier
 
@@ -23,12 +23,12 @@ title: "TDataUrlOptions"
 
 ### quality?
 
-> **`optional`** **quality**: `number`
+> `optional` **quality**: `number`
 
-## Type parameters
+## Type Parameters
 
-• **T** extends `BaseFabricObject` = `BaseFabricObject`
+• **T** *extends* `BaseFabricObject` = `BaseFabricObject`
 
-## Source
+## Defined in
 
 src/typedefs.ts:110

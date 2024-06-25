@@ -5,48 +5,48 @@ prev: false
 title: "createTextboxDefaultControls"
 ---
 
-> **createTextboxDefaultControls**(): `Object`
+> **createTextboxDefaultControls**(): `object`
 
 ## Returns
 
-`Object`
+`object`
 
 ### bl
 
-> **bl**: [`Control`](../../../classes/Control.md)
+> **bl**: [`Control`](/api/classes/control/)
 
 ### br
 
-> **br**: [`Control`](../../../classes/Control.md)
+> **br**: [`Control`](/api/classes/control/)
 
 ### mb
 
-> **mb**: [`Control`](../../../classes/Control.md)
+> **mb**: [`Control`](/api/classes/control/)
 
 ### ml
 
-> **ml**: [`Control`](../../../classes/Control.md)
+> **ml**: [`Control`](/api/classes/control/)
 
 ### mr
 
-> **mr**: [`Control`](../../../classes/Control.md)
+> **mr**: [`Control`](/api/classes/control/)
 
 ### mt
 
-> **mt**: [`Control`](../../../classes/Control.md)
+> **mt**: [`Control`](/api/classes/control/)
 
 ### mtr
 
-> **mtr**: [`Control`](../../../classes/Control.md)
+> **mtr**: [`Control`](/api/classes/control/)
 
 ### tl
 
-> **tl**: [`Control`](../../../classes/Control.md)
+> **tl**: [`Control`](/api/classes/control/)
 
 ### tr
 
-> **tr**: [`Control`](../../../classes/Control.md)
+> **tr**: [`Control`](/api/classes/control/)
 
-## Source
+## Defined in
 
 src/controls/commonControls.ts:102

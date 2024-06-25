@@ -9,6 +9,10 @@ title: "StaticCanvasOptions"
 
 - `CanvasDrawableOptions`.`CanvasRenderingOptions`.`CanvasExportOptions`
 
+## Extended by
+
+- [`CanvasOptions`](/api/interfaces/canvasoptions/)
+
 ## Properties
 
 ### allowTouchScrolling
@@ -27,7 +31,7 @@ Indicates whether the browser can be scrolled when using a touchscreen and dragg
 
 move to Canvas
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvasOptions.ts:161
 
@@ -35,7 +39,7 @@ src/canvas/StaticCanvasOptions.ts:161
 
 ### backgroundColor
 
-> **backgroundColor**: `string` \| [`TFiller`](../type-aliases/TFiller.md)
+> **backgroundColor**: `string` \| [`TFiller`](/api/type-aliases/tfiller/)
 
 Background color of canvas instance.
 
@@ -49,7 +53,7 @@ Background color of canvas instance.
 
 `CanvasDrawableOptions.backgroundColor`
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvasOptions.ts:21
 
@@ -57,7 +61,7 @@ src/canvas/StaticCanvasOptions.ts:21
 
 ### backgroundImage?
 
-> **`optional`** **backgroundImage**: [`FabricObject`](../classes/FabricObject.md)\<`Partial`\<[`FabricObjectProps`](FabricObjectProps.md)\>, [`SerializedObjectProps`](SerializedObjectProps.md), [`ObjectEvents`](ObjectEvents.md)\>
+> `optional` **backgroundImage**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 Background image of canvas instance.
 since 2.4.0 image caching is active, please when putting an image as background, add to the
@@ -74,7 +78,7 @@ vale. As an alternative you can disable image objectCaching
 
 `CanvasDrawableOptions.backgroundImage`
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvasOptions.ts:31
 
@@ -104,7 +108,7 @@ we should really find a different way to do this
 
 `CanvasDrawableOptions.backgroundVpt`
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvasOptions.ts:14
 
@@ -112,7 +116,7 @@ src/canvas/StaticCanvasOptions.ts:14
 
 ### clipPath?
 
-> **`optional`** **clipPath**: [`FabricObject`](../classes/FabricObject.md)\<`Partial`\<[`FabricObjectProps`](FabricObjectProps.md)\>, [`SerializedObjectProps`](SerializedObjectProps.md), [`ObjectEvents`](ObjectEvents.md)\>
+> `optional` **clipPath**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 a fabricObject that, without stroke define a clipping area with their shape. filled in black
 the clipPath object gets used when the canvas has rendered, and the context is placed in the
@@ -123,7 +127,7 @@ clipPath will clip away controls, if you do not want this to happen use controls
 
 `CanvasRenderingOptions.clipPath`
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvasOptions.ts:106
 
@@ -145,7 +149,7 @@ Indicates whether object controls (borders/controls) are rendered above overlay 
 
 move to Canvas
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvasOptions.ts:152
 
@@ -167,7 +171,7 @@ When true, canvas is scaled by devicePixelRatio for better rendering on retina s
 
 `CanvasRenderingOptions.enableRetinaScaling`
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvasOptions.ts:90
 
@@ -180,7 +184,7 @@ src/canvas/StaticCanvasOptions.ts:90
 Height in virtual/logical pixels of the canvas.
 The canvas can be taller than width if retina scaling is active
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvasOptions.ts:143
 
@@ -202,7 +206,7 @@ Indicates whether this canvas will use image smoothing, this is on by default in
 
 `CanvasRenderingOptions.imageSmoothingEnabled`
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvasOptions.ts:97
 
@@ -225,7 +229,7 @@ if set to false, takes precedence over the object value.
 
 `CanvasExportOptions.includeDefaultValues`
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvasOptions.ts:116
 
@@ -233,7 +237,7 @@ src/canvas/StaticCanvasOptions.ts:116
 
 ### overlayColor
 
-> **overlayColor**: `string` \| [`TFiller`](../type-aliases/TFiller.md)
+> **overlayColor**: `string` \| [`TFiller`](/api/type-aliases/tfiller/)
 
 Overlay color of canvas instance.
 
@@ -251,7 +255,7 @@ Overlay color of canvas instance.
 
 `CanvasDrawableOptions.overlayColor`
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvasOptions.ts:48
 
@@ -259,7 +263,7 @@ src/canvas/StaticCanvasOptions.ts:48
 
 ### overlayImage?
 
-> **`optional`** **overlayImage**: [`FabricObject`](../classes/FabricObject.md)\<`Partial`\<[`FabricObjectProps`](FabricObjectProps.md)\>, [`SerializedObjectProps`](SerializedObjectProps.md), [`ObjectEvents`](ObjectEvents.md)\>
+> `optional` **overlayImage**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 Overlay image of canvas instance.
 since 2.4.0 image caching is active, please when putting an image as overlay, add to the
@@ -276,7 +280,7 @@ vale. As an alternative you can disable image objectCaching
 
 `CanvasDrawableOptions.overlayImage`
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvasOptions.ts:58
 
@@ -306,7 +310,7 @@ we should really find a different way to do this
 
 `CanvasDrawableOptions.overlayVpt`
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvasOptions.ts:40
 
@@ -316,8 +320,8 @@ src/canvas/StaticCanvasOptions.ts:40
 
 > **renderOnAddRemove**: `boolean`
 
-Indicates whether [StaticCanvas#add](../../../../api/interfaces/classes/staticcanvas/#add), [StaticCanvas#insertAt](../../../../api/interfaces/classes/staticcanvas/#insertat) and [StaticCanvas#remove](../../../../api/interfaces/classes/staticcanvas/#remove),
-StaticCanvas#moveTo, [StaticCanvas#clear](../../../../api/interfaces/classes/staticcanvas/#clear) and many more, should also re-render canvas.
+Indicates whether [StaticCanvas#add](../../../../api/classes/staticcanvas/#add), [StaticCanvas#insertAt](../../../../api/classes/staticcanvas/#insertat) and StaticCanvas#remove,
+StaticCanvas#moveTo, [StaticCanvas#clear](../../../../api/classes/staticcanvas/#clear) and many more, should also re-render canvas.
 Disabling this option will not give a performance boost when adding/removing a lot of objects to/from canvas at once
 since the renders are queued and executed one per frame.
 Disabling is suggested anyway and managing the renders of the app manually is not a big effort ( canvas.requestRenderAll() )
@@ -333,7 +337,7 @@ Left default to true to do not break documentation and old app, fiddles.
 
 `CanvasRenderingOptions.renderOnAddRemove`
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvasOptions.ts:72
 
@@ -359,7 +363,7 @@ true
 
 `CanvasRenderingOptions.skipOffscreen`
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvasOptions.ts:83
 
@@ -382,7 +386,7 @@ a zoomed canvas will then produce zoomed SVG output.
 
 `CanvasExportOptions.svgViewportTransformation`
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvasOptions.ts:124
 
@@ -390,17 +394,15 @@ src/canvas/StaticCanvasOptions.ts:124
 
 ### viewportTransform
 
-> **viewportTransform**: [`TMat2D`](../type-aliases/TMat2D.md)
+> **viewportTransform**: [`TMat2D`](/api/type-aliases/tmat2d/)
 
 The transformation (a Canvas 2D API transform matrix) which focuses the viewport
 
-#### Example
+#### Examples
 
 ```ts
 canvas.viewportTransform = [1, 0, 0, 1, 0, 0];
 ```
-
-#### Example
 
 ```ts
 canvas.viewportTransform = [0.7, 0, 0, 0.7, 50, 50];
@@ -412,7 +414,7 @@ canvas.viewportTransform = [0.7, 0, 0, 0.7, 50, 50];
 
 ```
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvasOptions.ts:172
 
@@ -425,6 +427,6 @@ src/canvas/StaticCanvasOptions.ts:172
 Width in virtual/logical pixels of the canvas.
 The canvas can be larger than width if retina scaling is active
 
-#### Source
+#### Defined in
 
 src/canvas/StaticCanvasOptions.ts:136

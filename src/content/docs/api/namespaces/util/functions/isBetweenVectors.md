@@ -7,21 +7,17 @@ title: "isBetweenVectors"
 
 > **isBetweenVectors**(`t`, `a`, `b`): `boolean`
 
-Checks if the vector is between two others. It is considered
-to be inside when the vector to be tested is between the
-initial vector and the final vector (included) in a counterclockwise direction.
-
 ## Parameters
 
-• **t**: [`Point`](../../../classes/Point.md)
+• **t**: [`Point`](/api/classes/point/)
 
 vector to be tested
 
-• **a**: [`Point`](../../../classes/Point.md)
+• **a**: [`Point`](/api/classes/point/)
 
 initial vector
 
-• **b**: [`Point`](../../../classes/Point.md)
+• **b**: [`Point`](/api/classes/point/)
 
 final vector
 
@@ -31,6 +27,6 @@ final vector
 
 true if the vector is among the others
 
-## Source
+## Defined in
 
 src/util/misc/vectors.ts:94

@@ -9,27 +9,27 @@ A container class that knows how to apply a sequence of filters to an input imag
 
 ## Extends
 
-- [`BaseFilter`](BaseFilter.md)
+- [`BaseFilter`](/api/namespaces/filters/classes/basefilter/)
 
 ## Constructors
 
-### new Composed(__namedParameters)
+### new Composed()
 
-> **new Composed**(`__namedParameters`): [`Composed`](Composed.md)
+> **new Composed**(`__namedParameters`): [`Composed`](/api/namespaces/filters/classes/composed/)
 
 #### Parameters
 
-• **\_\_namedParameters**: `Object` & `Record`\<`string`, `any`\>= `{}`
+• **\_\_namedParameters**: `object` & `Record`\<`string`, `any`\> = `{}`
 
 #### Returns
 
-[`Composed`](Composed.md)
+[`Composed`](/api/namespaces/filters/classes/composed/)
 
 #### Overrides
 
-[`BaseFilter`](BaseFilter.md).[`constructor`](BaseFilter.md#constructors)
+[`BaseFilter`](/api/namespaces/filters/classes/basefilter/).[`constructor`](/api/namespaces/filters/classes/basefilter/#constructors)
 
-#### Source
+#### Defined in
 
 src/filters/Composed.ts:17
 
@@ -37,11 +37,11 @@ src/filters/Composed.ts:17
 
 ### subFilters
 
-> **subFilters**: [`BaseFilter`](BaseFilter.md)[]
+> **subFilters**: [`BaseFilter`](/api/namespaces/filters/classes/basefilter/)[]
 
 A non sparse array of filters to apply
 
-#### Source
+#### Defined in
 
 src/filters/Composed.ts:13
 
@@ -49,13 +49,13 @@ src/filters/Composed.ts:13
 
 ### defaults
 
-> **`static`** **defaults**: `Record`\<`string`, `any`\>
+> `static` **defaults**: `Record`\<`string`, `any`\>
 
 #### Inherited from
 
-[`BaseFilter`](BaseFilter.md).[`defaults`](BaseFilter.md#defaults)
+[`BaseFilter`](/api/namespaces/filters/classes/basefilter/).[`defaults`](/api/namespaces/filters/classes/basefilter/#defaults)
 
-#### Source
+#### Defined in
 
 src/filters/BaseFilter.ts:38
 
@@ -63,7 +63,7 @@ src/filters/BaseFilter.ts:38
 
 ### type
 
-> **`static`** **type**: `string` = `'Composed'`
+> `static` **type**: `string` = `'Composed'`
 
 The class type. Used to identify which class this is.
 This is used for serialization purposes and internally it can be used
@@ -73,9 +73,9 @@ to avoid doing that.
 
 #### Overrides
 
-[`BaseFilter`](BaseFilter.md).[`type`](BaseFilter.md#type)
+[`BaseFilter`](/api/namespaces/filters/classes/basefilter/).[`type`](/api/namespaces/filters/classes/basefilter/#type)
 
-#### Source
+#### Defined in
 
 src/filters/Composed.ts:15
 
@@ -83,7 +83,7 @@ src/filters/Composed.ts:15
 
 ### type
 
-> **`get`** **type**(): `string`
+> `get` **type**(): `string`
 
 Filter type
 
@@ -97,7 +97,11 @@ Filter type
 
 `string`
 
-#### Source
+#### Inherited from
+
+[`BaseFilter`](/api/namespaces/filters/classes/basefilter/).[`type`](/api/namespaces/filters/classes/basefilter/#type-1)
+
+#### Defined in
 
 src/filters/BaseFilter.ts:25
 
@@ -109,7 +113,7 @@ src/filters/BaseFilter.ts:25
 
 #### Parameters
 
-• **options**: [`TWebGLPipelineState`](../../../type-aliases/TWebGLPipelineState.md)
+• **options**: [`TWebGLPipelineState`](/api/type-aliases/twebglpipelinestate/)
 
 #### Returns
 
@@ -117,9 +121,9 @@ src/filters/BaseFilter.ts:25
 
 #### Inherited from
 
-[`BaseFilter`](BaseFilter.md).[`_setupFrameBuffer`](BaseFilter.md#_setupframebuffer)
+[`BaseFilter`](/api/namespaces/filters/classes/basefilter/).[`_setupFrameBuffer`](/api/namespaces/filters/classes/basefilter/#_setupframebuffer)
 
-#### Source
+#### Defined in
 
 src/filters/BaseFilter.ts:190
 
@@ -131,7 +135,7 @@ src/filters/BaseFilter.ts:190
 
 #### Parameters
 
-• **options**: [`TWebGLPipelineState`](../../../type-aliases/TWebGLPipelineState.md)
+• **options**: [`TWebGLPipelineState`](/api/type-aliases/twebglpipelinestate/)
 
 #### Returns
 
@@ -139,9 +143,9 @@ src/filters/BaseFilter.ts:190
 
 #### Inherited from
 
-[`BaseFilter`](BaseFilter.md).[`_swapTextures`](BaseFilter.md#_swaptextures)
+[`BaseFilter`](/api/namespaces/filters/classes/basefilter/).[`_swapTextures`](/api/namespaces/filters/classes/basefilter/#_swaptextures)
 
-#### Source
+#### Defined in
 
 src/filters/BaseFilter.ts:217
 
@@ -155,7 +159,7 @@ Apply this container's filters to the input image provided.
 
 #### Parameters
 
-• **options**: [`TWebGLPipelineState`](../../../type-aliases/TWebGLPipelineState.md) \| [`T2DPipelineState`](../../../type-aliases/T2DPipelineState.md)
+• **options**: [`TWebGLPipelineState`](/api/type-aliases/twebglpipelinestate/) \| [`T2DPipelineState`](/api/type-aliases/t2dpipelinestate/)
 
 #### Returns
 
@@ -163,9 +167,9 @@ Apply this container's filters to the input image provided.
 
 #### Overrides
 
-[`BaseFilter`](BaseFilter.md).[`applyTo`](BaseFilter.md#applyto)
+[`BaseFilter`](/api/namespaces/filters/classes/basefilter/).[`applyTo`](/api/namespaces/filters/classes/basefilter/#applyto)
 
-#### Source
+#### Defined in
 
 src/filters/Composed.ts:31
 
@@ -177,7 +181,7 @@ src/filters/Composed.ts:31
 
 #### Parameters
 
-• **options**: [`T2DPipelineState`](../../../type-aliases/T2DPipelineState.md)
+• **options**: [`T2DPipelineState`](/api/type-aliases/t2dpipelinestate/)
 
 #### Returns
 
@@ -185,9 +189,9 @@ src/filters/Composed.ts:31
 
 #### Inherited from
 
-[`BaseFilter`](BaseFilter.md).[`applyTo2d`](BaseFilter.md#applyto2d)
+[`BaseFilter`](/api/namespaces/filters/classes/basefilter/).[`applyTo2d`](/api/namespaces/filters/classes/basefilter/#applyto2d)
 
-#### Source
+#### Defined in
 
 src/filters/BaseFilter.ts:275
 
@@ -201,7 +205,7 @@ Apply this filter using webgl.
 
 #### Parameters
 
-• **options**: [`TWebGLPipelineState`](../../../type-aliases/TWebGLPipelineState.md)
+• **options**: [`TWebGLPipelineState`](/api/type-aliases/twebglpipelinestate/)
 
 #### Returns
 
@@ -209,9 +213,9 @@ Apply this filter using webgl.
 
 #### Inherited from
 
-[`BaseFilter`](BaseFilter.md).[`applyToWebGL`](BaseFilter.md#applytowebgl)
+[`BaseFilter`](/api/namespaces/filters/classes/basefilter/).[`applyToWebGL`](/api/namespaces/filters/classes/basefilter/#applytowebgl)
 
-#### Source
+#### Defined in
 
 src/filters/BaseFilter.ts:315
 
@@ -235,9 +239,9 @@ src/filters/BaseFilter.ts:315
 
 #### Inherited from
 
-[`BaseFilter`](BaseFilter.md).[`bindAdditionalTexture`](BaseFilter.md#bindadditionaltexture)
+[`BaseFilter`](/api/namespaces/filters/classes/basefilter/).[`bindAdditionalTexture`](/api/namespaces/filters/classes/basefilter/#bindadditionaltexture)
 
-#### Source
+#### Defined in
 
 src/filters/BaseFilter.ts:334
 
@@ -252,7 +256,7 @@ remember that options.targetCanvas is available for use till end of chain.
 
 #### Parameters
 
-• **options**: [`T2DPipelineState`](../../../type-aliases/T2DPipelineState.md)
+• **options**: [`T2DPipelineState`](/api/type-aliases/t2dpipelinestate/)
 
 #### Returns
 
@@ -260,9 +264,9 @@ remember that options.targetCanvas is available for use till end of chain.
 
 #### Inherited from
 
-[`BaseFilter`](BaseFilter.md).[`createHelpLayer`](BaseFilter.md#createhelplayer)
+[`BaseFilter`](/api/namespaces/filters/classes/basefilter/).[`createHelpLayer`](/api/namespaces/filters/classes/basefilter/#createhelplayer)
 
-#### Source
+#### Defined in
 
 src/filters/BaseFilter.ts:380
 
@@ -270,7 +274,7 @@ src/filters/BaseFilter.ts:380
 
 ### createProgram()
 
-> **createProgram**(`gl`, `fragmentSource`, `vertexSource`): `Object`
+> **createProgram**(`gl`, `fragmentSource`, `vertexSource`): `object`
 
 Compile this filter's shader program.
 
@@ -280,21 +284,21 @@ Compile this filter's shader program.
 
 The GL canvas context to use for shader compilation.
 
-• **fragmentSource**: `string`= `undefined`
+• **fragmentSource**: `string` = `...`
 
 fragmentShader source for compilation
 
-• **vertexSource**: `string`= `undefined`
+• **vertexSource**: `string` = `...`
 
 vertexShader source for compilation
 
 #### Returns
 
-`Object`
+`object`
 
 ##### attributeLocations
 
-> **attributeLocations**: [`TWebGLAttributeLocationMap`](../../../type-aliases/TWebGLAttributeLocationMap.md)
+> **attributeLocations**: [`TWebGLAttributeLocationMap`](/api/type-aliases/twebglattributelocationmap/)
 
 ##### program
 
@@ -302,13 +306,13 @@ vertexShader source for compilation
 
 ##### uniformLocations
 
-> **uniformLocations**: [`TWebGLUniformLocationMap`](../../../type-aliases/TWebGLUniformLocationMap.md)
+> **uniformLocations**: [`TWebGLUniformLocationMap`](/api/type-aliases/twebgluniformlocationmap/)
 
 #### Inherited from
 
-[`BaseFilter`](BaseFilter.md).[`createProgram`](BaseFilter.md#createprogram)
+[`BaseFilter`](/api/namespaces/filters/classes/basefilter/).[`createProgram`](/api/namespaces/filters/classes/basefilter/#createprogram)
 
-#### Source
+#### Defined in
 
 src/filters/BaseFilter.ts:77
 
@@ -316,7 +320,7 @@ src/filters/BaseFilter.ts:77
 
 ### getAttributeLocations()
 
-> **getAttributeLocations**(`gl`, `program`): [`TWebGLAttributeLocationMap`](../../../type-aliases/TWebGLAttributeLocationMap.md)
+> **getAttributeLocations**(`gl`, `program`): [`TWebGLAttributeLocationMap`](/api/type-aliases/twebglattributelocationmap/)
 
 Return a map of attribute names to WebGLAttributeLocation objects.
 
@@ -332,15 +336,15 @@ The shader program from which to take attribute locations.
 
 #### Returns
 
-[`TWebGLAttributeLocationMap`](../../../type-aliases/TWebGLAttributeLocationMap.md)
+[`TWebGLAttributeLocationMap`](/api/type-aliases/twebglattributelocationmap/)
 
 A map of attribute names to attribute locations.
 
 #### Inherited from
 
-[`BaseFilter`](BaseFilter.md).[`getAttributeLocations`](BaseFilter.md#getattributelocations)
+[`BaseFilter`](/api/namespaces/filters/classes/basefilter/).[`getAttributeLocations`](/api/namespaces/filters/classes/basefilter/#getattributelocations)
 
-#### Source
+#### Defined in
 
 src/filters/BaseFilter.ts:146
 
@@ -359,9 +363,9 @@ Used to force recompilation when parameters change or to retrieve the shader fro
 
 #### Inherited from
 
-[`BaseFilter`](BaseFilter.md).[`getCacheKey`](BaseFilter.md#getcachekey)
+[`BaseFilter`](/api/namespaces/filters/classes/basefilter/).[`getCacheKey`](/api/namespaces/filters/classes/basefilter/#getcachekey)
 
-#### Source
+#### Defined in
 
 src/filters/BaseFilter.ts:284
 
@@ -369,17 +373,17 @@ src/filters/BaseFilter.ts:284
 
 ### getMainParameter()
 
-> **getMainParameter**(): `undefined` \| `string` \| [`BaseFilter`](BaseFilter.md)[] \| (`gl`, `program`) => [`TWebGLUniformLocationMap`](../../../type-aliases/TWebGLUniformLocationMap.md) \| (`gl`, `program`) => [`TWebGLAttributeLocationMap`](../../../type-aliases/TWebGLAttributeLocationMap.md) \| (`gl`, `uniformLocations`) => `void` \| (`options`) => `void` \| (`options`) => [`TWebGLProgramCacheItem`](../../../type-aliases/TWebGLProgramCacheItem.md) \| (`gl`, `fragmentSource`, `vertexSource`) => `Object` \| (`gl`, `attributeLocations`, `aPositionData`) => `void` \| (`options`) => `void` \| (`options`) => `void` \| () => `boolean` \| (`options`) => `void` \| () => `string` \| (`options`) => `void` \| (`gl`, `texture`, `textureUnit`) => `void` \| (`gl`, `textureUnit`) => `void` \| () => string \| BaseFilter[] \| ((gl: WebGLRenderingContext, program: WebGLProgram) =\> TWebGLUniformLocationMap) \| ... 19 more ... \| undefined \| () => `Object` \| () => `Object` \| (`value`) => `void` \| (`options`) => `void`
+> **getMainParameter**(): `undefined` \| `string` \| [`BaseFilter`](/api/namespaces/filters/classes/basefilter/)[] \| (`gl`, `program`) => [`TWebGLUniformLocationMap`](/api/type-aliases/twebgluniformlocationmap/) \| (`gl`, `program`) => [`TWebGLAttributeLocationMap`](/api/type-aliases/twebglattributelocationmap/) \| (`gl`, `uniformLocations`) => `void` \| (`options`) => `void` \| (`options`) => [`TWebGLProgramCacheItem`](/api/type-aliases/twebglprogramcacheitem/) \| (`gl`, `fragmentSource`, `vertexSource`) => `object` \| (`gl`, `attributeLocations`, `aPositionData`) => `void` \| (`options`) => `void` \| (`options`) => `void` \| () => `boolean` \| (`options`) => `void` \| () => `string` \| (`options`) => `void` \| (`gl`, `texture`, `textureUnit`) => `void` \| (`gl`, `textureUnit`) => `void` \| () => string \| BaseFilter\[\] \| ((gl: WebGLRenderingContext, program: WebGLProgram) =\> TWebGLUniformLocationMap) \| ... 19 more ... \| undefined \| () => `object` \| () => `object` \| (`value`) => `void` \| (`options`) => `void`
 
 #### Returns
 
-`undefined` \| `string` \| [`BaseFilter`](BaseFilter.md)[] \| (`gl`, `program`) => [`TWebGLUniformLocationMap`](../../../type-aliases/TWebGLUniformLocationMap.md) \| (`gl`, `program`) => [`TWebGLAttributeLocationMap`](../../../type-aliases/TWebGLAttributeLocationMap.md) \| (`gl`, `uniformLocations`) => `void` \| (`options`) => `void` \| (`options`) => [`TWebGLProgramCacheItem`](../../../type-aliases/TWebGLProgramCacheItem.md) \| (`gl`, `fragmentSource`, `vertexSource`) => `Object` \| (`gl`, `attributeLocations`, `aPositionData`) => `void` \| (`options`) => `void` \| (`options`) => `void` \| () => `boolean` \| (`options`) => `void` \| () => `string` \| (`options`) => `void` \| (`gl`, `texture`, `textureUnit`) => `void` \| (`gl`, `textureUnit`) => `void` \| () => string \| BaseFilter[] \| ((gl: WebGLRenderingContext, program: WebGLProgram) =\> TWebGLUniformLocationMap) \| ... 19 more ... \| undefined \| () => `Object` \| () => `Object` \| (`value`) => `void` \| (`options`) => `void`
+`undefined` \| `string` \| [`BaseFilter`](/api/namespaces/filters/classes/basefilter/)[] \| (`gl`, `program`) => [`TWebGLUniformLocationMap`](/api/type-aliases/twebgluniformlocationmap/) \| (`gl`, `program`) => [`TWebGLAttributeLocationMap`](/api/type-aliases/twebglattributelocationmap/) \| (`gl`, `uniformLocations`) => `void` \| (`options`) => `void` \| (`options`) => [`TWebGLProgramCacheItem`](/api/type-aliases/twebglprogramcacheitem/) \| (`gl`, `fragmentSource`, `vertexSource`) => `object` \| (`gl`, `attributeLocations`, `aPositionData`) => `void` \| (`options`) => `void` \| (`options`) => `void` \| () => `boolean` \| (`options`) => `void` \| () => `string` \| (`options`) => `void` \| (`gl`, `texture`, `textureUnit`) => `void` \| (`gl`, `textureUnit`) => `void` \| () => string \| BaseFilter\[\] \| ((gl: WebGLRenderingContext, program: WebGLProgram) =\> TWebGLUniformLocationMap) \| ... 19 more ... \| undefined \| () => `object` \| () => `object` \| (`value`) => `void` \| (`options`) => `void`
 
 #### Inherited from
 
-[`BaseFilter`](BaseFilter.md).[`getMainParameter`](BaseFilter.md#getmainparameter)
+[`BaseFilter`](/api/namespaces/filters/classes/basefilter/).[`getMainParameter`](/api/namespaces/filters/classes/basefilter/#getmainparameter)
 
-#### Source
+#### Defined in
 
 src/filters/BaseFilter.ts:351
 
@@ -387,7 +391,7 @@ src/filters/BaseFilter.ts:351
 
 ### getUniformLocations()
 
-> **getUniformLocations**(`gl`, `program`): [`TWebGLUniformLocationMap`](../../../type-aliases/TWebGLUniformLocationMap.md)
+> **getUniformLocations**(`gl`, `program`): [`TWebGLUniformLocationMap`](/api/type-aliases/twebgluniformlocationmap/)
 
 Return a map of uniform names to WebGLUniformLocation objects.
 
@@ -405,15 +409,15 @@ The shader program from which to take uniform locations.
 
 #### Returns
 
-[`TWebGLUniformLocationMap`](../../../type-aliases/TWebGLUniformLocationMap.md)
+[`TWebGLUniformLocationMap`](/api/type-aliases/twebgluniformlocationmap/)
 
 A map of uniform names to uniform locations.
 
 #### Inherited from
 
-[`BaseFilter`](BaseFilter.md).[`getUniformLocations`](BaseFilter.md#getuniformlocations)
+[`BaseFilter`](/api/namespaces/filters/classes/basefilter/).[`getUniformLocations`](/api/namespaces/filters/classes/basefilter/#getuniformlocations)
 
-#### Source
+#### Defined in
 
 src/filters/BaseFilter.ts:164
 
@@ -434,9 +438,9 @@ Other filters may need their own version ( ColorMatrix, HueRotation, gamma, Comp
 
 #### Overrides
 
-[`BaseFilter`](BaseFilter.md).[`isNeutralState`](BaseFilter.md#isneutralstate)
+[`BaseFilter`](/api/namespaces/filters/classes/basefilter/).[`isNeutralState`](/api/namespaces/filters/classes/basefilter/#isneutralstate)
 
-#### Source
+#### Defined in
 
 src/filters/Composed.ts:52
 
@@ -444,25 +448,25 @@ src/filters/Composed.ts:52
 
 ### retrieveShader()
 
-> **retrieveShader**(`options`): [`TWebGLProgramCacheItem`](../../../type-aliases/TWebGLProgramCacheItem.md)
+> **retrieveShader**(`options`): [`TWebGLProgramCacheItem`](/api/type-aliases/twebglprogramcacheitem/)
 
 Retrieves the cached shader.
 
 #### Parameters
 
-• **options**: [`TWebGLPipelineState`](../../../type-aliases/TWebGLPipelineState.md)
+• **options**: [`TWebGLPipelineState`](/api/type-aliases/twebglpipelinestate/)
 
 #### Returns
 
-[`TWebGLProgramCacheItem`](../../../type-aliases/TWebGLProgramCacheItem.md)
+[`TWebGLProgramCacheItem`](/api/type-aliases/twebglprogramcacheitem/)
 
 the compiled program shader
 
 #### Inherited from
 
-[`BaseFilter`](BaseFilter.md).[`retrieveShader`](BaseFilter.md#retrieveshader)
+[`BaseFilter`](/api/namespaces/filters/classes/basefilter/).[`retrieveShader`](/api/namespaces/filters/classes/basefilter/#retrieveshader)
 
-#### Source
+#### Defined in
 
 src/filters/BaseFilter.ts:295
 
@@ -492,9 +496,9 @@ A map of shader attribute names to their locations.
 
 #### Inherited from
 
-[`BaseFilter`](BaseFilter.md).[`sendAttributeData`](BaseFilter.md#sendattributedata)
+[`BaseFilter`](/api/namespaces/filters/classes/basefilter/).[`sendAttributeData`](/api/namespaces/filters/classes/basefilter/#sendattributedata)
 
-#### Source
+#### Defined in
 
 src/filters/BaseFilter.ts:177
 
@@ -514,7 +518,7 @@ Intended to be overridden by subclasses.
 
 The canvas context used to compile the shader program.
 
-• **uniformLocations**: [`TWebGLUniformLocationMap`](../../../type-aliases/TWebGLUniformLocationMap.md)
+• **uniformLocations**: [`TWebGLUniformLocationMap`](/api/type-aliases/twebgluniformlocationmap/)
 
 A map of shader uniform names to their locations.
 
@@ -524,9 +528,9 @@ A map of shader uniform names to their locations.
 
 #### Inherited from
 
-[`BaseFilter`](BaseFilter.md).[`sendUniformData`](BaseFilter.md#senduniformdata)
+[`BaseFilter`](/api/namespaces/filters/classes/basefilter/).[`sendUniformData`](/api/namespaces/filters/classes/basefilter/#senduniformdata)
 
-#### Source
+#### Defined in
 
 src/filters/BaseFilter.ts:369
 
@@ -546,9 +550,9 @@ src/filters/BaseFilter.ts:369
 
 #### Inherited from
 
-[`BaseFilter`](BaseFilter.md).[`setMainParameter`](BaseFilter.md#setmainparameter)
+[`BaseFilter`](/api/namespaces/filters/classes/basefilter/).[`setMainParameter`](/api/namespaces/filters/classes/basefilter/#setmainparameter)
 
-#### Source
+#### Defined in
 
 src/filters/BaseFilter.ts:355
 
@@ -556,13 +560,13 @@ src/filters/BaseFilter.ts:355
 
 ### toJSON()
 
-> **toJSON**(): `Object`
+> **toJSON**(): `object`
 
 Returns a JSON representation of an instance
 
 #### Returns
 
-`Object`
+`object`
 
 JSON
 
@@ -572,9 +576,9 @@ JSON
 
 #### Inherited from
 
-[`BaseFilter`](BaseFilter.md).[`toJSON`](BaseFilter.md#tojson)
+[`BaseFilter`](/api/namespaces/filters/classes/basefilter/).[`toJSON`](/api/namespaces/filters/classes/basefilter/#tojson)
 
-#### Source
+#### Defined in
 
 src/filters/BaseFilter.ts:405
 
@@ -582,19 +586,19 @@ src/filters/BaseFilter.ts:405
 
 ### toObject()
 
-> **toObject**(): `Object`
+> **toObject**(): `object`
 
 Serialize this filter into JSON.
 
 #### Returns
 
-`Object`
+`object`
 
 A JSON representation of this filter.
 
 ##### subFilters
 
-> **subFilters**: `Object`[]
+> **subFilters**: `object`[]
 
 ##### type
 
@@ -602,9 +606,9 @@ A JSON representation of this filter.
 
 #### Overrides
 
-[`BaseFilter`](BaseFilter.md).[`toObject`](BaseFilter.md#toobject)
+[`BaseFilter`](/api/namespaces/filters/classes/basefilter/).[`toObject`](/api/namespaces/filters/classes/basefilter/#toobject)
 
-#### Source
+#### Defined in
 
 src/filters/Composed.ts:45
 
@@ -626,9 +630,9 @@ src/filters/Composed.ts:45
 
 #### Inherited from
 
-[`BaseFilter`](BaseFilter.md).[`unbindAdditionalTexture`](BaseFilter.md#unbindadditionaltexture)
+[`BaseFilter`](/api/namespaces/filters/classes/basefilter/).[`unbindAdditionalTexture`](/api/namespaces/filters/classes/basefilter/#unbindadditionaltexture)
 
-#### Source
+#### Defined in
 
 src/filters/BaseFilter.ts:345
 
@@ -636,7 +640,7 @@ src/filters/BaseFilter.ts:345
 
 ### fromObject()
 
-> **`static`** **fromObject**(`object`, `options`?): `Promise`\<[`BaseFilter`](BaseFilter.md)\>
+> `static` **fromObject**(`object`, `options`?): `Promise`\<[`BaseFilter`](/api/namespaces/filters/classes/basefilter/)\>
 
 Deserialize a JSON definition of a ComposedFilter into a concrete instance.
 
@@ -648,20 +652,20 @@ Object to create an instance from
 
 • **options?**
 
-• **options\.signal?**: `AbortSignal`
+• **options.signal?**: `AbortSignal`
 
 handle aborting `BlendImage` filter loading, see https://developer.mozilla.org/en-US/docs/Web/API/AbortController/signal
 
 #### Returns
 
-`Promise`\<[`BaseFilter`](BaseFilter.md)\>
+`Promise`\<[`BaseFilter`](/api/namespaces/filters/classes/basefilter/)\>
 
 #### Overrides
 
-[`BaseFilter`](BaseFilter.md).[`fromObject`](BaseFilter.md#fromobject)
+[`BaseFilter`](/api/namespaces/filters/classes/basefilter/).[`fromObject`](/api/namespaces/filters/classes/basefilter/#fromobject)
 
 #### Static
 
-#### Source
+#### Defined in
 
 src/filters/Composed.ts:64

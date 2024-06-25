@@ -7,6 +7,6 @@ title: "TTextureCache"
 
 > **TTextureCache**: `Record`\<`string`, `WebGLTexture`\>
 
-## Source
+## Defined in
 
 src/filters/typedefs.ts:6

@@ -5,8 +5,8 @@ prev: false
 title: "TOptionalModifierKey"
 ---
 
-> **TOptionalModifierKey**: [`ModifierKey`](ModifierKey.md) \| `null` \| `undefined`
+> **TOptionalModifierKey**: [`ModifierKey`](/api/type-aliases/modifierkey/) \| `null` \| `undefined`
 
-## Source
+## Defined in
 
 src/EventTypeDefs.ts:20

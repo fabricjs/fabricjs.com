@@ -5,17 +5,17 @@ prev: false
 title: "TPathSegmentInfoCommon"
 ---
 
-> **TPathSegmentInfoCommon**\<`C`\>: `Object`
+> **TPathSegmentInfoCommon**\<`C`\>: `object`
 
-## Type parameters
+## Type Parameters
 
-• **C** extends `string`
+• **C** *extends* `string`
 
 ## Type declaration
 
 ### command?
 
-> **`optional`** **command**: `C`
+> `optional` **command**: `C`
 
 ### length
 
@@ -29,6 +29,6 @@ title: "TPathSegmentInfoCommon"
 
 > **y**: `number`
 
-## Source
+## Defined in
 
 src/util/path/typedefs.ts:4

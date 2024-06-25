@@ -14,13 +14,13 @@ invoking callbacks as the value(s) change.
 
 ### Parameters
 
-• **options**: `Partial`\<[`TAnimationBaseOptions`](../type-aliases/TAnimationBaseOptions.md)\<`number`[]\> & [`TAnimationCallbacks`](../type-aliases/TAnimationCallbacks.md)\<`number`[]\> & `Object`\>
+• **options**: `Partial`\<[`TAnimationBaseOptions`](/api/namespaces/util/type-aliases/tanimationbaseoptions/)\<`number`[]\> & [`TAnimationCallbacks`](/api/namespaces/util/type-aliases/tanimationcallbacks/)\<`number`[]\> & `object`\>
 
 ### Returns
 
 `ArrayAnimation`
 
-### Example
+### Examples
 
 ```ts
 animate({
@@ -34,8 +34,6 @@ animate({
 });
 ```
 
-### Example
-
 ```ts
 Using lists:
 animate({
@@ -48,7 +46,7 @@ animate({
 });
 ```
 
-### Source
+### Defined in
 
 src/util/animation/animate.ts:50
 
@@ -58,23 +56,23 @@ src/util/animation/animate.ts:50
 
 ### Parameters
 
-• **options**: `Partial`\<[`TAnimationBaseOptions`](../type-aliases/TAnimationBaseOptions.md)\<`number`\> & [`TAnimationCallbacks`](../type-aliases/TAnimationCallbacks.md)\<`number`\> & `Object`\>
+• **options**: `Partial`\<[`TAnimationBaseOptions`](/api/namespaces/util/type-aliases/tanimationbaseoptions/)\<`number`\> & [`TAnimationCallbacks`](/api/namespaces/util/type-aliases/tanimationcallbacks/)\<`number`\> & `object`\>
 
 ### Returns
 
 `ValueAnimation`
 
-### Source
+### Defined in
 
 src/util/animation/animate.ts:51
 
 ## animate(options)
 
-> **animate**\<`T`\>(`options`): `T` extends [`ArrayAnimationOptions`](../type-aliases/ArrayAnimationOptions.md) ? `ArrayAnimation` : `ValueAnimation`
+> **animate**\<`T`\>(`options`): `T` *extends* [`ArrayAnimationOptions`](/api/namespaces/util/type-aliases/arrayanimationoptions/) ? `ArrayAnimation` : `ValueAnimation`
 
-### Type parameters
+### Type Parameters
 
-• **T** extends `Partial`\<[`TAnimationBaseOptions`](../type-aliases/TAnimationBaseOptions.md)\<`number`\> & [`TAnimationCallbacks`](../type-aliases/TAnimationCallbacks.md)\<`number`\> & `Object`\> \| `Partial`\<[`TAnimationBaseOptions`](../type-aliases/TAnimationBaseOptions.md)\<`number`[]\> & [`TAnimationCallbacks`](../type-aliases/TAnimationCallbacks.md)\<`number`[]\> & `Object`\>
+• **T** *extends* `Partial`\<[`TAnimationBaseOptions`](/api/namespaces/util/type-aliases/tanimationbaseoptions/)\<`number`\> & [`TAnimationCallbacks`](/api/namespaces/util/type-aliases/tanimationcallbacks/)\<`number`\> & `object`\> \| `Partial`\<[`TAnimationBaseOptions`](/api/namespaces/util/type-aliases/tanimationbaseoptions/)\<`number`[]\> & [`TAnimationCallbacks`](/api/namespaces/util/type-aliases/tanimationcallbacks/)\<`number`[]\> & `object`\>
 
 ### Parameters
 
@@ -82,8 +80,8 @@ src/util/animation/animate.ts:51
 
 ### Returns
 
-`T` extends [`ArrayAnimationOptions`](../type-aliases/ArrayAnimationOptions.md) ? `ArrayAnimation` : `ValueAnimation`
+`T` *extends* [`ArrayAnimationOptions`](/api/namespaces/util/type-aliases/arrayanimationoptions/) ? `ArrayAnimation` : `ValueAnimation`
 
-### Source
+### Defined in
 
 src/util/animation/animate.ts:52

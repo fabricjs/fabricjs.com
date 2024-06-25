@@ -7,19 +7,19 @@ title: "Control"
 
 ## Constructors
 
-### new Control(options)
+### new Control()
 
-> **new Control**(`options`?): [`Control`](Control.md)
+> **new Control**(`options`?): [`Control`](/api/classes/control/)
 
 #### Parameters
 
-• **options?**: `Partial`\<[`Control`](Control.md)\>
+• **options?**: `Partial`\<[`Control`](/api/classes/control/)\>
 
 #### Returns
 
-[`Control`](Control.md)
+[`Control`](/api/classes/control/)
 
-#### Source
+#### Defined in
 
 src/controls/Control.ts:141
 
@@ -27,7 +27,7 @@ src/controls/Control.ts:141
 
 ### actionHandler
 
-> **actionHandler**: [`TransformActionHandler`](../type-aliases/TransformActionHandler.md)
+> **actionHandler**: [`TransformActionHandler`](/api/type-aliases/transformactionhandler/)
 
 The control actionHandler, provide one to handle action ( control being moved )
 
@@ -47,7 +47,7 @@ x position of the cursor
 
 y position of the cursor
 
-#### Source
+#### Defined in
 
 src/controls/Control.ts:153
 
@@ -71,7 +71,7 @@ default to scale since is the most common, used on 4 corners by default
 'scale'
 ```
 
-#### Source
+#### Defined in
 
 src/controls/Control.ts:42
 
@@ -91,7 +91,7 @@ example: to reuse the same drawing function for different rotated controls
 0
 ```
 
-#### Source
+#### Defined in
 
 src/controls/Control.ts:51
 
@@ -110,7 +110,7 @@ if the method `cursorStyleHandler` is provided, this property is ignored.
 'crosshair'
 ```
 
-#### Source
+#### Defined in
 
 src/controls/Control.ts:131
 
@@ -118,7 +118,7 @@ src/controls/Control.ts:131
 
 ### mouseDownHandler?
 
-> **`optional`** **mouseDownHandler**: [`ControlActionHandler`](../type-aliases/ControlActionHandler.md)
+> `optional` **mouseDownHandler**: [`ControlActionHandler`](/api/type-aliases/controlactionhandler/)
 
 The control handler for mouse down, provide one to handle mouse down on control
 
@@ -138,7 +138,7 @@ x position of the cursor
 
 y position of the cursor
 
-#### Source
+#### Defined in
 
 src/controls/Control.ts:163
 
@@ -146,7 +146,7 @@ src/controls/Control.ts:163
 
 ### mouseUpHandler?
 
-> **`optional`** **mouseUpHandler**: [`ControlActionHandler`](../type-aliases/ControlActionHandler.md)
+> `optional` **mouseUpHandler**: [`ControlActionHandler`](/api/type-aliases/controlactionhandler/)
 
 The control mouseUpHandler, provide one to handle an effect on mouse up.
 
@@ -166,7 +166,7 @@ x position of the cursor
 
 y position of the cursor
 
-#### Source
+#### Defined in
 
 src/controls/Control.ts:173
 
@@ -191,7 +191,7 @@ of the bounding box.
 0
 ```
 
-#### Source
+#### Defined in
 
 src/controls/Control.ts:83
 
@@ -210,7 +210,7 @@ Positive offset moves the control to the bottom, negative to the top.
 0
 ```
 
-#### Source
+#### Defined in
 
 src/controls/Control.ts:91
 
@@ -229,7 +229,7 @@ Expects both sizeX and sizeY to be set when set.
 null
 ```
 
-#### Source
+#### Defined in
 
 src/controls/Control.ts:99
 
@@ -248,7 +248,7 @@ Expects both sizeX and sizeY to be set when set.
 null
 ```
 
-#### Source
+#### Defined in
 
 src/controls/Control.ts:107
 
@@ -267,7 +267,7 @@ Expects both touchSizeX and touchSizeY to be set when set.
 null
 ```
 
-#### Source
+#### Defined in
 
 src/controls/Control.ts:115
 
@@ -286,7 +286,7 @@ Expects both touchSizeX and touchSizeY to be set when set.
 null
 ```
 
-#### Source
+#### Defined in
 
 src/controls/Control.ts:123
 
@@ -307,7 +307,7 @@ from the control set.
 true
 ```
 
-#### Source
+#### Defined in
 
 src/controls/Control.ts:29
 
@@ -326,7 +326,7 @@ the control to the bounding box
 false
 ```
 
-#### Source
+#### Defined in
 
 src/controls/Control.ts:139
 
@@ -346,7 +346,7 @@ of the bounding box.
 0
 ```
 
-#### Source
+#### Defined in
 
 src/controls/Control.ts:60
 
@@ -366,7 +366,7 @@ of the bounding box.
 0
 ```
 
-#### Source
+#### Defined in
 
 src/controls/Control.ts:69
 
@@ -374,13 +374,13 @@ src/controls/Control.ts:69
 
 ### calcCornerCoords()
 
-> **calcCornerCoords**(`angle`, `objectCornerSize`, `centerX`, `centerY`, `isTouch`, `fabricObject`): `Object`
+> **calcCornerCoords**(`angle`, `objectCornerSize`, `centerX`, `centerY`, `isTouch`, `fabricObject`): `object`
 
 Returns the coords for this control based on object values.
 
 #### Parameters
 
-• **angle**: [`TDegree`](../type-aliases/TDegree.md)
+• **angle**: [`TDegree`](/api/type-aliases/tdegree/)
 
 • **objectCornerSize**: `number`
 
@@ -399,29 +399,29 @@ y coordinate where the control center should be
 
 true if touch corner, false if normal corner
 
-• **fabricObject**: `InteractiveFabricObject`\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **fabricObject**: `InteractiveFabricObject`\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 #### Returns
 
-`Object`
+`object`
 
 ##### bl
 
-> **bl**: [`Point`](Point.md)
+> **bl**: [`Point`](/api/classes/point/)
 
 ##### br
 
-> **br**: [`Point`](Point.md)
+> **br**: [`Point`](/api/classes/point/)
 
 ##### tl
 
-> **tl**: [`Point`](Point.md)
+> **tl**: [`Point`](/api/classes/point/)
 
 ##### tr
 
-> **tr**: [`Point`](Point.md)
+> **tr**: [`Point`](/api/classes/point/)
 
-#### Source
+#### Defined in
 
 src/controls/Control.ts:311
 
@@ -437,21 +437,21 @@ the cursorStyle property
 
 #### Parameters
 
-• **eventData**: [`TPointerEvent`](../type-aliases/TPointerEvent.md)
+• **eventData**: [`TPointerEvent`](/api/type-aliases/tpointerevent/)
 
 the native mouse event
 
-• **control**: [`Control`](Control.md)
+• **control**: [`Control`](/api/classes/control/)
 
 the current control ( likely this)
 
-• **fabricObject**: `InteractiveFabricObject`\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **fabricObject**: `InteractiveFabricObject`\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 #### Returns
 
 `string`
 
-#### Source
+#### Defined in
 
 src/controls/Control.ts:244
 
@@ -459,31 +459,31 @@ src/controls/Control.ts:244
 
 ### getActionHandler()
 
-> **getActionHandler**(`eventData`, `fabricObject`, `control`): `undefined` \| [`TransformActionHandler`](../type-aliases/TransformActionHandler.md)
+> **getActionHandler**(`eventData`, `fabricObject`, `control`): `undefined` \| [`TransformActionHandler`](/api/type-aliases/transformactionhandler/)
 
 Returns control actionHandler
 
 #### Parameters
 
-• **eventData**: [`TPointerEvent`](../type-aliases/TPointerEvent.md)
+• **eventData**: [`TPointerEvent`](/api/type-aliases/tpointerevent/)
 
 the native mouse event
 
-• **fabricObject**: `InteractiveFabricObject`\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **fabricObject**: `InteractiveFabricObject`\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 on which the control is displayed
 
-• **control**: [`Control`](Control.md)
+• **control**: [`Control`](/api/classes/control/)
 
 control for which the action handler is being asked
 
 #### Returns
 
-`undefined` \| [`TransformActionHandler`](../type-aliases/TransformActionHandler.md)
+`undefined` \| [`TransformActionHandler`](/api/type-aliases/transformactionhandler/)
 
 the action handler
 
-#### Source
+#### Defined in
 
 src/controls/Control.ts:196
 
@@ -497,21 +497,21 @@ Returns the action name. The basic implementation just return the actionName pro
 
 #### Parameters
 
-• **eventData**: [`TPointerEvent`](../type-aliases/TPointerEvent.md)
+• **eventData**: [`TPointerEvent`](/api/type-aliases/tpointerevent/)
 
 the native mouse event
 
-• **control**: [`Control`](Control.md)
+• **control**: [`Control`](/api/classes/control/)
 
 the current control ( likely this)
 
-• **fabricObject**: `InteractiveFabricObject`\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **fabricObject**: `InteractiveFabricObject`\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 #### Returns
 
 `string`
 
-#### Source
+#### Defined in
 
 src/controls/Control.ts:259
 
@@ -519,31 +519,31 @@ src/controls/Control.ts:259
 
 ### getMouseDownHandler()
 
-> **getMouseDownHandler**(`eventData`, `fabricObject`, `control`): `undefined` \| [`ControlActionHandler`](../type-aliases/ControlActionHandler.md)
+> **getMouseDownHandler**(`eventData`, `fabricObject`, `control`): `undefined` \| [`ControlActionHandler`](/api/type-aliases/controlactionhandler/)
 
 Returns control mouseDown handler
 
 #### Parameters
 
-• **eventData**: [`TPointerEvent`](../type-aliases/TPointerEvent.md)
+• **eventData**: [`TPointerEvent`](/api/type-aliases/tpointerevent/)
 
 the native mouse event
 
-• **fabricObject**: `InteractiveFabricObject`\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **fabricObject**: `InteractiveFabricObject`\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 on which the control is displayed
 
-• **control**: [`Control`](Control.md)
+• **control**: [`Control`](/api/classes/control/)
 
 control for which the action handler is being asked
 
 #### Returns
 
-`undefined` \| [`ControlActionHandler`](../type-aliases/ControlActionHandler.md)
+`undefined` \| [`ControlActionHandler`](/api/type-aliases/controlactionhandler/)
 
 the action handler
 
-#### Source
+#### Defined in
 
 src/controls/Control.ts:211
 
@@ -551,32 +551,32 @@ src/controls/Control.ts:211
 
 ### getMouseUpHandler()
 
-> **getMouseUpHandler**(`eventData`, `fabricObject`, `control`): `undefined` \| [`ControlActionHandler`](../type-aliases/ControlActionHandler.md)
+> **getMouseUpHandler**(`eventData`, `fabricObject`, `control`): `undefined` \| [`ControlActionHandler`](/api/type-aliases/controlactionhandler/)
 
 Returns control mouseUp handler.
 During actions the fabricObject or the control can be of different obj
 
 #### Parameters
 
-• **eventData**: [`TPointerEvent`](../type-aliases/TPointerEvent.md)
+• **eventData**: [`TPointerEvent`](/api/type-aliases/tpointerevent/)
 
 the native mouse event
 
-• **fabricObject**: `InteractiveFabricObject`\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **fabricObject**: `InteractiveFabricObject`\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 on which the control is displayed
 
-• **control**: [`Control`](Control.md)
+• **control**: [`Control`](/api/classes/control/)
 
 control for which the action handler is being asked
 
 #### Returns
 
-`undefined` \| [`ControlActionHandler`](../type-aliases/ControlActionHandler.md)
+`undefined` \| [`ControlActionHandler`](/api/type-aliases/controlactionhandler/)
 
 the action handler
 
-#### Source
+#### Defined in
 
 src/controls/Control.ts:227
 
@@ -590,7 +590,7 @@ Returns controls visibility
 
 #### Parameters
 
-• **fabricObject**: `InteractiveFabricObject`\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **fabricObject**: `InteractiveFabricObject`\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 • **controlKey**: `string`
 
@@ -600,7 +600,7 @@ key where the control is memorized on the
 
 `boolean`
 
-#### Source
+#### Defined in
 
 src/controls/Control.ts:273
 
@@ -608,23 +608,23 @@ src/controls/Control.ts:273
 
 ### positionHandler()
 
-> **positionHandler**(`dim`, `finalMatrix`, `fabricObject`, `currentControl`): [`Point`](Point.md)
+> **positionHandler**(`dim`, `finalMatrix`, `fabricObject`, `currentControl`): [`Point`](/api/classes/point/)
 
 #### Parameters
 
-• **dim**: [`Point`](Point.md)
+• **dim**: [`Point`](/api/classes/point/)
 
-• **finalMatrix**: [`TMat2D`](../type-aliases/TMat2D.md)
+• **finalMatrix**: [`TMat2D`](/api/type-aliases/tmat2d/)
 
-• **fabricObject**: `InteractiveFabricObject`\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **fabricObject**: `InteractiveFabricObject`\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
-• **currentControl**: [`Control`](Control.md)
+• **currentControl**: [`Control`](/api/classes/control/)
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
-#### Source
+#### Defined in
 
 src/controls/Control.ts:290
 
@@ -654,9 +654,9 @@ position of the canvas where we are about to render the control.
 
 position of the canvas where we are about to render the control.
 
-• **styleOverride**: `undefined` \| `Partial`\<`Pick`\<`InteractiveFabricObject`\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>, `"cornerStyle"` \| `"cornerSize"` \| `"cornerColor"` \| `"cornerStrokeColor"` \| `"cornerDashArray"` \| `"transparentCorners"`\>\>
+• **styleOverride**: `undefined` \| `Partial`\<`Pick`\<`InteractiveFabricObject`\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>, `"cornerStyle"` \| `"cornerSize"` \| `"cornerColor"` \| `"cornerStrokeColor"` \| `"cornerDashArray"` \| `"transparentCorners"`\>\>
 
-• **fabricObject**: `InteractiveFabricObject`\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **fabricObject**: `InteractiveFabricObject`\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 the object where the control is about to be rendered
 
@@ -664,7 +664,7 @@ the object where the control is about to be rendered
 
 `void`
 
-#### Source
+#### Defined in
 
 src/controls/Control.ts:347
 
@@ -684,13 +684,13 @@ for the object
 
 • **name**: `string`
 
-• **fabricObject**: `InteractiveFabricObject`\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **fabricObject**: `InteractiveFabricObject`\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 #### Returns
 
 `void`
 
-#### Source
+#### Defined in
 
 src/controls/Control.ts:282
 
@@ -704,16 +704,16 @@ src/controls/Control.ts:282
 
 • **controlKey**: `string`
 
-• **fabricObject**: `InteractiveFabricObject`\<`Partial`\<[`FabricObjectProps`](../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+• **fabricObject**: `InteractiveFabricObject`\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
-• **pointer**: [`Point`](Point.md)
+• **pointer**: [`Point`](/api/classes/point/)
 
-• **\_\_namedParameters**: [`TCornerPoint`](../type-aliases/TCornerPoint.md)
+• **\_\_namedParameters**: [`TCornerPoint`](/api/type-aliases/tcornerpoint/)
 
 #### Returns
 
 `boolean`
 
-#### Source
+#### Defined in
 
 src/controls/Control.ts:175

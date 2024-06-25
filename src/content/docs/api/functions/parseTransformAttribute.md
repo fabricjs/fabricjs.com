@@ -5,7 +5,7 @@ prev: false
 title: "parseTransformAttribute"
 ---
 
-> **parseTransformAttribute**(`attributeValue`): [`TMat2D`](../type-aliases/TMat2D.md)
+> **parseTransformAttribute**(`attributeValue`): [`TMat2D`](/api/type-aliases/tmat2d/)
 
 Parses "transform" attribute, returning an array of values
 
@@ -17,7 +17,7 @@ String containing attribute value
 
 ## Returns
 
-[`TMat2D`](../type-aliases/TMat2D.md)
+[`TMat2D`](/api/type-aliases/tmat2d/)
 
 Array of 6 elements representing transformation matrix
 
@@ -29,6 +29,6 @@ Array of 6 elements representing transformation matrix
 
 fabric
 
-## Source
+## Defined in
 
 src/parser/parseTransformAttribute.ts:38

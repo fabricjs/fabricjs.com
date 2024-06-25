@@ -5,9 +5,7 @@ prev: false
 title: "getRegularPolygonPath"
 ---
 
-> **getRegularPolygonPath**(`numVertexes`, `radius`): [`TSimplePathData`](../type-aliases/TSimplePathData.md)
-
-Returns an array of path commands to create a regular polygon
+> **getRegularPolygonPath**(`numVertexes`, `radius`): [`TSimplePathData`](/api/namespaces/util/type-aliases/tsimplepathdata/)
 
 ## Parameters
 
@@ -17,10 +15,10 @@ Returns an array of path commands to create a regular polygon
 
 ## Returns
 
-[`TSimplePathData`](../type-aliases/TSimplePathData.md)
+[`TSimplePathData`](/api/namespaces/util/type-aliases/tsimplepathdata/)
 
 An array of SVG path commands
 
-## Source
+## Defined in
 
 src/util/path/index.ts:1000

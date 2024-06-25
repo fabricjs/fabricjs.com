@@ -7,16 +7,13 @@ title: "scalingXOrSkewingY"
 
 > **scalingXOrSkewingY**(`eventData`, `transform`, `x`, `y`): `boolean`
 
-Composed action handler to either scale X or skew Y
-Needs to be wrapped with `wrapWithFixedAnchor` to be effective
-
 ## Parameters
 
-• **eventData**: [`TPointerEvent`](../../../type-aliases/TPointerEvent.md)
+• **eventData**: [`TPointerEvent`](/api/type-aliases/tpointerevent/)
 
 javascript event that is doing the transform
 
-• **transform**: [`Transform`](../../../type-aliases/Transform.md)
+• **transform**: [`Transform`](/api/type-aliases/transform/)
 
 javascript object containing a series of information around the current transform
 
@@ -34,6 +31,6 @@ current mouse y position, canvas normalized
 
 true if some change happened
 
-## Source
+## Defined in
 
 src/controls/scaleSkew.ts:63

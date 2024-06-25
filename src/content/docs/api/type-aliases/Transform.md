@@ -5,7 +5,7 @@ prev: false
 title: "Transform"
 ---
 
-> **Transform**: `Object`
+> **Transform**: `object`
 
 relative to target's containing coordinate plane
 both agree on every point
@@ -14,11 +14,11 @@ both agree on every point
 
 ### action?
 
-> **`optional`** **action**: `string`
+> `optional` **action**: `string`
 
 ### actionHandler?
 
-> **`optional`** **actionHandler**: [`TransformActionHandler`](TransformActionHandler.md)
+> `optional` **actionHandler**: [`TransformActionHandler`](/api/type-aliases/transformactionhandler/)
 
 ### actionPerformed
 
@@ -62,25 +62,25 @@ both agree on every point
 
 ### originX
 
-> **originX**: [`TOriginX`](TOriginX.md)
+> **originX**: [`TOriginX`](/api/type-aliases/toriginx/)
 
 ### originY
 
-> **originY**: [`TOriginY`](TOriginY.md)
+> **originY**: [`TOriginY`](/api/type-aliases/toriginy/)
 
 ### original
 
-> **original**: `ReturnType`\<*typeof* [`saveObjectTransform`](../namespaces/util/functions/saveObjectTransform.md)\> & `Object`
+> **original**: `ReturnType`\<*typeof* [`saveObjectTransform`](/api/namespaces/util/functions/saveobjecttransform/)\> & `object`
 
 #### Type declaration
 
 ##### originX
 
-> **originX**: [`TOriginX`](TOriginX.md)
+> **originX**: [`TOriginX`](/api/type-aliases/toriginx/)
 
 ##### originY
 
-> **originY**: [`TOriginY`](TOriginY.md)
+> **originY**: [`TOriginY`](/api/type-aliases/toriginy/)
 
 ### scaleX
 
@@ -104,16 +104,16 @@ both agree on every point
 
 ### target
 
-> **target**: [`FabricObject`](../classes/FabricObject.md)
+> **target**: [`FabricObject`](/api/classes/fabricobject/)
 
 ### theta
 
-> **theta**: [`TRadian`](TRadian.md)
+> **theta**: [`TRadian`](/api/type-aliases/tradian/)
 
 ### width
 
 > **width**: `number`
 
-## Source
+## Defined in
 
 src/EventTypeDefs.ts:56

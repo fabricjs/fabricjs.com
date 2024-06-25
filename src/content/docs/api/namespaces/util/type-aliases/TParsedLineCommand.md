@@ -5,8 +5,8 @@ prev: false
 title: "TParsedLineCommand"
 ---
 
-> **TParsedLineCommand**: [`TParsedAbsoluteLineCommand`](TParsedAbsoluteLineCommand.md) \| [`TParsedRelativeLineCommand`](TParsedRelativeLineCommand.md)
+> **TParsedLineCommand**: [`TParsedAbsoluteLineCommand`](/api/namespaces/util/type-aliases/tparsedabsolutelinecommand/) \| [`TParsedRelativeLineCommand`](/api/namespaces/util/type-aliases/tparsedrelativelinecommand/)
 
-## Source
+## Defined in
 
 src/util/path/typedefs.ts:119

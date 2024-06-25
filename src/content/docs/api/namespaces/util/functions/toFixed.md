@@ -7,8 +7,6 @@ title: "toFixed"
 
 > **toFixed**(`number`, `fractionDigits`): `number`
 
-A wrapper around Number#toFixed, which contrary to native method returns number, not string.
-
 ## Parameters
 
 • **number**: `string` \| `number`
@@ -23,6 +21,6 @@ number of fraction digits to "leave"
 
 `number`
 
-## Source
+## Defined in
 
 src/util/misc/toFixed.ts:7

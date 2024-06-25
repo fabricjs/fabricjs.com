@@ -5,28 +5,28 @@ prev: false
 title: "CommonLayoutContext"
 ---
 
-> **CommonLayoutContext**: `Object`
+> **CommonLayoutContext**: `object`
 
 ## Type declaration
 
 ### path?
 
-> **`optional`** **path**: [`Group`](../classes/Group.md)[]
+> `optional` **path**: [`Group`](/api/classes/group/)[]
 
 array of objects starting from the object that triggered the call to the current one
 
 ### strategy?
 
-> **`optional`** **strategy**: [`LayoutStrategy`](../classes/LayoutStrategy.md)
+> `optional` **strategy**: [`LayoutStrategy`](/api/classes/layoutstrategy/)
 
 ### target
 
-> **target**: [`Group`](../classes/Group.md)
+> **target**: [`Group`](/api/classes/group/)
 
 ### type
 
-> **type**: [`LayoutTrigger`](LayoutTrigger.md)
+> **type**: [`LayoutTrigger`](/api/type-aliases/layouttrigger/)
 
-## Source
+## Defined in
 
 src/LayoutManager/types.ts:74

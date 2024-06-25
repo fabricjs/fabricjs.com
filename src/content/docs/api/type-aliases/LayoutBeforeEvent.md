@@ -5,14 +5,14 @@ prev: false
 title: "LayoutBeforeEvent"
 ---
 
-> **LayoutBeforeEvent**: `Object`
+> **LayoutBeforeEvent**: `object`
 
 ## Type declaration
 
 ### context
 
-> **context**: [`StrictLayoutContext`](StrictLayoutContext.md)
+> **context**: [`StrictLayoutContext`](/api/type-aliases/strictlayoutcontext/)
 
-## Source
+## Defined in
 
 src/LayoutManager/types.ts:140

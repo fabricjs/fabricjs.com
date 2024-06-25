@@ -5,8 +5,8 @@ prev: false
 title: "TParsedMoveToCommand"
 ---
 
-> **TParsedMoveToCommand**: [`TParsedAbsoluteMoveToCommand`](TParsedAbsoluteMoveToCommand.md) \| [`TParsedRelativeMoveToCommand`](TParsedRelativeMoveToCommand.md)
+> **TParsedMoveToCommand**: [`TParsedAbsoluteMoveToCommand`](/api/namespaces/util/type-aliases/tparsedabsolutemovetocommand/) \| [`TParsedRelativeMoveToCommand`](/api/namespaces/util/type-aliases/tparsedrelativemovetocommand/)
 
-## Source
+## Defined in
 
 src/util/path/typedefs.ts:111

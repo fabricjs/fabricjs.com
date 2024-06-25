@@ -5,20 +5,18 @@ prev: false
 title: "calcVectorRotation"
 ---
 
-> **calcVectorRotation**(`v`): [`TRadian`](../../../type-aliases/TRadian.md)
-
-Calculates the angle between the x axis and the vector
+> **calcVectorRotation**(`v`): [`TRadian`](/api/type-aliases/tradian/)
 
 ## Parameters
 
-• **v**: [`Point`](../../../classes/Point.md)
+• **v**: [`Point`](/api/classes/point/)
 
 ## Returns
 
-[`TRadian`](../../../type-aliases/TRadian.md)
+[`TRadian`](/api/type-aliases/tradian/)
 
 the angle in radians of `v`
 
-## Source
+## Defined in
 
 src/util/misc/vectors.ts:47

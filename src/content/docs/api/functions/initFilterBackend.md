@@ -13,6 +13,6 @@ Verifies if it is possible to initialize webgl or fallback on a canvas2d filteri
 
 `FilterBackend`
 
-## Source
+## Defined in
 
 src/filters/FilterBackend.ts:14

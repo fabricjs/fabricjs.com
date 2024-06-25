@@ -5,8 +5,8 @@ prev: false
 title: "ValueAnimationOptions"
 ---
 
-> **ValueAnimationOptions**: [`TAnimationOptions`](TAnimationOptions.md)\<`number`\>
+> **ValueAnimationOptions**: [`TAnimationOptions`](/api/namespaces/util/type-aliases/tanimationoptions/)\<`number`\>
 
-## Source
+## Defined in
 
 src/util/animation/types.ts:122

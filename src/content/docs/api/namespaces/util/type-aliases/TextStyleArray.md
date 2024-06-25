@@ -5,8 +5,8 @@ prev: false
 title: "TextStyleArray"
 ---
 
-> **TextStyleArray**: `Object`[]
+> **TextStyleArray**: `object`[]
 
-## Source
+## Defined in
 
 src/util/misc/textStyles.ts:9

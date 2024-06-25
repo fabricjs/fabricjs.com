@@ -7,6 +7,6 @@ title: "TParsedRelativeLineCommand"
 
 > **TParsedRelativeLineCommand**: [`"l"`, `number`, `number`]
 
-## Source
+## Defined in
 
 src/util/path/typedefs.ts:118

@@ -7,6 +7,6 @@ title: "SVGElementName"
 
 > **SVGElementName**: `"linearGradient"` \| `"radialGradient"` \| `"stop"`
 
-## Source
+## Defined in
 
 src/typedefs.ts:48

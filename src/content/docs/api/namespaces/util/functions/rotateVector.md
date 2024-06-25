@@ -5,26 +5,24 @@ prev: false
 title: "rotateVector"
 ---
 
-> **rotateVector**(`vector`, `radians`): [`Point`](../../../classes/Point.md)
-
-Rotates `vector` with `radians`
+> **rotateVector**(`vector`, `radians`): [`Point`](/api/classes/point/)
 
 ## Parameters
 
-• **vector**: [`Point`](../../../classes/Point.md)
+• **vector**: [`Point`](/api/classes/point/)
 
 The vector to rotate (x and y)
 
-• **radians**: [`TRadian`](../../../type-aliases/TRadian.md)
+• **radians**: [`TRadian`](/api/type-aliases/tradian/)
 
 The radians of the angle for the rotation
 
 ## Returns
 
-[`Point`](../../../classes/Point.md)
+[`Point`](/api/classes/point/)
 
 The new rotated point
 
-## Source
+## Defined in
 
 src/util/misc/vectors.ts:14

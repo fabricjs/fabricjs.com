@@ -5,7 +5,7 @@ prev: false
 title: "parsePointsAttribute"
 ---
 
-> **parsePointsAttribute**(`points`): [`XY`](../interfaces/XY.md)[]
+> **parsePointsAttribute**(`points`): [`XY`](/api/interfaces/xy/)[]
 
 Parses "points" attribute, returning an array of values
 
@@ -17,7 +17,7 @@ points attribute string
 
 ## Returns
 
-[`XY`](../interfaces/XY.md)[]
+[`XY`](/api/interfaces/xy/)[]
 
 array of points
 
@@ -27,6 +27,6 @@ array of points
 
 fabric
 
-## Source
+## Defined in
 
 src/parser/parsePointsAttribute.ts:10

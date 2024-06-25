@@ -7,11 +7,9 @@ title: "matrixToSVG"
 
 > **matrixToSVG**(`transform`): `string`
 
-given an array of 6 number returns something like `"matrix(...numbers)"`
-
 ## Parameters
 
-• **transform**: [`TMat2D`](../../../type-aliases/TMat2D.md)
+• **transform**: [`TMat2D`](/api/type-aliases/tmat2d/)
 
 an array with 6 numbers
 
@@ -21,6 +19,6 @@ an array with 6 numbers
 
 transform matrix for svg
 
-## Source
+## Defined in
 
 src/util/misc/svgParsing.ts:128

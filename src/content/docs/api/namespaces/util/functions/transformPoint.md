@@ -5,21 +5,15 @@ prev: false
 title: "transformPoint"
 ---
 
-> **transformPoint**(`p`, `t`, `ignoreOffset`?): [`Point`](../../../classes/Point.md)
-
-Apply transform t to point p
-
-:::caution[Deprecated]
-use [Point#transform](../../../classes/Point.md#transform)
-:::
+> **transformPoint**(`p`, `t`, `ignoreOffset`?): [`Point`](/api/classes/point/)
 
 ## Parameters
 
-• **p**: [`XY`](../../../interfaces/XY.md)
+• **p**: [`XY`](/api/interfaces/xy/)
 
 The point to transform
 
-• **t**: [`TMat2D`](../../../type-aliases/TMat2D.md)
+• **t**: [`TMat2D`](/api/type-aliases/tmat2d/)
 
 The transform
 
@@ -29,14 +23,10 @@ Indicates that the offset should not be applied
 
 ## Returns
 
-[`Point`](../../../classes/Point.md)
+[`Point`](/api/classes/point/)
 
 The transformed point
 
-:::caution[Deprecated]
-use [Point#transform](../../../classes/Point.md#transform)
-:::
-
-## Source
+## Defined in
 
 src/util/misc/matrix.ts:46

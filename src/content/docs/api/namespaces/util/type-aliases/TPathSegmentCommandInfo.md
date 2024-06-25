@@ -5,7 +5,7 @@ prev: false
 title: "TPathSegmentCommandInfo"
 ---
 
-> **TPathSegmentCommandInfo**: `Object`
+> **TPathSegmentCommandInfo**: `object`
 
 Relevant info to calculate path length/points on path
 for each command type in a simplified parsed path
@@ -14,24 +14,24 @@ for each command type in a simplified parsed path
 
 ### C
 
-> **C**: [`TCurveInfo`](TCurveInfo.md)\<`"C"`\>
+> **C**: [`TCurveInfo`](/api/namespaces/util/type-aliases/tcurveinfo/)\<`"C"`\>
 
 ### L
 
-> **L**: [`TPathSegmentInfoCommon`](TPathSegmentInfoCommon.md)\<`"L"`\>
+> **L**: [`TPathSegmentInfoCommon`](/api/namespaces/util/type-aliases/tpathsegmentinfocommon/)\<`"L"`\>
 
 ### M
 
-> **M**: [`TPathSegmentInfoCommon`](TPathSegmentInfoCommon.md)\<`"M"`\>
+> **M**: [`TPathSegmentInfoCommon`](/api/namespaces/util/type-aliases/tpathsegmentinfocommon/)\<`"M"`\>
 
 ### Q
 
-> **Q**: [`TCurveInfo`](TCurveInfo.md)\<`"Q"`\>
+> **Q**: [`TCurveInfo`](/api/namespaces/util/type-aliases/tcurveinfo/)\<`"Q"`\>
 
 ### Z
 
-> **Z**: [`TEndPathInfo`](TEndPathInfo.md)
+> **Z**: [`TEndPathInfo`](/api/namespaces/util/type-aliases/tendpathinfo/)
 
-## Source
+## Defined in
 
 src/util/path/typedefs.ts:37

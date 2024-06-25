@@ -21,6 +21,6 @@ SVG document to parse
 
 CSS rules of this document
 
-## Source
+## Defined in
 
 src/parser/getCSSRules.ts:8

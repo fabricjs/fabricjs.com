@@ -5,17 +5,17 @@ prev: false
 title: "TToCanvasElementOptions"
 ---
 
-> **TToCanvasElementOptions**\<`T`\>: `Object`
+> **TToCanvasElementOptions**\<`T`\>: `object`
 
-## Type parameters
+## Type Parameters
 
-• **T** extends `BaseFabricObject` = `BaseFabricObject`
+• **T** *extends* `BaseFabricObject` = `BaseFabricObject`
 
 ## Type declaration
 
 ### filter()?
 
-> **`optional`** **filter**: (`object`) => `boolean`
+> `optional` **filter**: (`object`) => `boolean`
 
 #### Parameters
 
@@ -27,20 +27,20 @@ title: "TToCanvasElementOptions"
 
 ### height?
 
-> **`optional`** **height**: `number`
+> `optional` **height**: `number`
 
 ### left?
 
-> **`optional`** **left**: `number`
+> `optional` **left**: `number`
 
 ### top?
 
-> **`optional`** **top**: `number`
+> `optional` **top**: `number`
 
 ### width?
 
-> **`optional`** **width**: `number`
+> `optional` **width**: `number`
 
-## Source
+## Defined in
 
 src/typedefs.ts:100

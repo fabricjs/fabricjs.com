@@ -5,8 +5,8 @@ prev: false
 title: "TextStyleDeclaration"
 ---
 
-> **TextStyleDeclaration**: `Partial`\<[`CompleteTextStyleDeclaration`](CompleteTextStyleDeclaration.md)\>
+> **TextStyleDeclaration**: `Partial`\<[`CompleteTextStyleDeclaration`](/api/type-aliases/completetextstyledeclaration/)\>
 
-## Source
+## Defined in
 
 src/shapes/Text/StyledText.ts:16

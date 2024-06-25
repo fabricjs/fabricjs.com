@@ -5,8 +5,8 @@ prev: false
 title: "TArcCommand"
 ---
 
-> **TArcCommand**: `TCommand8`\<[`TParsedArcCommand`](TParsedArcCommand.md)\> \| [`TArcCommandSingleFlag`](TArcCommandSingleFlag.md)\<[`TParsedArcCommand`](TParsedArcCommand.md)\>
+> **TArcCommand**: `TCommand8`\<[`TParsedArcCommand`](/api/namespaces/util/type-aliases/tparsedarccommand/)\> \| [`TArcCommandSingleFlag`](/api/namespaces/util/type-aliases/tarccommandsingleflag/)\<[`TParsedArcCommand`](/api/namespaces/util/type-aliases/tparsedarccommand/)\>
 
-## Source
+## Defined in
 
 src/util/path/typedefs.ts:258

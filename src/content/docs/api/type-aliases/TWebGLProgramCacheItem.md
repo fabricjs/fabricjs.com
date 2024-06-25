@@ -5,13 +5,13 @@ prev: false
 title: "TWebGLProgramCacheItem"
 ---
 
-> **TWebGLProgramCacheItem**: `Object`
+> **TWebGLProgramCacheItem**: `object`
 
 ## Type declaration
 
 ### attributeLocations
 
-> **attributeLocations**: [`TWebGLAttributeLocationMap`](TWebGLAttributeLocationMap.md)
+> **attributeLocations**: [`TWebGLAttributeLocationMap`](/api/type-aliases/twebglattributelocationmap/)
 
 ### program
 
@@ -19,8 +19,8 @@ title: "TWebGLProgramCacheItem"
 
 ### uniformLocations
 
-> **uniformLocations**: [`TWebGLUniformLocationMap`](TWebGLUniformLocationMap.md)
+> **uniformLocations**: [`TWebGLUniformLocationMap`](/api/type-aliases/twebgluniformlocationmap/)
 
-## Source
+## Defined in
 
 src/filters/typedefs.ts:54

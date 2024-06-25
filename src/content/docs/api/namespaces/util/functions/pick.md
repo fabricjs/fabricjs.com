@@ -7,11 +7,9 @@ title: "pick"
 
 > **pick**\<`T`\>(`source`, `keys`): `Partial`\<`T`\>
 
-Populates an object with properties of another object
+## Type Parameters
 
-## Type parameters
-
-• **T** extends `Record`\<`string`, `any`\>
+• **T** *extends* `Record`\<`string`, `any`\>
 
 ## Parameters
 
@@ -19,7 +17,7 @@ Populates an object with properties of another object
 
 Source object
 
-• **keys**: keyof `T`[]= `[]`
+• **keys**: keyof `T`[] = `[]`
 
 ## Returns
 
@@ -27,6 +25,6 @@ Source object
 
 object populated with the picked keys
 
-## Source
+## Defined in
 
 src/util/misc/pick.ts:7

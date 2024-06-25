@@ -5,25 +5,25 @@ prev: false
 title: "GradientOptions"
 ---
 
-> **GradientOptions**\<`T`\>: `Object`
+> **GradientOptions**\<`T`\>: `object`
 
-## Type parameters
+## Type Parameters
 
-• **T** extends [`GradientType`](GradientType.md)
+• **T** *extends* [`GradientType`](/api/type-aliases/gradienttype/)
 
 ## Type declaration
 
 ### colorStops?
 
-> **`optional`** **colorStops**: [`ColorStop`](ColorStop.md)[]
+> `optional` **colorStops**: [`ColorStop`](/api/type-aliases/colorstop/)[]
 
 ### coords?
 
-> **`optional`** **coords**: `Partial`\<[`GradientCoords`](GradientCoords.md)\<`T`\>\>
+> `optional` **coords**: `Partial`\<[`GradientCoords`](/api/type-aliases/gradientcoords/)\<`T`\>\>
 
 ### gradientTransform?
 
-> **`optional`** **gradientTransform**: [`TMat2D`](TMat2D.md)
+> `optional` **gradientTransform**: [`TMat2D`](/api/type-aliases/tmat2d/)
 
 #### Todo
 
@@ -31,28 +31,28 @@ rename?
 
 ### gradientUnits?
 
-> **`optional`** **gradientUnits**: [`GradientUnits`](GradientUnits.md)
+> `optional` **gradientUnits**: [`GradientUnits`](/api/type-aliases/gradientunits/)
 
 ### id?
 
-> **`optional`** **id**: `string`
+> `optional` **id**: `string`
 
 ### offsetX?
 
-> **`optional`** **offsetX**: `number`
+> `optional` **offsetX**: `number`
 
 SVG import compatibility
 
 ### offsetY?
 
-> **`optional`** **offsetY**: `number`
+> `optional` **offsetY**: `number`
 
 SVG import compatibility
 
 ### type?
 
-> **`optional`** **type**: `T`
+> `optional` **type**: `T`
 
-## Source
+## Defined in
 
 src/gradient/typedefs.ts:65

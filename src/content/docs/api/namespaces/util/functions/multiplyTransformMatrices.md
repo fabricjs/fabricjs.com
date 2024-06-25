@@ -5,17 +5,15 @@ prev: false
 title: "multiplyTransformMatrices"
 ---
 
-> **multiplyTransformMatrices**(`a`, `b`, `is2x2`?): [`TMat2D`](../../../type-aliases/TMat2D.md)
-
-Multiply matrix A by matrix B to nest transformations
+> **multiplyTransformMatrices**(`a`, `b`, `is2x2`?): [`TMat2D`](/api/type-aliases/tmat2d/)
 
 ## Parameters
 
-• **a**: [`TMat2D`](../../../type-aliases/TMat2D.md)
+• **a**: [`TMat2D`](/api/type-aliases/tmat2d/)
 
 First transformMatrix
 
-• **b**: [`TMat2D`](../../../type-aliases/TMat2D.md)
+• **b**: [`TMat2D`](/api/type-aliases/tmat2d/)
 
 Second transformMatrix
 
@@ -25,10 +23,10 @@ flag to multiply matrices as 2x2 matrices
 
 ## Returns
 
-[`TMat2D`](../../../type-aliases/TMat2D.md)
+[`TMat2D`](/api/type-aliases/tmat2d/)
 
 The product of the two transform matrices
 
-## Source
+## Defined in
 
 src/util/misc/matrix.ts:73

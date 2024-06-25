@@ -7,7 +7,7 @@ title: "TextboxProps"
 
 ## Extends
 
-- [`ITextProps`](ITextProps.md).`UniqueTextboxProps`
+- [`ITextProps`](/api/interfaces/itextprops/).`UniqueTextboxProps`
 
 ## Properties
 
@@ -19,7 +19,7 @@ title: "TextboxProps"
 
 `UniqueTextboxProps._wordJoiners`
 
-#### Source
+#### Defined in
 
 src/shapes/Textbox.ts:38
 
@@ -44,9 +44,9 @@ false
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`absolutePositioned`](ITextProps.md#absolutepositioned)
+[`ITextProps`](/api/interfaces/itextprops/).[`absolutePositioned`](/api/interfaces/itextprops/#absolutepositioned)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/SerializedObjectProps.ts:72
 
@@ -54,7 +54,7 @@ src/shapes/Object/types/SerializedObjectProps.ts:72
 
 ### angle
 
-> **angle**: [`TDegree`](../type-aliases/TDegree.md)
+> **angle**: [`TDegree`](/api/type-aliases/tdegree/)
 
 Angle of rotation of an object (in degrees)
 
@@ -66,9 +66,9 @@ Angle of rotation of an object (in degrees)
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`angle`](ITextProps.md#angle)
+[`ITextProps`](/api/interfaces/itextprops/).[`angle`](/api/interfaces/itextprops/#angle)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:57
 
@@ -89,9 +89,9 @@ takes css colors https://www.w3.org/TR/css-color-3/
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`backgroundColor`](ITextProps.md#backgroundcolor)
+[`ITextProps`](/api/interfaces/itextprops/).[`backgroundColor`](/api/interfaces/itextprops/#backgroundcolor)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/SerializedObjectProps.ts:26
 
@@ -111,9 +111,9 @@ rgb(178,204,255)
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`borderColor`](ITextProps.md#bordercolor)
+[`ITextProps`](/api/interfaces/itextprops/).[`borderColor`](/api/interfaces/itextprops/#bordercolor)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BorderProps.ts:7
 
@@ -131,9 +131,9 @@ Array specifying dash pattern of an object's borders (hasBorder must be true)
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`borderDashArray`](ITextProps.md#borderdasharray)
+[`ITextProps`](/api/interfaces/itextprops/).[`borderDashArray`](/api/interfaces/itextprops/#borderdasharray)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BorderProps.ts:15
 
@@ -153,9 +153,9 @@ Opacity of object's controlling borders when object is active and moving
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`borderOpacityWhenMoving`](ITextProps.md#borderopacitywhenmoving)
+[`ITextProps`](/api/interfaces/itextprops/).[`borderOpacityWhenMoving`](/api/interfaces/itextprops/#borderopacitywhenmoving)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BorderProps.ts:29
 
@@ -178,9 +178,9 @@ since there is no way to change the border itself.
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`borderScaleFactor`](ITextProps.md#borderscalefactor)
+[`ITextProps`](/api/interfaces/itextprops/).[`borderScaleFactor`](/api/interfaces/itextprops/#borderscalefactor)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BorderProps.ts:39
 
@@ -188,13 +188,13 @@ src/shapes/Object/types/BorderProps.ts:39
 
 ### canvas?
 
-> **`optional`** **canvas**: [`Canvas`](../classes/Canvas.md) \| [`StaticCanvas`](../classes/StaticCanvas.md)\<[`StaticCanvasEvents`](StaticCanvasEvents.md)\>
+> `optional` **canvas**: [`Canvas`](/api/classes/canvas/) \| [`StaticCanvas`](/api/classes/staticcanvas/)\<[`StaticCanvasEvents`](/api/interfaces/staticcanvasevents/)\>
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`canvas`](ITextProps.md#canvas)
+[`ITextProps`](/api/interfaces/itextprops/).[`canvas`](/api/interfaces/itextprops/#canvas)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ObjectProps.ts:20
 
@@ -222,9 +222,9 @@ The object method `rotate` will always consider this property and never the canv
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`centeredRotation`](ITextProps.md#centeredrotation)
+[`ITextProps`](/api/interfaces/itextprops/).[`centeredRotation`](/api/interfaces/itextprops/#centeredrotation)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ObjectTransformProps.ts:27
 
@@ -249,9 +249,9 @@ when being scaled via the controls.
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`centeredScaling`](ITextProps.md#centeredscaling)
+[`ITextProps`](/api/interfaces/itextprops/).[`centeredScaling`](/api/interfaces/itextprops/#centeredscaling)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ObjectTransformProps.ts:36
 
@@ -263,9 +263,9 @@ src/shapes/Object/types/ObjectTransformProps.ts:36
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`charSpacing`](ITextProps.md#charspacing)
+[`ITextProps`](/api/interfaces/itextprops/).[`charSpacing`](/api/interfaces/itextprops/#charspacing)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:94
 
@@ -273,13 +273,18 @@ src/shapes/Text/Text.ts:94
 
 ### clipPath?
 
-> **`optional`** **clipPath**: `FabricObject`\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](SerializedObjectProps.md), [`ObjectEvents`](ObjectEvents.md)\>
+> `optional` **clipPath**: `FabricObject`\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
+
+a fabricObject that, without stroke define a clipping area with their shape. filled in black
+the clipPath object gets used when the object has rendered, and the context is placed in the center
+of the object cacheCanvas.
+If you want 0,0 of a clipPath to align with an object center, use clipPath.originX/Y to 'center'
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`clipPath`](ITextProps.md#clippath)
+[`ITextProps`](/api/interfaces/itextprops/).[`clipPath`](/api/interfaces/itextprops/#clippath)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ObjectProps.ts:16
 
@@ -299,9 +304,9 @@ rgb(178,204,255)
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`cornerColor`](ITextProps.md#cornercolor)
+[`ITextProps`](/api/interfaces/itextprops/).[`cornerColor`](/api/interfaces/itextprops/#cornercolor)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ControlProps.ts:28
 
@@ -319,9 +324,9 @@ Array specifying dash pattern of an object's control (hasBorder must be true)
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`cornerDashArray`](ITextProps.md#cornerdasharray)
+[`ITextProps`](/api/interfaces/itextprops/).[`cornerDashArray`](/api/interfaces/itextprops/#cornerdasharray)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ControlProps.ts:54
 
@@ -341,9 +346,9 @@ Size of object's controlling corners (in pixels)
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`cornerSize`](ITextProps.md#cornersize)
+[`ITextProps`](/api/interfaces/itextprops/).[`cornerSize`](/api/interfaces/itextprops/#cornersize)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ControlProps.ts:7
 
@@ -367,9 +372,9 @@ null
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`cornerStrokeColor`](ITextProps.md#cornerstrokecolor)
+[`ITextProps`](/api/interfaces/itextprops/).[`cornerStrokeColor`](/api/interfaces/itextprops/#cornerstrokecolor)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ControlProps.ts:36
 
@@ -399,9 +404,9 @@ This API is no longer supported and may be removed in a future release.
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`cornerStyle`](ITextProps.md#cornerstyle)
+[`ITextProps`](/api/interfaces/itextprops/).[`cornerStyle`](/api/interfaces/itextprops/#cornerstyle)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ControlProps.ts:47
 
@@ -413,9 +418,9 @@ src/shapes/Object/types/ControlProps.ts:47
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`direction`](ITextProps.md#direction)
+[`ITextProps`](/api/interfaces/itextprops/).[`direction`](/api/interfaces/itextprops/#direction)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:106
 
@@ -429,7 +434,7 @@ src/shapes/Text/Text.ts:106
 
 `UniqueTextboxProps.dynamicMinWidth`
 
-#### Source
+#### Defined in
 
 src/shapes/Textbox.ts:37
 
@@ -449,9 +454,9 @@ When set to `false`, an object can not be a target of events. All events propaga
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`evented`](ITextProps.md#evented)
+[`ITextProps`](/api/interfaces/itextprops/).[`evented`](/api/interfaces/itextprops/#evented)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FabricObjectProps.ts:65
 
@@ -475,9 +480,9 @@ When `true`, object is not exported in OBJECT/JSON
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`excludeFromExport`](ITextProps.md#excludefromexport)
+[`ITextProps`](/api/interfaces/itextprops/).[`excludeFromExport`](/api/interfaces/itextprops/#excludefromexport)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ObjectProps.ts:52
 
@@ -485,13 +490,22 @@ src/shapes/Object/types/ObjectProps.ts:52
 
 ### fill
 
-> **fill**: `null` \| `string` \| [`TFiller`](../type-aliases/TFiller.md)
+> **fill**: `null` \| `string` \| [`TFiller`](/api/type-aliases/tfiller/)
+
+Color of object's fill
+takes css colors https://www.w3.org/TR/css-color-3/
+
+#### Default
+
+```ts
+rgb(0,0,0)
+```
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`fill`](ITextProps.md#fill)
+[`ITextProps`](/api/interfaces/itextprops/).[`fill`](/api/interfaces/itextprops/#fill)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ObjectProps.ts:17
 
@@ -513,9 +527,9 @@ nonzero
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`fillRule`](ITextProps.md#fillrule)
+[`ITextProps`](/api/interfaces/itextprops/).[`fillRule`](/api/interfaces/itextprops/#fillrule)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FillStrokeProps.ts:26
 
@@ -535,9 +549,9 @@ false
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`flipX`](ITextProps.md#flipx)
+[`ITextProps`](/api/interfaces/itextprops/).[`flipX`](/api/interfaces/itextprops/#flipx)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:64
 
@@ -557,9 +571,9 @@ false
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`flipY`](ITextProps.md#flipy)
+[`ITextProps`](/api/interfaces/itextprops/).[`flipY`](/api/interfaces/itextprops/#flipy)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:71
 
@@ -571,9 +585,9 @@ src/shapes/Object/types/BaseProps.ts:71
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`fontFamily`](ITextProps.md#fontfamily)
+[`ITextProps`](/api/interfaces/itextprops/).[`fontFamily`](/api/interfaces/itextprops/#fontfamily)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:98
 
@@ -585,9 +599,9 @@ src/shapes/Text/Text.ts:98
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`fontSize`](ITextProps.md#fontsize)
+[`ITextProps`](/api/interfaces/itextprops/).[`fontSize`](/api/interfaces/itextprops/#fontsize)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:96
 
@@ -599,9 +613,9 @@ src/shapes/Text/Text.ts:96
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`fontStyle`](ITextProps.md#fontstyle)
+[`ITextProps`](/api/interfaces/itextprops/).[`fontStyle`](/api/interfaces/itextprops/#fontstyle)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:99
 
@@ -613,9 +627,9 @@ src/shapes/Text/Text.ts:99
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`fontWeight`](ITextProps.md#fontweight)
+[`ITextProps`](/api/interfaces/itextprops/).[`fontWeight`](/api/interfaces/itextprops/#fontweight)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:97
 
@@ -635,9 +649,9 @@ Composite rule used for canvas globalCompositeOperation
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`globalCompositeOperation`](ITextProps.md#globalcompositeoperation)
+[`ITextProps`](/api/interfaces/itextprops/).[`globalCompositeOperation`](/api/interfaces/itextprops/#globalcompositeoperation)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/SerializedObjectProps.ts:18
 
@@ -657,9 +671,9 @@ When set to `false`, object's controlling borders are not rendered
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`hasBorders`](ITextProps.md#hasborders)
+[`ITextProps`](/api/interfaces/itextprops/).[`hasBorders`](/api/interfaces/itextprops/#hasborders)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BorderProps.ts:22
 
@@ -679,9 +693,9 @@ When set to `false`, object's controls are not displayed and can not be used to 
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`hasControls`](ITextProps.md#hascontrols)
+[`ITextProps`](/api/interfaces/itextprops/).[`hasControls`](/api/interfaces/itextprops/#hascontrols)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ControlProps.ts:68
 
@@ -701,9 +715,9 @@ Object height
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`height`](ITextProps.md#height)
+[`ITextProps`](/api/interfaces/itextprops/).[`height`](/api/interfaces/itextprops/#height)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:34
 
@@ -723,9 +737,9 @@ null
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`hoverCursor`](ITextProps.md#hovercursor)
+[`ITextProps`](/api/interfaces/itextprops/).[`hoverCursor`](/api/interfaces/itextprops/#hovercursor)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FabricObjectProps.ts:27
 
@@ -745,9 +759,9 @@ When `false`, default object's values are not included in its serialization
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`includeDefaultValues`](ITextProps.md#includedefaultvalues)
+[`ITextProps`](/api/interfaces/itextprops/).[`includeDefaultValues`](/api/interfaces/itextprops/#includedefaultvalues)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ObjectProps.ts:44
 
@@ -769,9 +783,9 @@ false
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`inverted`](ITextProps.md#inverted)
+[`ITextProps`](/api/interfaces/itextprops/).[`inverted`](/api/interfaces/itextprops/#inverted)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/SerializedObjectProps.ts:60
 
@@ -793,9 +807,9 @@ You can change this by setting [originX](../../../../api/interfaces/fabricobject
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`left`](ITextProps.md#left)
+[`ITextProps`](/api/interfaces/itextprops/).[`left`](/api/interfaces/itextprops/#left)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:11
 
@@ -807,9 +821,9 @@ src/shapes/Object/types/BaseProps.ts:11
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`lineHeight`](ITextProps.md#lineheight)
+[`ITextProps`](/api/interfaces/itextprops/).[`lineHeight`](/api/interfaces/itextprops/#lineheight)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:95
 
@@ -821,9 +835,9 @@ src/shapes/Text/Text.ts:95
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`linethrough`](ITextProps.md#linethrough)
+[`ITextProps`](/api/interfaces/itextprops/).[`linethrough`](/api/interfaces/itextprops/#linethrough)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:104
 
@@ -843,9 +857,9 @@ When `true`, object horizontal movement is locked
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`lockMovementX`](ITextProps.md#lockmovementx)
+[`ITextProps`](/api/interfaces/itextprops/).[`lockMovementX`](/api/interfaces/itextprops/#lockmovementx)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/LockInteractionProps.ts:7
 
@@ -865,9 +879,9 @@ When `true`, object vertical movement is locked
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`lockMovementY`](ITextProps.md#lockmovementy)
+[`ITextProps`](/api/interfaces/itextprops/).[`lockMovementY`](/api/interfaces/itextprops/#lockmovementy)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/LockInteractionProps.ts:14
 
@@ -887,9 +901,9 @@ When `true`, object rotation is locked
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`lockRotation`](ITextProps.md#lockrotation)
+[`ITextProps`](/api/interfaces/itextprops/).[`lockRotation`](/api/interfaces/itextprops/#lockrotation)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/LockInteractionProps.ts:21
 
@@ -909,9 +923,9 @@ When `true`, object cannot be flipped by scaling into negative values
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`lockScalingFlip`](ITextProps.md#lockscalingflip)
+[`ITextProps`](/api/interfaces/itextprops/).[`lockScalingFlip`](/api/interfaces/itextprops/#lockscalingflip)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/LockInteractionProps.ts:56
 
@@ -931,9 +945,9 @@ When `true`, object horizontal scaling is locked
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`lockScalingX`](ITextProps.md#lockscalingx)
+[`ITextProps`](/api/interfaces/itextprops/).[`lockScalingX`](/api/interfaces/itextprops/#lockscalingx)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/LockInteractionProps.ts:28
 
@@ -953,9 +967,9 @@ When `true`, object vertical scaling is locked
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`lockScalingY`](ITextProps.md#lockscalingy)
+[`ITextProps`](/api/interfaces/itextprops/).[`lockScalingY`](/api/interfaces/itextprops/#lockscalingy)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/LockInteractionProps.ts:35
 
@@ -975,9 +989,9 @@ When `true`, object horizontal skewing is locked
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`lockSkewingX`](ITextProps.md#lockskewingx)
+[`ITextProps`](/api/interfaces/itextprops/).[`lockSkewingX`](/api/interfaces/itextprops/#lockskewingx)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/LockInteractionProps.ts:42
 
@@ -997,9 +1011,9 @@ When `true`, object vertical skewing is locked
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`lockSkewingY`](ITextProps.md#lockskewingy)
+[`ITextProps`](/api/interfaces/itextprops/).[`lockSkewingY`](/api/interfaces/itextprops/#lockskewingy)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/LockInteractionProps.ts:49
 
@@ -1019,9 +1033,9 @@ Minimum allowed scale value of an object
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`minScaleLimit`](ITextProps.md#minscalelimit)
+[`ITextProps`](/api/interfaces/itextprops/).[`minScaleLimit`](/api/interfaces/itextprops/#minscalelimit)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ObjectProps.ts:27
 
@@ -1035,7 +1049,7 @@ src/shapes/Object/types/ObjectProps.ts:27
 
 `UniqueTextboxProps.minWidth`
 
-#### Source
+#### Defined in
 
 src/shapes/Textbox.ts:35
 
@@ -1055,9 +1069,9 @@ null
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`moveCursor`](ITextProps.md#movecursor)
+[`ITextProps`](/api/interfaces/itextprops/).[`moveCursor`](/api/interfaces/itextprops/#movecursor)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FabricObjectProps.ts:34
 
@@ -1065,7 +1079,7 @@ src/shapes/Object/types/FabricObjectProps.ts:34
 
 ### noScaleCache?
 
-> **`optional`** **noScaleCache**: `boolean`
+> `optional` **noScaleCache**: `boolean`
 
 When `true`, cache does not get updated during scaling. The picture will get blocky if scaled
 too much and will be redrawn with correct details at the end of scaling.
@@ -1081,9 +1095,9 @@ true
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`noScaleCache`](ITextProps.md#noscalecache)
+[`ITextProps`](/api/interfaces/itextprops/).[`noScaleCache`](/api/interfaces/itextprops/#noscalecache)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FabricObjectProps.ts:20
 
@@ -1109,9 +1123,9 @@ true
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`objectCaching`](ITextProps.md#objectcaching)
+[`ITextProps`](/api/interfaces/itextprops/).[`objectCaching`](/api/interfaces/itextprops/#objectcaching)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ObjectProps.ts:37
 
@@ -1131,9 +1145,9 @@ Opacity of an object
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`opacity`](ITextProps.md#opacity)
+[`ITextProps`](/api/interfaces/itextprops/).[`opacity`](/api/interfaces/itextprops/#opacity)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/SerializedObjectProps.ts:11
 
@@ -1141,7 +1155,7 @@ src/shapes/Object/types/SerializedObjectProps.ts:11
 
 ### originX
 
-> **originX**: [`TOriginX`](../type-aliases/TOriginX.md)
+> **originX**: [`TOriginX`](/api/type-aliases/toriginx/)
 
 Horizontal origin of transformation of an object (`left`, `center`, `right`  or `[0, 1]`)
 See http://jsfiddle.net/1ow02gea/244/ on how originX/originY affect objects in groups
@@ -1154,9 +1168,9 @@ See http://jsfiddle.net/1ow02gea/244/ on how originX/originY affect objects in g
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`originX`](ITextProps.md#originx)
+[`ITextProps`](/api/interfaces/itextprops/).[`originX`](/api/interfaces/itextprops/#originx)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:42
 
@@ -1164,7 +1178,7 @@ src/shapes/Object/types/BaseProps.ts:42
 
 ### originY
 
-> **originY**: [`TOriginY`](../type-aliases/TOriginY.md)
+> **originY**: [`TOriginY`](/api/type-aliases/toriginy/)
 
 Vertical origin of transformation of an object (`top`, `center`, `bottom` or `[0, 1]`)
 See http://jsfiddle.net/1ow02gea/244/ on how originX/originY affect objects in groups
@@ -1177,9 +1191,9 @@ See http://jsfiddle.net/1ow02gea/244/ on how originX/originY affect objects in g
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`originY`](ITextProps.md#originy)
+[`ITextProps`](/api/interfaces/itextprops/).[`originY`](/api/interfaces/itextprops/#originy)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:50
 
@@ -1191,9 +1205,9 @@ src/shapes/Object/types/BaseProps.ts:50
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`overline`](ITextProps.md#overline)
+[`ITextProps`](/api/interfaces/itextprops/).[`overline`](/api/interfaces/itextprops/#overline)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:103
 
@@ -1213,9 +1227,9 @@ Padding between object and its controlling borders (in pixels)
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`padding`](ITextProps.md#padding)
+[`ITextProps`](/api/interfaces/itextprops/).[`padding`](/api/interfaces/itextprops/#padding)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ControlProps.ts:61
 
@@ -1235,9 +1249,9 @@ Determines if the fill or the stroke is drawn first (one of "fill" or "stroke")
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`paintFirst`](ITextProps.md#paintfirst)
+[`ITextProps`](/api/interfaces/itextprops/).[`paintFirst`](/api/interfaces/itextprops/#paintfirst)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FillStrokeProps.ts:9
 
@@ -1245,13 +1259,13 @@ src/shapes/Object/types/FillStrokeProps.ts:9
 
 ### path?
 
-> **`optional`** **path**: [`Path`](../classes/Path.md)\<`Partial`\<[`PathProps`](PathProps.md)\>, [`SerializedPathProps`](SerializedPathProps.md), [`ObjectEvents`](ObjectEvents.md)\>
+> `optional` **path**: [`Path`](/api/classes/path/)\<`Partial`\<[`PathProps`](/api/interfaces/pathprops/)\>, [`SerializedPathProps`](/api/interfaces/serializedpathprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`path`](ITextProps.md#path)
+[`ITextProps`](/api/interfaces/itextprops/).[`path`](/api/interfaces/itextprops/#path)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:107
 
@@ -1259,13 +1273,13 @@ src/shapes/Text/Text.ts:107
 
 ### pathAlign
 
-> **pathAlign**: [`TPathAlign`](../type-aliases/TPathAlign.md)
+> **pathAlign**: [`TPathAlign`](/api/type-aliases/tpathalign/)
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`pathAlign`](ITextProps.md#pathalign)
+[`ITextProps`](/api/interfaces/itextprops/).[`pathAlign`](/api/interfaces/itextprops/#pathalign)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:101
 
@@ -1273,13 +1287,13 @@ src/shapes/Text/Text.ts:101
 
 ### pathSide
 
-> **pathSide**: [`TPathSide`](../type-aliases/TPathSide.md)
+> **pathSide**: [`TPathSide`](/api/type-aliases/tpathside/)
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`pathSide`](ITextProps.md#pathside)
+[`ITextProps`](/api/interfaces/itextprops/).[`pathSide`](/api/interfaces/itextprops/#pathside)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:100
 
@@ -1299,9 +1313,9 @@ When set to `true`, objects are "found" on canvas on per-pixel basis rather than
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`perPixelTargetFind`](ITextProps.md#perpixeltargetfind)
+[`ITextProps`](/api/interfaces/itextprops/).[`perPixelTargetFind`](/api/interfaces/itextprops/#perpixeltargetfind)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FabricObjectProps.ts:50
 
@@ -1321,9 +1335,9 @@ Object scale factor (horizontal)
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`scaleX`](ITextProps.md#scalex)
+[`ITextProps`](/api/interfaces/itextprops/).[`scaleX`](/api/interfaces/itextprops/#scalex)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:78
 
@@ -1343,9 +1357,9 @@ Object scale factor (vertical)
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`scaleY`](ITextProps.md#scaley)
+[`ITextProps`](/api/interfaces/itextprops/).[`scaleY`](/api/interfaces/itextprops/#scaley)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:85
 
@@ -1366,9 +1380,9 @@ But events still fire on it.
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`selectable`](ITextProps.md#selectable)
+[`ITextProps`](/api/interfaces/itextprops/).[`selectable`](/api/interfaces/itextprops/#selectable)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FabricObjectProps.ts:58
 
@@ -1393,9 +1407,9 @@ This API is no longer supported and may be removed in a future release.
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`selectionBackgroundColor`](ITextProps.md#selectionbackgroundcolor)
+[`ITextProps`](/api/interfaces/itextprops/).[`selectionBackgroundColor`](/api/interfaces/itextprops/#selectionbackgroundcolor)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FabricObjectProps.ts:43
 
@@ -1407,9 +1421,9 @@ src/shapes/Object/types/FabricObjectProps.ts:43
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`selectionEnd`](ITextProps.md#selectionend)
+[`ITextProps`](/api/interfaces/itextprops/).[`selectionEnd`](/api/interfaces/itextprops/#selectionend)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/IText.ts:59
 
@@ -1421,9 +1435,9 @@ src/shapes/IText/IText.ts:59
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`selectionStart`](ITextProps.md#selectionstart)
+[`ITextProps`](/api/interfaces/itextprops/).[`selectionStart`](/api/interfaces/itextprops/#selectionstart)
 
-#### Source
+#### Defined in
 
 src/shapes/IText/IText.ts:58
 
@@ -1431,13 +1445,21 @@ src/shapes/IText/IText.ts:58
 
 ### shadow
 
-> **shadow**: `null` \| [`Shadow`](../classes/Shadow.md)
+> **shadow**: `null` \| [`Shadow`](/api/classes/shadow/)
+
+Shadow object representing shadow of this shape
+
+#### Default
+
+```ts
+null
+```
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`shadow`](ITextProps.md#shadow)
+[`ITextProps`](/api/interfaces/itextprops/).[`shadow`](/api/interfaces/itextprops/#shadow)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ObjectProps.ts:19
 
@@ -1445,7 +1467,7 @@ src/shapes/Object/types/ObjectProps.ts:19
 
 ### skewX
 
-> **skewX**: [`TDegree`](../type-aliases/TDegree.md)
+> **skewX**: [`TDegree`](/api/type-aliases/tdegree/)
 
 Angle of skew on x axes of an object (in degrees)
 
@@ -1457,9 +1479,9 @@ Angle of skew on x axes of an object (in degrees)
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`skewX`](ITextProps.md#skewx)
+[`ITextProps`](/api/interfaces/itextprops/).[`skewX`](/api/interfaces/itextprops/#skewx)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:92
 
@@ -1467,7 +1489,7 @@ src/shapes/Object/types/BaseProps.ts:92
 
 ### skewY
 
-> **skewY**: [`TDegree`](../type-aliases/TDegree.md)
+> **skewY**: [`TDegree`](/api/type-aliases/tdegree/)
 
 Angle of skew on y axes of an object (in degrees)
 
@@ -1479,9 +1501,9 @@ Angle of skew on y axes of an object (in degrees)
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`skewY`](ITextProps.md#skewy)
+[`ITextProps`](/api/interfaces/itextprops/).[`skewY`](/api/interfaces/itextprops/#skewy)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:99
 
@@ -1489,15 +1511,15 @@ src/shapes/Object/types/BaseProps.ts:99
 
 ### snapAngle?
 
-> **`optional`** **snapAngle**: [`TDegree`](../type-aliases/TDegree.md)
+> `optional` **snapAngle**: [`TDegree`](/api/type-aliases/tdegree/)
 
 The angle that an object will lock to while rotating.
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`snapAngle`](ITextProps.md#snapangle)
+[`ITextProps`](/api/interfaces/itextprops/).[`snapAngle`](/api/interfaces/itextprops/#snapangle)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ObjectTransformProps.ts:8
 
@@ -1505,16 +1527,16 @@ src/shapes/Object/types/ObjectTransformProps.ts:8
 
 ### snapThreshold?
 
-> **`optional`** **snapThreshold**: [`TDegree`](../type-aliases/TDegree.md)
+> `optional` **snapThreshold**: [`TDegree`](/api/type-aliases/tdegree/)
 
 The angle difference from the current snapped angle in which snapping should occur.
 When undefined, the snapThreshold will default to the snapAngle.
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`snapThreshold`](ITextProps.md#snapthreshold)
+[`ITextProps`](/api/interfaces/itextprops/).[`snapThreshold`](/api/interfaces/itextprops/#snapthreshold)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ObjectTransformProps.ts:15
 
@@ -1528,7 +1550,7 @@ src/shapes/Object/types/ObjectTransformProps.ts:15
 
 `UniqueTextboxProps.splitByGrapheme`
 
-#### Source
+#### Defined in
 
 src/shapes/Textbox.ts:36
 
@@ -1536,13 +1558,22 @@ src/shapes/Textbox.ts:36
 
 ### stroke
 
-> **stroke**: `null` \| `string` \| [`TFiller`](../type-aliases/TFiller.md)
+> **stroke**: `null` \| `string` \| [`TFiller`](/api/type-aliases/tfiller/)
+
+When defined, an object is rendered via stroke and this property specifies its color
+takes css colors https://www.w3.org/TR/css-color-3/
+
+#### Default
+
+```ts
+null
+```
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`stroke`](ITextProps.md#stroke)
+[`ITextProps`](/api/interfaces/itextprops/).[`stroke`](/api/interfaces/itextprops/#stroke)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ObjectProps.ts:18
 
@@ -1562,9 +1593,9 @@ null;
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`strokeDashArray`](ITextProps.md#strokedasharray)
+[`ITextProps`](/api/interfaces/itextprops/).[`strokeDashArray`](/api/interfaces/itextprops/#strokedasharray)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FillStrokeProps.ts:48
 
@@ -1584,9 +1615,9 @@ Line offset of an object's stroke
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`strokeDashOffset`](ITextProps.md#strokedashoffset)
+[`ITextProps`](/api/interfaces/itextprops/).[`strokeDashOffset`](/api/interfaces/itextprops/#strokedashoffset)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FillStrokeProps.ts:55
 
@@ -1606,9 +1637,9 @@ butt
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`strokeLineCap`](ITextProps.md#strokelinecap)
+[`ITextProps`](/api/interfaces/itextprops/).[`strokeLineCap`](/api/interfaces/itextprops/#strokelinecap)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FillStrokeProps.ts:62
 
@@ -1628,9 +1659,9 @@ Corner style of an object's stroke (one of "bevel", "round", "miter")
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`strokeLineJoin`](ITextProps.md#strokelinejoin)
+[`ITextProps`](/api/interfaces/itextprops/).[`strokeLineJoin`](/api/interfaces/itextprops/#strokelinejoin)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FillStrokeProps.ts:69
 
@@ -1650,9 +1681,9 @@ Maximum miter length (used for strokeLineJoin = "miter") of an object's stroke
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`strokeMiterLimit`](ITextProps.md#strokemiterlimit)
+[`ITextProps`](/api/interfaces/itextprops/).[`strokeMiterLimit`](/api/interfaces/itextprops/#strokemiterlimit)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FillStrokeProps.ts:76
 
@@ -1685,9 +1716,9 @@ false
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`strokeUniform`](ITextProps.md#strokeuniform)
+[`ITextProps`](/api/interfaces/itextprops/).[`strokeUniform`](/api/interfaces/itextprops/#strokeuniform)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FillStrokeProps.ts:89
 
@@ -1707,9 +1738,9 @@ Width of a stroke used to render this object
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`strokeWidth`](ITextProps.md#strokewidth)
+[`ITextProps`](/api/interfaces/itextprops/).[`strokeWidth`](/api/interfaces/itextprops/#strokewidth)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/FillStrokeProps.ts:41
 
@@ -1717,13 +1748,13 @@ src/shapes/Object/types/FillStrokeProps.ts:41
 
 ### styles
 
-> **styles**: [`TextStyle`](../type-aliases/TextStyle.md)
+> **styles**: [`TextStyle`](/api/type-aliases/textstyle/)
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`styles`](ITextProps.md#styles)
+[`ITextProps`](/api/interfaces/itextprops/).[`styles`](/api/interfaces/itextprops/#styles)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:117
 
@@ -1735,9 +1766,9 @@ src/shapes/Text/Text.ts:117
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`textAlign`](ITextProps.md#textalign)
+[`ITextProps`](/api/interfaces/itextprops/).[`textAlign`](/api/interfaces/itextprops/#textalign)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:105
 
@@ -1759,9 +1790,9 @@ You can change this by setting [originY](../../../../api/interfaces/fabricobject
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`top`](ITextProps.md#top)
+[`ITextProps`](/api/interfaces/itextprops/).[`top`](/api/interfaces/itextprops/#top)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:20
 
@@ -1781,9 +1812,9 @@ Size of object's controlling corners when touch interaction is detected
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`touchCornerSize`](ITextProps.md#touchcornersize)
+[`ITextProps`](/api/interfaces/itextprops/).[`touchCornerSize`](/api/interfaces/itextprops/#touchcornersize)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ControlProps.ts:14
 
@@ -1803,9 +1834,9 @@ true
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`transparentCorners`](ITextProps.md#transparentcorners)
+[`ITextProps`](/api/interfaces/itextprops/).[`transparentCorners`](/api/interfaces/itextprops/#transparentcorners)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/ControlProps.ts:21
 
@@ -1817,9 +1848,9 @@ src/shapes/Object/types/ControlProps.ts:21
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`underline`](ITextProps.md#underline)
+[`ITextProps`](/api/interfaces/itextprops/).[`underline`](/api/interfaces/itextprops/#underline)
 
-#### Source
+#### Defined in
 
 src/shapes/Text/Text.ts:102
 
@@ -1839,9 +1870,9 @@ When set to `false`, an object is not rendered on canvas
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`visible`](ITextProps.md#visible)
+[`ITextProps`](/api/interfaces/itextprops/).[`visible`](/api/interfaces/itextprops/#visible)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/SerializedObjectProps.ts:40
 
@@ -1861,8 +1892,8 @@ Object width
 
 #### Inherited from
 
-[`ITextProps`](ITextProps.md).[`width`](ITextProps.md#width)
+[`ITextProps`](/api/interfaces/itextprops/).[`width`](/api/interfaces/itextprops/#width)
 
-#### Source
+#### Defined in
 
 src/shapes/Object/types/BaseProps.ts:27

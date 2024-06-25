@@ -7,6 +7,6 @@ title: "ImageFormat"
 
 > **ImageFormat**: `"jpeg"` \| `"png"`
 
-## Source
+## Defined in
 
 src/typedefs.ts:46

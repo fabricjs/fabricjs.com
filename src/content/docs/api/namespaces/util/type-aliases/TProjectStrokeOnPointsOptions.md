@@ -5,7 +5,7 @@ prev: false
 title: "TProjectStrokeOnPointsOptions"
 ---
 
-> **TProjectStrokeOnPointsOptions**: `Object`
+> **TProjectStrokeOnPointsOptions**: `object`
 
 ## Type declaration
 
@@ -19,11 +19,11 @@ title: "TProjectStrokeOnPointsOptions"
 
 ### skewX
 
-> **skewX**: [`TDegree`](../../../type-aliases/TDegree.md)
+> **skewX**: [`TDegree`](/api/type-aliases/tdegree/)
 
 ### skewY
 
-> **skewY**: [`TDegree`](../../../type-aliases/TDegree.md)
+> **skewY**: [`TDegree`](/api/type-aliases/tdegree/)
 
 ### strokeLineCap
 
@@ -47,6 +47,6 @@ https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke-miterlimit
 
 > **strokeWidth**: `number`
 
-## Source
+## Defined in
 
 src/util/misc/projectStroke/types.ts:4

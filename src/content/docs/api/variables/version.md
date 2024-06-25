@@ -5,8 +5,8 @@ prev: false
 title: "version"
 ---
 
-> **`const`** **version**: `string`
+> `const` **version**: `string`
 
-## Source
+## Defined in
 
 src/constants.ts:5

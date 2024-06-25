@@ -7,10 +7,10 @@ title: "TOptions"
 
 > **TOptions**\<`T`\>: `Partial`\<`T`\> & `Record`\<`string`, `any`\>
 
-## Type parameters
+## Type Parameters
 
 • **T**
 
-## Source
+## Defined in
 
 src/typedefs.ts:126

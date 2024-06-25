@@ -7,6 +7,6 @@ title: "GradientUnits"
 
 > **GradientUnits**: `"pixels"` \| `"percentage"`
 
-## Source
+## Defined in
 
 src/gradient/typedefs.ts:3

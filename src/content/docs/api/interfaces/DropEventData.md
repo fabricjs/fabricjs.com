@@ -7,20 +7,20 @@ title: "DropEventData"
 
 ## Extends
 
-- [`DragEventData`](DragEventData.md)
+- [`DragEventData`](/api/interfaces/drageventdata/)
 
 ## Properties
 
 ### ~~absolutePointer~~
 
-> **absolutePointer**: [`Point`](../classes/Point.md)
+> **absolutePointer**: [`Point`](/api/classes/point/)
 
 :::caution[Deprecated]
 use scenePoint instead.
 Kept for compatibility
 :::
 
-#### Source
+#### Defined in
 
 src/EventTypeDefs.ts:189
 
@@ -28,13 +28,13 @@ src/EventTypeDefs.ts:189
 
 ### canDrop?
 
-> **`optional`** **canDrop**: `boolean`
+> `optional` **canDrop**: `boolean`
 
 #### Inherited from
 
-[`DragEventData`](DragEventData.md).[`canDrop`](DragEventData.md#candrop)
+[`DragEventData`](/api/interfaces/drageventdata/).[`canDrop`](/api/interfaces/drageventdata/#candrop)
 
-#### Source
+#### Defined in
 
 src/EventTypeDefs.ts:172
 
@@ -42,13 +42,13 @@ src/EventTypeDefs.ts:172
 
 ### didDrop?
 
-> **`optional`** **didDrop**: `boolean`
+> `optional` **didDrop**: `boolean`
 
 #### Inherited from
 
-[`DragEventData`](DragEventData.md).[`didDrop`](DragEventData.md#diddrop)
+[`DragEventData`](/api/interfaces/drageventdata/).[`didDrop`](/api/interfaces/drageventdata/#diddrop)
 
-#### Source
+#### Defined in
 
 src/EventTypeDefs.ts:173
 
@@ -56,13 +56,13 @@ src/EventTypeDefs.ts:173
 
 ### dragSource?
 
-> **`optional`** **dragSource**: [`FabricObject`](../classes/FabricObject.md)\<`Partial`\<[`FabricObjectProps`](FabricObjectProps.md)\>, [`SerializedObjectProps`](SerializedObjectProps.md), [`ObjectEvents`](ObjectEvents.md)\>
+> `optional` **dragSource**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 #### Inherited from
 
-[`DragEventData`](DragEventData.md).[`dragSource`](DragEventData.md#dragsource)
+[`DragEventData`](/api/interfaces/drageventdata/).[`dragSource`](/api/interfaces/drageventdata/#dragsource)
 
-#### Source
+#### Defined in
 
 src/EventTypeDefs.ts:171
 
@@ -70,13 +70,13 @@ src/EventTypeDefs.ts:171
 
 ### dropTarget?
 
-> **`optional`** **dropTarget**: [`FabricObject`](../classes/FabricObject.md)\<`Partial`\<[`FabricObjectProps`](FabricObjectProps.md)\>, [`SerializedObjectProps`](SerializedObjectProps.md), [`ObjectEvents`](ObjectEvents.md)\>
+> `optional` **dropTarget**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 #### Inherited from
 
-[`DragEventData`](DragEventData.md).[`dropTarget`](DragEventData.md#droptarget)
+[`DragEventData`](/api/interfaces/drageventdata/).[`dropTarget`](/api/interfaces/drageventdata/#droptarget)
 
-#### Source
+#### Defined in
 
 src/EventTypeDefs.ts:174
 
@@ -88,9 +88,9 @@ src/EventTypeDefs.ts:174
 
 #### Inherited from
 
-[`DragEventData`](DragEventData.md).[`e`](DragEventData.md#e)
+[`DragEventData`](/api/interfaces/drageventdata/).[`e`](/api/interfaces/drageventdata/#e)
 
-#### Source
+#### Defined in
 
 src/EventTypeDefs.ts:86
 
@@ -98,14 +98,14 @@ src/EventTypeDefs.ts:86
 
 ### ~~pointer~~
 
-> **pointer**: [`Point`](../classes/Point.md)
+> **pointer**: [`Point`](/api/classes/point/)
 
 :::caution[Deprecated]
 use viewportPoint instead.
 Kept for compatibility
 :::
 
-#### Source
+#### Defined in
 
 src/EventTypeDefs.ts:183
 
@@ -113,9 +113,9 @@ src/EventTypeDefs.ts:183
 
 ### scenePoint
 
-> **scenePoint**: [`Point`](../classes/Point.md)
+> **scenePoint**: [`Point`](/api/classes/point/)
 
-#### Source
+#### Defined in
 
 src/EventTypeDefs.ts:190
 
@@ -123,13 +123,13 @@ src/EventTypeDefs.ts:190
 
 ### subTargets?
 
-> **`optional`** **subTargets**: [`FabricObject`](../classes/FabricObject.md)\<`Partial`\<[`FabricObjectProps`](FabricObjectProps.md)\>, [`SerializedObjectProps`](SerializedObjectProps.md), [`ObjectEvents`](ObjectEvents.md)\>[]
+> `optional` **subTargets**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>[]
 
 #### Inherited from
 
-[`DragEventData`](DragEventData.md).[`subTargets`](DragEventData.md#subtargets)
+[`DragEventData`](/api/interfaces/drageventdata/).[`subTargets`](/api/interfaces/drageventdata/#subtargets)
 
-#### Source
+#### Defined in
 
 src/EventTypeDefs.ts:170
 
@@ -137,13 +137,13 @@ src/EventTypeDefs.ts:170
 
 ### target?
 
-> **`optional`** **target**: [`FabricObject`](../classes/FabricObject.md)\<`Partial`\<[`FabricObjectProps`](FabricObjectProps.md)\>, [`SerializedObjectProps`](SerializedObjectProps.md), [`ObjectEvents`](ObjectEvents.md)\>
+> `optional` **target**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 #### Inherited from
 
-[`DragEventData`](DragEventData.md).[`target`](DragEventData.md#target)
+[`DragEventData`](/api/interfaces/drageventdata/).[`target`](/api/interfaces/drageventdata/#target)
 
-#### Source
+#### Defined in
 
 src/EventTypeDefs.ts:169
 
@@ -151,8 +151,8 @@ src/EventTypeDefs.ts:169
 
 ### viewportPoint
 
-> **viewportPoint**: [`Point`](../classes/Point.md)
+> **viewportPoint**: [`Point`](/api/classes/point/)
 
-#### Source
+#### Defined in
 
 src/EventTypeDefs.ts:191

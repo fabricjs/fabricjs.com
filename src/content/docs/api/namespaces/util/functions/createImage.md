@@ -7,14 +7,12 @@ title: "createImage"
 
 > **createImage**(): `HTMLImageElement`
 
-Creates image element (works on client and node)
-
 ## Returns
 
 `HTMLImageElement`
 
 HTML image element
 
-## Source
+## Defined in
 
 src/util/misc/dom.ts:20

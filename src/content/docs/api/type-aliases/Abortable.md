@@ -5,13 +5,13 @@ prev: false
 title: "Abortable"
 ---
 
-> **Abortable**: `Object`
+> **Abortable**: `object`
 
 ## Type declaration
 
 ### signal?
 
-> **`optional`** **signal**: `AbortSignal`
+> `optional` **signal**: `AbortSignal`
 
 handle aborting
 
@@ -19,6 +19,6 @@ handle aborting
 
 https://developer.mozilla.org/en-US/docs/Web/API/AbortController/signal
 
-## Source
+## Defined in
 
 src/typedefs.ts:118

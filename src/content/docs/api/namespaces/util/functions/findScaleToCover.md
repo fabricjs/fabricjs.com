@@ -7,17 +7,13 @@ title: "findScaleToCover"
 
 > **findScaleToCover**(`source`, `destination`): `number`
 
-Finds the scale for the object source to cover entirely the object destination,
-keeping aspect ratio intact.
-respect the total allowed area for the cache.
-
 ## Parameters
 
-• **source**: [`TSize`](../../../type-aliases/TSize.md)
+• **source**: [`TSize`](/api/type-aliases/tsize/)
 
 natural unscaled size of the object
 
-• **destination**: [`TSize`](../../../type-aliases/TSize.md)
+• **destination**: [`TSize`](/api/type-aliases/tsize/)
 
 natural unscaled size of the object
 
@@ -27,6 +23,6 @@ natural unscaled size of the object
 
 scale factor to apply to source to cover destination
 
-## Source
+## Defined in
 
 src/util/misc/findScaleTo.ts:25

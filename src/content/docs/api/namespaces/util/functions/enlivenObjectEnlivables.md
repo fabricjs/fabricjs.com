@@ -7,17 +7,15 @@ title: "enlivenObjectEnlivables"
 
 > **enlivenObjectEnlivables**\<`R`\>(`serializedObject`, `options`?): `Promise`\<`R`\>
 
-Creates corresponding fabric instances residing in an object, e.g. `clipPath`
+## Type Parameters
 
-## Type parameters
-
-• **R** = `Record`\<`string`, `null` \| [`FabricObject`](../../../classes/FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../../../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../../../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../../../interfaces/ObjectEvents.md)\> \| [`TFiller`](../../../type-aliases/TFiller.md)\>
+• **R** = `Record`\<`string`, `null` \| [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\> \| [`TFiller`](/api/type-aliases/tfiller/)\>
 
 ## Parameters
 
 • **serializedObject**: `any`
 
-• **options?**: [`Abortable`](../../../type-aliases/Abortable.md)= `{}`
+• **options?**: [`Abortable`](/api/type-aliases/abortable/) = `{}`
 
 ## Returns
 
@@ -25,6 +23,6 @@ Creates corresponding fabric instances residing in an object, e.g. `clipPath`
 
 the input object with enlived values
 
-## Source
+## Defined in
 
 src/util/misc/objectEnlive.ts:133

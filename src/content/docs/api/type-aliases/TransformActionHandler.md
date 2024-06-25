@@ -5,15 +5,15 @@ prev: false
 title: "TransformActionHandler"
 ---
 
-> **TransformActionHandler**\<`T`\>: [`TransformAction`](TransformAction.md)\<`T`, `boolean`\>
+> **TransformActionHandler**\<`T`\>: [`TransformAction`](/api/type-aliases/transformaction/)\<`T`, `boolean`\>
 
 Control handlers that define a transformation
 Those handlers run when the user starts a transform and during a transform
 
-## Type parameters
+## Type Parameters
 
-• **T** extends [`Transform`](Transform.md) = [`Transform`](Transform.md)
+• **T** *extends* [`Transform`](/api/type-aliases/transform/) = [`Transform`](/api/type-aliases/transform/)
 
-## Source
+## Defined in
 
 src/EventTypeDefs.ts:35

@@ -5,10 +5,10 @@ prev: false
 title: "TComplexParsedCommand"
 ---
 
-> **TComplexParsedCommand**: [`TParsedMoveToCommand`](TParsedMoveToCommand.md) \| [`TParsedLineCommand`](TParsedLineCommand.md) \| [`TParsedHorizontalLineCommand`](TParsedHorizontalLineCommand.md) \| [`TParsedVerticalLineCommand`](TParsedVerticalLineCommand.md) \| [`TParsedClosePathCommand`](TParsedClosePathCommand.md) \| [`TParsedCubicCurveCommand`](TParsedCubicCurveCommand.md) \| [`TParsedCubicCurveShortcutCommand`](TParsedCubicCurveShortcutCommand.md) \| [`TParsedQuadraticCurveCommand`](TParsedQuadraticCurveCommand.md) \| [`TParsedQuadraticCurveShortcutCommand`](TParsedQuadraticCurveShortcutCommand.md) \| [`TParsedArcCommand`](TParsedArcCommand.md)
+> **TComplexParsedCommand**: [`TParsedMoveToCommand`](/api/namespaces/util/type-aliases/tparsedmovetocommand/) \| [`TParsedLineCommand`](/api/namespaces/util/type-aliases/tparsedlinecommand/) \| [`TParsedHorizontalLineCommand`](/api/namespaces/util/type-aliases/tparsedhorizontallinecommand/) \| [`TParsedVerticalLineCommand`](/api/namespaces/util/type-aliases/tparsedverticallinecommand/) \| [`TParsedClosePathCommand`](/api/namespaces/util/type-aliases/tparsedclosepathcommand/) \| [`TParsedCubicCurveCommand`](/api/namespaces/util/type-aliases/tparsedcubiccurvecommand/) \| [`TParsedCubicCurveShortcutCommand`](/api/namespaces/util/type-aliases/tparsedcubiccurveshortcutcommand/) \| [`TParsedQuadraticCurveCommand`](/api/namespaces/util/type-aliases/tparsedquadraticcurvecommand/) \| [`TParsedQuadraticCurveShortcutCommand`](/api/namespaces/util/type-aliases/tparsedquadraticcurveshortcutcommand/) \| [`TParsedArcCommand`](/api/namespaces/util/type-aliases/tparsedarccommand/)
 
 Any old valid SVG path command
 
-## Source
+## Defined in
 
 src/util/path/typedefs.ts:269

@@ -5,14 +5,14 @@ prev: false
 title: "ImperativeLayoutOptions"
 ---
 
-> **ImperativeLayoutOptions**: `ImperativeLayoutCommonOptions` & `Object`
+> **ImperativeLayoutOptions**: `ImperativeLayoutCommonOptions` & `object`
 
 ## Type declaration
 
 ### strategy?
 
-> **`optional`** **strategy**: [`LayoutStrategy`](../classes/LayoutStrategy.md)
+> `optional` **strategy**: [`LayoutStrategy`](/api/classes/layoutstrategy/)
 
-## Source
+## Defined in
 
 src/LayoutManager/types.ts:70

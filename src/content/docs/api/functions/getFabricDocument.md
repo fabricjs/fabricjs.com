@@ -11,6 +11,6 @@ title: "getFabricDocument"
 
 `Document`
 
-## Source
+## Defined in
 
 src/env/index.ts:38

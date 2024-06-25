@@ -5,12 +5,12 @@ prev: false
 title: "TextStyle"
 ---
 
-> **TextStyle**: `Object`
+> **TextStyle**: `object`
 
-## Index signature
+## Index Signature
 
- \[`line`: `number` \| `string`\]: `Object`
+ \[`line`: `number` \| `string`\]: `object`
 
-## Source
+## Defined in
 
 src/shapes/Text/StyledText.ts:18

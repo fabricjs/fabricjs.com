@@ -5,7 +5,7 @@ prev: false
 title: "getBoundsOfCurve"
 ---
 
-> **getBoundsOfCurve**(`begx`, `begy`, `cp1x`, `cp1y`, `cp2x`, `cp2y`, `endx`, `endy`): [`TRectBounds`](../../../type-aliases/TRectBounds.md)
+> **getBoundsOfCurve**(`begx`, `begy`, `cp1x`, `cp1y`, `cp2x`, `cp2y`, `endx`, `endy`): [`TRectBounds`](/api/type-aliases/trectbounds/)
 
 Calculate bounding box of a cubic Bezier curve
 Taken from http://jsbin.com/ivomiq/56/edit (no credits available)
@@ -39,10 +39,10 @@ end of bezier
 
 ## Returns
 
-[`TRectBounds`](../../../type-aliases/TRectBounds.md)
+[`TRectBounds`](/api/type-aliases/trectbounds/)
 
 the rectangular bounds
 
-## Source
+## Defined in
 
 src/util/path/index.ts:221

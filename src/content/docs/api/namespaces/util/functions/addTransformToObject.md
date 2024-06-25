@@ -14,11 +14,11 @@ This is used when removing an object from an active selection for example.
 
 ## Parameters
 
-• **object**: `FabricObject`\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](../../../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../../../interfaces/ObjectEvents.md)\>
+• **object**: `FabricObject`\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 the object you want to transform
 
-• **transform**: [`TMat2D`](../../../type-aliases/TMat2D.md)
+• **transform**: [`TMat2D`](/api/type-aliases/tmat2d/)
 
 the destination transform
 
@@ -26,6 +26,6 @@ the destination transform
 
 `void`
 
-## Source
+## Defined in
 
 src/util/misc/objectTransforms.ts:43

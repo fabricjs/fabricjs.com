@@ -7,10 +7,10 @@ title: "TClassProperties"
 
 > **TClassProperties**\<`T`\>: `Pick`\<`T`, `TNonFunctionPropertyNames`\<`T`\>\>
 
-## Type parameters
+## Type Parameters
 
 • **T**
 
-## Source
+## Defined in
 
 src/typedefs.ts:17

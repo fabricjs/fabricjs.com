@@ -5,8 +5,8 @@ prev: false
 title: "ColorAnimationOptions"
 ---
 
-> **ColorAnimationOptions**: [`TAnimationOptions`](TAnimationOptions.md)\<[`TColorArg`](../../../type-aliases/TColorArg.md), `string`, `number`[]\>
+> **ColorAnimationOptions**: [`TAnimationOptions`](/api/namespaces/util/type-aliases/tanimationoptions/)\<[`TColorArg`](/api/type-aliases/tcolorarg/), `string`, `number`[]\>
 
-## Source
+## Defined in
 
 src/util/animation/types.ts:126

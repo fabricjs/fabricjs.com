@@ -11,25 +11,25 @@ title: "BaseBrush"
 
 ## Extended by
 
-- [`PencilBrush`](PencilBrush.md)
-- [`CircleBrush`](CircleBrush.md)
-- [`SprayBrush`](SprayBrush.md)
+- [`PencilBrush`](/api/classes/pencilbrush/)
+- [`CircleBrush`](/api/classes/circlebrush/)
+- [`SprayBrush`](/api/classes/spraybrush/)
 
 ## Constructors
 
-### new BaseBrush(canvas)
+### new BaseBrush()
 
-> **new BaseBrush**(`canvas`): [`BaseBrush`](BaseBrush.md)
+> **new BaseBrush**(`canvas`): [`BaseBrush`](/api/classes/basebrush/)
 
 #### Parameters
 
-• **canvas**: [`Canvas`](Canvas.md)
+• **canvas**: [`Canvas`](/api/classes/canvas/)
 
 #### Returns
 
-[`BaseBrush`](BaseBrush.md)
+[`BaseBrush`](/api/classes/basebrush/)
 
-#### Source
+#### Defined in
 
 src/brushes/BaseBrush.ts:75
 
@@ -37,13 +37,13 @@ src/brushes/BaseBrush.ts:75
 
 ### canvas
 
-> **canvas**: [`Canvas`](Canvas.md)
+> **canvas**: [`Canvas`](/api/classes/canvas/)
 
 #### Todo
 
 add type
 
-#### Source
+#### Defined in
 
 src/brushes/BaseBrush.ts:73
 
@@ -61,7 +61,7 @@ Color of a brush
 
 ```
 
-#### Source
+#### Defined in
 
 src/brushes/BaseBrush.ts:16
 
@@ -79,7 +79,7 @@ When `true`, the free drawing is limited to the whiteboard size. Default to fals
 false
 ```
 
-#### Source
+#### Defined in
 
 src/brushes/BaseBrush.ts:68
 
@@ -87,7 +87,7 @@ src/brushes/BaseBrush.ts:68
 
 ### shadow
 
-> **shadow**: `null` \| [`Shadow`](Shadow.md) = `null`
+> **shadow**: `null` \| [`Shadow`](/api/classes/shadow/) = `null`
 
 Shadow object representing shadow of this shape.
 <b>Backwards incompatibility note:</b> This property replaces "shadowColor" (String), "shadowOffsetX" (Number),
@@ -99,7 +99,7 @@ Shadow object representing shadow of this shape.
 
 ```
 
-#### Source
+#### Defined in
 
 src/brushes/BaseBrush.ts:32
 
@@ -117,7 +117,7 @@ Stroke Dash Array.
 
 ```
 
-#### Source
+#### Defined in
 
 src/brushes/BaseBrush.ts:60
 
@@ -135,7 +135,7 @@ Line endings style of a brush (one of "butt", "round", "square")
 
 ```
 
-#### Source
+#### Defined in
 
 src/brushes/BaseBrush.ts:39
 
@@ -153,7 +153,7 @@ Corner style of a brush (one of "bevel", "round", "miter")
 
 ```
 
-#### Source
+#### Defined in
 
 src/brushes/BaseBrush.ts:46
 
@@ -171,7 +171,7 @@ Maximum miter length (used for strokeLineJoin = "miter") of a brush's
 
 ```
 
-#### Source
+#### Defined in
 
 src/brushes/BaseBrush.ts:53
 
@@ -189,7 +189,7 @@ Width of a brush, has to be a Number, no string literals
 
 ```
 
-#### Source
+#### Defined in
 
 src/brushes/BaseBrush.ts:23
 
@@ -197,13 +197,13 @@ src/brushes/BaseBrush.ts:23
 
 ### \_render()
 
-> **`abstract`** **\_render**(): `void`
+> `abstract` **\_render**(): `void`
 
 #### Returns
 
 `void`
 
-#### Source
+#### Defined in
 
 src/brushes/BaseBrush.ts:79
 
@@ -211,19 +211,19 @@ src/brushes/BaseBrush.ts:79
 
 ### onMouseDown()
 
-> **`abstract`** **onMouseDown**(`pointer`, `ev`): `void`
+> `abstract` **onMouseDown**(`pointer`, `ev`): `void`
 
 #### Parameters
 
-• **pointer**: [`Point`](Point.md)
+• **pointer**: [`Point`](/api/classes/point/)
 
-• **ev**: [`TBrushEventData`](../type-aliases/TBrushEventData.md)
+• **ev**: [`TBrushEventData`](/api/type-aliases/tbrusheventdata/)
 
 #### Returns
 
 `void`
 
-#### Source
+#### Defined in
 
 src/brushes/BaseBrush.ts:80
 
@@ -231,19 +231,19 @@ src/brushes/BaseBrush.ts:80
 
 ### onMouseMove()
 
-> **`abstract`** **onMouseMove**(`pointer`, `ev`): `void`
+> `abstract` **onMouseMove**(`pointer`, `ev`): `void`
 
 #### Parameters
 
-• **pointer**: [`Point`](Point.md)
+• **pointer**: [`Point`](/api/classes/point/)
 
-• **ev**: [`TBrushEventData`](../type-aliases/TBrushEventData.md)
+• **ev**: [`TBrushEventData`](/api/type-aliases/tbrusheventdata/)
 
 #### Returns
 
 `void`
 
-#### Source
+#### Defined in
 
 src/brushes/BaseBrush.ts:81
 
@@ -251,11 +251,11 @@ src/brushes/BaseBrush.ts:81
 
 ### onMouseUp()
 
-> **`abstract`** **onMouseUp**(`ev`): `boolean` \| `void`
+> `abstract` **onMouseUp**(`ev`): `boolean` \| `void`
 
 #### Parameters
 
-• **ev**: [`TBrushEventData`](../type-aliases/TBrushEventData.md)
+• **ev**: [`TBrushEventData`](/api/type-aliases/tbrusheventdata/)
 
 #### Returns
 
@@ -263,6 +263,6 @@ src/brushes/BaseBrush.ts:81
 
 true if brush should continue blocking interaction
 
-#### Source
+#### Defined in
 
 src/brushes/BaseBrush.ts:85

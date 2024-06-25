@@ -5,22 +5,22 @@ prev: false
 title: "sendVectorToPlane"
 ---
 
-> **sendVectorToPlane**(`point`, `from`, `to`): [`Point`](../../../classes/Point.md)
+> **sendVectorToPlane**(`point`, `from`, `to`): [`Point`](/api/classes/point/)
 
 See [sendPointToPlane](../../../../../../api/namespaces/util/functions/sendpointtoplane)
 
 ## Parameters
 
-• **point**: [`Point`](../../../classes/Point.md)
+• **point**: [`Point`](/api/classes/point/)
 
-• **from**: [`TMat2D`](../../../type-aliases/TMat2D.md)= `iMatrix`
+• **from**: [`TMat2D`](/api/type-aliases/tmat2d/) = `iMatrix`
 
-• **to**: [`TMat2D`](../../../type-aliases/TMat2D.md)= `iMatrix`
+• **to**: [`TMat2D`](/api/type-aliases/tmat2d/) = `iMatrix`
 
 ## Returns
 
-[`Point`](../../../classes/Point.md)
+[`Point`](/api/classes/point/)
 
-## Source
+## Defined in
 
 src/util/misc/planeChange.ts:45

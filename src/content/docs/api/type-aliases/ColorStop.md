@@ -5,7 +5,7 @@ prev: false
 title: "ColorStop"
 ---
 
-> **ColorStop**: `Object`
+> **ColorStop**: `object`
 
 ## Type declaration
 
@@ -19,8 +19,8 @@ title: "ColorStop"
 
 ### opacity?
 
-> **`optional`** **opacity**: `number`
+> `optional` **opacity**: `number`
 
-## Source
+## Defined in
 
 src/gradient/typedefs.ts:9

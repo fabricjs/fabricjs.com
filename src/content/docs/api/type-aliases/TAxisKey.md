@@ -5,12 +5,12 @@ prev: false
 title: "TAxisKey"
 ---
 
-> **TAxisKey**\<`T`\>: ```${T}${Capitalize<TAxis>}```
+> **TAxisKey**\<`T`\>: \`$\{T\}$\{Capitalize\<TAxis\>\}\`
 
-## Type parameters
+## Type Parameters
 
-• **T** extends `string`
+• **T** *extends* `string`
 
-## Source
+## Defined in
 
 src/typedefs.ts:30

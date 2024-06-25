@@ -7,6 +7,6 @@ title: "TModificationEvents"
 
 > **TModificationEvents**: `"moving"` \| `"scaling"` \| `"rotating"` \| `"skewing"` \| `"resizing"` \| `"modifyPoly"`
 
-## Source
+## Defined in
 
 src/EventTypeDefs.ts:99

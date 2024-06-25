@@ -7,19 +7,19 @@ title: "LayoutManager"
 
 ## Constructors
 
-### new LayoutManager(strategy)
+### new LayoutManager()
 
-> **new LayoutManager**(`strategy`): [`LayoutManager`](LayoutManager.md)
+> **new LayoutManager**(`strategy`): [`LayoutManager`](/api/classes/layoutmanager/)
 
 #### Parameters
 
-• **strategy**: [`LayoutStrategy`](LayoutStrategy.md)= `undefined`
+• **strategy**: [`LayoutStrategy`](/api/classes/layoutstrategy/) = `...`
 
 #### Returns
 
-[`LayoutManager`](LayoutManager.md)
+[`LayoutManager`](/api/classes/layoutmanager/)
 
-#### Source
+#### Defined in
 
 src/LayoutManager/LayoutManager.ts:39
 
@@ -27,9 +27,9 @@ src/LayoutManager/LayoutManager.ts:39
 
 ### strategy
 
-> **strategy**: [`LayoutStrategy`](LayoutStrategy.md)
+> **strategy**: [`LayoutStrategy`](/api/classes/layoutstrategy/)
 
-#### Source
+#### Defined in
 
 src/LayoutManager/LayoutManager.ts:37
 
@@ -43,7 +43,7 @@ src/LayoutManager/LayoutManager.ts:37
 
 `void`
 
-#### Source
+#### Defined in
 
 src/LayoutManager/LayoutManager.ts:309
 
@@ -55,13 +55,13 @@ src/LayoutManager/LayoutManager.ts:309
 
 #### Parameters
 
-• **context**: [`LayoutContext`](../type-aliases/LayoutContext.md)
+• **context**: [`LayoutContext`](/api/type-aliases/layoutcontext/)
 
 #### Returns
 
 `void`
 
-#### Source
+#### Defined in
 
 src/LayoutManager/LayoutManager.ts:44
 
@@ -73,13 +73,13 @@ src/LayoutManager/LayoutManager.ts:44
 
 #### Parameters
 
-• **context**: [`RegistrationContext`](../type-aliases/RegistrationContext.md) & `Partial`\<[`StrictLayoutContext`](../type-aliases/StrictLayoutContext.md)\>
+• **context**: [`RegistrationContext`](/api/type-aliases/registrationcontext/) & `Partial`\<[`StrictLayoutContext`](/api/type-aliases/strictlayoutcontext/)\>
 
 #### Returns
 
 `void`
 
-#### Source
+#### Defined in
 
 src/LayoutManager/LayoutManager.ts:123
 
@@ -87,11 +87,11 @@ src/LayoutManager/LayoutManager.ts:123
 
 ### toJSON()
 
-> **toJSON**(): `Object`
+> **toJSON**(): `object`
 
 #### Returns
 
-`Object`
+`object`
 
 ##### strategy
 
@@ -101,7 +101,7 @@ src/LayoutManager/LayoutManager.ts:123
 
 > **type**: `string` = `LAYOUT_MANAGER`
 
-#### Source
+#### Defined in
 
 src/LayoutManager/LayoutManager.ts:321
 
@@ -109,11 +109,11 @@ src/LayoutManager/LayoutManager.ts:321
 
 ### toObject()
 
-> **toObject**(): `Object`
+> **toObject**(): `object`
 
 #### Returns
 
-`Object`
+`object`
 
 ##### strategy
 
@@ -123,7 +123,7 @@ src/LayoutManager/LayoutManager.ts:321
 
 > **type**: `string` = `LAYOUT_MANAGER`
 
-#### Source
+#### Defined in
 
 src/LayoutManager/LayoutManager.ts:314
 
@@ -135,12 +135,12 @@ src/LayoutManager/LayoutManager.ts:314
 
 #### Parameters
 
-• **context**: [`RegistrationContext`](../type-aliases/RegistrationContext.md) & `Partial`\<[`StrictLayoutContext`](../type-aliases/StrictLayoutContext.md)\>
+• **context**: [`RegistrationContext`](/api/type-aliases/registrationcontext/) & `Partial`\<[`StrictLayoutContext`](/api/type-aliases/strictlayoutcontext/)\>
 
 #### Returns
 
 `void`
 
-#### Source
+#### Defined in
 
 src/LayoutManager/LayoutManager.ts:117

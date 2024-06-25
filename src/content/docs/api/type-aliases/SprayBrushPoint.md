@@ -5,7 +5,7 @@ prev: false
 title: "SprayBrushPoint"
 ---
 
-> **SprayBrushPoint**: `Object`
+> **SprayBrushPoint**: `object`
 
 ## Type declaration
 
@@ -25,6 +25,6 @@ title: "SprayBrushPoint"
 
 > **y**: `number`
 
-## Source
+## Defined in
 
 src/brushes/typedefs.ts:13

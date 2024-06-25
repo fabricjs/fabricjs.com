@@ -11,27 +11,31 @@ title: "PatternBrush"
 
 ## Extends
 
-- [`PencilBrush`](PencilBrush.md)
+- [`PencilBrush`](/api/classes/pencilbrush/)
 
 ## Constructors
 
-### new PatternBrush(canvas)
+### new PatternBrush()
 
-> **new PatternBrush**(`canvas`): [`PatternBrush`](PatternBrush.md)
+> **new PatternBrush**(`canvas`): [`PatternBrush`](/api/classes/patternbrush/)
 
 #### Parameters
 
-• **canvas**: [`Canvas`](Canvas.md)
+• **canvas**: [`Canvas`](/api/classes/canvas/)
+
+**Todo**
+
+add type
 
 #### Returns
 
-[`PatternBrush`](PatternBrush.md)
+[`PatternBrush`](/api/classes/patternbrush/)
 
 #### Overrides
 
-[`PencilBrush`](PencilBrush.md).[`constructor`](PencilBrush.md#constructors)
+[`PencilBrush`](/api/classes/pencilbrush/).[`constructor`](/api/classes/pencilbrush/#constructors)
 
-#### Source
+#### Defined in
 
 src/brushes/PatternBrush.ts:10
 
@@ -39,7 +43,7 @@ src/brushes/PatternBrush.ts:10
 
 ### canvas
 
-> **canvas**: [`Canvas`](Canvas.md)
+> **canvas**: [`Canvas`](/api/classes/canvas/)
 
 #### Todo
 
@@ -47,9 +51,9 @@ add type
 
 #### Inherited from
 
-[`PencilBrush`](PencilBrush.md).[`canvas`](PencilBrush.md#canvas)
+[`PencilBrush`](/api/classes/pencilbrush/).[`canvas`](/api/classes/pencilbrush/#canvas)
 
-#### Source
+#### Defined in
 
 src/brushes/BaseBrush.ts:73
 
@@ -69,9 +73,9 @@ Color of a brush
 
 #### Inherited from
 
-[`PencilBrush`](PencilBrush.md).[`color`](PencilBrush.md#color)
+[`PencilBrush`](/api/classes/pencilbrush/).[`color`](/api/classes/pencilbrush/#color)
 
-#### Source
+#### Defined in
 
 src/brushes/BaseBrush.ts:16
 
@@ -91,9 +95,9 @@ Discard points that are less than `decimate` pixel distant from each other
 
 #### Inherited from
 
-[`PencilBrush`](PencilBrush.md).[`decimate`](PencilBrush.md#decimate)
+[`PencilBrush`](/api/classes/pencilbrush/).[`decimate`](/api/classes/pencilbrush/#decimate)
 
-#### Source
+#### Defined in
 
 src/brushes/PencilBrush.ts:25
 
@@ -114,9 +118,9 @@ false
 
 #### Inherited from
 
-[`PencilBrush`](PencilBrush.md).[`drawStraightLine`](PencilBrush.md#drawstraightline)
+[`PencilBrush`](/api/classes/pencilbrush/).[`drawStraightLine`](/api/classes/pencilbrush/#drawstraightline)
 
-#### Source
+#### Defined in
 
 src/brushes/PencilBrush.ts:34
 
@@ -136,9 +140,9 @@ false
 
 #### Inherited from
 
-[`PencilBrush`](PencilBrush.md).[`limitedToCanvasSize`](PencilBrush.md#limitedtocanvassize)
+[`PencilBrush`](/api/classes/pencilbrush/).[`limitedToCanvasSize`](/api/classes/pencilbrush/#limitedtocanvassize)
 
-#### Source
+#### Defined in
 
 src/brushes/BaseBrush.ts:68
 
@@ -146,7 +150,7 @@ src/brushes/BaseBrush.ts:68
 
 ### shadow
 
-> **shadow**: `null` \| [`Shadow`](Shadow.md) = `null`
+> **shadow**: `null` \| [`Shadow`](/api/classes/shadow/) = `null`
 
 Shadow object representing shadow of this shape.
 <b>Backwards incompatibility note:</b> This property replaces "shadowColor" (String), "shadowOffsetX" (Number),
@@ -160,9 +164,9 @@ Shadow object representing shadow of this shape.
 
 #### Inherited from
 
-[`PencilBrush`](PencilBrush.md).[`shadow`](PencilBrush.md#shadow)
+[`PencilBrush`](/api/classes/pencilbrush/).[`shadow`](/api/classes/pencilbrush/#shadow)
 
-#### Source
+#### Defined in
 
 src/brushes/BaseBrush.ts:32
 
@@ -170,9 +174,9 @@ src/brushes/BaseBrush.ts:32
 
 ### source?
 
-> **`optional`** **source**: `CanvasImageSource`
+> `optional` **source**: `CanvasImageSource`
 
-#### Source
+#### Defined in
 
 src/brushes/PatternBrush.ts:8
 
@@ -187,9 +191,9 @@ If `null` or 'none' or any other string that is not a modifier key the feature i
 
 #### Inherited from
 
-[`PencilBrush`](PencilBrush.md).[`straightLineKey`](PencilBrush.md#straightlinekey)
+[`PencilBrush`](/api/classes/pencilbrush/).[`straightLineKey`](/api/classes/pencilbrush/#straightlinekey)
 
-#### Source
+#### Defined in
 
 src/brushes/PencilBrush.ts:41
 
@@ -209,9 +213,9 @@ Stroke Dash Array.
 
 #### Inherited from
 
-[`PencilBrush`](PencilBrush.md).[`strokeDashArray`](PencilBrush.md#strokedasharray)
+[`PencilBrush`](/api/classes/pencilbrush/).[`strokeDashArray`](/api/classes/pencilbrush/#strokedasharray)
 
-#### Source
+#### Defined in
 
 src/brushes/BaseBrush.ts:60
 
@@ -231,9 +235,9 @@ Line endings style of a brush (one of "butt", "round", "square")
 
 #### Inherited from
 
-[`PencilBrush`](PencilBrush.md).[`strokeLineCap`](PencilBrush.md#strokelinecap)
+[`PencilBrush`](/api/classes/pencilbrush/).[`strokeLineCap`](/api/classes/pencilbrush/#strokelinecap)
 
-#### Source
+#### Defined in
 
 src/brushes/BaseBrush.ts:39
 
@@ -253,9 +257,9 @@ Corner style of a brush (one of "bevel", "round", "miter")
 
 #### Inherited from
 
-[`PencilBrush`](PencilBrush.md).[`strokeLineJoin`](PencilBrush.md#strokelinejoin)
+[`PencilBrush`](/api/classes/pencilbrush/).[`strokeLineJoin`](/api/classes/pencilbrush/#strokelinejoin)
 
-#### Source
+#### Defined in
 
 src/brushes/BaseBrush.ts:46
 
@@ -275,9 +279,9 @@ Maximum miter length (used for strokeLineJoin = "miter") of a brush's
 
 #### Inherited from
 
-[`PencilBrush`](PencilBrush.md).[`strokeMiterLimit`](PencilBrush.md#strokemiterlimit)
+[`PencilBrush`](/api/classes/pencilbrush/).[`strokeMiterLimit`](/api/classes/pencilbrush/#strokemiterlimit)
 
-#### Source
+#### Defined in
 
 src/brushes/BaseBrush.ts:53
 
@@ -297,9 +301,9 @@ Width of a brush, has to be a Number, no string literals
 
 #### Inherited from
 
-[`PencilBrush`](PencilBrush.md).[`width`](PencilBrush.md#width)
+[`PencilBrush`](/api/classes/pencilbrush/).[`width`](/api/classes/pencilbrush/#width)
 
-#### Source
+#### Defined in
 
 src/brushes/BaseBrush.ts:23
 
@@ -319,9 +323,9 @@ and add it to the canvas.
 
 #### Inherited from
 
-[`PencilBrush`](PencilBrush.md).[`_finalizeAndAddPath`](PencilBrush.md#_finalizeandaddpath)
+[`PencilBrush`](/api/classes/pencilbrush/).[`_finalizeAndAddPath`](/api/classes/pencilbrush/#_finalizeandaddpath)
 
-#### Source
+#### Defined in
 
 src/brushes/PencilBrush.ts:273
 
@@ -345,7 +349,7 @@ Sets brush styles
 
 `PencilBrush._setBrushStyles`
 
-#### Source
+#### Defined in
 
 src/brushes/PatternBrush.ts:50
 
@@ -353,27 +357,27 @@ src/brushes/PatternBrush.ts:50
 
 ### convertPointsToSVGPath()
 
-> **convertPointsToSVGPath**(`points`): [`TSimplePathData`](../namespaces/util/type-aliases/TSimplePathData.md)
+> **convertPointsToSVGPath**(`points`): [`TSimplePathData`](/api/namespaces/util/type-aliases/tsimplepathdata/)
 
 Converts points to SVG path
 
 #### Parameters
 
-• **points**: [`Point`](Point.md)[]
+• **points**: [`Point`](/api/classes/point/)[]
 
 Array of points
 
 #### Returns
 
-[`TSimplePathData`](../namespaces/util/type-aliases/TSimplePathData.md)
+[`TSimplePathData`](/api/namespaces/util/type-aliases/tsimplepathdata/)
 
 SVG path commands
 
 #### Inherited from
 
-[`PencilBrush`](PencilBrush.md).[`convertPointsToSVGPath`](PencilBrush.md#convertpointstosvgpath)
+[`PencilBrush`](/api/classes/pencilbrush/).[`convertPointsToSVGPath`](/api/classes/pencilbrush/#convertpointstosvgpath)
 
-#### Source
+#### Defined in
 
 src/brushes/PencilBrush.ts:212
 
@@ -381,23 +385,23 @@ src/brushes/PencilBrush.ts:212
 
 ### createPath()
 
-> **createPath**(`pathData`): [`Path`](Path.md)\<`Partial`\<[`PathProps`](../interfaces/PathProps.md)\>, [`SerializedPathProps`](../interfaces/SerializedPathProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+> **createPath**(`pathData`): [`Path`](/api/classes/path/)\<`Partial`\<[`PathProps`](/api/interfaces/pathprops/)\>, [`SerializedPathProps`](/api/interfaces/serializedpathprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 Creates path
 
 #### Parameters
 
-• **pathData**: [`TSimplePathData`](../namespaces/util/type-aliases/TSimplePathData.md)
+• **pathData**: [`TSimplePathData`](/api/namespaces/util/type-aliases/tsimplepathdata/)
 
 #### Returns
 
-[`Path`](Path.md)\<`Partial`\<[`PathProps`](../interfaces/PathProps.md)\>, [`SerializedPathProps`](../interfaces/SerializedPathProps.md), [`ObjectEvents`](../interfaces/ObjectEvents.md)\>
+[`Path`](/api/classes/path/)\<`Partial`\<[`PathProps`](/api/interfaces/pathprops/)\>, [`SerializedPathProps`](/api/interfaces/serializedpathprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 #### Overrides
 
-[`PencilBrush`](PencilBrush.md).[`createPath`](PencilBrush.md#createpath)
+[`PencilBrush`](/api/classes/pencilbrush/).[`createPath`](/api/classes/pencilbrush/#createpath)
 
-#### Source
+#### Defined in
 
 src/brushes/PatternBrush.ts:59
 
@@ -405,25 +409,25 @@ src/brushes/PatternBrush.ts:59
 
 ### decimatePoints()
 
-> **decimatePoints**(`points`, `distance`): [`Point`](Point.md)[]
+> **decimatePoints**(`points`, `distance`): [`Point`](/api/classes/point/)[]
 
 Decimate points array with the decimate value
 
 #### Parameters
 
-• **points**: [`Point`](Point.md)[]
+• **points**: [`Point`](/api/classes/point/)[]
 
 • **distance**: `number`
 
 #### Returns
 
-[`Point`](Point.md)[]
+[`Point`](/api/classes/point/)[]
 
 #### Inherited from
 
-[`PencilBrush`](PencilBrush.md).[`decimatePoints`](PencilBrush.md#decimatepoints)
+[`PencilBrush`](/api/classes/pencilbrush/).[`decimatePoints`](/api/classes/pencilbrush/#decimatepoints)
 
-#### Source
+#### Defined in
 
 src/brushes/PencilBrush.ts:243
 
@@ -443,7 +447,7 @@ Creates "pattern" instance property
 
 `null` \| `CanvasPattern`
 
-#### Source
+#### Defined in
 
 src/brushes/PatternBrush.ts:42
 
@@ -457,7 +461,7 @@ src/brushes/PatternBrush.ts:42
 
 `HTMLCanvasElement`
 
-#### Source
+#### Defined in
 
 src/brushes/PatternBrush.ts:14
 
@@ -473,9 +477,9 @@ src/brushes/PatternBrush.ts:14
 
 #### Inherited from
 
-[`PencilBrush`](PencilBrush.md).[`needsFullRender`](PencilBrush.md#needsfullrender)
+[`PencilBrush`](/api/classes/pencilbrush/).[`needsFullRender`](/api/classes/pencilbrush/#needsfullrender)
 
-#### Source
+#### Defined in
 
 src/brushes/PencilBrush.ts:53
 
@@ -489,9 +493,9 @@ Invoked on mouse down
 
 #### Parameters
 
-• **pointer**: [`Point`](Point.md)
+• **pointer**: [`Point`](/api/classes/point/)
 
-• **\_\_namedParameters**: [`TEvent`](../interfaces/TEvent.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\>
+• **\_\_namedParameters**: [`TEvent`](/api/interfaces/tevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\>
 
 #### Returns
 
@@ -499,9 +503,9 @@ Invoked on mouse down
 
 #### Inherited from
 
-[`PencilBrush`](PencilBrush.md).[`onMouseDown`](PencilBrush.md#onmousedown)
+[`PencilBrush`](/api/classes/pencilbrush/).[`onMouseDown`](/api/classes/pencilbrush/#onmousedown)
 
-#### Source
+#### Defined in
 
 src/brushes/PencilBrush.ts:67
 
@@ -515,9 +519,9 @@ Invoked on mouse move
 
 #### Parameters
 
-• **pointer**: [`Point`](Point.md)
+• **pointer**: [`Point`](/api/classes/point/)
 
-• **\_\_namedParameters**: [`TEvent`](../interfaces/TEvent.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\>
+• **\_\_namedParameters**: [`TEvent`](/api/interfaces/tevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\>
 
 #### Returns
 
@@ -525,9 +529,9 @@ Invoked on mouse move
 
 #### Inherited from
 
-[`PencilBrush`](PencilBrush.md).[`onMouseMove`](PencilBrush.md#onmousemove)
+[`PencilBrush`](/api/classes/pencilbrush/).[`onMouseMove`](/api/classes/pencilbrush/#onmousemove)
 
-#### Source
+#### Defined in
 
 src/brushes/PencilBrush.ts:83
 
@@ -541,7 +545,7 @@ Invoked on mouse up
 
 #### Parameters
 
-• **\_\_namedParameters**: [`TEvent`](../interfaces/TEvent.md)\<[`TPointerEvent`](../type-aliases/TPointerEvent.md)\>
+• **\_\_namedParameters**: [`TEvent`](/api/interfaces/tevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\>
 
 #### Returns
 
@@ -549,9 +553,9 @@ Invoked on mouse up
 
 #### Inherited from
 
-[`PencilBrush`](PencilBrush.md).[`onMouseUp`](PencilBrush.md#onmouseup)
+[`PencilBrush`](/api/classes/pencilbrush/).[`onMouseUp`](/api/classes/pencilbrush/#onmouseup)
 
-#### Source
+#### Defined in
 
 src/brushes/PencilBrush.ts:121
 
@@ -559,24 +563,24 @@ src/brushes/PencilBrush.ts:121
 
 ### drawSegment()
 
-> **`static`** **drawSegment**(`ctx`, `p1`, `p2`): [`Point`](Point.md)
+> `static` **drawSegment**(`ctx`, `p1`, `p2`): [`Point`](/api/classes/point/)
 
 #### Parameters
 
 • **ctx**: `CanvasRenderingContext2D`
 
-• **p1**: [`Point`](Point.md)
+• **p1**: [`Point`](/api/classes/point/)
 
-• **p2**: [`Point`](Point.md)
+• **p2**: [`Point`](/api/classes/point/)
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
 #### Inherited from
 
-[`PencilBrush`](PencilBrush.md).[`drawSegment`](PencilBrush.md#drawsegment)
+[`PencilBrush`](/api/classes/pencilbrush/).[`drawSegment`](/api/classes/pencilbrush/#drawsegment)
 
-#### Source
+#### Defined in
 
 src/brushes/PencilBrush.ts:57

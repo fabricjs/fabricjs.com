@@ -5,7 +5,7 @@ prev: false
 title: "T2DPipelineState"
 ---
 
-> **T2DPipelineState**: `Object`
+> **T2DPipelineState**: `object`
 
 ## Type declaration
 
@@ -19,11 +19,11 @@ title: "T2DPipelineState"
 
 ### filterBackend
 
-> **filterBackend**: [`Canvas2dFilterBackend`](../classes/Canvas2dFilterBackend.md)
+> **filterBackend**: [`Canvas2dFilterBackend`](/api/classes/canvas2dfilterbackend/)
 
 ### helpLayer?
 
-> **`optional`** **helpLayer**: `HTMLCanvasElement`
+> `optional` **helpLayer**: `HTMLCanvasElement`
 
 ### imageData
 
@@ -35,7 +35,7 @@ title: "T2DPipelineState"
 
 ### originalImageData?
 
-> **`optional`** **originalImageData**: `ImageData`
+> `optional` **originalImageData**: `ImageData`
 
 ### sourceHeight
 
@@ -45,6 +45,6 @@ title: "T2DPipelineState"
 
 > **sourceWidth**: `number`
 
-## Source
+## Defined in
 
 src/filters/typedefs.ts:35

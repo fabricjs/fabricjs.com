@@ -5,7 +5,7 @@ prev: false
 title: "createPolyActionHandler"
 ---
 
-> **createPolyActionHandler**(`pointIndex`): [`TransformActionHandler`](../../../type-aliases/TransformActionHandler.md)\<[`Transform`](../../../type-aliases/Transform.md)\>
+> **createPolyActionHandler**(`pointIndex`): [`TransformActionHandler`](/api/type-aliases/transformactionhandler/)\<[`Transform`](/api/type-aliases/transform/)\>
 
 ## Parameters
 
@@ -13,8 +13,8 @@ title: "createPolyActionHandler"
 
 ## Returns
 
-[`TransformActionHandler`](../../../type-aliases/TransformActionHandler.md)\<[`Transform`](../../../type-aliases/Transform.md)\>
+[`TransformActionHandler`](/api/type-aliases/transformactionhandler/)\<[`Transform`](/api/type-aliases/transform/)\>
 
-## Source
+## Defined in
 
 src/controls/polyControl.ts:98

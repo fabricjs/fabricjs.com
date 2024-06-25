@@ -5,18 +5,18 @@ prev: false
 title: "TTranslateMatrixArgs"
 ---
 
-> **TTranslateMatrixArgs**: `Object`
+> **TTranslateMatrixArgs**: `object`
 
 ## Type declaration
 
 ### translateX?
 
-> **`optional`** **translateX**: `number`
+> `optional` **translateX**: `number`
 
 ### translateY?
 
-> **`optional`** **translateY**: `number`
+> `optional` **translateY**: `number`
 
-## Source
+## Defined in
 
 src/util/misc/matrix.ts:13

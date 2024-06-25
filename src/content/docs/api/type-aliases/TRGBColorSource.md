@@ -9,6 +9,6 @@ title: "TRGBColorSource"
 
 RGB format
 
-## Source
+## Defined in
 
 src/color/typedefs.ts:6

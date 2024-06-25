@@ -7,15 +7,19 @@ title: "DragEventData"
 
 ## Extends
 
-- [`TEvent`](TEvent.md)\<`DragEvent`\>
+- [`TEvent`](/api/interfaces/tevent/)\<`DragEvent`\>
+
+## Extended by
+
+- [`DropEventData`](/api/interfaces/dropeventdata/)
 
 ## Properties
 
 ### canDrop?
 
-> **`optional`** **canDrop**: `boolean`
+> `optional` **canDrop**: `boolean`
 
-#### Source
+#### Defined in
 
 src/EventTypeDefs.ts:172
 
@@ -23,9 +27,9 @@ src/EventTypeDefs.ts:172
 
 ### didDrop?
 
-> **`optional`** **didDrop**: `boolean`
+> `optional` **didDrop**: `boolean`
 
-#### Source
+#### Defined in
 
 src/EventTypeDefs.ts:173
 
@@ -33,9 +37,9 @@ src/EventTypeDefs.ts:173
 
 ### dragSource?
 
-> **`optional`** **dragSource**: [`FabricObject`](../classes/FabricObject.md)\<`Partial`\<[`FabricObjectProps`](FabricObjectProps.md)\>, [`SerializedObjectProps`](SerializedObjectProps.md), [`ObjectEvents`](ObjectEvents.md)\>
+> `optional` **dragSource**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
-#### Source
+#### Defined in
 
 src/EventTypeDefs.ts:171
 
@@ -43,9 +47,9 @@ src/EventTypeDefs.ts:171
 
 ### dropTarget?
 
-> **`optional`** **dropTarget**: [`FabricObject`](../classes/FabricObject.md)\<`Partial`\<[`FabricObjectProps`](FabricObjectProps.md)\>, [`SerializedObjectProps`](SerializedObjectProps.md), [`ObjectEvents`](ObjectEvents.md)\>
+> `optional` **dropTarget**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
-#### Source
+#### Defined in
 
 src/EventTypeDefs.ts:174
 
@@ -57,9 +61,9 @@ src/EventTypeDefs.ts:174
 
 #### Inherited from
 
-[`TEvent`](TEvent.md).[`e`](TEvent.md#e)
+[`TEvent`](/api/interfaces/tevent/).[`e`](/api/interfaces/tevent/#e)
 
-#### Source
+#### Defined in
 
 src/EventTypeDefs.ts:86
 
@@ -67,9 +71,9 @@ src/EventTypeDefs.ts:86
 
 ### subTargets?
 
-> **`optional`** **subTargets**: [`FabricObject`](../classes/FabricObject.md)\<`Partial`\<[`FabricObjectProps`](FabricObjectProps.md)\>, [`SerializedObjectProps`](SerializedObjectProps.md), [`ObjectEvents`](ObjectEvents.md)\>[]
+> `optional` **subTargets**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>[]
 
-#### Source
+#### Defined in
 
 src/EventTypeDefs.ts:170
 
@@ -77,8 +81,8 @@ src/EventTypeDefs.ts:170
 
 ### target?
 
-> **`optional`** **target**: [`FabricObject`](../classes/FabricObject.md)\<`Partial`\<[`FabricObjectProps`](FabricObjectProps.md)\>, [`SerializedObjectProps`](SerializedObjectProps.md), [`ObjectEvents`](ObjectEvents.md)\>
+> `optional` **target**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
-#### Source
+#### Defined in
 
 src/EventTypeDefs.ts:169

@@ -7,6 +7,6 @@ title: "AnimationState"
 
 > **AnimationState**: `"pending"` \| `"running"` \| `"completed"` \| `"aborted"`
 
-## Source
+## Defined in
 
 src/util/animation/types.ts:4

@@ -7,8 +7,8 @@ title: "MiscEvents"
 
 ## Extended by
 
-- [`ObjectEvents`](ObjectEvents.md)
-- [`CanvasEvents`](CanvasEvents.md)
+- [`ObjectEvents`](/api/interfaces/objectevents/)
+- [`CanvasEvents`](/api/interfaces/canvasevents/)
 
 ## Properties
 
@@ -16,7 +16,7 @@ title: "MiscEvents"
 
 > **contextmenu**: `SimpleEventHandler`\<`Event`\>
 
-#### Source
+#### Defined in
 
 src/EventTypeDefs.ts:266
 
@@ -26,6 +26,6 @@ src/EventTypeDefs.ts:266
 
 > **contextmenu:before**: `SimpleEventHandler`\<`Event`\>
 
-#### Source
+#### Defined in
 
 src/EventTypeDefs.ts:265

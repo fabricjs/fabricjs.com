@@ -5,12 +5,12 @@ prev: false
 title: "GradientCoords"
 ---
 
-> **GradientCoords**\<`T`\>: `T` extends `"linear"` ? [`LinearGradientCoords`](LinearGradientCoords.md)\<`number`\> : [`RadialGradientCoords`](RadialGradientCoords.md)\<`number`\>
+> **GradientCoords**\<`T`\>: `T` *extends* `"linear"` ? [`LinearGradientCoords`](/api/type-aliases/lineargradientcoords/)\<`number`\> : [`RadialGradientCoords`](/api/type-aliases/radialgradientcoords/)\<`number`\>
 
-## Type parameters
+## Type Parameters
 
-• **T** extends [`GradientType`](GradientType.md)
+• **T** *extends* [`GradientType`](/api/type-aliases/gradienttype/)
 
-## Source
+## Defined in
 
 src/gradient/typedefs.ts:61

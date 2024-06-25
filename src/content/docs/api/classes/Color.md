@@ -13,21 +13,21 @@ Color common color operations
 
 ## Constructors
 
-### new Color(color)
+### new Color()
 
-> **new Color**(`color`?): [`Color`](Color.md)
+> **new Color**(`color`?): [`Color`](/api/classes/color/)
 
 #### Parameters
 
-• **color?**: [`TColorArg`](../type-aliases/TColorArg.md)
+• **color?**: [`TColorArg`](/api/type-aliases/tcolorarg/)
 
 optional in hex or rgb(a) or hsl format or from known color list
 
 #### Returns
 
-[`Color`](Color.md)
+[`Color`](/api/classes/color/)
 
-#### Source
+#### Defined in
 
 src/color/Color.ts:23
 
@@ -45,7 +45,7 @@ Gets value of alpha channel for this color
 
 0-1
 
-#### Source
+#### Defined in
 
 src/color/Color.ts:129
 
@@ -53,15 +53,15 @@ src/color/Color.ts:129
 
 ### getSource()
 
-> **getSource**(): [`TRGBAColorSource`](../type-aliases/TRGBAColorSource.md)
+> **getSource**(): [`TRGBAColorSource`](/api/type-aliases/trgbacolorsource/)
 
 Returns source of this color (where source is an array representation; ex: [200, 200, 100, 1])
 
 #### Returns
 
-[`TRGBAColorSource`](../type-aliases/TRGBAColorSource.md)
+[`TRGBAColorSource`](/api/type-aliases/trgbacolorsource/)
 
-#### Source
+#### Defined in
 
 src/color/Color.ts:60
 
@@ -69,21 +69,21 @@ src/color/Color.ts:60
 
 ### overlayWith()
 
-> **overlayWith**(`otherColor`): [`Color`](Color.md)
+> **overlayWith**(`otherColor`): [`Color`](/api/classes/color/)
 
 Overlays color with another color
 
 #### Parameters
 
-• **otherColor**: `string` \| [`Color`](Color.md)
+• **otherColor**: `string` \| [`Color`](/api/classes/color/)
 
 #### Returns
 
-[`Color`](Color.md)
+[`Color`](/api/classes/color/)
 
 thisArg
 
-#### Source
+#### Defined in
 
 src/color/Color.ts:169
 
@@ -91,7 +91,7 @@ src/color/Color.ts:169
 
 ### setAlpha()
 
-> **setAlpha**(`alpha`): [`Color`](Color.md)
+> **setAlpha**(`alpha`): [`Color`](/api/classes/color/)
 
 Sets value of alpha channel for this color
 
@@ -103,11 +103,11 @@ Alpha value 0-1
 
 #### Returns
 
-[`Color`](Color.md)
+[`Color`](/api/classes/color/)
 
 thisArg
 
-#### Source
+#### Defined in
 
 src/color/Color.ts:138
 
@@ -121,13 +121,13 @@ Sets source of this color (where source is an array representation; ex: [200, 20
 
 #### Parameters
 
-• **source**: [`TRGBAColorSource`](../type-aliases/TRGBAColorSource.md)
+• **source**: [`TRGBAColorSource`](/api/type-aliases/trgbacolorsource/)
 
 #### Returns
 
 `void`
 
-#### Source
+#### Defined in
 
 src/color/Color.ts:68
 
@@ -135,7 +135,7 @@ src/color/Color.ts:68
 
 ### toBlackWhite()
 
-> **toBlackWhite**(`threshold`): [`Color`](Color.md)
+> **toBlackWhite**(`threshold`): [`Color`](/api/classes/color/)
 
 Transforms color to its black and white representation
 
@@ -145,11 +145,11 @@ Transforms color to its black and white representation
 
 #### Returns
 
-[`Color`](Color.md)
+[`Color`](/api/classes/color/)
 
 thisArg
 
-#### Source
+#### Defined in
 
 src/color/Color.ts:157
 
@@ -157,17 +157,17 @@ src/color/Color.ts:157
 
 ### toGrayscale()
 
-> **toGrayscale**(): [`Color`](Color.md)
+> **toGrayscale**(): [`Color`](/api/classes/color/)
 
 Transforms color to its grayscale representation
 
 #### Returns
 
-[`Color`](Color.md)
+[`Color`](/api/classes/color/)
 
 thisArg
 
-#### Source
+#### Defined in
 
 src/color/Color.ts:147
 
@@ -185,7 +185,7 @@ Returns color representation in HEX format
 
 ex: FF5555
 
-#### Source
+#### Defined in
 
 src/color/Color.ts:111
 
@@ -203,7 +203,7 @@ Returns color representation in HEXA format
 
 ex: FF5555CC
 
-#### Source
+#### Defined in
 
 src/color/Color.ts:120
 
@@ -221,7 +221,7 @@ Returns color representation in HSL format
 
 ex: hsl(0-360,0%-100%,0%-100%)
 
-#### Source
+#### Defined in
 
 src/color/Color.ts:93
 
@@ -239,7 +239,7 @@ Returns color representation in HSLA format
 
 ex: hsla(0-360,0%-100%,0%-100%,0-1)
 
-#### Source
+#### Defined in
 
 src/color/Color.ts:102
 
@@ -257,7 +257,7 @@ Returns color representation in RGB format
 
 ex: rgb(0-255,0-255,0-255)
 
-#### Source
+#### Defined in
 
 src/color/Color.ts:76
 
@@ -275,7 +275,7 @@ Returns color representation in RGBA format
 
 ex: rgba(0-255,0-255,0-255,0-1)
 
-#### Source
+#### Defined in
 
 src/color/Color.ts:85
 
@@ -283,7 +283,7 @@ src/color/Color.ts:85
 
 ### fromHex()
 
-> **`static`** **fromHex**(`color`): [`Color`](Color.md)
+> `static` **fromHex**(`color`): [`Color`](/api/classes/color/)
 
 Returns new color object, when given a color in HEX format
 
@@ -295,7 +295,7 @@ Color value ex: FF5555
 
 #### Returns
 
-[`Color`](Color.md)
+[`Color`](/api/classes/color/)
 
 #### Static
 
@@ -303,7 +303,7 @@ Color value ex: FF5555
 
 Color
 
-#### Source
+#### Defined in
 
 src/color/Color.ts:293
 
@@ -311,7 +311,7 @@ src/color/Color.ts:293
 
 ### fromHsl()
 
-> **`static`** **fromHsl**(`color`): [`Color`](Color.md)
+> `static` **fromHsl**(`color`): [`Color`](/api/classes/color/)
 
 Returns new color object, when given a color in HSL format
 
@@ -323,13 +323,13 @@ Color value ex: hsl(0-260,0%-100%,0%-100%)
 
 #### Returns
 
-[`Color`](Color.md)
+[`Color`](/api/classes/color/)
 
 #### Member Of
 
 Color
 
-#### Source
+#### Defined in
 
 src/color/Color.ts:232
 
@@ -337,7 +337,7 @@ src/color/Color.ts:232
 
 ### fromHsla()
 
-> **`static`** **fromHsla**(`color`): [`Color`](Color.md)
+> `static` **fromHsla**(`color`): [`Color`](/api/classes/color/)
 
 Returns new color object, when given a color in HSLA format
 
@@ -347,7 +347,7 @@ Returns new color object, when given a color in HSLA format
 
 #### Returns
 
-[`Color`](Color.md)
+[`Color`](/api/classes/color/)
 
 #### Static
 
@@ -357,7 +357,7 @@ Returns new color object, when given a color in HSLA format
 
 Color
 
-#### Source
+#### Defined in
 
 src/color/Color.ts:244
 
@@ -365,7 +365,7 @@ src/color/Color.ts:244
 
 ### fromRgb()
 
-> **`static`** **fromRgb**(`color`): [`Color`](Color.md)
+> `static` **fromRgb**(`color`): [`Color`](/api/classes/color/)
 
 Returns new color object, when given a color in RGB format
 
@@ -377,13 +377,13 @@ Color value ex: rgb(0-255,0-255,0-255)
 
 #### Returns
 
-[`Color`](Color.md)
+[`Color`](/api/classes/color/)
 
 #### Member Of
 
 Color
 
-#### Source
+#### Defined in
 
 src/color/Color.ts:191
 
@@ -391,7 +391,7 @@ src/color/Color.ts:191
 
 ### fromRgba()
 
-> **`static`** **fromRgba**(`color`): [`Color`](Color.md)
+> `static` **fromRgba**(`color`): [`Color`](/api/classes/color/)
 
 Returns new color object, when given a color in RGBA format
 
@@ -401,7 +401,7 @@ Returns new color object, when given a color in RGBA format
 
 #### Returns
 
-[`Color`](Color.md)
+[`Color`](/api/classes/color/)
 
 #### Static
 
@@ -411,7 +411,7 @@ Returns new color object, when given a color in RGBA format
 
 Color
 
-#### Source
+#### Defined in
 
 src/color/Color.ts:203
 
@@ -419,7 +419,7 @@ src/color/Color.ts:203
 
 ### sourceFromHex()
 
-> **`static`** **sourceFromHex**(`color`): `undefined` \| [`TRGBAColorSource`](../type-aliases/TRGBAColorSource.md)
+> `static` **sourceFromHex**(`color`): `undefined` \| [`TRGBAColorSource`](/api/type-aliases/trgbacolorsource/)
 
 Returns array representation (ex: [100, 100, 200, 1]) of a color that's in HEX format
 
@@ -431,7 +431,7 @@ ex: FF5555 or FF5544CC (RGBa)
 
 #### Returns
 
-`undefined` \| [`TRGBAColorSource`](../type-aliases/TRGBAColorSource.md)
+`undefined` \| [`TRGBAColorSource`](/api/type-aliases/trgbacolorsource/)
 
 source
 
@@ -441,7 +441,7 @@ source
 
 Color
 
-#### Source
+#### Defined in
 
 src/color/Color.ts:304
 
@@ -449,7 +449,7 @@ src/color/Color.ts:304
 
 ### sourceFromHsl()
 
-> **`static`** **sourceFromHsl**(`color`): `undefined` \| [`TRGBAColorSource`](../type-aliases/TRGBAColorSource.md)
+> `static` **sourceFromHsl**(`color`): `undefined` \| [`TRGBAColorSource`](/api/type-aliases/trgbacolorsource/)
 
 Returns array representation (ex: [100, 100, 200, 1]) of a color that's in HSL or HSLA format.
 Adapted from <a href="https://rawgithub.com/mjijackson/mjijackson.github.com/master/2008/02/rgb-to-hsl-and-rgb-to-hsv-color-model-conversion-algorithms-in-javascript.html">https://github.com/mjijackson</a>
@@ -462,7 +462,7 @@ Color value ex: hsl(0-360,0%-100%,0%-100%) or hsla(0-360,0%-100%,0%-100%, 0-1)
 
 #### Returns
 
-`undefined` \| [`TRGBAColorSource`](../type-aliases/TRGBAColorSource.md)
+`undefined` \| [`TRGBAColorSource`](/api/type-aliases/trgbacolorsource/)
 
 source
 
@@ -474,7 +474,7 @@ Color
 
 http://http://www.w3.org/TR/css3-color/#hsl-color
 
-#### Source
+#### Defined in
 
 src/color/Color.ts:256
 
@@ -482,7 +482,7 @@ src/color/Color.ts:256
 
 ### sourceFromRgb()
 
-> **`static`** **sourceFromRgb**(`color`): `undefined` \| [`TRGBAColorSource`](../type-aliases/TRGBAColorSource.md)
+> `static` **sourceFromRgb**(`color`): `undefined` \| [`TRGBAColorSource`](/api/type-aliases/trgbacolorsource/)
 
 Returns array representation (ex: [100, 100, 200, 1]) of a color that's in RGB or RGBA format
 
@@ -494,7 +494,7 @@ Color value ex: rgb(0-255,0-255,0-255), rgb(0%-100%,0%-100%,0%-100%)
 
 #### Returns
 
-`undefined` \| [`TRGBAColorSource`](../type-aliases/TRGBAColorSource.md)
+`undefined` \| [`TRGBAColorSource`](/api/type-aliases/trgbacolorsource/)
 
 source
 
@@ -502,6 +502,6 @@ source
 
 Color
 
-#### Source
+#### Defined in
 
 src/color/Color.ts:213

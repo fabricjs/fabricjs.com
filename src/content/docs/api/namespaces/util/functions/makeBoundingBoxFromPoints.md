@@ -5,20 +5,18 @@ prev: false
 title: "makeBoundingBoxFromPoints"
 ---
 
-> **makeBoundingBoxFromPoints**(`points`): [`TBBox`](../../../type-aliases/TBBox.md)
-
-Calculates bounding box (left, top, width, height) from given `points`
+> **makeBoundingBoxFromPoints**(`points`): [`TBBox`](/api/type-aliases/tbbox/)
 
 ## Parameters
 
-• **points**: [`XY`](../../../interfaces/XY.md)[]
+• **points**: [`XY`](/api/interfaces/xy/)[]
 
 ## Returns
 
-[`TBBox`](../../../type-aliases/TBBox.md)
+[`TBBox`](/api/type-aliases/tbbox/)
 
 Object with left, top, width, height properties
 
-## Source
+## Defined in
 
 src/util/misc/boundingBoxFromPoints.ts:10

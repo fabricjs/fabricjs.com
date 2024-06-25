@@ -7,21 +7,21 @@ title: "WebGLFilterBackend"
 
 ## Constructors
 
-### new WebGLFilterBackend(__namedParameters)
+### new WebGLFilterBackend()
 
-> **new WebGLFilterBackend**(`__namedParameters`): [`WebGLFilterBackend`](WebGLFilterBackend.md)
+> **new WebGLFilterBackend**(`__namedParameters`): [`WebGLFilterBackend`](/api/classes/webglfilterbackend/)
 
 #### Parameters
 
-• **\_\_namedParameters**= `{}`
+• **\_\_namedParameters** = `{}`
 
-• **\_\_namedParameters\.tileSize**: `undefined` \| `number`= `config.textureSize`
+• **\_\_namedParameters.tileSize**: `undefined` \| `number` = `config.textureSize`
 
 #### Returns
 
-[`WebGLFilterBackend`](WebGLFilterBackend.md)
+[`WebGLFilterBackend`](/api/classes/webglfilterbackend/)
 
-#### Source
+#### Defined in
 
 src/filters/WebGLFilterBackend.ts:56
 
@@ -33,7 +33,7 @@ src/filters/WebGLFilterBackend.ts:56
 
 Define ...
 
-#### Source
+#### Defined in
 
 src/filters/WebGLFilterBackend.ts:17
 
@@ -43,7 +43,7 @@ src/filters/WebGLFilterBackend.ts:17
 
 > **canvas**: `HTMLCanvasElement`
 
-#### Source
+#### Defined in
 
 src/filters/WebGLFilterBackend.ts:25
 
@@ -55,7 +55,7 @@ src/filters/WebGLFilterBackend.ts:25
 
 The Webgl context that will execute the operations for filtering
 
-#### Source
+#### Defined in
 
 src/filters/WebGLFilterBackend.ts:30
 
@@ -67,7 +67,7 @@ src/filters/WebGLFilterBackend.ts:30
 
 Contains GPU info for debug
 
-#### Source
+#### Defined in
 
 src/filters/WebGLFilterBackend.ts:45
 
@@ -75,12 +75,12 @@ src/filters/WebGLFilterBackend.ts:45
 
 ### imageBuffer?
 
-> **`optional`** **imageBuffer**: `ArrayBuffer`
+> `optional` **imageBuffer**: `ArrayBuffer`
 
 If GLPut data is the fastest operation, or if forced, this buffer will be used
 to transfer the data back in the 2d logic
 
-#### Source
+#### Defined in
 
 src/filters/WebGLFilterBackend.ts:23
 
@@ -92,7 +92,7 @@ src/filters/WebGLFilterBackend.ts:23
 
 Keyed map for shader cache
 
-#### Source
+#### Defined in
 
 src/filters/WebGLFilterBackend.ts:35
 
@@ -100,7 +100,7 @@ src/filters/WebGLFilterBackend.ts:35
 
 ### resources
 
-> **resources**: [`TPipelineResources`](../type-aliases/TPipelineResources.md) = `{}`
+> **resources**: [`TPipelineResources`](/api/type-aliases/tpipelineresources/) = `{}`
 
 Experimental. This object is a sort of repository of help layers used to avoid
 of recreating them during frequent filtering. If you are previewing a filter with
@@ -108,7 +108,7 @@ a slider you probably do not want to create help layers every filter step.
 in this object there will be appended some canvases, created once, resized sometimes
 cleared never. Clearing is left to the developer.
 
-#### Source
+#### Defined in
 
 src/filters/WebGLFilterBackend.ts:54
 
@@ -116,11 +116,11 @@ src/filters/WebGLFilterBackend.ts:54
 
 ### textureCache
 
-> **textureCache**: [`TTextureCache`](../type-aliases/TTextureCache.md)
+> **textureCache**: [`TTextureCache`](/api/type-aliases/ttexturecache/)
 
 Keyed map for texture cache
 
-#### Source
+#### Defined in
 
 src/filters/WebGLFilterBackend.ts:40
 
@@ -130,7 +130,7 @@ src/filters/WebGLFilterBackend.ts:40
 
 > **tileSize**: `number`
 
-#### Source
+#### Defined in
 
 src/filters/WebGLFilterBackend.ts:12
 
@@ -138,14 +138,14 @@ src/filters/WebGLFilterBackend.ts:12
 
 ### applyFilters()
 
-> **applyFilters**(`filters`, `source`, `width`, `height`, `targetCanvas`, `cacheKey`?): `undefined` \| [`TWebGLPipelineState`](../type-aliases/TWebGLPipelineState.md)
+> **applyFilters**(`filters`, `source`, `width`, `height`, `targetCanvas`, `cacheKey`?): `undefined` \| [`TWebGLPipelineState`](/api/type-aliases/twebglpipelinestate/)
 
 Attempts to apply the requested filters to the source provided, drawing the filtered output
 to the provided target canvas.
 
 #### Parameters
 
-• **filters**: [`BaseFilter`](../namespaces/filters/classes/BaseFilter.md)[]
+• **filters**: [`BaseFilter`](/api/namespaces/filters/classes/basefilter/)[]
 
 The filters to apply.
 
@@ -172,9 +172,9 @@ omitted, caching will be skipped.
 
 #### Returns
 
-`undefined` \| [`TWebGLPipelineState`](../type-aliases/TWebGLPipelineState.md)
+`undefined` \| [`TWebGLPipelineState`](/api/type-aliases/twebglpipelinestate/)
 
-#### Source
+#### Defined in
 
 src/filters/WebGLFilterBackend.ts:108
 
@@ -194,7 +194,7 @@ Useful information when debugging or blacklisting specific GPUs.
 
 A GPU info object with renderer and vendor strings.
 
-#### Source
+#### Defined in
 
 src/filters/WebGLFilterBackend.ts:382
 
@@ -210,7 +210,7 @@ Wipe out WebGL-related caches.
 
 `void`
 
-#### Source
+#### Defined in
 
 src/filters/WebGLFilterBackend.ts:197
 
@@ -229,7 +229,7 @@ desired output image appearing in the bottom-left corner of the WebGL canvas.
 
 • **gl**: `WebGLRenderingContext`
 
-• **pipelineState**: [`TWebGLPipelineState`](../type-aliases/TWebGLPipelineState.md)
+• **pipelineState**: [`TWebGLPipelineState`](/api/type-aliases/twebglpipelinestate/)
 
 The 2D target canvas to copy on to.
 
@@ -237,7 +237,7 @@ The 2D target canvas to copy on to.
 
 `void`
 
-#### Source
+#### Defined in
 
 src/filters/WebGLFilterBackend.ts:322
 
@@ -252,11 +252,11 @@ API. Measurably faster than using ctx.drawImage in Firefox (version 54 on OSX Si
 
 #### Parameters
 
-• **this**: `Required`\<[`WebGLFilterBackend`](WebGLFilterBackend.md)\>
+• **this**: `Required`\<[`WebGLFilterBackend`](/api/classes/webglfilterbackend/)\>
 
 • **gl**: `WebGLRenderingContext`
 
-• **pipelineState**: [`TWebGLPipelineState`](../type-aliases/TWebGLPipelineState.md)
+• **pipelineState**: [`TWebGLPipelineState`](/api/type-aliases/twebglpipelinestate/)
 
 The 2D target canvas to copy on to.
 
@@ -264,7 +264,7 @@ The 2D target canvas to copy on to.
 
 `void`
 
-#### Source
+#### Defined in
 
 src/filters/WebGLFilterBackend.ts:354
 
@@ -305,7 +305,7 @@ This filter is very useful for LUTs filters. If you need interpolation use gl.LI
 
 `null` \| `WebGLTexture`
 
-#### Source
+#### Defined in
 
 src/filters/WebGLFilterBackend.ts:215
 
@@ -328,7 +328,7 @@ class properties to the GLFilterBackend class.
 
 `void`
 
-#### Source
+#### Defined in
 
 src/filters/WebGLFilterBackend.ts:74
 
@@ -344,7 +344,7 @@ Detach event listeners, remove references, and clean up caches.
 
 `void`
 
-#### Source
+#### Defined in
 
 src/filters/WebGLFilterBackend.ts:182
 
@@ -367,7 +367,7 @@ The cache key provided when the source image was filtered.
 
 `void`
 
-#### Source
+#### Defined in
 
 src/filters/WebGLFilterBackend.ts:306
 
@@ -398,7 +398,7 @@ texture cache entry if one does not already exist.
 
 `null` \| `WebGLTexture`
 
-#### Source
+#### Defined in
 
 src/filters/WebGLFilterBackend.ts:275
 
@@ -420,6 +420,6 @@ Setup a WebGL context suitable for filtering, and bind any needed event handlers
 
 `void`
 
-#### Source
+#### Defined in
 
 src/filters/WebGLFilterBackend.ts:65

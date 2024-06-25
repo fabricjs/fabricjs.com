@@ -5,7 +5,7 @@ prev: false
 title: "CircleBrushPoint"
 ---
 
-> **CircleBrushPoint**: `Object`
+> **CircleBrushPoint**: `object`
 
 ## Type declaration
 
@@ -25,6 +25,6 @@ title: "CircleBrushPoint"
 
 > **y**: `number`
 
-## Source
+## Defined in
 
 src/brushes/typedefs.ts:6

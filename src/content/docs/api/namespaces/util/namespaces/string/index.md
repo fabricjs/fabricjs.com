@@ -9,6 +9,6 @@ title: "string"
 
 ### Functions
 
-- [capitalize](functions/capitalize.md)
-- [escapeXml](functions/escapeXml.md)
-- [graphemeSplit](functions/graphemeSplit.md)
+- [capitalize](/api/namespaces/util/namespaces/string/functions/capitalize/)
+- [escapeXml](/api/namespaces/util/namespaces/string/functions/escapexml/)
+- [graphemeSplit](/api/namespaces/util/namespaces/string/functions/graphemesplit/)

@@ -7,16 +7,14 @@ title: "magnitude"
 
 > **magnitude**(`point`): `number`
 
-return the magnitude of a vector
-
 ## Parameters
 
-• **point**: [`Point`](../../../classes/Point.md)
+• **point**: [`Point`](/api/classes/point/)
 
 ## Returns
 
 `number`
 
-## Source
+## Defined in
 
 src/util/misc/vectors.ts:31

@@ -5,7 +5,7 @@ prev: false
 title: "TSize"
 ---
 
-> **TSize**: `Object`
+> **TSize**: `object`
 
 ## Type declaration
 
@@ -17,6 +17,6 @@ title: "TSize"
 
 > **width**: `number`
 
-## Source
+## Defined in
 
 src/typedefs.ts:34

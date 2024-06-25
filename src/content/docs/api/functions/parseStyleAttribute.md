@@ -27,6 +27,6 @@ Objects with values parsed from style attribute of an element
 
 fabric
 
-## Source
+## Defined in
 
 src/parser/parseStyleAttribute.ts:11

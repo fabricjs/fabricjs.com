@@ -31,6 +31,6 @@ definition
 
 fabric
 
-## Source
+## Defined in
 
 src/parser/parseFontDeclaration.ts:12

@@ -11,31 +11,31 @@ title: "SprayBrush"
 
 ## Extends
 
-- [`BaseBrush`](BaseBrush.md)
+- [`BaseBrush`](/api/classes/basebrush/)
 
 ## Constructors
 
-### new SprayBrush(canvas)
+### new SprayBrush()
 
-> **new SprayBrush**(`canvas`): [`SprayBrush`](SprayBrush.md)
+> **new SprayBrush**(`canvas`): [`SprayBrush`](/api/classes/spraybrush/)
 
 Constructor
 
 #### Parameters
 
-• **canvas**: [`Canvas`](Canvas.md)
+• **canvas**: [`Canvas`](/api/classes/canvas/)
 
 #### Returns
 
-[`SprayBrush`](SprayBrush.md)
+[`SprayBrush`](/api/classes/spraybrush/)
 
 Instance of a spray brush
 
 #### Overrides
 
-[`BaseBrush`](BaseBrush.md).[`constructor`](BaseBrush.md#constructors)
+[`BaseBrush`](/api/classes/basebrush/).[`constructor`](/api/classes/basebrush/#constructors)
 
-#### Source
+#### Defined in
 
 src/brushes/SprayBrush.ts:83
 
@@ -43,7 +43,7 @@ src/brushes/SprayBrush.ts:83
 
 ### canvas
 
-> **canvas**: [`Canvas`](Canvas.md)
+> **canvas**: [`Canvas`](/api/classes/canvas/)
 
 #### Todo
 
@@ -51,9 +51,9 @@ add type
 
 #### Inherited from
 
-[`BaseBrush`](BaseBrush.md).[`canvas`](BaseBrush.md#canvas)
+[`BaseBrush`](/api/classes/basebrush/).[`canvas`](/api/classes/basebrush/#canvas)
 
-#### Source
+#### Defined in
 
 src/brushes/BaseBrush.ts:73
 
@@ -73,9 +73,9 @@ Color of a brush
 
 #### Inherited from
 
-[`BaseBrush`](BaseBrush.md).[`color`](BaseBrush.md#color)
+[`BaseBrush`](/api/classes/basebrush/).[`color`](/api/classes/basebrush/#color)
 
-#### Source
+#### Defined in
 
 src/brushes/BaseBrush.ts:16
 
@@ -93,7 +93,7 @@ Density of a spray (number of dots per chunk)
 
 ```
 
-#### Source
+#### Defined in
 
 src/brushes/SprayBrush.ts:44
 
@@ -111,7 +111,7 @@ Width of spray dots
 
 ```
 
-#### Source
+#### Defined in
 
 src/brushes/SprayBrush.ts:51
 
@@ -129,7 +129,7 @@ Width variance of spray dots
 
 ```
 
-#### Source
+#### Defined in
 
 src/brushes/SprayBrush.ts:58
 
@@ -149,9 +149,9 @@ false
 
 #### Inherited from
 
-[`BaseBrush`](BaseBrush.md).[`limitedToCanvasSize`](BaseBrush.md#limitedtocanvassize)
+[`BaseBrush`](/api/classes/basebrush/).[`limitedToCanvasSize`](/api/classes/basebrush/#limitedtocanvassize)
 
-#### Source
+#### Defined in
 
 src/brushes/BaseBrush.ts:68
 
@@ -169,7 +169,7 @@ Whether overlapping dots (rectangles) should be removed (for performance reasons
 
 ```
 
-#### Source
+#### Defined in
 
 src/brushes/SprayBrush.ts:72
 
@@ -187,7 +187,7 @@ Whether opacity of a dot should be random
 
 ```
 
-#### Source
+#### Defined in
 
 src/brushes/SprayBrush.ts:65
 
@@ -195,7 +195,7 @@ src/brushes/SprayBrush.ts:65
 
 ### shadow
 
-> **shadow**: `null` \| [`Shadow`](Shadow.md) = `null`
+> **shadow**: `null` \| [`Shadow`](/api/classes/shadow/) = `null`
 
 Shadow object representing shadow of this shape.
 <b>Backwards incompatibility note:</b> This property replaces "shadowColor" (String), "shadowOffsetX" (Number),
@@ -209,9 +209,9 @@ Shadow object representing shadow of this shape.
 
 #### Inherited from
 
-[`BaseBrush`](BaseBrush.md).[`shadow`](BaseBrush.md#shadow)
+[`BaseBrush`](/api/classes/basebrush/).[`shadow`](/api/classes/basebrush/#shadow)
 
-#### Source
+#### Defined in
 
 src/brushes/BaseBrush.ts:32
 
@@ -231,9 +231,9 @@ Stroke Dash Array.
 
 #### Inherited from
 
-[`BaseBrush`](BaseBrush.md).[`strokeDashArray`](BaseBrush.md#strokedasharray)
+[`BaseBrush`](/api/classes/basebrush/).[`strokeDashArray`](/api/classes/basebrush/#strokedasharray)
 
-#### Source
+#### Defined in
 
 src/brushes/BaseBrush.ts:60
 
@@ -253,9 +253,9 @@ Line endings style of a brush (one of "butt", "round", "square")
 
 #### Inherited from
 
-[`BaseBrush`](BaseBrush.md).[`strokeLineCap`](BaseBrush.md#strokelinecap)
+[`BaseBrush`](/api/classes/basebrush/).[`strokeLineCap`](/api/classes/basebrush/#strokelinecap)
 
-#### Source
+#### Defined in
 
 src/brushes/BaseBrush.ts:39
 
@@ -275,9 +275,9 @@ Corner style of a brush (one of "bevel", "round", "miter")
 
 #### Inherited from
 
-[`BaseBrush`](BaseBrush.md).[`strokeLineJoin`](BaseBrush.md#strokelinejoin)
+[`BaseBrush`](/api/classes/basebrush/).[`strokeLineJoin`](/api/classes/basebrush/#strokelinejoin)
 
-#### Source
+#### Defined in
 
 src/brushes/BaseBrush.ts:46
 
@@ -297,9 +297,9 @@ Maximum miter length (used for strokeLineJoin = "miter") of a brush's
 
 #### Inherited from
 
-[`BaseBrush`](BaseBrush.md).[`strokeMiterLimit`](BaseBrush.md#strokemiterlimit)
+[`BaseBrush`](/api/classes/basebrush/).[`strokeMiterLimit`](/api/classes/basebrush/#strokemiterlimit)
 
-#### Source
+#### Defined in
 
 src/brushes/BaseBrush.ts:53
 
@@ -319,9 +319,9 @@ Width of a spray
 
 #### Overrides
 
-[`BaseBrush`](BaseBrush.md).[`width`](BaseBrush.md#width)
+[`BaseBrush`](/api/classes/basebrush/).[`width`](/api/classes/basebrush/#width)
 
-#### Source
+#### Defined in
 
 src/brushes/SprayBrush.ts:37
 
@@ -339,9 +339,9 @@ Render all spray chunks
 
 #### Overrides
 
-[`BaseBrush`](BaseBrush.md).[`_render`](BaseBrush.md#_render)
+[`BaseBrush`](/api/classes/basebrush/).[`_render`](/api/classes/basebrush/#_render)
 
-#### Source
+#### Defined in
 
 src/brushes/SprayBrush.ts:177
 
@@ -353,13 +353,13 @@ src/brushes/SprayBrush.ts:177
 
 #### Parameters
 
-• **pointer**: [`Point`](Point.md)
+• **pointer**: [`Point`](/api/classes/point/)
 
 #### Returns
 
 `void`
 
-#### Source
+#### Defined in
 
 src/brushes/SprayBrush.ts:192
 
@@ -373,7 +373,7 @@ Invoked on mouse down
 
 #### Parameters
 
-• **pointer**: [`Point`](Point.md)
+• **pointer**: [`Point`](/api/classes/point/)
 
 #### Returns
 
@@ -381,9 +381,9 @@ Invoked on mouse down
 
 #### Overrides
 
-[`BaseBrush`](BaseBrush.md).[`onMouseDown`](BaseBrush.md#onmousedown)
+[`BaseBrush`](/api/classes/basebrush/).[`onMouseDown`](/api/classes/basebrush/#onmousedown)
 
-#### Source
+#### Defined in
 
 src/brushes/SprayBrush.ts:93
 
@@ -397,7 +397,7 @@ Invoked on mouse move
 
 #### Parameters
 
-• **pointer**: [`Point`](Point.md)
+• **pointer**: [`Point`](/api/classes/point/)
 
 #### Returns
 
@@ -405,9 +405,9 @@ Invoked on mouse move
 
 #### Overrides
 
-[`BaseBrush`](BaseBrush.md).[`onMouseMove`](BaseBrush.md#onmousemove)
+[`BaseBrush`](/api/classes/basebrush/).[`onMouseMove`](/api/classes/basebrush/#onmousemove)
 
-#### Source
+#### Defined in
 
 src/brushes/SprayBrush.ts:106
 
@@ -425,9 +425,9 @@ Invoked on mouse up
 
 #### Overrides
 
-[`BaseBrush`](BaseBrush.md).[`onMouseUp`](BaseBrush.md#onmouseup)
+[`BaseBrush`](/api/classes/basebrush/).[`onMouseUp`](/api/classes/basebrush/#onmouseup)
 
-#### Source
+#### Defined in
 
 src/brushes/SprayBrush.ts:117
 
@@ -439,12 +439,12 @@ src/brushes/SprayBrush.ts:117
 
 #### Parameters
 
-• **sprayChunck**: [`SprayBrushPoint`](../type-aliases/SprayBrushPoint.md)[]
+• **sprayChunck**: [`SprayBrushPoint`](/api/type-aliases/spraybrushpoint/)[]
 
 #### Returns
 
 `void`
 
-#### Source
+#### Defined in
 
 src/brushes/SprayBrush.ts:159

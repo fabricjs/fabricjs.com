@@ -5,8 +5,8 @@ prev: false
 title: "TParsedArcCommand"
 ---
 
-> **TParsedArcCommand**: [`TParsedAbsoluteArcCommand`](TParsedAbsoluteArcCommand.md) \| [`TParsedRelativeArcCommand`](TParsedRelativeArcCommand.md)
+> **TParsedArcCommand**: [`TParsedAbsoluteArcCommand`](/api/namespaces/util/type-aliases/tparsedabsolutearccommand/) \| [`TParsedRelativeArcCommand`](/api/namespaces/util/type-aliases/tparsedrelativearccommand/)
 
-## Source
+## Defined in
 
 src/util/path/typedefs.ts:252

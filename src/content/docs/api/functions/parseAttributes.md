@@ -28,6 +28,6 @@ Array of attributes to parse
 
 object containing parsed attributes' names/values
 
-## Source
+## Defined in
 
 src/parser/parseAttributes.ts:19

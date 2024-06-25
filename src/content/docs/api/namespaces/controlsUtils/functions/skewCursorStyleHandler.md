@@ -7,19 +7,17 @@ title: "skewCursorStyleHandler"
 
 > **skewCursorStyleHandler**(`eventData`, `control`, `fabricObject`): `string`
 
-return the correct cursor style for the skew action
-
 ## Parameters
 
-• **eventData**: [`TPointerEvent`](../../../type-aliases/TPointerEvent.md)
+• **eventData**: [`TPointerEvent`](/api/type-aliases/tpointerevent/)
 
 the javascript event that is causing the scale
 
-• **control**: [`Control`](../../../classes/Control.md)
+• **control**: [`Control`](/api/classes/control/)
 
 the control that is interested in the action
 
-• **fabricObject**: [`FabricObject`](../../../classes/FabricObject.md)\<`Partial`\<[`FabricObjectProps`](../../../interfaces/FabricObjectProps.md)\>, [`SerializedObjectProps`](../../../interfaces/SerializedObjectProps.md), [`ObjectEvents`](../../../interfaces/ObjectEvents.md)\>
+• **fabricObject**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 the fabric object that is interested in the action
 
@@ -29,6 +27,6 @@ the fabric object that is interested in the action
 
 a valid css string for the cursor
 
-## Source
+## Defined in
 
 src/controls/skew.ts:64

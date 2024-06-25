@@ -5,7 +5,7 @@ prev: false
 title: "TBBox"
 ---
 
-> **TBBox**: `Object` & [`TSize`](TSize.md)
+> **TBBox**: `object` & [`TSize`](/api/type-aliases/tsize/)
 
 ## Type declaration
 
@@ -17,6 +17,6 @@ title: "TBBox"
 
 > **top**: `number`
 
-## Source
+## Defined in
 
 src/typedefs.ts:39

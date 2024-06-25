@@ -9,9 +9,9 @@ title: "rotationWithSnapping"
 
 ## Parameters
 
-• **eventData**: [`TPointerEvent`](../../../type-aliases/TPointerEvent.md)
+• **eventData**: [`TPointerEvent`](/api/type-aliases/tpointerevent/)
 
-• **transform**: [`Transform`](../../../type-aliases/Transform.md)
+• **transform**: [`Transform`](/api/type-aliases/transform/)
 
 • **x**: `number`
 
@@ -21,6 +21,6 @@ title: "rotationWithSnapping"
 
 `boolean`
 
-## Source
+## Defined in
 
 src/controls/rotate.ts:84

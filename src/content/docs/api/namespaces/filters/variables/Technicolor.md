@@ -5,8 +5,8 @@ prev: false
 title: "Technicolor"
 ---
 
-> **`const`** **Technicolor**: *typeof* `__class`
+> `const` **Technicolor**: *typeof* `__class`
 
-## Source
+## Defined in
 
 src/filters/ColorMatrixFilters.ts:45

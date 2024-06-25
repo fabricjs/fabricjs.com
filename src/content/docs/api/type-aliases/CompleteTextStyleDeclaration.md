@@ -5,8 +5,8 @@ prev: false
 title: "CompleteTextStyleDeclaration"
 ---
 
-> **CompleteTextStyleDeclaration**: `Pick`\<[`FabricText`](../classes/FabricText.md), `StylePropertiesType`\>
+> **CompleteTextStyleDeclaration**: `Pick`\<[`FabricText`](/api/classes/fabrictext/), `StylePropertiesType`\>
 
-## Source
+## Defined in
 
 src/shapes/Text/StyledText.ts:11

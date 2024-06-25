@@ -7,7 +7,7 @@ title: "Constructor"
 
 > **Constructor**\<`T`\>: (...`args`) => `T`
 
-## Type parameters
+## Type Parameters
 
 • **T** = `object`
 
@@ -19,6 +19,6 @@ title: "Constructor"
 
 `T`
 
-## Source
+## Defined in
 
 src/typedefs.ts:20

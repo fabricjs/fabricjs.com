@@ -5,8 +5,8 @@ prev: false
 title: "Brownie"
 ---
 
-> **`const`** **Brownie**: *typeof* `__class`
+> `const` **Brownie**: *typeof* `__class`
 
-## Source
+## Defined in
 
 src/filters/ColorMatrixFilters.ts:21

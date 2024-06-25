@@ -9,7 +9,7 @@ title: "scalingEqually"
 
 ## Parameters
 
-• **eventData**: [`TPointerEvent`](../../../type-aliases/TPointerEvent.md)
+• **eventData**: [`TPointerEvent`](/api/type-aliases/tpointerevent/)
 
 • **transform**: `ScaleTransform`
 
@@ -21,6 +21,6 @@ title: "scalingEqually"
 
 `boolean`
 
-## Source
+## Defined in
 
 src/controls/scale.ts:273

@@ -7,6 +7,6 @@ title: "TResizeType"
 
 > **TResizeType**: `"bilinear"` \| `"hermite"` \| `"sliceHack"` \| `"lanczos"`
 
-## Source
+## Defined in
 
 src/filters/Resize.ts:26

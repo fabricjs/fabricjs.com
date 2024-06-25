@@ -5,22 +5,22 @@ prev: false
 title: "getOrthonormalVector"
 ---
 
-> **getOrthonormalVector**(`v`, `counterClockwise`?): [`Point`](../../../classes/Point.md)
+> **getOrthonormalVector**(`v`, `counterClockwise`?): [`Point`](/api/classes/point/)
 
 ## Parameters
 
-• **v**: [`Point`](../../../classes/Point.md)
+• **v**: [`Point`](/api/classes/point/)
 
-• **counterClockwise?**: `boolean`= `true`
+• **counterClockwise?**: `boolean` = `true`
 
 the direction of the orthogonal vector, defaults to `true`
 
 ## Returns
 
-[`Point`](../../../classes/Point.md)
+[`Point`](/api/classes/point/)
 
 the unit orthogonal vector
 
-## Source
+## Defined in
 
 src/util/misc/vectors.ts:62

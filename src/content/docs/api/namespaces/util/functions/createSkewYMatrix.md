@@ -5,31 +5,20 @@ prev: false
 title: "createSkewYMatrix"
 ---
 
-> **createSkewYMatrix**(`skewValue`): [`TMat2D`](../../../type-aliases/TMat2D.md)
-
-Generate a skew matrix for the Y axis
-
-A matrix in the form of
-[1 0 0]
-[y 1 0]
-[0 0 1]
+> **createSkewYMatrix**(`skewValue`): [`TMat2D`](/api/type-aliases/tmat2d/)
 
 ## Parameters
 
-• **skewValue**: [`TDegree`](../../../type-aliases/TDegree.md)
+• **skewValue**: [`TDegree`](/api/type-aliases/tdegree/)
 
 translation on Y axis
 
 ## Returns
 
-[`TMat2D`](../../../type-aliases/TMat2D.md)
+[`TMat2D`](/api/type-aliases/tmat2d/)
 
 matrix
 
-## Link
-
-https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/transform#skewy
-
-## Source
+## Defined in
 
 src/util/misc/matrix.ts:248

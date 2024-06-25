@@ -7,10 +7,7 @@ title: "removeFromArray"
 
 > **removeFromArray**\<`T`\>(`array`, `value`): `T`[]
 
-Removes value from an array.
-Presence of value (and its position in an array) is determined via `Array.prototype.indexOf`
-
-## Type parameters
+## Type Parameters
 
 • **T**
 
@@ -26,6 +23,6 @@ Presence of value (and its position in an array) is determined via `Array.protot
 
 original array
 
-## Source
+## Defined in
 
 src/util/internals/removeFromArray.ts:8

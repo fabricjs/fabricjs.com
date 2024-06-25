@@ -5,8 +5,8 @@ prev: false
 title: "Kodachrome"
 ---
 
-> **`const`** **Kodachrome**: *typeof* `__class`
+> `const` **Kodachrome**: *typeof* `__class`
 
-## Source
+## Defined in
 
 src/filters/ColorMatrixFilters.ts:37

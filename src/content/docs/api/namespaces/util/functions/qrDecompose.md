@@ -5,22 +5,20 @@ prev: false
 title: "qrDecompose"
 ---
 
-> **qrDecompose**(`a`): `Required`\<`Omit`\<[`TComposeMatrixArgs`](../type-aliases/TComposeMatrixArgs.md), `"flipX"` \| `"flipY"`\>\>
-
-Decomposes standard 2x3 matrix into transform components
+> **qrDecompose**(`a`): `Required`\<`Omit`\<[`TComposeMatrixArgs`](/api/namespaces/util/type-aliases/tcomposematrixargs/), `"flipX"` \| `"flipY"`\>\>
 
 ## Parameters
 
-• **a**: [`TMat2D`](../../../type-aliases/TMat2D.md)
+• **a**: [`TMat2D`](/api/type-aliases/tmat2d/)
 
 transformMatrix
 
 ## Returns
 
-`Required`\<`Omit`\<[`TComposeMatrixArgs`](../type-aliases/TComposeMatrixArgs.md), `"flipX"` \| `"flipY"`\>\>
+`Required`\<`Omit`\<[`TComposeMatrixArgs`](/api/namespaces/util/type-aliases/tcomposematrixargs/), `"flipX"` \| `"flipY"`\>\>
 
 Components of transform
 
-## Source
+## Defined in
 
 src/util/misc/matrix.ts:114

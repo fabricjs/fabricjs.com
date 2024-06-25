@@ -9,25 +9,25 @@ Adaptation of work of Kevin Lindsey(kevin@kevlindev.com)
 
 ## Implements
 
-- [`XY`](../interfaces/XY.md)
+- [`XY`](/api/interfaces/xy/)
 
 ## Constructors
 
 ### new Point()
 
-> **new Point**(): [`Point`](Point.md)
+> **new Point**(): [`Point`](/api/classes/point/)
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
-#### Source
+#### Defined in
 
 src/Point.ts:18
 
-### new Point(x, y)
+### new Point()
 
-> **new Point**(`x`, `y`): [`Point`](Point.md)
+> **new Point**(`x`, `y`): [`Point`](/api/classes/point/)
 
 #### Parameters
 
@@ -37,25 +37,25 @@ src/Point.ts:18
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
-#### Source
+#### Defined in
 
 src/Point.ts:19
 
-### new Point(point)
+### new Point()
 
-> **new Point**(`point`?): [`Point`](Point.md)
+> **new Point**(`point`?): [`Point`](/api/classes/point/)
 
 #### Parameters
 
-• **point?**: [`XY`](../interfaces/XY.md)
+• **point?**: [`XY`](/api/interfaces/xy/)
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
-#### Source
+#### Defined in
 
 src/Point.ts:20
 
@@ -67,9 +67,9 @@ src/Point.ts:20
 
 #### Implementation of
 
-[`XY`](../interfaces/XY.md).[`x`](../interfaces/XY.md#x)
+[`XY`](/api/interfaces/xy/).[`x`](/api/interfaces/xy/#x)
 
-#### Source
+#### Defined in
 
 src/Point.ts:14
 
@@ -81,9 +81,9 @@ src/Point.ts:14
 
 #### Implementation of
 
-[`XY`](../interfaces/XY.md).[`y`](../interfaces/XY.md#y)
+[`XY`](/api/interfaces/xy/).[`y`](/api/interfaces/xy/#y)
 
-#### Source
+#### Defined in
 
 src/Point.ts:16
 
@@ -91,21 +91,21 @@ src/Point.ts:16
 
 ### add()
 
-> **add**(`that`): [`Point`](Point.md)
+> **add**(`that`): [`Point`](/api/classes/point/)
 
 Adds another point to this one and returns another one
 
 #### Parameters
 
-• **that**: [`XY`](../interfaces/XY.md)
+• **that**: [`XY`](/api/interfaces/xy/)
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
 new Point instance with added values
 
-#### Source
+#### Defined in
 
 src/Point.ts:36
 
@@ -113,7 +113,7 @@ src/Point.ts:36
 
 ### ~~addEquals()~~
 
-> **addEquals**(`that`): [`Point`](Point.md)
+> **addEquals**(`that`): [`Point`](/api/classes/point/)
 
 Adds another point to this one
 
@@ -123,21 +123,17 @@ This API is no longer supported and may be removed in a future release.
 
 #### Parameters
 
-• **that**: [`XY`](../interfaces/XY.md)
+• **that**: [`XY`](/api/interfaces/xy/)
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
 thisArg
 
 #### Chainable
 
-:::caution[Deprecated]
-This API is no longer supported and may be removed in a future release.
-:::
-
-#### Source
+#### Defined in
 
 src/Point.ts:47
 
@@ -145,15 +141,15 @@ src/Point.ts:47
 
 ### clone()
 
-> **clone**(): [`Point`](Point.md)
+> **clone**(): [`Point`](/api/classes/point/)
 
 return a cloned instance of the point
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
-#### Source
+#### Defined in
 
 src/Point.ts:347
 
@@ -167,13 +163,13 @@ Returns distance from this point and another one
 
 #### Parameters
 
-• **that**: [`XY`](../interfaces/XY.md)
+• **that**: [`XY`](/api/interfaces/xy/)
 
 #### Returns
 
 `number`
 
-#### Source
+#### Defined in
 
 src/Point.ts:246
 
@@ -181,19 +177,19 @@ src/Point.ts:246
 
 ### divide()
 
-> **divide**(`that`): [`Point`](Point.md)
+> **divide**(`that`): [`Point`](/api/classes/point/)
 
 Divides this point by another and returns a new one
 
 #### Parameters
 
-• **that**: [`XY`](../interfaces/XY.md)
+• **that**: [`XY`](/api/interfaces/xy/)
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
-#### Source
+#### Defined in
 
 src/Point.ts:155
 
@@ -207,13 +203,13 @@ Returns true if this point is equal to another one
 
 #### Parameters
 
-• **that**: [`XY`](../interfaces/XY.md)
+• **that**: [`XY`](/api/interfaces/xy/)
 
 #### Returns
 
 `boolean`
 
-#### Source
+#### Defined in
 
 src/Point.ts:186
 
@@ -227,13 +223,13 @@ Returns true if this point is greater another one
 
 #### Parameters
 
-• **that**: [`XY`](../interfaces/XY.md)
+• **that**: [`XY`](/api/interfaces/xy/)
 
 #### Returns
 
 `boolean`
 
-#### Source
+#### Defined in
 
 src/Point.ts:214
 
@@ -247,13 +243,13 @@ Returns true if this point is greater than or equal to another one
 
 #### Parameters
 
-• **that**: [`XY`](../interfaces/XY.md)
+• **that**: [`XY`](/api/interfaces/xy/)
 
 #### Returns
 
 `boolean`
 
-#### Source
+#### Defined in
 
 src/Point.ts:223
 
@@ -261,23 +257,23 @@ src/Point.ts:223
 
 ### lerp()
 
-> **lerp**(`that`, `t`): [`Point`](Point.md)
+> **lerp**(`that`, `t`): [`Point`](/api/classes/point/)
 
 Returns new point which is the result of linear interpolation with this one and another one
 
 #### Parameters
 
-• **that**: [`XY`](../interfaces/XY.md)
+• **that**: [`XY`](/api/interfaces/xy/)
 
-• **t**: `number`= `0.5`
+• **t**: `number` = `0.5`
 
 , position of interpolation, between 0 and 1 default 0.5
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
-#### Source
+#### Defined in
 
 src/Point.ts:233
 
@@ -291,13 +287,13 @@ Returns true if this point is less than another one
 
 #### Parameters
 
-• **that**: [`XY`](../interfaces/XY.md)
+• **that**: [`XY`](/api/interfaces/xy/)
 
 #### Returns
 
 `boolean`
 
-#### Source
+#### Defined in
 
 src/Point.ts:195
 
@@ -311,13 +307,13 @@ Returns true if this point is less than or equal to another one
 
 #### Parameters
 
-• **that**: [`XY`](../interfaces/XY.md)
+• **that**: [`XY`](/api/interfaces/xy/)
 
 #### Returns
 
 `boolean`
 
-#### Source
+#### Defined in
 
 src/Point.ts:204
 
@@ -325,19 +321,19 @@ src/Point.ts:204
 
 ### max()
 
-> **max**(`that`): [`Point`](Point.md)
+> **max**(`that`): [`Point`](/api/classes/point/)
 
 Returns a new point which is the max of this and another one
 
 #### Parameters
 
-• **that**: [`XY`](../interfaces/XY.md)
+• **that**: [`XY`](/api/interfaces/xy/)
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
-#### Source
+#### Defined in
 
 src/Point.ts:275
 
@@ -345,19 +341,19 @@ src/Point.ts:275
 
 ### midPointFrom()
 
-> **midPointFrom**(`that`): [`Point`](Point.md)
+> **midPointFrom**(`that`): [`Point`](/api/classes/point/)
 
 Returns the point between this point and another one
 
 #### Parameters
 
-• **that**: [`XY`](../interfaces/XY.md)
+• **that**: [`XY`](/api/interfaces/xy/)
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
-#### Source
+#### Defined in
 
 src/Point.ts:257
 
@@ -365,19 +361,19 @@ src/Point.ts:257
 
 ### min()
 
-> **min**(`that`): [`Point`](Point.md)
+> **min**(`that`): [`Point`](/api/classes/point/)
 
 Returns a new point which is the min of this and another one
 
 #### Parameters
 
-• **that**: [`XY`](../interfaces/XY.md)
+• **that**: [`XY`](/api/interfaces/xy/)
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
-#### Source
+#### Defined in
 
 src/Point.ts:266
 
@@ -385,19 +381,19 @@ src/Point.ts:266
 
 ### multiply()
 
-> **multiply**(`that`): [`Point`](Point.md)
+> **multiply**(`that`): [`Point`](/api/classes/point/)
 
 Multiplies this point by another value and returns a new one
 
 #### Parameters
 
-• **that**: [`XY`](../interfaces/XY.md)
+• **that**: [`XY`](/api/interfaces/xy/)
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
-#### Source
+#### Defined in
 
 src/Point.ts:124
 
@@ -405,23 +401,23 @@ src/Point.ts:124
 
 ### rotate()
 
-> **rotate**(`radians`, `origin`): [`Point`](Point.md)
+> **rotate**(`radians`, `origin`): [`Point`](/api/classes/point/)
 
 Rotates `point` around `origin` with `radians`
 
 #### Parameters
 
-• **radians**: [`TRadian`](../type-aliases/TRadian.md)
+• **radians**: [`TRadian`](/api/type-aliases/tradian/)
 
 The radians of the angle for the rotation
 
-• **origin**: [`XY`](../interfaces/XY.md)= `ZERO`
+• **origin**: [`XY`](/api/interfaces/xy/) = `ZERO`
 
 The origin of the rotation
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
 The new rotated point
 
@@ -431,7 +427,7 @@ The new rotated point
 
 fabric.util
 
-#### Source
+#### Defined in
 
 src/Point.ts:359
 
@@ -439,7 +435,7 @@ src/Point.ts:359
 
 ### scalarAdd()
 
-> **scalarAdd**(`scalar`): [`Point`](Point.md)
+> **scalarAdd**(`scalar`): [`Point`](/api/classes/point/)
 
 Adds value to this point and returns a new one
 
@@ -449,11 +445,11 @@ Adds value to this point and returns a new one
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
 new Point with added value
 
-#### Source
+#### Defined in
 
 src/Point.ts:58
 
@@ -461,7 +457,7 @@ src/Point.ts:58
 
 ### ~~scalarAddEquals()~~
 
-> **scalarAddEquals**(`scalar`): [`Point`](Point.md)
+> **scalarAddEquals**(`scalar`): [`Point`](/api/classes/point/)
 
 Adds value to this point
 
@@ -475,17 +471,13 @@ This API is no longer supported and may be removed in a future release.
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
 thisArg
 
 #### Chainable
 
-:::caution[Deprecated]
-This API is no longer supported and may be removed in a future release.
-:::
-
-#### Source
+#### Defined in
 
 src/Point.ts:69
 
@@ -493,7 +485,7 @@ src/Point.ts:69
 
 ### scalarDivide()
 
-> **scalarDivide**(`scalar`): [`Point`](Point.md)
+> **scalarDivide**(`scalar`): [`Point`](/api/classes/point/)
 
 Divides this point by a value and returns a new one
 
@@ -503,9 +495,9 @@ Divides this point by a value and returns a new one
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
-#### Source
+#### Defined in
 
 src/Point.ts:164
 
@@ -513,7 +505,7 @@ src/Point.ts:164
 
 ### ~~scalarDivideEquals()~~
 
-> **scalarDivideEquals**(`scalar`): [`Point`](Point.md)
+> **scalarDivideEquals**(`scalar`): [`Point`](/api/classes/point/)
 
 Divides this point by a value
 
@@ -527,17 +519,13 @@ This API is no longer supported and may be removed in a future release.
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
 thisArg
 
 #### Chainable
 
-:::caution[Deprecated]
-This API is no longer supported and may be removed in a future release.
-:::
-
-#### Source
+#### Defined in
 
 src/Point.ts:175
 
@@ -545,7 +533,7 @@ src/Point.ts:175
 
 ### scalarMultiply()
 
-> **scalarMultiply**(`scalar`): [`Point`](Point.md)
+> **scalarMultiply**(`scalar`): [`Point`](/api/classes/point/)
 
 Multiplies this point by a value and returns a new one
 
@@ -555,9 +543,9 @@ Multiplies this point by a value and returns a new one
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
-#### Source
+#### Defined in
 
 src/Point.ts:133
 
@@ -565,7 +553,7 @@ src/Point.ts:133
 
 ### ~~scalarMultiplyEquals()~~
 
-> **scalarMultiplyEquals**(`scalar`): [`Point`](Point.md)
+> **scalarMultiplyEquals**(`scalar`): [`Point`](/api/classes/point/)
 
 Multiplies this point by a value
 
@@ -579,17 +567,13 @@ This API is no longer supported and may be removed in a future release.
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
 thisArg
 
 #### Chainable
 
-:::caution[Deprecated]
-This API is no longer supported and may be removed in a future release.
-:::
-
-#### Source
+#### Defined in
 
 src/Point.ts:144
 
@@ -597,7 +581,7 @@ src/Point.ts:144
 
 ### scalarSubtract()
 
-> **scalarSubtract**(`scalar`): [`Point`](Point.md)
+> **scalarSubtract**(`scalar`): [`Point`](/api/classes/point/)
 
 Subtracts value from this point and returns a new one
 
@@ -607,9 +591,9 @@ Subtracts value from this point and returns a new one
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
-#### Source
+#### Defined in
 
 src/Point.ts:102
 
@@ -617,7 +601,7 @@ src/Point.ts:102
 
 ### ~~scalarSubtractEquals()~~
 
-> **scalarSubtractEquals**(`scalar`): [`Point`](Point.md)
+> **scalarSubtractEquals**(`scalar`): [`Point`](/api/classes/point/)
 
 Subtracts value from this point
 
@@ -631,17 +615,13 @@ This API is no longer supported and may be removed in a future release.
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
 thisArg
 
 #### Chainable
 
-:::caution[Deprecated]
-This API is no longer supported and may be removed in a future release.
-:::
-
-#### Source
+#### Defined in
 
 src/Point.ts:113
 
@@ -649,21 +629,21 @@ src/Point.ts:113
 
 ### setFromPoint()
 
-> **setFromPoint**(`that`): [`Point`](Point.md)
+> **setFromPoint**(`that`): [`Point`](/api/classes/point/)
 
 Sets x/y of this point from another point
 
 #### Parameters
 
-• **that**: [`XY`](../interfaces/XY.md)
+• **that**: [`XY`](/api/interfaces/xy/)
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
 #### Chainable
 
-#### Source
+#### Defined in
 
 src/Point.ts:324
 
@@ -671,7 +651,7 @@ src/Point.ts:324
 
 ### setX()
 
-> **setX**(`x`): [`Point`](Point.md)
+> **setX**(`x`): [`Point`](/api/classes/point/)
 
 Sets x of this point
 
@@ -681,11 +661,11 @@ Sets x of this point
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
 #### Chainable
 
-#### Source
+#### Defined in
 
 src/Point.ts:304
 
@@ -693,7 +673,7 @@ src/Point.ts:304
 
 ### setXY()
 
-> **setXY**(`x`, `y`): [`Point`](Point.md)
+> **setXY**(`x`, `y`): [`Point`](/api/classes/point/)
 
 Sets x/y of this point
 
@@ -705,11 +685,11 @@ Sets x/y of this point
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
 #### Chainable
 
-#### Source
+#### Defined in
 
 src/Point.ts:293
 
@@ -717,7 +697,7 @@ src/Point.ts:293
 
 ### setY()
 
-> **setY**(`y`): [`Point`](Point.md)
+> **setY**(`y`): [`Point`](/api/classes/point/)
 
 Sets y of this point
 
@@ -727,11 +707,11 @@ Sets y of this point
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
 #### Chainable
 
-#### Source
+#### Defined in
 
 src/Point.ts:314
 
@@ -739,21 +719,21 @@ src/Point.ts:314
 
 ### subtract()
 
-> **subtract**(`that`): [`Point`](Point.md)
+> **subtract**(`that`): [`Point`](/api/classes/point/)
 
 Subtracts another point from this point and returns a new one
 
 #### Parameters
 
-• **that**: [`XY`](../interfaces/XY.md)
+• **that**: [`XY`](/api/interfaces/xy/)
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
 new Point object with subtracted values
 
-#### Source
+#### Defined in
 
 src/Point.ts:80
 
@@ -761,7 +741,7 @@ src/Point.ts:80
 
 ### ~~subtractEquals()~~
 
-> **subtractEquals**(`that`): [`Point`](Point.md)
+> **subtractEquals**(`that`): [`Point`](/api/classes/point/)
 
 Subtracts another point from this point
 
@@ -771,21 +751,17 @@ This API is no longer supported and may be removed in a future release.
 
 #### Parameters
 
-• **that**: [`XY`](../interfaces/XY.md)
+• **that**: [`XY`](/api/interfaces/xy/)
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
 thisArg
 
 #### Chainable
 
-:::caution[Deprecated]
-This API is no longer supported and may be removed in a future release.
-:::
-
-#### Source
+#### Defined in
 
 src/Point.ts:91
 
@@ -799,13 +775,13 @@ Swaps x/y of this point and another point
 
 #### Parameters
 
-• **that**: [`XY`](../interfaces/XY.md)
+• **that**: [`XY`](/api/interfaces/xy/)
 
 #### Returns
 
 `void`
 
-#### Source
+#### Defined in
 
 src/Point.ts:334
 
@@ -821,7 +797,7 @@ Returns string representation of this point
 
 `string`
 
-#### Source
+#### Defined in
 
 src/Point.ts:283
 
@@ -829,23 +805,23 @@ src/Point.ts:283
 
 ### transform()
 
-> **transform**(`t`, `ignoreOffset`?): [`Point`](Point.md)
+> **transform**(`t`, `ignoreOffset`?): [`Point`](/api/classes/point/)
 
 Apply transform t to point p
 
 #### Parameters
 
-• **t**: [`TMat2D`](../type-aliases/TMat2D.md)
+• **t**: [`TMat2D`](/api/type-aliases/tmat2d/)
 
 The transform
 
-• **ignoreOffset?**: `boolean`= `false`
+• **ignoreOffset?**: `boolean` = `false`
 
 Indicates that the offset should not be applied
 
 #### Returns
 
-[`Point`](Point.md)
+[`Point`](/api/classes/point/)
 
 The transformed point
 
@@ -855,6 +831,6 @@ The transformed point
 
 fabric.util
 
-#### Source
+#### Defined in
 
 src/Point.ts:380

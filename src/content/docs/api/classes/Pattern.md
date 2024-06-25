@@ -12,23 +12,23 @@ title: "Pattern"
 
 ## Constructors
 
-### new Pattern(options)
+### new Pattern()
 
-> **new Pattern**(`options`?): [`Pattern`](Pattern.md)
+> **new Pattern**(`options`?): [`Pattern`](/api/classes/pattern/)
 
 Constructor
 
 #### Parameters
 
-• **options?**: [`PatternOptions`](../type-aliases/PatternOptions.md)
+• **options?**: [`PatternOptions`](/api/type-aliases/patternoptions/)
 
 Options object
 
 #### Returns
 
-[`Pattern`](Pattern.md)
+[`Pattern`](/api/classes/pattern/)
 
-#### Source
+#### Defined in
 
 src/Pattern/Pattern.ts:95
 
@@ -36,7 +36,7 @@ src/Pattern/Pattern.ts:95
 
 ### crossOrigin
 
-> **crossOrigin**: [`TCrossOrigin`](../type-aliases/TCrossOrigin.md) = `''`
+> **crossOrigin**: [`TCrossOrigin`](/api/type-aliases/tcrossorigin/) = `''`
 
 #### Default
 
@@ -44,7 +44,7 @@ src/Pattern/Pattern.ts:95
 
 ```
 
-#### Source
+#### Defined in
 
 src/Pattern/Pattern.ts:63
 
@@ -52,11 +52,11 @@ src/Pattern/Pattern.ts:63
 
 ### excludeFromExport?
 
-> **`optional`** **excludeFromExport**: `boolean`
+> `optional` **excludeFromExport**: `boolean`
 
 If true, this object will not be exported during the serialization of a canvas
 
-#### Source
+#### Defined in
 
 src/Pattern/Pattern.ts:82
 
@@ -64,11 +64,11 @@ src/Pattern/Pattern.ts:82
 
 ### id
 
-> **`readonly`** **id**: `number`
+> `readonly` **id**: `number`
 
 ID used for SVG export functionalities
 
-#### Source
+#### Defined in
 
 src/Pattern/Pattern.ts:88
 
@@ -86,7 +86,7 @@ Pattern horizontal offset from object's left/top corner
 
 ```
 
-#### Source
+#### Defined in
 
 src/Pattern/Pattern.ts:50
 
@@ -104,7 +104,7 @@ Pattern vertical offset from object's left/top corner
 
 ```
 
-#### Source
+#### Defined in
 
 src/Pattern/Pattern.ts:57
 
@@ -112,7 +112,7 @@ src/Pattern/Pattern.ts:57
 
 ### patternTransform
 
-> **patternTransform**: `null` \| [`TMat2D`](../type-aliases/TMat2D.md) = `null`
+> **patternTransform**: `null` \| [`TMat2D`](/api/type-aliases/tmat2d/) = `null`
 
 transform matrix to change the pattern, imported from svgs.
 
@@ -126,7 +126,7 @@ verify if using the identity matrix as default makes the rest of the code more e
 
 ```
 
-#### Source
+#### Defined in
 
 src/Pattern/Pattern.ts:71
 
@@ -134,11 +134,11 @@ src/Pattern/Pattern.ts:71
 
 ### repeat
 
-> **repeat**: [`PatternRepeat`](../type-aliases/PatternRepeat.md) = `'repeat'`
+> **repeat**: [`PatternRepeat`](/api/type-aliases/patternrepeat/) = `'repeat'`
 
 #### Defaults
 
-#### Source
+#### Defined in
 
 src/Pattern/Pattern.ts:43
 
@@ -150,7 +150,7 @@ src/Pattern/Pattern.ts:43
 
 The actual pixel source of the pattern
 
-#### Source
+#### Defined in
 
 src/Pattern/Pattern.ts:76
 
@@ -158,9 +158,9 @@ src/Pattern/Pattern.ts:76
 
 ### type
 
-> **`static`** **type**: `string` = `'Pattern'`
+> `static` **type**: `string` = `'Pattern'`
 
-#### Source
+#### Defined in
 
 src/Pattern/Pattern.ts:21
 
@@ -168,7 +168,7 @@ src/Pattern/Pattern.ts:21
 
 ### type
 
-> **`get`** **type**(): `string`
+> `get` **type**(): `string`
 
 Legacy identifier of the class. Prefer using this.constructor.type 'Pattern'
 or utils like isPattern, or instance of to indentify a pattern in your code.
@@ -182,7 +182,7 @@ add sustainable warning message
 This API is no longer supported and may be removed in a future release.
 :::
 
-> **`set`** **type**(`value`): `void`
+> `set` **type**(`value`): `void`
 
 #### Parameters
 
@@ -192,7 +192,7 @@ This API is no longer supported and may be removed in a future release.
 
 `string`
 
-#### Source
+#### Defined in
 
 src/Pattern/Pattern.ts:31
 
@@ -206,9 +206,9 @@ src/Pattern/Pattern.ts:31
 
 `this is Object`
 
-true if [source](Pattern.md#source) is a `<canvas>` element
+true if [source](/api/api/classes/pattern/source/#source) is a <canvas> element
 
-#### Source
+#### Defined in
 
 src/Pattern/Pattern.ts:112
 
@@ -222,9 +222,9 @@ src/Pattern/Pattern.ts:112
 
 `this is Object`
 
-true if [source](Pattern.md#source) is an <img> element
+true if [source](/api/api/classes/pattern/source/#source) is an <img> element
 
-#### Source
+#### Defined in
 
 src/Pattern/Pattern.ts:103
 
@@ -238,7 +238,7 @@ src/Pattern/Pattern.ts:103
 
 `string`
 
-#### Source
+#### Defined in
 
 src/Pattern/Pattern.ts:116
 
@@ -260,7 +260,7 @@ Context to create pattern
 
 `null` \| `CanvasPattern`
 
-#### Source
+#### Defined in
 
 src/Pattern/Pattern.ts:129
 
@@ -274,7 +274,7 @@ Returns object representation of a pattern
 
 #### Parameters
 
-• **propertiesToInclude?**: `string`[]= `[]`
+• **propertiesToInclude?**: `string`[] = `[]`
 
 Any properties that you might want to additionally include in the output
 
@@ -284,7 +284,7 @@ Any properties that you might want to additionally include in the output
 
 Object representation of a pattern instance
 
-#### Source
+#### Defined in
 
 src/Pattern/Pattern.ts:150
 
@@ -298,13 +298,13 @@ Returns SVG representation of a pattern
 
 #### Parameters
 
-• **\_\_namedParameters**: [`TSize`](../type-aliases/TSize.md)
+• **\_\_namedParameters**: [`TSize`](/api/type-aliases/tsize/)
 
 #### Returns
 
 `string`
 
-#### Source
+#### Defined in
 
 src/Pattern/Pattern.ts:170
 
@@ -312,18 +312,18 @@ src/Pattern/Pattern.ts:170
 
 ### fromObject()
 
-> **`static`** **fromObject**(`__namedParameters`, `options`): `Promise`\<[`Pattern`](Pattern.md)\>
+> `static` **fromObject**(`__namedParameters`, `options`): `Promise`\<[`Pattern`](/api/classes/pattern/)\>
 
 #### Parameters
 
-• **\_\_namedParameters**: [`SerializedPatternOptions`](../type-aliases/SerializedPatternOptions.md)
+• **\_\_namedParameters**: [`SerializedPatternOptions`](/api/type-aliases/serializedpatternoptions/)
 
-• **options**: [`Abortable`](../type-aliases/Abortable.md)
+• **options**: [`Abortable`](/api/type-aliases/abortable/)
 
 #### Returns
 
-`Promise`\<[`Pattern`](Pattern.md)\>
+`Promise`\<[`Pattern`](/api/classes/pattern/)\>
 
-#### Source
+#### Defined in
 
 src/Pattern/Pattern.ts:202

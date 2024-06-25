@@ -5,8 +5,8 @@ prev: false
 title: "THorizontalLineCommand"
 ---
 
-> **THorizontalLineCommand**: `TCommand2`\<[`TParsedHorizontalLineCommand`](TParsedHorizontalLineCommand.md)\>
+> **THorizontalLineCommand**: `TCommand2`\<[`TParsedHorizontalLineCommand`](/api/namespaces/util/type-aliases/tparsedhorizontallinecommand/)\>
 
-## Source
+## Defined in
 
 src/util/path/typedefs.ts:131

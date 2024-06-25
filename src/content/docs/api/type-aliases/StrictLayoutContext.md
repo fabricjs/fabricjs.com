@@ -5,7 +5,7 @@ prev: false
 title: "StrictLayoutContext"
 ---
 
-> **StrictLayoutContext**: [`LayoutContext`](LayoutContext.md) & `Object`
+> **StrictLayoutContext**: [`LayoutContext`](/api/type-aliases/layoutcontext/) & `object`
 
 ## Type declaration
 
@@ -15,11 +15,11 @@ title: "StrictLayoutContext"
 
 ### prevStrategy?
 
-> **`optional`** **prevStrategy**: [`LayoutStrategy`](../classes/LayoutStrategy.md)
+> `optional` **prevStrategy**: [`LayoutStrategy`](/api/classes/layoutstrategy/)
 
 ### strategy
 
-> **strategy**: [`LayoutStrategy`](../classes/LayoutStrategy.md)
+> **strategy**: [`LayoutStrategy`](/api/classes/layoutstrategy/)
 
 ### stopPropagation()
 
@@ -27,6 +27,6 @@ title: "StrictLayoutContext"
 
 `void`
 
-## Source
+## Defined in
 
 src/LayoutManager/types.ts:128

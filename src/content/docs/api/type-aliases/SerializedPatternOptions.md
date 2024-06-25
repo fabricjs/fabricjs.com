@@ -5,7 +5,7 @@ prev: false
 title: "SerializedPatternOptions"
 ---
 
-> **SerializedPatternOptions**: [`PatternOptions`](PatternOptions.md) & `Object`
+> **SerializedPatternOptions**: [`PatternOptions`](/api/type-aliases/patternoptions/) & `object`
 
 ## Type declaration
 
@@ -17,6 +17,6 @@ title: "SerializedPatternOptions"
 
 > **type**: `"pattern"`
 
-## Source
+## Defined in
 
 src/Pattern/types.ts:17

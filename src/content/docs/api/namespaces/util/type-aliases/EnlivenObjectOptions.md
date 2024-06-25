@@ -5,20 +5,20 @@ prev: false
 title: "EnlivenObjectOptions"
 ---
 
-> **EnlivenObjectOptions**: [`Abortable`](../../../type-aliases/Abortable.md) & `Object`
+> **EnlivenObjectOptions**: [`Abortable`](/api/type-aliases/abortable/) & `object`
 
 ## Type declaration
 
 ### reviver()?
 
-> **`optional`** **reviver**: \<`T`\>(`serializedObj`, `instance`) => `void`
+> `optional` **reviver**: \<`T`\>(`serializedObj`, `instance`) => `void`
 
 Method for further parsing of object elements,
 called after each fabric object created.
 
-#### Type parameters
+#### Type Parameters
 
-• **T** extends `BaseFabricObject` \| [`FabricObject`](../../../classes/FabricObject.md) \| [`BaseFilter`](../../filters/classes/BaseFilter.md) \| [`Shadow`](../../../classes/Shadow.md) \| [`TFiller`](../../../type-aliases/TFiller.md)
+• **T** *extends* `BaseFabricObject` \| [`FabricObject`](/api/classes/fabricobject/) \| [`BaseFilter`](/api/namespaces/filters/classes/basefilter/) \| [`Shadow`](/api/classes/shadow/) \| [`TFiller`](/api/type-aliases/tfiller/)
 
 #### Parameters
 
@@ -30,6 +30,6 @@ called after each fabric object created.
 
 `void`
 
-## Source
+## Defined in
 
 src/util/misc/objectEnlive.ts:65

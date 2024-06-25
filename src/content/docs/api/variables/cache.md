@@ -5,8 +5,8 @@ prev: false
 title: "cache"
 ---
 
-> **`const`** **cache**: `Cache`
+> `const` **cache**: `Cache`
 
-## Source
+## Defined in
 
 src/cache.ts:90

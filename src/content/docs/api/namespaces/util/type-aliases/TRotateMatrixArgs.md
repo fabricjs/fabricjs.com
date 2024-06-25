@@ -5,14 +5,14 @@ prev: false
 title: "TRotateMatrixArgs"
 ---
 
-> **TRotateMatrixArgs**: `Object`
+> **TRotateMatrixArgs**: `object`
 
 ## Type declaration
 
 ### angle?
 
-> **`optional`** **angle**: [`TDegree`](../../../type-aliases/TDegree.md)
+> `optional` **angle**: [`TDegree`](/api/type-aliases/tdegree/)
 
-## Source
+## Defined in
 
 src/util/misc/matrix.ts:9

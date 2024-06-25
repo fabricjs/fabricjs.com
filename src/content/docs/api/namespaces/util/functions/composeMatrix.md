@@ -19,4 +19,4 @@ transform matrix
 
 ## Defined in
 
-src/util/misc/matrix.ts:306
+src/util/misc/matrix.ts:312

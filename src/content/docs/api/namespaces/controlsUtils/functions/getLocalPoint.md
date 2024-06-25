@@ -29,4 +29,4 @@ the normalized point
 
 ## Defined in
 
-src/controls/util.ts:129
+src/controls/util.ts:132

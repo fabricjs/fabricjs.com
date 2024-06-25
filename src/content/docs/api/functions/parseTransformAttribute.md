@@ -31,4 +31,4 @@ fabric
 
 ## Defined in
 
-src/parser/parseTransformAttribute.ts:38
+src/parser/parseTransformAttribute.ts:39

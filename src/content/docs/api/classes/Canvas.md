@@ -1324,7 +1324,7 @@ a zoomed canvas will then produce zoomed SVG output.
 
 #### Defined in
 
-src/canvas/StaticCanvas.ts:956
+src/canvas/StaticCanvas.ts:952
 
 ***
 
@@ -1358,7 +1358,7 @@ src/canvas/SelectableCanvas.ts:170
 
 > **targets**: [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>[] = `[]`
 
-Keep track of the subTargets for Mouse Events
+Keep track of the subTargets for Mouse Events, ordered bottom up from innermost nested subTarget
 
 #### Inherited from
 
@@ -1726,7 +1726,7 @@ true if the active object has been discarded
 
 #### Defined in
 
-src/canvas/SelectableCanvas.ts:1149
+src/canvas/SelectableCanvas.ts:1165
 
 ***
 
@@ -1802,7 +1802,7 @@ true if the object has been selected
 
 #### Defined in
 
-src/canvas/SelectableCanvas.ts:1117
+src/canvas/SelectableCanvas.ts:1133
 
 ***
 
@@ -1829,7 +1829,7 @@ Object that the mouse is hovering, if so.
 
 #### Defined in
 
-src/canvas/Canvas.ts:1330
+src/canvas/Canvas.ts:1327
 
 ***
 
@@ -1855,7 +1855,7 @@ to move to
 
 #### Defined in
 
-src/canvas/StaticCanvas.ts:434
+src/canvas/StaticCanvas.ts:430
 
 ***
 
@@ -1884,7 +1884,7 @@ new array length
 
 #### Defined in
 
-src/canvas/StaticCanvas.ts:199
+src/canvas/StaticCanvas.ts:209
 
 ***
 
@@ -1998,7 +1998,7 @@ This method is also attached as "resize" event handler of window
 
 #### Defined in
 
-src/canvas/StaticCanvas.ts:255
+src/canvas/StaticCanvas.ts:265
 
 ***
 
@@ -2019,7 +2019,7 @@ helps to determinate when an object is in the current rendering viewport
 
 #### Defined in
 
-src/canvas/StaticCanvas.ts:531
+src/canvas/StaticCanvas.ts:527
 
 ***
 
@@ -2037,7 +2037,7 @@ src/canvas/StaticCanvas.ts:531
 
 #### Defined in
 
-src/canvas/StaticCanvas.ts:549
+src/canvas/StaticCanvas.ts:545
 
 ***
 
@@ -2063,7 +2063,7 @@ Object to center vertically and horizontally
 
 #### Defined in
 
-src/canvas/StaticCanvas.ts:758
+src/canvas/StaticCanvas.ts:754
 
 ***
 
@@ -2087,7 +2087,7 @@ Centers object horizontally in the canvas
 
 #### Defined in
 
-src/canvas/StaticCanvas.ts:736
+src/canvas/StaticCanvas.ts:732
 
 ***
 
@@ -2113,7 +2113,7 @@ Object to center vertically
 
 #### Defined in
 
-src/canvas/StaticCanvas.ts:747
+src/canvas/StaticCanvas.ts:743
 
 ***
 
@@ -2133,7 +2133,7 @@ clear [textEditingManager](../../../../api/classes/canvas/#texteditingmanager)
 
 #### Defined in
 
-src/canvas/Canvas.ts:1519
+src/canvas/Canvas.ts:1516
 
 ***
 
@@ -2159,7 +2159,7 @@ Context to clear
 
 #### Defined in
 
-src/canvas/StaticCanvas.ts:466
+src/canvas/StaticCanvas.ts:462
 
 ***
 
@@ -2185,7 +2185,7 @@ Array of properties to include in the cloned canvas and children
 
 #### Defined in
 
-src/canvas/StaticCanvas.ts:1329
+src/canvas/StaticCanvas.ts:1325
 
 ***
 
@@ -2206,7 +2206,7 @@ This essentially copies canvas dimensions since loadFromJSON does not affect can
 
 #### Defined in
 
-src/canvas/StaticCanvas.ts:1339
+src/canvas/StaticCanvas.ts:1335
 
 ***
 
@@ -2320,7 +2320,7 @@ src/Collection.ts:148
 
 #### Defined in
 
-src/canvas/StaticCanvas.ts:1082
+src/canvas/StaticCanvas.ts:1078
 
 ***
 
@@ -2342,7 +2342,7 @@ and are not extracted from the DOM by fabricjs
 
 #### Defined in
 
-src/canvas/StaticCanvas.ts:1125
+src/canvas/StaticCanvas.ts:1121
 
 ***
 
@@ -2362,7 +2362,7 @@ Creates markup containing SVG referenced elements like patterns, gradients etc.
 
 #### Defined in
 
-src/canvas/StaticCanvas.ts:1097
+src/canvas/StaticCanvas.ts:1093
 
 ***
 
@@ -2382,7 +2382,7 @@ clear [textEditingManager](../../../../api/classes/canvas/#texteditingmanager)
 
 #### Defined in
 
-src/canvas/Canvas.ts:1527
+src/canvas/Canvas.ts:1524
 
 ***
 
@@ -2411,7 +2411,7 @@ true if the active object has been discarded
 
 #### Defined in
 
-src/canvas/SelectableCanvas.ts:1176
+src/canvas/SelectableCanvas.ts:1192
 
 ***
 
@@ -2437,7 +2437,7 @@ if aborted by a consequent call
 
 #### Defined in
 
-src/canvas/StaticCanvas.ts:1455
+src/canvas/StaticCanvas.ts:1454
 
 ***
 
@@ -2465,7 +2465,7 @@ Context to render on
 
 #### Defined in
 
-src/canvas/StaticCanvas.ts:612
+src/canvas/StaticCanvas.ts:608
 
 ***
 
@@ -2491,7 +2491,7 @@ Context to render controls on
 
 #### Defined in
 
-src/canvas/SelectableCanvas.ts:1284
+src/canvas/SelectableCanvas.ts:1300
 
 ***
 
@@ -2519,7 +2519,7 @@ send the mouse event that generate the finalize down, so it can be used in the e
 
 #### Defined in
 
-src/canvas/SelectableCanvas.ts:1196
+src/canvas/SelectableCanvas.ts:1212
 
 ***
 
@@ -2714,7 +2714,7 @@ active object
 
 #### Defined in
 
-src/canvas/SelectableCanvas.ts:1019
+src/canvas/SelectableCanvas.ts:1035
 
 ***
 
@@ -2736,7 +2736,7 @@ active objects array
 
 #### Defined in
 
-src/canvas/SelectableCanvas.ts:1027
+src/canvas/SelectableCanvas.ts:1043
 
 ***
 
@@ -2771,7 +2771,7 @@ object with "top" and "left" number values
 
 #### Defined in
 
-src/canvas/StaticCanvas.ts:718
+src/canvas/StaticCanvas.ts:714
 
 ***
 
@@ -2791,7 +2791,7 @@ Returns coordinates of a center of canvas.
 
 #### Defined in
 
-src/canvas/StaticCanvas.ts:729
+src/canvas/StaticCanvas.ts:725
 
 ***
 
@@ -2811,7 +2811,7 @@ Returns context of canvas where objects are drawn
 
 #### Defined in
 
-src/canvas/StaticCanvas.ts:474
+src/canvas/StaticCanvas.ts:470
 
 ***
 
@@ -2831,7 +2831,7 @@ Returns &lt;canvas> element corresponding to this instance
 
 #### Defined in
 
-src/canvas/StaticCanvas.ts:458
+src/canvas/StaticCanvas.ts:454
 
 ***
 
@@ -2851,7 +2851,7 @@ Returns canvas height (in px)
 
 #### Defined in
 
-src/canvas/StaticCanvas.ts:271
+src/canvas/StaticCanvas.ts:281
 
 ***
 
@@ -2910,7 +2910,7 @@ whether to return the point from the viewport or in the scene
 
 #### Defined in
 
-src/canvas/SelectableCanvas.ts:924
+src/canvas/SelectableCanvas.ts:940
 
 ***
 
@@ -2945,7 +2945,7 @@ const viewportPoint = sendPointToPlane(
 
 #### Defined in
 
-src/canvas/SelectableCanvas.ts:907
+src/canvas/SelectableCanvas.ts:923
 
 ***
 
@@ -2967,7 +2967,7 @@ Returns context of canvas where object selection is drawn
 
 #### Defined in
 
-src/canvas/SelectableCanvas.ts:1003
+src/canvas/SelectableCanvas.ts:1019
 
 ***
 
@@ -2987,7 +2987,7 @@ Returns &lt;canvas> element on which object selection is drawn
 
 #### Defined in
 
-src/canvas/SelectableCanvas.ts:1011
+src/canvas/SelectableCanvas.ts:1027
 
 ***
 
@@ -3007,7 +3007,7 @@ Returns context of top canvas where interactions are drawn
 
 #### Defined in
 
-src/canvas/SelectableCanvas.ts:994
+src/canvas/SelectableCanvas.ts:1010
 
 ***
 
@@ -3044,7 +3044,7 @@ const scenePoint = sendPointToPlane(
 
 #### Defined in
 
-src/canvas/SelectableCanvas.ts:888
+src/canvas/SelectableCanvas.ts:904
 
 ***
 
@@ -3066,7 +3066,7 @@ vpCenter, viewport center
 
 #### Defined in
 
-src/canvas/StaticCanvas.ts:796
+src/canvas/StaticCanvas.ts:792
 
 ***
 
@@ -3086,7 +3086,7 @@ Returns canvas width (in px)
 
 #### Defined in
 
-src/canvas/StaticCanvas.ts:263
+src/canvas/StaticCanvas.ts:273
 
 ***
 
@@ -3106,7 +3106,7 @@ Returns canvas zoom level
 
 #### Defined in
 
-src/canvas/StaticCanvas.ts:373
+src/canvas/StaticCanvas.ts:383
 
 ***
 
@@ -3138,7 +3138,7 @@ new array length
 
 #### Defined in
 
-src/canvas/StaticCanvas.ts:205
+src/canvas/StaticCanvas.ts:215
 
 ***
 
@@ -3289,7 +3289,7 @@ canvas.loadFromJSON(json, function(o, object) {
 
 #### Defined in
 
-src/canvas/StaticCanvas.ts:1278
+src/canvas/StaticCanvas.ts:1274
 
 ***
 
@@ -3415,7 +3415,7 @@ Observes specified event
 
 • **K** *extends* keyof [`CanvasEvents`](/api/interfaces/canvasevents/)
 
-• **E** *extends* [`TPointerEventInfo`](/api/interfaces/tpointereventinfo/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> \| [`TPointerEventInfo`](/api/interfaces/tpointereventinfo/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> & `object` \| [`TPointerEventInfo`](/api/interfaces/tpointereventinfo/)\<`WheelEvent`\> \| [`TPointerEventInfo`](/api/interfaces/tpointereventinfo/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> & `InEvent` \| [`TPointerEventInfo`](/api/interfaces/tpointereventinfo/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> & `OutEvent` \| `TEventWithTarget`\<`DragEvent`\> \| [`DragEventData`](/api/interfaces/drageventdata/) \| [`DragEventData`](/api/interfaces/drageventdata/) & `InEvent` \| [`DragEventData`](/api/interfaces/drageventdata/) & `OutEvent` \| [`DropEventData`](/api/interfaces/dropeventdata/) \| `SimpleEventHandler`\<`Event`\> \| [`BasicTransformEvent`](/api/interfaces/basictransformevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> & `object` \| [`ModifiedEvent`](/api/interfaces/modifiedevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> \| `object` \| `object` \| `object` \| `object` \| `object` \| `object` \| `object` \| `object` \| `object` \| `object` \| `object` \| `object` \| [`LayoutBeforeEvent`](/api/type-aliases/layoutbeforeevent/) & `object` \| [`LayoutAfterEvent`](/api/type-aliases/layoutafterevent/) & `object` \| [`TEvent`](/api/interfaces/tevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> & `object` \| `Partial`\<[`TEvent`](/api/interfaces/tevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\>\> & `object` \| `Partial`\<[`TEvent`](/api/interfaces/tevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\>\> & `object` \| `Partial`\<[`TEvent`](/api/interfaces/tevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\>\> & `object` \| `Partial`\<[`TEvent`](/api/interfaces/tevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\>\> & `object`
+• **E** *extends* [`TPointerEventInfo`](/api/interfaces/tpointereventinfo/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> \| [`TPointerEventInfo`](/api/interfaces/tpointereventinfo/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> & `object` \| [`TPointerEventInfo`](/api/interfaces/tpointereventinfo/)\<`WheelEvent`\> \| [`TPointerEventInfo`](/api/interfaces/tpointereventinfo/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> & `InEvent` \| [`TPointerEventInfo`](/api/interfaces/tpointereventinfo/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> & `OutEvent` \| `TEventWithTarget`\<`DragEvent`\> \| [`DragEventData`](/api/interfaces/drageventdata/) \| [`DragEventData`](/api/interfaces/drageventdata/) & `InEvent` \| [`DragEventData`](/api/interfaces/drageventdata/) & `OutEvent` \| [`DropEventData`](/api/interfaces/dropeventdata/) \| `SimpleEventHandler`\<`Event`\> \| [`ModifiedEvent`](/api/interfaces/modifiedevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> \| `object` \| `object` \| `object` \| `object` \| `object` \| `object` \| `object` \| `object` \| `object` \| `object` \| `object` \| [`LayoutBeforeEvent`](/api/type-aliases/layoutbeforeevent/) & `object` \| [`LayoutAfterEvent`](/api/type-aliases/layoutafterevent/) & `object` \| [`TEvent`](/api/interfaces/tevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> & `object` \| [`BasicTransformEvent`](/api/interfaces/basictransformevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> & `object` \| [`BasicTransformEvent`](/api/interfaces/basictransformevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> & `object` \| [`BasicTransformEvent`](/api/interfaces/basictransformevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> & `object` \| [`BasicTransformEvent`](/api/interfaces/basictransformevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> & `object` \| [`BasicTransformEvent`](/api/interfaces/basictransformevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> & `object` \| [`BasicTransformEvent`](/api/interfaces/basictransformevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> & `object` \| `Partial`\<[`TEvent`](/api/interfaces/tevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\>\> & `object` \| `Partial`\<[`TEvent`](/api/interfaces/tevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\>\> & `object` \| `Partial`\<[`TEvent`](/api/interfaces/tevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\>\> & `object` \| `Partial`\<[`TEvent`](/api/interfaces/tevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\>\> & `object`
 
 ##### Parameters
 
@@ -3479,7 +3479,7 @@ Observes specified event **once**
 
 • **K** *extends* keyof [`CanvasEvents`](/api/interfaces/canvasevents/)
 
-• **E** *extends* [`TPointerEventInfo`](/api/interfaces/tpointereventinfo/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> \| [`TPointerEventInfo`](/api/interfaces/tpointereventinfo/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> & `object` \| [`TPointerEventInfo`](/api/interfaces/tpointereventinfo/)\<`WheelEvent`\> \| [`TPointerEventInfo`](/api/interfaces/tpointereventinfo/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> & `InEvent` \| [`TPointerEventInfo`](/api/interfaces/tpointereventinfo/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> & `OutEvent` \| `TEventWithTarget`\<`DragEvent`\> \| [`DragEventData`](/api/interfaces/drageventdata/) \| [`DragEventData`](/api/interfaces/drageventdata/) & `InEvent` \| [`DragEventData`](/api/interfaces/drageventdata/) & `OutEvent` \| [`DropEventData`](/api/interfaces/dropeventdata/) \| `SimpleEventHandler`\<`Event`\> \| [`BasicTransformEvent`](/api/interfaces/basictransformevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> & `object` \| [`ModifiedEvent`](/api/interfaces/modifiedevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> \| `object` \| `object` \| `object` \| `object` \| `object` \| `object` \| `object` \| `object` \| `object` \| `object` \| `object` \| `object` \| [`LayoutBeforeEvent`](/api/type-aliases/layoutbeforeevent/) & `object` \| [`LayoutAfterEvent`](/api/type-aliases/layoutafterevent/) & `object` \| [`TEvent`](/api/interfaces/tevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> & `object` \| `Partial`\<[`TEvent`](/api/interfaces/tevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\>\> & `object` \| `Partial`\<[`TEvent`](/api/interfaces/tevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\>\> & `object` \| `Partial`\<[`TEvent`](/api/interfaces/tevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\>\> & `object` \| `Partial`\<[`TEvent`](/api/interfaces/tevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\>\> & `object`
+• **E** *extends* [`TPointerEventInfo`](/api/interfaces/tpointereventinfo/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> \| [`TPointerEventInfo`](/api/interfaces/tpointereventinfo/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> & `object` \| [`TPointerEventInfo`](/api/interfaces/tpointereventinfo/)\<`WheelEvent`\> \| [`TPointerEventInfo`](/api/interfaces/tpointereventinfo/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> & `InEvent` \| [`TPointerEventInfo`](/api/interfaces/tpointereventinfo/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> & `OutEvent` \| `TEventWithTarget`\<`DragEvent`\> \| [`DragEventData`](/api/interfaces/drageventdata/) \| [`DragEventData`](/api/interfaces/drageventdata/) & `InEvent` \| [`DragEventData`](/api/interfaces/drageventdata/) & `OutEvent` \| [`DropEventData`](/api/interfaces/dropeventdata/) \| `SimpleEventHandler`\<`Event`\> \| [`ModifiedEvent`](/api/interfaces/modifiedevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> \| `object` \| `object` \| `object` \| `object` \| `object` \| `object` \| `object` \| `object` \| `object` \| `object` \| `object` \| [`LayoutBeforeEvent`](/api/type-aliases/layoutbeforeevent/) & `object` \| [`LayoutAfterEvent`](/api/type-aliases/layoutafterevent/) & `object` \| [`TEvent`](/api/interfaces/tevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> & `object` \| [`BasicTransformEvent`](/api/interfaces/basictransformevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> & `object` \| [`BasicTransformEvent`](/api/interfaces/basictransformevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> & `object` \| [`BasicTransformEvent`](/api/interfaces/basictransformevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> & `object` \| [`BasicTransformEvent`](/api/interfaces/basictransformevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> & `object` \| [`BasicTransformEvent`](/api/interfaces/basictransformevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> & `object` \| [`BasicTransformEvent`](/api/interfaces/basictransformevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> & `object` \| `Partial`\<[`TEvent`](/api/interfaces/tevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\>\> & `object` \| `Partial`\<[`TEvent`](/api/interfaces/tevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\>\> & `object` \| `Partial`\<[`TEvent`](/api/interfaces/tevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\>\> & `object` \| `Partial`\<[`TEvent`](/api/interfaces/tevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\>\> & `object`
 
 ##### Parameters
 
@@ -3553,7 +3553,7 @@ Pans viewpoint relatively
 
 #### Defined in
 
-src/canvas/StaticCanvas.ts:445
+src/canvas/StaticCanvas.ts:441
 
 ***
 
@@ -3617,7 +3617,7 @@ to render
 
 #### Defined in
 
-src/canvas/StaticCanvas.ts:565
+src/canvas/StaticCanvas.ts:561
 
 ***
 
@@ -3685,7 +3685,7 @@ a boolean flag will avoid appending more.
 
 #### Defined in
 
-src/canvas/StaticCanvas.ts:521
+src/canvas/StaticCanvas.ts:517
 
 ***
 
@@ -3848,7 +3848,7 @@ true if the object has been selected
 
 #### Defined in
 
-src/canvas/SelectableCanvas.ts:1101
+src/canvas/SelectableCanvas.ts:1117
 
 ***
 
@@ -3918,7 +3918,7 @@ Set the given dimensions only as css dimensions
 
 ##### Defined in
 
-src/canvas/StaticCanvas.ts:350
+src/canvas/StaticCanvas.ts:360
 
 #### setDimensions(dimensions, options)
 
@@ -3944,7 +3944,7 @@ src/canvas/StaticCanvas.ts:350
 
 ##### Defined in
 
-src/canvas/StaticCanvas.ts:354
+src/canvas/StaticCanvas.ts:364
 
 #### setDimensions(dimensions, options)
 
@@ -3966,7 +3966,7 @@ src/canvas/StaticCanvas.ts:354
 
 ##### Defined in
 
-src/canvas/StaticCanvas.ts:358
+src/canvas/StaticCanvas.ts:368
 
 ***
 
@@ -4011,7 +4011,7 @@ Set the given dimensions only as css dimensions
 
 ##### Defined in
 
-src/canvas/StaticCanvas.ts:303
+src/canvas/StaticCanvas.ts:313
 
 #### setHeight(value, options)
 
@@ -4037,7 +4037,7 @@ src/canvas/StaticCanvas.ts:303
 
 ##### Defined in
 
-src/canvas/StaticCanvas.ts:307
+src/canvas/StaticCanvas.ts:317
 
 ***
 
@@ -4063,7 +4063,7 @@ a Canvas 2D API transform matrix
 
 #### Defined in
 
-src/canvas/SelectableCanvas.ts:1236
+src/canvas/SelectableCanvas.ts:1252
 
 ***
 
@@ -4107,7 +4107,7 @@ Set the given dimensions only as css dimensions
 
 ##### Defined in
 
-src/canvas/StaticCanvas.ts:283
+src/canvas/StaticCanvas.ts:293
 
 #### setWidth(value, options)
 
@@ -4133,7 +4133,7 @@ src/canvas/StaticCanvas.ts:283
 
 ##### Defined in
 
-src/canvas/StaticCanvas.ts:287
+src/canvas/StaticCanvas.ts:297
 
 ***
 
@@ -4159,7 +4159,7 @@ to set zoom to, less than 1 zooms out
 
 #### Defined in
 
-src/canvas/StaticCanvas.ts:426
+src/canvas/StaticCanvas.ts:422
 
 ***
 
@@ -4215,7 +4215,7 @@ Cropping informations
 
 #### Defined in
 
-src/canvas/StaticCanvas.ts:1415
+src/canvas/StaticCanvas.ts:1411
 
 ***
 
@@ -4280,7 +4280,7 @@ var dataURL = canvas.toDataURL({
 
 #### Defined in
 
-src/canvas/StaticCanvas.ts:1384
+src/canvas/StaticCanvas.ts:1380
 
 ***
 
@@ -4308,7 +4308,7 @@ json string
 
 #### Defined in
 
-src/canvas/StaticCanvas.ts:819
+src/canvas/StaticCanvas.ts:815
 
 ***
 
@@ -4336,7 +4336,7 @@ object representation of an instance
 
 #### Defined in
 
-src/canvas/StaticCanvas.ts:856
+src/canvas/StaticCanvas.ts:852
 
 ***
 
@@ -4383,7 +4383,7 @@ var json = canvas.toJSON();
 
 #### Defined in
 
-src/canvas/StaticCanvas.ts:847
+src/canvas/StaticCanvas.ts:843
 
 ***
 
@@ -4411,7 +4411,7 @@ object representation of an instance
 
 #### Defined in
 
-src/canvas/StaticCanvas.ts:828
+src/canvas/StaticCanvas.ts:824
 
 ***
 
@@ -4484,7 +4484,7 @@ var svg = canvas.toSVG(null, function(svg) {
 
 #### Defined in
 
-src/canvas/StaticCanvas.ts:995
+src/canvas/StaticCanvas.ts:991
 
 ***
 
@@ -4506,7 +4506,7 @@ string representation of an instance
 
 #### Defined in
 
-src/canvas/StaticCanvas.ts:1514
+src/canvas/StaticCanvas.ts:1513
 
 ***
 
@@ -4558,7 +4558,7 @@ Object to center vertically and horizontally
 
 #### Defined in
 
-src/canvas/StaticCanvas.ts:766
+src/canvas/StaticCanvas.ts:762
 
 ***
 
@@ -4584,7 +4584,7 @@ Object to center vertically and horizontally
 
 #### Defined in
 
-src/canvas/StaticCanvas.ts:774
+src/canvas/StaticCanvas.ts:770
 
 ***
 
@@ -4610,7 +4610,7 @@ Object to center vertically and horizontally
 
 #### Defined in
 
-src/canvas/StaticCanvas.ts:785
+src/canvas/StaticCanvas.ts:781
 
 ***
 
@@ -4643,7 +4643,7 @@ to set zoom to, less than 1 zooms out
 
 #### Defined in
 
-src/canvas/StaticCanvas.ts:409
+src/canvas/StaticCanvas.ts:405
 
 ***
 

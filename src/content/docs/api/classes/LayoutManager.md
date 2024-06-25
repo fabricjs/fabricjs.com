@@ -45,7 +45,7 @@ src/LayoutManager/LayoutManager.ts:37
 
 #### Defined in
 
-src/LayoutManager/LayoutManager.ts:309
+src/LayoutManager/LayoutManager.ts:330
 
 ***
 
@@ -81,7 +81,7 @@ src/LayoutManager/LayoutManager.ts:44
 
 #### Defined in
 
-src/LayoutManager/LayoutManager.ts:123
+src/LayoutManager/LayoutManager.ts:143
 
 ***
 
@@ -103,7 +103,7 @@ src/LayoutManager/LayoutManager.ts:123
 
 #### Defined in
 
-src/LayoutManager/LayoutManager.ts:321
+src/LayoutManager/LayoutManager.ts:342
 
 ***
 
@@ -125,7 +125,7 @@ src/LayoutManager/LayoutManager.ts:321
 
 #### Defined in
 
-src/LayoutManager/LayoutManager.ts:314
+src/LayoutManager/LayoutManager.ts:335
 
 ***
 
@@ -143,4 +143,4 @@ src/LayoutManager/LayoutManager.ts:314
 
 #### Defined in
 
-src/LayoutManager/LayoutManager.ts:117
+src/LayoutManager/LayoutManager.ts:137

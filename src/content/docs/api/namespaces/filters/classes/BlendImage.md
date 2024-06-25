@@ -17,8 +17,7 @@ const filter = new filters.BlendColor({
 
 const filter = new BlendImage({
  image: fabricImageObject,
- mode: 'multiply',
- alpha: 0.5
+ mode: 'multiply'
 });
 object.filters.push(filter);
 object.applyFilters();
@@ -27,7 +26,7 @@ canvas.renderAll();
 
 ## Extends
 
-- [`BaseFilter`](/api/namespaces/filters/classes/basefilter/)
+- [`BaseFilter`](/api/namespaces/filters/classes/basefilter/)\<`"BlendImage"`, `BlendImageOwnProps`\>
 
 ## Constructors
 
@@ -39,7 +38,7 @@ Constructor
 
 #### Parameters
 
-• **options?**: `Record`\<`string`, `any`\> = `{}`
+• **options?**: `object` & `Partial`\<`BlendImageOwnProps`\> & `Record`\<`string`, `any`\> = `{}`
 
 Options object
 
@@ -53,7 +52,7 @@ Options object
 
 #### Defined in
 
-src/filters/BaseFilter.ts:58
+src/filters/BaseFilter.ts:56
 
 ## Properties
 
@@ -74,18 +73,29 @@ src/filters/BlendImage.ts:62
 
 > **image**: [`FabricImage`](/api/classes/fabricimage/)\<`Partial`\<[`ImageProps`](/api/interfaces/imageprops/)\>, [`SerializedImageProps`](/api/interfaces/serializedimageprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
-Color to make the blend operation with. default to a reddish color since black or white
-gives always strong result.
+Image to make the blend operation with.
 
 #### Defined in
 
-src/filters/BlendImage.ts:54
+src/filters/BlendImage.ts:45
 
 ***
 
 ### mode
 
 > **mode**: `TBlendImageMode`
+
+Blend mode for the filter: either 'multiply' or 'mask'. 'multiply' will
+multiply the values of each channel (R, G, B, and A) of the filter image by
+their corresponding values in the base image. 'mask' will only look at the
+alpha channel of the filter image, and apply those values to the base
+image's alpha channel.
+
+#### Default
+
+```ts
+
+```
 
 #### Defined in
 
@@ -95,7 +105,7 @@ src/filters/BlendImage.ts:56
 
 ### defaults
 
-> `static` **defaults**: `Partial`\<[`TClassProperties`](/api/type-aliases/tclassproperties/)\<[`BlendImage`](/api/namespaces/filters/classes/blendimage/)\>\> = `blendImageDefaultValues`
+> `static` **defaults**: `BlendImageOwnProps` = `blendImageDefaultValues`
 
 #### Overrides
 
@@ -125,11 +135,29 @@ to avoid doing that.
 
 src/filters/BlendImage.ts:64
 
+***
+
+### uniformLocations
+
+> `static` **uniformLocations**: `string`[]
+
+Contains the uniform locations for the fragment shader.
+uStepW and uStepH are handled by the BaseFilter, each filter class
+needs to specify all the one that are needed
+
+#### Overrides
+
+[`BaseFilter`](/api/namespaces/filters/classes/basefilter/).[`uniformLocations`](/api/namespaces/filters/classes/basefilter/#uniformlocations)
+
+#### Defined in
+
+src/filters/BlendImage.ts:68
+
 ## Accessors
 
 ### type
 
-> `get` **type**(): `string`
+> `get` **type**(): `Name`
 
 Filter type
 
@@ -141,7 +169,7 @@ Filter type
 
 #### Returns
 
-`string`
+`Name`
 
 #### Inherited from
 
@@ -149,7 +177,7 @@ Filter type
 
 #### Defined in
 
-src/filters/BaseFilter.ts:25
+src/filters/BaseFilter.ts:30
 
 ## Methods
 
@@ -171,7 +199,7 @@ src/filters/BaseFilter.ts:25
 
 #### Defined in
 
-src/filters/BaseFilter.ts:190
+src/filters/BaseFilter.ts:204
 
 ***
 
@@ -193,7 +221,7 @@ src/filters/BaseFilter.ts:190
 
 #### Defined in
 
-src/filters/BaseFilter.ts:217
+src/filters/BaseFilter.ts:231
 
 ***
 
@@ -219,7 +247,7 @@ Determines whether to use WebGL or Canvas2D based on the options.webgl flag.
 
 #### Defined in
 
-src/filters/BaseFilter.ts:265
+src/filters/BaseFilter.ts:264
 
 ***
 
@@ -243,7 +271,7 @@ Apply the Blend operation to a Uint8ClampedArray representing the pixels of an i
 
 #### Defined in
 
-src/filters/BlendImage.ts:116
+src/filters/BlendImage.ts:122
 
 ***
 
@@ -267,7 +295,7 @@ Apply this filter using webgl.
 
 #### Defined in
 
-src/filters/BlendImage.ts:76
+src/filters/BlendImage.ts:82
 
 ***
 
@@ -293,7 +321,7 @@ src/filters/BlendImage.ts:76
 
 #### Defined in
 
-src/filters/BaseFilter.ts:334
+src/filters/BaseFilter.ts:333
 
 ***
 
@@ -309,7 +337,7 @@ Calculate a transformMatrix to adapt the image to blend over
 
 #### Defined in
 
-src/filters/BlendImage.ts:94
+src/filters/BlendImage.ts:100
 
 ***
 
@@ -334,7 +362,7 @@ remember that options.targetCanvas is available for use till end of chain.
 
 #### Defined in
 
-src/filters/BaseFilter.ts:380
+src/filters/BaseFilter.ts:369
 
 ***
 
@@ -380,7 +408,7 @@ vertexShader source for compilation
 
 #### Defined in
 
-src/filters/BaseFilter.ts:77
+src/filters/BaseFilter.ts:82
 
 ***
 
@@ -400,7 +428,7 @@ src/filters/BaseFilter.ts:77
 
 #### Defined in
 
-src/filters/BlendImage.ts:84
+src/filters/BlendImage.ts:90
 
 ***
 
@@ -432,7 +460,7 @@ A map of attribute names to attribute locations.
 
 #### Defined in
 
-src/filters/BaseFilter.ts:146
+src/filters/BaseFilter.ts:152
 
 ***
 
@@ -453,7 +481,7 @@ Used to force recompilation when parameters change or to retrieve the shader fro
 
 #### Defined in
 
-src/filters/BlendImage.ts:68
+src/filters/BlendImage.ts:70
 
 ***
 
@@ -471,25 +499,7 @@ src/filters/BlendImage.ts:68
 
 #### Defined in
 
-src/filters/BlendImage.ts:72
-
-***
-
-### getMainParameter()
-
-> **getMainParameter**(): `undefined` \| `string` \| `number` \| (`gl`, `program`) => [`TWebGLAttributeLocationMap`](/api/type-aliases/twebglattributelocationmap/) \| (`options`) => [`TWebGLProgramCacheItem`](/api/type-aliases/twebglprogramcacheitem/) \| (`options`?) => `boolean` \| [`FabricImage`](/api/classes/fabricimage/)\<`Partial`\<[`ImageProps`](/api/interfaces/imageprops/)\>, [`SerializedImageProps`](/api/interfaces/serializedimageprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\> \| () => `object` \| () => `object` \| (`backend`, `image`) => `null` \| `WebGLTexture` \| (`gl`, `program`) => [`TWebGLUniformLocationMap`](/api/type-aliases/twebgluniformlocationmap/) \| (`gl`, `uniformLocations`) => `void` \| () => `string` \| () => `string` \| (`options`) => `void` \| (`options`) => `void` \| (`gl`, `fragmentSource`, `vertexSource`) => `object` \| (`gl`, `attributeLocations`, `aPositionData`) => `void` \| (`options`) => `void` \| (`options`) => `void` \| (`options`) => `void` \| (`gl`, `texture`, `textureUnit`) => `void` \| (`gl`, `textureUnit`) => `void` \| () => string \| number \| ((gl: WebGLRenderingContext, program: WebGLProgram) =\> TWebGLAttributeLocationMap) \| ((options: TWebGLPipelineState) =\> TWebGLProgramCacheItem) \| ... 22 more ... \| undefined \| (`value`) => `void` \| (`options`) => `void` \| () => `number`[]
-
-#### Returns
-
-`undefined` \| `string` \| `number` \| (`gl`, `program`) => [`TWebGLAttributeLocationMap`](/api/type-aliases/twebglattributelocationmap/) \| (`options`) => [`TWebGLProgramCacheItem`](/api/type-aliases/twebglprogramcacheitem/) \| (`options`?) => `boolean` \| [`FabricImage`](/api/classes/fabricimage/)\<`Partial`\<[`ImageProps`](/api/interfaces/imageprops/)\>, [`SerializedImageProps`](/api/interfaces/serializedimageprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\> \| () => `object` \| () => `object` \| (`backend`, `image`) => `null` \| `WebGLTexture` \| (`gl`, `program`) => [`TWebGLUniformLocationMap`](/api/type-aliases/twebgluniformlocationmap/) \| (`gl`, `uniformLocations`) => `void` \| () => `string` \| () => `string` \| (`options`) => `void` \| (`options`) => `void` \| (`gl`, `fragmentSource`, `vertexSource`) => `object` \| (`gl`, `attributeLocations`, `aPositionData`) => `void` \| (`options`) => `void` \| (`options`) => `void` \| (`options`) => `void` \| (`gl`, `texture`, `textureUnit`) => `void` \| (`gl`, `textureUnit`) => `void` \| () => string \| number \| ((gl: WebGLRenderingContext, program: WebGLProgram) =\> TWebGLAttributeLocationMap) \| ((options: TWebGLPipelineState) =\> TWebGLProgramCacheItem) \| ... 22 more ... \| undefined \| (`value`) => `void` \| (`options`) => `void` \| () => `number`[]
-
-#### Inherited from
-
-[`BaseFilter`](/api/namespaces/filters/classes/basefilter/).[`getMainParameter`](/api/namespaces/filters/classes/basefilter/#getmainparameter)
-
-#### Defined in
-
-src/filters/BaseFilter.ts:351
+src/filters/BlendImage.ts:74
 
 ***
 
@@ -497,29 +507,49 @@ src/filters/BaseFilter.ts:351
 
 > **getUniformLocations**(`gl`, `program`): [`TWebGLUniformLocationMap`](/api/type-aliases/twebgluniformlocationmap/)
 
-Return WebGL uniform locations for this filter's shader.
+Return a map of uniform names to WebGLUniformLocation objects.
 
 #### Parameters
 
 • **gl**: `WebGLRenderingContext`
 
-The GL canvas context used to compile this filter's shader.
+The canvas context used to compile the shader program.
 
 • **program**: `WebGLProgram`
 
-This filter's compiled shader program.
+The shader program from which to take uniform locations.
 
 #### Returns
 
 [`TWebGLUniformLocationMap`](/api/type-aliases/twebgluniformlocationmap/)
 
-#### Overrides
+A map of uniform names to uniform locations.
+
+#### Inherited from
 
 [`BaseFilter`](/api/namespaces/filters/classes/basefilter/).[`getUniformLocations`](/api/namespaces/filters/classes/basefilter/#getuniformlocations)
 
 #### Defined in
 
-src/filters/BlendImage.ts:173
+src/filters/BaseFilter.ts:168
+
+***
+
+### getVertexSource()
+
+> **getVertexSource**(): `string`
+
+#### Returns
+
+`string`
+
+#### Overrides
+
+[`BaseFilter`](/api/namespaces/filters/classes/basefilter/).[`getVertexSource`](/api/namespaces/filters/classes/basefilter/#getvertexsource)
+
+#### Defined in
+
+src/filters/BlendImage.ts:78
 
 ***
 
@@ -546,7 +576,7 @@ Other filters may need their own version ( ColorMatrix, HueRotation, gamma, Comp
 
 #### Defined in
 
-src/filters/BaseFilter.ts:233
+src/filters/BaseFilter.ts:247
 
 ***
 
@@ -572,7 +602,7 @@ the compiled program shader
 
 #### Defined in
 
-src/filters/BaseFilter.ts:295
+src/filters/BaseFilter.ts:294
 
 ***
 
@@ -604,7 +634,7 @@ A map of shader attribute names to their locations.
 
 #### Defined in
 
-src/filters/BaseFilter.ts:177
+src/filters/BaseFilter.ts:191
 
 ***
 
@@ -634,47 +664,21 @@ A map of string uniform names to WebGLUniformLocation objects
 
 #### Defined in
 
-src/filters/BlendImage.ts:189
-
-***
-
-### setMainParameter()
-
-> **setMainParameter**(`value`): `void`
-
-#### Parameters
-
-• **value**: `any`
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[`BaseFilter`](/api/namespaces/filters/classes/basefilter/).[`setMainParameter`](/api/namespaces/filters/classes/basefilter/#setmainparameter)
-
-#### Defined in
-
-src/filters/BaseFilter.ts:355
+src/filters/BlendImage.ts:179
 
 ***
 
 ### toJSON()
 
-> **toJSON**(): `object`
+> **toJSON**(): `object` & `BlendImageOwnProps`
 
 Returns a JSON representation of an instance
 
 #### Returns
 
-`object`
+`object` & `BlendImageOwnProps`
 
 JSON
-
-##### type
-
-> **type**: `string`
 
 #### Inherited from
 
@@ -682,37 +686,23 @@ JSON
 
 #### Defined in
 
-src/filters/BaseFilter.ts:405
+src/filters/BaseFilter.ts:401
 
 ***
 
 ### toObject()
 
-> **toObject**(): `object`
+> **toObject**(): `object` & `BlendImageOwnProps`
 
 Returns object representation of an instance
+TODO: Handle the possibility of missing image better.
+As of now a BlendImage filter without image can't be used with fromObject
 
 #### Returns
 
-`object`
+`object` & `BlendImageOwnProps`
 
 Object representation of an instance
-
-##### alpha
-
-> **alpha**: `number`
-
-##### image
-
-> **image**: `Pick`\<`Omit`\<`Partial`\<[`ImageProps`](/api/interfaces/imageprops/)\> & [`TClassProperties`](/api/type-aliases/tclassproperties/)\<[`FabricImage`](/api/classes/fabricimage/)\<`Partial`\<[`ImageProps`](/api/interfaces/imageprops/)\>, [`SerializedImageProps`](/api/interfaces/serializedimageprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>\>, keyof [`SerializedImageProps`](/api/interfaces/serializedimageprops/)\>, `never`\> & [`SerializedImageProps`](/api/interfaces/serializedimageprops/)
-
-##### mode
-
-> **mode**: `TBlendImageMode`
-
-##### type
-
-> **type**: `string`
 
 #### Overrides
 
@@ -720,7 +710,7 @@ Object representation of an instance
 
 #### Defined in
 
-src/filters/BlendImage.ts:202
+src/filters/BlendImage.ts:194
 
 ***
 
@@ -744,13 +734,13 @@ src/filters/BlendImage.ts:202
 
 #### Defined in
 
-src/filters/BaseFilter.ts:345
+src/filters/BaseFilter.ts:344
 
 ***
 
 ### fromObject()
 
-> `static` **fromObject**(`object`, `options`?): `Promise`\<[`BaseFilter`](/api/namespaces/filters/classes/basefilter/)\>
+> `static` **fromObject**(`object`, `options`?): `Promise`\<[`BaseFilter`](/api/namespaces/filters/classes/basefilter/)\<`"BlendImage"`, `BlendImageOwnProps`\>\>
 
 Create filter instance from an object representation
 
@@ -768,7 +758,7 @@ handle aborting image loading, see https://developer.mozilla.org/en-US/docs/Web/
 
 #### Returns
 
-`Promise`\<[`BaseFilter`](/api/namespaces/filters/classes/basefilter/)\>
+`Promise`\<[`BaseFilter`](/api/namespaces/filters/classes/basefilter/)\<`"BlendImage"`, `BlendImageOwnProps`\>\>
 
 #### Overrides
 
@@ -778,4 +768,4 @@ handle aborting image loading, see https://developer.mozilla.org/en-US/docs/Web/
 
 #### Defined in
 
-src/filters/BlendImage.ts:219
+src/filters/BlendImage.ts:212

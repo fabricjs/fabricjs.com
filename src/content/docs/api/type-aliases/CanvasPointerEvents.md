@@ -9,4 +9,4 @@ title: "CanvasPointerEvents"
 
 ## Defined in
 
-src/EventTypeDefs.ts:262
+src/EventTypeDefs.ts:264

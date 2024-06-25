@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
 
-export const generateExample = (codeFunc, id) => {
+export const generateExample = (codeFunc, id, codeAsString) => {
     return ({ hideCode, canvasStyle }) => {
         const [codestring, setCode] = useState()
         useEffect(() => {
+            console.log(codeAsString)
             codeFunc(id);
-            const code = codeFunc.toString();
+            const code = codeAsString ?? codeFunc.toString();
             const matching = code.match(/function[^{]+\{\n([\s\S]*)\}$/);
             setCode(matching?.[1] || code);
         }, []);

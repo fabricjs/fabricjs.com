@@ -124,7 +124,7 @@ Options object
 
 #### Defined in
 
-src/shapes/IText/IText.ts:225
+src/shapes/IText/IText.ts:224
 
 ## Properties
 
@@ -329,7 +329,7 @@ You can calculate them without updating with [()](../../../../api/classes/itext/
 
 #### Defined in
 
-src/shapes/Object/ObjectGeometry.ts:50
+src/shapes/Object/ObjectGeometry.ts:51
 
 ***
 
@@ -594,7 +594,7 @@ src/shapes/Text/Text.ts:345
 
 ### clipPath?
 
-> `optional` **clipPath**: `FabricObject`\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
+> `optional` **clipPath**: [`BaseFabricObject`](/api/classes/basefabricobject/)\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 #### Inherited from
 
@@ -1799,7 +1799,7 @@ storage cache for object full transform matrix
 
 #### Defined in
 
-src/shapes/Object/ObjectGeometry.ts:60
+src/shapes/Object/ObjectGeometry.ts:61
 
 ***
 
@@ -2022,7 +2022,7 @@ storage cache for object transform matrix
 
 #### Defined in
 
-src/shapes/Object/ObjectGeometry.ts:55
+src/shapes/Object/ObjectGeometry.ts:56
 
 ***
 
@@ -2044,7 +2044,7 @@ Padding between object and its controlling borders (in pixels)
 
 #### Defined in
 
-src/shapes/Object/ObjectGeometry.ts:40
+src/shapes/Object/ObjectGeometry.ts:41
 
 ***
 
@@ -2083,7 +2083,7 @@ Used to keep the original parent ref when the object has been added to an Active
 
 #### Defined in
 
-src/shapes/Object/StackedObject.ts:44
+src/shapes/Object/StackedObject.ts:38
 
 ***
 
@@ -2988,7 +2988,7 @@ Text
 
 #### Defined in
 
-src/shapes/Text/Text.ts:1803
+src/shapes/Text/Text.ts:1809
 
 ***
 
@@ -3051,7 +3051,7 @@ src/shapes/Object/AnimatableObject.ts:20
 
 #### Defined in
 
-src/shapes/Text/Text.ts:1787
+src/shapes/Text/Text.ts:1793
 
 ***
 
@@ -3142,7 +3142,7 @@ Prepare clipPath state and cache and draw it on instance's cache
 
 • **ctx**: `CanvasRenderingContext2D`
 
-• **clipPath?**: `FabricObject`\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
+• **clipPath?**: [`BaseFabricObject`](/api/classes/basefabricobject/)\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 #### Returns
 
@@ -3154,7 +3154,7 @@ Prepare clipPath state and cache and draw it on instance's cache
 
 #### Defined in
 
-src/shapes/Object/Object.ts:977
+src/shapes/Object/Object.ts:949
 
 ***
 
@@ -3182,7 +3182,7 @@ font declaration formatted for canvas context.
 
 #### Defined in
 
-src/shapes/Text/Text.ts:1650
+src/shapes/Text/Text.ts:1656
 
 ***
 
@@ -3222,7 +3222,7 @@ grapheme bbox
 
 #### Defined in
 
-src/shapes/Text/Text.ts:975
+src/shapes/Text/Text.ts:981
 
 ***
 
@@ -3269,7 +3269,7 @@ src/shapes/IText/ITextKeyBehavior.ts:377
 
 #### Defined in
 
-src/shapes/Text/Text.ts:1517
+src/shapes/Text/Text.ts:1523
 
 ***
 
@@ -3304,7 +3304,7 @@ making bargain with performances.
 
 #### Defined in
 
-src/shapes/Object/Object.ts:372
+src/shapes/Object/Object.ts:351
 
 ***
 
@@ -3340,7 +3340,7 @@ object.numOfSpaces length of chars that match this._reSpacesAndTabs
 
 #### Defined in
 
-src/shapes/Text/Text.ts:883
+src/shapes/Text/Text.ts:889
 
 ***
 
@@ -3369,7 +3369,7 @@ current compositionMode. It will be set to false.
 
 #### Defined in
 
-src/shapes/IText/ITextClickBehavior.ts:127
+src/shapes/IText/ITextClickBehavior.ts:136
 
 ***
 
@@ -3395,7 +3395,7 @@ Scope of this implementation is: verify the object is already selected when mous
 
 #### Defined in
 
-src/shapes/IText/ITextClickBehavior.ts:162
+src/shapes/IText/ITextClickBehavior.ts:171
 
 ***
 
@@ -3425,7 +3425,7 @@ Event object
 
 #### Defined in
 
-src/shapes/IText/ITextKeyBehavior.ts:638
+src/shapes/IText/ITextKeyBehavior.ts:639
 
 ***
 
@@ -3475,7 +3475,7 @@ Remove cacheCanvas and its dimensions from the objects
 
 #### Defined in
 
-src/shapes/Object/Object.ts:831
+src/shapes/Object/Object.ts:805
 
 ***
 
@@ -3510,7 +3510,7 @@ move to interactivity
 
 #### Defined in
 
-src/shapes/Object/InteractiveObject.ts:399
+src/shapes/Object/InteractiveObject.ts:434
 
 ***
 
@@ -3532,7 +3532,7 @@ src/shapes/Object/InteractiveObject.ts:399
 
 #### Defined in
 
-src/shapes/IText/IText.ts:499
+src/shapes/IText/IText.ts:498
 
 ***
 
@@ -3554,7 +3554,7 @@ src/shapes/IText/IText.ts:499
 
 #### Defined in
 
-src/shapes/Object/Object.ts:1117
+src/shapes/Object/Object.ts:1087
 
 ***
 
@@ -3591,7 +3591,7 @@ with ill defined
 
 #### Defined in
 
-src/shapes/Text/Text.ts:1330
+src/shapes/Text/Text.ts:1336
 
 ***
 
@@ -3628,7 +3628,7 @@ with stroke and strokeWidth defined
 
 #### Defined in
 
-src/shapes/Text/Text.ts:1308
+src/shapes/Text/Text.ts:1314
 
 ***
 
@@ -3655,7 +3655,7 @@ Rendering canvas context
 
 #### Defined in
 
-src/shapes/Object/Object.ts:1571
+src/shapes/Object/Object.ts:1541
 
 ***
 
@@ -3683,7 +3683,7 @@ Lines in the text
 
 #### Defined in
 
-src/shapes/Text/Text.ts:1718
+src/shapes/Text/Text.ts:1724
 
 ***
 
@@ -3732,7 +3732,7 @@ Aborts cursor animation, clears all timeouts and clear textarea context if neces
 
 #### Defined in
 
-src/shapes/IText/ITextBehavior.ts:181
+src/shapes/IText/ITextBehavior.ts:183
 
 ***
 
@@ -3766,7 +3766,7 @@ Animates object's properties
 
 #### Type Parameters
 
-• **T** *extends* `number` \| [`TColorArg`](/api/type-aliases/tcolorarg/) \| `number`[]
+• **T** *extends* `number` \| `number`[] \| [`TColorArg`](/api/type-aliases/tcolorarg/)
 
 #### Parameters
 
@@ -3838,7 +3838,7 @@ those never change with zoom or viewport changes.
 
 #### Defined in
 
-src/shapes/Object/ObjectGeometry.ts:414
+src/shapes/Object/ObjectGeometry.ts:415
 
 ***
 
@@ -3861,7 +3861,7 @@ is a public api and should be done just if extremely necessary
 
 #### Defined in
 
-src/shapes/Object/InteractiveObject.ts:224
+src/shapes/Object/InteractiveObject.ts:254
 
 ***
 
@@ -3884,7 +3884,7 @@ transform matrix for the object
 
 #### Defined in
 
-src/shapes/Object/ObjectGeometry.ts:511
+src/shapes/Object/ObjectGeometry.ts:501
 
 ***
 
@@ -3904,7 +3904,7 @@ Calculate text box height
 
 #### Defined in
 
-src/shapes/Text/Text.ts:1036
+src/shapes/Text/Text.ts:1042
 
 ***
 
@@ -3934,7 +3934,7 @@ transform matrix for the object
 
 #### Defined in
 
-src/shapes/Object/ObjectGeometry.ts:483
+src/shapes/Object/ObjectGeometry.ts:473
 
 ***
 
@@ -3958,7 +3958,7 @@ override this method to control whether instance should/shouldn't become a drop 
 
 #### Defined in
 
-src/shapes/IText/ITextClickBehavior.ts:66
+src/shapes/IText/ITextClickBehavior.ts:75
 
 ***
 
@@ -4025,7 +4025,7 @@ discuss swapping restoreManually with a renderCallback, but think of async issue
 
 #### Defined in
 
-src/shapes/Object/InteractiveObject.ts:589
+src/shapes/Object/InteractiveObject.ts:626
 
 ***
 
@@ -4051,7 +4051,7 @@ Any properties that you might want to additionally include in the output
 
 #### Defined in
 
-src/shapes/Object/Object.ts:1345
+src/shapes/Object/Object.ts:1315
 
 ***
 
@@ -4088,7 +4088,7 @@ fix the export type, it could not be Image but the type that getClass return for
 
 #### Defined in
 
-src/shapes/Object/Object.ts:1371
+src/shapes/Object/Object.ts:1341
 
 ***
 
@@ -4110,7 +4110,7 @@ complexity
 
 #### Defined in
 
-src/shapes/Text/Text.ts:1783
+src/shapes/Text/Text.ts:1789
 
 ***
 
@@ -4138,7 +4138,7 @@ true if point is inside the object
 
 #### Defined in
 
-src/shapes/Object/ObjectGeometry.ts:269
+src/shapes/Object/ObjectGeometry.ts:270
 
 ***
 
@@ -4179,7 +4179,7 @@ override if necessary to dispose artifacts such as `clipPath`
 
 #### Defined in
 
-src/shapes/IText/IText.ts:695
+src/shapes/IText/IText.ts:694
 
 ***
 
@@ -4203,7 +4203,7 @@ Default handler for double click, select a word
 
 #### Defined in
 
-src/shapes/IText/ITextClickBehavior.ts:102
+src/shapes/IText/ITextClickBehavior.ts:111
 
 ***
 
@@ -4239,7 +4239,7 @@ object to override the object style
 
 #### Defined in
 
-src/shapes/Object/InteractiveObject.ts:442
+src/shapes/Object/InteractiveObject.ts:477
 
 ***
 
@@ -4251,7 +4251,7 @@ Paint the cached copy of the object on the target context.
 
 #### Parameters
 
-• **this**: `TCachedFabricObject`\<`FabricObject`\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>\>
+• **this**: `TCachedFabricObject`\<[`BaseFabricObject`](/api/classes/basefabricobject/)\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>\>
 
 • **ctx**: `CanvasRenderingContext2D`
 
@@ -4267,7 +4267,7 @@ Context to render on
 
 #### Defined in
 
-src/shapes/Object/Object.ts:995
+src/shapes/Object/Object.ts:967
 
 ***
 
@@ -4283,7 +4283,7 @@ Execute the drawing operation for an object clipPath
 
 Context to render on
 
-• **clipPath**: `TCachedFabricObject`\<`FabricObject`\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>\>
+• **clipPath**: `TCachedFabricObject`\<[`BaseFabricObject`](/api/classes/basefabricobject/)\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>\>
 
 #### Returns
 
@@ -4295,7 +4295,7 @@ Context to render on
 
 #### Defined in
 
-src/shapes/Object/Object.ts:924
+src/shapes/Object/Object.ts:896
 
 ***
 
@@ -4306,6 +4306,9 @@ src/shapes/Object/Object.ts:924
 Draws corners of an object's bounding box.
 Requires public properties: width, height
 Requires public options: cornerSize, padding
+Be aware that since fabric 6.0 this function does not call setCoords anymore.
+setCoords needs to be called manually if the object of which we are rendering controls
+is outside the standard selection and transform process.
 
 #### Parameters
 
@@ -4327,7 +4330,7 @@ object to override the object style
 
 #### Defined in
 
-src/shapes/Object/InteractiveObject.ts:511
+src/shapes/Object/InteractiveObject.ts:549
 
 ***
 
@@ -4359,7 +4362,7 @@ object size x = width, y = height
 
 #### Defined in
 
-src/shapes/Object/InteractiveObject.ts:481
+src/shapes/Object/InteractiveObject.ts:516
 
 ***
 
@@ -4389,7 +4392,7 @@ apply clipping styles
 
 #### Defined in
 
-src/shapes/Object/Object.ts:956
+src/shapes/Object/Object.ts:928
 
 ***
 
@@ -4424,7 +4427,7 @@ it seemed a good option, now is an edge case
 
 #### Defined in
 
-src/shapes/Object/InteractiveObject.ts:339
+src/shapes/Object/InteractiveObject.ts:374
 
 ***
 
@@ -4444,7 +4447,7 @@ Enlarge space boxes and shift the others
 
 #### Defined in
 
-src/shapes/Text/Text.ts:483
+src/shapes/Text/Text.ts:489
 
 ***
 
@@ -4468,7 +4471,7 @@ Enters editing state
 
 #### Defined in
 
-src/shapes/IText/ITextBehavior.ts:378
+src/shapes/IText/ITextBehavior.ts:386
 
 ***
 
@@ -4488,13 +4491,13 @@ Exits from editing state and fires relevant events
 
 #### Defined in
 
-src/shapes/IText/ITextBehavior.ts:681
+src/shapes/IText/ITextBehavior.ts:689
 
 ***
 
 ### findCommonAncestors()
 
-> **findCommonAncestors**\<`T`, `S`\>(`other`, `strict`?): `AncestryComparison`\<`S`\>
+> **findCommonAncestors**\<`T`\>(`other`): `AncestryComparison`
 
 Compare ancestors
 
@@ -4502,19 +4505,13 @@ Compare ancestors
 
 • **T** *extends* [`IText`](/api/classes/itext/)\<`Props`, `SProps`, `EventSpec`\>
 
-• **S** *extends* `boolean`
-
 #### Parameters
 
 • **other**: `T`
 
-• **strict?**: `S`
-
-finds only ancestors that are objects (without canvas)
-
 #### Returns
 
-`AncestryComparison`\<`S`\>
+`AncestryComparison`
 
 an object that represent the ancestry situation.
 
@@ -4524,7 +4521,7 @@ an object that represent the ancestry situation.
 
 #### Defined in
 
-src/shapes/Object/StackedObject.ts:90
+src/shapes/Object/StackedObject.ts:78
 
 ***
 
@@ -4552,7 +4549,7 @@ New selection index
 
 #### Defined in
 
-src/shapes/IText/ITextBehavior.ts:282
+src/shapes/IText/ITextBehavior.ts:288
 
 ***
 
@@ -4580,7 +4577,7 @@ New selection index
 
 #### Defined in
 
-src/shapes/IText/ITextBehavior.ts:299
+src/shapes/IText/ITextBehavior.ts:305
 
 ***
 
@@ -4608,7 +4605,7 @@ New selection index
 
 #### Defined in
 
-src/shapes/IText/ITextBehavior.ts:234
+src/shapes/IText/ITextBehavior.ts:240
 
 ***
 
@@ -4636,7 +4633,7 @@ New selection index
 
 #### Defined in
 
-src/shapes/IText/ITextBehavior.ts:258
+src/shapes/IText/ITextBehavior.ts:264
 
 ***
 
@@ -4697,7 +4694,7 @@ function to iterate over the controls over
 
 #### Defined in
 
-src/shapes/Object/InteractiveObject.ts:317
+src/shapes/Object/InteractiveObject.ts:352
 
 ***
 
@@ -4733,7 +4730,7 @@ convert from fabric to textarea values
 
 #### Defined in
 
-src/shapes/IText/ITextBehavior.ts:481
+src/shapes/IText/ITextBehavior.ts:489
 
 ***
 
@@ -4769,7 +4766,7 @@ convert from textarea to grapheme indexes
 
 #### Defined in
 
-src/shapes/IText/ITextBehavior.ts:464
+src/shapes/IText/ITextBehavior.ts:472
 
 ***
 
@@ -4835,7 +4832,7 @@ consider the location for unwrapped lines. useful to manage styles.
 
 #### Defined in
 
-src/shapes/IText/IText.ts:340
+src/shapes/IText/IText.ts:339
 
 ***
 
@@ -4853,27 +4850,17 @@ src/shapes/IText/IText.ts:340
 
 #### Defined in
 
-src/shapes/Object/InteractiveObject.ts:170
+src/shapes/Object/InteractiveObject.ts:193
 
 ***
 
 ### getAncestors()
 
-> **getAncestors**\<`T`\>(`strict`?): `Ancestors`\<`T`\>
-
-#### Type Parameters
-
-• **T** *extends* `boolean`
-
-#### Parameters
-
-• **strict?**: `T`
-
-returns only ancestors that are objects (without canvas)
+> **getAncestors**(): `Ancestors`
 
 #### Returns
 
-`Ancestors`\<`T`\>
+`Ancestors`
 
 ancestors (excluding `ActiveSelection`) from bottom to top
 
@@ -4883,7 +4870,7 @@ ancestors (excluding `ActiveSelection`) from bottom to top
 
 #### Defined in
 
-src/shapes/Object/StackedObject.ts:69
+src/shapes/Object/StackedObject.ts:61
 
 ***
 
@@ -4906,7 +4893,7 @@ Object with left, top, width, height properties
 
 #### Defined in
 
-src/shapes/Object/ObjectGeometry.ts:330
+src/shapes/Object/ObjectGeometry.ts:331
 
 ***
 
@@ -4924,7 +4911,7 @@ src/shapes/Object/ObjectGeometry.ts:330
 
 #### Defined in
 
-src/shapes/Object/ObjectGeometry.ts:387
+src/shapes/Object/ObjectGeometry.ts:388
 
 ***
 
@@ -4944,7 +4931,7 @@ Returns the center coordinates of the object relative to canvas
 
 #### Defined in
 
-src/shapes/Object/ObjectOrigin.ts:174
+src/shapes/Object/ObjectOrigin.ts:177
 
 ***
 
@@ -4997,7 +4984,7 @@ src/shapes/Text/StyledText.ts:279
 
 #### Defined in
 
-src/shapes/Object/ObjectGeometry.ts:191
+src/shapes/Object/ObjectGeometry.ts:192
 
 ***
 
@@ -5019,7 +5006,7 @@ Character color (fill)
 
 #### Defined in
 
-src/shapes/IText/IText.ts:679
+src/shapes/IText/IText.ts:678
 
 ***
 
@@ -5040,7 +5027,7 @@ Character font size
 
 #### Defined in
 
-src/shapes/IText/IText.ts:666
+src/shapes/IText/IText.ts:665
 
 ***
 
@@ -5100,7 +5087,7 @@ fontSize of the character
 
 #### Defined in
 
-src/shapes/Text/Text.ts:858
+src/shapes/Text/Text.ts:864
 
 ***
 
@@ -5126,7 +5113,7 @@ index of line to calculate
 
 #### Defined in
 
-src/shapes/Text/Text.ts:1017
+src/shapes/Text/Text.ts:1023
 
 ***
 
@@ -5146,7 +5133,7 @@ Return the object opacity counting also the group property
 
 #### Defined in
 
-src/shapes/Object/Object.ts:690
+src/shapes/Object/Object.ts:666
 
 ***
 
@@ -5166,7 +5153,7 @@ Return the object scale factor counting also the group scaling
 
 #### Defined in
 
-src/shapes/Object/Object.ts:659
+src/shapes/Object/Object.ts:635
 
 ***
 
@@ -5196,7 +5183,7 @@ Vertical origin: 'top', 'center' or 'bottom'
 
 #### Defined in
 
-src/shapes/Object/ObjectOrigin.ts:199
+src/shapes/Object/ObjectOrigin.ts:202
 
 ***
 
@@ -5216,7 +5203,7 @@ Returns the center coordinates of the object relative to it's parent
 
 #### Defined in
 
-src/shapes/Object/ObjectOrigin.ts:185
+src/shapes/Object/ObjectOrigin.ts:188
 
 ***
 
@@ -5237,7 +5224,7 @@ if parent is canvas then this property is identical to [getX](/api/api/classes/i
 
 #### Defined in
 
-src/shapes/Object/ObjectGeometry.ts:102
+src/shapes/Object/ObjectGeometry.ts:103
 
 ***
 
@@ -5257,7 +5244,7 @@ x,y position according to object's [originX](/api/api/classes/fabricobject/origi
 
 #### Defined in
 
-src/shapes/Object/ObjectGeometry.ts:163
+src/shapes/Object/ObjectGeometry.ts:164
 
 ***
 
@@ -5278,7 +5265,7 @@ if parent is canvas then this property is identical to [getY](/api/api/classes/i
 
 #### Defined in
 
-src/shapes/Object/ObjectGeometry.ts:118
+src/shapes/Object/ObjectGeometry.ts:119
 
 ***
 
@@ -5304,7 +5291,7 @@ shouldn't this account for group transform and return the actual size in canvas 
 
 #### Defined in
 
-src/shapes/Object/ObjectGeometry.ts:348
+src/shapes/Object/ObjectGeometry.ts:349
 
 ***
 
@@ -5330,7 +5317,7 @@ shouldn't this account for group transform and return the actual size in canvas 
 
 #### Defined in
 
-src/shapes/Object/ObjectGeometry.ts:339
+src/shapes/Object/ObjectGeometry.ts:340
 
 ***
 
@@ -5350,7 +5337,7 @@ Returns selected text
 
 #### Defined in
 
-src/shapes/IText/ITextBehavior.ts:225
+src/shapes/IText/ITextBehavior.ts:231
 
 ***
 
@@ -5378,7 +5365,7 @@ Index of a character
 
 #### Defined in
 
-src/shapes/IText/ITextClickBehavior.ts:237
+src/shapes/IText/ITextClickBehavior.ts:246
 
 ***
 
@@ -5415,7 +5402,7 @@ styles an array with one, zero or more Style objects
 
 #### Defined in
 
-src/shapes/IText/IText.ts:313
+src/shapes/IText/IText.ts:312
 
 ***
 
@@ -5539,7 +5526,7 @@ Returns the object angle relative to canvas counting also the group property
 
 #### Defined in
 
-src/shapes/Object/ObjectGeometry.ts:395
+src/shapes/Object/ObjectGeometry.ts:396
 
 ***
 
@@ -5561,7 +5548,7 @@ object with scaleX and scaleY properties
 
 #### Defined in
 
-src/shapes/Object/Object.ts:676
+src/shapes/Object/Object.ts:652
 
 ***
 
@@ -5627,7 +5614,7 @@ the value of 'property'
 
 #### Defined in
 
-src/shapes/Text/Text.ts:1531
+src/shapes/Text/Text.ts:1537
 
 ***
 
@@ -5647,7 +5634,7 @@ Retrieves viewportTransform from Object's canvas if available
 
 #### Defined in
 
-src/shapes/Object/ObjectGeometry.ts:405
+src/shapes/Object/ObjectGeometry.ts:406
 
 ***
 
@@ -5667,7 +5654,7 @@ x position according to object's [originX](/api/api/classes/fabricobject/originx
 
 #### Defined in
 
-src/shapes/Object/ObjectGeometry.ts:73
+src/shapes/Object/ObjectGeometry.ts:74
 
 ***
 
@@ -5687,7 +5674,7 @@ x position according to object's [originX](/api/api/classes/fabricobject/originx
 
 #### Defined in
 
-src/shapes/Object/ObjectGeometry.ts:133
+src/shapes/Object/ObjectGeometry.ts:134
 
 ***
 
@@ -5707,7 +5694,7 @@ y position according to object's [originY](/api/api/classes/fabricobject/originy
 
 #### Defined in
 
-src/shapes/Object/ObjectGeometry.ts:87
+src/shapes/Object/ObjectGeometry.ts:88
 
 ***
 
@@ -5739,7 +5726,7 @@ in the middle of the prototype chain
 
 #### Defined in
 
-src/shapes/Text/Text.ts:1709
+src/shapes/Text/Text.ts:1715
 
 ***
 
@@ -5777,13 +5764,13 @@ src/shapes/Text/Text.ts:1709
 
 #### Defined in
 
-src/shapes/Text/Text.ts:1268
+src/shapes/Text/Text.ts:1274
 
 ***
 
 ### hasCommonAncestors()
 
-> **hasCommonAncestors**\<`T`\>(`other`, `strict`?): `boolean`
+> **hasCommonAncestors**\<`T`\>(`other`): `boolean`
 
 #### Type Parameters
 
@@ -5792,10 +5779,6 @@ src/shapes/Text/Text.ts:1268
 #### Parameters
 
 • **other**: `T`
-
-• **strict?**: `boolean`
-
-checks only ancestors that are objects (without canvas)
 
 #### Returns
 
@@ -5807,7 +5790,7 @@ checks only ancestors that are objects (without canvas)
 
 #### Defined in
 
-src/shapes/Object/StackedObject.ts:159
+src/shapes/Object/StackedObject.ts:143
 
 ***
 
@@ -5838,7 +5821,7 @@ Boolean
 
 #### Defined in
 
-src/shapes/Object/Object.ts:864
+src/shapes/Object/Object.ts:836
 
 ***
 
@@ -5869,7 +5852,7 @@ Boolean
 
 #### Defined in
 
-src/shapes/Object/Object.ts:848
+src/shapes/Object/Object.ts:820
 
 ***
 
@@ -5913,7 +5896,7 @@ Initializes delayed cursor
 
 #### Defined in
 
-src/shapes/IText/ITextBehavior.ts:173
+src/shapes/IText/ITextBehavior.ts:175
 
 ***
 
@@ -5971,7 +5954,7 @@ array of style objects
 
 #### Defined in
 
-src/shapes/IText/ITextBehavior.ts:871
+src/shapes/IText/ITextBehavior.ts:880
 
 ***
 
@@ -6011,7 +5994,7 @@ default to start + 1
 
 #### Defined in
 
-src/shapes/IText/ITextBehavior.ts:1021
+src/shapes/IText/ITextBehavior.ts:1030
 
 ***
 
@@ -6045,7 +6028,7 @@ array of style objects to insert.
 
 #### Defined in
 
-src/shapes/IText/ITextBehavior.ts:929
+src/shapes/IText/ITextBehavior.ts:938
 
 ***
 
@@ -6086,7 +6069,7 @@ Array of objects styles
 
 #### Defined in
 
-src/shapes/IText/ITextBehavior.ts:802
+src/shapes/IText/ITextBehavior.ts:811
 
 ***
 
@@ -6114,7 +6097,7 @@ true if object intersects with another object
 
 #### Defined in
 
-src/shapes/Object/ObjectGeometry.ts:219
+src/shapes/Object/ObjectGeometry.ts:220
 
 ***
 
@@ -6140,7 +6123,7 @@ Checks if object intersects with the scene rect formed by tl and br
 
 #### Defined in
 
-src/shapes/Object/ObjectGeometry.ts:205
+src/shapes/Object/ObjectGeometry.ts:206
 
 ***
 
@@ -6167,7 +6150,7 @@ on parent canvas.
 
 #### Defined in
 
-src/shapes/Object/Object.ts:1009
+src/shapes/Object/Object.ts:981
 
 ***
 
@@ -6195,7 +6178,7 @@ true if object is fully contained within area of another object
 
 #### Defined in
 
-src/shapes/Object/ObjectGeometry.ts:238
+src/shapes/Object/ObjectGeometry.ts:239
 
 ***
 
@@ -6221,7 +6204,7 @@ Checks if object is fully contained within the scene rect formed by tl and br
 
 #### Defined in
 
-src/shapes/Object/ObjectGeometry.ts:246
+src/shapes/Object/ObjectGeometry.ts:247
 
 ***
 
@@ -6250,7 +6233,7 @@ true if the specified control is visible, false otherwise
 
 #### Defined in
 
-src/shapes/Object/InteractiveObject.ts:546
+src/shapes/Object/InteractiveObject.ts:583
 
 ***
 
@@ -6275,7 +6258,7 @@ Should be used instead of [Group.contains](../../../../api/classes/group/#contai
 
 #### Defined in
 
-src/shapes/Object/StackedObject.ts:52
+src/shapes/Object/StackedObject.ts:46
 
 ***
 
@@ -6326,7 +6309,7 @@ text and itext do not have wrapping, return false
 
 #### Defined in
 
-src/shapes/Text/Text.ts:527
+src/shapes/Text/Text.ts:533
 
 ***
 
@@ -6356,7 +6339,7 @@ if objects do not share a common ancestor or they are strictly equal it is impos
 
 #### Defined in
 
-src/shapes/Object/StackedObject.ts:169
+src/shapes/Object/StackedObject.ts:153
 
 ***
 
@@ -6374,7 +6357,7 @@ src/shapes/Object/StackedObject.ts:169
 
 #### Defined in
 
-src/shapes/Object/Object.ts:771
+src/shapes/Object/Object.ts:745
 
 ***
 
@@ -6397,7 +6380,7 @@ true if object is fully or partially contained within canvas
 
 #### Defined in
 
-src/shapes/Object/ObjectGeometry.ts:278
+src/shapes/Object/ObjectGeometry.ts:279
 
 ***
 
@@ -6423,7 +6406,7 @@ src/shapes/Object/ObjectGeometry.ts:278
 
 #### Defined in
 
-src/shapes/Object/ObjectGeometry.ts:256
+src/shapes/Object/ObjectGeometry.ts:257
 
 ***
 
@@ -6445,7 +6428,7 @@ true if object is partially contained within canvas
 
 #### Defined in
 
-src/shapes/Object/ObjectGeometry.ts:308
+src/shapes/Object/ObjectGeometry.ts:309
 
 ***
 
@@ -6467,7 +6450,7 @@ src/shapes/Object/ObjectGeometry.ts:308
 
 #### Defined in
 
-src/shapes/IText/ITextClickBehavior.ts:90
+src/shapes/IText/ITextClickBehavior.ts:99
 
 ***
 
@@ -6491,7 +6474,7 @@ Returns true if any of the specified types is identical to the type of an instan
 
 #### Defined in
 
-src/shapes/Object/Object.ts:1502
+src/shapes/Object/Object.ts:1472
 
 ***
 
@@ -6525,7 +6508,7 @@ line number
 
 #### Defined in
 
-src/shapes/Text/Text.ts:866
+src/shapes/Text/Text.ts:872
 
 ***
 
@@ -6555,7 +6538,7 @@ Number
 
 #### Defined in
 
-src/shapes/Text/Text.ts:537
+src/shapes/Text/Text.ts:543
 
 ***
 
@@ -6607,7 +6590,7 @@ Event object
 
 #### Defined in
 
-src/shapes/IText/ITextKeyBehavior.ts:535
+src/shapes/IText/ITextKeyBehavior.ts:536
 
 ***
 
@@ -6631,7 +6614,7 @@ Moves cursor left while keeping selection
 
 #### Defined in
 
-src/shapes/IText/ITextKeyBehavior.ts:607
+src/shapes/IText/ITextKeyBehavior.ts:608
 
 ***
 
@@ -6655,7 +6638,7 @@ Moves cursor left without keeping selection
 
 #### Defined in
 
-src/shapes/IText/ITextKeyBehavior.ts:587
+src/shapes/IText/ITextKeyBehavior.ts:588
 
 ***
 
@@ -6681,7 +6664,7 @@ Event object
 
 #### Defined in
 
-src/shapes/IText/ITextKeyBehavior.ts:623
+src/shapes/IText/ITextKeyBehavior.ts:624
 
 ***
 
@@ -6705,7 +6688,7 @@ Moves cursor right while keeping selection
 
 #### Defined in
 
-src/shapes/IText/ITextKeyBehavior.ts:655
+src/shapes/IText/ITextKeyBehavior.ts:658
 
 ***
 
@@ -6731,7 +6714,7 @@ Event object
 
 #### Defined in
 
-src/shapes/IText/ITextKeyBehavior.ts:671
+src/shapes/IText/ITextKeyBehavior.ts:674
 
 ***
 
@@ -6781,7 +6764,7 @@ Moves cursor with shift
 
 #### Defined in
 
-src/shapes/IText/ITextKeyBehavior.ts:503
+src/shapes/IText/ITextKeyBehavior.ts:504
 
 ***
 
@@ -6805,7 +6788,7 @@ Moves cursor up without shift
 
 #### Defined in
 
-src/shapes/IText/ITextKeyBehavior.ts:520
+src/shapes/IText/ITextKeyBehavior.ts:521
 
 ***
 
@@ -6831,7 +6814,7 @@ Boolean
 
 #### Defined in
 
-src/shapes/Object/Object.ts:876
+src/shapes/Object/Object.ts:848
 
 ***
 
@@ -7098,10 +7081,11 @@ should handle event
 #### See
 
 also DraggableTextDelegate#isActive
+To prevent drag and drop between objects both shouldStartDragging and onDragStart should return false
 
 #### Defined in
 
-src/shapes/IText/ITextClickBehavior.ts:59
+src/shapes/IText/ITextClickBehavior.ts:68
 
 ***
 
@@ -7215,7 +7199,7 @@ event if the process is generated by an event
 
 #### Defined in
 
-src/shapes/Object/InteractiveObject.ts:634
+src/shapes/Object/InteractiveObject.ts:671
 
 ***
 
@@ -7328,7 +7312,7 @@ default to start + 1
 
 #### Defined in
 
-src/shapes/IText/ITextBehavior.ts:999
+src/shapes/IText/ITextBehavior.ts:1008
 
 ***
 
@@ -7384,7 +7368,7 @@ linear end position for removal ( excluded from removal )
 
 #### Defined in
 
-src/shapes/IText/ITextBehavior.ts:717
+src/shapes/IText/ITextBehavior.ts:726
 
 ***
 
@@ -7406,7 +7390,7 @@ src/shapes/IText/ITextBehavior.ts:717
 
 #### Defined in
 
-src/shapes/Object/Object.ts:817
+src/shapes/Object/Object.ts:791
 
 ***
 
@@ -7430,7 +7414,7 @@ transformed context to draw on
 
 #### Defined in
 
-src/shapes/IText/IText.ts:495
+src/shapes/IText/IText.ts:494
 
 ***
 
@@ -7452,7 +7436,7 @@ If contextTop is not available, do nothing.
 
 #### Defined in
 
-src/shapes/IText/IText.ts:485
+src/shapes/IText/IText.ts:484
 
 ***
 
@@ -7473,7 +7457,7 @@ it does on the contextTop. If contextTop is not available, do nothing.
 
 #### Defined in
 
-src/shapes/IText/IText.ts:375
+src/shapes/IText/IText.ts:374
 
 ***
 
@@ -7493,7 +7477,7 @@ Renders drag start text selection
 
 #### Defined in
 
-src/shapes/IText/IText.ts:555
+src/shapes/IText/IText.ts:554
 
 ***
 
@@ -7520,7 +7504,7 @@ object will change when dropping. example: show the cursor where the text is abo
 
 #### Defined in
 
-src/shapes/IText/IText.ts:565
+src/shapes/IText/IText.ts:564
 
 ***
 
@@ -7546,13 +7530,16 @@ Object with left/top/leftOffset/topOffset
 
 #### Defined in
 
-src/shapes/IText/IText.ts:540
+src/shapes/IText/IText.ts:539
 
 ***
 
 ### restartCursorIfNeeded()
 
 > **restartCursorIfNeeded**(): `void`
+
+Restart tue cursor animation if either is in complete state ( between animations )
+or if it never started before
 
 #### Returns
 
@@ -7564,7 +7551,7 @@ src/shapes/IText/IText.ts:540
 
 #### Defined in
 
-src/shapes/IText/ITextBehavior.ts:200
+src/shapes/IText/ITextBehavior.ts:206
 
 ***
 
@@ -7590,7 +7577,7 @@ Angle value (in degrees)
 
 #### Defined in
 
-src/shapes/Object/Object.ts:1530
+src/shapes/Object/Object.ts:1500
 
 ***
 
@@ -7616,7 +7603,7 @@ Scale factor
 
 #### Defined in
 
-src/shapes/Object/ObjectGeometry.ts:357
+src/shapes/Object/ObjectGeometry.ts:358
 
 ***
 
@@ -7642,7 +7629,7 @@ New height value
 
 #### Defined in
 
-src/shapes/Object/ObjectGeometry.ts:380
+src/shapes/Object/ObjectGeometry.ts:381
 
 ***
 
@@ -7668,7 +7655,7 @@ New width value
 
 #### Defined in
 
-src/shapes/Object/ObjectGeometry.ts:368
+src/shapes/Object/ObjectGeometry.ts:369
 
 ***
 
@@ -7700,7 +7687,7 @@ Index of the beginning or end of a word
 
 #### Defined in
 
-src/shapes/IText/ITextBehavior.ts:317
+src/shapes/IText/ITextBehavior.ts:323
 
 ***
 
@@ -7720,19 +7707,20 @@ Selects entire text
 
 #### Defined in
 
-src/shapes/IText/ITextBehavior.ts:213
+src/shapes/IText/ITextBehavior.ts:219
 
 ***
 
 ### selectLine()
 
-> **selectLine**(`selectionStart`): [`IText`](/api/classes/itext/)\<`Props`, `SProps`, `EventSpec`\>
+> **selectLine**(`selectionStart`?): [`IText`](/api/classes/itext/)\<`Props`, `SProps`, `EventSpec`\>
 
+TODO fix: selectionStart set as 0 will be ignored?
 Selects a line based on the index
 
 #### Parameters
 
-• **selectionStart**: `number`
+• **selectionStart?**: `number`
 
 Index of a character
 
@@ -7746,19 +7734,20 @@ Index of a character
 
 #### Defined in
 
-src/shapes/IText/ITextBehavior.ts:363
+src/shapes/IText/ITextBehavior.ts:371
 
 ***
 
 ### selectWord()
 
-> **selectWord**(`selectionStart`): `void`
+> **selectWord**(`selectionStart`?): `void`
 
+TODO fix: selectionStart set as 0 will be ignored?
 Selects a word based on the index
 
 #### Parameters
 
-• **selectionStart**: `number`
+• **selectionStart?**: `number`
 
 Index of a character
 
@@ -7772,7 +7761,7 @@ Index of a character
 
 #### Defined in
 
-src/shapes/IText/ITextBehavior.ts:342
+src/shapes/IText/ITextBehavior.ts:349
 
 ***
 
@@ -7802,7 +7791,7 @@ Property value (if function, the value is passed into it and its return value is
 
 #### Defined in
 
-src/shapes/Text/Text.ts:1752
+src/shapes/Text/Text.ts:1758
 
 ***
 
@@ -7838,7 +7827,7 @@ discuss this overlap of priority here with the team. Andrea Bogazzi for details
 
 #### Defined in
 
-src/shapes/Object/InteractiveObject.ts:561
+src/shapes/Object/InteractiveObject.ts:598
 
 ***
 
@@ -7865,7 +7854,7 @@ example: {Boolean} [options.bl] true to enable the bottom-left control, false to
 
 #### Defined in
 
-src/shapes/Object/InteractiveObject.ts:573
+src/shapes/Object/InteractiveObject.ts:610
 
 ***
 
@@ -7886,7 +7875,7 @@ See [https://github.com/fabricjs/fabric.js/wiki/When-to-call-setCoords](https://
 
 #### Defined in
 
-src/shapes/Object/InteractiveObject.ts:307
+src/shapes/Object/InteractiveObject.ts:342
 
 ***
 
@@ -7912,7 +7901,7 @@ Event object
 
 #### Defined in
 
-src/shapes/IText/ITextClickBehavior.ts:216
+src/shapes/IText/ITextClickBehavior.ts:225
 
 ***
 
@@ -7935,7 +7924,7 @@ Travis build error about unused variables.
 
 #### Defined in
 
-src/shapes/Object/Object.ts:1562
+src/shapes/Object/Object.ts:1532
 
 ***
 
@@ -7956,7 +7945,7 @@ for path and text calculations
 
 #### Defined in
 
-src/shapes/Text/Text.ts:437
+src/shapes/Text/Text.ts:443
 
 ***
 
@@ -7990,7 +7979,7 @@ Vertical origin: 'top', 'center' or 'bottom'
 
 #### Defined in
 
-src/shapes/Object/ObjectOrigin.ts:214
+src/shapes/Object/ObjectOrigin.ts:217
 
 ***
 
@@ -8015,7 +8004,7 @@ if parent is canvas then this method is identical to [setX](../../../../api/clas
 
 #### Defined in
 
-src/shapes/Object/ObjectGeometry.ts:110
+src/shapes/Object/ObjectGeometry.ts:111
 
 ***
 
@@ -8049,7 +8038,7 @@ Vertical origin: 'top', 'center' or 'bottom'
 
 #### Defined in
 
-src/shapes/Object/ObjectGeometry.ts:173
+src/shapes/Object/ObjectGeometry.ts:174
 
 ***
 
@@ -8074,7 +8063,7 @@ if parent is canvas then this property is identical to [setY](../../../../api/cl
 
 #### Defined in
 
-src/shapes/Object/ObjectGeometry.ts:126
+src/shapes/Object/ObjectGeometry.ts:127
 
 ***
 
@@ -8096,7 +8085,7 @@ Index to set selection end to
 
 #### Defined in
 
-src/shapes/IText/IText.ts:263
+src/shapes/IText/IText.ts:262
 
 ***
 
@@ -8118,7 +8107,7 @@ Index to set selection start to
 
 #### Defined in
 
-src/shapes/IText/IText.ts:254
+src/shapes/IText/IText.ts:253
 
 ***
 
@@ -8147,7 +8136,7 @@ mimic the key - mouse navigation when shift is pressed.
 
 #### Defined in
 
-src/shapes/IText/ITextBehavior.ts:1048
+src/shapes/IText/ITextBehavior.ts:1057
 
 ***
 
@@ -8181,7 +8170,7 @@ End index to get styles at, if not specified selectionEnd or startIndex + 1
 
 #### Defined in
 
-src/shapes/IText/IText.ts:327
+src/shapes/IText/IText.ts:326
 
 ***
 
@@ -8211,7 +8200,7 @@ selection end
 
 #### Defined in
 
-src/shapes/Text/Text.ts:1409
+src/shapes/Text/Text.ts:1415
 
 ***
 
@@ -8241,7 +8230,7 @@ selection end
 
 #### Defined in
 
-src/shapes/Text/Text.ts:1400
+src/shapes/Text/Text.ts:1406
 
 ***
 
@@ -8265,7 +8254,7 @@ x position according to object's [originX](../../../../api/classes/fabricobject/
 
 #### Defined in
 
-src/shapes/Object/ObjectGeometry.ts:80
+src/shapes/Object/ObjectGeometry.ts:81
 
 ***
 
@@ -8307,7 +8296,7 @@ object.setXY(new Point(5, 5), 'left', 'bottom').
 
 #### Defined in
 
-src/shapes/Object/ObjectGeometry.ts:150
+src/shapes/Object/ObjectGeometry.ts:151
 
 ***
 
@@ -8331,7 +8320,7 @@ y position according to object's [originY](../../../../api/classes/fabricobject/
 
 #### Defined in
 
-src/shapes/Object/ObjectGeometry.ts:94
+src/shapes/Object/ObjectGeometry.ts:95
 
 ***
 
@@ -8361,7 +8350,7 @@ Can any number?
 
 #### Defined in
 
-src/shapes/IText/ITextBehavior.ts:779
+src/shapes/IText/ITextBehavior.ts:788
 
 ***
 
@@ -8386,7 +8375,7 @@ Read as: cache if is needed, or if the feature is enabled but we are not already
 
 #### Defined in
 
-src/shapes/Object/Object.ts:900
+src/shapes/Object/Object.ts:872
 
 ***
 
@@ -8394,14 +8383,14 @@ src/shapes/Object/Object.ts:900
 
 > **shouldStartDragging**(): `boolean`
 
-Override to customize Drag behavior
-Fired from Canvas#_onMouseMove
+If this method returns true a mouse move operation over a text selection
+will not prevent the native mouse event allowing the browser to start a drag operation.
+shouldStartDragging can be read 'do not prevent default for mouse move event'
+To prevent drag and drop between objects both shouldStartDragging and onDragStart should return false
 
 #### Returns
 
 `boolean`
-
-true in order for the window to start a drag session
 
 #### Inherited from
 
@@ -8409,7 +8398,7 @@ true in order for the window to start a drag session
 
 #### Defined in
 
-src/shapes/IText/ITextClickBehavior.ts:51
+src/shapes/IText/ITextClickBehavior.ts:58
 
 ***
 
@@ -8439,7 +8428,7 @@ the control box size used
 
 #### Defined in
 
-src/shapes/Object/InteractiveObject.ts:363
+src/shapes/Object/InteractiveObject.ts:398
 
 ***
 
@@ -8498,7 +8487,7 @@ this workaround should be replaced with a more robust solution
 
 #### Defined in
 
-src/shapes/IText/IText.ts:363
+src/shapes/IText/IText.ts:362
 
 ***
 
@@ -8556,7 +8545,7 @@ Returns a data: URL containing a representation of the object in the format spec
 
 #### Defined in
 
-src/shapes/Object/Object.ts:1489
+src/shapes/Object/Object.ts:1459
 
 ***
 
@@ -8584,7 +8573,7 @@ Object representation of an instance
 
 #### Defined in
 
-src/shapes/Object/Object.ts:611
+src/shapes/Object/Object.ts:587
 
 ***
 
@@ -8606,7 +8595,7 @@ JSON
 
 #### Defined in
 
-src/shapes/Object/Object.ts:1521
+src/shapes/Object/Object.ts:1491
 
 ***
 
@@ -8640,7 +8629,7 @@ Object representation of an instance
 
 #### Defined in
 
-src/shapes/Text/Text.ts:1741
+src/shapes/Text/Text.ts:1747
 
 ***
 
@@ -8692,7 +8681,7 @@ String representation of text object
 
 #### Defined in
 
-src/shapes/Text/Text.ts:573
+src/shapes/Text/Text.ts:579
 
 ***
 
@@ -8744,13 +8733,13 @@ Context
 
 #### Defined in
 
-src/shapes/Object/Object.ts:533
+src/shapes/Object/Object.ts:509
 
 ***
 
 ### transformMatrixKey()
 
-> **transformMatrixKey**(`skipGroup`): `string`
+> **transformMatrixKey**(`skipGroup`): `number`[]
 
 #### Parameters
 
@@ -8758,7 +8747,7 @@ src/shapes/Object/Object.ts:533
 
 #### Returns
 
-`string`
+`number`[]
 
 #### Inherited from
 
@@ -8766,7 +8755,7 @@ src/shapes/Object/Object.ts:533
 
 #### Defined in
 
-src/shapes/Object/ObjectGeometry.ts:440
+src/shapes/Object/ObjectGeometry.ts:441
 
 ***
 
@@ -8800,7 +8789,7 @@ Vertical origin: 'top', 'center' or 'bottom'
 
 #### Defined in
 
-src/shapes/Object/ObjectOrigin.ts:127
+src/shapes/Object/ObjectOrigin.ts:130
 
 ***
 
@@ -8842,7 +8831,7 @@ Vertical origin: 'top', 'center' or 'bottom'
 
 #### Defined in
 
-src/shapes/Object/ObjectOrigin.ts:99
+src/shapes/Object/ObjectOrigin.ts:102
 
 ***
 
@@ -8876,7 +8865,7 @@ Vertical origin: 'top', 'center' or 'bottom'
 
 #### Defined in
 
-src/shapes/Object/ObjectOrigin.ts:152
+src/shapes/Object/ObjectOrigin.ts:155
 
 ***
 
@@ -8900,7 +8889,7 @@ Default handler for triple click, select a line
 
 #### Defined in
 
-src/shapes/IText/ITextClickBehavior.ts:112
+src/shapes/IText/ITextClickBehavior.ts:121
 
 ***
 
@@ -8924,7 +8913,7 @@ called by [Canvas#textEditingManager](../../../../api/classes/canvas/#texteditin
 
 #### Defined in
 
-src/shapes/IText/ITextBehavior.ts:410
+src/shapes/IText/ITextBehavior.ts:418
 
 ***
 
@@ -8949,7 +8938,7 @@ This API is no longer supported and may be removed in a future release.
 
 #### Defined in
 
-src/shapes/Object/Object.ts:913
+src/shapes/Object/Object.ts:885
 
 ***
 
@@ -8959,7 +8948,7 @@ src/shapes/Object/Object.ts:913
 
 #### Type Parameters
 
-• **S** *extends* `FabricObject`\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
+• **S** *extends* [`BaseFabricObject`](/api/classes/basefabricobject/)\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 #### Parameters
 
@@ -8977,7 +8966,33 @@ src/shapes/Object/Object.ts:913
 
 #### Defined in
 
-src/shapes/Object/Object.ts:1600
+src/shapes/Object/Object.ts:1570
+
+***
+
+### createControls()
+
+> `static` **createControls**(): `object`
+
+Creates the default control object.
+If you prefer to have on instance of controls shared among all objects
+make this function return an empty object and add controls to the ownDefaults
+
+#### Returns
+
+`object`
+
+##### controls
+
+> **controls**: `Record`\<`string`, [`Control`](/api/classes/control/)\>
+
+#### Inherited from
+
+`ITextClickBehavior.createControls`
+
+#### Defined in
+
+src/shapes/Object/InteractiveObject.ts:166
 
 ***
 
@@ -9015,7 +9030,7 @@ Text
 
 #### Defined in
 
-src/shapes/Text/Text.ts:1824
+src/shapes/Text/Text.ts:1830
 
 ***
 
@@ -9047,7 +9062,7 @@ plain js Object to create an instance from
 
 #### Defined in
 
-src/shapes/Text/Text.ts:1901
+src/shapes/Text/Text.ts:1907
 
 ***
 

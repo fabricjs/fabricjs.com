@@ -5,7 +5,7 @@ prev: false
 title: "SerializedPatternOptions"
 ---
 
-> **SerializedPatternOptions**: [`PatternOptions`](/api/type-aliases/patternoptions/) & `object`
+> **SerializedPatternOptions**: `Omit`\<[`PatternOptions`](/api/type-aliases/patternoptions/), `"source"`\> & `object`
 
 ## Type declaration
 

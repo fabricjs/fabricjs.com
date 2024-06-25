@@ -220,7 +220,7 @@ src/shapes/Object/types/BaseProps.ts:34
 
 #### Defined in
 
-src/shapes/Group.ts:51
+src/shapes/Group.ts:56
 
 ***
 
@@ -230,7 +230,7 @@ src/shapes/Group.ts:51
 
 #### Defined in
 
-src/shapes/Group.ts:58
+src/shapes/Group.ts:63
 
 ***
 
@@ -264,7 +264,7 @@ src/shapes/Object/types/BaseProps.ts:11
 
 #### Defined in
 
-src/shapes/Group.ts:57
+src/shapes/Group.ts:62
 
 ***
 
@@ -668,7 +668,7 @@ src/shapes/Object/types/FillStrokeProps.ts:41
 
 #### Defined in
 
-src/shapes/Group.ts:50
+src/shapes/Group.ts:55
 
 ***
 

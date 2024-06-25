@@ -312,13 +312,13 @@ src/Pattern/Pattern.ts:170
 
 ### fromObject()
 
-> `static` **fromObject**(`__namedParameters`, `options`): `Promise`\<[`Pattern`](/api/classes/pattern/)\>
+> `static` **fromObject**(`__namedParameters`, `options`?): `Promise`\<[`Pattern`](/api/classes/pattern/)\>
 
 #### Parameters
 
 • **\_\_namedParameters**: [`SerializedPatternOptions`](/api/type-aliases/serializedpatternoptions/)
 
-• **options**: [`Abortable`](/api/type-aliases/abortable/)
+• **options?**: [`Abortable`](/api/type-aliases/abortable/)
 
 #### Returns
 

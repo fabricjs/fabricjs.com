@@ -9,4 +9,4 @@ title: "TBlendMode"
 
 ## Defined in
 
-src/filters/BlendColor.ts:8
+src/filters/BlendColor.ts:7

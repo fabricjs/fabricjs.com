@@ -25,7 +25,7 @@ title: "ObjectEvents"
 
 #### Defined in
 
-src/EventTypeDefs.ts:283
+src/EventTypeDefs.ts:285
 
 ***
 
@@ -39,7 +39,7 @@ src/EventTypeDefs.ts:283
 
 #### Defined in
 
-src/EventTypeDefs.ts:266
+src/EventTypeDefs.ts:268
 
 ***
 
@@ -53,7 +53,7 @@ src/EventTypeDefs.ts:266
 
 #### Defined in
 
-src/EventTypeDefs.ts:265
+src/EventTypeDefs.ts:267
 
 ***
 
@@ -69,7 +69,7 @@ src/EventTypeDefs.ts:265
 
 #### Defined in
 
-src/EventTypeDefs.ts:278
+src/EventTypeDefs.ts:280
 
 ***
 
@@ -83,7 +83,7 @@ src/EventTypeDefs.ts:278
 
 #### Defined in
 
-src/EventTypeDefs.ts:196
+src/EventTypeDefs.ts:198
 
 ***
 
@@ -97,7 +97,7 @@ src/EventTypeDefs.ts:196
 
 #### Defined in
 
-src/EventTypeDefs.ts:200
+src/EventTypeDefs.ts:202
 
 ***
 
@@ -111,7 +111,7 @@ src/EventTypeDefs.ts:200
 
 #### Defined in
 
-src/EventTypeDefs.ts:198
+src/EventTypeDefs.ts:200
 
 ***
 
@@ -125,7 +125,7 @@ src/EventTypeDefs.ts:198
 
 #### Defined in
 
-src/EventTypeDefs.ts:199
+src/EventTypeDefs.ts:201
 
 ***
 
@@ -139,7 +139,7 @@ src/EventTypeDefs.ts:199
 
 #### Defined in
 
-src/EventTypeDefs.ts:197
+src/EventTypeDefs.ts:199
 
 ***
 
@@ -153,7 +153,7 @@ src/EventTypeDefs.ts:197
 
 #### Defined in
 
-src/EventTypeDefs.ts:195
+src/EventTypeDefs.ts:197
 
 ***
 
@@ -167,7 +167,7 @@ src/EventTypeDefs.ts:195
 
 #### Defined in
 
-src/EventTypeDefs.ts:202
+src/EventTypeDefs.ts:204
 
 ***
 
@@ -181,7 +181,7 @@ src/EventTypeDefs.ts:202
 
 #### Defined in
 
-src/EventTypeDefs.ts:203
+src/EventTypeDefs.ts:205
 
 ***
 
@@ -195,7 +195,7 @@ src/EventTypeDefs.ts:203
 
 #### Defined in
 
-src/EventTypeDefs.ts:201
+src/EventTypeDefs.ts:203
 
 ***
 
@@ -209,7 +209,7 @@ src/EventTypeDefs.ts:201
 
 #### Defined in
 
-src/EventTypeDefs.ts:287
+src/EventTypeDefs.ts:289
 
 ***
 
@@ -221,6 +221,10 @@ src/EventTypeDefs.ts:287
 
 `ObjectModificationEvents.modified`
 
+#### Defined in
+
+src/EventTypeDefs.ts:121
+
 ***
 
 ### modifyPoly
@@ -230,6 +234,10 @@ src/EventTypeDefs.ts:287
 #### Inherited from
 
 `ObjectModificationEvents.modifyPoly`
+
+#### Defined in
+
+src/EventTypeDefs.ts:120
 
 ***
 
@@ -369,6 +377,10 @@ src/EventTypeDefs.ts:287
 
 `ObjectModificationEvents.moving`
 
+#### Defined in
+
+src/EventTypeDefs.ts:115
+
 ***
 
 ### removed
@@ -381,7 +393,7 @@ src/EventTypeDefs.ts:287
 
 #### Defined in
 
-src/EventTypeDefs.ts:284
+src/EventTypeDefs.ts:286
 
 ***
 
@@ -393,6 +405,10 @@ src/EventTypeDefs.ts:284
 
 `ObjectModificationEvents.resizing`
 
+#### Defined in
+
+src/EventTypeDefs.ts:119
+
 ***
 
 ### rotating
@@ -403,6 +419,10 @@ src/EventTypeDefs.ts:284
 
 `ObjectModificationEvents.rotating`
 
+#### Defined in
+
+src/EventTypeDefs.ts:117
+
 ***
 
 ### scaling
@@ -412,6 +432,10 @@ src/EventTypeDefs.ts:284
 #### Inherited from
 
 `ObjectModificationEvents.scaling`
+
+#### Defined in
+
+src/EventTypeDefs.ts:116
 
 ***
 
@@ -427,7 +451,7 @@ src/EventTypeDefs.ts:284
 
 #### Defined in
 
-src/EventTypeDefs.ts:275
+src/EventTypeDefs.ts:277
 
 ***
 
@@ -438,3 +462,7 @@ src/EventTypeDefs.ts:275
 #### Inherited from
 
 `ObjectModificationEvents.skewing`
+
+#### Defined in
+
+src/EventTypeDefs.ts:118

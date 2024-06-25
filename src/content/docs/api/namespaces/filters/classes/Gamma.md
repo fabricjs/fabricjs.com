@@ -19,19 +19,19 @@ object.applyFilters();
 
 ## Extends
 
-- [`BaseFilter`](/api/namespaces/filters/classes/basefilter/)
+- [`BaseFilter`](/api/namespaces/filters/classes/basefilter/)\<*typeof* `GAMMA`, `GammaOwnProps`\>
 
 ## Constructors
 
 ### new Gamma()
 
-> **new Gamma**(`__namedParameters`): [`Gamma`](/api/namespaces/filters/classes/gamma/)
+> **new Gamma**(`options`): [`Gamma`](/api/namespaces/filters/classes/gamma/)
 
 #### Parameters
 
-• **\_\_namedParameters** = `{}`
+• **options** = `{}`
 
-• **\_\_namedParameters.gamma?**: `GammaInput` = `...`
+• **options.gamma?**: `GammaInput`
 
 #### Returns
 
@@ -43,7 +43,7 @@ object.applyFilters();
 
 #### Defined in
 
-src/filters/Gamma.ts:43
+src/filters/Gamma.ts:50
 
 ## Properties
 
@@ -63,7 +63,7 @@ Gamma array value, from 0.01 to 2.2.
 
 #### Defined in
 
-src/filters/Gamma.ts:28
+src/filters/Gamma.ts:33
 
 ***
 
@@ -85,13 +85,13 @@ src/filters/Gamma.ts:28
 
 #### Defined in
 
-src/filters/Gamma.ts:29
+src/filters/Gamma.ts:34
 
 ***
 
 ### defaults
 
-> `static` **defaults**: `Partial`\<[`TClassProperties`](/api/type-aliases/tclassproperties/)\<[`Gamma`](/api/namespaces/filters/classes/gamma/)\>\> = `gammaDefaultValues`
+> `static` **defaults**: `GammaOwnProps` = `gammaDefaultValues`
 
 #### Overrides
 
@@ -99,13 +99,13 @@ src/filters/Gamma.ts:29
 
 #### Defined in
 
-src/filters/Gamma.ts:37
+src/filters/Gamma.ts:42
 
 ***
 
 ### type
 
-> `static` **type**: `string` = `'Gamma'`
+> `static` **type**: `"Gamma"` = `GAMMA`
 
 The class type. Used to identify which class this is.
 This is used for serialization purposes and internally it can be used
@@ -119,13 +119,31 @@ to avoid doing that.
 
 #### Defined in
 
-src/filters/Gamma.ts:35
+src/filters/Gamma.ts:40
+
+***
+
+### uniformLocations
+
+> `static` **uniformLocations**: `string`[]
+
+Contains the uniform locations for the fragment shader.
+uStepW and uStepH are handled by the BaseFilter, each filter class
+needs to specify all the one that are needed
+
+#### Overrides
+
+[`BaseFilter`](/api/namespaces/filters/classes/basefilter/).[`uniformLocations`](/api/namespaces/filters/classes/basefilter/#uniformlocations)
+
+#### Defined in
+
+src/filters/Gamma.ts:44
 
 ## Accessors
 
 ### type
 
-> `get` **type**(): `string`
+> `get` **type**(): `Name`
 
 Filter type
 
@@ -137,7 +155,7 @@ Filter type
 
 #### Returns
 
-`string`
+`Name`
 
 #### Inherited from
 
@@ -145,7 +163,7 @@ Filter type
 
 #### Defined in
 
-src/filters/BaseFilter.ts:25
+src/filters/BaseFilter.ts:30
 
 ## Methods
 
@@ -167,7 +185,7 @@ src/filters/BaseFilter.ts:25
 
 #### Defined in
 
-src/filters/BaseFilter.ts:190
+src/filters/BaseFilter.ts:204
 
 ***
 
@@ -189,7 +207,7 @@ src/filters/BaseFilter.ts:190
 
 #### Defined in
 
-src/filters/BaseFilter.ts:217
+src/filters/BaseFilter.ts:231
 
 ***
 
@@ -215,7 +233,7 @@ Determines whether to use WebGL or Canvas2D based on the options.webgl flag.
 
 #### Defined in
 
-src/filters/BaseFilter.ts:265
+src/filters/BaseFilter.ts:264
 
 ***
 
@@ -239,7 +257,7 @@ Apply the Gamma operation to a Uint8Array representing the pixels of an image.
 
 #### Defined in
 
-src/filters/Gamma.ts:54
+src/filters/Gamma.ts:65
 
 ***
 
@@ -263,7 +281,7 @@ Apply this filter using webgl.
 
 #### Defined in
 
-src/filters/BaseFilter.ts:315
+src/filters/BaseFilter.ts:314
 
 ***
 
@@ -289,7 +307,7 @@ src/filters/BaseFilter.ts:315
 
 #### Defined in
 
-src/filters/BaseFilter.ts:334
+src/filters/BaseFilter.ts:333
 
 ***
 
@@ -314,7 +332,7 @@ remember that options.targetCanvas is available for use till end of chain.
 
 #### Defined in
 
-src/filters/BaseFilter.ts:380
+src/filters/BaseFilter.ts:369
 
 ***
 
@@ -360,7 +378,7 @@ vertexShader source for compilation
 
 #### Defined in
 
-src/filters/BaseFilter.ts:77
+src/filters/BaseFilter.ts:82
 
 ***
 
@@ -392,7 +410,7 @@ A map of attribute names to attribute locations.
 
 #### Defined in
 
-src/filters/BaseFilter.ts:146
+src/filters/BaseFilter.ts:152
 
 ***
 
@@ -413,7 +431,7 @@ Used to force recompilation when parameters change or to retrieve the shader fro
 
 #### Defined in
 
-src/filters/BaseFilter.ts:284
+src/filters/BaseFilter.ts:283
 
 ***
 
@@ -431,25 +449,7 @@ src/filters/BaseFilter.ts:284
 
 #### Defined in
 
-src/filters/Gamma.ts:39
-
-***
-
-### getMainParameter()
-
-> **getMainParameter**(): `undefined` \| `string` \| (`gl`, `program`) => [`TWebGLAttributeLocationMap`](/api/type-aliases/twebglattributelocationmap/) \| (`options`) => [`TWebGLProgramCacheItem`](/api/type-aliases/twebglprogramcacheitem/) \| (`options`?) => `boolean` \| `GammaInput` \| () => `object` \| () => `object` \| (`gl`, `program`) => [`TWebGLUniformLocationMap`](/api/type-aliases/twebgluniformlocationmap/) \| (`gl`, `uniformLocations`) => `void` \| () => `string` \| () => `string` \| (`options`) => `void` \| (`options`) => `void` \| (`gl`, `fragmentSource`, `vertexSource`) => `object` \| (`gl`, `attributeLocations`, `aPositionData`) => `void` \| (`options`) => `void` \| (`options`) => `void` \| (`options`) => `void` \| (`gl`, `texture`, `textureUnit`) => `void` \| (`gl`, `textureUnit`) => `void` \| () => string \| ((gl: WebGLRenderingContext, program: WebGLProgram) =\> TWebGLAttributeLocationMap) \| ((options: TWebGLPipelineState) =\> TWebGLProgramCacheItem) \| ... 21 more ... \| undefined \| (`value`) => `void` \| (`options`) => `void` \| `object`
-
-#### Returns
-
-`undefined` \| `string` \| (`gl`, `program`) => [`TWebGLAttributeLocationMap`](/api/type-aliases/twebglattributelocationmap/) \| (`options`) => [`TWebGLProgramCacheItem`](/api/type-aliases/twebglprogramcacheitem/) \| (`options`?) => `boolean` \| `GammaInput` \| () => `object` \| () => `object` \| (`gl`, `program`) => [`TWebGLUniformLocationMap`](/api/type-aliases/twebgluniformlocationmap/) \| (`gl`, `uniformLocations`) => `void` \| () => `string` \| () => `string` \| (`options`) => `void` \| (`options`) => `void` \| (`gl`, `fragmentSource`, `vertexSource`) => `object` \| (`gl`, `attributeLocations`, `aPositionData`) => `void` \| (`options`) => `void` \| (`options`) => `void` \| (`options`) => `void` \| (`gl`, `texture`, `textureUnit`) => `void` \| (`gl`, `textureUnit`) => `void` \| () => string \| ((gl: WebGLRenderingContext, program: WebGLProgram) =\> TWebGLAttributeLocationMap) \| ((options: TWebGLPipelineState) =\> TWebGLProgramCacheItem) \| ... 21 more ... \| undefined \| (`value`) => `void` \| (`options`) => `void` \| `object`
-
-#### Inherited from
-
-[`BaseFilter`](/api/namespaces/filters/classes/basefilter/).[`getMainParameter`](/api/namespaces/filters/classes/basefilter/#getmainparameter)
-
-#### Defined in
-
-src/filters/BaseFilter.ts:351
+src/filters/Gamma.ts:46
 
 ***
 
@@ -457,56 +457,72 @@ src/filters/BaseFilter.ts:351
 
 > **getUniformLocations**(`gl`, `program`): [`TWebGLUniformLocationMap`](/api/type-aliases/twebgluniformlocationmap/)
 
-Return WebGL uniform locations for this filter's shader.
+Return a map of uniform names to WebGLUniformLocation objects.
 
 #### Parameters
 
 • **gl**: `WebGLRenderingContext`
 
-The GL canvas context used to compile this filter's shader.
+The canvas context used to compile the shader program.
 
 • **program**: `WebGLProgram`
 
-This filter's compiled shader program.
+The shader program from which to take uniform locations.
 
 #### Returns
 
 [`TWebGLUniformLocationMap`](/api/type-aliases/twebgluniformlocationmap/)
 
-#### Overrides
+A map of uniform names to uniform locations.
+
+#### Inherited from
 
 [`BaseFilter`](/api/namespaces/filters/classes/basefilter/).[`getUniformLocations`](/api/namespaces/filters/classes/basefilter/#getuniformlocations)
 
 #### Defined in
 
-src/filters/Gamma.ts:89
+src/filters/BaseFilter.ts:168
+
+***
+
+### getVertexSource()
+
+> **getVertexSource**(): `string`
+
+#### Returns
+
+`string`
+
+#### Inherited from
+
+[`BaseFilter`](/api/namespaces/filters/classes/basefilter/).[`getVertexSource`](/api/namespaces/filters/classes/basefilter/#getvertexsource)
+
+#### Defined in
+
+src/filters/BaseFilter.ts:71
 
 ***
 
 ### isNeutralState()
 
-> **isNeutralState**(`options`?): `boolean`
+> **isNeutralState**(): `boolean`
 
 Generic isNeutral implementation for one parameter based filters.
 Used only in image applyFilters to discard filters that will not have an effect
 on the image
 Other filters may need their own version ( ColorMatrix, HueRotation, gamma, ComposedFilter )
 
-#### Parameters
-
-• **options?**: `any`
-
 #### Returns
 
 `boolean`
 
-#### Inherited from
+#### Overrides
 
 [`BaseFilter`](/api/namespaces/filters/classes/basefilter/).[`isNeutralState`](/api/namespaces/filters/classes/basefilter/#isneutralstate)
 
 #### Defined in
 
-src/filters/BaseFilter.ts:233
+src/filters/Gamma.ts:107
 
 ***
 
@@ -532,7 +548,7 @@ the compiled program shader
 
 #### Defined in
 
-src/filters/BaseFilter.ts:295
+src/filters/BaseFilter.ts:294
 
 ***
 
@@ -564,7 +580,7 @@ A map of shader attribute names to their locations.
 
 #### Defined in
 
-src/filters/BaseFilter.ts:177
+src/filters/BaseFilter.ts:191
 
 ***
 
@@ -594,47 +610,21 @@ A map of string uniform names to WebGLUniformLocation objects
 
 #### Defined in
 
-src/filters/Gamma.ts:104
-
-***
-
-### setMainParameter()
-
-> **setMainParameter**(`value`): `void`
-
-#### Parameters
-
-• **value**: `any`
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[`BaseFilter`](/api/namespaces/filters/classes/basefilter/).[`setMainParameter`](/api/namespaces/filters/classes/basefilter/#setmainparameter)
-
-#### Defined in
-
-src/filters/BaseFilter.ts:355
+src/filters/Gamma.ts:100
 
 ***
 
 ### toJSON()
 
-> **toJSON**(): `object`
+> **toJSON**(): `object` & `GammaOwnProps`
 
 Returns a JSON representation of an instance
 
 #### Returns
 
-`object`
+`object` & `GammaOwnProps`
 
 JSON
-
-##### type
-
-> **type**: `string`
 
 #### Inherited from
 
@@ -642,7 +632,7 @@ JSON
 
 #### Defined in
 
-src/filters/BaseFilter.ts:405
+src/filters/BaseFilter.ts:401
 
 ***
 
@@ -658,17 +648,21 @@ Returns object representation of an instance
 
 Object representation of an instance
 
+##### gamma
+
+> **gamma**: `GammaInput`
+
 ##### type
 
-> **type**: `string`
+> **type**: `"Gamma"`
 
-#### Inherited from
+#### Overrides
 
 [`BaseFilter`](/api/namespaces/filters/classes/basefilter/).[`toObject`](/api/namespaces/filters/classes/basefilter/#toobject)
 
 #### Defined in
 
-src/filters/BaseFilter.ts:393
+src/filters/Gamma.ts:112
 
 ***
 
@@ -692,13 +686,13 @@ src/filters/BaseFilter.ts:393
 
 #### Defined in
 
-src/filters/BaseFilter.ts:345
+src/filters/BaseFilter.ts:344
 
 ***
 
 ### fromObject()
 
-> `static` **fromObject**(`__namedParameters`, `options`): `Promise`\<[`BaseFilter`](/api/namespaces/filters/classes/basefilter/)\>
+> `static` **fromObject**(`__namedParameters`, `options`): `Promise`\<[`BaseFilter`](/api/namespaces/filters/classes/basefilter/)\<`string`, `object`\>\>
 
 #### Parameters
 
@@ -708,7 +702,7 @@ src/filters/BaseFilter.ts:345
 
 #### Returns
 
-`Promise`\<[`BaseFilter`](/api/namespaces/filters/classes/basefilter/)\>
+`Promise`\<[`BaseFilter`](/api/namespaces/filters/classes/basefilter/)\<`string`, `object`\>\>
 
 #### Inherited from
 
@@ -716,4 +710,4 @@ src/filters/BaseFilter.ts:345
 
 #### Defined in
 
-src/filters/BaseFilter.ts:410
+src/filters/BaseFilter.ts:406

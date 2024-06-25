@@ -21,7 +21,7 @@ title: "DragEventData"
 
 #### Defined in
 
-src/EventTypeDefs.ts:172
+src/EventTypeDefs.ts:174
 
 ***
 
@@ -31,7 +31,7 @@ src/EventTypeDefs.ts:172
 
 #### Defined in
 
-src/EventTypeDefs.ts:173
+src/EventTypeDefs.ts:175
 
 ***
 
@@ -41,7 +41,7 @@ src/EventTypeDefs.ts:173
 
 #### Defined in
 
-src/EventTypeDefs.ts:171
+src/EventTypeDefs.ts:173
 
 ***
 
@@ -51,7 +51,7 @@ src/EventTypeDefs.ts:171
 
 #### Defined in
 
-src/EventTypeDefs.ts:174
+src/EventTypeDefs.ts:176
 
 ***
 
@@ -75,7 +75,7 @@ src/EventTypeDefs.ts:86
 
 #### Defined in
 
-src/EventTypeDefs.ts:170
+src/EventTypeDefs.ts:172
 
 ***
 
@@ -85,4 +85,4 @@ src/EventTypeDefs.ts:170
 
 #### Defined in
 
-src/EventTypeDefs.ts:169
+src/EventTypeDefs.ts:171

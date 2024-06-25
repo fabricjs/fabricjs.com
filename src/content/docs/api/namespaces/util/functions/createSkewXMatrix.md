@@ -21,4 +21,4 @@ matrix
 
 ## Defined in
 
-src/util/misc/matrix.ts:226
+src/util/misc/matrix.ts:228

@@ -21,7 +21,7 @@ title: "TextboxProps"
 
 #### Defined in
 
-src/shapes/Textbox.ts:38
+src/shapes/Textbox.ts:39
 
 ***
 
@@ -273,7 +273,7 @@ src/shapes/Text/Text.ts:94
 
 ### clipPath?
 
-> `optional` **clipPath**: `FabricObject`\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
+> `optional` **clipPath**: [`BaseFabricObject`](/api/classes/basefabricobject/)\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 a fabricObject that, without stroke define a clipping area with their shape. filled in black
 the clipPath object gets used when the object has rendered, and the context is placed in the center
@@ -436,7 +436,7 @@ src/shapes/Text/Text.ts:106
 
 #### Defined in
 
-src/shapes/Textbox.ts:37
+src/shapes/Textbox.ts:38
 
 ***
 
@@ -1051,7 +1051,7 @@ src/shapes/Object/types/ObjectProps.ts:27
 
 #### Defined in
 
-src/shapes/Textbox.ts:35
+src/shapes/Textbox.ts:36
 
 ***
 
@@ -1552,7 +1552,7 @@ src/shapes/Object/types/ObjectTransformProps.ts:15
 
 #### Defined in
 
-src/shapes/Textbox.ts:36
+src/shapes/Textbox.ts:37
 
 ***
 

@@ -356,7 +356,7 @@ src/shapes/Text/Text.ts:104
 
 #### Defined in
 
-src/shapes/Textbox.ts:35
+src/shapes/Textbox.ts:36
 
 ***
 
@@ -654,7 +654,7 @@ src/shapes/Object/types/BaseProps.ts:99
 
 #### Defined in
 
-src/shapes/Textbox.ts:36
+src/shapes/Textbox.ts:37
 
 ***
 

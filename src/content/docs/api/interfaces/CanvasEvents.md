@@ -25,7 +25,7 @@ title: "CanvasEvents"
 
 #### Defined in
 
-src/EventTypeDefs.ts:296
+src/EventTypeDefs.ts:298
 
 ***
 
@@ -39,7 +39,7 @@ src/EventTypeDefs.ts:296
 
 #### Defined in
 
-src/EventTypeDefs.ts:309
+src/EventTypeDefs.ts:311
 
 ***
 
@@ -57,7 +57,7 @@ src/EventTypeDefs.ts:309
 
 #### Defined in
 
-src/EventTypeDefs.ts:295
+src/EventTypeDefs.ts:297
 
 ***
 
@@ -77,7 +77,7 @@ src/EventTypeDefs.ts:295
 
 #### Defined in
 
-src/EventTypeDefs.ts:219
+src/EventTypeDefs.ts:221
 
 ***
 
@@ -97,7 +97,7 @@ src/EventTypeDefs.ts:219
 
 #### Defined in
 
-src/EventTypeDefs.ts:130
+src/EventTypeDefs.ts:125
 
 ***
 
@@ -111,7 +111,7 @@ src/EventTypeDefs.ts:130
 
 #### Defined in
 
-src/EventTypeDefs.ts:292
+src/EventTypeDefs.ts:294
 
 ***
 
@@ -125,7 +125,7 @@ src/EventTypeDefs.ts:292
 
 #### Defined in
 
-src/EventTypeDefs.ts:266
+src/EventTypeDefs.ts:268
 
 ***
 
@@ -139,7 +139,7 @@ src/EventTypeDefs.ts:266
 
 #### Defined in
 
-src/EventTypeDefs.ts:265
+src/EventTypeDefs.ts:267
 
 ***
 
@@ -153,7 +153,7 @@ src/EventTypeDefs.ts:265
 
 #### Defined in
 
-src/EventTypeDefs.ts:196
+src/EventTypeDefs.ts:198
 
 ***
 
@@ -167,7 +167,7 @@ src/EventTypeDefs.ts:196
 
 #### Defined in
 
-src/EventTypeDefs.ts:207
+src/EventTypeDefs.ts:209
 
 ***
 
@@ -181,7 +181,7 @@ src/EventTypeDefs.ts:207
 
 #### Defined in
 
-src/EventTypeDefs.ts:208
+src/EventTypeDefs.ts:210
 
 ***
 
@@ -195,7 +195,7 @@ src/EventTypeDefs.ts:208
 
 #### Defined in
 
-src/EventTypeDefs.ts:200
+src/EventTypeDefs.ts:202
 
 ***
 
@@ -209,7 +209,7 @@ src/EventTypeDefs.ts:200
 
 #### Defined in
 
-src/EventTypeDefs.ts:198
+src/EventTypeDefs.ts:200
 
 ***
 
@@ -223,7 +223,7 @@ src/EventTypeDefs.ts:198
 
 #### Defined in
 
-src/EventTypeDefs.ts:199
+src/EventTypeDefs.ts:201
 
 ***
 
@@ -237,7 +237,7 @@ src/EventTypeDefs.ts:199
 
 #### Defined in
 
-src/EventTypeDefs.ts:197
+src/EventTypeDefs.ts:199
 
 ***
 
@@ -251,7 +251,7 @@ src/EventTypeDefs.ts:197
 
 #### Defined in
 
-src/EventTypeDefs.ts:195
+src/EventTypeDefs.ts:197
 
 ***
 
@@ -265,7 +265,7 @@ src/EventTypeDefs.ts:195
 
 #### Defined in
 
-src/EventTypeDefs.ts:202
+src/EventTypeDefs.ts:204
 
 ***
 
@@ -279,7 +279,7 @@ src/EventTypeDefs.ts:202
 
 #### Defined in
 
-src/EventTypeDefs.ts:203
+src/EventTypeDefs.ts:205
 
 ***
 
@@ -293,7 +293,7 @@ src/EventTypeDefs.ts:203
 
 #### Defined in
 
-src/EventTypeDefs.ts:201
+src/EventTypeDefs.ts:203
 
 ***
 
@@ -327,7 +327,7 @@ src/EventTypeDefs.ts:201
 
 #### Defined in
 
-src/EventTypeDefs.ts:314
+src/EventTypeDefs.ts:316
 
 ***
 
@@ -337,7 +337,7 @@ src/EventTypeDefs.ts:314
 
 #### Defined in
 
-src/EventTypeDefs.ts:313
+src/EventTypeDefs.ts:315
 
 ***
 
@@ -483,7 +483,7 @@ src/EventTypeDefs.ts:313
 
 #### Defined in
 
-src/EventTypeDefs.ts:228
+src/EventTypeDefs.ts:230
 
 ***
 
@@ -503,7 +503,7 @@ src/EventTypeDefs.ts:228
 
 #### Defined in
 
-src/EventTypeDefs.ts:298
+src/EventTypeDefs.ts:300
 
 ***
 
@@ -523,17 +523,21 @@ src/EventTypeDefs.ts:298
 
 #### Defined in
 
-src/EventTypeDefs.ts:297
+src/EventTypeDefs.ts:299
 
 ***
 
 ### object:modified
 
-> **object:modified**: [`ModifiedEvent`](/api/interfaces/modifiedevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\> \| `object`
+> **object:modified**: [`ModifiedEvent`](/api/interfaces/modifiedevent/)\<[`TPointerEvent`](/api/type-aliases/tpointerevent/)\>
 
 #### Inherited from
 
 `CanvasModificationEvents.object:modified`
+
+#### Defined in
+
+src/EventTypeDefs.ts:132
 
 ***
 
@@ -551,6 +555,10 @@ src/EventTypeDefs.ts:297
 
 `CanvasModificationEvents.object:modifyPoly`
 
+#### Defined in
+
+src/EventTypeDefs.ts:131
+
 ***
 
 ### object:moving
@@ -566,6 +574,10 @@ src/EventTypeDefs.ts:297
 #### Inherited from
 
 `CanvasModificationEvents.object:moving`
+
+#### Defined in
+
+src/EventTypeDefs.ts:126
 
 ***
 
@@ -583,7 +595,7 @@ src/EventTypeDefs.ts:297
 
 #### Defined in
 
-src/EventTypeDefs.ts:229
+src/EventTypeDefs.ts:231
 
 ***
 
@@ -601,6 +613,10 @@ src/EventTypeDefs.ts:229
 
 `CanvasModificationEvents.object:resizing`
 
+#### Defined in
+
+src/EventTypeDefs.ts:130
+
 ***
 
 ### object:rotating
@@ -616,6 +632,10 @@ src/EventTypeDefs.ts:229
 #### Inherited from
 
 `CanvasModificationEvents.object:rotating`
+
+#### Defined in
+
+src/EventTypeDefs.ts:128
 
 ***
 
@@ -633,6 +653,10 @@ src/EventTypeDefs.ts:229
 
 `CanvasModificationEvents.object:scaling`
 
+#### Defined in
+
+src/EventTypeDefs.ts:127
+
 ***
 
 ### object:skewing
@@ -649,6 +673,10 @@ src/EventTypeDefs.ts:229
 
 `CanvasModificationEvents.object:skewing`
 
+#### Defined in
+
+src/EventTypeDefs.ts:129
+
 ***
 
 ### path:created
@@ -661,7 +689,7 @@ src/EventTypeDefs.ts:229
 
 #### Defined in
 
-src/EventTypeDefs.ts:310
+src/EventTypeDefs.ts:312
 
 ***
 
@@ -681,7 +709,7 @@ src/EventTypeDefs.ts:310
 
 #### Defined in
 
-src/EventTypeDefs.ts:222
+src/EventTypeDefs.ts:224
 
 ***
 
@@ -701,7 +729,7 @@ src/EventTypeDefs.ts:222
 
 #### Defined in
 
-src/EventTypeDefs.ts:212
+src/EventTypeDefs.ts:214
 
 ***
 
@@ -725,7 +753,7 @@ src/EventTypeDefs.ts:212
 
 #### Defined in
 
-src/EventTypeDefs.ts:215
+src/EventTypeDefs.ts:217
 
 ***
 
@@ -739,7 +767,7 @@ src/EventTypeDefs.ts:215
 
 #### Defined in
 
-src/EventTypeDefs.ts:328
+src/EventTypeDefs.ts:330
 
 ***
 
@@ -753,7 +781,7 @@ src/EventTypeDefs.ts:328
 
 #### Defined in
 
-src/EventTypeDefs.ts:329
+src/EventTypeDefs.ts:331
 
 ***
 
@@ -767,7 +795,7 @@ src/EventTypeDefs.ts:329
 
 #### Defined in
 
-src/EventTypeDefs.ts:330
+src/EventTypeDefs.ts:332
 
 ***
 
@@ -781,4 +809,4 @@ src/EventTypeDefs.ts:330
 
 #### Defined in
 
-src/EventTypeDefs.ts:327
+src/EventTypeDefs.ts:329

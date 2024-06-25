@@ -1,18 +1,23 @@
 import { filters, Color, type T2DPipelineState } from 'fabric';
 
+type SwapColorOwnProps = {
+  colorSource: string;
+  colorDestination: string;
+}
+
 /**
  * Fragment source for the SwapColor program
  */
 const fragmentSource = `
  precision highp float;
  uniform sampler2D uTexture;
- uniform vec4 colorSource;
- uniform vec4 colorDestination;
+ uniform vec4 uColorSource;
+ uniform vec4 uColorDestination;
  varying vec2 vTexCoord;
  void main() {
    vec4 color = texture2D(uTexture, vTexCoord);
-   vec3 delta = abs(colorSource.rgb - color.rgb);
-   gl_FragColor = length(delta) < 0.02 ? colorDestination.rgba : color;
+   vec3 delta = abs(uColorSource.rgb - color.rgb);
+   gl_FragColor = length(delta) < 0.02 ? uColorDestination.rgba : color;
  }`;
 
 /**
@@ -29,7 +34,7 @@ const fragmentSource = `
  * object.filters.push(filter);
  * object.applyFilters();
  */
-export class SwapColor extends filters.BaseFilter {
+export class SwapColor extends filters.BaseFilter<'SwapColor', SwapColorOwnProps> {
 
   /**
    * Filter type
@@ -38,19 +43,26 @@ export class SwapColor extends filters.BaseFilter {
    */
   static type = 'SwapColor';
 
+  static defaults = {
+    colorSource: 'rgb(255, 0, 0)',
+    colorDestination: 'rgb(0, 255, 0)',
+  }
+
   /**
    * SwapColor colorSource, a css color
    * @param {String} colorSource
    * @default
    */
-  colorSource = 'rgb(255, 0, 0)';
+  declare colorSource: string;
     
   /**
    * SwapColor colorSource, a css color
    * @param {String} colorDestination
    * @default
    */
-  colorDestination = 'rgb(0, 255, 0)';
+  declare colorDestination: string;
+
+  static uniformLocations = ['uColorSource', 'uColorDestination'];
  
   protected getFragmentSource(): string {
     return fragmentSource;
@@ -74,18 +86,6 @@ export class SwapColor extends filters.BaseFilter {
     }
   }
   
-  /**
-   * Return WebGL uniform locations for this filter's shader.
-   *
-   * @param {WebGLRenderingContext} gl The GL canvas context used to compile this filter's shader.
-   * @param {WebGLShaderProgram} program This filter's compiled shader program.
-   */
-  getUniformLocations(gl, program) {
-    return {
-      uColorSource: gl.getUniformLocation(program, 'colorSource'),
-      uColorDestination: gl.getUniformLocation(program, 'colorDestination'),
-    };
-  }
   
   /**
    * Send data from this filter to its shader program's uniforms.
@@ -108,14 +108,5 @@ export class SwapColor extends filters.BaseFilter {
 
   isNeutralState(): boolean {
     return this.colorSource === this.colorDestination;
-  }
-  
-  /**
-   * Returns object representation of an instance
-   * @return {Object} Object representation of an instance
-   */
-  toObject() {
-    const data = super.toObject();
-    return { ...data, colorSource: this.colorSource, colorDestination: this.colorDestination };
   }
 }

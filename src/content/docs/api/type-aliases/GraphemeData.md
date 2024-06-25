@@ -19,4 +19,4 @@ title: "GraphemeData"
 
 ## Defined in
 
-src/shapes/Textbox.ts:23
+src/shapes/Textbox.ts:24

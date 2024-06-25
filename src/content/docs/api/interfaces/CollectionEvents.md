@@ -22,7 +22,7 @@ title: "CollectionEvents"
 
 #### Defined in
 
-src/EventTypeDefs.ts:228
+src/EventTypeDefs.ts:230
 
 ***
 
@@ -36,4 +36,4 @@ src/EventTypeDefs.ts:228
 
 #### Defined in
 
-src/EventTypeDefs.ts:229
+src/EventTypeDefs.ts:231

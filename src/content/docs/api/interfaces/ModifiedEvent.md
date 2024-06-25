@@ -41,9 +41,9 @@ src/EventTypeDefs.ts:110
 
 ***
 
-### transform
+### transform?
 
-> **transform**: [`Transform`](/api/type-aliases/transform/)
+> `optional` **transform**: [`Transform`](/api/type-aliases/transform/)
 
 #### Defined in
 

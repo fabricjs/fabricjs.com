@@ -25,4 +25,4 @@ the input object with enlived values
 
 ## Defined in
 
-src/util/misc/objectEnlive.ts:133
+src/util/misc/objectEnlive.ts:143

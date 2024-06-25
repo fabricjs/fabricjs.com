@@ -32,4 +32,4 @@ matrix
 
 ## Defined in
 
-src/util/misc/matrix.ts:167
+src/util/misc/matrix.ts:169

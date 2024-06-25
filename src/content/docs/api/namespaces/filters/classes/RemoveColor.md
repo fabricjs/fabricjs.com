@@ -20,7 +20,7 @@ canvas.renderAll();
 
 ## Extends
 
-- [`BaseFilter`](/api/namespaces/filters/classes/basefilter/)
+- [`BaseFilter`](/api/namespaces/filters/classes/basefilter/)\<`"RemoveColor"`, `RemoveColorOwnProps`\>
 
 ## Constructors
 
@@ -32,7 +32,7 @@ Constructor
 
 #### Parameters
 
-• **options?**: `Record`\<`string`, `any`\> = `{}`
+• **options?**: `object` & `Partial`\<`RemoveColorOwnProps`\> & `Record`\<`string`, `any`\> = `{}`
 
 Options object
 
@@ -46,7 +46,7 @@ Options object
 
 #### Defined in
 
-src/filters/BaseFilter.ts:58
+src/filters/BaseFilter.ts:56
 
 ## Properties
 
@@ -66,7 +66,7 @@ Color to remove, in any format understood by [Color](../../../../../../api/class
 
 #### Defined in
 
-src/filters/RemoveColor.ts:30
+src/filters/RemoveColor.ts:38
 
 ***
 
@@ -79,7 +79,7 @@ between 0 and 1
 
 #### Defined in
 
-src/filters/RemoveColor.ts:36
+src/filters/RemoveColor.ts:44
 
 ***
 
@@ -92,13 +92,13 @@ NOT IMPLEMENTED YET
 
 #### Defined in
 
-src/filters/RemoveColor.ts:42
+src/filters/RemoveColor.ts:50
 
 ***
 
 ### defaults
 
-> `static` **defaults**: `Partial`\<[`TClassProperties`](/api/type-aliases/tclassproperties/)\<[`RemoveColor`](/api/namespaces/filters/classes/removecolor/)\>\> = `removeColorDefaultValues`
+> `static` **defaults**: `RemoveColorOwnProps` = `removeColorDefaultValues`
 
 #### Overrides
 
@@ -106,7 +106,7 @@ src/filters/RemoveColor.ts:42
 
 #### Defined in
 
-src/filters/RemoveColor.ts:46
+src/filters/RemoveColor.ts:54
 
 ***
 
@@ -126,13 +126,31 @@ to avoid doing that.
 
 #### Defined in
 
-src/filters/RemoveColor.ts:44
+src/filters/RemoveColor.ts:52
+
+***
+
+### uniformLocations
+
+> `static` **uniformLocations**: `string`[]
+
+Contains the uniform locations for the fragment shader.
+uStepW and uStepH are handled by the BaseFilter, each filter class
+needs to specify all the one that are needed
+
+#### Overrides
+
+[`BaseFilter`](/api/namespaces/filters/classes/basefilter/).[`uniformLocations`](/api/namespaces/filters/classes/basefilter/#uniformlocations)
+
+#### Defined in
+
+src/filters/RemoveColor.ts:56
 
 ## Accessors
 
 ### type
 
-> `get` **type**(): `string`
+> `get` **type**(): `Name`
 
 Filter type
 
@@ -144,7 +162,7 @@ Filter type
 
 #### Returns
 
-`string`
+`Name`
 
 #### Inherited from
 
@@ -152,7 +170,7 @@ Filter type
 
 #### Defined in
 
-src/filters/BaseFilter.ts:25
+src/filters/BaseFilter.ts:30
 
 ## Methods
 
@@ -174,7 +192,7 @@ src/filters/BaseFilter.ts:25
 
 #### Defined in
 
-src/filters/BaseFilter.ts:190
+src/filters/BaseFilter.ts:204
 
 ***
 
@@ -196,7 +214,7 @@ src/filters/BaseFilter.ts:190
 
 #### Defined in
 
-src/filters/BaseFilter.ts:217
+src/filters/BaseFilter.ts:231
 
 ***
 
@@ -222,7 +240,7 @@ Determines whether to use WebGL or Canvas2D based on the options.webgl flag.
 
 #### Defined in
 
-src/filters/BaseFilter.ts:265
+src/filters/BaseFilter.ts:264
 
 ***
 
@@ -248,7 +266,7 @@ Canvas element to apply filter to
 
 #### Defined in
 
-src/filters/RemoveColor.ts:56
+src/filters/RemoveColor.ts:66
 
 ***
 
@@ -272,7 +290,7 @@ Apply this filter using webgl.
 
 #### Defined in
 
-src/filters/BaseFilter.ts:315
+src/filters/BaseFilter.ts:314
 
 ***
 
@@ -298,7 +316,7 @@ src/filters/BaseFilter.ts:315
 
 #### Defined in
 
-src/filters/BaseFilter.ts:334
+src/filters/BaseFilter.ts:333
 
 ***
 
@@ -323,7 +341,7 @@ remember that options.targetCanvas is available for use till end of chain.
 
 #### Defined in
 
-src/filters/BaseFilter.ts:380
+src/filters/BaseFilter.ts:369
 
 ***
 
@@ -369,7 +387,7 @@ vertexShader source for compilation
 
 #### Defined in
 
-src/filters/BaseFilter.ts:77
+src/filters/BaseFilter.ts:82
 
 ***
 
@@ -401,7 +419,7 @@ A map of attribute names to attribute locations.
 
 #### Defined in
 
-src/filters/BaseFilter.ts:146
+src/filters/BaseFilter.ts:152
 
 ***
 
@@ -422,39 +440,25 @@ Used to force recompilation when parameters change or to retrieve the shader fro
 
 #### Defined in
 
-src/filters/BaseFilter.ts:284
+src/filters/BaseFilter.ts:283
 
 ***
 
-### getFragmentShader()
+### getFragmentSource()
 
-> **getFragmentShader**(): `string`
+> **getFragmentSource**(): `string`
 
 #### Returns
 
 `string`
 
-#### Defined in
+#### Overrides
 
-src/filters/RemoveColor.ts:48
-
-***
-
-### getMainParameter()
-
-> **getMainParameter**(): `undefined` \| `string` \| `number` \| `boolean` \| (`gl`, `program`) => [`TWebGLAttributeLocationMap`](/api/type-aliases/twebglattributelocationmap/) \| (`options`) => [`TWebGLProgramCacheItem`](/api/type-aliases/twebglprogramcacheitem/) \| (`options`?) => `boolean` \| () => `object` \| () => `object` \| (`gl`, `program`) => [`TWebGLUniformLocationMap`](/api/type-aliases/twebgluniformlocationmap/) \| (`gl`, `uniformLocations`) => `void` \| () => `string` \| (`options`) => `void` \| (`canvasEl`) => `void` \| (`gl`, `fragmentSource`, `vertexSource`) => `object` \| (`gl`, `attributeLocations`, `aPositionData`) => `void` \| (`options`) => `void` \| (`options`) => `void` \| (`options`) => `void` \| (`gl`, `texture`, `textureUnit`) => `void` \| (`gl`, `textureUnit`) => `void` \| () => string \| number \| boolean \| ((gl: WebGLRenderingContext, program: WebGLProgram) =\> TWebGLAttributeLocationMap) \| ... 20 more ... \| undefined \| (`value`) => `void` \| (`options`) => `void` \| () => `string`
-
-#### Returns
-
-`undefined` \| `string` \| `number` \| `boolean` \| (`gl`, `program`) => [`TWebGLAttributeLocationMap`](/api/type-aliases/twebglattributelocationmap/) \| (`options`) => [`TWebGLProgramCacheItem`](/api/type-aliases/twebglprogramcacheitem/) \| (`options`?) => `boolean` \| () => `object` \| () => `object` \| (`gl`, `program`) => [`TWebGLUniformLocationMap`](/api/type-aliases/twebgluniformlocationmap/) \| (`gl`, `uniformLocations`) => `void` \| () => `string` \| (`options`) => `void` \| (`canvasEl`) => `void` \| (`gl`, `fragmentSource`, `vertexSource`) => `object` \| (`gl`, `attributeLocations`, `aPositionData`) => `void` \| (`options`) => `void` \| (`options`) => `void` \| (`options`) => `void` \| (`gl`, `texture`, `textureUnit`) => `void` \| (`gl`, `textureUnit`) => `void` \| () => string \| number \| boolean \| ((gl: WebGLRenderingContext, program: WebGLProgram) =\> TWebGLAttributeLocationMap) \| ... 20 more ... \| undefined \| (`value`) => `void` \| (`options`) => `void` \| () => `string`
-
-#### Inherited from
-
-[`BaseFilter`](/api/namespaces/filters/classes/basefilter/).[`getMainParameter`](/api/namespaces/filters/classes/basefilter/#getmainparameter)
+`BaseFilter.getFragmentSource`
 
 #### Defined in
 
-src/filters/BaseFilter.ts:351
+src/filters/RemoveColor.ts:58
 
 ***
 
@@ -462,29 +466,49 @@ src/filters/BaseFilter.ts:351
 
 > **getUniformLocations**(`gl`, `program`): [`TWebGLUniformLocationMap`](/api/type-aliases/twebgluniformlocationmap/)
 
-Return WebGL uniform locations for this filter's shader.
+Return a map of uniform names to WebGLUniformLocation objects.
 
 #### Parameters
 
 • **gl**: `WebGLRenderingContext`
 
-The GL canvas context used to compile this filter's shader.
+The canvas context used to compile the shader program.
 
 • **program**: `WebGLProgram`
 
-This filter's compiled shader program.
+The shader program from which to take uniform locations.
 
 #### Returns
 
 [`TWebGLUniformLocationMap`](/api/type-aliases/twebgluniformlocationmap/)
 
-#### Overrides
+A map of uniform names to uniform locations.
+
+#### Inherited from
 
 [`BaseFilter`](/api/namespaces/filters/classes/basefilter/).[`getUniformLocations`](/api/namespaces/filters/classes/basefilter/#getuniformlocations)
 
 #### Defined in
 
-src/filters/RemoveColor.ts:90
+src/filters/BaseFilter.ts:168
+
+***
+
+### getVertexSource()
+
+> **getVertexSource**(): `string`
+
+#### Returns
+
+`string`
+
+#### Inherited from
+
+[`BaseFilter`](/api/namespaces/filters/classes/basefilter/).[`getVertexSource`](/api/namespaces/filters/classes/basefilter/#getvertexsource)
+
+#### Defined in
+
+src/filters/BaseFilter.ts:71
 
 ***
 
@@ -511,7 +535,7 @@ Other filters may need their own version ( ColorMatrix, HueRotation, gamma, Comp
 
 #### Defined in
 
-src/filters/BaseFilter.ts:233
+src/filters/BaseFilter.ts:247
 
 ***
 
@@ -537,7 +561,7 @@ the compiled program shader
 
 #### Defined in
 
-src/filters/BaseFilter.ts:295
+src/filters/BaseFilter.ts:294
 
 ***
 
@@ -569,7 +593,7 @@ A map of shader attribute names to their locations.
 
 #### Defined in
 
-src/filters/BaseFilter.ts:177
+src/filters/BaseFilter.ts:191
 
 ***
 
@@ -599,47 +623,21 @@ A map of string uniform names to WebGLUniformLocation objects
 
 #### Defined in
 
-src/filters/RemoveColor.ts:106
-
-***
-
-### setMainParameter()
-
-> **setMainParameter**(`value`): `void`
-
-#### Parameters
-
-• **value**: `any`
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[`BaseFilter`](/api/namespaces/filters/classes/basefilter/).[`setMainParameter`](/api/namespaces/filters/classes/basefilter/#setmainparameter)
-
-#### Defined in
-
-src/filters/BaseFilter.ts:355
+src/filters/RemoveColor.ts:100
 
 ***
 
 ### toJSON()
 
-> **toJSON**(): `object`
+> **toJSON**(): `object` & `RemoveColorOwnProps`
 
 Returns a JSON representation of an instance
 
 #### Returns
 
-`object`
+`object` & `RemoveColorOwnProps`
 
 JSON
-
-##### type
-
-> **type**: `string`
 
 #### Inherited from
 
@@ -647,41 +645,29 @@ JSON
 
 #### Defined in
 
-src/filters/BaseFilter.ts:405
+src/filters/BaseFilter.ts:401
 
 ***
 
 ### toObject()
 
-> **toObject**(): `object`
+> **toObject**(): `object` & `RemoveColorOwnProps`
 
 Returns object representation of an instance
 
 #### Returns
 
-`object`
+`object` & `RemoveColorOwnProps`
 
 Object representation of an instance
 
-##### color
-
-> **color**: `string`
-
-##### distance
-
-> **distance**: `number`
-
-##### type
-
-> **type**: `string`
-
-#### Overrides
+#### Inherited from
 
 [`BaseFilter`](/api/namespaces/filters/classes/basefilter/).[`toObject`](/api/namespaces/filters/classes/basefilter/#toobject)
 
 #### Defined in
 
-src/filters/RemoveColor.ts:132
+src/filters/BaseFilter.ts:382
 
 ***
 
@@ -705,13 +691,13 @@ src/filters/RemoveColor.ts:132
 
 #### Defined in
 
-src/filters/BaseFilter.ts:345
+src/filters/BaseFilter.ts:344
 
 ***
 
 ### fromObject()
 
-> `static` **fromObject**(`__namedParameters`, `options`): `Promise`\<[`BaseFilter`](/api/namespaces/filters/classes/basefilter/)\>
+> `static` **fromObject**(`__namedParameters`, `options`): `Promise`\<[`BaseFilter`](/api/namespaces/filters/classes/basefilter/)\<`string`, `object`\>\>
 
 #### Parameters
 
@@ -721,7 +707,7 @@ src/filters/BaseFilter.ts:345
 
 #### Returns
 
-`Promise`\<[`BaseFilter`](/api/namespaces/filters/classes/basefilter/)\>
+`Promise`\<[`BaseFilter`](/api/namespaces/filters/classes/basefilter/)\<`string`, `object`\>\>
 
 #### Inherited from
 
@@ -729,4 +715,4 @@ src/filters/BaseFilter.ts:345
 
 #### Defined in
 
-src/filters/BaseFilter.ts:410
+src/filters/BaseFilter.ts:406

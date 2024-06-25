@@ -9,4 +9,4 @@ title: "ObjectPointerEvents"
 
 ## Defined in
 
-src/EventTypeDefs.ts:261
+src/EventTypeDefs.ts:263

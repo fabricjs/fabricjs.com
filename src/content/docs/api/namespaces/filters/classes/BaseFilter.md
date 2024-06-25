@@ -25,37 +25,43 @@ title: "BaseFilter"
 - [`Saturation`](/api/namespaces/filters/classes/saturation/)
 - [`Vibrance`](/api/namespaces/filters/classes/vibrance/)
 
+## Type Parameters
+
+• **Name** *extends* `string`
+
+• **OwnProps** *extends* `Record`\<`string`, `any`\> = `object`
+
 ## Constructors
 
 ### new BaseFilter()
 
-> **new BaseFilter**(`options`?): [`BaseFilter`](/api/namespaces/filters/classes/basefilter/)
+> **new BaseFilter**\<`Name`, `OwnProps`\>(`options`?): [`BaseFilter`](/api/namespaces/filters/classes/basefilter/)\<`Name`, `OwnProps`\>
 
 Constructor
 
 #### Parameters
 
-• **options?**: `Record`\<`string`, `any`\> = `{}`
+• **options?**: `object` & `Partial`\<`OwnProps`\> & `Record`\<`string`, `any`\> = `{}`
 
 Options object
 
 #### Returns
 
-[`BaseFilter`](/api/namespaces/filters/classes/basefilter/)
+[`BaseFilter`](/api/namespaces/filters/classes/basefilter/)\<`Name`, `OwnProps`\>
 
 #### Defined in
 
-src/filters/BaseFilter.ts:58
+src/filters/BaseFilter.ts:56
 
 ## Properties
 
 ### defaults
 
-> `static` **defaults**: `Record`\<`string`, `any`\>
+> `static` **defaults**: `Record`\<`string`, `unknown`\>
 
 #### Defined in
 
-src/filters/BaseFilter.ts:38
+src/filters/BaseFilter.ts:50
 
 ***
 
@@ -71,13 +77,27 @@ to avoid doing that.
 
 #### Defined in
 
-src/filters/BaseFilter.ts:36
+src/filters/BaseFilter.ts:41
+
+***
+
+### uniformLocations
+
+> `static` **uniformLocations**: `string`[] = `[]`
+
+Contains the uniform locations for the fragment shader.
+uStepW and uStepH are handled by the BaseFilter, each filter class
+needs to specify all the one that are needed
+
+#### Defined in
+
+src/filters/BaseFilter.ts:48
 
 ## Accessors
 
 ### type
 
-> `get` **type**(): `string`
+> `get` **type**(): `Name`
 
 Filter type
 
@@ -89,11 +109,11 @@ Filter type
 
 #### Returns
 
-`string`
+`Name`
 
 #### Defined in
 
-src/filters/BaseFilter.ts:25
+src/filters/BaseFilter.ts:30
 
 ## Methods
 
@@ -111,7 +131,7 @@ src/filters/BaseFilter.ts:25
 
 #### Defined in
 
-src/filters/BaseFilter.ts:190
+src/filters/BaseFilter.ts:204
 
 ***
 
@@ -129,7 +149,7 @@ src/filters/BaseFilter.ts:190
 
 #### Defined in
 
-src/filters/BaseFilter.ts:217
+src/filters/BaseFilter.ts:231
 
 ***
 
@@ -151,7 +171,7 @@ Determines whether to use WebGL or Canvas2D based on the options.webgl flag.
 
 #### Defined in
 
-src/filters/BaseFilter.ts:265
+src/filters/BaseFilter.ts:264
 
 ***
 
@@ -169,7 +189,7 @@ src/filters/BaseFilter.ts:265
 
 #### Defined in
 
-src/filters/BaseFilter.ts:275
+src/filters/BaseFilter.ts:274
 
 ***
 
@@ -189,7 +209,7 @@ Apply this filter using webgl.
 
 #### Defined in
 
-src/filters/BaseFilter.ts:315
+src/filters/BaseFilter.ts:314
 
 ***
 
@@ -211,7 +231,7 @@ src/filters/BaseFilter.ts:315
 
 #### Defined in
 
-src/filters/BaseFilter.ts:334
+src/filters/BaseFilter.ts:333
 
 ***
 
@@ -232,7 +252,7 @@ remember that options.targetCanvas is available for use till end of chain.
 
 #### Defined in
 
-src/filters/BaseFilter.ts:380
+src/filters/BaseFilter.ts:369
 
 ***
 
@@ -274,7 +294,7 @@ vertexShader source for compilation
 
 #### Defined in
 
-src/filters/BaseFilter.ts:77
+src/filters/BaseFilter.ts:82
 
 ***
 
@@ -302,7 +322,7 @@ A map of attribute names to attribute locations.
 
 #### Defined in
 
-src/filters/BaseFilter.ts:146
+src/filters/BaseFilter.ts:152
 
 ***
 
@@ -319,21 +339,7 @@ Used to force recompilation when parameters change or to retrieve the shader fro
 
 #### Defined in
 
-src/filters/BaseFilter.ts:284
-
-***
-
-### getMainParameter()
-
-> **getMainParameter**(): `undefined` \| `string` \| (`options`) => `void` \| (`gl`, `program`) => [`TWebGLUniformLocationMap`](/api/type-aliases/twebgluniformlocationmap/) \| (`gl`, `program`) => [`TWebGLAttributeLocationMap`](/api/type-aliases/twebglattributelocationmap/) \| (`gl`, `uniformLocations`) => `void` \| (`options`) => `void` \| (`options`) => [`TWebGLProgramCacheItem`](/api/type-aliases/twebglprogramcacheitem/) \| () => `object` \| (`options`?) => `boolean` \| (`gl`, `fragmentSource`, `vertexSource`) => `object` \| (`gl`, `attributeLocations`, `aPositionData`) => `void` \| (`options`) => `void` \| (`options`) => `void` \| () => `string` \| (`options`) => `void` \| (`gl`, `texture`, `textureUnit`) => `void` \| (`gl`, `textureUnit`) => `void` \| () => string \| ((options: TWebGLPipelineState \| T2DPipelineState) =\> void) \| ((gl: WebGLRenderingContext, program: WebGLProgram) =\> TWebGLUniformLocationMap) \| ... 18 more ... \| undefined \| () => `object` \| (`value`) => `void` \| (`options`) => `void`
-
-#### Returns
-
-`undefined` \| `string` \| (`options`) => `void` \| (`gl`, `program`) => [`TWebGLUniformLocationMap`](/api/type-aliases/twebgluniformlocationmap/) \| (`gl`, `program`) => [`TWebGLAttributeLocationMap`](/api/type-aliases/twebglattributelocationmap/) \| (`gl`, `uniformLocations`) => `void` \| (`options`) => `void` \| (`options`) => [`TWebGLProgramCacheItem`](/api/type-aliases/twebglprogramcacheitem/) \| () => `object` \| (`options`?) => `boolean` \| (`gl`, `fragmentSource`, `vertexSource`) => `object` \| (`gl`, `attributeLocations`, `aPositionData`) => `void` \| (`options`) => `void` \| (`options`) => `void` \| () => `string` \| (`options`) => `void` \| (`gl`, `texture`, `textureUnit`) => `void` \| (`gl`, `textureUnit`) => `void` \| () => string \| ((options: TWebGLPipelineState \| T2DPipelineState) =\> void) \| ((gl: WebGLRenderingContext, program: WebGLProgram) =\> TWebGLUniformLocationMap) \| ... 18 more ... \| undefined \| () => `object` \| (`value`) => `void` \| (`options`) => `void`
-
-#### Defined in
-
-src/filters/BaseFilter.ts:351
+src/filters/BaseFilter.ts:283
 
 ***
 
@@ -342,8 +348,6 @@ src/filters/BaseFilter.ts:351
 > **getUniformLocations**(`gl`, `program`): [`TWebGLUniformLocationMap`](/api/type-aliases/twebgluniformlocationmap/)
 
 Return a map of uniform names to WebGLUniformLocation objects.
-
-Intended to be overridden by subclasses.
 
 #### Parameters
 
@@ -363,7 +367,21 @@ A map of uniform names to uniform locations.
 
 #### Defined in
 
-src/filters/BaseFilter.ts:164
+src/filters/BaseFilter.ts:168
+
+***
+
+### getVertexSource()
+
+> **getVertexSource**(): `string`
+
+#### Returns
+
+`string`
+
+#### Defined in
+
+src/filters/BaseFilter.ts:71
 
 ***
 
@@ -386,7 +404,7 @@ Other filters may need their own version ( ColorMatrix, HueRotation, gamma, Comp
 
 #### Defined in
 
-src/filters/BaseFilter.ts:233
+src/filters/BaseFilter.ts:247
 
 ***
 
@@ -408,7 +426,7 @@ the compiled program shader
 
 #### Defined in
 
-src/filters/BaseFilter.ts:295
+src/filters/BaseFilter.ts:294
 
 ***
 
@@ -436,7 +454,7 @@ A map of shader attribute names to their locations.
 
 #### Defined in
 
-src/filters/BaseFilter.ts:177
+src/filters/BaseFilter.ts:191
 
 ***
 
@@ -464,69 +482,43 @@ A map of shader uniform names to their locations.
 
 #### Defined in
 
-src/filters/BaseFilter.ts:369
-
-***
-
-### setMainParameter()
-
-> **setMainParameter**(`value`): `void`
-
-#### Parameters
-
-• **value**: `any`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-src/filters/BaseFilter.ts:355
+src/filters/BaseFilter.ts:358
 
 ***
 
 ### toJSON()
 
-> **toJSON**(): `object`
+> **toJSON**(): `object` & `OwnProps`
 
 Returns a JSON representation of an instance
 
 #### Returns
 
-`object`
+`object` & `OwnProps`
 
 JSON
 
-##### type
-
-> **type**: `string`
-
 #### Defined in
 
-src/filters/BaseFilter.ts:405
+src/filters/BaseFilter.ts:401
 
 ***
 
 ### toObject()
 
-> **toObject**(): `object`
+> **toObject**(): `object` & `OwnProps`
 
 Returns object representation of an instance
 
 #### Returns
 
-`object`
+`object` & `OwnProps`
 
 Object representation of an instance
 
-##### type
-
-> **type**: `string`
-
 #### Defined in
 
-src/filters/BaseFilter.ts:393
+src/filters/BaseFilter.ts:382
 
 ***
 
@@ -546,13 +538,13 @@ src/filters/BaseFilter.ts:393
 
 #### Defined in
 
-src/filters/BaseFilter.ts:345
+src/filters/BaseFilter.ts:344
 
 ***
 
 ### fromObject()
 
-> `static` **fromObject**(`__namedParameters`, `options`): `Promise`\<[`BaseFilter`](/api/namespaces/filters/classes/basefilter/)\>
+> `static` **fromObject**(`__namedParameters`, `options`): `Promise`\<[`BaseFilter`](/api/namespaces/filters/classes/basefilter/)\<`string`, `object`\>\>
 
 #### Parameters
 
@@ -562,8 +554,8 @@ src/filters/BaseFilter.ts:345
 
 #### Returns
 
-`Promise`\<[`BaseFilter`](/api/namespaces/filters/classes/basefilter/)\>
+`Promise`\<[`BaseFilter`](/api/namespaces/filters/classes/basefilter/)\<`string`, `object`\>\>
 
 #### Defined in
 
-src/filters/BaseFilter.ts:410
+src/filters/BaseFilter.ts:406

@@ -25,4 +25,4 @@ joined path 'M 0 0 L 20 30'
 
 ## Defined in
 
-src/util/path/index.ts:1027
+src/util/path/index.ts:1029

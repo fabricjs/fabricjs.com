@@ -21,4 +21,4 @@ An array of SVG path commands
 
 ## Defined in
 
-src/util/path/index.ts:1000
+src/util/path/index.ts:1002

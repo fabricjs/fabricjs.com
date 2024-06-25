@@ -5,8 +5,8 @@ prev: false
 title: "BlackWhite"
 ---
 
-> `const` **BlackWhite**: *typeof* `__class`
+> `const` **BlackWhite**: *typeof* [`ColorMatrix`](/api/namespaces/filters/classes/colormatrix/)
 
 ## Defined in
 
-src/filters/ColorMatrixFilters.ts:69
+src/filters/ColorMatrixFilters.ts:75

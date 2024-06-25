@@ -2,37 +2,112 @@
 editUrl: false
 next: false
 prev: false
-title: "FabricObject"
+title: "BaseFabricObject"
 ---
+
+Root object class from which all 2d shape classes inherit from
+
+## Tutorial
+
+[http://fabricjs.com/fabric-intro-part-1#objects](http://fabricjs.com/fabric-intro-part-1#objects)
+
+## Fires
+
+added
+
+## Fires
+
+removed
+
+## Fires
+
+selected
+
+## Fires
+
+deselected
+
+## Fires
+
+rotating
+
+## Fires
+
+scaling
+
+## Fires
+
+moving
+
+## Fires
+
+skewing
+
+## Fires
+
+modified
+
+## Fires
+
+mousedown
+
+## Fires
+
+mouseup
+
+## Fires
+
+mouseover
+
+## Fires
+
+mouseout
+
+## Fires
+
+mousewheel
+
+## Fires
+
+mousedblclick
+
+## Fires
+
+dragover
+
+## Fires
+
+dragenter
+
+## Fires
+
+dragleave
+
+## Fires
+
+drop
 
 ## Extends
 
-- `FabricObjectSVGExportMixin`.`InteractiveFabricObject`\<`Props`, `SProps`, `EventSpec`\>
-
-## Extended by
-
-- [`Line`](/api/classes/line/)
-- [`Circle`](/api/classes/circle/)
-- [`Triangle`](/api/classes/triangle/)
-- [`Ellipse`](/api/classes/ellipse/)
-- [`Rect`](/api/classes/rect/)
-- [`Path`](/api/classes/path/)
-- [`Polyline`](/api/classes/polyline/)
-- [`FabricImage`](/api/classes/fabricimage/)
+- `AnimatableObject`\<`EventSpec`\>
 
 ## Type Parameters
 
-• **Props** *extends* [`TFabricObjectProps`](/api/type-aliases/tfabricobjectprops/) = `Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>
+• **Props** *extends* [`TOptions`](/api/type-aliases/toptions/)\<`ObjectProps`\> = `Partial`\<`ObjectProps`\>
 
 • **SProps** *extends* [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/) = [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/)
 
 • **EventSpec** *extends* [`ObjectEvents`](/api/interfaces/objectevents/) = [`ObjectEvents`](/api/interfaces/objectevents/)
 
+## Implements
+
+- `ObjectProps`
+
 ## Constructors
 
-### new FabricObject()
+### new BaseFabricObject()
 
-> **new FabricObject**\<`Props`, `SProps`, `EventSpec`\>(`options`?): [`FabricObject`](/api/classes/fabricobject/)\<`Props`, `SProps`, `EventSpec`\>
+> **new BaseFabricObject**\<`Props`, `SProps`, `EventSpec`\>(`options`?): [`BaseFabricObject`](/api/classes/basefabricobject/)\<`Props`, `SProps`, `EventSpec`\>
 
 Constructor
 
@@ -44,67 +119,17 @@ Options object
 
 #### Returns
 
-[`FabricObject`](/api/classes/fabricobject/)\<`Props`, `SProps`, `EventSpec`\>
+[`BaseFabricObject`](/api/classes/basefabricobject/)\<`Props`, `SProps`, `EventSpec`\>
 
-#### Inherited from
+#### Overrides
 
-`FabricObjectSVGExportMixin.constructor`
+`AnimatableObject<EventSpec>.constructor`
 
 #### Defined in
 
-src/shapes/Object/InteractiveObject.ts:150
+src/shapes/Object/Object.ts:318
 
 ## Properties
-
-### \_\_corner?
-
-> `optional` **\_\_corner**: `string`
-
-keeps the value of the last hovered corner during mouse move.
-0 is no corner, or 'mt', 'ml', 'mtr' etc..
-It should be private, but there is no harm in using it as
-a read-only property.
-this isn't cleaned automatically. Non selected objects may have wrong values
-
-#### Defined in
-
-src/shapes/Object/InteractiveObject.ts:104
-
-***
-
-### \_controlsVisibility
-
-> **\_controlsVisibility**: `Record`\<`string`, `boolean`\>
-
-a map of control visibility for this object.
-this was left when controls were introduced to not break the api too much
-this takes priority over the generic control visibility
-
-#### Defined in
-
-src/shapes/Object/InteractiveObject.ts:111
-
-***
-
-### \_scaling?
-
-> `optional` **\_scaling**: `boolean`
-
-A boolean used from the gesture module to keep tracking of a scaling
-action when there is no scaling transform in place.
-This is an edge case and is used twice in all codebase.
-Probably added to keep track of some performance issues
-
-#### TODO
-
-use git blame to investigate why it was added
-DON'T USE IT. WE WILL TRY TO REMOVE IT
-
-#### Defined in
-
-src/shapes/Object/InteractiveObject.ts:133
-
-***
 
 ### aCoords
 
@@ -114,8 +139,12 @@ Describe object's corner position in scene coordinates.
 The coordinates are derived from the following:
 left, top, width, height, scaleX, scaleY, skewX, skewY, angle, strokeWidth.
 The coordinates do not depend on viewport changes.
-The coordinates get updated with [setCoords](../../../../api/classes/fabricobject/#setcoords).
-You can calculate them without updating with [()](../../../../api/classes/fabricobject/#calcacoords)
+The coordinates get updated with [setCoords](../../../../api/classes/basefabricobject/#setcoords).
+You can calculate them without updating with [()](../../../../api/classes/basefabricobject/#calcacoords)
+
+#### Inherited from
+
+`AnimatableObject.aCoords`
 
 #### Defined in
 
@@ -140,6 +169,10 @@ since 2.4.0
 false
 ```
 
+#### Implementation of
+
+`ObjectProps.absolutePositioned`
+
 #### Defined in
 
 src/shapes/Object/Object.ts:166
@@ -157,6 +190,14 @@ Angle of rotation of an object (in degrees)
 ```ts
 0
 ```
+
+#### Implementation of
+
+`ObjectProps.angle`
+
+#### Inherited from
+
+`AnimatableObject.angle`
 
 #### Defined in
 
@@ -177,82 +218,13 @@ takes css colors https://www.w3.org/TR/css-color-3/
 
 ```
 
+#### Implementation of
+
+`ObjectProps.backgroundColor`
+
 #### Defined in
 
 src/shapes/Object/Object.ts:153
-
-***
-
-### borderColor
-
-> **borderColor**: `string`
-
-Color of controlling borders of an object (when it's active)
-
-#### Default
-
-```ts
-rgb(178,204,255)
-```
-
-#### Defined in
-
-src/shapes/Object/InteractiveObject.ts:73
-
-***
-
-### borderDashArray
-
-> **borderDashArray**: `null` \| `number`[]
-
-Array specifying dash pattern of an object's borders (hasBorder must be true)
-
-#### Since
-
-1.6.2
-
-#### Defined in
-
-src/shapes/Object/InteractiveObject.ts:74
-
-***
-
-### borderOpacityWhenMoving
-
-> **borderOpacityWhenMoving**: `number`
-
-Opacity of object's controlling borders when object is active and moving
-
-#### Default
-
-```ts
-0.4
-```
-
-#### Defined in
-
-src/shapes/Object/InteractiveObject.ts:75
-
-***
-
-### borderScaleFactor
-
-> **borderScaleFactor**: `number`
-
-Scale factor of object's controlling borders
-bigger number will make a thicker border
-border is 1, so this is basically a border thickness
-since there is no way to change the border itself.
-
-#### Default
-
-```ts
-1
-```
-
-#### Defined in
-
-src/shapes/Object/InteractiveObject.ts:76
 
 ***
 
@@ -275,6 +247,10 @@ The object method `rotate` will always consider this property and never the canv
 ```ts
 
 ```
+
+#### Implementation of
+
+`ObjectProps.centeredRotation`
 
 #### Defined in
 
@@ -299,6 +275,10 @@ when being scaled via the controls.
 
 ```
 
+#### Implementation of
+
+`ObjectProps.centeredScaling`
+
 #### Defined in
 
 src/shapes/Object/Object.ts:168
@@ -309,141 +289,13 @@ src/shapes/Object/Object.ts:168
 
 > `optional` **clipPath**: [`BaseFabricObject`](/api/classes/basefabricobject/)\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
+#### Implementation of
+
+`ObjectProps.clipPath`
+
 #### Defined in
 
 src/shapes/Object/Object.ts:164
-
-***
-
-### clipPathId?
-
-> `optional` **clipPathId**: `string`
-
-When an object is being exported as SVG as a clippath, a reference inside the SVG is needed.
-This reference is a UID in the fabric namespace and is temporary stored here.
-
-#### Inherited from
-
-`FabricObjectSVGExportMixin.clipPathId`
-
-#### Defined in
-
-src/shapes/Object/FabricObjectSVGExportMixin.ts:14
-
-***
-
-### controls
-
-> **controls**: `TControlSet`
-
-holds the controls for the object.
-controls are added by default_controls.js
-
-#### Defined in
-
-src/shapes/Object/InteractiveObject.ts:117
-
-***
-
-### cornerColor
-
-> **cornerColor**: `string`
-
-Color of controlling corners of an object (when it's active)
-
-#### Default
-
-```ts
-rgb(178,204,255)
-```
-
-#### Defined in
-
-src/shapes/Object/InteractiveObject.ts:67
-
-***
-
-### cornerDashArray
-
-> **cornerDashArray**: `null` \| `number`[]
-
-Array specifying dash pattern of an object's control (hasBorder must be true)
-
-#### Since
-
-1.6.2
-
-#### Defined in
-
-src/shapes/Object/InteractiveObject.ts:70
-
-***
-
-### cornerSize
-
-> **cornerSize**: `number`
-
-Size of object's controlling corners (in pixels)
-
-#### Default
-
-```ts
-13
-```
-
-#### Defined in
-
-src/shapes/Object/InteractiveObject.ts:64
-
-***
-
-### cornerStrokeColor
-
-> **cornerStrokeColor**: `string`
-
-Color of controlling corners of an object (when it's active and transparentCorners false)
-
-#### Since
-
-1.6.2
-
-#### Default
-
-```ts
-null
-```
-
-#### Defined in
-
-src/shapes/Object/InteractiveObject.ts:68
-
-***
-
-### ~~cornerStyle~~
-
-> **cornerStyle**: `"circle"` \| `"rect"`
-
-Specify style of control, 'rect' or 'circle'
-This is deprecated. In the future there will be a standard control render
-And you can swap it with one of the alternative proposed with the control api
-
-#### Since
-
-1.6.2
-
-#### Default
-
-```ts
-rect
-```
-
-:::caution[Deprecated]
-This API is no longer supported and may be removed in a future release.
-:::
-
-#### Defined in
-
-src/shapes/Object/InteractiveObject.ts:69
 
 ***
 
@@ -466,24 +318,6 @@ src/shapes/Object/Object.ts:193
 
 ***
 
-### evented
-
-> **evented**: `boolean`
-
-When set to `false`, an object can not be a target of events. All events propagate through it. Introduced in v1.3.4
-
-#### Default
-
-```ts
-
-```
-
-#### Defined in
-
-src/shapes/Object/InteractiveObject.ts:81
-
-***
-
 ### excludeFromExport
 
 > **excludeFromExport**: `boolean`
@@ -500,6 +334,10 @@ When `true`, object is not exported in OBJECT/JSON
 
 ```
 
+#### Implementation of
+
+`ObjectProps.excludeFromExport`
+
 #### Defined in
 
 src/shapes/Object/Object.ts:160
@@ -509,6 +347,10 @@ src/shapes/Object/Object.ts:160
 ### fill
 
 > **fill**: `null` \| `string` \| [`TFiller`](/api/type-aliases/tfiller/)
+
+#### Implementation of
+
+`ObjectProps.fill`
 
 #### Defined in
 
@@ -530,6 +372,10 @@ accepted values are nonzero, evenodd
 nonzero
 ```
 
+#### Implementation of
+
+`ObjectProps.fillRule`
+
 #### Defined in
 
 src/shapes/Object/Object.ts:144
@@ -547,6 +393,14 @@ When true, an object is rendered as flipped horizontally
 ```ts
 false
 ```
+
+#### Implementation of
+
+`ObjectProps.flipX`
+
+#### Inherited from
+
+`AnimatableObject.flipX`
 
 #### Defined in
 
@@ -566,6 +420,14 @@ When true, an object is rendered as flipped vertically
 false
 ```
 
+#### Implementation of
+
+`ObjectProps.flipY`
+
+#### Inherited from
+
+`AnimatableObject.flipY`
+
 #### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:22
@@ -584,45 +446,13 @@ Composite rule used for canvas globalCompositeOperation
 
 ```
 
+#### Implementation of
+
+`ObjectProps.globalCompositeOperation`
+
 #### Defined in
 
 src/shapes/Object/Object.ts:152
-
-***
-
-### hasBorders
-
-> **hasBorders**: `boolean`
-
-When set to `false`, object's controlling borders are not rendered
-
-#### Default
-
-```ts
-
-```
-
-#### Defined in
-
-src/shapes/Object/InteractiveObject.ts:77
-
-***
-
-### hasControls
-
-> **hasControls**: `boolean`
-
-When set to `false`, object's controls are not displayed and can not be used to manipulate object
-
-#### Default
-
-```ts
-
-```
-
-#### Defined in
-
-src/shapes/Object/InteractiveObject.ts:71
 
 ***
 
@@ -638,27 +468,17 @@ Object height
 
 ```
 
+#### Implementation of
+
+`ObjectProps.height`
+
+#### Inherited from
+
+`AnimatableObject.height`
+
 #### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:20
-
-***
-
-### hoverCursor
-
-> **hoverCursor**: `null` \| `string`
-
-Default cursor value used when hovering over this object on canvas
-
-#### Default
-
-```ts
-null
-```
-
-#### Defined in
-
-src/shapes/Object/InteractiveObject.ts:85
 
 ***
 
@@ -673,6 +493,10 @@ When `false`, default object's values are not included in its serialization
 ```ts
 
 ```
+
+#### Implementation of
+
+`ObjectProps.includeDefaultValues`
 
 #### Defined in
 
@@ -694,22 +518,13 @@ since 2.4.0
 false
 ```
 
+#### Implementation of
+
+`ObjectProps.inverted`
+
 #### Defined in
 
 src/shapes/Object/Object.ts:165
-
-***
-
-### isMoving?
-
-> `optional` **isMoving**: `boolean`
-
-internal boolean to signal the code that the object is
-part of the move action.
-
-#### Defined in
-
-src/shapes/Object/InteractiveObject.ts:123
 
 ***
 
@@ -727,153 +542,17 @@ You can change this by setting [originX](../../../../api/interfaces/fabricobject
 0
 ```
 
+#### Implementation of
+
+`ObjectProps.left`
+
+#### Inherited from
+
+`AnimatableObject.left`
+
 #### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:18
-
-***
-
-### lockMovementX
-
-> **lockMovementX**: `boolean`
-
-When `true`, object horizontal movement is locked
-
-#### Default
-
-```ts
-
-```
-
-#### Defined in
-
-src/shapes/Object/InteractiveObject.ts:55
-
-***
-
-### lockMovementY
-
-> **lockMovementY**: `boolean`
-
-When `true`, object vertical movement is locked
-
-#### Default
-
-```ts
-
-```
-
-#### Defined in
-
-src/shapes/Object/InteractiveObject.ts:56
-
-***
-
-### lockRotation
-
-> **lockRotation**: `boolean`
-
-When `true`, object rotation is locked
-
-#### Default
-
-```ts
-
-```
-
-#### Defined in
-
-src/shapes/Object/InteractiveObject.ts:57
-
-***
-
-### lockScalingFlip
-
-> **lockScalingFlip**: `boolean`
-
-When `true`, object cannot be flipped by scaling into negative values
-
-#### Default
-
-```ts
-
-```
-
-#### Defined in
-
-src/shapes/Object/InteractiveObject.ts:62
-
-***
-
-### lockScalingX
-
-> **lockScalingX**: `boolean`
-
-When `true`, object horizontal scaling is locked
-
-#### Default
-
-```ts
-
-```
-
-#### Defined in
-
-src/shapes/Object/InteractiveObject.ts:58
-
-***
-
-### lockScalingY
-
-> **lockScalingY**: `boolean`
-
-When `true`, object vertical scaling is locked
-
-#### Default
-
-```ts
-
-```
-
-#### Defined in
-
-src/shapes/Object/InteractiveObject.ts:59
-
-***
-
-### lockSkewingX
-
-> **lockSkewingX**: `boolean`
-
-When `true`, object horizontal skewing is locked
-
-#### Default
-
-```ts
-
-```
-
-#### Defined in
-
-src/shapes/Object/InteractiveObject.ts:60
-
-***
-
-### lockSkewingY
-
-> **lockSkewingY**: `boolean`
-
-When `true`, object vertical skewing is locked
-
-#### Default
-
-```ts
-
-```
-
-#### Defined in
-
-src/shapes/Object/InteractiveObject.ts:61
 
 ***
 
@@ -882,6 +561,10 @@ src/shapes/Object/InteractiveObject.ts:61
 > `optional` **matrixCache**: `TMatrixCache`
 
 storage cache for object full transform matrix
+
+#### Inherited from
+
+`AnimatableObject.matrixCache`
 
 #### Defined in
 
@@ -901,64 +584,13 @@ Minimum allowed scale value of an object
 0
 ```
 
+#### Implementation of
+
+`ObjectProps.minScaleLimit`
+
 #### Defined in
 
 src/shapes/Object/Object.ts:138
-
-***
-
-### moveCursor
-
-> **moveCursor**: `null` \| `string`
-
-Default cursor value used when moving this object on canvas
-
-#### Default
-
-```ts
-null
-```
-
-#### Defined in
-
-src/shapes/Object/InteractiveObject.ts:86
-
-***
-
-### noScaleCache
-
-> **noScaleCache**: `boolean`
-
-When `true`, cache does not get updated during scaling. The picture will get blocky if scaled
-too much and will be redrawn with correct details at the end of scaling.
-this setting is performance and application dependant.
-default to true
-since 1.7.0
-
-#### Default
-
-```ts
-true
-```
-
-#### Defined in
-
-src/shapes/Object/InteractiveObject.ts:50
-
-***
-
-### oCoords
-
-> **oCoords**: `Record`\<`string`, `TOCoord`\>
-
-The object's controls' position in viewport coordinates
-Calculated by [Control#positionHandler](../../../../api/classes/control/#positionhandler) and [Control#calcCornerCoords](../../../../api/classes/control/#calccornercoords), depending on [padding](../../../../api/classes/fabricobject/#padding).
-`corner/touchCorner` describe the 4 points forming the interactive area of the corner.
-Used to draw and locate controls.
-
-#### Defined in
-
-src/shapes/Object/InteractiveObject.ts:94
 
 ***
 
@@ -980,6 +612,10 @@ default to true
 true
 ```
 
+#### Implementation of
+
+`ObjectProps.objectCaching`
+
 #### Defined in
 
 src/shapes/Object/Object.ts:162
@@ -997,6 +633,10 @@ Opacity of an object
 ```ts
 1
 ```
+
+#### Implementation of
+
+`ObjectProps.opacity`
 
 #### Defined in
 
@@ -1017,6 +657,14 @@ See http://jsfiddle.net/1ow02gea/244/ on how originX/originY affect objects in g
 'left'
 ```
 
+#### Implementation of
+
+`ObjectProps.originX`
+
+#### Inherited from
+
+`AnimatableObject.originX`
+
 #### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:27
@@ -1036,6 +684,14 @@ See http://jsfiddle.net/1ow02gea/244/ on how originX/originY affect objects in g
 'top'
 ```
 
+#### Implementation of
+
+`ObjectProps.originY`
+
+#### Inherited from
+
+`AnimatableObject.originY`
+
 #### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:28
@@ -1047,6 +703,10 @@ src/shapes/Object/ObjectOrigin.ts:28
 > `optional` **ownMatrixCache**: `TMatrixCache`
 
 storage cache for object transform matrix
+
+#### Inherited from
+
+`AnimatableObject.ownMatrixCache`
 
 #### Defined in
 
@@ -1066,6 +726,10 @@ Padding between object and its controlling borders (in pixels)
 0
 ```
 
+#### Inherited from
+
+`AnimatableObject.padding`
+
 #### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:41
@@ -1084,6 +748,10 @@ Determines if the fill or the stroke is drawn first (one of "fill" or "stroke")
 
 ```
 
+#### Implementation of
+
+`ObjectProps.paintFirst`
+
 #### Defined in
 
 src/shapes/Object/Object.ts:142
@@ -1097,27 +765,13 @@ src/shapes/Object/Object.ts:142
 A reference to the parent of the object
 Used to keep the original parent ref when the object has been added to an ActiveSelection, hence loosing the `group` ref
 
+#### Inherited from
+
+`AnimatableObject.parent`
+
 #### Defined in
 
 src/shapes/Object/StackedObject.ts:38
-
-***
-
-### perPixelTargetFind
-
-> **perPixelTargetFind**: `boolean`
-
-When set to `true`, objects are "found" on canvas on per-pixel basis rather than according to bounding box
-
-#### Default
-
-```ts
-
-```
-
-#### Defined in
-
-src/shapes/Object/InteractiveObject.ts:82
 
 ***
 
@@ -1132,6 +786,14 @@ Object scale factor (horizontal)
 ```ts
 1
 ```
+
+#### Implementation of
+
+`ObjectProps.scaleX`
+
+#### Inherited from
+
+`AnimatableObject.scaleX`
 
 #### Defined in
 
@@ -1151,57 +813,27 @@ Object scale factor (vertical)
 1
 ```
 
+#### Implementation of
+
+`ObjectProps.scaleY`
+
+#### Inherited from
+
+`AnimatableObject.scaleY`
+
 #### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:24
 
 ***
 
-### selectable
-
-> **selectable**: `boolean`
-
-When set to `false`, an object can not be selected for modification (using either point-click-based or group-based selection).
-But events still fire on it.
-
-#### Default
-
-```ts
-
-```
-
-#### Defined in
-
-src/shapes/Object/InteractiveObject.ts:80
-
-***
-
-### ~~selectionBackgroundColor~~
-
-> **selectionBackgroundColor**: `string`
-
-Selection Background color of an object. colored layer behind the object when it is active.
-does not mix good with globalCompositeOperation methods.
-
-#### Default
-
-```ts
-
-```
-
-:::caution[Deprecated]
-This API is no longer supported and may be removed in a future release.
-:::
-
-#### Defined in
-
-src/shapes/Object/InteractiveObject.ts:78
-
-***
-
 ### shadow
 
 > **shadow**: `null` \| [`Shadow`](/api/classes/shadow/)
+
+#### Implementation of
+
+`ObjectProps.shadow`
 
 #### Defined in
 
@@ -1221,6 +853,14 @@ Angle of skew on x axes of an object (in degrees)
 0
 ```
 
+#### Implementation of
+
+`ObjectProps.skewX`
+
+#### Inherited from
+
+`AnimatableObject.skewX`
+
 #### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:25
@@ -1239,40 +879,27 @@ Angle of skew on y axes of an object (in degrees)
 0
 ```
 
+#### Implementation of
+
+`ObjectProps.skewY`
+
+#### Inherited from
+
+`AnimatableObject.skewY`
+
 #### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:26
 
 ***
 
-### snapAngle?
-
-> `optional` **snapAngle**: [`TDegree`](/api/type-aliases/tdegree/)
-
-The angle that an object will lock to while rotating.
-
-#### Defined in
-
-src/shapes/Object/InteractiveObject.ts:52
-
-***
-
-### snapThreshold?
-
-> `optional` **snapThreshold**: [`TDegree`](/api/type-aliases/tdegree/)
-
-The angle difference from the current snapped angle in which snapping should occur.
-When undefined, the snapThreshold will default to the snapAngle.
-
-#### Defined in
-
-src/shapes/Object/InteractiveObject.ts:53
-
-***
-
 ### stroke
 
 > **stroke**: `null` \| `string` \| [`TFiller`](/api/type-aliases/tfiller/)
+
+#### Implementation of
+
+`ObjectProps.stroke`
 
 #### Defined in
 
@@ -1292,6 +919,10 @@ Array specifying dash pattern of an object's stroke (stroke must be defined)
 null;
 ```
 
+#### Implementation of
+
+`ObjectProps.strokeDashArray`
+
 #### Defined in
 
 src/shapes/Object/Object.ts:146
@@ -1309,6 +940,10 @@ Line offset of an object's stroke
 ```ts
 0
 ```
+
+#### Implementation of
+
+`ObjectProps.strokeDashOffset`
 
 #### Defined in
 
@@ -1328,6 +963,10 @@ Line endings style of an object's stroke (one of "butt", "round", "square")
 butt
 ```
 
+#### Implementation of
+
+`ObjectProps.strokeLineCap`
+
 #### Defined in
 
 src/shapes/Object/Object.ts:148
@@ -1346,6 +985,10 @@ Corner style of an object's stroke (one of "bevel", "round", "miter")
 
 ```
 
+#### Implementation of
+
+`ObjectProps.strokeLineJoin`
+
 #### Defined in
 
 src/shapes/Object/Object.ts:149
@@ -1363,6 +1006,10 @@ Maximum miter length (used for strokeLineJoin = "miter") of an object's stroke
 ```ts
 4
 ```
+
+#### Implementation of
+
+`ObjectProps.strokeMiterLimit`
 
 #### Defined in
 
@@ -1395,6 +1042,14 @@ false
 false
 ```
 
+#### Implementation of
+
+`ObjectProps.strokeUniform`
+
+#### Inherited from
+
+`AnimatableObject.strokeUniform`
+
 #### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:31
@@ -1412,6 +1067,14 @@ Width of a stroke used to render this object
 ```ts
 1
 ```
+
+#### Implementation of
+
+`ObjectProps.strokeWidth`
+
+#### Inherited from
+
+`AnimatableObject.strokeWidth`
 
 #### Defined in
 
@@ -1433,45 +1096,17 @@ You can change this by setting [originY](../../../../api/interfaces/fabricobject
 0
 ```
 
+#### Implementation of
+
+`ObjectProps.top`
+
+#### Inherited from
+
+`AnimatableObject.top`
+
 #### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:17
-
-***
-
-### touchCornerSize
-
-> **touchCornerSize**: `number`
-
-Size of object's controlling corners when touch interaction is detected
-
-#### Default
-
-```ts
-24
-```
-
-#### Defined in
-
-src/shapes/Object/InteractiveObject.ts:65
-
-***
-
-### transparentCorners
-
-> **transparentCorners**: `boolean`
-
-When true, object's controlling corners are rendered as transparent inside (i.e. stroke instead of fill)
-
-#### Default
-
-```ts
-true
-```
-
-#### Defined in
-
-src/shapes/Object/InteractiveObject.ts:66
 
 ***
 
@@ -1486,6 +1121,10 @@ When set to `false`, an object is not rendered on canvas
 ```ts
 
 ```
+
+#### Implementation of
+
+`ObjectProps.visible`
 
 #### Defined in
 
@@ -1504,6 +1143,14 @@ Object width
 ```ts
 
 ```
+
+#### Implementation of
+
+`ObjectProps.width`
+
+#### Inherited from
+
+`AnimatableObject.width`
 
 #### Defined in
 
@@ -1532,6 +1179,10 @@ src/shapes/Object/Object.ts:185
 
 List of properties to consider for animating colors.
 
+#### Inherited from
+
+`AnimatableObject.colorProperties`
+
 #### Defined in
 
 src/shapes/Object/AnimatableObject.ts:20
@@ -1540,11 +1191,11 @@ src/shapes/Object/AnimatableObject.ts:20
 
 ### ownDefaults
 
-> `static` **ownDefaults**: `Partial`\<[`TClassProperties`](/api/type-aliases/tclassproperties/)\<`InteractiveFabricObject`\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>\>\> = `interactiveObjectDefaultValues`
+> `static` **ownDefaults**: `Partial`\<[`TClassProperties`](/api/type-aliases/tclassproperties/)\<[`BaseFabricObject`](/api/classes/basefabricobject/)\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>\>\> = `fabricObjectDefaultValues`
 
 #### Defined in
 
-src/shapes/Object/InteractiveObject.ts:137
+src/shapes/Object/Object.ts:278
 
 ***
 
@@ -1680,37 +1331,6 @@ src/shapes/Object/Object.ts:805
 
 ***
 
-### \_renderControls()
-
-> **\_renderControls**(`ctx`, `styleOverride`?): `void`
-
-Renders controls and borders for the object
-the context here is not transformed
-
-#### Parameters
-
-• **ctx**: `CanvasRenderingContext2D`
-
-Context to render on
-
-• **styleOverride?**: `TStyleOverride` = `{}`
-
-properties to override the object style
-
-#### Returns
-
-`void`
-
-#### Todo
-
-move to interactivity
-
-#### Defined in
-
-src/shapes/Object/InteractiveObject.ts:434
-
-***
-
 ### \_setClippingProperties()
 
 > **\_setClippingProperties**(`ctx`): `void`
@@ -1737,7 +1357,7 @@ src/shapes/Object/Object.ts:1087
 
 • **ctx**: `CanvasRenderingContext2D`
 
-• **\_\_namedParameters**: `Pick`\<[`FabricObject`](/api/classes/fabricobject/)\<`Props`, `SProps`, `EventSpec`\>, `"fill"`\>
+• **\_\_namedParameters**: `Pick`\<[`BaseFabricObject`](/api/classes/basefabricobject/)\<`Props`, `SProps`, `EventSpec`\>, `"fill"`\>
 
 #### Returns
 
@@ -1757,7 +1377,7 @@ src/shapes/Object/Object.ts:1076
 
 • **ctx**: `CanvasRenderingContext2D`
 
-• **decl**: `Pick`\<[`FabricObject`](/api/classes/fabricobject/)\<`Props`, `SProps`, `EventSpec`\>, `"strokeDashOffset"` \| `"strokeLineCap"` \| `"strokeLineJoin"` \| `"strokeMiterLimit"` \| `"strokeWidth"` \| `"stroke"`\>
+• **decl**: `Pick`\<[`BaseFabricObject`](/api/classes/basefabricobject/)\<`Props`, `SProps`, `EventSpec`\>, `"strokeDashOffset"` \| `"strokeLineCap"` \| `"strokeLineJoin"` \| `"strokeMiterLimit"` \| `"strokeWidth"` \| `"stroke"`\>
 
 #### Returns
 
@@ -1792,57 +1412,6 @@ src/shapes/Object/Object.ts:1541
 
 ***
 
-### \_toSVG()
-
-> **\_toSVG**(`reviver`?): `string`[]
-
-Returns svg representation of an instance
-This function is implemented in each subclass
-This is just because typescript otherwise cryies all the time
-
-#### Parameters
-
-• **reviver?**: [`TSVGReviver`](/api/type-aliases/tsvgreviver/)
-
-#### Returns
-
-`string`[]
-
-an array of strings with the specific svg representation
-of the instance
-
-#### Inherited from
-
-`FabricObjectSVGExportMixin._toSVG`
-
-#### Defined in
-
-src/shapes/Object/FabricObjectSVGExportMixin.ts:120
-
-***
-
-### addPaintOrder()
-
-> **addPaintOrder**(`this`): `string`
-
-#### Parameters
-
-• **this**: `FabricObjectSVGExportMixin` & [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
-
-#### Returns
-
-`string`
-
-#### Inherited from
-
-`FabricObjectSVGExportMixin.addPaintOrder`
-
-#### Defined in
-
-src/shapes/Object/FabricObjectSVGExportMixin.ts:249
-
-***
-
 ### animate()
 
 > **animate**\<`T`\>(`animatable`, `options`?): `Record`\<`string`, [`TAnimation`](/api/namespaces/util/type-aliases/tanimation/)\<`T`\>\>
@@ -1872,6 +1441,10 @@ As object — multiple properties
 object.animate({ left: ..., top: ... });
 object.animate({ left: ..., top: ... }, { duration: ... });
 
+#### Inherited from
+
+`AnimatableObject.animate`
+
 #### Tutorial
 
 [http://fabricjs.com/fabric-intro-part-2#animation](http://fabricjs.com/fabric-intro-part-2#animation)
@@ -1893,28 +1466,13 @@ those never change with zoom or viewport changes.
 
 [`TCornerPoint`](/api/type-aliases/tcornerpoint/)
 
+#### Inherited from
+
+`AnimatableObject.calcACoords`
+
 #### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:415
-
-***
-
-### calcOCoords()
-
-> **calcOCoords**(): `Record`\<`string`, `TOCoord`\>
-
-Calculates the coordinates of the center of each control plus the corners of the control itself
-This basically just delegates to each control positionHandler
-WARNING: changing what is passed to positionHandler is a breaking change, since position handler
-is a public api and should be done just if extremely necessary
-
-#### Returns
-
-`Record`\<`string`, `TOCoord`\>
-
-#### Defined in
-
-src/shapes/Object/InteractiveObject.ts:254
 
 ***
 
@@ -1930,6 +1488,10 @@ object's properties, this matrix does not include the group transformation
 [`TMat2D`](/api/type-aliases/tmat2d/)
 
 transform matrix for the object
+
+#### Inherited from
+
+`AnimatableObject.calcOwnMatrix`
 
 #### Defined in
 
@@ -1957,69 +1519,19 @@ There are some situation in which this is useful to avoid the fake rotation.
 
 transform matrix for the object
 
+#### Inherited from
+
+`AnimatableObject.calcTransformMatrix`
+
 #### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:473
 
 ***
 
-### canDrop()
-
-> **canDrop**(`e`): `boolean`
-
-Override to customize drag and drop behavior
-
-#### Parameters
-
-• **e**: `DragEvent`
-
-#### Returns
-
-`boolean`
-
-true if the object currently dragged can be dropped on the target
-
-#### Defined in
-
-src/shapes/Object/InteractiveObject.ts:700
-
-***
-
-### clearContextTop()
-
-> **clearContextTop**(`restoreManually`?): `undefined` \| `CanvasRenderingContext2D`
-
-Clears the canvas.contextTop in a specific area that corresponds to the object's bounding box
-that is in the canvas.contextContainer.
-This function is used to clear pieces of contextTop where we render ephemeral effects on top of the object.
-Example: blinking cursor text selection, drag effects.
-
-#### Parameters
-
-• **restoreManually?**: `boolean`
-
-When true won't restore the context after clear, in order to draw something else.
-
-#### Returns
-
-`undefined` \| `CanvasRenderingContext2D`
-
-canvas.contextTop that is either still transformed
-with the object transformMatrix, or restored to neutral transform
-
-#### Todo
-
-discuss swapping restoreManually with a renderCallback, but think of async issues
-
-#### Defined in
-
-src/shapes/Object/InteractiveObject.ts:626
-
-***
-
 ### clone()
 
-> **clone**(`propertiesToInclude`?): `Promise`\<[`FabricObject`](/api/classes/fabricobject/)\<`Props`, `SProps`, `EventSpec`\>\>
+> **clone**(`propertiesToInclude`?): `Promise`\<[`BaseFabricObject`](/api/classes/basefabricobject/)\<`Props`, `SProps`, `EventSpec`\>\>
 
 Clones an instance.
 
@@ -2031,7 +1543,7 @@ Any properties that you might want to additionally include in the output
 
 #### Returns
 
-`Promise`\<[`FabricObject`](/api/classes/fabricobject/)\<`Props`, `SProps`, `EventSpec`\>\>
+`Promise`\<[`BaseFabricObject`](/api/classes/basefabricobject/)\<`Props`, `SProps`, `EventSpec`\>\>
 
 #### Defined in
 
@@ -2108,6 +1620,10 @@ Point to check against
 
 true if point is inside the object
 
+#### Inherited from
+
+`AnimatableObject.containsPoint`
+
 #### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:270
@@ -2128,38 +1644,6 @@ override if necessary to dispose artifacts such as `clipPath`
 #### Defined in
 
 src/shapes/Object/Object.ts:1551
-
-***
-
-### drawBorders()
-
-> **drawBorders**(`ctx`, `options`, `styleOverride`?): `void`
-
-Draws borders of an object's bounding box.
-Requires public properties: width, height
-Requires public options: padding, borderColor
-
-#### Parameters
-
-• **ctx**: `CanvasRenderingContext2D`
-
-Context to draw on
-
-• **options**: `Required`\<`Omit`\<[`TComposeMatrixArgs`](/api/namespaces/util/type-aliases/tcomposematrixargs/), `"flipX"` \| `"flipY"`\>\>
-
-object representing current object parameters
-
-• **styleOverride?**: `TStyleOverride`
-
-object to override the object style
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-src/shapes/Object/InteractiveObject.ts:477
 
 ***
 
@@ -2211,65 +1695,6 @@ src/shapes/Object/Object.ts:896
 
 ***
 
-### drawControls()
-
-> **drawControls**(`ctx`, `styleOverride`): `void`
-
-Draws corners of an object's bounding box.
-Requires public properties: width, height
-Requires public options: cornerSize, padding
-Be aware that since fabric 6.0 this function does not call setCoords anymore.
-setCoords needs to be called manually if the object of which we are rendering controls
-is outside the standard selection and transform process.
-
-#### Parameters
-
-• **ctx**: `CanvasRenderingContext2D`
-
-Context to draw on
-
-• **styleOverride**: `Partial`\<`Pick`\<`InteractiveFabricObject`\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>, `"cornerStyle"` \| `"cornerSize"` \| `"cornerColor"` \| `"cornerStrokeColor"` \| `"cornerDashArray"` \| `"transparentCorners"`\>\> = `{}`
-
-object to override the object style
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-src/shapes/Object/InteractiveObject.ts:549
-
-***
-
-### drawControlsConnectingLines()
-
-> **drawControlsConnectingLines**(`ctx`, `size`): `void`
-
-Draws lines from a borders of an object's bounding box to controls that have `withConnection` property set.
-Requires public properties: width, height
-Requires public options: padding, borderColor
-
-#### Parameters
-
-• **ctx**: `CanvasRenderingContext2D`
-
-Context to draw on
-
-• **size**: [`Point`](/api/classes/point/)
-
-object size x = width, y = height
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-src/shapes/Object/InteractiveObject.ts:516
-
-***
-
 ### drawObject()
 
 > **drawObject**(`ctx`, `forClipping`?): `void`
@@ -2300,30 +1725,17 @@ src/shapes/Object/Object.ts:928
 
 > **drawSelectionBackground**(`ctx`): `void`
 
-Draws a colored layer behind the object, inside its selection borders.
-Requires public options: padding, selectionBackgroundColor
-this function is called when the context is transformed
-has checks to be skipped when the object is on a staticCanvas
-
 #### Parameters
 
 • **ctx**: `CanvasRenderingContext2D`
-
-Context to draw on
 
 #### Returns
 
 `void`
 
-#### Todo
-
-evaluate if make this disappear in favor of a pre-render hook for objects
-this was added by Andrea Bogazzi to make possible some feature for work reasons
-it seemed a good option, now is an edge case
-
 #### Defined in
 
-src/shapes/Object/InteractiveObject.ts:374
+src/shapes/Object/Object.ts:787
 
 ***
 
@@ -2335,7 +1747,7 @@ Compare ancestors
 
 #### Type Parameters
 
-• **T** *extends* [`FabricObject`](/api/classes/fabricobject/)\<`Props`, `SProps`, `EventSpec`\>
+• **T** *extends* [`BaseFabricObject`](/api/classes/basefabricobject/)\<`Props`, `SProps`, `EventSpec`\>
 
 #### Parameters
 
@@ -2346,6 +1758,10 @@ Compare ancestors
 `AncestryComparison`
 
 an object that represent the ancestry situation.
+
+#### Inherited from
+
+`AnimatableObject.findCommonAncestors`
 
 #### Defined in
 
@@ -2377,32 +1793,13 @@ Options object
 
 `void`
 
+#### Inherited from
+
+`AnimatableObject.fire`
+
 #### Defined in
 
 src/Observable.ts:159
-
-***
-
-### forEachControl()
-
-> **forEachControl**(`fn`): `void`
-
-Calls a function for each control. The function gets called,
-with the control, the control's key and the object that is calling the iterator
-
-#### Parameters
-
-• **fn**
-
-function to iterate over the controls over
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-src/shapes/Object/InteractiveObject.ts:352
 
 ***
 
@@ -2424,23 +1821,13 @@ Property name
 
 value of a property
 
+#### Inherited from
+
+`AnimatableObject.get`
+
 #### Defined in
 
 src/CommonMethods.ts:59
-
-***
-
-### getActiveControl()
-
-> **getActiveControl**(): `undefined` \| `object`
-
-#### Returns
-
-`undefined` \| `object`
-
-#### Defined in
-
-src/shapes/Object/InteractiveObject.ts:193
 
 ***
 
@@ -2453,6 +1840,10 @@ src/shapes/Object/InteractiveObject.ts:193
 `Ancestors`
 
 ancestors (excluding `ActiveSelection`) from bottom to top
+
+#### Inherited from
+
+`AnimatableObject.getAncestors`
 
 #### Defined in
 
@@ -2473,6 +1864,10 @@ the box is intended as aligned to axis of canvas.
 
 Object with left, top, width, height properties
 
+#### Inherited from
+
+`AnimatableObject.getBoundingRect`
+
 #### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:331
@@ -2486,6 +1881,10 @@ src/shapes/Object/ObjectGeometry.ts:331
 #### Returns
 
 `number`
+
+#### Inherited from
+
+`AnimatableObject.getCanvasRetinaScaling`
 
 #### Defined in
 
@@ -2503,6 +1902,10 @@ Returns the center coordinates of the object relative to canvas
 
 [`Point`](/api/classes/point/)
 
+#### Inherited from
+
+`AnimatableObject.getCenterPoint`
+
 #### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:177
@@ -2518,6 +1921,10 @@ src/shapes/Object/ObjectOrigin.ts:177
 [`Point`](/api/classes/point/)[]
 
 [tl, tr, br, bl] in the scene plane
+
+#### Inherited from
+
+`AnimatableObject.getCoords`
 
 #### Defined in
 
@@ -2577,6 +1984,10 @@ Vertical origin: 'top', 'center' or 'bottom'
 
 [`Point`](/api/classes/point/)
 
+#### Inherited from
+
+`AnimatableObject.getPointByOrigin`
+
 #### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:202
@@ -2593,6 +2004,10 @@ Returns the center coordinates of the object relative to it's parent
 
 [`Point`](/api/classes/point/)
 
+#### Inherited from
+
+`AnimatableObject.getRelativeCenterPoint`
+
 #### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:188
@@ -2608,7 +2023,11 @@ src/shapes/Object/ObjectOrigin.ts:188
 `number`
 
 x position according to object's [originX](/api/api/classes/fabricobject/originx/#originx) property in parent's coordinate plane\
-if parent is canvas then this property is identical to [getX](/api/api/classes/fabricobject/getx/#getx)
+if parent is canvas then this property is identical to [getX](/api/api/classes/basefabricobject/getx/#getx)
+
+#### Inherited from
+
+`AnimatableObject.getRelativeX`
 
 #### Defined in
 
@@ -2626,6 +2045,10 @@ src/shapes/Object/ObjectGeometry.ts:103
 
 x,y position according to object's [originX](/api/api/classes/fabricobject/originx/#originx) [originY](/api/api/classes/fabricobject/originy/#originy) properties in parent's coordinate plane
 
+#### Inherited from
+
+`AnimatableObject.getRelativeXY`
+
 #### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:164
@@ -2641,7 +2064,11 @@ src/shapes/Object/ObjectGeometry.ts:164
 `number`
 
 y position according to object's [originY](/api/api/classes/fabricobject/originy/#originy) property in parent's coordinate plane\
-if parent is canvas then this property is identical to [getY](/api/api/classes/fabricobject/gety/#gety)
+if parent is canvas then this property is identical to [getY](/api/api/classes/basefabricobject/gety/#gety)
+
+#### Inherited from
+
+`AnimatableObject.getRelativeY`
 
 #### Defined in
 
@@ -2660,6 +2087,10 @@ Returns height of an object bounding box counting transformations
 `number`
 
 height value
+
+#### Inherited from
+
+`AnimatableObject.getScaledHeight`
 
 #### Todo
 
@@ -2683,6 +2114,10 @@ Returns width of an object's bounding box counting transformations
 
 width value
 
+#### Inherited from
+
+`AnimatableObject.getScaledWidth`
+
 #### Todo
 
 shouldn't this account for group transform and return the actual size in canvas coordinate plane?
@@ -2690,110 +2125,6 @@ shouldn't this account for group transform and return the actual size in canvas 
 #### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:340
-
-***
-
-### getSvgCommons()
-
-> **getSvgCommons**(`this`): `string`
-
-Returns id attribute for svg output
-
-#### Parameters
-
-• **this**: `FabricObjectSVGExportMixin` & [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\> & `object`
-
-#### Returns
-
-`string`
-
-#### Inherited from
-
-`FabricObjectSVGExportMixin.getSvgCommons`
-
-#### Defined in
-
-src/shapes/Object/FabricObjectSVGExportMixin.ts:84
-
-***
-
-### getSvgFilter()
-
-> **getSvgFilter**(`this`): `string`
-
-Returns filter for svg shadow
-
-#### Parameters
-
-• **this**: `FabricObjectSVGExportMixin` & [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
-
-#### Returns
-
-`string`
-
-#### Inherited from
-
-`FabricObjectSVGExportMixin.getSvgFilter`
-
-#### Defined in
-
-src/shapes/Object/FabricObjectSVGExportMixin.ts:76
-
-***
-
-### getSvgStyles()
-
-> **getSvgStyles**(`this`, `skipShadow`?): `string`
-
-Returns styles-string for svg-export
-
-#### Parameters
-
-• **this**: `FabricObjectSVGExportMixin` & [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
-
-• **skipShadow?**: `boolean`
-
-a boolean to skip shadow filter output
-
-#### Returns
-
-`string`
-
-#### Inherited from
-
-`FabricObjectSVGExportMixin.getSvgStyles`
-
-#### Defined in
-
-src/shapes/Object/FabricObjectSVGExportMixin.ts:21
-
-***
-
-### getSvgTransform()
-
-> **getSvgTransform**(`this`, `full`?, `additionalTransform`?): `string`
-
-Returns transform-string for svg-export
-
-#### Parameters
-
-• **this**: `FabricObjectSVGExportMixin` & [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
-
-• **full?**: `boolean`
-
-• **additionalTransform?**: `string` = `''`
-
-#### Returns
-
-`string`
-
-#### Inherited from
-
-`FabricObjectSVGExportMixin.getSvgTransform`
-
-#### Defined in
-
-src/shapes/Object/FabricObjectSVGExportMixin.ts:103
 
 ***
 
@@ -2806,6 +2137,10 @@ Returns the object angle relative to canvas counting also the group property
 #### Returns
 
 [`TDegree`](/api/type-aliases/tdegree/)
+
+#### Inherited from
+
+`AnimatableObject.getTotalAngle`
 
 #### Defined in
 
@@ -2841,6 +2176,10 @@ Retrieves viewportTransform from Object's canvas if available
 
 [`TMat2D`](/api/type-aliases/tmat2d/)
 
+#### Inherited from
+
+`AnimatableObject.getViewportTransform`
+
 #### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:406
@@ -2856,6 +2195,10 @@ src/shapes/Object/ObjectGeometry.ts:406
 `number`
 
 x position according to object's [originX](/api/api/classes/fabricobject/originx/#originx) property in canvas coordinate plane
+
+#### Inherited from
+
+`AnimatableObject.getX`
 
 #### Defined in
 
@@ -2873,6 +2216,10 @@ src/shapes/Object/ObjectGeometry.ts:74
 
 x position according to object's [originX](/api/api/classes/fabricobject/originx/#originx) [originY](/api/api/classes/fabricobject/originy/#originy) properties in canvas coordinate plane
 
+#### Inherited from
+
+`AnimatableObject.getXY`
+
 #### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:134
@@ -2889,6 +2236,10 @@ src/shapes/Object/ObjectGeometry.ts:134
 
 y position according to object's [originY](/api/api/classes/fabricobject/originy/#originy) property in canvas coordinate plane
 
+#### Inherited from
+
+`AnimatableObject.getY`
+
 #### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:88
@@ -2901,7 +2252,7 @@ src/shapes/Object/ObjectGeometry.ts:88
 
 #### Type Parameters
 
-• **T** *extends* [`FabricObject`](/api/classes/fabricobject/)\<`Props`, `SProps`, `EventSpec`\>
+• **T** *extends* [`BaseFabricObject`](/api/classes/basefabricobject/)\<`Props`, `SProps`, `EventSpec`\>
 
 #### Parameters
 
@@ -2910,6 +2261,10 @@ src/shapes/Object/ObjectGeometry.ts:88
 #### Returns
 
 `boolean`
+
+#### Inherited from
+
+`AnimatableObject.hasCommonAncestors`
 
 #### Defined in
 
@@ -2989,6 +2344,10 @@ Object to test
 
 true if object intersects with another object
 
+#### Inherited from
+
+`AnimatableObject.intersectsWithObject`
+
 #### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:220
@@ -3010,6 +2369,10 @@ Checks if object intersects with the scene rect formed by tl and br
 #### Returns
 
 `boolean`
+
+#### Inherited from
+
+`AnimatableObject.intersectsWithRect`
 
 #### Defined in
 
@@ -3058,6 +2421,10 @@ Object to test
 
 true if object is fully contained within area of another object
 
+#### Inherited from
+
+`AnimatableObject.isContainedWithinObject`
+
 #### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:239
@@ -3080,34 +2447,13 @@ Checks if object is fully contained within the scene rect formed by tl and br
 
 `boolean`
 
+#### Inherited from
+
+`AnimatableObject.isContainedWithinRect`
+
 #### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:247
-
-***
-
-### isControlVisible()
-
-> **isControlVisible**(`controlKey`): `boolean`
-
-Returns true if the specified control is visible, false otherwise.
-
-#### Parameters
-
-• **controlKey**: `string`
-
-The key of the control. Possible values are usually 'tl', 'tr', 'br', 'bl', 'ml', 'mt', 'mr', 'mb', 'mtr',
-but since the control api allow for any control name, can be any string.
-
-#### Returns
-
-`boolean`
-
-true if the specified control is visible, false otherwise
-
-#### Defined in
-
-src/shapes/Object/InteractiveObject.ts:583
 
 ***
 
@@ -3126,6 +2472,10 @@ Should be used instead of [Group.contains](../../../../api/classes/group/#contai
 
 `boolean`
 
+#### Inherited from
+
+`AnimatableObject.isDescendantOf`
+
 #### Defined in
 
 src/shapes/Object/StackedObject.ts:46
@@ -3138,7 +2488,7 @@ src/shapes/Object/StackedObject.ts:46
 
 #### Type Parameters
 
-• **T** *extends* [`FabricObject`](/api/classes/fabricobject/)\<`Props`, `SProps`, `EventSpec`\>
+• **T** *extends* [`BaseFabricObject`](/api/classes/basefabricobject/)\<`Props`, `SProps`, `EventSpec`\>
 
 #### Parameters
 
@@ -3151,6 +2501,10 @@ object to compare against
 `undefined` \| `boolean`
 
 if objects do not share a common ancestor or they are strictly equal it is impossible to determine which is in front of the other; in such cases the function returns `undefined`
+
+#### Inherited from
+
+`AnimatableObject.isInFrontOf`
 
 #### Defined in
 
@@ -3185,6 +2539,10 @@ the check is done stopping at first point that appears on screen
 
 true if object is fully or partially contained within canvas
 
+#### Inherited from
+
+`AnimatableObject.isOnScreen`
+
 #### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:279
@@ -3207,6 +2565,10 @@ src/shapes/Object/ObjectGeometry.ts:279
 
 `boolean`
 
+#### Inherited from
+
+`AnimatableObject.isOverlapping`
+
 #### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:257
@@ -3224,6 +2586,10 @@ Checks if object is partially contained within the canvas with current viewportT
 `boolean`
 
 true if object is partially contained within canvas
+
+#### Inherited from
+
+`AnimatableObject.isPartiallyOnScreen`
 
 #### Defined in
 
@@ -3299,6 +2665,10 @@ event listener to unsubscribe
 
 `void`
 
+##### Inherited from
+
+`AnimatableObject.off`
+
 ##### Defined in
 
 src/Observable.ts:120
@@ -3319,6 +2689,10 @@ handlers key/value pairs (eg. {'after:render': handler, 'selection:cleared': han
 
 `void`
 
+##### Inherited from
+
+`AnimatableObject.off`
+
 ##### Defined in
 
 src/Observable.ts:125
@@ -3332,6 +2706,10 @@ unsubscribe all event listeners
 ##### Returns
 
 `void`
+
+##### Inherited from
+
+`AnimatableObject.off`
 
 ##### Defined in
 
@@ -3369,6 +2747,10 @@ Function that receives a notification when an event of the specified type occurs
 
 disposer
 
+##### Inherited from
+
+`AnimatableObject.on`
+
 ##### Alias
 
 on
@@ -3389,91 +2771,13 @@ src/Observable.ts:23
 
 `VoidFunction`
 
+##### Inherited from
+
+`AnimatableObject.on`
+
 ##### Defined in
 
 src/Observable.ts:27
-
-***
-
-### onDeselect()
-
-> **onDeselect**(`options`?): `boolean`
-
-This callback function is called every time _discardActiveObject or _setActiveObject
-try to to deselect this object. If the function returns true, the process is cancelled
-
-#### Parameters
-
-• **options?**
-
-options sent from the upper functions
-
-• **options.e?**: [`TPointerEvent`](/api/type-aliases/tpointerevent/)
-
-event if the process is generated by an event
-
-• **options.object?**: `InteractiveFabricObject`\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
-
-next object we are setting as active, and reason why
-this is being deselected
-
-#### Returns
-
-`boolean`
-
-#### Defined in
-
-src/shapes/Object/InteractiveObject.ts:657
-
-***
-
-### onDragStart()
-
-> **onDragStart**(`e`): `boolean`
-
-Override to customize Drag behavior\
-Fired once a drag session has started
-
-#### Parameters
-
-• **e**: `DragEvent`
-
-#### Returns
-
-`boolean`
-
-true to handle the drag event
-
-#### Defined in
-
-src/shapes/Object/InteractiveObject.ts:690
-
-***
-
-### onSelect()
-
-> **onSelect**(`options`?): `boolean`
-
-This callback function is called every time _discardActiveObject or _setActiveObject
-try to to select this object. If the function returns true, the process is cancelled
-
-#### Parameters
-
-• **options?**
-
-options sent from the upper functions
-
-• **options.e?**: [`TPointerEvent`](/api/type-aliases/tpointerevent/)
-
-event if the process is generated by an event
-
-#### Returns
-
-`boolean`
-
-#### Defined in
-
-src/shapes/Object/InteractiveObject.ts:671
 
 ***
 
@@ -3507,6 +2811,10 @@ Function that receives a notification when an event of the specified type occurs
 
 disposer
 
+##### Inherited from
+
+`AnimatableObject.once`
+
 ##### Alias
 
 once
@@ -3526,6 +2834,10 @@ src/Observable.ts:62
 ##### Returns
 
 `VoidFunction`
+
+##### Inherited from
+
+`AnimatableObject.once`
 
 ##### Defined in
 
@@ -3573,51 +2885,6 @@ src/shapes/Object/Object.ts:791
 
 ***
 
-### renderDragSourceEffect()
-
-> **renderDragSourceEffect**(`e`): `void`
-
-Override to customize drag and drop behavior
-render a specific effect when an object is the source of a drag event
-example: render the selection status for the part of text that is being dragged from a text object
-
-#### Parameters
-
-• **e**: `DragEvent`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-src/shapes/Object/InteractiveObject.ts:711
-
-***
-
-### renderDropTargetEffect()
-
-> **renderDropTargetEffect**(`e`): `void`
-
-Override to customize drag and drop behavior
-render a specific effect when an object is the target of a drag event
-used to show that the underly object can receive a drop, or to show how the
-object will change when dropping. example: show the cursor where the text is about to be dropped
-
-#### Parameters
-
-• **e**: `DragEvent`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-src/shapes/Object/InteractiveObject.ts:723
-
-***
-
 ### rotate()
 
 > **rotate**(`angle`): `void`
@@ -3656,6 +2923,10 @@ Scale factor
 
 `void`
 
+#### Inherited from
+
+`AnimatableObject.scale`
+
 #### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:358
@@ -3677,6 +2948,10 @@ New height value
 #### Returns
 
 `void`
+
+#### Inherited from
+
+`AnimatableObject.scaleToHeight`
 
 #### Defined in
 
@@ -3700,6 +2975,10 @@ New width value
 
 `void`
 
+#### Inherited from
+
+`AnimatableObject.scaleToWidth`
+
 #### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:369
@@ -3708,7 +2987,7 @@ src/shapes/Object/ObjectGeometry.ts:369
 
 ### set()
 
-> **set**(`key`, `value`?): [`FabricObject`](/api/classes/fabricobject/)\<`Props`, `SProps`, `EventSpec`\>
+> **set**(`key`, `value`?): [`BaseFabricObject`](/api/classes/basefabricobject/)\<`Props`, `SProps`, `EventSpec`\>
 
 Sets property to a given value. When changing position/dimension -related properties (left, top, scale, angle, etc.) `set` does not update position of object's borders/controls. If you need to update those, call `setCoords()`.
 
@@ -3724,7 +3003,11 @@ Property value (if function, the value is passed into it and its return value is
 
 #### Returns
 
-[`FabricObject`](/api/classes/fabricobject/)\<`Props`, `SProps`, `EventSpec`\>
+[`BaseFabricObject`](/api/classes/basefabricobject/)\<`Props`, `SProps`, `EventSpec`\>
+
+#### Inherited from
+
+`AnimatableObject.set`
 
 #### Defined in
 
@@ -3732,75 +3015,25 @@ src/CommonMethods.ts:29
 
 ***
 
-### setControlVisible()
-
-> **setControlVisible**(`controlKey`, `visible`): `void`
-
-Sets the visibility of the specified control.
-please do not use.
-
-#### Parameters
-
-• **controlKey**: `string`
-
-The key of the control. Possible values are 'tl', 'tr', 'br', 'bl', 'ml', 'mt', 'mr', 'mb', 'mtr'.
-but since the control api allow for any control name, can be any string.
-
-• **visible**: `boolean`
-
-true to set the specified control visible, false otherwise
-
-#### Returns
-
-`void`
-
-#### Todo
-
-discuss this overlap of priority here with the team. Andrea Bogazzi for details
-
-#### Defined in
-
-src/shapes/Object/InteractiveObject.ts:598
-
-***
-
-### setControlsVisibility()
-
-> **setControlsVisibility**(`options`?): `void`
-
-Sets the visibility state of object controls, this is just a bulk option for setControlVisible;
-
-#### Parameters
-
-• **options?**: `Record`\<`string`, `boolean`\> = `{}`
-
-with an optional key per control
-example: {Boolean} [options.bl] true to enable the bottom-left control, false to disable it
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-src/shapes/Object/InteractiveObject.ts:610
-
-***
-
 ### setCoords()
 
 > **setCoords**(): `void`
 
-set controls' coordinates as well
+Sets corner and controls position coordinates based on current angle, width and height, left and top.
+aCoords are used to quickly find an object on the canvas.
 See [https://github.com/fabricjs/fabric.js/wiki/When-to-call-setCoords](https://github.com/fabricjs/fabric.js/wiki/When-to-call-setCoords) and [http://fabricjs.com/fabric-gotchas](http://fabricjs.com/fabric-gotchas)
 
 #### Returns
 
 `void`
 
+#### Inherited from
+
+`AnimatableObject.setCoords`
+
 #### Defined in
 
-src/shapes/Object/InteractiveObject.ts:342
+src/shapes/Object/ObjectGeometry.ts:437
 
 ***
 
@@ -3847,6 +3080,10 @@ Vertical origin: 'top', 'center' or 'bottom'
 
 `void`
 
+#### Inherited from
+
+`AnimatableObject.setPositionByOrigin`
+
 #### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:217
@@ -3862,11 +3099,15 @@ src/shapes/Object/ObjectOrigin.ts:217
 • **value**: `number`
 
 x position according to object's [originX](../../../../api/classes/fabricobject/#originx) property in parent's coordinate plane\
-if parent is canvas then this method is identical to [setX](../../../../api/classes/fabricobject/#setx)
+if parent is canvas then this method is identical to [setX](../../../../api/classes/basefabricobject/#setx)
 
 #### Returns
 
 `void`
+
+#### Inherited from
+
+`AnimatableObject.setRelativeX`
 
 #### Defined in
 
@@ -3878,7 +3119,7 @@ src/shapes/Object/ObjectGeometry.ts:111
 
 > **setRelativeXY**(`point`, `originX`?, `originY`?): `void`
 
-As [setXY](../../../../api/classes/fabricobject/#setxy), but in current parent's coordinate plane (the current group if any or the canvas)
+As [setXY](../../../../api/classes/basefabricobject/#setxy), but in current parent's coordinate plane (the current group if any or the canvas)
 
 #### Parameters
 
@@ -3898,6 +3139,10 @@ Vertical origin: 'top', 'center' or 'bottom'
 
 `void`
 
+#### Inherited from
+
+`AnimatableObject.setRelativeXY`
+
 #### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:174
@@ -3913,11 +3158,15 @@ src/shapes/Object/ObjectGeometry.ts:174
 • **value**: `number`
 
 y position according to object's [originY](../../../../api/classes/fabricobject/#originy) property in parent's coordinate plane\
-if parent is canvas then this property is identical to [setY](../../../../api/classes/fabricobject/#sety)
+if parent is canvas then this property is identical to [setY](../../../../api/classes/basefabricobject/#sety)
 
 #### Returns
 
 `void`
+
+#### Inherited from
+
+`AnimatableObject.setRelativeY`
 
 #### Defined in
 
@@ -3938,6 +3187,10 @@ x position according to object's [originX](../../../../api/classes/fabricobject/
 #### Returns
 
 `void`
+
+#### Inherited from
+
+`AnimatableObject.setX`
 
 #### Defined in
 
@@ -3971,6 +3224,10 @@ Vertical origin: 'top', 'center' or 'bottom'
 
 `void`
 
+#### Inherited from
+
+`AnimatableObject.setXY`
+
 #### Example
 
 ```ts
@@ -3996,6 +3253,10 @@ y position according to object's [originY](../../../../api/classes/fabricobject/
 #### Returns
 
 `void`
+
+#### Inherited from
+
+`AnimatableObject.setY`
 
 #### Defined in
 
@@ -4024,55 +3285,6 @@ src/shapes/Object/Object.ts:872
 
 ***
 
-### shouldStartDragging()
-
-> **shouldStartDragging**(`e`): `boolean`
-
-Override to customize Drag behavior
-Fired from Canvas#_onMouseMove
-
-#### Parameters
-
-• **e**: [`TPointerEvent`](/api/type-aliases/tpointerevent/)
-
-#### Returns
-
-`boolean`
-
-true in order for the window to start a drag session
-
-#### Defined in
-
-src/shapes/Object/InteractiveObject.ts:681
-
-***
-
-### strokeBorders()
-
-> **strokeBorders**(`ctx`, `size`): `void`
-
-override this function in order to customize the drawing of the control box, e.g. rounded corners, different border style.
-
-#### Parameters
-
-• **ctx**: `CanvasRenderingContext2D`
-
-ctx is rotated and translated so that (0,0) is at object's center
-
-• **size**: [`Point`](/api/classes/point/)
-
-the control box size used
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-src/shapes/Object/InteractiveObject.ts:398
-
-***
-
 ### toCanvasElement()
 
 > **toCanvasElement**(`options`): `HTMLCanvasElement`
@@ -4094,36 +3306,6 @@ Returns DOM element <canvas> with the FabricObject
 #### Defined in
 
 src/shapes/Object/Object.ts:1363
-
-***
-
-### toClipPathSVG()
-
-> **toClipPathSVG**(`this`, `reviver`?): `string`
-
-Returns svg clipPath representation of an instance
-
-#### Parameters
-
-• **this**: `FabricObjectSVGExportMixin` & [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
-
-• **reviver?**: [`TSVGReviver`](/api/type-aliases/tsvgreviver/)
-
-Method for further parsing of svg representation.
-
-#### Returns
-
-`string`
-
-svg representation of an instance
-
-#### Inherited from
-
-`FabricObjectSVGExportMixin.toClipPathSVG`
-
-#### Defined in
-
-src/shapes/Object/FabricObjectSVGExportMixin.ts:143
 
 ***
 
@@ -4217,36 +3399,6 @@ src/shapes/Object/Object.ts:522
 
 ***
 
-### toSVG()
-
-> **toSVG**(`this`, `reviver`?): `string`
-
-Returns svg representation of an instance
-
-#### Parameters
-
-• **this**: `FabricObjectSVGExportMixin` & [`FabricObject`](/api/classes/fabricobject/)\<`Partial`\<[`FabricObjectProps`](/api/interfaces/fabricobjectprops/)\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
-
-• **reviver?**: [`TSVGReviver`](/api/type-aliases/tsvgreviver/)
-
-Method for further parsing of svg representation.
-
-#### Returns
-
-`string`
-
-svg representation of an instance
-
-#### Inherited from
-
-`FabricObjectSVGExportMixin.toSVG`
-
-#### Defined in
-
-src/shapes/Object/FabricObjectSVGExportMixin.ts:129
-
-***
-
 ### toString()
 
 > **toString**(): `string`
@@ -4265,7 +3417,7 @@ src/shapes/Object/Object.ts:627
 
 ### toggle()
 
-> **toggle**(`property`): [`FabricObject`](/api/classes/fabricobject/)\<`Props`, `SProps`, `EventSpec`\>
+> **toggle**(`property`): [`BaseFabricObject`](/api/classes/basefabricobject/)\<`Props`, `SProps`, `EventSpec`\>
 
 Toggles specified property from `true` to `false` or from `false` to `true`
 
@@ -4277,7 +3429,11 @@ Property to toggle
 
 #### Returns
 
-[`FabricObject`](/api/classes/fabricobject/)\<`Props`, `SProps`, `EventSpec`\>
+[`BaseFabricObject`](/api/classes/basefabricobject/)\<`Props`, `SProps`, `EventSpec`\>
+
+#### Inherited from
+
+`AnimatableObject.toggle`
 
 #### Defined in
 
@@ -4319,6 +3475,10 @@ src/shapes/Object/Object.ts:509
 
 `number`[]
 
+#### Inherited from
+
+`AnimatableObject.transformMatrixKey`
+
 #### Defined in
 
 src/shapes/Object/ObjectGeometry.ts:441
@@ -4348,6 +3508,10 @@ Vertical origin: 'top', 'center' or 'bottom'
 #### Returns
 
 [`Point`](/api/classes/point/)
+
+#### Inherited from
+
+`AnimatableObject.translateToCenterPoint`
 
 #### Defined in
 
@@ -4387,6 +3551,10 @@ Vertical origin: 'top', 'center' or 'bottom'
 
 [`Point`](/api/classes/point/)
 
+#### Inherited from
+
+`AnimatableObject.translateToGivenOrigin`
+
 #### Defined in
 
 src/shapes/Object/ObjectOrigin.ts:102
@@ -4416,6 +3584,10 @@ Vertical origin: 'top', 'center' or 'bottom'
 #### Returns
 
 [`Point`](/api/classes/point/)
+
+#### Inherited from
+
+`AnimatableObject.translateToOriginPoint`
 
 #### Defined in
 
@@ -4468,28 +3640,6 @@ src/shapes/Object/Object.ts:1570
 
 ***
 
-### createControls()
-
-> `static` **createControls**(): `object`
-
-Creates the default control object.
-If you prefer to have on instance of controls shared among all objects
-make this function return an empty object and add controls to the ownDefaults
-
-#### Returns
-
-`object`
-
-##### controls
-
-> **controls**: `Record`\<`string`, [`Control`](/api/classes/control/)\>
-
-#### Defined in
-
-src/shapes/Object/InteractiveObject.ts:166
-
-***
-
 ### fromObject()
 
 > `static` **fromObject**\<`T`\>(`object`, `options`?): `Promise`\<[`BaseFabricObject`](/api/classes/basefabricobject/)\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>\>
@@ -4524,4 +3674,4 @@ src/shapes/Object/Object.ts:1597
 
 #### Defined in
 
-src/shapes/Object/InteractiveObject.ts:139
+src/shapes/Object/Object.ts:280

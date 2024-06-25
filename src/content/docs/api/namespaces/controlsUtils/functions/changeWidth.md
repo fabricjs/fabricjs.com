@@ -23,4 +23,4 @@ title: "changeWidth"
 
 ## Defined in
 
-src/controls/changeWidth.ts:50
+src/controls/changeWidth.ts:53

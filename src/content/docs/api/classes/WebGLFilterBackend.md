@@ -145,7 +145,7 @@ to the provided target canvas.
 
 #### Parameters
 
-• **filters**: [`BaseFilter`](/api/namespaces/filters/classes/basefilter/)[]
+• **filters**: [`BaseFilter`](/api/namespaces/filters/classes/basefilter/)\<`string`, `Record`\<`string`, `any`\>\>[]
 
 The filters to apply.
 

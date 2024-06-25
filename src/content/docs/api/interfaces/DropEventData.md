@@ -22,7 +22,7 @@ Kept for compatibility
 
 #### Defined in
 
-src/EventTypeDefs.ts:189
+src/EventTypeDefs.ts:191
 
 ***
 
@@ -36,7 +36,7 @@ src/EventTypeDefs.ts:189
 
 #### Defined in
 
-src/EventTypeDefs.ts:172
+src/EventTypeDefs.ts:174
 
 ***
 
@@ -50,7 +50,7 @@ src/EventTypeDefs.ts:172
 
 #### Defined in
 
-src/EventTypeDefs.ts:173
+src/EventTypeDefs.ts:175
 
 ***
 
@@ -64,7 +64,7 @@ src/EventTypeDefs.ts:173
 
 #### Defined in
 
-src/EventTypeDefs.ts:171
+src/EventTypeDefs.ts:173
 
 ***
 
@@ -78,7 +78,7 @@ src/EventTypeDefs.ts:171
 
 #### Defined in
 
-src/EventTypeDefs.ts:174
+src/EventTypeDefs.ts:176
 
 ***
 
@@ -107,7 +107,7 @@ Kept for compatibility
 
 #### Defined in
 
-src/EventTypeDefs.ts:183
+src/EventTypeDefs.ts:185
 
 ***
 
@@ -117,7 +117,7 @@ src/EventTypeDefs.ts:183
 
 #### Defined in
 
-src/EventTypeDefs.ts:190
+src/EventTypeDefs.ts:192
 
 ***
 
@@ -131,7 +131,7 @@ src/EventTypeDefs.ts:190
 
 #### Defined in
 
-src/EventTypeDefs.ts:170
+src/EventTypeDefs.ts:172
 
 ***
 
@@ -145,7 +145,7 @@ src/EventTypeDefs.ts:170
 
 #### Defined in
 
-src/EventTypeDefs.ts:169
+src/EventTypeDefs.ts:171
 
 ***
 
@@ -155,4 +155,4 @@ src/EventTypeDefs.ts:169
 
 #### Defined in
 
-src/EventTypeDefs.ts:191
+src/EventTypeDefs.ts:193

@@ -18,7 +18,7 @@ title: "MiscEvents"
 
 #### Defined in
 
-src/EventTypeDefs.ts:266
+src/EventTypeDefs.ts:268
 
 ***
 
@@ -28,4 +28,4 @@ src/EventTypeDefs.ts:266
 
 #### Defined in
 
-src/EventTypeDefs.ts:265
+src/EventTypeDefs.ts:267

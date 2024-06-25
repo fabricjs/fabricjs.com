@@ -15,6 +15,7 @@ title: "fabric"
 
 - [ActiveSelection](/api/classes/activeselection/)
 - [BaseBrush](/api/classes/basebrush/)
+- [BaseFabricObject](/api/classes/basefabricobject/)
 - [Canvas](/api/classes/canvas/)
 - [Canvas2dFilterBackend](/api/classes/canvas2dfilterbackend/)
 - [CanvasDOMManager](/api/classes/canvasdommanager/)
@@ -163,6 +164,7 @@ title: "fabric"
 - [TFabricObjectProps](/api/type-aliases/tfabricobjectprops/)
 - [TFiller](/api/type-aliases/tfiller/)
 - [TMat2D](/api/type-aliases/tmat2d/)
+- [TMatColorMatrix](/api/type-aliases/tmatcolormatrix/)
 - [TModificationEvents](/api/type-aliases/tmodificationevents/)
 - [TOptionalModifierKey](/api/type-aliases/toptionalmodifierkey/)
 - [TOptions](/api/type-aliases/toptions/)

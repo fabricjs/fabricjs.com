@@ -17,8 +17,7 @@ const filter = new BlendColor({
 
 const filter = new BlendImage({
  image: fabricImageObject,
- mode: 'multiply',
- alpha: 0.5
+ mode: 'multiply'
 });
 object.filters.push(filter);
 object.applyFilters();
@@ -27,7 +26,7 @@ canvas.renderAll();
 
 ## Extends
 
-- [`BaseFilter`](/api/namespaces/filters/classes/basefilter/)
+- [`BaseFilter`](/api/namespaces/filters/classes/basefilter/)\<`"BlendColor"`, `BlendColorOwnProps`\>
 
 ## Constructors
 
@@ -39,7 +38,7 @@ Constructor
 
 #### Parameters
 
-• **options?**: `Record`\<`string`, `any`\> = `{}`
+• **options?**: `object` & `Partial`\<`BlendColorOwnProps`\> & `Record`\<`string`, `any`\> = `{}`
 
 Options object
 
@@ -53,7 +52,7 @@ Options object
 
 #### Defined in
 
-src/filters/BaseFilter.ts:58
+src/filters/BaseFilter.ts:56
 
 ## Properties
 
@@ -71,7 +70,7 @@ alpha value. represent the strength of the blend color operation.
 
 #### Defined in
 
-src/filters/BlendColor.ts:65
+src/filters/BlendColor.ts:68
 
 ***
 
@@ -90,7 +89,7 @@ gives always strong result.
 
 #### Defined in
 
-src/filters/BlendColor.ts:50
+src/filters/BlendColor.ts:54
 
 ***
 
@@ -109,13 +108,13 @@ darken, lighten, overlay, exclusion, tint.
 
 #### Defined in
 
-src/filters/BlendColor.ts:58
+src/filters/BlendColor.ts:62
 
 ***
 
 ### defaults
 
-> `static` **defaults**: `Partial`\<[`TClassProperties`](/api/type-aliases/tclassproperties/)\<[`BlendColor`](/api/namespaces/filters/classes/blendcolor/)\>\> = `blendColorDefaultValues`
+> `static` **defaults**: `BlendColorOwnProps` = `blendColorDefaultValues`
 
 #### Overrides
 
@@ -123,7 +122,7 @@ src/filters/BlendColor.ts:58
 
 #### Defined in
 
-src/filters/BlendColor.ts:67
+src/filters/BlendColor.ts:70
 
 ***
 
@@ -143,13 +142,31 @@ to avoid doing that.
 
 #### Defined in
 
-src/filters/BlendColor.ts:69
+src/filters/BlendColor.ts:72
+
+***
+
+### uniformLocations
+
+> `static` **uniformLocations**: `string`[]
+
+Contains the uniform locations for the fragment shader.
+uStepW and uStepH are handled by the BaseFilter, each filter class
+needs to specify all the one that are needed
+
+#### Overrides
+
+[`BaseFilter`](/api/namespaces/filters/classes/basefilter/).[`uniformLocations`](/api/namespaces/filters/classes/basefilter/#uniformlocations)
+
+#### Defined in
+
+src/filters/BlendColor.ts:74
 
 ## Accessors
 
 ### type
 
-> `get` **type**(): `string`
+> `get` **type**(): `Name`
 
 Filter type
 
@@ -161,7 +178,7 @@ Filter type
 
 #### Returns
 
-`string`
+`Name`
 
 #### Inherited from
 
@@ -169,7 +186,7 @@ Filter type
 
 #### Defined in
 
-src/filters/BaseFilter.ts:25
+src/filters/BaseFilter.ts:30
 
 ## Methods
 
@@ -191,7 +208,7 @@ src/filters/BaseFilter.ts:25
 
 #### Defined in
 
-src/filters/BaseFilter.ts:190
+src/filters/BaseFilter.ts:204
 
 ***
 
@@ -213,7 +230,7 @@ src/filters/BaseFilter.ts:190
 
 #### Defined in
 
-src/filters/BaseFilter.ts:217
+src/filters/BaseFilter.ts:231
 
 ***
 
@@ -239,7 +256,7 @@ Determines whether to use WebGL or Canvas2D based on the options.webgl flag.
 
 #### Defined in
 
-src/filters/BaseFilter.ts:265
+src/filters/BaseFilter.ts:264
 
 ***
 
@@ -263,7 +280,7 @@ Apply the Blend operation to a Uint8ClampedArray representing the pixels of an i
 
 #### Defined in
 
-src/filters/BlendColor.ts:97
+src/filters/BlendColor.ts:102
 
 ***
 
@@ -287,7 +304,7 @@ Apply this filter using webgl.
 
 #### Defined in
 
-src/filters/BaseFilter.ts:315
+src/filters/BaseFilter.ts:314
 
 ***
 
@@ -313,7 +330,7 @@ src/filters/BaseFilter.ts:315
 
 #### Defined in
 
-src/filters/BaseFilter.ts:334
+src/filters/BaseFilter.ts:333
 
 ***
 
@@ -338,7 +355,7 @@ remember that options.targetCanvas is available for use till end of chain.
 
 #### Defined in
 
-src/filters/BaseFilter.ts:380
+src/filters/BaseFilter.ts:369
 
 ***
 
@@ -384,7 +401,7 @@ vertexShader source for compilation
 
 #### Defined in
 
-src/filters/BaseFilter.ts:77
+src/filters/BaseFilter.ts:82
 
 ***
 
@@ -416,7 +433,7 @@ A map of attribute names to attribute locations.
 
 #### Defined in
 
-src/filters/BaseFilter.ts:146
+src/filters/BaseFilter.ts:152
 
 ***
 
@@ -437,25 +454,7 @@ Used to force recompilation when parameters change or to retrieve the shader fro
 
 #### Defined in
 
-src/filters/BlendColor.ts:71
-
-***
-
-### getMainParameter()
-
-> **getMainParameter**(): `undefined` \| `string` \| `number` \| (`gl`, `program`) => [`TWebGLAttributeLocationMap`](/api/type-aliases/twebglattributelocationmap/) \| (`options`) => [`TWebGLProgramCacheItem`](/api/type-aliases/twebglprogramcacheitem/) \| (`options`?) => `boolean` \| () => `object` \| () => `object` \| (`gl`, `program`) => [`TWebGLUniformLocationMap`](/api/type-aliases/twebgluniformlocationmap/) \| (`gl`, `uniformLocations`) => `void` \| () => `string` \| (`options`) => `void` \| (`options`) => `void` \| (`gl`, `fragmentSource`, `vertexSource`) => `object` \| (`gl`, `attributeLocations`, `aPositionData`) => `void` \| (`options`) => `void` \| (`options`) => `void` \| (`options`) => `void` \| (`gl`, `texture`, `textureUnit`) => `void` \| (`gl`, `textureUnit`) => `void` \| () => string \| number \| ((gl: WebGLRenderingContext, program: WebGLProgram) =\> TWebGLAttributeLocationMap) \| ((options: TWebGLPipelineState) =\> TWebGLProgramCacheItem) \| ... 18 more ... \| undefined \| (`value`) => `void` \| (`options`) => `void`
-
-#### Returns
-
-`undefined` \| `string` \| `number` \| (`gl`, `program`) => [`TWebGLAttributeLocationMap`](/api/type-aliases/twebglattributelocationmap/) \| (`options`) => [`TWebGLProgramCacheItem`](/api/type-aliases/twebglprogramcacheitem/) \| (`options`?) => `boolean` \| () => `object` \| () => `object` \| (`gl`, `program`) => [`TWebGLUniformLocationMap`](/api/type-aliases/twebgluniformlocationmap/) \| (`gl`, `uniformLocations`) => `void` \| () => `string` \| (`options`) => `void` \| (`options`) => `void` \| (`gl`, `fragmentSource`, `vertexSource`) => `object` \| (`gl`, `attributeLocations`, `aPositionData`) => `void` \| (`options`) => `void` \| (`options`) => `void` \| (`options`) => `void` \| (`gl`, `texture`, `textureUnit`) => `void` \| (`gl`, `textureUnit`) => `void` \| () => string \| number \| ((gl: WebGLRenderingContext, program: WebGLProgram) =\> TWebGLAttributeLocationMap) \| ((options: TWebGLPipelineState) =\> TWebGLProgramCacheItem) \| ... 18 more ... \| undefined \| (`value`) => `void` \| (`options`) => `void`
-
-#### Inherited from
-
-[`BaseFilter`](/api/namespaces/filters/classes/basefilter/).[`getMainParameter`](/api/namespaces/filters/classes/basefilter/#getmainparameter)
-
-#### Defined in
-
-src/filters/BaseFilter.ts:351
+src/filters/BlendColor.ts:76
 
 ***
 
@@ -463,29 +462,49 @@ src/filters/BaseFilter.ts:351
 
 > **getUniformLocations**(`gl`, `program`): [`TWebGLUniformLocationMap`](/api/type-aliases/twebgluniformlocationmap/)
 
-Return WebGL uniform locations for this filter's shader.
+Return a map of uniform names to WebGLUniformLocation objects.
 
 #### Parameters
 
 • **gl**: `WebGLRenderingContext`
 
-The GL canvas context used to compile this filter's shader.
+The canvas context used to compile the shader program.
 
 • **program**: `WebGLProgram`
 
-This filter's compiled shader program.
+The shader program from which to take uniform locations.
 
 #### Returns
 
 [`TWebGLUniformLocationMap`](/api/type-aliases/twebgluniformlocationmap/)
 
-#### Overrides
+A map of uniform names to uniform locations.
+
+#### Inherited from
 
 [`BaseFilter`](/api/namespaces/filters/classes/basefilter/).[`getUniformLocations`](/api/namespaces/filters/classes/basefilter/#getuniformlocations)
 
 #### Defined in
 
-src/filters/BlendColor.ts:178
+src/filters/BaseFilter.ts:168
+
+***
+
+### getVertexSource()
+
+> **getVertexSource**(): `string`
+
+#### Returns
+
+`string`
+
+#### Inherited from
+
+[`BaseFilter`](/api/namespaces/filters/classes/basefilter/).[`getVertexSource`](/api/namespaces/filters/classes/basefilter/#getvertexsource)
+
+#### Defined in
+
+src/filters/BaseFilter.ts:71
 
 ***
 
@@ -512,7 +531,7 @@ Other filters may need their own version ( ColorMatrix, HueRotation, gamma, Comp
 
 #### Defined in
 
-src/filters/BaseFilter.ts:233
+src/filters/BaseFilter.ts:247
 
 ***
 
@@ -538,7 +557,7 @@ the compiled program shader
 
 #### Defined in
 
-src/filters/BaseFilter.ts:295
+src/filters/BaseFilter.ts:294
 
 ***
 
@@ -570,7 +589,7 @@ A map of shader attribute names to their locations.
 
 #### Defined in
 
-src/filters/BaseFilter.ts:177
+src/filters/BaseFilter.ts:191
 
 ***
 
@@ -600,47 +619,21 @@ A map of string uniform names to WebGLUniformLocation objects
 
 #### Defined in
 
-src/filters/BlendColor.ts:193
-
-***
-
-### setMainParameter()
-
-> **setMainParameter**(`value`): `void`
-
-#### Parameters
-
-• **value**: `any`
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[`BaseFilter`](/api/namespaces/filters/classes/basefilter/).[`setMainParameter`](/api/namespaces/filters/classes/basefilter/#setmainparameter)
-
-#### Defined in
-
-src/filters/BaseFilter.ts:355
+src/filters/BlendColor.ts:183
 
 ***
 
 ### toJSON()
 
-> **toJSON**(): `object`
+> **toJSON**(): `object` & `BlendColorOwnProps`
 
 Returns a JSON representation of an instance
 
 #### Returns
 
-`object`
+`object` & `BlendColorOwnProps`
 
 JSON
-
-##### type
-
-> **type**: `string`
 
 #### Inherited from
 
@@ -648,45 +641,29 @@ JSON
 
 #### Defined in
 
-src/filters/BaseFilter.ts:405
+src/filters/BaseFilter.ts:401
 
 ***
 
 ### toObject()
 
-> **toObject**(): `object`
+> **toObject**(): `object` & `BlendColorOwnProps`
 
 Returns object representation of an instance
 
 #### Returns
 
-`object`
+`object` & `BlendColorOwnProps`
 
 Object representation of an instance
 
-##### alpha
-
-> **alpha**: `number`
-
-##### color
-
-> **color**: `string`
-
-##### mode
-
-> **mode**: [`TBlendMode`](/api/namespaces/filters/type-aliases/tblendmode/)
-
-##### type
-
-> **type**: `string`
-
-#### Overrides
+#### Inherited from
 
 [`BaseFilter`](/api/namespaces/filters/classes/basefilter/).[`toObject`](/api/namespaces/filters/classes/basefilter/#toobject)
 
 #### Defined in
 
-src/filters/BlendColor.ts:209
+src/filters/BaseFilter.ts:382
 
 ***
 
@@ -710,13 +687,13 @@ src/filters/BlendColor.ts:209
 
 #### Defined in
 
-src/filters/BaseFilter.ts:345
+src/filters/BaseFilter.ts:344
 
 ***
 
 ### fromObject()
 
-> `static` **fromObject**(`__namedParameters`, `options`): `Promise`\<[`BaseFilter`](/api/namespaces/filters/classes/basefilter/)\>
+> `static` **fromObject**(`__namedParameters`, `options`): `Promise`\<[`BaseFilter`](/api/namespaces/filters/classes/basefilter/)\<`string`, `object`\>\>
 
 #### Parameters
 
@@ -726,7 +703,7 @@ src/filters/BaseFilter.ts:345
 
 #### Returns
 
-`Promise`\<[`BaseFilter`](/api/namespaces/filters/classes/basefilter/)\>
+`Promise`\<[`BaseFilter`](/api/namespaces/filters/classes/basefilter/)\<`string`, `object`\>\>
 
 #### Inherited from
 
@@ -734,4 +711,4 @@ src/filters/BaseFilter.ts:345
 
 #### Defined in
 
-src/filters/BaseFilter.ts:410
+src/filters/BaseFilter.ts:406

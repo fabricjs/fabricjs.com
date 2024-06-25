@@ -9,4 +9,4 @@ title: "TResizeType"
 
 ## Defined in
 
-src/filters/Resize.ts:26
+src/filters/Resize.ts:12

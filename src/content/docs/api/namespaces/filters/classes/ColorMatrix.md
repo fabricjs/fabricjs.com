@@ -29,29 +29,35 @@ object.applyFilters();
 
 ## Extends
 
-- [`BaseFilter`](/api/namespaces/filters/classes/basefilter/)
+- [`BaseFilter`](/api/namespaces/filters/classes/basefilter/)\<`Name`, `OwnProps`\>
 
 ## Extended by
 
 - [`HueRotation`](/api/namespaces/filters/classes/huerotation/)
 
+## Type Parameters
+
+• **Name** *extends* `string` = `"ColorMatrix"`
+
+• **OwnProps** *extends* `object` = `ColorMatrixOwnProps`
+
 ## Constructors
 
 ### new ColorMatrix()
 
-> **new ColorMatrix**(`options`?): [`ColorMatrix`](/api/namespaces/filters/classes/colormatrix/)
+> **new ColorMatrix**\<`Name`, `OwnProps`\>(`options`?): [`ColorMatrix`](/api/namespaces/filters/classes/colormatrix/)\<`Name`, `OwnProps`\>
 
 Constructor
 
 #### Parameters
 
-• **options?**: `Record`\<`string`, `any`\> = `{}`
+• **options?**: `object` & `Partial`\<`OwnProps`\> & `Record`\<`string`, `any`\> = `{}`
 
 Options object
 
 #### Returns
 
-[`ColorMatrix`](/api/namespaces/filters/classes/colormatrix/)
+[`ColorMatrix`](/api/namespaces/filters/classes/colormatrix/)\<`Name`, `OwnProps`\>
 
 #### Inherited from
 
@@ -59,7 +65,7 @@ Options object
 
 #### Defined in
 
-src/filters/BaseFilter.ts:58
+src/filters/BaseFilter.ts:56
 
 ## Properties
 
@@ -78,13 +84,13 @@ true
 
 #### Defined in
 
-src/filters/ColorMatrix.ts:46
+src/filters/ColorMatrix.ts:56
 
 ***
 
 ### matrix
 
-> **matrix**: `number`[]
+> **matrix**: [`TMatColorMatrix`](/api/type-aliases/tmatcolormatrix/)
 
 Colormatrix for pixels.
 array of 20 floats. Numbers in positions 4, 9, 14, 19 loose meaning
@@ -103,13 +109,13 @@ array of 20 numbers.
 
 #### Defined in
 
-src/filters/ColorMatrix.ts:38
+src/filters/ColorMatrix.ts:48
 
 ***
 
 ### defaults
 
-> `static` **defaults**: `Partial`\<[`TClassProperties`](/api/type-aliases/tclassproperties/)\<[`ColorMatrix`](/api/namespaces/filters/classes/colormatrix/)\>\> = `colorMatrixDefaultValues`
+> `static` **defaults**: `ColorMatrixOwnProps` = `colorMatrixDefaultValues`
 
 #### Overrides
 
@@ -117,7 +123,7 @@ src/filters/ColorMatrix.ts:38
 
 #### Defined in
 
-src/filters/ColorMatrix.ts:50
+src/filters/ColorMatrix.ts:60
 
 ***
 
@@ -137,13 +143,31 @@ to avoid doing that.
 
 #### Defined in
 
-src/filters/ColorMatrix.ts:48
+src/filters/ColorMatrix.ts:58
+
+***
+
+### uniformLocations
+
+> `static` **uniformLocations**: `string`[]
+
+Contains the uniform locations for the fragment shader.
+uStepW and uStepH are handled by the BaseFilter, each filter class
+needs to specify all the one that are needed
+
+#### Overrides
+
+[`BaseFilter`](/api/namespaces/filters/classes/basefilter/).[`uniformLocations`](/api/namespaces/filters/classes/basefilter/#uniformlocations)
+
+#### Defined in
+
+src/filters/ColorMatrix.ts:62
 
 ## Accessors
 
 ### type
 
-> `get` **type**(): `string`
+> `get` **type**(): `Name`
 
 Filter type
 
@@ -155,7 +179,7 @@ Filter type
 
 #### Returns
 
-`string`
+`Name`
 
 #### Inherited from
 
@@ -163,7 +187,7 @@ Filter type
 
 #### Defined in
 
-src/filters/BaseFilter.ts:25
+src/filters/BaseFilter.ts:30
 
 ## Methods
 
@@ -185,7 +209,7 @@ src/filters/BaseFilter.ts:25
 
 #### Defined in
 
-src/filters/BaseFilter.ts:190
+src/filters/BaseFilter.ts:204
 
 ***
 
@@ -207,7 +231,7 @@ src/filters/BaseFilter.ts:190
 
 #### Defined in
 
-src/filters/BaseFilter.ts:217
+src/filters/BaseFilter.ts:231
 
 ***
 
@@ -233,7 +257,7 @@ Determines whether to use WebGL or Canvas2D based on the options.webgl flag.
 
 #### Defined in
 
-src/filters/BaseFilter.ts:265
+src/filters/BaseFilter.ts:264
 
 ***
 
@@ -257,7 +281,7 @@ Apply the ColorMatrix operation to a Uint8Array representing the pixels of an im
 
 #### Defined in
 
-src/filters/ColorMatrix.ts:70
+src/filters/ColorMatrix.ts:74
 
 ***
 
@@ -281,7 +305,7 @@ Apply this filter using webgl.
 
 #### Defined in
 
-src/filters/BaseFilter.ts:315
+src/filters/BaseFilter.ts:314
 
 ***
 
@@ -307,7 +331,7 @@ src/filters/BaseFilter.ts:315
 
 #### Defined in
 
-src/filters/BaseFilter.ts:334
+src/filters/BaseFilter.ts:333
 
 ***
 
@@ -332,7 +356,7 @@ remember that options.targetCanvas is available for use till end of chain.
 
 #### Defined in
 
-src/filters/BaseFilter.ts:380
+src/filters/BaseFilter.ts:369
 
 ***
 
@@ -378,7 +402,7 @@ vertexShader source for compilation
 
 #### Defined in
 
-src/filters/BaseFilter.ts:77
+src/filters/BaseFilter.ts:82
 
 ***
 
@@ -410,7 +434,7 @@ A map of attribute names to attribute locations.
 
 #### Defined in
 
-src/filters/BaseFilter.ts:146
+src/filters/BaseFilter.ts:152
 
 ***
 
@@ -431,7 +455,7 @@ Used to force recompilation when parameters change or to retrieve the shader fro
 
 #### Defined in
 
-src/filters/BaseFilter.ts:284
+src/filters/BaseFilter.ts:283
 
 ***
 
@@ -449,25 +473,7 @@ src/filters/BaseFilter.ts:284
 
 #### Defined in
 
-src/filters/ColorMatrix.ts:60
-
-***
-
-### getMainParameter()
-
-> **getMainParameter**(): `undefined` \| `string` \| `boolean` \| `number`[] \| (`gl`, `program`) => [`TWebGLAttributeLocationMap`](/api/type-aliases/twebglattributelocationmap/) \| (`options`) => [`TWebGLProgramCacheItem`](/api/type-aliases/twebglprogramcacheitem/) \| (`options`?) => `boolean` \| () => `object` \| () => `object` \| (`__namedParameters`) => `void` \| (`gl`, `program`) => [`TWebGLUniformLocationMap`](/api/type-aliases/twebgluniformlocationmap/) \| (`gl`, `uniformLocations`) => `void` \| () => `string` \| () => `string` \| (`options`) => `void` \| (`options`) => `void` \| (`gl`, `fragmentSource`, `vertexSource`) => `object` \| (`gl`, `attributeLocations`, `aPositionData`) => `void` \| (`options`) => `void` \| (`options`) => `void` \| (`options`) => `void` \| (`gl`, `texture`, `textureUnit`) => `void` \| (`gl`, `textureUnit`) => `void` \| () => string \| boolean \| number\[\] \| ((gl: WebGLRenderingContext, program: WebGLProgram) =\> TWebGLAttributeLocationMap) \| ... 21 more ... \| undefined \| (`value`) => `void` \| (`options`) => `void`
-
-#### Returns
-
-`undefined` \| `string` \| `boolean` \| `number`[] \| (`gl`, `program`) => [`TWebGLAttributeLocationMap`](/api/type-aliases/twebglattributelocationmap/) \| (`options`) => [`TWebGLProgramCacheItem`](/api/type-aliases/twebglprogramcacheitem/) \| (`options`?) => `boolean` \| () => `object` \| () => `object` \| (`__namedParameters`) => `void` \| (`gl`, `program`) => [`TWebGLUniformLocationMap`](/api/type-aliases/twebgluniformlocationmap/) \| (`gl`, `uniformLocations`) => `void` \| () => `string` \| () => `string` \| (`options`) => `void` \| (`options`) => `void` \| (`gl`, `fragmentSource`, `vertexSource`) => `object` \| (`gl`, `attributeLocations`, `aPositionData`) => `void` \| (`options`) => `void` \| (`options`) => `void` \| (`options`) => `void` \| (`gl`, `texture`, `textureUnit`) => `void` \| (`gl`, `textureUnit`) => `void` \| () => string \| boolean \| number\[\] \| ((gl: WebGLRenderingContext, program: WebGLProgram) =\> TWebGLAttributeLocationMap) \| ... 21 more ... \| undefined \| (`value`) => `void` \| (`options`) => `void`
-
-#### Inherited from
-
-[`BaseFilter`](/api/namespaces/filters/classes/basefilter/).[`getMainParameter`](/api/namespaces/filters/classes/basefilter/#getmainparameter)
-
-#### Defined in
-
-src/filters/BaseFilter.ts:351
+src/filters/ColorMatrix.ts:64
 
 ***
 
@@ -475,29 +481,49 @@ src/filters/BaseFilter.ts:351
 
 > **getUniformLocations**(`gl`, `program`): [`TWebGLUniformLocationMap`](/api/type-aliases/twebgluniformlocationmap/)
 
-Return WebGL uniform locations for this filter's shader.
+Return a map of uniform names to WebGLUniformLocation objects.
 
 #### Parameters
 
 • **gl**: `WebGLRenderingContext`
 
-The GL canvas context used to compile this filter's shader.
+The canvas context used to compile the shader program.
 
 • **program**: `WebGLProgram`
 
-This filter's compiled shader program.
+The shader program from which to take uniform locations.
 
 #### Returns
 
 [`TWebGLUniformLocationMap`](/api/type-aliases/twebgluniformlocationmap/)
 
-#### Overrides
+A map of uniform names to uniform locations.
+
+#### Inherited from
 
 [`BaseFilter`](/api/namespaces/filters/classes/basefilter/).[`getUniformLocations`](/api/namespaces/filters/classes/basefilter/#getuniformlocations)
 
 #### Defined in
 
-src/filters/ColorMatrix.ts:102
+src/filters/BaseFilter.ts:168
+
+***
+
+### getVertexSource()
+
+> **getVertexSource**(): `string`
+
+#### Returns
+
+`string`
+
+#### Inherited from
+
+[`BaseFilter`](/api/namespaces/filters/classes/basefilter/).[`getVertexSource`](/api/namespaces/filters/classes/basefilter/#getvertexsource)
+
+#### Defined in
+
+src/filters/BaseFilter.ts:71
 
 ***
 
@@ -524,7 +550,7 @@ Other filters may need their own version ( ColorMatrix, HueRotation, gamma, Comp
 
 #### Defined in
 
-src/filters/BaseFilter.ts:233
+src/filters/BaseFilter.ts:247
 
 ***
 
@@ -550,7 +576,7 @@ the compiled program shader
 
 #### Defined in
 
-src/filters/BaseFilter.ts:295
+src/filters/BaseFilter.ts:294
 
 ***
 
@@ -582,7 +608,7 @@ A map of shader attribute names to their locations.
 
 #### Defined in
 
-src/filters/BaseFilter.ts:177
+src/filters/BaseFilter.ts:191
 
 ***
 
@@ -612,65 +638,21 @@ A map of string uniform names to WebGLUniformLocation objects
 
 #### Defined in
 
-src/filters/ColorMatrix.ts:118
-
-***
-
-### setMainParameter()
-
-> **setMainParameter**(`value`): `void`
-
-#### Parameters
-
-• **value**: `any`
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[`BaseFilter`](/api/namespaces/filters/classes/basefilter/).[`setMainParameter`](/api/namespaces/filters/classes/basefilter/#setmainparameter)
-
-#### Defined in
-
-src/filters/BaseFilter.ts:355
-
-***
-
-### setOptions()
-
-> **setOptions**(`__namedParameters`): `void`
-
-#### Parameters
-
-• **\_\_namedParameters**: `Record`\<`string`, `any`\>
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-src/filters/ColorMatrix.ts:52
+src/filters/ColorMatrix.ts:106
 
 ***
 
 ### toJSON()
 
-> **toJSON**(): `object`
+> **toJSON**(): `object` & `OwnProps`
 
 Returns a JSON representation of an instance
 
 #### Returns
 
-`object`
+`object` & `OwnProps`
 
 JSON
-
-##### type
-
-> **type**: `string`
 
 #### Inherited from
 
@@ -678,33 +660,29 @@ JSON
 
 #### Defined in
 
-src/filters/BaseFilter.ts:405
+src/filters/BaseFilter.ts:401
 
 ***
 
 ### toObject()
 
-> **toObject**(): `object`
+> **toObject**(): `object` & `OwnProps` & `object`
 
 Returns object representation of an instance
 
 #### Returns
 
-`object`
+`object` & `OwnProps` & `object`
 
 Object representation of an instance
 
-##### type
-
-> **type**: `string`
-
-#### Inherited from
+#### Overrides
 
 [`BaseFilter`](/api/namespaces/filters/classes/basefilter/).[`toObject`](/api/namespaces/filters/classes/basefilter/#toobject)
 
 #### Defined in
 
-src/filters/BaseFilter.ts:393
+src/filters/ColorMatrix.ts:134
 
 ***
 
@@ -728,13 +706,13 @@ src/filters/BaseFilter.ts:393
 
 #### Defined in
 
-src/filters/BaseFilter.ts:345
+src/filters/BaseFilter.ts:344
 
 ***
 
 ### fromObject()
 
-> `static` **fromObject**(`__namedParameters`, `options`): `Promise`\<[`BaseFilter`](/api/namespaces/filters/classes/basefilter/)\>
+> `static` **fromObject**(`__namedParameters`, `options`): `Promise`\<[`BaseFilter`](/api/namespaces/filters/classes/basefilter/)\<`string`, `object`\>\>
 
 #### Parameters
 
@@ -744,7 +722,7 @@ src/filters/BaseFilter.ts:345
 
 #### Returns
 
-`Promise`\<[`BaseFilter`](/api/namespaces/filters/classes/basefilter/)\>
+`Promise`\<[`BaseFilter`](/api/namespaces/filters/classes/basefilter/)\<`string`, `object`\>\>
 
 #### Inherited from
 
@@ -752,4 +730,4 @@ src/filters/BaseFilter.ts:345
 
 #### Defined in
 
-src/filters/BaseFilter.ts:410
+src/filters/BaseFilter.ts:406

@@ -9,17 +9,17 @@ A container class that knows how to apply a sequence of filters to an input imag
 
 ## Extends
 
-- [`BaseFilter`](/api/namespaces/filters/classes/basefilter/)
+- [`BaseFilter`](/api/namespaces/filters/classes/basefilter/)\<`"Composed"`, `ComposedOwnProps`\>
 
 ## Constructors
 
 ### new Composed()
 
-> **new Composed**(`__namedParameters`): [`Composed`](/api/namespaces/filters/classes/composed/)
+> **new Composed**(`options`): [`Composed`](/api/namespaces/filters/classes/composed/)
 
 #### Parameters
 
-• **\_\_namedParameters**: `object` & `Record`\<`string`, `any`\> = `{}`
+• **options**: `object` & `Record`\<`string`, `any`\> = `{}`
 
 #### Returns
 
@@ -31,25 +31,25 @@ A container class that knows how to apply a sequence of filters to an input imag
 
 #### Defined in
 
-src/filters/Composed.ts:17
+src/filters/Composed.ts:21
 
 ## Properties
 
 ### subFilters
 
-> **subFilters**: [`BaseFilter`](/api/namespaces/filters/classes/basefilter/)[]
+> **subFilters**: [`BaseFilter`](/api/namespaces/filters/classes/basefilter/)\<`string`, `object`\>[]
 
 A non sparse array of filters to apply
 
 #### Defined in
 
-src/filters/Composed.ts:13
+src/filters/Composed.ts:17
 
 ***
 
 ### defaults
 
-> `static` **defaults**: `Record`\<`string`, `any`\>
+> `static` **defaults**: `Record`\<`string`, `unknown`\>
 
 #### Inherited from
 
@@ -57,7 +57,7 @@ src/filters/Composed.ts:13
 
 #### Defined in
 
-src/filters/BaseFilter.ts:38
+src/filters/BaseFilter.ts:50
 
 ***
 
@@ -77,13 +77,31 @@ to avoid doing that.
 
 #### Defined in
 
-src/filters/Composed.ts:15
+src/filters/Composed.ts:19
+
+***
+
+### uniformLocations
+
+> `static` **uniformLocations**: `string`[] = `[]`
+
+Contains the uniform locations for the fragment shader.
+uStepW and uStepH are handled by the BaseFilter, each filter class
+needs to specify all the one that are needed
+
+#### Inherited from
+
+[`BaseFilter`](/api/namespaces/filters/classes/basefilter/).[`uniformLocations`](/api/namespaces/filters/classes/basefilter/#uniformlocations)
+
+#### Defined in
+
+src/filters/BaseFilter.ts:48
 
 ## Accessors
 
 ### type
 
-> `get` **type**(): `string`
+> `get` **type**(): `Name`
 
 Filter type
 
@@ -95,7 +113,7 @@ Filter type
 
 #### Returns
 
-`string`
+`Name`
 
 #### Inherited from
 
@@ -103,7 +121,7 @@ Filter type
 
 #### Defined in
 
-src/filters/BaseFilter.ts:25
+src/filters/BaseFilter.ts:30
 
 ## Methods
 
@@ -125,7 +143,7 @@ src/filters/BaseFilter.ts:25
 
 #### Defined in
 
-src/filters/BaseFilter.ts:190
+src/filters/BaseFilter.ts:204
 
 ***
 
@@ -147,7 +165,7 @@ src/filters/BaseFilter.ts:190
 
 #### Defined in
 
-src/filters/BaseFilter.ts:217
+src/filters/BaseFilter.ts:231
 
 ***
 
@@ -171,7 +189,7 @@ Apply this container's filters to the input image provided.
 
 #### Defined in
 
-src/filters/Composed.ts:31
+src/filters/Composed.ts:37
 
 ***
 
@@ -193,7 +211,7 @@ src/filters/Composed.ts:31
 
 #### Defined in
 
-src/filters/BaseFilter.ts:275
+src/filters/BaseFilter.ts:274
 
 ***
 
@@ -217,7 +235,7 @@ Apply this filter using webgl.
 
 #### Defined in
 
-src/filters/BaseFilter.ts:315
+src/filters/BaseFilter.ts:314
 
 ***
 
@@ -243,7 +261,7 @@ src/filters/BaseFilter.ts:315
 
 #### Defined in
 
-src/filters/BaseFilter.ts:334
+src/filters/BaseFilter.ts:333
 
 ***
 
@@ -268,7 +286,7 @@ remember that options.targetCanvas is available for use till end of chain.
 
 #### Defined in
 
-src/filters/BaseFilter.ts:380
+src/filters/BaseFilter.ts:369
 
 ***
 
@@ -314,7 +332,7 @@ vertexShader source for compilation
 
 #### Defined in
 
-src/filters/BaseFilter.ts:77
+src/filters/BaseFilter.ts:82
 
 ***
 
@@ -346,7 +364,7 @@ A map of attribute names to attribute locations.
 
 #### Defined in
 
-src/filters/BaseFilter.ts:146
+src/filters/BaseFilter.ts:152
 
 ***
 
@@ -367,25 +385,7 @@ Used to force recompilation when parameters change or to retrieve the shader fro
 
 #### Defined in
 
-src/filters/BaseFilter.ts:284
-
-***
-
-### getMainParameter()
-
-> **getMainParameter**(): `undefined` \| `string` \| [`BaseFilter`](/api/namespaces/filters/classes/basefilter/)[] \| (`gl`, `program`) => [`TWebGLUniformLocationMap`](/api/type-aliases/twebgluniformlocationmap/) \| (`gl`, `program`) => [`TWebGLAttributeLocationMap`](/api/type-aliases/twebglattributelocationmap/) \| (`gl`, `uniformLocations`) => `void` \| (`options`) => `void` \| (`options`) => [`TWebGLProgramCacheItem`](/api/type-aliases/twebglprogramcacheitem/) \| (`gl`, `fragmentSource`, `vertexSource`) => `object` \| (`gl`, `attributeLocations`, `aPositionData`) => `void` \| (`options`) => `void` \| (`options`) => `void` \| () => `boolean` \| (`options`) => `void` \| () => `string` \| (`options`) => `void` \| (`gl`, `texture`, `textureUnit`) => `void` \| (`gl`, `textureUnit`) => `void` \| () => string \| BaseFilter\[\] \| ((gl: WebGLRenderingContext, program: WebGLProgram) =\> TWebGLUniformLocationMap) \| ... 19 more ... \| undefined \| () => `object` \| () => `object` \| (`value`) => `void` \| (`options`) => `void`
-
-#### Returns
-
-`undefined` \| `string` \| [`BaseFilter`](/api/namespaces/filters/classes/basefilter/)[] \| (`gl`, `program`) => [`TWebGLUniformLocationMap`](/api/type-aliases/twebgluniformlocationmap/) \| (`gl`, `program`) => [`TWebGLAttributeLocationMap`](/api/type-aliases/twebglattributelocationmap/) \| (`gl`, `uniformLocations`) => `void` \| (`options`) => `void` \| (`options`) => [`TWebGLProgramCacheItem`](/api/type-aliases/twebglprogramcacheitem/) \| (`gl`, `fragmentSource`, `vertexSource`) => `object` \| (`gl`, `attributeLocations`, `aPositionData`) => `void` \| (`options`) => `void` \| (`options`) => `void` \| () => `boolean` \| (`options`) => `void` \| () => `string` \| (`options`) => `void` \| (`gl`, `texture`, `textureUnit`) => `void` \| (`gl`, `textureUnit`) => `void` \| () => string \| BaseFilter\[\] \| ((gl: WebGLRenderingContext, program: WebGLProgram) =\> TWebGLUniformLocationMap) \| ... 19 more ... \| undefined \| () => `object` \| () => `object` \| (`value`) => `void` \| (`options`) => `void`
-
-#### Inherited from
-
-[`BaseFilter`](/api/namespaces/filters/classes/basefilter/).[`getMainParameter`](/api/namespaces/filters/classes/basefilter/#getmainparameter)
-
-#### Defined in
-
-src/filters/BaseFilter.ts:351
+src/filters/BaseFilter.ts:283
 
 ***
 
@@ -394,8 +394,6 @@ src/filters/BaseFilter.ts:351
 > **getUniformLocations**(`gl`, `program`): [`TWebGLUniformLocationMap`](/api/type-aliases/twebgluniformlocationmap/)
 
 Return a map of uniform names to WebGLUniformLocation objects.
-
-Intended to be overridden by subclasses.
 
 #### Parameters
 
@@ -419,7 +417,25 @@ A map of uniform names to uniform locations.
 
 #### Defined in
 
-src/filters/BaseFilter.ts:164
+src/filters/BaseFilter.ts:168
+
+***
+
+### getVertexSource()
+
+> **getVertexSource**(): `string`
+
+#### Returns
+
+`string`
+
+#### Inherited from
+
+[`BaseFilter`](/api/namespaces/filters/classes/basefilter/).[`getVertexSource`](/api/namespaces/filters/classes/basefilter/#getvertexsource)
+
+#### Defined in
+
+src/filters/BaseFilter.ts:71
 
 ***
 
@@ -442,7 +458,7 @@ Other filters may need their own version ( ColorMatrix, HueRotation, gamma, Comp
 
 #### Defined in
 
-src/filters/Composed.ts:52
+src/filters/Composed.ts:61
 
 ***
 
@@ -468,7 +484,7 @@ the compiled program shader
 
 #### Defined in
 
-src/filters/BaseFilter.ts:295
+src/filters/BaseFilter.ts:294
 
 ***
 
@@ -500,7 +516,7 @@ A map of shader attribute names to their locations.
 
 #### Defined in
 
-src/filters/BaseFilter.ts:177
+src/filters/BaseFilter.ts:191
 
 ***
 
@@ -532,47 +548,21 @@ A map of shader uniform names to their locations.
 
 #### Defined in
 
-src/filters/BaseFilter.ts:369
-
-***
-
-### setMainParameter()
-
-> **setMainParameter**(`value`): `void`
-
-#### Parameters
-
-• **value**: `any`
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[`BaseFilter`](/api/namespaces/filters/classes/basefilter/).[`setMainParameter`](/api/namespaces/filters/classes/basefilter/#setmainparameter)
-
-#### Defined in
-
-src/filters/BaseFilter.ts:355
+src/filters/BaseFilter.ts:358
 
 ***
 
 ### toJSON()
 
-> **toJSON**(): `object`
+> **toJSON**(): `object` & `ComposedOwnProps`
 
 Returns a JSON representation of an instance
 
 #### Returns
 
-`object`
+`object` & `ComposedOwnProps`
 
 JSON
-
-##### type
-
-> **type**: `string`
 
 #### Inherited from
 
@@ -580,7 +570,7 @@ JSON
 
 #### Defined in
 
-src/filters/BaseFilter.ts:405
+src/filters/BaseFilter.ts:401
 
 ***
 
@@ -598,11 +588,11 @@ A JSON representation of this filter.
 
 ##### subFilters
 
-> **subFilters**: `object`[]
+> **subFilters**: `object` & `object`[]
 
 ##### type
 
-> **type**: `string`
+> **type**: `"Composed"`
 
 #### Overrides
 
@@ -610,7 +600,7 @@ A JSON representation of this filter.
 
 #### Defined in
 
-src/filters/Composed.ts:45
+src/filters/Composed.ts:51
 
 ***
 
@@ -634,13 +624,13 @@ src/filters/Composed.ts:45
 
 #### Defined in
 
-src/filters/BaseFilter.ts:345
+src/filters/BaseFilter.ts:344
 
 ***
 
 ### fromObject()
 
-> `static` **fromObject**(`object`, `options`?): `Promise`\<[`BaseFilter`](/api/namespaces/filters/classes/basefilter/)\>
+> `static` **fromObject**(`object`, `options`?): `Promise`\<[`Composed`](/api/namespaces/filters/classes/composed/)\>
 
 Deserialize a JSON definition of a ComposedFilter into a concrete instance.
 
@@ -658,7 +648,7 @@ handle aborting `BlendImage` filter loading, see https://developer.mozilla.org/e
 
 #### Returns
 
-`Promise`\<[`BaseFilter`](/api/namespaces/filters/classes/basefilter/)\>
+`Promise`\<[`Composed`](/api/namespaces/filters/classes/composed/)\>
 
 #### Overrides
 
@@ -668,4 +658,4 @@ handle aborting `BlendImage` filter loading, see https://developer.mozilla.org/e
 
 #### Defined in
 
-src/filters/Composed.ts:64
+src/filters/Composed.ts:73

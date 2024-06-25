@@ -9,4 +9,4 @@ title: "MultiSelectionStacking"
 
 ## Defined in
 
-src/shapes/ActiveSelection.ts:13
+src/shapes/ActiveSelection.ts:14

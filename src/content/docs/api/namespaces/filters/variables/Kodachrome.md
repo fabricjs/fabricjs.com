@@ -5,8 +5,8 @@ prev: false
 title: "Kodachrome"
 ---
 
-> `const` **Kodachrome**: *typeof* `__class`
+> `const` **Kodachrome**: *typeof* [`ColorMatrix`](/api/namespaces/filters/classes/colormatrix/)
 
 ## Defined in
 
-src/filters/ColorMatrixFilters.ts:37
+src/filters/ColorMatrixFilters.ts:43

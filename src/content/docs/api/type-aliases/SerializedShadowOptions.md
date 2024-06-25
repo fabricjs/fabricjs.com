@@ -39,4 +39,4 @@ title: "SerializedShadowOptions"
 
 ## Defined in
 
-src/Shadow.ts:54
+src/Shadow.ts:53

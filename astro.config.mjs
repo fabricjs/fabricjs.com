@@ -52,9 +52,4 @@ export default defineConfig({
       }),
     ],
   }), react()],
-  vite: {
-    build: {
-      minify: false,
-    }
-  },
 });

@@ -25,4 +25,4 @@ matrix
 
 ## Defined in
 
-src/util/misc/matrix.ts:198
+src/util/misc/matrix.ts:200

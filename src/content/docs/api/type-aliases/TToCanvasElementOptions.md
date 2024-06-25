@@ -9,7 +9,7 @@ title: "TToCanvasElementOptions"
 
 ## Type Parameters
 
-• **T** *extends* `BaseFabricObject` = `BaseFabricObject`
+• **T** *extends* [`BaseFabricObject`](/api/classes/basefabricobject/) = [`BaseFabricObject`](/api/classes/basefabricobject/)
 
 ## Type declaration
 

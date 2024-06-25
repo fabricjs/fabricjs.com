@@ -5,8 +5,8 @@ prev: false
 title: "Sepia"
 ---
 
-> `const` **Sepia**: *typeof* `__class`
+> `const` **Sepia**: *typeof* [`ColorMatrix`](/api/namespaces/filters/classes/colormatrix/)
 
 ## Defined in
 
-src/filters/ColorMatrixFilters.ts:61
+src/filters/ColorMatrixFilters.ts:67

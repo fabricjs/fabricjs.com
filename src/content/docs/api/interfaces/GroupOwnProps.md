@@ -18,7 +18,7 @@ title: "GroupOwnProps"
 
 #### Defined in
 
-src/shapes/Group.ts:51
+src/shapes/Group.ts:56
 
 ***
 
@@ -28,4 +28,4 @@ src/shapes/Group.ts:51
 
 #### Defined in
 
-src/shapes/Group.ts:50
+src/shapes/Group.ts:55

@@ -5,8 +5,8 @@ prev: false
 title: "Polaroid"
 ---
 
-> `const` **Polaroid**: *typeof* `__class`
+> `const` **Polaroid**: *typeof* [`ColorMatrix`](/api/namespaces/filters/classes/colormatrix/)
 
 ## Defined in
 
-src/filters/ColorMatrixFilters.ts:53
+src/filters/ColorMatrixFilters.ts:59

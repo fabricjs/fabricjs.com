@@ -25,4 +25,4 @@ An array of SVG path commands
 
 ## Defined in
 
-src/util/path/index.ts:905
+src/util/path/index.ts:907

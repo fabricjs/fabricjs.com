@@ -65,7 +65,7 @@ Override this method to customize layout.
 
 #### Defined in
 
-src/LayoutManager/LayoutStrategies/LayoutStrategy.ts:66
+src/LayoutManager/LayoutStrategies/LayoutStrategy.ts:68
 
 ***
 
@@ -74,6 +74,8 @@ src/LayoutManager/LayoutStrategies/LayoutStrategy.ts:66
 > **calcLayoutResult**(`context`, `objects`): `undefined` \| [`LayoutStrategyResult`](/api/type-aliases/layoutstrategyresult/)
 
 Used by the `LayoutManager` to perform layout
+@TODO/fix: if this method is calcResult, should calc unconditionally.
+the condition to not calc should be evaluated by the layoutManager.
 
 #### Parameters
 
@@ -117,7 +119,7 @@ src/LayoutManager/LayoutStrategies/ClipPathLayout.ts:24
 
 #### Defined in
 
-src/LayoutManager/LayoutStrategies/LayoutStrategy.ts:56
+src/LayoutManager/LayoutStrategies/LayoutStrategy.ts:58
 
 ***
 

@@ -27,7 +27,7 @@ Options object with any of color, blur, offsetX, offsetY properties or string (e
 
 #### Defined in
 
-src/Shadow.ts:125
+src/Shadow.ts:124
 
 ### new Shadow()
 
@@ -43,7 +43,7 @@ src/Shadow.ts:125
 
 #### Defined in
 
-src/Shadow.ts:126
+src/Shadow.ts:125
 
 ## Properties
 
@@ -61,7 +61,7 @@ Whether the shadow should affect stroke operations
 
 #### Defined in
 
-src/Shadow.ts:97
+src/Shadow.ts:96
 
 ***
 
@@ -73,7 +73,7 @@ Shadow blur
 
 #### Defined in
 
-src/Shadow.ts:76
+src/Shadow.ts:75
 
 ***
 
@@ -91,7 +91,7 @@ Shadow color
 
 #### Defined in
 
-src/Shadow.ts:70
+src/Shadow.ts:69
 
 ***
 
@@ -101,7 +101,7 @@ src/Shadow.ts:70
 
 #### Defined in
 
-src/Shadow.ts:115
+src/Shadow.ts:114
 
 ***
 
@@ -119,7 +119,7 @@ Indicates whether toObject should include default values
 
 #### Defined in
 
-src/Shadow.ts:104
+src/Shadow.ts:103
 
 ***
 
@@ -139,7 +139,7 @@ default to false
 
 #### Defined in
 
-src/Shadow.ts:113
+src/Shadow.ts:112
 
 ***
 
@@ -157,7 +157,7 @@ Shadow horizontal offset
 
 #### Defined in
 
-src/Shadow.ts:83
+src/Shadow.ts:82
 
 ***
 
@@ -175,7 +175,7 @@ Shadow vertical offset
 
 #### Defined in
 
-src/Shadow.ts:90
+src/Shadow.ts:89
 
 ***
 
@@ -185,7 +185,7 @@ src/Shadow.ts:90
 
 #### Defined in
 
-src/Shadow.ts:117
+src/Shadow.ts:116
 
 ***
 
@@ -195,7 +195,7 @@ src/Shadow.ts:117
 
 #### Defined in
 
-src/Shadow.ts:119
+src/Shadow.ts:118
 
 ## Methods
 
@@ -213,7 +213,7 @@ Object representation of a shadow instance
 
 #### Defined in
 
-src/Shadow.ts:228
+src/Shadow.ts:226
 
 ***
 
@@ -235,7 +235,7 @@ SVG representation of a shadow
 
 #### Defined in
 
-src/Shadow.ts:173
+src/Shadow.ts:171
 
 ***
 
@@ -257,7 +257,7 @@ http://www.w3.org/TR/css-text-decor-3/#text-shadow
 
 #### Defined in
 
-src/Shadow.ts:164
+src/Shadow.ts:162
 
 ***
 
@@ -275,7 +275,7 @@ src/Shadow.ts:164
 
 #### Defined in
 
-src/Shadow.ts:244
+src/Shadow.ts:242
 
 ***
 
@@ -313,4 +313,4 @@ Shadow object with color, offsetX, offsetY and blur
 
 #### Defined in
 
-src/Shadow.ts:143
+src/Shadow.ts:142

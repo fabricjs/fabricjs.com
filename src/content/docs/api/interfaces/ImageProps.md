@@ -245,7 +245,7 @@ src/shapes/Object/types/ObjectTransformProps.ts:36
 
 ### clipPath?
 
-> `optional` **clipPath**: `FabricObject`\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
+> `optional` **clipPath**: [`BaseFabricObject`](/api/classes/basefabricobject/)\<`Partial`\<`ObjectProps`\>, [`SerializedObjectProps`](/api/interfaces/serializedobjectprops/), [`ObjectEvents`](/api/interfaces/objectevents/)\>
 
 a fabricObject that, without stroke define a clipping area with their shape. filled in black
 the clipPath object gets used when the object has rendered, and the context is placed in the center
@@ -509,7 +509,7 @@ src/shapes/Object/types/FillStrokeProps.ts:26
 
 ### filters
 
-> **filters**: [`BaseFilter`](/api/namespaces/filters/classes/basefilter/)[]
+> **filters**: [`BaseFilter`](/api/namespaces/filters/classes/basefilter/)\<`string`, `Record`\<`string`, `any`\>\>[]
 
 #### Inherited from
 

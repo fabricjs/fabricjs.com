@@ -29,7 +29,17 @@ optional in hex or rgb(a) or hsl format or from known color list
 
 #### Defined in
 
-src/color/Color.ts:23
+src/color/Color.ts:25
+
+## Properties
+
+### isUnrecognised
+
+> **isUnrecognised**: `boolean` = `false`
+
+#### Defined in
+
+src/color/Color.ts:19
 
 ## Methods
 
@@ -47,7 +57,7 @@ Gets value of alpha channel for this color
 
 #### Defined in
 
-src/color/Color.ts:129
+src/color/Color.ts:131
 
 ***
 
@@ -63,7 +73,7 @@ Returns source of this color (where source is an array representation; ex: [200,
 
 #### Defined in
 
-src/color/Color.ts:60
+src/color/Color.ts:62
 
 ***
 
@@ -85,7 +95,7 @@ thisArg
 
 #### Defined in
 
-src/color/Color.ts:169
+src/color/Color.ts:171
 
 ***
 
@@ -109,7 +119,7 @@ thisArg
 
 #### Defined in
 
-src/color/Color.ts:138
+src/color/Color.ts:140
 
 ***
 
@@ -129,7 +139,7 @@ Sets source of this color (where source is an array representation; ex: [200, 20
 
 #### Defined in
 
-src/color/Color.ts:68
+src/color/Color.ts:70
 
 ***
 
@@ -151,7 +161,7 @@ thisArg
 
 #### Defined in
 
-src/color/Color.ts:157
+src/color/Color.ts:159
 
 ***
 
@@ -169,7 +179,7 @@ thisArg
 
 #### Defined in
 
-src/color/Color.ts:147
+src/color/Color.ts:149
 
 ***
 
@@ -187,7 +197,7 @@ ex: FF5555
 
 #### Defined in
 
-src/color/Color.ts:111
+src/color/Color.ts:113
 
 ***
 
@@ -205,7 +215,7 @@ ex: FF5555CC
 
 #### Defined in
 
-src/color/Color.ts:120
+src/color/Color.ts:122
 
 ***
 
@@ -223,7 +233,7 @@ ex: hsl(0-360,0%-100%,0%-100%)
 
 #### Defined in
 
-src/color/Color.ts:93
+src/color/Color.ts:95
 
 ***
 
@@ -241,7 +251,7 @@ ex: hsla(0-360,0%-100%,0%-100%,0-1)
 
 #### Defined in
 
-src/color/Color.ts:102
+src/color/Color.ts:104
 
 ***
 
@@ -259,7 +269,7 @@ ex: rgb(0-255,0-255,0-255)
 
 #### Defined in
 
-src/color/Color.ts:76
+src/color/Color.ts:78
 
 ***
 
@@ -277,7 +287,7 @@ ex: rgba(0-255,0-255,0-255,0-1)
 
 #### Defined in
 
-src/color/Color.ts:85
+src/color/Color.ts:87
 
 ***
 
@@ -305,7 +315,7 @@ Color
 
 #### Defined in
 
-src/color/Color.ts:293
+src/color/Color.ts:296
 
 ***
 
@@ -331,7 +341,7 @@ Color
 
 #### Defined in
 
-src/color/Color.ts:232
+src/color/Color.ts:234
 
 ***
 
@@ -359,7 +369,7 @@ Color
 
 #### Defined in
 
-src/color/Color.ts:244
+src/color/Color.ts:246
 
 ***
 
@@ -385,7 +395,7 @@ Color
 
 #### Defined in
 
-src/color/Color.ts:191
+src/color/Color.ts:193
 
 ***
 
@@ -413,7 +423,38 @@ Color
 
 #### Defined in
 
-src/color/Color.ts:203
+src/color/Color.ts:205
+
+***
+
+### parseAngletoDegrees()
+
+> `static` **parseAngletoDegrees**(`value`): `number`
+
+Converts a string that could be any angle notation (50deg, 0.5turn, 2rad)
+into degrees without the 'deg' suffix
+
+#### Parameters
+
+• **value**: `string`
+
+ex: 0deg, 0.5turn, 2rad
+
+#### Returns
+
+`number`
+
+number in degrees or NaN if inputs are invalid
+
+#### Static
+
+#### Member Of
+
+Color
+
+#### Defined in
+
+src/color/Color.ts:332
 
 ***
 
@@ -443,7 +484,7 @@ Color
 
 #### Defined in
 
-src/color/Color.ts:304
+src/color/Color.ts:307
 
 ***
 
@@ -476,7 +517,7 @@ http://http://www.w3.org/TR/css3-color/#hsl-color
 
 #### Defined in
 
-src/color/Color.ts:256
+src/color/Color.ts:258
 
 ***
 
@@ -504,4 +545,4 @@ Color
 
 #### Defined in
 
-src/color/Color.ts:213
+src/color/Color.ts:215

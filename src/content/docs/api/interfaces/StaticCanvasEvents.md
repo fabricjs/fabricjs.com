@@ -25,7 +25,7 @@ title: "StaticCanvasEvents"
 
 #### Defined in
 
-src/EventTypeDefs.ts:296
+src/EventTypeDefs.ts:298
 
 ***
 
@@ -39,7 +39,7 @@ src/EventTypeDefs.ts:296
 
 #### Defined in
 
-src/EventTypeDefs.ts:295
+src/EventTypeDefs.ts:297
 
 ***
 
@@ -49,7 +49,7 @@ src/EventTypeDefs.ts:295
 
 #### Defined in
 
-src/EventTypeDefs.ts:292
+src/EventTypeDefs.ts:294
 
 ***
 
@@ -67,7 +67,7 @@ src/EventTypeDefs.ts:292
 
 #### Defined in
 
-src/EventTypeDefs.ts:228
+src/EventTypeDefs.ts:230
 
 ***
 
@@ -83,7 +83,7 @@ src/EventTypeDefs.ts:228
 
 #### Defined in
 
-src/EventTypeDefs.ts:298
+src/EventTypeDefs.ts:300
 
 ***
 
@@ -99,7 +99,7 @@ src/EventTypeDefs.ts:298
 
 #### Defined in
 
-src/EventTypeDefs.ts:297
+src/EventTypeDefs.ts:299
 
 ***
 
@@ -117,4 +117,4 @@ src/EventTypeDefs.ts:297
 
 #### Defined in
 
-src/EventTypeDefs.ts:229
+src/EventTypeDefs.ts:231

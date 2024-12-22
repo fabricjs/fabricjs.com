@@ -12,7 +12,7 @@
    * @memberOf fabric.Image.filters
    * @extends fabric.Image.filters.BaseFilter
    * @see {@link fabric.Image.filters.ColorMatrix#initialize} for constructor definition
-   * @see {@link http://fabricjs.com/image-filters|ImageFilters demo}
+   * @see {@link http://fabric5.fabricjs.com/image-filters|ImageFilters demo}
    * @see {@Link http://www.webwasp.co.uk/tutorials/219/Color_Matrix_Filter.php}
    * @see {@Link http://phoboslab.org/log/2013/11/fast-image-filters-with-webgl}
    * @example <caption>Kodachrome filter</caption>

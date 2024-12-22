@@ -17,14 +17,14 @@
 
 <body>
     <ul id="header">
-      <li><a href="http://fabricjs.com/">Home</a></li>
-      <li><a href="http://fabricjs.com/demos">Demos</a></li>
-      <li><a href="http://fabricjs.com/articles">Tutorial</a></li>
-      <li><a href="http://fabricjs.com/docs">Docs</a></li>
-      <li><a href="http://fabricjs.com/build">Custom Build</a></li>
-      <li><a href="http://fabricjs.com/help">Support</a></li>
-      <li><a href="http://fabricjs.com/test">Tests/Benchmarks</a></li>
-      <li><a href="http://fabricjs.com/team">Team</a></li>
+      <li><a href="http://fabric5.fabricjs.com/">Home</a></li>
+      <li><a href="http://fabric5.fabricjs.com/demos">Demos</a></li>
+      <li><a href="http://fabric5.fabricjs.com/articles">Tutorial</a></li>
+      <li><a href="http://fabric5.fabricjs.com/docs">Docs</a></li>
+      <li><a href="http://fabric5.fabricjs.com/build">Custom Build</a></li>
+      <li><a href="http://fabric5.fabricjs.com/help">Support</a></li>
+      <li><a href="http://fabric5.fabricjs.com/test">Tests/Benchmarks</a></li>
+      <li><a href="http://fabric5.fabricjs.com/team">Team</a></li>
       <li class="github secondary">
         <iframe src="http://ghbtns.com/github-btn.html?user=kangax&repo=fabric.js&type=watch&count=true"
           allowtransparency="true" frameborder="0" scrolling="0" width="95px" height="20px"></iframe>
@@ -166,7 +166,7 @@
     <dt class="tag-tutorial">Tutorials:</dt>
     <dd class="tag-tutorial">
         <ul>
-            <li><em class="disabled">Tutorial: <a href="http://fabricjs.com/fabric-intro-part-1#canvas">http://fabricjs.com/fabric-intro-part-1#canvas</a></em></li>
+            <li><em class="disabled">Tutorial: <a href="http://fabric5.fabricjs.com/fabric-intro-part-1#canvas">http://fabric5.fabricjs.com/fabric-intro-part-1#canvas</a></em></li>
         </ul>
     </dd>
     
@@ -2105,7 +2105,7 @@ and then mouseup finalizes it and adds an instance of `fabric.Path` onto canvas.
     <dt class="tag-tutorial">Tutorials:</dt>
     <dd class="tag-tutorial">
         <ul>
-            <li><em class="disabled">Tutorial: <a href="http://fabricjs.com/fabric-intro-part-4#free_drawing">http://fabricjs.com/fabric-intro-part-4#free_drawing</a></em></li>
+            <li><em class="disabled">Tutorial: <a href="http://fabric5.fabricjs.com/fabric-intro-part-4#free_drawing">http://fabric5.fabricjs.com/fabric-intro-part-4#free_drawing</a></em></li>
         </ul>
     </dd>
     
@@ -11620,7 +11620,7 @@ JSON format must conform to the one of <a href="fabric.Canvas.html#toJSON">fabri
     <dt class="tag-tutorial">Tutorials:</dt>
     <dd class="tag-tutorial">
         <ul>
-            <li><em class="disabled">Tutorial: <a href="http://fabricjs.com/fabric-intro-part-3#deserialization">http://fabricjs.com/fabric-intro-part-3#deserialization</a></em></li>
+            <li><em class="disabled">Tutorial: <a href="http://fabric5.fabricjs.com/fabric-intro-part-3#deserialization">http://fabric5.fabricjs.com/fabric-intro-part-3#deserialization</a></em></li>
         </ul>
     </dd>
     
@@ -13562,13 +13562,13 @@ to the bottom of the stack of drawn objects
         <p class="code-caption">fabric.Pattern used as backgroundColor</p>
     
     <pre class="prettyprint"><code>canvas.setBackgroundColor({
-  source: 'http://fabricjs.com/assets/escheresque_ste.png'
+  source: 'http://fabric5.fabricjs.com/assets/escheresque_ste.png'
 }, canvas.renderAll.bind(canvas));</code></pre>
 
         <p class="code-caption">fabric.Pattern used as backgroundColor with repeat and offset</p>
     
     <pre class="prettyprint"><code>canvas.setBackgroundColor({
-  source: 'http://fabricjs.com/assets/escheresque_ste.png',
+  source: 'http://fabric5.fabricjs.com/assets/escheresque_ste.png',
   repeat: 'repeat',
   offsetX: 200,
   offsetY: 100
@@ -13812,7 +13812,7 @@ to the bottom of the stack of drawn objects
     
         <p class="code-caption">Normal backgroundImage with left/top = 0</p>
     
-    <pre class="prettyprint"><code>canvas.setBackgroundImage('http://fabricjs.com/assets/honey_im_subtle.png', canvas.renderAll.bind(canvas), {
+    <pre class="prettyprint"><code>canvas.setBackgroundImage('http://fabric5.fabricjs.com/assets/honey_im_subtle.png', canvas.renderAll.bind(canvas), {
   // Needed to position backgroundImage at 0/0
   originX: 'left',
   originY: 'top'
@@ -13820,7 +13820,7 @@ to the bottom of the stack of drawn objects
 
         <p class="code-caption">backgroundImage with different properties</p>
     
-    <pre class="prettyprint"><code>canvas.setBackgroundImage('http://fabricjs.com/assets/honey_im_subtle.png', canvas.renderAll.bind(canvas), {
+    <pre class="prettyprint"><code>canvas.setBackgroundImage('http://fabric5.fabricjs.com/assets/honey_im_subtle.png', canvas.renderAll.bind(canvas), {
   opacity: 0.5,
   angle: 45,
   left: 400,
@@ -13831,14 +13831,14 @@ to the bottom of the stack of drawn objects
 
         <p class="code-caption">Stretched backgroundImage #1 - width/height correspond to canvas width/height</p>
     
-    <pre class="prettyprint"><code>fabric.Image.fromURL('http://fabricjs.com/assets/honey_im_subtle.png', function(img, isError) {
+    <pre class="prettyprint"><code>fabric.Image.fromURL('http://fabric5.fabricjs.com/assets/honey_im_subtle.png', function(img, isError) {
    img.set({width: canvas.width, height: canvas.height, originX: 'left', originY: 'top'});
    canvas.setBackgroundImage(img, canvas.renderAll.bind(canvas));
 });</code></pre>
 
         <p class="code-caption">Stretched backgroundImage #2 - width/height correspond to canvas width/height</p>
     
-    <pre class="prettyprint"><code>canvas.setBackgroundImage('http://fabricjs.com/assets/honey_im_subtle.png', canvas.renderAll.bind(canvas), {
+    <pre class="prettyprint"><code>canvas.setBackgroundImage('http://fabric5.fabricjs.com/assets/honey_im_subtle.png', canvas.renderAll.bind(canvas), {
   width: canvas.width,
   height: canvas.height,
   // Needed to position backgroundImage at 0/0
@@ -13848,7 +13848,7 @@ to the bottom of the stack of drawn objects
 
         <p class="code-caption">backgroundImage loaded from cross-origin</p>
     
-    <pre class="prettyprint"><code>canvas.setBackgroundImage('http://fabricjs.com/assets/honey_im_subtle.png', canvas.renderAll.bind(canvas), {
+    <pre class="prettyprint"><code>canvas.setBackgroundImage('http://fabric5.fabricjs.com/assets/honey_im_subtle.png', canvas.renderAll.bind(canvas), {
   opacity: 0.5,
   angle: 45,
   left: 400,
@@ -14878,13 +14878,13 @@ to the bottom of the stack of drawn objects
         <p class="code-caption">fabric.Pattern used as overlayColor</p>
     
     <pre class="prettyprint"><code>canvas.setOverlayColor({
-  source: 'http://fabricjs.com/assets/escheresque_ste.png'
+  source: 'http://fabric5.fabricjs.com/assets/escheresque_ste.png'
 }, canvas.renderAll.bind(canvas));</code></pre>
 
         <p class="code-caption">fabric.Pattern used as overlayColor with repeat and offset</p>
     
     <pre class="prettyprint"><code>canvas.setOverlayColor({
-  source: 'http://fabricjs.com/assets/escheresque_ste.png',
+  source: 'http://fabric5.fabricjs.com/assets/escheresque_ste.png',
   repeat: 'repeat',
   offsetX: 200,
   offsetY: 100
@@ -15128,7 +15128,7 @@ to the bottom of the stack of drawn objects
     
         <p class="code-caption">Normal overlayImage with left/top = 0</p>
     
-    <pre class="prettyprint"><code>canvas.setOverlayImage('http://fabricjs.com/assets/jail_cell_bars.png', canvas.renderAll.bind(canvas), {
+    <pre class="prettyprint"><code>canvas.setOverlayImage('http://fabric5.fabricjs.com/assets/jail_cell_bars.png', canvas.renderAll.bind(canvas), {
   // Needed to position overlayImage at 0/0
   originX: 'left',
   originY: 'top'
@@ -15136,7 +15136,7 @@ to the bottom of the stack of drawn objects
 
         <p class="code-caption">overlayImage with different properties</p>
     
-    <pre class="prettyprint"><code>canvas.setOverlayImage('http://fabricjs.com/assets/jail_cell_bars.png', canvas.renderAll.bind(canvas), {
+    <pre class="prettyprint"><code>canvas.setOverlayImage('http://fabric5.fabricjs.com/assets/jail_cell_bars.png', canvas.renderAll.bind(canvas), {
   opacity: 0.5,
   angle: 45,
   left: 400,
@@ -15147,14 +15147,14 @@ to the bottom of the stack of drawn objects
 
         <p class="code-caption">Stretched overlayImage #1 - width/height correspond to canvas width/height</p>
     
-    <pre class="prettyprint"><code>fabric.Image.fromURL('http://fabricjs.com/assets/jail_cell_bars.png', function(img, isError) {
+    <pre class="prettyprint"><code>fabric.Image.fromURL('http://fabric5.fabricjs.com/assets/jail_cell_bars.png', function(img, isError) {
    img.set({width: canvas.width, height: canvas.height, originX: 'left', originY: 'top'});
    canvas.setOverlayImage(img, canvas.renderAll.bind(canvas));
 });</code></pre>
 
         <p class="code-caption">Stretched overlayImage #2 - width/height correspond to canvas width/height</p>
     
-    <pre class="prettyprint"><code>canvas.setOverlayImage('http://fabricjs.com/assets/jail_cell_bars.png', canvas.renderAll.bind(canvas), {
+    <pre class="prettyprint"><code>canvas.setOverlayImage('http://fabric5.fabricjs.com/assets/jail_cell_bars.png', canvas.renderAll.bind(canvas), {
   width: canvas.width,
   height: canvas.height,
   // Needed to position overlayImage at 0/0
@@ -15164,7 +15164,7 @@ to the bottom of the stack of drawn objects
 
         <p class="code-caption">overlayImage loaded from cross-origin</p>
     
-    <pre class="prettyprint"><code>canvas.setOverlayImage('http://fabricjs.com/assets/jail_cell_bars.png', canvas.renderAll.bind(canvas), {
+    <pre class="prettyprint"><code>canvas.setOverlayImage('http://fabric5.fabricjs.com/assets/jail_cell_bars.png', canvas.renderAll.bind(canvas), {
   opacity: 0.5,
   angle: 45,
   left: 400,
@@ -17346,7 +17346,7 @@ Having a toJSON method means you can do JSON.stringify(myCanvas)
     <dt class="tag-tutorial">Tutorials:</dt>
     <dd class="tag-tutorial">
         <ul>
-            <li><em class="disabled">Tutorial: <a href="http://fabricjs.com/fabric-intro-part-3#serialization">http://fabricjs.com/fabric-intro-part-3#serialization</a></em></li>
+            <li><em class="disabled">Tutorial: <a href="http://fabric5.fabricjs.com/fabric-intro-part-3#serialization">http://fabric5.fabricjs.com/fabric-intro-part-3#serialization</a></em></li>
         </ul>
     </dd>
     
@@ -18210,7 +18210,7 @@ var json = canvas.toJSON();</code></pre>
     <dt class="tag-tutorial">Tutorials:</dt>
     <dd class="tag-tutorial">
         <ul>
-            <li><em class="disabled">Tutorial: <a href="http://fabricjs.com/fabric-intro-part-3#serialization">http://fabricjs.com/fabric-intro-part-3#serialization</a></em></li>
+            <li><em class="disabled">Tutorial: <a href="http://fabric5.fabricjs.com/fabric-intro-part-3#serialization">http://fabric5.fabricjs.com/fabric-intro-part-3#serialization</a></em></li>
         </ul>
     </dd>
     

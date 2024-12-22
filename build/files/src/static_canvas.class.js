@@ -24,7 +24,7 @@
    * @class fabric.StaticCanvas
    * @mixes fabric.Collection
    * @mixes fabric.Observable
-   * @see {@link http://fabricjs.com/static_canvas|StaticCanvas demo}
+   * @see {@link http://fabric5.fabricjs.com/static_canvas|StaticCanvas demo}
    * @see {@link fabric.StaticCanvas#initialize} for constructor definition
    * @fires before:render
    * @fires after:render
@@ -284,13 +284,13 @@
      * @chainable
      * @see {@link http://jsfiddle.net/fabricjs/MnzHT/|jsFiddle demo}
      * @example <caption>Normal overlayImage with left/top = 0</caption>
-     * canvas.setOverlayImage('http://fabricjs.com/assets/jail_cell_bars.png', canvas.renderAll.bind(canvas), {
+     * canvas.setOverlayImage('http://fabric5.fabricjs.com/assets/jail_cell_bars.png', canvas.renderAll.bind(canvas), {
      *   // Needed to position overlayImage at 0/0
      *   originX: 'left',
      *   originY: 'top'
      * });
      * @example <caption>overlayImage with different properties</caption>
-     * canvas.setOverlayImage('http://fabricjs.com/assets/jail_cell_bars.png', canvas.renderAll.bind(canvas), {
+     * canvas.setOverlayImage('http://fabric5.fabricjs.com/assets/jail_cell_bars.png', canvas.renderAll.bind(canvas), {
      *   opacity: 0.5,
      *   angle: 45,
      *   left: 400,
@@ -299,12 +299,12 @@
      *   originY: 'top'
      * });
      * @example <caption>Stretched overlayImage #1 - width/height correspond to canvas width/height</caption>
-     * fabric.Image.fromURL('http://fabricjs.com/assets/jail_cell_bars.png', function(img, isError) {
+     * fabric.Image.fromURL('http://fabric5.fabricjs.com/assets/jail_cell_bars.png', function(img, isError) {
      *    img.set({width: canvas.width, height: canvas.height, originX: 'left', originY: 'top'});
      *    canvas.setOverlayImage(img, canvas.renderAll.bind(canvas));
      * });
      * @example <caption>Stretched overlayImage #2 - width/height correspond to canvas width/height</caption>
-     * canvas.setOverlayImage('http://fabricjs.com/assets/jail_cell_bars.png', canvas.renderAll.bind(canvas), {
+     * canvas.setOverlayImage('http://fabric5.fabricjs.com/assets/jail_cell_bars.png', canvas.renderAll.bind(canvas), {
      *   width: canvas.width,
      *   height: canvas.height,
      *   // Needed to position overlayImage at 0/0
@@ -312,7 +312,7 @@
      *   originY: 'top'
      * });
      * @example <caption>overlayImage loaded from cross-origin</caption>
-     * canvas.setOverlayImage('http://fabricjs.com/assets/jail_cell_bars.png', canvas.renderAll.bind(canvas), {
+     * canvas.setOverlayImage('http://fabric5.fabricjs.com/assets/jail_cell_bars.png', canvas.renderAll.bind(canvas), {
      *   opacity: 0.5,
      *   angle: 45,
      *   left: 400,
@@ -335,13 +335,13 @@
      * @chainable
      * @see {@link http://jsfiddle.net/djnr8o7a/28/|jsFiddle demo}
      * @example <caption>Normal backgroundImage with left/top = 0</caption>
-     * canvas.setBackgroundImage('http://fabricjs.com/assets/honey_im_subtle.png', canvas.renderAll.bind(canvas), {
+     * canvas.setBackgroundImage('http://fabric5.fabricjs.com/assets/honey_im_subtle.png', canvas.renderAll.bind(canvas), {
      *   // Needed to position backgroundImage at 0/0
      *   originX: 'left',
      *   originY: 'top'
      * });
      * @example <caption>backgroundImage with different properties</caption>
-     * canvas.setBackgroundImage('http://fabricjs.com/assets/honey_im_subtle.png', canvas.renderAll.bind(canvas), {
+     * canvas.setBackgroundImage('http://fabric5.fabricjs.com/assets/honey_im_subtle.png', canvas.renderAll.bind(canvas), {
      *   opacity: 0.5,
      *   angle: 45,
      *   left: 400,
@@ -350,12 +350,12 @@
      *   originY: 'top'
      * });
      * @example <caption>Stretched backgroundImage #1 - width/height correspond to canvas width/height</caption>
-     * fabric.Image.fromURL('http://fabricjs.com/assets/honey_im_subtle.png', function(img, isError) {
+     * fabric.Image.fromURL('http://fabric5.fabricjs.com/assets/honey_im_subtle.png', function(img, isError) {
      *    img.set({width: canvas.width, height: canvas.height, originX: 'left', originY: 'top'});
      *    canvas.setBackgroundImage(img, canvas.renderAll.bind(canvas));
      * });
      * @example <caption>Stretched backgroundImage #2 - width/height correspond to canvas width/height</caption>
-     * canvas.setBackgroundImage('http://fabricjs.com/assets/honey_im_subtle.png', canvas.renderAll.bind(canvas), {
+     * canvas.setBackgroundImage('http://fabric5.fabricjs.com/assets/honey_im_subtle.png', canvas.renderAll.bind(canvas), {
      *   width: canvas.width,
      *   height: canvas.height,
      *   // Needed to position backgroundImage at 0/0
@@ -363,7 +363,7 @@
      *   originY: 'top'
      * });
      * @example <caption>backgroundImage loaded from cross-origin</caption>
-     * canvas.setBackgroundImage('http://fabricjs.com/assets/honey_im_subtle.png', canvas.renderAll.bind(canvas), {
+     * canvas.setBackgroundImage('http://fabric5.fabricjs.com/assets/honey_im_subtle.png', canvas.renderAll.bind(canvas), {
      *   opacity: 0.5,
      *   angle: 45,
      *   left: 400,
@@ -389,11 +389,11 @@
      * canvas.setOverlayColor('rgba(255, 73, 64, 0.6)', canvas.renderAll.bind(canvas));
      * @example <caption>fabric.Pattern used as overlayColor</caption>
      * canvas.setOverlayColor({
-     *   source: 'http://fabricjs.com/assets/escheresque_ste.png'
+     *   source: 'http://fabric5.fabricjs.com/assets/escheresque_ste.png'
      * }, canvas.renderAll.bind(canvas));
      * @example <caption>fabric.Pattern used as overlayColor with repeat and offset</caption>
      * canvas.setOverlayColor({
-     *   source: 'http://fabricjs.com/assets/escheresque_ste.png',
+     *   source: 'http://fabric5.fabricjs.com/assets/escheresque_ste.png',
      *   repeat: 'repeat',
      *   offsetX: 200,
      *   offsetY: 100
@@ -414,11 +414,11 @@
      * canvas.setBackgroundColor('rgba(255, 73, 64, 0.6)', canvas.renderAll.bind(canvas));
      * @example <caption>fabric.Pattern used as backgroundColor</caption>
      * canvas.setBackgroundColor({
-     *   source: 'http://fabricjs.com/assets/escheresque_ste.png'
+     *   source: 'http://fabric5.fabricjs.com/assets/escheresque_ste.png'
      * }, canvas.renderAll.bind(canvas));
      * @example <caption>fabric.Pattern used as backgroundColor with repeat and offset</caption>
      * canvas.setBackgroundColor({
-     *   source: 'http://fabricjs.com/assets/escheresque_ste.png',
+     *   source: 'http://fabric5.fabricjs.com/assets/escheresque_ste.png',
      *   repeat: 'repeat',
      *   offsetX: 200,
      *   offsetY: 100
@@ -1268,7 +1268,7 @@
      * @param {String} [options.height] desired height of svg with or without units
      * @param {Function} [reviver] Method for further parsing of svg elements, called after each fabric object converted into svg representation.
      * @return {String} SVG string
-     * @tutorial {@link http://fabricjs.com/fabric-intro-part-3#serialization}
+     * @tutorial {@link http://fabric5.fabricjs.com/fabric-intro-part-3#serialization}
      * @see {@link http://jsfiddle.net/fabricjs/jQ3ZZ/|jsFiddle demo}
      * @example <caption>Normal SVG output</caption>
      * var svg = canvas.toSVG();
@@ -1856,7 +1856,7 @@
    * @function
    * @param {Array} [propertiesToInclude] Any properties that you might want to additionally include in the output
    * @return {Object} JSON compatible object
-   * @tutorial {@link http://fabricjs.com/fabric-intro-part-3#serialization}
+   * @tutorial {@link http://fabric5.fabricjs.com/fabric-intro-part-3#serialization}
    * @see {@link http://jsfiddle.net/fabricjs/pec86/|jsFiddle demo}
    * @example <caption>JSON without additional properties</caption>
    * var json = canvas.toJSON();

@@ -325,7 +325,7 @@ And then scroll down for follow ups!
   var globalImage;
 	var canvas = new fabric.Canvas('canvas');
   var swapColorFilter = new fabric.Image.filters.SwapColor();
-  fabric.Image.fromURL('https://ip.webmasterapi.com/api/imageproxy/http://fabricjs.com/assets/mononoke.jpg', function(image) {
+  fabric.Image.fromURL('https://ip.webmasterapi.com/api/imageproxy/http://fabric5.fabricjs.com/assets/mononoke.jpg', function(image) {
     globalImage = image;
     image.filters = [swapColorFilter];
     image.scaleToWidth(480);

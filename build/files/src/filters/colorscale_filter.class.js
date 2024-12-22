@@ -12,7 +12,7 @@
    * @class fabric.Image.filters.Colorscale
    * @memberOf fabric.Image.filters
    * @extends fabric.Image.filters.BaseFilter
-   * @see {@link http://fabricjs.com/image-filters|ImageFilters demo}
+   * @see {@link http://fabric5.fabricjs.com/image-filters|ImageFilters demo}
    * @example
    * var filter = new fabric.Image.filters.Colorscale({ color1: 'red', color2: 'blue' });
    * object.filters.push(filter);

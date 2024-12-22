@@ -8,7 +8,7 @@ title: Introduction to Fabric.js. Part 1.
 
 <img src="https://github.com/kangax/fabric.js/raw/master/lib/screenshot.png" style="width:300px;border:1px solid #ccc;margin-bottom:20px">
 
-Today I'd like to introduce you to [Fabric.js](http://fabricjs.com) - a powerful Javascript library that makes working with HTML5 canvas a breeze. Fabric provides a missing object model for canvas, as well as an SVG parser, layer of interactivity, and a whole suite of other indispensable tools. It is a fully open-source project, licensed under MIT, with many contributions over the years.
+Today I'd like to introduce you to [Fabric.js](http://fabric5.fabricjs.com) - a powerful Javascript library that makes working with HTML5 canvas a breeze. Fabric provides a missing object model for canvas, as well as an SVG parser, layer of interactivity, and a whole suite of other indispensable tools. It is a fully open-source project, licensed under MIT, with many contributions over the years.
 
 Fabric started around 2010, after discovering the pains of working with native canvas API. The original author was creating an interactive design editor for [printio.ru](http://printio.ru) - his startup that allows users to design their own apparel. The kind of interactivity they wanted only existed in Flash apps in those days. Even right now, very few come close to what became possible with Fabric.
 

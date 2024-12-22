@@ -26,14 +26,14 @@
      * When set to `deep` the eraser will erase nested objects if they are erasable, leaving the group and the other objects untouched.
      * When set to `true` the eraser will erase the entire group. Once the group changes the eraser is propagated to its children for proper functionality.
      * When set to `false` the eraser will leave all objects including the group untouched.
-     * @tutorial {@link http://fabricjs.com/erasing#erasable_property}
+     * @tutorial {@link http://fabric5.fabricjs.com/erasing#erasable_property}
      * @type boolean | 'deep'
      * @default true
      */
     erasable: true,
 
     /**
-     * @tutorial {@link http://fabricjs.com/erasing#eraser}
+     * @tutorial {@link http://fabric5.fabricjs.com/erasing#eraser}
      * @type fabric.Eraser
      */
     eraser: undefined,
@@ -148,7 +148,7 @@
 
     /**
      * Applies the group's eraser to its objects
-     * @tutorial {@link http://fabricjs.com/erasing#erasable_property}
+     * @tutorial {@link http://fabric5.fabricjs.com/erasing#erasable_property}
      */
     applyEraserToObjects: function () {
       var _this = this, eraser = this.eraser;
@@ -329,7 +329,7 @@
    * In order to update the EraserBrush call `preparePattern`.
    * It may come in handy when canvas changes during erasing (i.e animations) and you want the eraser to reflect the changes.
    *
-   * @tutorial {@link http://fabricjs.com/erasing}
+   * @tutorial {@link http://fabric5.fabricjs.com/erasing}
    * @class fabric.EraserBrush
    * @extends fabric.PencilBrush
    * @memberof fabric
@@ -653,7 +653,7 @@
         }
         //  clone and add path
         path.clone(function (path) {
-          // http://fabricjs.com/using-transformations
+          // http://fabric5.fabricjs.com/using-transformations
           var desiredTransform = fabric.util.multiplyTransformMatrices(
             fabric.util.invertTransform(
               obj.calcTransformMatrix()

@@ -12,7 +12,7 @@
    * Group class
    * @class fabric.ActiveSelection
    * @extends fabric.Group
-   * @tutorial {@link http://fabricjs.com/fabric-intro-part-3#groups}
+   * @tutorial {@link http://fabric5.fabricjs.com/fabric-intro-part-3#groups}
    * @see {@link fabric.ActiveSelection#initialize} for constructor definition
    */
   fabric.ActiveSelection = fabric.util.createClass(fabric.Group, /** @lends fabric.ActiveSelection.prototype */ {

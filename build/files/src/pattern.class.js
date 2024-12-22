@@ -7,8 +7,8 @@
   /**
    * Pattern class
    * @class fabric.Pattern
-   * @see {@link http://fabricjs.com/patterns|Pattern demo}
-   * @see {@link http://fabricjs.com/dynamic-patterns|DynamicPattern demo}
+   * @see {@link http://fabric5.fabricjs.com/patterns|Pattern demo}
+   * @see {@link http://fabric5.fabricjs.com/dynamic-patterns|DynamicPattern demo}
    * @see {@link fabric.Pattern#initialize} for constructor definition
    */
 

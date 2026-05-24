@@ -16,7 +16,7 @@ Let's take a closer look!
 
 ### Why fabric? {#why_fabric}
 
-[Canvas](http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html) allows us to create some [absolutely](http://net.tutsplus.com/articles/web-roundups/21-ridiculously-impressive-html5-canvas-experiments/) <a href="http://speckyboy.com/2011/12/07/20-amazing-implementations-of-html5-canvas/">amazing</a> <a href="http://artatm.com/2012/01/23-truly-amazing-and-unbelievable-html5-canvas-and-javascript-experiments/">graphics</a> on the web these days. But the API it provides is <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#2dcontext">disappointingly low-level</a>. It's one thing if we simply want to draw few basic shapes on canvas and forget about them. But as soon as there's need for any kind of interaction, change of picture at any point, or drawing of more complex shapes, situtation changes dramatically.
+[Canvas](http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html) allows us to create some [absolutely](http://net.tutsplus.com/articles/web-roundups/21-ridiculously-impressive-html5-canvas-experiments/) <a href="http://speckyboy.com/2011/12/07/20-amazing-implementations-of-html5-canvas/">amazing graphics</a> on the web these days. But the API it provides is <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#2dcontext">disappointingly low-level</a>. It's one thing if we simply want to draw few basic shapes on canvas and forget about them. But as soon as there's need for any kind of interaction, change of picture at any point, or drawing of more complex shapes, situtation changes dramatically.
 
 Fabric aims to solve this problem.
 

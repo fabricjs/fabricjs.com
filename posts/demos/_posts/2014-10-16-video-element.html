@@ -69,7 +69,13 @@ navigator.mediaDevices.getUserMedia({video: true})
     webcamEl.srcObject = localMediaStream;
 
     canvas.add(webcam);
-    webcam.moveTo(0); // move webcam element to back of zIndex stack
+    // move webcam element to back of zIndex stack
+    // (fabric.Object#moveTo was removed in Fabric 6 in favor of canvas methods)
+    if (typeof canvas.sendObjectToBack === 'function') {
+      canvas.sendObjectToBack(webcam); // Fabric 6+
+    } else {
+      webcam.moveTo(0);                // Fabric 5
+    }
     webcam.getElement().play();
   }).catch(function getWebcamNotAllowed(e) {
   // block will be hit if user selects "no" for browser "allow webcam access" prompt
